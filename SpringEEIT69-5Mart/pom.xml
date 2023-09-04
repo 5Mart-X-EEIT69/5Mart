@@ -60,16 +60,10 @@
 		<dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
-        </dependency>
-        
-        <!--~~(No version provided)~~>--><dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-        </dependency>
-		<!--		JSP的JAR BOOT沒內建-->   
+        </dependency> 
 
 	</dependencies>
-
+	
 	<build>
 		<plugins>
 			<plugin>
