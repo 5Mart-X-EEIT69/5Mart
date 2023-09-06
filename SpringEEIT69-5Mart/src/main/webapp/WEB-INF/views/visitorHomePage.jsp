@@ -58,7 +58,7 @@
 	<!--     <a href="#" class="btn btn-info">按鈕</a> -->
 	<!-- 導覽列 -->
 	<div class="container-fluid" style="position: fixed; z-index: 5">
-		<div class="row">
+		<div class="row ">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 				<div class="container-fluid">
 					<button class="navbar-toggler" type="button"
@@ -105,7 +105,7 @@
 							<!-- 							<li class="nav-item"><a class="nav-link" href="#">願望清單</a></li> -->
 						</ul>
 
-						<button type="button" class="btn btn-outline-success">登入/註冊</button>
+						<button type="button" class="btn btn-outline-success me-2">登入/註冊</button>
 
 						<button type="button" class="btn btn-outline-success">
 							<span class="material-symbols-outlined"> globe </span>
