@@ -136,19 +136,19 @@
 				<div class="carousel-inner">
 					<!-- 輪播圖片的部分 -->
 					<div class="carousel-item active">
-						<img src="\SpringEEIT69-5Mart\images\課程封面圖002.jpg"
+						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖002.jpg"
 							class="d-block w-100" alt="...">
 					</div>
 					<div class="carousel-item">
-						<img src="\SpringEEIT69-5Mart\images\課程封面圖009.jpeg"
+						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg"
 							class="d-block w-100" alt="...">
 					</div>
 					<div class="carousel-item">
-						<img src="\SpringEEIT69-5Mart\images\課程封面圖010.jpeg"
+						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖010.jpeg"
 							class="d-block w-100" alt="...">
 					</div>
 					<div class="carousel-item">
-						<img src="\SpringEEIT69-5Mart\images\課程封面圖001.jpeg"
+						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg"
 							class="d-block w-100" alt="...">
 					</div>
 				</div>
@@ -187,7 +187,7 @@
 			<div class="col-1"></div>
 			<div class="col">
 				<div class="card" style="width: 18rem;">
-					<img src="<c:url value='/images/課程封面圖001.jpeg'/>"
+					<img src="<c:url value='/assets/images/課程封面圖001.jpeg'/>"
 						class="card-img-top" alt="...">
 					<div class="card-body">
 						<p class="card-text">Some quick example text to build on the
@@ -197,7 +197,7 @@
 			</div>
 			<div class="col">
 				<div class="card" style="width: 18rem;">
-					<img src="\SpringEEIT69-5Mart\images\課程封面圖008.jpeg"
+					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
 						class="card-img-top" alt="...">
 					<div class="card-body">
 						<p class="card-text">Some quick example text to build on the
@@ -207,7 +207,7 @@
 			</div>
 			<div class="col">
 				<div class="card" style="width: 18rem;">
-					<img src="\SpringEEIT69-5Mart\images\課程封面圖003.jpeg"
+					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg"
 						class="card-img-top" alt="...">
 					<div class="card-body">
 						<p class="card-text">Some quick example text to build on the
@@ -217,7 +217,7 @@
 			</div>
 			<div class="col">
 				<div class="card" style="width: 18rem;">
-					<img src="\SpringEEIT69-5Mart\images\課程封面圖004.jpeg"
+					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖004.jpeg"
 						class="card-img-top" alt="...">
 					<div class="card-body">
 						<p class="card-text">Some quick example text to build on the
@@ -250,7 +250,7 @@
 			<div class="col-1"></div>
 			<div class="col">
 				<div class="card" style="width: 18rem;">
-					<img src="<c:url value='/images/課程封面圖001.jpeg'/>"
+					<img src="<c:url value='/assets/images/課程封面圖001.jpeg'/>"
 						class="card-img-top" alt="...">
 					<div class="card-body">
 						<p class="card-text">Some quick example text to build on the
@@ -260,7 +260,7 @@
 			</div>
 			<div class="col">
 				<div class="card" style="width: 18rem;">
-					<img src="\SpringEEIT69-5Mart\images\課程封面圖008.jpeg"
+					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
 						class="card-img-top" alt="...">
 					<div class="card-body">
 						<p class="card-text">Some quick example text to build on the
@@ -270,7 +270,7 @@
 			</div>
 			<div class="col">
 				<div class="card" style="width: 18rem;">
-					<img src="\SpringEEIT69-5Mart\images\課程封面圖003.jpeg"
+					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg"
 						class="card-img-top" alt="...">
 					<div class="card-body">
 						<p class="card-text">Some quick example text to build on the
@@ -280,7 +280,7 @@
 			</div>
 			<div class="col">
 				<div class="card" style="width: 18rem;">
-					<img src="\SpringEEIT69-5Mart\images\課程封面圖004.jpeg"
+					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖004.jpeg"
 						class="card-img-top" alt="...">
 					<div class="card-body">
 						<p class="card-text">Some quick example text to build on the
