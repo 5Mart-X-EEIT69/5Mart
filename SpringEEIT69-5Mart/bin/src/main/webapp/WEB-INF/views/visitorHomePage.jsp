@@ -17,9 +17,6 @@
 <!-- logo icon -->
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-<!-- 變更頁面語言 icon -->
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0" />
 <!-- <link
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
       rel="stylesheet"
@@ -30,15 +27,6 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <title>訪客首頁</title>
-<style type="text/css">
-#paragraphTitle {
-	margin: 13px 0px
-}
-
-#carouselExampleIndicators {
-	margin: 0px 0px 6px
-}
-</style>
 </head>
 <script type="text/javascript">
 	window.onload = function() {
@@ -55,9 +43,10 @@
 	}
 </script>
 <body>
+	<h1>訪客首頁(測試bootstrap)</h1>
 	<!--     <a href="#" class="btn btn-info">按鈕</a> -->
 	<!-- 導覽列 -->
-	<div class="container-fluid" style="position: fixed; z-index: 5">
+	<div class="container-fluid">
 		<div class="row">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 				<div class="container-fluid">
@@ -84,32 +73,26 @@
 									<li><a class="dropdown-item" href="#">攝影</a></li>
 									<li><a class="dropdown-item" href="#">設計</a></li>
 									<li><a class="dropdown-item" href="#">音樂</a></li>
-									<!-- 									<li><hr class="dropdown-divider"></li> -->
-									<!-- 									<li><a class="dropdown-item" href="#">Something else -->
-									<!-- 											here</a></li> -->
+<!-- 									<li><hr class="dropdown-divider"></li> -->
+<!-- 									<li><a class="dropdown-item" href="#">Something else -->
+<!-- 											here</a></li> -->
 								</ul></li>
-							<!-- 							<li class="nav-item"><a class="nav-link active" -->
-							<!-- 								aria-current="page" href="#">Home</a></li> -->
+<!-- 							<li class="nav-item"><a class="nav-link active" -->
+<!-- 								aria-current="page" href="#">Home</a></li> -->
 							<li class="nav-item"><a class="nav-link" href="#">文章</a></li>
 
-							<!-- 							<li class="nav-item"><a class="nav-link disabled" href="#" -->
-							<!-- 								tabindex="-1" aria-disabled="true">Disabled</a></li> -->
+							<li class="nav-item"><a class="nav-link disabled" href="#"
+								tabindex="-1" aria-disabled="true">Disabled</a></li>
 							<li>
 								<form class="nav-item input-group">
-									<input class="form-control me-2" type="search" placeholder="搜尋"
-										aria-label="Search">
+									<input class="form-control me-2" type="search"
+										placeholder="搜尋" aria-label="Search">
 									<button class="btn btn-outline-success" type="submit">搜尋</button>
 								</form>
 							</li>
-							<!-- 							<li class="nav-item"><a class="nav-link" href="#">我的學習</a></li> -->
-							<!-- 							<li class="nav-item"><a class="nav-link" href="#">願望清單</a></li> -->
+							<li class="nav-item"><a class="nav-link" href="#">我的學習</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">願望清單</a></li>
 						</ul>
-
-						<button type="button" class="btn btn-outline-success">登入/註冊</button>
-
-						<button type="button" class="btn btn-outline-success">
-							<span class="material-symbols-outlined"> globe </span>
-						</button>
 					</div>
 				</div>
 			</nav>
@@ -167,75 +150,12 @@
 	</div>
 	<!-- 輪播圖 -->
 	<!-- 熱門課程區塊(水平滾動) -->
-	<div class="container-fluid justify-content-center" id="paragraphTitle">
+	<div class="container-fluid justify-content-center">
 		<div class="row">
 			<div class="col-1"></div>
 			<div class="col-9">
 				<h4>
 					<strong>熱門課程</strong>
-				</h4>
-			</div>
-			<div class="col-1">
-				<div>
-					<a href="">更多 ></a>
-				</div>
-			</div>
-			<div class="col-1"></div>
-		</div>
-
-		<div class="row ">
-			<div class="col-1"></div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
-					<img src="<c:url value='/images/課程封面圖001.jpeg'/>"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
-					<img src="\SpringEEIT69-5Mart\images\課程封面圖008.jpeg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
-					<img src="\SpringEEIT69-5Mart\images\課程封面圖003.jpeg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
-					<img src="\SpringEEIT69-5Mart\images\課程封面圖004.jpeg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-1"></div>
-		</div>
-	</div>
-	<!-- 熱門課程區塊(水平滾動) -->
-	<!-- 熱門課程區塊(水平滾動) -->
-	<div class="container-fluid justify-content-center" id="paragraphTitle">
-		<div class="row">
-			<div class="col-1"></div>
-			<div class="col-9">
-				<h4 id="paragraphTitle">
-					<strong>募資課程</strong>
 				</h4>
 			</div>
 			<div class="col-1">
