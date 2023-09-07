@@ -24,4 +24,9 @@ public class HomeController {
 		model.addAttribute("welcome","歡迎來到Spring Boot的世界");
 		return "test3";
 	}
+	
+	@GetMapping("/teacher")
+	public String teacher(Model model) {	
+		return "TeacherMain";
+	}
 }
