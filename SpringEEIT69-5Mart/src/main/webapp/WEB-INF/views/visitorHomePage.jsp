@@ -59,7 +59,7 @@
 	<!-- 導覽列 -->
 	<div class="container-fluid" style="position: fixed; z-index: 5">
 		<div class="row ">
-			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light ">
 				<div class="container-fluid">
 					<button class="navbar-toggler" type="button"
 						data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -67,10 +67,10 @@
 						aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
+					<!-- 品牌logo -->
+					<a class="navbar-brand" href="#"><span
+						class="material-symbols-outlined"> school </span></a>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<!-- 品牌logo -->
-						<a class="navbar-brand" href="#"><span
-							class="material-symbols-outlined"> school </span></a>
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 							<li class="nav-item dropdown"><a
 								class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
@@ -95,21 +95,46 @@
 							<!-- 							<li class="nav-item"><a class="nav-link disabled" href="#" -->
 							<!-- 								tabindex="-1" aria-disabled="true">Disabled</a></li> -->
 							<li>
-								<form class="nav-item input-group">
-									<input class="form-control me-2" type="search" placeholder="搜尋"
-										aria-label="Search">
+								<form class="d-lg-flex d-none nav-item input-group">
+									<input class="form-control me-2" type="search"
+										placeholder="搜尋課程" aria-label="Search">
 									<button class="btn btn-outline-success" type="submit">搜尋</button>
 								</form>
 							</li>
+
 							<!-- 							<li class="nav-item"><a class="nav-link" href="#">我的學習</a></li> -->
 							<!-- 							<li class="nav-item"><a class="nav-link" href="#">願望清單</a></li> -->
 						</ul>
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+							<li>
+								<button type="button" class="btn btn-outline-success me-2">登入/註冊</button>
+							</li>
 
-						<button type="button" class="btn btn-outline-success me-2">登入/註冊</button>
+							<li>
+								<div class="btn-group">
+									<button type="button"
+										class="btn btn-outline-success dropdown-toggle"
+										data-bs-toggle="dropdown" aria-expanded="false">
+										<span class="material-symbols-outlined "> globe </span>
+									</button>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="#">英文</a></li>
+										<li><a class="dropdown-item" href="#">日文</a></li>
+										<li><a class="dropdown-item" href="#">韓文</a></li>
+										<li><a class="dropdown-item" href="#">簡體中文</a></li>
+									</ul>
+								</div>
+							</li>
+						</ul>
 
-						<button type="button" class="btn btn-outline-success">
-							<span class="material-symbols-outlined"> globe </span>
-						</button>
+
+						<form class="d-flex d-lg-none nav-item input-group">
+							<input class="form-control me-2" type="search" placeholder="搜尋課程"
+								aria-label="Search">
+							<button class="btn btn-outline-success" type="submit">搜尋</button>
+						</form>
+
+
 					</div>
 				</div>
 			</nav>
