@@ -25,8 +25,5 @@ public class HomeController {
 		return "test3";
 	}
 	
-	@GetMapping("/teacher")
-	public String teacher(Model model) {	
-		return "TeacherMain";
-	}
+
 }
