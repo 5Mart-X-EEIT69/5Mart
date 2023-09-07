@@ -40,16 +40,17 @@
 }
 
 .btnClass {
-    padding-top : 35px;
-    padding-bottom : 35px;
- 	margin: 10px; 
-/*  	padding: 35px 60px;  */
-/* 	display: flex; */
-/* 	/* 水平置中 */ */
-/* 	justify-content: center; */
-/* 	/* 垂直置中 */ */
-/* 	align-items: center; */
-
+	padding-top: 35px;
+	padding-bottom: 35px;
+	margin: 10px;
+	/*  	padding: 35px 60px;  */
+	/* 	display: flex; */
+	/* 	/* 水平置中 */
+	*/
+	/* 	justify-content: center; */
+	/* 	/* 垂直置中 */
+	*/
+	/* 	align-items: center; */
 }
 </style>
 </head>
@@ -80,11 +81,11 @@
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<!-- 品牌logo -->
-					<a class="navbar-brand" href="#"><span
-						class="material-symbols-outlined"> school </span></a>
+					<a class="navbar-brand" href="#"><i
+						class="fa-solid fa-graduation-cap fa-xl px-2"></i></a>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-							<li class="nav-item dropdown"><a
+							<li class="nav-item dropdown px-2"><a
 								class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 								role="button" data-bs-toggle="dropdown" aria-expanded="false">
 									課程類別 </a>
@@ -96,18 +97,32 @@
 									<li><a class="dropdown-item" href="#">攝影</a></li>
 									<li><a class="dropdown-item" href="#">設計</a></li>
 									<li><a class="dropdown-item" href="#">音樂</a></li>
+									<li><div class="btn-group dropend">
+											<a class="btn btn-secondary dropdown-toggle" href="#"
+												role="button" id="dropdownMenuLink"
+												data-bs-toggle="dropdown" aria-expanded="false">
+												Dropdown link </a>
+											<ul class="dropdown-menu">
+												<li><a class="dropdown-item" href="#">Action</a></li>
+												<li><a class="dropdown-item" href="#">Another
+														action</a></li>
+												<li><a class="dropdown-item" href="#">Something
+														else here</a></li>
+												<!-- Dropdown menu links -->
+											</ul>
+										</div></li>
 									<!-- 									<li><hr class="dropdown-divider"></li> -->
 									<!-- 									<li><a class="dropdown-item" href="#">Something else -->
 									<!-- 											here</a></li> -->
 								</ul></li>
 							<!-- 							<li class="nav-item"><a class="nav-link active" -->
 							<!-- 								aria-current="page" href="#">Home</a></li> -->
-							<li class="nav-item"><a class="nav-link" href="#">文章</a></li>
+							<li class="nav-item px-4"><a class="nav-link" href="#">文章</a></li>
 
 							<!-- 							<li class="nav-item"><a class="nav-link disabled" href="#" -->
 							<!-- 								tabindex="-1" aria-disabled="true">Disabled</a></li> -->
-							<li>
-								<form class="d-lg-flex d-none nav-item input-group">
+							<li class="nav-item px-10">
+								<form class="d-lg-flex d-none nav-item input-group ">
 									<input class="form-control me-2" type="search"
 										placeholder="搜尋課程" aria-label="Search">
 									<button class="btn btn-outline-success" type="submit">搜尋</button>
@@ -117,27 +132,7 @@
 							<!-- 							<li class="nav-item"><a class="nav-link" href="#">我的學習</a></li> -->
 							<!-- 							<li class="nav-item"><a class="nav-link" href="#">願望清單</a></li> -->
 						</ul>
-						<!-- 						<ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row-reverse"> -->
-						<!-- 							<li> -->
-						<!-- 								<button type="button" class="btn btn-outline-success me-2">登入/註冊</button> -->
-						<!-- 							</li> -->
 
-						<!-- 							<li> -->
-						<!-- 								<div class="btn-group"> -->
-						<!-- 									<button type="button" -->
-						<!-- 										class="btn btn-outline-success dropdown-toggle" -->
-						<!-- 										data-bs-toggle="dropdown" aria-expanded="false"> -->
-						<!-- 										<span class="material-symbols-outlined "> globe </span> -->
-						<!-- 									</button> -->
-						<!-- 									<ul class="dropdown-menu"> -->
-						<!-- 										<li><a class="dropdown-item" href="#">英文</a></li> -->
-						<!-- 										<li><a class="dropdown-item" href="#">日文</a></li> -->
-						<!-- 										<li><a class="dropdown-item" href="#">韓文</a></li> -->
-						<!-- 										<li><a class="dropdown-item" href="#">簡體中文</a></li> -->
-						<!-- 									</ul> -->
-						<!-- 								</div> -->
-						<!-- 							</li> -->
-						<!-- 						</ul> -->
 
 
 						<button type="button" class="btn btn-outline-success me-2">登入/註冊</button>
@@ -148,7 +143,7 @@
 								data-bs-toggle="dropdown" aria-expanded="false">
 								<span class="material-symbols-outlined "> globe </span>
 							</button>
-							<ul class="dropdown-menu">
+							<ul class="dropdown-menu dropdown-menu-end">
 								<li><a class="dropdown-item" href="#">英文</a></li>
 								<li><a class="dropdown-item" href="#">日文</a></li>
 								<li><a class="dropdown-item" href="#">韓文</a></li>
@@ -284,8 +279,8 @@
 		</div>
 	</div>
 	<!-- 熱門課程區塊(水平滾動) -->
-	
-	<!-- 熱門課程區塊(水平滾動) -->
+
+	<!-- 募資課程區塊(水平滾動) -->
 	<div class="container-fluid justify-content-center" id="paragraphTitle">
 		<div class="row">
 			<div class="col-1"></div>
@@ -347,8 +342,8 @@
 			<div class="col-1"></div>
 		</div>
 	</div>
-	<!-- 熱門課程區塊(水平滾動) -->
-	
+	<!-- 募資課程區塊(水平滾動) -->
+
 	<!-- 熱門類別 -->
 	<div class="container-fluid justify-content-center" id="paragraphTitle">
 		<div class="row">
@@ -409,10 +404,142 @@
 		</div>
 	</div>
 	<!-- 熱門類別 -->
-	
-	<div class="container-fluid ">
-		<div class="row bg-secondary"></div>
+
+	<!-- 精選文章區塊(水平滾動) -->
+	<div class="container-fluid justify-content-center" id="paragraphTitle">
+		<div class="row">
+			<div class="col-1"></div>
+			<div class="col-9">
+				<h4 id="paragraphTitle">
+					<strong>精選文章</strong>
+				</h4>
+			</div>
+			<div class="col-1">
+				<div>
+					<a href="">更多 ></a>
+				</div>
+			</div>
+			<div class="col-1"></div>
+		</div>
+
+		<div class="row ">
+			<div class="col-1"></div>
+			<div class="col">
+				<div class="card" style="width: 25rem;">
+					<img src="<c:url value='/assets/images/課程封面圖001.jpeg'/>"
+						class="card-img-top" alt="...">
+					<div class="card-body">
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card" style="width: 25rem;">
+					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
+						class="card-img-top" alt="...">
+					<div class="card-body">
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card" style="width: 25rem;">
+					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg"
+						class="card-img-top" alt="...">
+					<div class="card-body">
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-1"></div>
+		</div>
 	</div>
+	<!-- 精選文章區塊(水平滾動) -->
+
+	<!-- 最底部 -->
+	<footer class="bd-footer py-5 mt-5 bg-light">
+		<div class="container py-5 justify-content-center">
+			<div class="row d-flex justify-content-center">
+				<div class="col-3 px-5"></div>
+				<div class="col-3 px-5">
+					<i class="fa-solid fa-graduation-cap fa-xl px-2"></i>
+
+					<h4 class="d-inline">5mart</h4>
+				</div>
+				<div class="col-3 px-5">
+					<i class="fa-brands fa-java fa-2xl px-2" style="color: #0b6cb0;"></i>
+					<i class="fa-brands fa-html5 fa-2xl px-2" style="color: #de4b25;"></i>
+					<i class="fa-brands fa-css3-alt fa-2xl px-2"
+						style="color: #254bdd;"></i> <i
+						class="fa-brands fa-js fa-2xl px-2" style="color: #e8d44d;"></i> <i
+						class="fa-brands fa-bootstrap fa-2xl px-2" style="color: #6d10f3;"></i>
+
+				</div>
+			</div>
+			<hr>
+			<div class="row d-flex justify-content-center">
+				<div class="col-6 col-lg-4 offset-lg-1 mb-3 justify-content-around">
+					<h5>關於</h5>
+					<ul class="list-unstyled">
+						<li class="mb-2"><a href="">關於我們</a></li>
+
+					</ul>
+				</div>
+				<div class="col-6 col-lg-4 mb-3 justify-content-around">
+					<h5>幫助</h5>
+					<ul class="list-unstyled">
+						<li class="mb-2"><a href="">常見問題</a></li>
+					</ul>
+				</div>
+
+
+			</div>
+		</div>
+	</footer>
+	<!-- 最底部 -->
+
+
+	<!-- 	<div class="container-fluid bg-secondary"> -->
+	<!-- 		<div class="row py-10"> -->
+	<!-- 			<div class="col-2"></div> -->
+	<!-- 			<div class="col p-3"> -->
+	<!-- 				<h5 class="d-block text-white">關於</h5> -->
+	<!-- 				<a class="text-white" href="">關於我們</a> -->
+	<!-- 			</div> -->
+	<!-- 			<div class="col p-3"> -->
+	<!-- 				<h5 class="d-block text-white">幫助</h5> -->
+	<!-- 				<a class="text-white" href="">常見問題</a> -->
+	<!-- 			</div> -->
+	<!-- 			<div class="col p-3"> -->
+	<!-- 				<span class="material-symbols-outlined"> school </span> <span -->
+	<!-- 					class="material-symbols-outlined"> school </span> <span -->
+	<!-- 					class="material-symbols-outlined"> school </span> -->
+	<!-- 			</div> -->
+	<!-- 			<div class="col-2"></div> -->
+	<!-- 		</div> -->
+	<!-- 		<div class="row py-10"> -->
+	<!-- 			<div class="col-2"></div> -->
+	<!-- 			<div class="col p-3"> -->
+	<!-- 				<h5 class="d-block text-white">關於</h5> -->
+	<!-- 				<a class="text-white" href="">關於我們</a> -->
+	<!-- 			</div> -->
+	<!-- 			<div class="col p-3"> -->
+	<!-- 				<h5 class="d-block text-white">幫助</h5> -->
+	<!-- 				<a class="text-white" href="">常見問題</a> -->
+	<!-- 			</div> -->
+	<!-- 			<div class="col p-3"> -->
+	<!-- 				<span class="material-symbols-outlined"> school </span> <span -->
+	<!-- 					class="material-symbols-outlined"> school </span> <span -->
+	<!-- 					class="material-symbols-outlined"> school </span> -->
+	<!-- 			</div> -->
+	<!-- 			<div class="col-2"></div> -->
+	<!-- 		</div> -->
+
+	<!-- 	</div> -->
 
 
 
@@ -436,6 +563,8 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"
 		integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ"
+		crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/7ae43304d6.js"
 		crossorigin="anonymous"></script>
 </body>
 </html>
