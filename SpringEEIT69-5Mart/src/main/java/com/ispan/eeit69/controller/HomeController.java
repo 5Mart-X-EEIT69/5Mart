@@ -72,4 +72,8 @@ public class HomeController {
 		return "/student_lms/student_course_viewer";
 	}
 	
+	@GetMapping("/check")
+	public String check(Model model) {	
+		return "check";
+	}
 }
