@@ -38,6 +38,19 @@
 #carouselExampleIndicators {
 	margin: 0px 0px 6px
 }
+
+.btnClass {
+    padding-top : 35px;
+    padding-bottom : 35px;
+ 	margin: 10px; 
+/*  	padding: 35px 60px;  */
+/* 	display: flex; */
+/* 	/* 水平置中 */ */
+/* 	justify-content: center; */
+/* 	/* 垂直置中 */ */
+/* 	align-items: center; */
+
+}
 </style>
 </head>
 <script type="text/javascript">
@@ -55,7 +68,6 @@
 	}
 </script>
 <body>
-	<!--     <a href="#" class="btn btn-info">按鈕</a> -->
 	<!-- 導覽列 -->
 	<div class="container-fluid" style="position: fixed; z-index: 5">
 		<div class="row ">
@@ -105,27 +117,45 @@
 							<!-- 							<li class="nav-item"><a class="nav-link" href="#">我的學習</a></li> -->
 							<!-- 							<li class="nav-item"><a class="nav-link" href="#">願望清單</a></li> -->
 						</ul>
-						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-							<li>
-								<button type="button" class="btn btn-outline-success me-2">登入/註冊</button>
-							</li>
+						<!-- 						<ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row-reverse"> -->
+						<!-- 							<li> -->
+						<!-- 								<button type="button" class="btn btn-outline-success me-2">登入/註冊</button> -->
+						<!-- 							</li> -->
 
-							<li>
-								<div class="btn-group">
-									<button type="button"
-										class="btn btn-outline-success dropdown-toggle"
-										data-bs-toggle="dropdown" aria-expanded="false">
-										<span class="material-symbols-outlined "> globe </span>
-									</button>
-									<ul class="dropdown-menu">
-										<li><a class="dropdown-item" href="#">英文</a></li>
-										<li><a class="dropdown-item" href="#">日文</a></li>
-										<li><a class="dropdown-item" href="#">韓文</a></li>
-										<li><a class="dropdown-item" href="#">簡體中文</a></li>
-									</ul>
-								</div>
-							</li>
-						</ul>
+						<!-- 							<li> -->
+						<!-- 								<div class="btn-group"> -->
+						<!-- 									<button type="button" -->
+						<!-- 										class="btn btn-outline-success dropdown-toggle" -->
+						<!-- 										data-bs-toggle="dropdown" aria-expanded="false"> -->
+						<!-- 										<span class="material-symbols-outlined "> globe </span> -->
+						<!-- 									</button> -->
+						<!-- 									<ul class="dropdown-menu"> -->
+						<!-- 										<li><a class="dropdown-item" href="#">英文</a></li> -->
+						<!-- 										<li><a class="dropdown-item" href="#">日文</a></li> -->
+						<!-- 										<li><a class="dropdown-item" href="#">韓文</a></li> -->
+						<!-- 										<li><a class="dropdown-item" href="#">簡體中文</a></li> -->
+						<!-- 									</ul> -->
+						<!-- 								</div> -->
+						<!-- 							</li> -->
+						<!-- 						</ul> -->
+
+
+						<button type="button" class="btn btn-outline-success me-2">登入/註冊</button>
+
+						<div class="btn-group d-block">
+							<button type="button"
+								class="btn btn-outline-success dropdown-toggle"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								<span class="material-symbols-outlined "> globe </span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#">英文</a></li>
+								<li><a class="dropdown-item" href="#">日文</a></li>
+								<li><a class="dropdown-item" href="#">韓文</a></li>
+								<li><a class="dropdown-item" href="#">簡體中文</a></li>
+							</ul>
+						</div>
+
 
 
 						<form class="d-flex d-lg-none nav-item input-group">
@@ -254,6 +284,7 @@
 		</div>
 	</div>
 	<!-- 熱門課程區塊(水平滾動) -->
+	
 	<!-- 熱門課程區塊(水平滾動) -->
 	<div class="container-fluid justify-content-center" id="paragraphTitle">
 		<div class="row">
@@ -317,6 +348,73 @@
 		</div>
 	</div>
 	<!-- 熱門課程區塊(水平滾動) -->
+	
+	<!-- 熱門類別 -->
+	<div class="container-fluid justify-content-center" id="paragraphTitle">
+		<div class="row">
+			<div class="col-1"></div>
+			<div class="col-9">
+				<h4 id="paragraphTitle">
+					<strong>熱門類別</strong>
+				</h4>
+			</div>
+			<div class="col-1">
+				<div>
+					<a href="">更多 ></a>
+				</div>
+			</div>
+			<div class="col-1"></div>
+		</div>
+
+		<div class="row">
+			<div class="col-1"></div>
+			<div class="col d-grid gap-2 mx-auto">
+				<button type="button"
+					class="btn btn-outline-secondary btn-lg btnClass">語言</button>
+			</div>
+			<div class="col d-grid gap-2 mx-auto">
+				<button type="button"
+					class="btn btn-outline-secondary btn-lg btnClass">開發</button>
+			</div>
+			<div class="col d-grid gap-2 mx-auto">
+				<button type="button"
+					class="btn btn-outline-secondary btn-lg btnClass">行銷</button>
+			</div>
+			<div class="col d-grid gap-2 mx-auto">
+				<button type="button"
+					class="btn btn-outline-secondary btn-lg btnClass">投資理財</button>
+			</div>
+			<div class="col-2"></div>
+		</div>
+
+		<div class="row">
+			<div class="col-1"></div>
+			<div class="col d-grid gap-2 mx-auto">
+				<button type="button"
+					class="btn btn-outline-secondary btn-lg btnClass">音樂</button>
+			</div>
+			<div class="col d-grid gap-2 mx-auto">
+				<button type="button"
+					class="btn btn-outline-secondary btn-lg btnClass">攝影</button>
+			</div>
+			<div class="col d-grid gap-2 mx-auto">
+				<button type="button"
+					class="btn btn-outline-secondary btn-lg btnClass">設計</button>
+			</div>
+			<div class="col d-grid gap-2 mx-auto">
+				<button type="button"
+					class="btn btn-outline-secondary btn-lg btnClass">職場技能</button>
+			</div>
+			<div class="col-2"></div>
+		</div>
+	</div>
+	<!-- 熱門類別 -->
+	
+	<div class="container-fluid ">
+		<div class="row bg-secondary"></div>
+	</div>
+
+
 
 
 
