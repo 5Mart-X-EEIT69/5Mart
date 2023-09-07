@@ -72,7 +72,7 @@
 <body>
   <nav class="navbar" style="background-color: #ffffff; box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);">
     <div class="container-fluid">
-      <span class="navbar-brand mb-0 h1">5MART</span>
+      <span class="navbar-brand href="#">5MART</span>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" href="#">取消</a>
