@@ -1,0 +1,41 @@
+{
+    "name": "project",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "gulp build --env prod",
+        "dev": "gulp"
+    },
+    "engines": {
+        "node": "11.7.0"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@babel/core": "^7.9.6",
+        "@babel/preset-env": "^7.9.6",
+        "autoprefixer": "^9.6.0",
+        "bootstrap": "^5.3.1",
+        "browser-sync": "^2.26.7",
+        "gulp": "^4.0.2",
+        "gulp-babel": "^8.0.0",
+        "gulp-clean": "^0.4.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-if": "^2.0.2",
+        "gulp-layout": "0.0.4",
+        "gulp-load-plugins": "^1.6.0",
+        "gulp-plumber": "^1.2.1",
+        "gulp-postcss": "^9.0.1",
+        "gulp-sass": "^4.0.2",
+        "gulp-sourcemaps": "^2.6.5",
+        "minimist": "^1.2.0",
+        "morgan": "^1.9.1",
+        "node-sass": "^4.12.0",
+        "postcss": "^8.4.29"
+    },
+    "devDependencies": {
+        "cssnano": "^5.1.15"
+    }
+}

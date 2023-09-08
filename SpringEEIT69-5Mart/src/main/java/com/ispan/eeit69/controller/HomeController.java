@@ -25,9 +25,16 @@ public class HomeController {
 		return "test3";
 	}
 	
+
 	@GetMapping("/visitorhomepage")
 	public String visitorhomepage(Model model) {
 		model.addAttribute("welcome","歡迎來到Spring Boot的世界");
 		return "visitorHomePage";
+	}
+
+	@GetMapping("/teacher")
+	public String teacher(Model model) {	
+		return "TeacherMain";
+
 	}
 }
