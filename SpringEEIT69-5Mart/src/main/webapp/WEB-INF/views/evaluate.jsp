@@ -83,7 +83,7 @@
       <div class="col-1 center-vertically">
 
         <p style="font-size: 30px ; margin-bottom: 4px">4</p>
-        <p style="margin-bottom: 4px">星星圖片</p>
+        <p style="margin-bottom: 4px"><img src="/SpringEEIT69-5Mart/assets/images/4star.png" alt="xxxx" style="max-width: 100px; max-height: 100px;"></p>
         <p style="font-size: 13px">課程評等</p>
 
 
@@ -134,7 +134,7 @@
         </div>
       </div>
 
-      </p>
+      
 
 
       <p>
@@ -232,12 +232,7 @@
             <input type="text" class="form-control" placeholder="搜尋評論" aria-label="Recipient's username"
               aria-describedby="button-addon2">
             <button class="btn btn-outline-secondary" type="button" id="button-addon2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-search-heart" viewBox="0 0 16 16">
-                <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z" />
-                <path
-                  d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z" />
-              </svg>
+              <i class="bi bi-search-heart"></i>
               Search</button>
           </div>
         </div>
