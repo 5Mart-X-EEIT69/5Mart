@@ -30,6 +30,13 @@
 <!-- stepper -->
 </head>
 
+<script type="text/javascript">
+	var stepper;
+	document.addEventListener('DOMContentLoaded', function() {
+		stepper = new Stepper(document.querySelector('.bs-stepper'))
+	});//步進表單stepper
+</script>
+
 <body>
 	<div class="d-flex flex-row min-vh-100">
 		<div class="d-flex flex-column p-3 bg-light" style="width: 300px;">
@@ -131,6 +138,9 @@
 					<div class="form-group">
 						<label> 封面照片 </label> <input class="form-control" type="file" />
 					</div>
+					<div class="form-group">
+						<label>售價</label> <input class="form-control" />
+					</div>
 					<div class="pt-3">
 						<button type="button" onclick="stepper.next()">下一步</button>
 					</div>
@@ -138,10 +148,38 @@
 				<div id="step2" class="content" role="tabpanel"
 					aria-labelledby="step2-trigger">
 					<div class="form-group">
-						<label>姓名</label> <input class="form-control" />
+						<label>售價</label> <input class="form-control" />
 					</div>
 					<div class="form-group">
 						<label>手機號碼</label> <input class="form-control" />
+					</div>
+					<div class="form-group">
+						<label>單元1</label> <input class="form-control" placeholder="單元1" />
+					</div>
+					<div class="input-group mb-3">
+						<span class="input-group-text" id="basic-addon1">章節1</span> <input
+							type="text" class="form-control" placeholder="章節1"
+							aria-label="Username" aria-describedby="basic-addon1">
+					</div>
+					<div class="input-group mb-3">
+						<div style="width: 13%"></div>
+						<span class="input-group-text" id="basic-addon1">單元1</span> <input
+							type="text" class="form-control" placeholder="單元1"
+							aria-label="Username" aria-describedby="basic-addon1">
+					</div>
+					<div class="input-group mb-3">
+						<div style="width: 13%"></div>
+						<span class="input-group-text" id="basic-addon1">單元2</span> <input
+							type="text" class="form-control" placeholder="單元2"
+							aria-label="Username" aria-describedby="basic-addon1">
+					</div>
+					<div class="input-group mb-3">
+						<span class="input-group-text" id="basic-addon1">章節2</span> <input
+							type="text" class="form-control" placeholder="章節2"
+							aria-label="Username" aria-describedby="basic-addon1">
+					</div>
+					<div style="border: 1px solid rgba(0, 0, 0, 0.12)">
+						<span>test</span>
 					</div>
 					<div>
 						<button type="button" onclick="stepper.previous()">上一步</button>
@@ -176,12 +214,7 @@
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript">
-			var stepper;
-			document.addEventListener('DOMContentLoaded', function() {
-				stepper = new Stepper(document.querySelector('.bs-stepper'))
-			});
-		</script>
+
 		<div>test</div>
 	</div>
 
