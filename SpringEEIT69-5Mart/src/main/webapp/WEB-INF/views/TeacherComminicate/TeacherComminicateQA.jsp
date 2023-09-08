@@ -14,8 +14,7 @@
 <link rel='stylesheet'
 	href="<c:url value='/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.css' />"
 	type="text/css" />
-<script
-	src="<c:url value="/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.js"/>"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <link rel='stylesheet'
 	href="<c:url value="/assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css"/>"
 	type="text/css" />
@@ -28,7 +27,7 @@
 	}
 </script>
 <body>
-	<div class="bg-primary d-flex flex-row">
+	<div class="bg-primary d-flex flex-row min-vh-100">
 		<div class="d-flex flex-column p-3 bg-light" style="width: 300px;">
 			<a href="<c:url value="/"></c:url>"
 				class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
@@ -37,14 +36,28 @@
 			</a>
 			<hr>
 			<ul class="nav nav-pills flex-column mb-auto">
-				<li class="nav-item"><a href="<c:url value="/teacher"></c:url>" class="nav-link link-dark"
+				<li class="nav-item"><a href="<c:url value="/TeacherMain"></c:url>" class="nav-link link-dark"
 					aria-current="page"> <span style="font-size: 32px;"><i
 							class="bi bi-display"></i> 課程</span>
 				</a></li>
-				<li><a href="<c:url value="/TeacherComminicate"></c:url>" class="nav-link active"> <span
+				<li class="pb-2"><a href="<c:url value="/TeacherComminicate"></c:url>" class="nav-link active"> <span
 						style="font-size: 32px;"><i class="bi bi-chat-left"
 							style="font-size: 32px;"></i> 學生交流</span>
 				</a></li>
+				
+				<li class="nav-item pe-5"><a href="<c:url value="/TeacherComminicateQA"></c:url>" class="nav-link active"
+					aria-current="page"> <span style="font-size: 24px;">-  問與答</span>
+				</a></li>
+				<li><a href="<c:url value="/TeacherComminicateMessage"></c:url>" class="nav-link link-dark"> <span
+						style="font-size: 24px;">-  私人訊息</span>
+				</a></li>
+				<li><a href="<c:url value="/TeacherComminicateTask"></c:url>" class="nav-link link-dark"> <span
+						style="font-size: 24px;">-  作業</span>
+				</a></li>
+				<li><a href="<c:url value="/TeacherComminicateAnnouncement"></c:url>" class="nav-link link-dark"> <span
+						style="font-size: 24px;">-  公告 </span>
+				</a></li>
+
 				<li><a href="<c:url value="/TeacherDashboard"></c:url>" class="nav-link link-dark"> <span
 						style="font-size: 32px;"><i class="bi bi-graph-up"></i> 儀表板</span>
 				</a></li>
@@ -56,23 +69,6 @@
 			<hr>
 		</div>
 <!-- 		選單右邊 -->
-		<div class="d-flex flex-column p-3 bg-light" style="width: 300px;">
-			<ul class="nav nav-pills flex-column mb-auto">
-				<li class="nav-item"><a href="<c:url value="/TeacherComminicateQA"></c:url>" class="nav-link active"
-					aria-current="page"> <span style="font-size: 32px;"> 問與答</span>
-				</a></li>
-				<li><a href="<c:url value="/TeacherComminicateMessage"></c:url>" class="nav-link link-dark"> <span
-						style="font-size: 32px;"> 私人訊息</span>
-				</a></li>
-				<li><a href="<c:url value="/TeacherComminicateTask"></c:url>" class="nav-link link-dark"> <span
-						style="font-size: 32px;"> 作業</span>
-				</a></li>
-				<li><a href="<c:url value="/TeacherComminicateAnnouncement"></c:url>" class="nav-link link-dark"> <span
-						style="font-size: 32px;"> 公告 </span>
-				</a></li>
-			</ul>
-			<hr>
-		</div>
 		<div>test</div>
 	</div>
 

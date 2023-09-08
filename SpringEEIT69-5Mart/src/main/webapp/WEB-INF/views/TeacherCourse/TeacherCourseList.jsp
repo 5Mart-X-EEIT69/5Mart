@@ -14,8 +14,7 @@
 <link rel='stylesheet'
 	href="<c:url value='/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.css' />"
 	type="text/css" />
-<script
-	src="<c:url value="/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.js"/>"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <link rel='stylesheet'
 	href="<c:url value="/assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css"/>"
 	type="text/css" />
@@ -37,7 +36,7 @@
 			</a>
 			<hr>
 			<ul class="nav nav-pills flex-column mb-auto">
-				<li class="nav-item pb-2"><a href="<c:url value="/teacher"></c:url>"
+				<li class="nav-item pb-2"><a href="<c:url value="/TeacherMain"></c:url>"
 					class="nav-link active" aria-current="page"> <span
 						style="font-size: 32px;"><i class="bi bi-display"></i> 課程</span>
 				</a></li>
@@ -54,7 +53,7 @@
 				<li><a href="<c:url value="/TeacherCreateArticle"></c:url>"
 					class="nav-link link-dark"> <span style="font-size: 24px;">-  建立文章</span>
 				</a></li>
-				<li><a href="<c:url value="/TeacherCourseList"></c:url>"
+				<li class="pe-5"><a href="<c:url value="/TeacherCourseList"></c:url>"
 					class="nav-link active"> <span style="font-size: 24px;">-  已開課內容 </span>
 				</a></li>
 				
@@ -74,23 +73,6 @@
 			<hr>
 		</div>
 <!-- 		選單右邊 -->
-		<div class="d-flex flex-column p-3 bg-light" style="width: 300px;">
-			<ul class="nav nav-pills flex-column mb-auto">
-				<li class="nav-item"><a href="<c:url value="/TeacherCreate"></c:url>" class="nav-link link-dark"
-					aria-current="page"> <span style="font-size: 32px;"> 建立課程</span>
-				</a></li>
-				<li><a href="<c:url value="/TeacherCreateFundraisingCourses"></c:url>" class="nav-link link-dark"> <span
-						style="font-size: 32px;"> 建立募資課程</span>
-				</a></li>
-				<li><a href="<c:url value="/TeacherCreateArticle"></c:url>" class="nav-link link-dark"> <span
-						style="font-size: 32px;"> 建立文章</span>
-				</a></li>
-				<li><a href="<c:url value="/TeacherCourseList"></c:url>" class="nav-link active"> <span
-						style="font-size: 32px;"> 已開課內容 </span>
-				</a></li>
-			</ul>
-			<hr>
-		</div>
 		<div>test</div>
 	</div>
 

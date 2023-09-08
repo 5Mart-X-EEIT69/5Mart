@@ -9,7 +9,7 @@ public class TeacherController {
 
 //	課程
 	
-	@GetMapping("/teacher")
+	@GetMapping("/TeacherMain")
 	public String teacher(Model model) {	
 		return "TeacherMain";
 	}//跳轉至講師主頁面
@@ -114,5 +114,9 @@ public class TeacherController {
 	public String TeacherInformationAccount(Model model) {	
 		return "/TeacherInformation/TeacherInformationAccount";
 	}//跳轉至講師資料帳戶頁面
-	
+
+	@GetMapping("/bsjsTest")
+	public String bsjsTest(Model model) {	
+		return "/bsjsTest";
+	}//跳轉至講師資料帳戶頁面
 }
