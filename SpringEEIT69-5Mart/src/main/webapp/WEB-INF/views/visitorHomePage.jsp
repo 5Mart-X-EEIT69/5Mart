@@ -62,6 +62,25 @@
 	padding-bottom: 35px;
 	margin: 10px;
 }
+
+.navbar-nav li:hover>ul.dropdown-menu {
+	display: block;
+}
+
+.dropdown-submenu {
+	position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+	top: 0%;
+	left: 100%;
+	margin-top: -3px;
+}
+
+.dropdown-menu>li>a:hover:after {
+	transform: rotate(-90deg);
+	transition: 0.5s;
+}
 </style>
 
 </head>
@@ -103,30 +122,88 @@
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							課程類別 </a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<li><a class="dropdown-item" href="#">語言</a></li>
-							<li><a class="dropdown-item" href="#">開發</a></li>
-							<li><a class="dropdown-item" href="#">行銷</a></li>
-							<li><a class="dropdown-item" href="#">投資理財</a></li>
-							<li><a class="dropdown-item" href="#">攝影</a></li>
-							<li><a class="dropdown-item" href="#">設計</a></li>
-							<li><a class="dropdown-item" href="#">音樂</a></li>
-							<!-- 									<li><div class="btn-group dropend"> -->
-							<!-- 											<a class="btn btn-secondary dropdown-toggle" href="#" -->
-							<!-- 												role="button" id="dropdownMenuLink" -->
-							<!-- 												data-bs-toggle="dropdown" aria-expanded="false"> -->
-							<!-- 												Dropdown link </a> -->
-							<!-- 											<ul class="dropdown-menu"> -->
-							<!-- 												<li><a class="dropdown-item" href="#">Action</a></li> -->
-							<!-- 												<li><a class="dropdown-item" href="#">Another -->
-							<!-- 														action</a></li> -->
-							<!-- 												<li><a class="dropdown-item" href="#">Something -->
-							<!-- 														else here</a></li> -->
-							<!-- 												Dropdown menu links -->
-							<!-- 											</ul> -->
-							<!-- 										</div></li> -->
-							<!-- 									<li><hr class="dropdown-divider"></li> -->
-							<!-- 									<li><a class="dropdown-item" href="#">Something else -->
-							<!-- 											here</a></li> -->
+							<li class="dropdown-submenu"><a
+								class="dropdown-item dropdown-toggle" href="#">語言</a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="#"><strong>所有語言</strong></a></li>
+									<li><a class="dropdown-item" href="#">英文</a></li>
+									<li><a class="dropdown-item" href="#">日文</a></li>
+									<li><a class="dropdown-item" href="#">韓文</a></li>
+									<li><a class="dropdown-item" href="#">西班牙文</a></li>
+								</ul></li>
+							<li class="dropdown-submenu"><a
+								class="dropdown-item dropdown-toggle" href="#">開發</a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="#"><strong>所有開發</strong></a></li>
+									<li><a class="dropdown-item" href="#">網頁開發</a></li>
+									<li><a class="dropdown-item" href="#">程式語言</a></li>
+									<li><a class="dropdown-item" href="#">遊戲開發</a></li>
+									<li><a class="dropdown-item" href="#">資料庫設計與開發</a></li>
+									<li><a class="dropdown-item" href="#">軟體測試</a></li>
+								</ul></li>
+							<li class="dropdown-submenu"><a
+								class="dropdown-item dropdown-toggle" href="#">行銷</a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="#"><strong>所有行銷</strong></a></li>
+									<li><a class="dropdown-item" href="#">數位行銷</a></li>
+									<li><a class="dropdown-item" href="#">社群行銷</a></li>
+									<li><a class="dropdown-item" href="#">數據分析</a></li>
+									<li><a class="dropdown-item" href="#">行銷策略</a></li>
+									<li><a class="dropdown-item" href="#">文案撰寫</a></li>
+									<li><a class="dropdown-item" href="#">創業</a></li>
+								</ul></li>
+							<li class="dropdown-submenu"><a
+								class="dropdown-item dropdown-toggle" href="#">投資理財</a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="#"><strong>所有投資理財</strong></a></li>
+									<li><a class="dropdown-item" href="#">個人理財</a></li>
+									<li><a class="dropdown-item" href="#">投資觀念</a></li>
+									<li><a class="dropdown-item" href="#">財務分析</a></li>
+									<li><a class="dropdown-item" href="#">量化交易</a></li>
+									<li><a class="dropdown-item" href="#">財務管理</a></li>
+									<li><a class="dropdown-item" href="#">股票分析</a></li>
+								</ul></li>
+							<li class="dropdown-submenu"><a
+								class="dropdown-item dropdown-toggle" href="#">攝影</a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="#"><strong>所有攝影</strong></a></li>
+									<li><a class="dropdown-item" href="#">商業攝影</a></li>
+									<li><a class="dropdown-item" href="#">影像創作</a></li>
+									<li><a class="dropdown-item" href="#">後製剪輯</a></li>
+									<li><a class="dropdown-item" href="#">攝影理論</a></li>
+								</ul></li>
+							<li class="dropdown-submenu"><a
+								class="dropdown-item dropdown-toggle" href="#">設計</a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="#"><strong>所有設計</strong></a></li>
+									<li><a class="dropdown-item" href="#">平面設計</a></li>
+									<li><a class="dropdown-item" href="#">室內設計</a></li>
+									<li><a class="dropdown-item" href="#">建築設計</a></li>
+									<li><a class="dropdown-item" href="#">網頁設計</a></li>
+									<li><a class="dropdown-item" href="#">遊戲設計</a></li>
+									<li><a class="dropdown-item" href="#">設計理論</a></li>
+								</ul></li>
+							<li class="dropdown-submenu"><a
+								class="dropdown-item dropdown-toggle" href="#">音樂</a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="#"><strong>所有音樂</strong></a></li>
+									<li><a class="dropdown-item" href="#">樂器</a></li>
+									<li><a class="dropdown-item" href="#">音樂軟體</a></li>
+									<li><a class="dropdown-item" href="#">音樂基礎</a></li>
+									<li><a class="dropdown-item" href="#">音樂創作</a></li>
+									<li><a class="dropdown-item" href="#">聲樂</a></li>
+								</ul></li>
+							<li class="dropdown-submenu"><a
+								class="dropdown-item dropdown-toggle" href="#">職場技能</a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="#"><strong>所有職場技能</strong></a></li>
+									<li><a class="dropdown-item" href="#">生產力工具</a></li>
+									<li><a class="dropdown-item" href="#">求職技巧</a></li>
+									<li><a class="dropdown-item" href="#">創業</a></li>
+									<li><a class="dropdown-item" href="#">職場溝通</a></li>
+									<li><a class="dropdown-item" href="#">獨立接案</a></li>
+								</ul></li>
+
 						</ul></li>
 					<!-- 							<li class="nav-item"><a class="nav-link active" -->
 					<!-- 								aria-current="page" href="#">Home</a></li> -->
@@ -147,8 +224,50 @@
 				</ul>
 
 
+				<!-- 登入註冊按鈕 -->
+				<button type="button" class="btn btn-outline-success me-2"
+					data-bs-toggle="modal" data-bs-target="#loginModal">登入/註冊</button>
 
-				<button type="button" class="btn btn-outline-success me-2">登入/註冊</button>
+				<!-- 登入註冊彈跳式視窗 -->
+<!-- 				<div class="modal fade" id="loginModal"> -->
+<!-- 					<div class="modal-dialog"> -->
+<!-- 						<div class="modal-content"> -->
+<!-- 							Header -->
+<!-- 							<div class="modal-content"> -->
+<!-- 								<h3>會員登入</h3> -->
+<!-- 								<button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
+
+
+<!-- 							</div> -->
+<!-- 							Body -->
+<!-- 							<div class="modal-body"></div> -->
+<!-- 							Footer -->
+<!-- 							<div class="modal-footer"></div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+
+
+				<div class="modal fade" id="loginModal" tabindex="-1"
+					aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-body">...</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-bs-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary">Save
+									changes</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
 
 				<div class="btn-group d-block">
 					<button type="button"
@@ -160,6 +279,7 @@
 						<li><a class="dropdown-item" href="#">英文</a></li>
 						<li><a class="dropdown-item" href="#">日文</a></li>
 						<li><a class="dropdown-item" href="#">韓文</a></li>
+						<li><a class="dropdown-item" href="#">西班牙文</a></li>
 						<li><a class="dropdown-item" href="#">簡體中文</a></li>
 					</ul>
 				</div>
