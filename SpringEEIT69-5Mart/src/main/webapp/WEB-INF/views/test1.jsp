@@ -5,67 +5,34 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- 響應式的引入 -->
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<!-- 響應式的引入 -->
-
-<title>訪客首頁</title>
-
-<!-- jquery -->
-<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-<!-- jquery -->
-
-<!-- bootstrap -->
-<link rel='stylesheet'
-	href="<c:url value='/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.css' />"
-	type="text/css" />
-<!-- <script -->
-<%-- 	src="<c:url value="/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.js"/>"></script> --%>
-<link rel='stylesheet'
-	href="<c:url value="/assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css"/>"
-	type="text/css" />
-<!-- bootstrap -->
-
-<!-- google fonts的icon庫引入 -->
+<!-- Bootstrap CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+	crossorigin="anonymous" />
 <link rel="stylesheet"
-	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0" />
-<!-- google fonts的icon庫引入 -->
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<!-- logo icon -->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<!-- <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    /> -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <!-- font awesome的icon庫引入 -->
 <script src="https://kit.fontawesome.com/7ae43304d6.js"
 	crossorigin="anonymous"></script>
 <!-- font awesome的icon庫引入 -->
 
-<!-- CDN引入 -->
-<!-- <link -->
-<!-- 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" -->
-<!-- 	rel="stylesheet" -->
-<!-- 	integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" -->
-<!-- 	crossorigin="anonymous" /> -->
-<!-- <script -->
-<!-- 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> -->
-<!-- <script -->
-<!-- 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
-<!-- CDN引入 -->
-
-<style type="text/css">
-#paragraphTitle {
-	margin: 13px 0px
-}
-
-#carouselExampleIndicators {
-	margin: 0px 0px 6px
-}
-
-.btnClass {
-	padding-top: 35px;
-	padding-bottom: 35px;
-	margin: 10px;
-}
-</style>
-
+<title>訪客首頁(測試)</title>
 </head>
-
 <script type="text/javascript">
 	window.onload = function() {
 
@@ -80,11 +47,9 @@
 
 	}
 </script>
-
 <body>
 	<!-- 導覽列 -->
-	<!-- 	<div class="container-fluid" style="position: fixed; z-index: 5"> -->
-	<!-- 		<div class="row "> -->
+
 	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 		<div class="container-fluid">
 			<!-- 品牌logo -->
@@ -175,6 +140,66 @@
 			</div>
 		</div>
 	</nav>
+
+
+	<!-- ------ -->
+
+	<!-- 	<div class="container-fluid"> -->
+	<!-- 		<div class="row"> -->
+	<!-- 			<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top"> -->
+	<!-- 				<div class="container-fluid"> -->
+	<!-- 					<button class="navbar-toggler" type="button" -->
+	<!-- 						data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" -->
+	<!-- 						aria-controls="navbarSupportedContent" aria-expanded="false" -->
+	<!-- 						aria-label="Toggle navigation"> -->
+	<!-- 						<span class="navbar-toggler-icon"></span> -->
+	<!-- 					</button> -->
+	<!-- 					<div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+	<!-- 						品牌logo -->
+	<!-- 						<a class="navbar-brand" href="#"><span -->
+	<!-- 							class="material-symbols-outlined"> school </span></a> -->
+	<!-- 						<ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
+	<!-- 							<li class="nav-item dropdown"><a -->
+	<!-- 								class="nav-link dropdown-toggle" href="#" id="navbarDropdown" -->
+	<!-- 								role="button" data-bs-toggle="dropdown" aria-expanded="false"> -->
+	<!-- 									課程類別 </a> -->
+	<!-- 								<ul class="dropdown-menu" aria-labelledby="navbarDropdown"> -->
+	<!-- 									<li class=""><a class="dropdown-item" href="#">語言</a> -->
+	<!-- 									</li> -->
+	<!-- 									<li><a class="dropdown-item" href="#">開發</a></li> -->
+	<!-- 									<li><a class="dropdown-item" href="#">行銷</a></li> -->
+	<!-- 									<li><a class="dropdown-item" href="#">投資理財</a></li> -->
+	<!-- 									<li><a class="dropdown-item" href="#">攝影</a></li> -->
+	<!-- 									<li><a class="dropdown-item" href="#">設計</a></li> -->
+	<!-- 									<li><a class="dropdown-item" href="#">音樂</a></li> -->
+	<!-- <!-- 									<li><hr class="dropdown-divider"></li> -->
+	-->
+	<!-- <!-- 									<li><a class="dropdown-item" href="#">Something else -->
+	-->
+	<!-- <!-- 											here</a></li> -->
+	-->
+	<!-- 								</ul></li> -->
+	<!-- <!-- 							<li class="nav-item"><a class="nav-link active" -->
+	-->
+	<!-- <!-- 								aria-current="page" href="#">Home</a></li> -->
+	-->
+	<!-- 							<li class="nav-item"><a class="nav-link" href="#">文章</a></li> -->
+
+	<!-- 							<li class="nav-item"><a class="nav-link disabled" href="#" -->
+	<!-- 								tabindex="-1" aria-disabled="true">Disabled</a></li> -->
+	<!-- 							<li> -->
+	<!-- 								<form class="nav-item input-group"> -->
+	<!-- 									<input class="form-control me-2" type="search" -->
+	<!-- 										placeholder="搜尋" aria-label="Search"> -->
+	<!-- 									<button class="btn btn-outline-success" type="submit">搜尋</button> -->
+	<!-- 								</form> -->
+	<!-- 							</li> -->
+	<!-- 							<li class="nav-item"><a class="nav-link" href="#">我的學習</a></li> -->
+	<!-- 							<li class="nav-item"><a class="nav-link" href="#">願望清單</a></li> -->
+	<!-- 						</ul> -->
+	<!-- 					</div> -->
+	<!-- 				</div> -->
+	<!-- 			</nav> -->
 	<!-- 		</div> -->
 	<!-- 	</div> -->
 	<!-- 導覽列 -->
@@ -229,7 +254,7 @@
 	</div>
 	<!-- 輪播圖 -->
 	<!-- 熱門課程區塊(水平滾動) -->
-	<div class="container-fluid justify-content-center" id="paragraphTitle">
+	<div class="container-fluid justify-content-center">
 		<div class="row">
 			<div class="col-1"></div>
 			<div class="col-9">
@@ -515,18 +540,14 @@
 	<!-- 最底部 -->
 
 
-	<!-- CDN引入 -->
-	<!-- 		<script -->
-	<!-- 			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" -->
-	<!-- 			integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" -->
-	<!-- 			crossorigin="anonymous"></script> -->
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+		integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+		crossorigin="anonymous"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"
 		integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ"
 		crossorigin="anonymous"></script>
-	<!-- CDN引入 -->
-
-
-
 </body>
 </html>

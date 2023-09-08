@@ -37,4 +37,11 @@ public class HomeController {
 		return "TeacherMain";
 
 	}
+	
+
+	@GetMapping("/indextest2")
+	public String indextest2(Model model) {
+		model.addAttribute("welcome","歡迎來到Spring Boot的世界");
+		return "indextest2";
+	}
 }
