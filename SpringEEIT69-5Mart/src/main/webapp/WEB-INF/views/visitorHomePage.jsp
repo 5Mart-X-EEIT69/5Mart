@@ -36,17 +36,17 @@
 	crossorigin="anonymous"></script>
 <!-- font awesome的icon庫引入 -->
 
-<!-- CDN引入 -->
-<!-- <link -->
-<!-- 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" -->
-<!-- 	rel="stylesheet" -->
-<!-- 	integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" -->
-<!-- 	crossorigin="anonymous" /> -->
-<!-- <script -->
-<!-- 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> -->
-<!-- <script -->
-<!-- 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
-<!-- CDN引入 -->
+CDN引入
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+	crossorigin="anonymous" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+CDN引入
 
 <style type="text/css">
 #paragraphTitle {
@@ -228,45 +228,28 @@
 				<button type="button" class="btn btn-outline-success me-2"
 					data-bs-toggle="modal" data-bs-target="#loginModal">登入/註冊</button>
 
+
 				<!-- 登入註冊彈跳式視窗 -->
-<!-- 				<div class="modal fade" id="loginModal"> -->
-<!-- 					<div class="modal-dialog"> -->
-<!-- 						<div class="modal-content"> -->
-<!-- 							Header -->
-<!-- 							<div class="modal-content"> -->
-<!-- 								<h3>會員登入</h3> -->
-<!-- 								<button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
+				<!-- 				<div class="modal fade" id="loginModal"> -->
+				<!-- 					<div class="modal-dialog"> -->
+				<!-- 						<div class="modal-content"> -->
+				<!-- 							Header -->
+				<!-- 							<div class="modal-content"> -->
+				<!-- 								<h3>會員登入</h3> -->
+				<!-- 								<button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
 
 
-<!-- 							</div> -->
-<!-- 							Body -->
-<!-- 							<div class="modal-body"></div> -->
-<!-- 							Footer -->
-<!-- 							<div class="modal-footer"></div> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
+				<!-- 							</div> -->
+				<!-- 							Body -->
+				<!-- 							<div class="modal-body"></div> -->
+				<!-- 							Footer -->
+				<!-- 							<div class="modal-footer"></div> -->
+				<!-- 						</div> -->
+				<!-- 					</div> -->
+				<!-- 				</div> -->
 
 
-				<div class="modal fade" id="loginModal" tabindex="-1"
-					aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-								<button type="button" class="btn-close" data-bs-dismiss="modal"
-									aria-label="Close"></button>
-							</div>
-							<div class="modal-body">...</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary"
-									data-bs-dismiss="modal">Close</button>
-								<button type="button" class="btn btn-primary">Save
-									changes</button>
-							</div>
-						</div>
-					</div>
-				</div>
+
 
 
 				<div class="btn-group d-block">
@@ -298,6 +281,59 @@
 	<!-- 		</div> -->
 	<!-- 	</div> -->
 	<!-- 導覽列 -->
+
+	<!-- 登入註冊彈跳式視窗 -->
+	<!-- 登入註冊彈跳式視窗 -->
+	<div class="modal fade" id="loginModal" data-bs-backdrop="static"
+		data-bs-keyboard="false" tabindex="-1"
+		aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<!-- Header -->
+				<div class="modal-header">
+					<h4 class="modal-title" id="staticBackdropLabel">登入</h4>
+
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+
+				<!-- Body -->
+				<div class="modal-body">
+
+					<form action="">
+						<!-- email -->
+						<div class="form-group">
+							<input type="email" class="account form-control" placeholder="帳號">
+						</div>
+						<!-- 密碼 -->
+						<div class="form-group">
+							<input type="email" class="password form-control"
+								placeholder="密碼">
+						</div>
+						<!-- checkbox -->
+						<div class="form-group">
+							<input type="checkbox" class="remeber">記住我的密碼
+						</div>
+						<!-- 送出按鈕 -->
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">登入</button>
+						<a type="button" href="#">忘記密碼</a>
+
+					</form>
+				</div>
+				<!-- Footer -->
+				<div class="modal-footer">
+					<p>
+						或使用<strong>社群帳號</strong>繼續
+					</p>
+					<!-- 					<button type="button" class="btn btn-primary">Understood</button> -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 登入註冊彈跳式視窗 -->
+	<!-- 登入註冊彈跳式視窗 -->
+
 	<!-- 輪播圖 -->
 	<div class="container-lg">
 		<div class="row">
