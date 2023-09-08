@@ -292,6 +292,8 @@ CDN引入
 				<!-- Header -->
 				<div class="modal-header">
 					<h4 class="modal-title" id="staticBackdropLabel">登入</h4>
+					<button type="button" class="btn btn-outline-success me-2"
+						data-bs-toggle="modal" data-bs-target="#signinModal" data-bs-dismiss="modal">尚未註冊</button>
 
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
@@ -333,6 +335,61 @@ CDN引入
 	</div>
 	<!-- 登入註冊彈跳式視窗 -->
 	<!-- 登入註冊彈跳式視窗 -->
+	
+	<div class="modal fade" id="signinModal" data-bs-backdrop="static"
+		data-bs-keyboard="false" tabindex="-1"
+		aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<!-- Header -->
+				<div class="modal-header">
+					<h4 class="modal-title" id="staticBackdropLabel">註冊</h4>
+					<button type="button" class="btn btn-outline-success me-2"
+						data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">登入</button>
+
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+
+				<!-- Body -->
+				<div class="modal-body">
+
+					<form action="">
+						<!-- 姓名 -->
+						<div class="form-group">
+							<input type="text" class="text form-control" placeholder="姓名">
+						</div>
+						<!-- email -->
+						<div class="form-group">
+							<input type="email" class="account form-control" placeholder="帳號">
+						</div>
+						<!-- 密碼 -->
+						<div class="form-group">
+							<input type="email" class="password form-control"
+								placeholder="密碼">
+						</div>
+						<!-- checkbox -->
+						<div class="form-group">
+							<input type="checkbox" class="remeber">記住我的密碼
+						</div>
+						<!-- 送出按鈕 -->
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">登入</button>
+						<a type="button" href="#">忘記密碼</a>
+
+					</form>
+				</div>
+				<!-- Footer -->
+				<div class="modal-footer">
+					<p>
+						或使用<strong>社群帳號</strong>繼續
+					</p>
+					<!-- 					<button type="button" class="btn btn-primary">Understood</button> -->
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 	<!-- 輪播圖 -->
 	<div class="container-lg">
@@ -638,7 +695,7 @@ CDN引入
 
 					<h4 class="d-inline">5mart</h4>
 				</div>
-				<div class="col-3 px-5">
+				<div class="col-4 px-5">
 					<i class="fa-brands fa-java fa-2xl px-2" style="color: #0b6cb0;"></i>
 					<i class="fa-brands fa-html5 fa-2xl px-2" style="color: #de4b25;"></i>
 					<i class="fa-brands fa-css3-alt fa-2xl px-2"
