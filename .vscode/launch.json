@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringEeit695MartApplication<SpringEEIT69-5Mart>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.ispan.eeit69.SpringEeit695MartApplication",
+            "projectName": "SpringEEIT69-5Mart",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
