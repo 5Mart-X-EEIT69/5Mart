@@ -74,121 +74,140 @@
 </script>
 
 <body>
-    <div class="d-flex flex-row min-vh-100">
-        <div class="d-flex flex-column p-3 bg-light" style="width: 300px;">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                <span style="font-size: 40px;"><i class="bi bi-5-square "></i>
-                    5mart</span>
-            </a>
-            <hr>
-            <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item pb-2"><a href="/TeacherMain" class="nav-link active" aria-current="page"> <span
-                            style="font-size: 32px;"><i class="bi bi-display"></i> 課程</span>
-                    </a></li>
+	<div class="d-flex flex-row min-vh-100">
+		<div class="d-flex flex-column p-3 bg-light" style="width: 300px;">
+			<a href="/"
+				class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+				<span style="font-size: 40px;"><i class="bi bi-5-square "></i>
+					5mart</span>
+			</a>
+			<hr>
+			<ul class="nav nav-pills flex-column mb-auto">			
+				<li class="nav-item pb-2"><a href="<c:url value="/TeacherMain"></c:url>"
+					class="nav-link active" aria-current="page"> <span
+						style="font-size: 32px;"><i class="bi bi-display"></i> 課程</span>
+				</a></li>
 
-                <li class="nav-item"><a href="/TeacherCreate" class="nav-link link-dark" aria-current="page"> <span
-                            style="font-size: 24px;">- 建立課程</span>
-                    </a></li>
-                <li class="pe-5"><a href="/TeacherCreateFundraisingCourses" class="nav-link active"> <span
-                            style="font-size: 24px;">-
-                            建立募資課程</span>
-                    </a></li>
-                <li><a href="/TeacherCreateArticle" class="nav-link link-dark"> <span style="font-size: 24px;">-
-                            建立文章</span>
-                    </a></li>
-                <li><a href="/TeacherCourseList" class="nav-link link-dark"> <span style="font-size: 24px;">-
-                            已開課內容 </span>
-                    </a></li>
+				<li class="nav-item"><a href="<c:url value="/TeacherCreate"></c:url>"
+					class="nav-link link-dark" aria-current="page"> <span
+						style="font-size: 24px;">- 建立課程</span>
+				</a></li>
+				<li class="pe-5"><a href="<c:url value="/TeacherCreateFundraisingCourses"></c:url>"
+					class="nav-link active"> <span style="font-size: 24px;">-
+							建立募資課程</span>
+				</a></li>
+				<li><a href="<c:url value="/TeacherCreateArticle"></c:url>" class="nav-link link-dark">
+						<span style="font-size: 24px;">- 建立文章</span>
+				</a></li>
+				<li><a href="<c:url value="/TeacherCourseList"></c:url>" class="nav-link link-dark">
+						<span style="font-size: 24px;">- 已開課內容 </span>
+				</a></li>
 
-                <li><a href="/TeacherComminicate" class="nav-link link-dark"> <span style="font-size: 32px;"><i
-                                class="bi bi-chat-left" style="font-size: 32px;"></i> 學生交流</span>
-                    </a></li>
-                <li><a href="/TeacherDashboard" class="nav-link link-dark"> <span style="font-size: 32px;"><i
-                                class="bi bi-graph-up"></i> 儀表板</span>
-                    </a></li>
-                <li><a href="/TeacherInformation" class="nav-link link-dark"> <span style="font-size: 32px;"><i
-                                class="bi bi-award-fill"></i> 講師個人資料 </span>
-                    </a></li>
-            </ul>
-            <hr>
-        </div>
-        <!-- 		選單右邊 -->
-        <div style="width: 25%"></div>
-        <div class="bs-stepper ">
-            <div class="bs-stepper-header" role="tablist">
-                <!-- your steps here -->
-                <div class="step" data-target="#step1">
-                    <button type="button" class="step-trigger" role="tab" aria-controls="logins-part"
-                        id="step1-trigger">
-                        <span class="bs-stepper-circle">1</span> <span class="bs-stepper-label">第一步</span>
-                    </button>
-                </div>
-                <div class="line"></div>
-                <div class="step" data-target="#step2">
-                    <button type="button" class="step-trigger" role="tab" aria-controls="information-part"
-                        id="step2-trigger">
-                        <span class="bs-stepper-circle">2</span> <span class="bs-stepper-label">第二步</span>
-                    </button>
-                </div>
-                <div class="line"></div>
-                <div class="step" data-target="#step3">
-                    <button type="button" class="step-trigger" role="tab" aria-controls="information-part"
-                        id="step3-trigger">
-                        <span class="bs-stepper-circle">3</span> <span class="bs-stepper-label">第三步</span>
-                    </button>
-                </div>
-                <div class="line"></div>
-                <div class="step" data-target="#step4">
-                    <button type="button" class="step-trigger" role="tab" aria-controls="information-part"
-                        id="step4-trigger">
-                        <span class="bs-stepper-circle">4</span> <span class="bs-stepper-label">第四步</span>
-                    </button>
-                </div>
-            </div>
-            <div class="bs-stepper-content">
-                <!-- your steps content here -->
-                <div id="step1" class="content" role="tabpanel" aria-labelledby="step1-trigger">
-                    <div class="form-group">
-                        <label> 課程標題 </label> <input class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label> 課程簡介 </label> <input class="form-control" style="height: 10rem" />
-                    </div>
-                    <div class="form-group">
-                        <label> 封面照片 </label> <input class="form-control" type="file" />
-                    </div>
-                    <div class="form-group">
-                        <label>售價</label> <input class="form-control" />
-                    </div>
-                    <div class="pt-3">
-                        <button type="button" onclick="stepper.next()">下一步</button>
-                    </div>
-                </div>
-                <div id="step2" class="content" role="tabpanel" aria-labelledby="step2-trigger">
-                    <!-- 章節單元標籤 -->
-                    <div id="chapterContainer">
-                        <div>
-                            <div class="form-group chapter my-2">
-                                <span class="chapterIcon">拖拉</span>
-                                <span class="py-1">章節 1</span><input class="chapterInput" type="text" value="">
-                                <span>
-                                    <button class="mx-1 btn iconbtn addChapter"><i class="bi bi-plus-circle"></i></button>
-                                    <button class="mx-1 btn iconbtn chapterDelete"><i class="bi bi-trash"></i></button>
-                                </span>
-                            </div>
-                            <div id="unitGroup">
-                                <div class="form-group unit my-2">
-                                    <span class="chapterIcon">拖拉</span>
-                                    <label class="py-1">單元 1</label><input class="chapterInput" type="text" value="">
-                                    <span>
-                                        <button class="mx-1 btn iconbtn addUnit"><i class="bi bi-plus-circle"></i></button>
-                                        <button class="mx-1 btn iconbtn chapterDelete"><i class="bi bi-trash"></i></button>
-                                    </span>
-                                </div>
-                            </div>                            
-                        </div>
-                    </div>
-                    <script>
+				<li><a href="<c:url value="/TeacherComminicate"></c:url>" class="nav-link link-dark">
+						<span style="font-size: 32px;"><i class="bi bi-chat-left"
+							style="font-size: 32px;"></i> 學生交流</span>
+				</a></li>
+				<li><a href="<c:url value="/TeacherDashboard"></c:url>" class="nav-link link-dark">
+						<span style="font-size: 32px;"><i class="bi bi-graph-up"></i>
+							儀表板</span>
+				</a></li>
+				<li><a href="<c:url value="/TeacherInformation"></c:url>" class="nav-link link-dark">
+						<span style="font-size: 32px;"><i class="bi bi-award-fill"></i>
+							講師個人資料 </span>
+				</a></li>
+			</ul>
+			<hr>
+		</div>
+		<!-- 		選單右邊 -->
+		<div style="width: 25%"></div>
+		<div class="bs-stepper ">
+			<div class="bs-stepper-header" role="tablist">
+				<!-- your steps here -->
+				<div class="step" data-target="#step1">
+					<button type="button" class="step-trigger" role="tab"
+						aria-controls="logins-part" id="step1-trigger">
+						<span class="bs-stepper-circle">1</span> <span
+							class="bs-stepper-label">第一步</span>
+					</button>
+				</div>
+				<div class="line"></div>
+				<div class="step" data-target="#step2">
+					<button type="button" class="step-trigger" role="tab"
+						aria-controls="information-part" id="step2-trigger">
+						<span class="bs-stepper-circle">2</span> <span
+							class="bs-stepper-label">第二步</span>
+					</button>
+				</div>
+				<div class="line"></div>
+				<div class="step" data-target="#step3">
+					<button type="button" class="step-trigger" role="tab"
+						aria-controls="information-part" id="step3-trigger">
+						<span class="bs-stepper-circle">3</span> <span
+							class="bs-stepper-label">第三步</span>
+					</button>
+				</div>
+				<div class="line"></div>
+				<div class="step" data-target="#step4">
+					<button type="button" class="step-trigger" role="tab"
+						aria-controls="information-part" id="step4-trigger">
+						<span class="bs-stepper-circle">4</span> <span
+							class="bs-stepper-label">第四步</span>
+					</button>
+				</div>
+			</div>
+			<div class="bs-stepper-content">
+				<!-- your steps content here -->
+				<div id="step1" class="content" role="tabpanel"
+					aria-labelledby="step1-trigger">
+					<div class="form-group">
+						<label> 課程標題 </label> <input class="form-control" />
+					</div>
+					<div class="form-group">
+						<label> 課程簡介 </label> <input class="form-control"
+							style="height: 10rem" />
+					</div>
+					<div class="form-group">
+						<label> 封面照片 </label> <input class="form-control" type="file" />
+					</div>
+					<div class="form-group">
+						<label>售價</label> <input class="form-control" />
+					</div>
+					<div class="pt-3">
+						<button type="button" onclick="stepper.next()">下一步</button>
+					</div>
+				</div>
+				<div id="step2" class="content" role="tabpanel"
+					aria-labelledby="step2-trigger">
+					<!-- 章節單元標籤 -->
+					<div id="chapterContainer">
+						<div>
+							<div class="form-group chapter my-2">
+								<span class="chapterIcon">拖拉</span> <span class="py-1">章節
+									1</span><input class="chapterInput" type="text" value=""> <span>
+									<button class="mx-1 btn iconbtn addChapter">
+										<i class="bi bi-plus-circle"></i>
+									</button>
+									<button class="mx-1 btn iconbtn chapterDelete">
+										<i class="bi bi-trash"></i>
+									</button>
+								</span>
+							</div>
+							<div id="unitGroup">
+								<div class="form-group unit my-2">
+									<span class="chapterIcon">拖拉</span> <label class="py-1">單元
+										1</label><input class="chapterInput" type="text" value=""> <span>
+										<button class="mx-1 btn iconbtn addUnit">
+											<i class="bi bi-plus-circle"></i>
+										</button>
+										<button class="mx-1 btn iconbtn chapterDelete">
+											<i class="bi bi-trash"></i>
+										</button>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<script>
                         $("#chapterContainer").on("click", ".addChapter", function () {
                             let iIndex = $(this).parent().parent().parent().index();
                             let html = `
@@ -250,41 +269,45 @@
                         }
 
                     </script>
-                    <!-- 章節單元標籤 -->
-                    <div>
-                        <button class="btn btn-secondary" type="button" onclick="stepper.previous()">上一步</button>
-                        <button class="btn btn-secondary" type="button" onclick="stepper.next()">下一步</button>
-                    </div>
-                </div>
-                <div id="step3" class="content" role="tabpanel" aria-labelledby="step3-trigger">
-                    <div class="form-group">
-                        <label>姓名</label> <input class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label>手機號碼</label> <input class="form-control" />
-                    </div>
-                    <div>
-                        <button type="button" onclick="stepper.previous()">上一步</button>
-                        <button type="button" onclick="stepper.next()">下一步</button>
-                    </div>
-                </div>
-                <div id="step4" class="content" role="tabpanel" aria-labelledby="step4-trigger">
-                    <div class="form-group">
-                        <label>姓名</label> <input class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label>手機號碼</label> <input class="form-control" />
-                    </div>
-                    <div>
-                        <button type="button" onclick="stepper.previous()">上一步</button>
-                        <button type="button" onclick="stepper.next()">下一步</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+					<!-- 章節單元標籤 -->
+					<div>
+						<button class="btn btn-secondary" type="button"
+							onclick="stepper.previous()">上一步</button>
+						<button class="btn btn-secondary" type="button"
+							onclick="stepper.next()">下一步</button>
+					</div>
+				</div>
+				<div id="step3" class="content" role="tabpanel"
+					aria-labelledby="step3-trigger">
+					<div class="form-group">
+						<label>姓名</label> <input class="form-control" />
+					</div>
+					<div class="form-group">
+						<label>手機號碼</label> <input class="form-control" />
+					</div>
+					<div>
+						<button type="button" onclick="stepper.previous()">上一步</button>
+						<button type="button" onclick="stepper.next()">下一步</button>
+					</div>
+				</div>
+				<div id="step4" class="content" role="tabpanel"
+					aria-labelledby="step4-trigger">
+					<div class="form-group">
+						<label>姓名</label> <input class="form-control" />
+					</div>
+					<div class="form-group">
+						<label>手機號碼</label> <input class="form-control" />
+					</div>
+					<div>
+						<button type="button" onclick="stepper.previous()">上一步</button>
+						<button type="button" onclick="stepper.next()">下一步</button>
+					</div>
+				</div>
+			</div>
+		</div>
 
-        <div>test</div>
-    </div>
+		<div>test</div>
+	</div>
 
 
 </body>
