@@ -15,16 +15,15 @@
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <!-- jquery -->
 
-<!-- bootstrap -->
+<!-- bootstrap 公版-->
 <link rel='stylesheet'
 	href="<c:url value='/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.css' />"
 	type="text/css" />
-<!-- <script -->
-<%-- 	src="<c:url value="/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.js"/>"></script> --%>
 <link rel='stylesheet'
-	href="<c:url value="/assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css"/>"
+	href="<c:url value="
+				/assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css" />"
 	type="text/css" />
-<!-- bootstrap -->
+<!-- bootstrap 公版-->
 
 <!-- google fonts的icon庫引入 -->
 <link rel="stylesheet"
@@ -36,17 +35,17 @@
 	crossorigin="anonymous"></script>
 <!-- font awesome的icon庫引入 -->
 
-<!-- CDN引入 -->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
-	crossorigin="anonymous" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<!-- CDN引入 -->
+<!-- <!-- CDN引入 -->
+<!-- <link -->
+<!-- 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" -->
+<!-- 	rel="stylesheet" -->
+<!-- 	integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" -->
+<!-- 	crossorigin="anonymous" /> -->
+<!-- <script -->
+<!-- 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> -->
+<!-- <script -->
+<!-- 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+<!-- <!-- CDN引入 -->
 
 <style type="text/css">
 #paragraphTitle {
@@ -793,6 +792,9 @@
 		crossorigin="anonymous"></script>
 	<!-- CDN引入 -->
 
+	<!-- bootstrap -->
+	<%-- 			<script src="<c:url value=" /assets/vendor/bootstrap-5.3.1-dist/bootstrap.bundle.min.js" />"></script> --%>
+	<!-- bootstrap -->
 
 
 </body>
