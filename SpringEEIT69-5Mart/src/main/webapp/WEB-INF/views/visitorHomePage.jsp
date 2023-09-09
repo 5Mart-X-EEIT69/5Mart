@@ -36,7 +36,7 @@
 	crossorigin="anonymous"></script>
 <!-- font awesome的icon庫引入 -->
 
-CDN引入
+<!-- CDN引入 -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -46,7 +46,7 @@ CDN引入
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-CDN引入
+<!-- CDN引入 -->
 
 <style type="text/css">
 #paragraphTitle {
@@ -81,6 +81,44 @@ CDN引入
 	transform: rotate(-90deg);
 	transition: 0.5s;
 }
+
+.modal-header h3 {
+	font-size: 30px;
+}
+
+/* 登入註冊彈跳式視窗調整 */
+    .modal-header h3 {
+      font-size: 30px;
+      margin-left: 10px;
+    }
+
+    .modal-body form .text,
+    .modal-body form .account,
+    .modal-body form .password {
+      margin-left: 20px;
+      margin-bottom: 10px;
+      width: 90%;
+      height: 50px;
+    }
+
+    .remember {
+      margin-bottom: 20px;
+      margin-left: 20px;
+    }
+
+    .modal-body form .btn {
+      width: 90%;
+      font-size: 25px;
+      margin-left: 20px;
+      color: white;
+    }
+
+    .modal-body a {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+    /* 登入註冊彈跳式視窗調整 */
+
 </style>
 
 </head>
@@ -229,29 +267,6 @@ CDN引入
 					data-bs-toggle="modal" data-bs-target="#loginModal">登入/註冊</button>
 
 
-				<!-- 登入註冊彈跳式視窗 -->
-				<!-- 				<div class="modal fade" id="loginModal"> -->
-				<!-- 					<div class="modal-dialog"> -->
-				<!-- 						<div class="modal-content"> -->
-				<!-- 							Header -->
-				<!-- 							<div class="modal-content"> -->
-				<!-- 								<h3>會員登入</h3> -->
-				<!-- 								<button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
-
-
-				<!-- 							</div> -->
-				<!-- 							Body -->
-				<!-- 							<div class="modal-body"></div> -->
-				<!-- 							Footer -->
-				<!-- 							<div class="modal-footer"></div> -->
-				<!-- 						</div> -->
-				<!-- 					</div> -->
-				<!-- 				</div> -->
-
-
-
-
-
 				<div class="btn-group d-block">
 					<button type="button"
 						class="btn btn-outline-success dropdown-toggle"
@@ -282,113 +297,129 @@ CDN引入
 	<!-- 	</div> -->
 	<!-- 導覽列 -->
 
-	<!-- 登入註冊彈跳式視窗 -->
-	<!-- 登入註冊彈跳式視窗 -->
-	<div class="modal fade" id="loginModal" data-bs-backdrop="static"
-		data-bs-keyboard="false" tabindex="-1"
-		aria-labelledby="staticBackdropLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<!-- Header -->
-				<div class="modal-header">
-					<h4 class="modal-title" id="staticBackdropLabel">登入</h4>
-					<button type="button" class="btn btn-outline-success me-2"
-						data-bs-toggle="modal" data-bs-target="#signinModal" data-bs-dismiss="modal">尚未註冊</button>
 
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
+	<!-- 登入彈跳式視窗 -->
+  <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <!-- Header -->
+        <div class="modal-header">
+          <h3 class="modal-title" id="staticBackdropLabel"><strong>登入</strong></h3>
+          <div class="d-md-flex justify-content-end">
+            <div class="pt-3">
+              <p>尚未註冊？</p>
+            </div>
+            <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#signinModal"
+              data-bs-dismiss="modal" style="text-decoration: none">註冊</button>
 
-				<!-- Body -->
-				<div class="modal-body">
 
-					<form action="">
-						<!-- email -->
-						<div class="form-group">
-							<input type="email" class="account form-control" placeholder="帳號">
-						</div>
-						<!-- 密碼 -->
-						<div class="form-group">
-							<input type="email" class="password form-control"
-								placeholder="密碼">
-						</div>
-						<!-- checkbox -->
-						<div class="form-group">
-							<input type="checkbox" class="remeber">記住我的密碼
-						</div>
-						<!-- 送出按鈕 -->
-						<button type="button" class="btn btn-secondary"
-							data-bs-dismiss="modal">登入</button>
-						<a type="button" href="#">忘記密碼</a>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        </div>
 
-					</form>
-				</div>
-				<!-- Footer -->
-				<div class="modal-footer">
-					<p>
-						或使用<strong>社群帳號</strong>繼續
-					</p>
-					<!-- 					<button type="button" class="btn btn-primary">Understood</button> -->
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- 登入註冊彈跳式視窗 -->
-	<!-- 登入註冊彈跳式視窗 -->
-	
-	<div class="modal fade" id="signinModal" data-bs-backdrop="static"
-		data-bs-keyboard="false" tabindex="-1"
-		aria-labelledby="staticBackdropLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<!-- Header -->
-				<div class="modal-header">
-					<h4 class="modal-title" id="staticBackdropLabel">註冊</h4>
-					<button type="button" class="btn btn-outline-success me-2"
-						data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">登入</button>
+        <!-- Body -->
+        <div class="modal-body">
 
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
+          <form action="">
+            <!-- email -->
+            <div class="form-group">
+              <input type="email" class="account form-control" placeholder="電子郵件">
+            </div>
+            <!-- 密碼 -->
+            <div class="form-group">
+              <input type="password" class="password form-control" placeholder="密碼">
+            </div>
+            <!-- checkbox -->
+            <div class="form-group">
+              <input type="checkbox" class="remember"> 記住我的密碼
+            </div>
+            <!-- 送出按鈕 -->
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">登入</button>
+            <a type="button" href="#" class="d-md-flex justify-content-center">忘記密碼</a>
 
-				<!-- Body -->
-				<div class="modal-body">
+          </form>
+        </div>
+        <!-- Footer -->
+        <div class="modal-footer d-md-flex justify-content-center flex-column">
+          <div>
+            <p> 或使用<strong>社群帳號</strong>繼續</p>
+          </div>
+          <div class="mb-3">
+            <a class="mx-2" type="button" href="#"><i class="fa-brands fa-facebook fa-2xl"
+                style="color: #046ee5;"></i></a>
+            <a class="mx-2" type="button" href="#"><i class="fa-brands fa-google fa-2xl"
+                style="color: #ea4335;"></i></a>
+            <a class="mx-2" type="button" href="#"><i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 登入彈跳式視窗 -->
 
-					<form action="">
-						<!-- 姓名 -->
-						<div class="form-group">
-							<input type="text" class="text form-control" placeholder="姓名">
-						</div>
-						<!-- email -->
-						<div class="form-group">
-							<input type="email" class="account form-control" placeholder="帳號">
-						</div>
-						<!-- 密碼 -->
-						<div class="form-group">
-							<input type="email" class="password form-control"
-								placeholder="密碼">
-						</div>
-						<!-- checkbox -->
-						<div class="form-group">
-							<input type="checkbox" class="remeber">記住我的密碼
-						</div>
-						<!-- 送出按鈕 -->
-						<button type="button" class="btn btn-secondary"
-							data-bs-dismiss="modal">登入</button>
-						<a type="button" href="#">忘記密碼</a>
-
-					</form>
-				</div>
-				<!-- Footer -->
-				<div class="modal-footer">
-					<p>
-						或使用<strong>社群帳號</strong>繼續
-					</p>
-					<!-- 					<button type="button" class="btn btn-primary">Understood</button> -->
-				</div>
-			</div>
-		</div>
-	</div>
+  <!-- 註冊彈跳式視窗 -->
+  <div class="modal fade" id="signinModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <!-- Header -->
+        <div class="modal-header">
+          <h3 class="modal-title" id="staticBackdropLabel"><strong>註冊</strong></h3>
+          <div class="d-grid gap-2 d-md-flex justify-content-end ">
+            <div class="pt-3">
+              <p>已經擁有帳戶？</p>
+            </div>
+            <button type="button" class="btn btn-link me-2" data-bs-toggle="modal" data-bs-target="#loginModal"
+              data-bs-dismiss="modal" style="text-decoration: none">登入</button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        </div>
+        <!-- Body -->
+        <div class="modal-body">
+          <form action="">
+            <!-- 姓名 -->
+            <div class="form-group">
+              <input type="text" class="text form-control" placeholder="全名">
+            </div>
+            <!-- email -->
+            <div class="form-group">
+              <input type="email" class="account form-control" placeholder="電子郵件">
+            </div>
+            <!-- 密碼 -->
+            <div class="form-group">
+              <input type="password" class="password form-control" placeholder="密碼">
+            </div>
+            <!-- 再次輸入密碼 -->
+            <div class="form-group">
+              <input type="password" class="password form-control" placeholder="再次輸入密碼">
+            </div>
+            <!-- 送出按鈕 -->
+            <button type="button" class="btn btn-secondary mt-3" data-bs-dismiss="modal">註冊</button>
+            <div class="d-md-flex justify-content-center mt-2">
+              <p>
+                註冊即同意<a type="button" href="#">隱私權政策</a>和<a type="button" href="#">使用者條款</a>
+              </p>
+            </div>
+          </form>
+        </div>
+        <!-- Footer -->
+        <div class="modal-footer d-md-flex justify-content-center flex-column">
+          <div>
+            <p> 或使用<strong>社群帳號</strong>繼續</p>
+          </div>
+          <div class="mb-3">
+            <a class="mx-2" type="button" href="#"><i class="fa-brands fa-facebook fa-2xl"
+                style="color: #046ee5;"></i></a>
+            <a class="mx-2" type="button" href="#"><i class="fa-brands fa-google fa-2xl"
+                style="color: #ea4335;"></i></a>
+            <a class="mx-2" type="button" href="#"><i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 註冊彈跳式視窗 -->
 
 
 	<!-- 輪播圖 -->
