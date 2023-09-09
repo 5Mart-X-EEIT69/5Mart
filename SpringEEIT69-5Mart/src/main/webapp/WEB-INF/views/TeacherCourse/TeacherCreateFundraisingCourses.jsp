@@ -28,6 +28,42 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bs-stepper/dist/js/bs-stepper.min.js"></script>
 <!-- stepper -->
+<style>
+.chapter {
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	border-radius: var(--bs-border-radius);
+	padding: 0.375rem 0.75rem;
+	color: rgb(155, 155, 155);
+	display: flex;
+}
+
+.chapterInput {
+	flex: 1 1 0%;
+	border: transparent;
+	background: transparent;
+	margin-left: 10px;
+	outline: none;
+}
+
+.chapterIcon {
+	transform: translateX(-130%);
+	padding: 4px 10px;
+	position: absolute;
+}
+
+.unit {
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	border-radius: var(--bs-border-radius);
+	padding: 0.375rem 0.75rem;
+	color: rgb(155, 155, 155);
+	display: flex;
+	margin-left: 50px;
+}
+
+.iconbtn {
+	padding: 3px 0px 0px 0px;
+}
+</style>
 </head>
 
 <script type="text/javascript">
@@ -147,40 +183,97 @@
 				</div>
 				<div id="step2" class="content" role="tabpanel"
 					aria-labelledby="step2-trigger">
-					<div class="form-group">
-						<label>售價</label> <input class="form-control" />
+					<!-- 章節單元標籤 -->
+					<div id="chapterContainer">
+						<div>
+							<div class="form-group chapter my-2">
+								<span class="chapterIcon">拖拉</span> <span class="py-1">章節
+									1</span><input class="chapterInput" type="text" value=""> <span>
+									<button class="mx-1 btn iconbtn addChapter">
+										<i class="bi bi-plus-circle"></i>
+									</button>
+									<button class="mx-1 btn iconbtn chapterDelete">
+										<i class="bi bi-trash"></i>
+									</button>
+								</span>
+							</div>
+							<div id="unitGroup">
+								<div class="form-group unit my-2">
+									<span class="chapterIcon">拖拉</span> <label class="py-1">單元
+										1</label><input class="chapterInput" type="text" value=""> <span>
+										<button class="mx-1 btn iconbtn addUnit">
+											<i class="bi bi-plus-circle"></i>
+										</button>
+										<button class="mx-1 btn iconbtn chapterDelete">
+											<i class="bi bi-trash"></i>
+										</button>
+									</span>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="form-group">
-						<label>手機號碼</label> <input class="form-control" />
-					</div>
-					<div class="form-group">
-						<label>單元1</label> <input class="form-control" placeholder="單元1" />
-					</div>
-					<div class="input-group mb-3">
-						<span class="input-group-text" id="basic-addon1">章節1</span> <input
-							type="text" class="form-control" placeholder="章節1"
-							aria-label="Username" aria-describedby="basic-addon1">
-					</div>
-					<div class="input-group mb-3">
-						<div style="width: 13%"></div>
-						<span class="input-group-text" id="basic-addon1">單元1</span> <input
-							type="text" class="form-control" placeholder="單元1"
-							aria-label="Username" aria-describedby="basic-addon1">
-					</div>
-					<div class="input-group mb-3">
-						<div style="width: 13%"></div>
-						<span class="input-group-text" id="basic-addon1">單元2</span> <input
-							type="text" class="form-control" placeholder="單元2"
-							aria-label="Username" aria-describedby="basic-addon1">
-					</div>
-					<div class="input-group mb-3">
-						<span class="input-group-text" id="basic-addon1">章節2</span> <input
-							type="text" class="form-control" placeholder="章節2"
-							aria-label="Username" aria-describedby="basic-addon1">
-					</div>
-					<div style="border: 1px solid rgba(0, 0, 0, 0.12)">
-						<span>test</span>
-					</div>
+					<script>
+                        $("#chapterContainer").on("click", ".addChapter", function () {
+                            let iIndex = $(this).parent().parent().parent().index();
+                            let html = `
+                            <div class="form-group chapter my-2">
+                                <span class="chapterIcon">拖拉</span>
+                                <span class="py-1">章節 1</span><input class="chapterInput" type="text" value="">
+                                <span>
+                                    <button class="mx-1 btn iconbtn addChapter"><i class="bi bi-plus-circle"></i></button>
+                                    <button class="mx-1 btn iconbtn chapterDelete"><i class="bi bi-trash"></i></button>
+                                </span>
+                            </div>
+                            <div id="unitGroup">
+                                <div class="form-group unit my-2">
+                                    <span class="chapterIcon">拖拉</span>
+                                    <label class="py-1">單元 1</label><input class="chapterInput" type="text" value="">
+                                    <span>
+                                        <button class="mx-1 btn iconbtn addUnit"><i class="bi bi-plus-circle"></i></button>
+                                        <button class="mx-1 btn iconbtn chapterDelete"><i class="bi bi-trash"></i></button>
+                                    </span>
+                                </div>
+                            </div>   
+                            `;
+                            $(this).parent().parent().parent().append(html);
+                            chapterRename();
+                        });//動態增加章節單元元素
+
+                        $("#chapterContainer").on("click", ".addUnit", function (){
+                            let iIndex = $(this).parent().parent().index();
+                            let html =`
+                            <div class="form-group unit my-2">
+                                <span class="chapterIcon">拖拉</span>
+                                <label class="py-1">單元 ${iIndex+2}</label><input class="chapterInput" type="text" value="">
+                                <span>
+                                    <button class="mx-1 btn iconbtn addUnit"><i class="bi bi-plus-circle"></i></button>
+                                    <button class="mx-1 btn iconbtn chapterDelete"><i class="bi bi-trash"></i></button>
+                                </span>
+                            </div>
+                            `;
+                            $(this).parent().parent().after(html);
+                            unitRename();
+                        })//動態增加單元元素
+
+
+                        $(".chapterDelete").click(function () {
+                            alert("chapterDelete");
+                        })
+
+                        function chapterRename() {
+                            $(".chapter").each(function (index, element) {
+                                $(this).children("span").eq(1).html("章節 " + (index + 1))
+                            })
+                        }
+                        function unitRename() {
+                            $("#unitGroup").each(function (index, element) {
+                                $(this).children("div").each(function(index,element){
+                                    $(this).children("label").html("單元 " + (index + 1))
+                                })
+                            })
+                        }
+                    </script>
+					<!-- 章節單元標籤 -->
 					<div>
 						<button type="button" onclick="stepper.previous()">上一步</button>
 						<button type="button" onclick="stepper.next()">下一步</button>
