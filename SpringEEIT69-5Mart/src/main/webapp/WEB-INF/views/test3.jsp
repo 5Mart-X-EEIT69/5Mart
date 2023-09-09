@@ -4,16 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <!-- 響應式的引入 -->
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- 響應式的引入 -->
 
 <title>訪客首頁</title>
-
-<!-- jquery -->
-<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-<!-- jquery -->
 
 <!-- bootstrap -->
 <link rel='stylesheet'
@@ -35,37 +31,22 @@
 <script src="https://kit.fontawesome.com/7ae43304d6.js"
 	crossorigin="anonymous"></script>
 <!-- font awesome的icon庫引入 -->
-
-<!-- CDN引入 -->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
-	crossorigin="anonymous" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<!-- CDN引入 -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 
 <link rel="stylesheet" type="text/css"
-	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+	href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 <link rel="stylesheet" type="text/css"
-	href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+	href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 
 <style type="text/css">
-#paragraphTitle {
-	margin: 13px 0px
-}
-
 #carouselExampleIndicators {
-	margin: 0px 0px 6px
+	margin: 0px 0px 6px;
 }
 
 .btnClass {
 	padding-top: 35px;
 	padding-bottom: 35px;
-	margin: 10px;
 }
 
 .navbar-nav li:hover>ul.dropdown-menu {
@@ -123,23 +104,7 @@
 }
 /* 登入註冊彈跳式視窗調整 */
 </style>
-
 </head>
-
-<script type="text/javascript">
-	window.onload = function() {
-
-		// 輪播圖相關設定
-		var myCarousel = document.querySelector('#carouselExampleIndicators')
-		var carousel = new bootstrap.Carousel(myCarousel, {
-			interval : 4000, // 自動輪播的延遲時間
-			pause : false
-		// 滑鼠碰到圖片時，輪播不會停止;改成"hover"時，輪播會停止
-
-		})
-
-	}
-</script>
 
 <body>
 	<!-- 導覽列 -->
@@ -160,13 +125,13 @@
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item dropdown px-2"><a
 						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-						role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							課程類別 </a>
+						role="button" aria-expanded="false"> 課程類別 </a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<li class="dropdown-submenu"><a
 								class="dropdown-item dropdown-toggle" href="#">語言</a>
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#"><strong>所有語言</strong></a></li>
+									<li><a class="dropdown-item" href="#"><strong>所有語言</strong></a>
+									</li>
 									<li><a class="dropdown-item" href="#">英文</a></li>
 									<li><a class="dropdown-item" href="#">日文</a></li>
 									<li><a class="dropdown-item" href="#">韓文</a></li>
@@ -175,7 +140,8 @@
 							<li class="dropdown-submenu"><a
 								class="dropdown-item dropdown-toggle" href="#">開發</a>
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#"><strong>所有開發</strong></a></li>
+									<li><a class="dropdown-item" href="#"><strong>所有開發</strong></a>
+									</li>
 									<li><a class="dropdown-item" href="#">網頁開發</a></li>
 									<li><a class="dropdown-item" href="#">程式語言</a></li>
 									<li><a class="dropdown-item" href="#">遊戲開發</a></li>
@@ -185,7 +151,8 @@
 							<li class="dropdown-submenu"><a
 								class="dropdown-item dropdown-toggle" href="#">行銷</a>
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#"><strong>所有行銷</strong></a></li>
+									<li><a class="dropdown-item" href="#"><strong>所有行銷</strong></a>
+									</li>
 									<li><a class="dropdown-item" href="#">數位行銷</a></li>
 									<li><a class="dropdown-item" href="#">社群行銷</a></li>
 									<li><a class="dropdown-item" href="#">數據分析</a></li>
@@ -196,7 +163,8 @@
 							<li class="dropdown-submenu"><a
 								class="dropdown-item dropdown-toggle" href="#">投資理財</a>
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#"><strong>所有投資理財</strong></a></li>
+									<li><a class="dropdown-item" href="#"><strong>所有投資理財</strong></a>
+									</li>
 									<li><a class="dropdown-item" href="#">個人理財</a></li>
 									<li><a class="dropdown-item" href="#">投資觀念</a></li>
 									<li><a class="dropdown-item" href="#">財務分析</a></li>
@@ -207,7 +175,8 @@
 							<li class="dropdown-submenu"><a
 								class="dropdown-item dropdown-toggle" href="#">攝影</a>
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#"><strong>所有攝影</strong></a></li>
+									<li><a class="dropdown-item" href="#"><strong>所有攝影</strong></a>
+									</li>
 									<li><a class="dropdown-item" href="#">商業攝影</a></li>
 									<li><a class="dropdown-item" href="#">影像創作</a></li>
 									<li><a class="dropdown-item" href="#">後製剪輯</a></li>
@@ -216,7 +185,8 @@
 							<li class="dropdown-submenu"><a
 								class="dropdown-item dropdown-toggle" href="#">設計</a>
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#"><strong>所有設計</strong></a></li>
+									<li><a class="dropdown-item" href="#"><strong>所有設計</strong></a>
+									</li>
 									<li><a class="dropdown-item" href="#">平面設計</a></li>
 									<li><a class="dropdown-item" href="#">室內設計</a></li>
 									<li><a class="dropdown-item" href="#">建築設計</a></li>
@@ -227,7 +197,8 @@
 							<li class="dropdown-submenu"><a
 								class="dropdown-item dropdown-toggle" href="#">音樂</a>
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#"><strong>所有音樂</strong></a></li>
+									<li><a class="dropdown-item" href="#"><strong>所有音樂</strong></a>
+									</li>
 									<li><a class="dropdown-item" href="#">樂器</a></li>
 									<li><a class="dropdown-item" href="#">音樂軟體</a></li>
 									<li><a class="dropdown-item" href="#">音樂基礎</a></li>
@@ -237,43 +208,42 @@
 							<li class="dropdown-submenu"><a
 								class="dropdown-item dropdown-toggle" href="#">職場技能</a>
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#"><strong>所有職場技能</strong></a></li>
+									<li><a class="dropdown-item" href="#"><strong>所有職場技能</strong></a>
+									</li>
 									<li><a class="dropdown-item" href="#">生產力工具</a></li>
 									<li><a class="dropdown-item" href="#">求職技巧</a></li>
 									<li><a class="dropdown-item" href="#">創業</a></li>
 									<li><a class="dropdown-item" href="#">職場溝通</a></li>
 									<li><a class="dropdown-item" href="#">獨立接案</a></li>
 								</ul></li>
-
 						</ul></li>
-					<!-- 					<li class="nav-item"><a class="nav-link active" -->
-					<!-- 						aria-current="page" href="#">Home</a></li> -->
+					<!-- 							<li class="nav-item"><a class="nav-link active" -->
+					<!-- 								aria-current="page" href="#">Home</a></li> -->
 					<li class="nav-item px-4"><a class="nav-link" href="#">文章</a></li>
 
-
+					<!-- 							<li class="nav-item"><a class="nav-link disabled" href="#" -->
+					<!-- 								tabindex="-1" aria-disabled="true">Disabled</a></li> -->
 					<li class="nav-item px-10">
-						<form class="d-lg-flex d-none nav-item input-group ">
+						<form class="d-lg-flex d-none nav-item input-group">
 							<input class="form-control me-2" type="search" placeholder="搜尋課程"
-								aria-label="Search">
+								aria-label="Search" />
 							<button class="btn btn-outline-success" type="submit">搜尋</button>
 						</form>
 					</li>
 
-					<!-- 												<li class="nav-item"><a class="nav-link" href="#">我的學習</a></li> -->
-					<!-- 												<li class="nav-item"><a class="nav-link" href="#">願望清單</a></li> -->
+					<!-- 							<li class="nav-item"><a class="nav-link" href="#">我的學習</a></li> -->
+					<!-- 							<li class="nav-item"><a class="nav-link" href="#">願望清單</a></li> -->
 				</ul>
 
-
-				<!-- 				登入註冊按鈕 -->
+				<!-- 登入註冊按鈕 -->
 				<button type="button" class="btn btn-outline-success me-2"
 					data-bs-toggle="modal" data-bs-target="#loginModal">登入/註冊</button>
-
 
 				<div class="btn-group d-block">
 					<button type="button"
 						class="btn btn-outline-success dropdown-toggle"
 						data-bs-toggle="dropdown" aria-expanded="false">
-						<span class="material-symbols-outlined "> globe </span>
+						<span class="material-symbols-outlined"> globe </span>
 					</button>
 					<ul class="dropdown-menu dropdown-menu-end">
 						<li><a class="dropdown-item" href="#">英文</a></li>
@@ -284,21 +254,17 @@
 					</ul>
 				</div>
 
-
 				<form class="d-flex d-lg-none nav-item input-group">
 					<input class="form-control me-2" type="search" placeholder="搜尋課程"
-						aria-label="Search">
+						aria-label="Search" />
 					<button class="btn btn-outline-success" type="submit">搜尋</button>
 				</form>
-
-
 			</div>
 		</div>
 	</nav>
 	<!-- 		</div> -->
 	<!-- 	</div> -->
 	<!-- 導覽列 -->
-
 
 	<!-- 登入彈跳式視窗 -->
 	<div class="modal fade" id="loginModal" data-bs-backdrop="static"
@@ -311,15 +277,11 @@
 					<h3 class="modal-title" id="staticBackdropLabel">
 						<strong>登入</strong>
 					</h3>
-					<div class="d-md-flex justify-content-end">
-						<div class="pt-3">
-							<p>尚未註冊？</p>
-						</div>
+					<div class="d-flex align-items-center">
+						<p class="mb-0">尚未註冊？</p>
 						<button type="button" class="btn btn-link" data-bs-toggle="modal"
 							data-bs-target="#signinModal" data-bs-dismiss="modal"
 							style="text-decoration: none">註冊</button>
-
-
 						<button type="button" class="btn-close" data-bs-dismiss="modal"
 							aria-label="Close"></button>
 					</div>
@@ -327,27 +289,25 @@
 
 				<!-- Body -->
 				<div class="modal-body">
-
 					<form action="">
 						<!-- email -->
 						<div class="form-group">
 							<input type="email" class="account form-control"
-								placeholder="電子郵件">
+								placeholder="電子郵件" />
 						</div>
 						<!-- 密碼 -->
 						<div class="form-group">
 							<input type="password" class="password form-control"
-								placeholder="密碼">
+								placeholder="密碼" />
 						</div>
 						<!-- checkbox -->
 						<div class="form-group">
-							<input type="checkbox" class="remember"> 記住我的密碼
+							<input type="checkbox" class="remember" /> 記住我的密碼
 						</div>
 						<!-- 送出按鈕 -->
-						<a role="button" href="<c:url value='/memberHomePage' />"
-							class="btn btn-secondary">登入</a> <a type="button" href="#"
-							class="d-md-flex justify-content-center">忘記密碼</a>
-
+						<a type="button" href="<c:url value='/memberHomePage' />"
+							class="btn btn-secondary" data-bs-dismiss="modal">登入</a> <a
+							type="button" href="#" class="d-md-flex justify-content-center">忘記密碼</a>
 					</form>
 				</div>
 				<!-- Footer -->
@@ -360,11 +320,11 @@
 					</div>
 					<div class="mb-3">
 						<a class="mx-2" type="button" href="#"><i
-							class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i></a>
+							class="fa-brands fa-facebook fa-2xl" style="color: #046ee5"></i></a>
 						<a class="mx-2" type="button" href="#"><i
-							class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i></a> <a
+							class="fa-brands fa-google fa-2xl" style="color: #ea4335"></i></a> <a
 							class="mx-2" type="button" href="#"><i
-							class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i></a>
+							class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f"></i></a>
 					</div>
 				</div>
 			</div>
@@ -383,10 +343,8 @@
 					<h3 class="modal-title" id="staticBackdropLabel">
 						<strong>註冊</strong>
 					</h3>
-					<div class="d-grid gap-2 d-md-flex justify-content-end ">
-						<div class="pt-3">
-							<p>已經擁有帳戶？</p>
-						</div>
+					<div class="d-flex align-items-center">
+						<p class="mb-0">已經擁有帳戶？</p>
 						<button type="button" class="btn btn-link me-2"
 							data-bs-toggle="modal" data-bs-target="#loginModal"
 							data-bs-dismiss="modal" style="text-decoration: none">登入</button>
@@ -399,22 +357,22 @@
 					<form action="">
 						<!-- 姓名 -->
 						<div class="form-group">
-							<input type="text" class="text form-control" placeholder="全名">
+							<input type="text" class="text form-control" placeholder="全名" />
 						</div>
 						<!-- email -->
 						<div class="form-group">
 							<input type="email" class="account form-control"
-								placeholder="電子郵件">
+								placeholder="電子郵件" />
 						</div>
 						<!-- 密碼 -->
 						<div class="form-group">
 							<input type="password" class="password form-control"
-								placeholder="密碼">
+								placeholder="密碼" />
 						</div>
 						<!-- 再次輸入密碼 -->
 						<div class="form-group">
 							<input type="password" class="password form-control"
-								placeholder="再次輸入密碼">
+								placeholder="再次輸入密碼" />
 						</div>
 						<!-- 送出按鈕 -->
 						<button type="button" class="btn btn-secondary mt-3"
@@ -437,11 +395,11 @@
 					</div>
 					<div class="mb-3">
 						<a class="mx-2" type="button" href="#"><i
-							class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i></a>
+							class="fa-brands fa-facebook fa-2xl" style="color: #046ee5"></i></a>
 						<a class="mx-2" type="button" href="#"><i
-							class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i></a> <a
+							class="fa-brands fa-google fa-2xl" style="color: #ea4335"></i></a> <a
 							class="mx-2" type="button" href="#"><i
-							class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i></a>
+							class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f"></i></a>
 					</div>
 				</div>
 			</div>
@@ -449,9 +407,8 @@
 	</div>
 	<!-- 註冊彈跳式視窗 -->
 
-
 	<!-- 輪播圖 -->
-	<div class="container-lg">
+	<div class="container mb-5">
 		<div class="row">
 			<div id="carouselExampleIndicators" class="carousel slide"
 				data-bs-ride="carousel" data-bs-interval="500">
@@ -471,19 +428,19 @@
 					<!-- 輪播圖片的部分 -->
 					<div class="carousel-item active">
 						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖002.jpg"
-							class="d-block w-100" alt="...">
+							class="d-block w-100" alt="..." />
 					</div>
 					<div class="carousel-item">
 						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg"
-							class="d-block w-100" alt="...">
+							class="d-block w-100" alt="..." />
 					</div>
 					<div class="carousel-item">
 						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖010.jpeg"
-							class="d-block w-100" alt="...">
+							class="d-block w-100" alt="..." />
 					</div>
 					<div class="carousel-item">
 						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg"
-							class="d-block w-100" alt="...">
+							class="d-block w-100" alt="..." />
 					</div>
 				</div>
 				<button class="carousel-control-prev" type="button"
@@ -500,40 +457,288 @@
 		</div>
 	</div>
 	<!-- 輪播圖 -->
-
-	<div class="container-fluid justify-content-center" id="paragraphTitle">
+	<!-- 熱門課程區塊(水平滾動) -->
+	<div class="container mb-5" id="paragraphTitle">
 		<div class="row">
-			<div class="col-1"></div>
-			<div class="col-9">
+			<div class="col-10">
 				<h4>
 					<strong>熱門課程</strong>
 				</h4>
 			</div>
-			<div class="col-1">
-				<div>
-					<a href="">更多 ></a>
+			<div class="col-2">
+				<div class="text-end">
+					<a href="link-primary">更多 <i
+						class="bi bi-chevron-compact-right"></i></a>
 				</div>
 			</div>
-			<div class="col-1"></div>
 		</div>
-		<div class="row autoplay">
-			<div class="card" style="width: 18rem">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg"
+
+		<div class="row">
+			<div class="col-12 col-md-3">
+				<div class="card">
+					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg"
+						class="card-img-top" alt="..." />
+					<div class="card-body">
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-3">
+				<div class="card">
+					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
+						class="card-img-top" alt="..." />
+					<div class="card-body">
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-3">
+				<div class="card">
+					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg"
+						class="card-img-top" alt="..." />
+					<div class="card-body">
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-3">
+				<div class="card">
+					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖004.jpeg"
+						class="card-img-top" alt="..." />
+					<div class="card-body">
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 熱門課程區塊(水平滾動) -->
+
+	<!-- 募資課程區塊(水平滾動) -->
+	<div class="container mb-5" id="paragraphTitle">
+		<div class="row">
+			<div class="col-10">
+				<h4 id="paragraphTitle">
+					<strong>募資課程</strong>
+				</h4>
+			</div>
+			<div class="col-2">
+				<div class="text-end">
+					<a href="link-primary">更多 <i
+						class="bi bi-chevron-compact-right"></i></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-12 col-md-3">
+				<div class="card">
+					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg"
+						class="card-img-top" alt="..." />
+					<div class="card-body">
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-3">
+				<div class="card">
+					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
+						class="card-img-top" alt="..." />
+					<div class="card-body">
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-3">
+				<div class="card">
+					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg"
+						class="card-img-top" alt="..." />
+					<div class="card-body">
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-3">
+				<div class="card">
+					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖004.jpeg"
+						class="card-img-top" alt="..." />
+					<div class="card-body">
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 募資課程區塊(水平滾動) -->
+
+	<!-- 熱門類別 -->
+	<div class="container mb-5" id="paragraphTitle">
+		<div class="row">
+			<div class="col-10">
+				<h4 id="paragraphTitle">
+					<strong>熱門類別</strong>
+				</h4>
+			</div>
+			<div class="col-2">
+				<div class="text-end">
+					<a href="link-primary">更多 <i
+						class="bi bi-chevron-compact-right"></i></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-6 col-md-3 mb-3">
+				<button type="button"
+					class="w-100 btn btn-outline-secondary btn-lg btnClass">語言</button>
+			</div>
+			<div class="col-6 col-md-3 mb-3">
+				<button type="button"
+					class="w-100 btn btn-outline-secondary btn-lg btnClass">開發</button>
+			</div>
+			<div class="col-6 col-md-3 mb-3">
+				<button type="button"
+					class="w-100 btn btn-outline-secondary btn-lg btnClass">行銷</button>
+			</div>
+			<div class="col-6 col-md-3 mb-3">
+				<button type="button"
+					class="w-100 btn btn-outline-secondary btn-lg btnClass">投資理財</button>
+			</div>
+			<div class="col-6 col-md-3 mb-3">
+				<button type="button"
+					class="w-100 btn btn-outline-secondary btn-lg btnClass">音樂</button>
+			</div>
+			<div class="col-6 col-md-3 mb-3">
+				<button type="button"
+					class="w-100 btn btn-outline-secondary btn-lg btnClass">攝影</button>
+			</div>
+			<div class="col-6 col-md-3 mb-3">
+				<button type="button"
+					class="w-100 btn btn-outline-secondary btn-lg btnClass">設計</button>
+			</div>
+			<div class="col-6 col-md-3 mb-3">
+				<button type="button"
+					class="w-100 btn btn-outline-secondary btn-lg btnClass">職場技能</button>
+			</div>
+		</div>
+	</div>
+	<!-- 熱門類別 -->
+
+	<!-- 精選文章區塊(水平滾動) -->
+	<div class="container mb-5" id="paragraphTitle">
+		<div class="row">
+			<div class="col-10">
+				<h4 id="paragraphTitle">
+					<strong>精選文章</strong>
+				</h4>
+			</div>
+			<div class="col-2">
+				<div class="text-end">
+					<a href="link-primary">更多 <i
+						class="bi bi-chevron-compact-right"></i></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-12 col-md-3">
+				<div class="card">
+					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg"
+						class="card-img-top" alt="..." />
+					<div class="card-body">
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-3">
+				<div class="card">
+					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
+						class="card-img-top" alt="..." />
+					<div class="card-body">
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-3">
+				<div class="card">
+					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg"
+						class="card-img-top" alt="..." />
+					<div class="card-body">
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-12 col-md-3">
+				<div class="card">
+					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg"
+						class="card-img-top" alt="..." />
+					<div class="card-body">
+						<p class="card-text">Some quick example text to build on the
+							card title and make up the bulk of the card's content.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 精選文章區塊(水平滾動) -->
+
+	<div class="container mb-5">
+		<div class="slick-card">
+			<div class="card">
+				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg"
 					class="card-img-top" alt="..." />
 				<div class="card-body">
 					<p class="card-text">Some quick example text to build on the
 						card title and make up the bulk of the card's content.</p>
 				</div>
 			</div>
-			<div class="card" style="width: 18rem">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖010.jpeg"
+			<div class="card">
+				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
 					class="card-img-top" alt="..." />
 				<div class="card-body">
 					<p class="card-text">Some quick example text to build on the
 						card title and make up the bulk of the card's content.</p>
 				</div>
 			</div>
-			<div class="card" style="width: 18rem">
+			<div class="card">
+				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg"
+					class="card-img-top" alt="..." />
+				<div class="card-body">
+					<p class="card-text">Some quick example text to build on the
+						card title and make up the bulk of the card's content.</p>
+				</div>
+			</div>
+			<div class="card">
+				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖004.jpeg"
+					class="card-img-top" alt="..." />
+				<div class="card-body">
+					<p class="card-text">Some quick example text to build on the
+						card title and make up the bulk of the card's content.</p>
+				</div>
+			</div>
+
+			<div class="card">
+				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
+					class="card-img-top" alt="..." />
+				<div class="card-body">
+					<p class="card-text">Some quick example text to build on the
+						card title and make up the bulk of the card's content.</p>
+				</div>
+			</div>
+
+			<div class="card">
 				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖011.jpeg"
 					class="card-img-top" alt="..." />
 				<div class="card-body">
@@ -541,7 +746,8 @@
 						card title and make up the bulk of the card's content.</p>
 				</div>
 			</div>
-			<div class="card" style="width: 18rem">
+
+			<div class="card">
 				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖012.jpeg"
 					class="card-img-top" alt="..." />
 				<div class="card-body">
@@ -549,8 +755,9 @@
 						card title and make up the bulk of the card's content.</p>
 				</div>
 			</div>
-			<div class="card" style="width: 18rem">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖013.jpeg"
+
+			<div class="card">
+				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖007.jpeg"
 					class="card-img-top" alt="..." />
 				<div class="card-body">
 					<p class="card-text">Some quick example text to build on the
@@ -559,371 +766,84 @@
 			</div>
 		</div>
 	</div>
-	
-	  <div class="container mb-5" id="paragraphTitle">
-            <div class="row">
-                <div class="col-10">
-                    <h4>
-                        <strong>熱門課程</strong>
-                    </h4>
-                </div>
-                <div class="col-2">
-                    <div class="text-end">
-                        <a href="link-primary">更多 <i class="bi bi-chevron-compact-right"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12 col-md-3">
-                    <div class="card">
-                        <img src="./static/assets/images/課程封面圖001.jpeg" class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3">
-                    <div class="card">
-                        <img src=".\static\assets\images\課程封面圖008.jpeg" class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3">
-                    <div class="card">
-                        <img src=".\static\assets\images\課程封面圖003.jpeg" class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3">
-                    <div class="card">
-                        <img src=".\static\assets\images\課程封面圖004.jpeg" class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-	<!-- 熱門課程區塊(水平滾動) -->
-	<div class="container-fluid justify-content-center" id="paragraphTitle">
-		<div class="row">
-			<div class="col-1"></div>
-			<div class="col-9">
-				<h4>
-					<strong>熱門課程</strong>
-				</h4>
-			</div>
-			<div class="col-1">
-				<div>
-					<a href="">更多 ></a>
-				</div>
-			</div>
-			<div class="col-1"></div>
-		</div>
-
-		<div class="row ">
-			<div class="col-1"></div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
-					<img src="<c:url value='/assets/images/課程封面圖001.jpeg'/>"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
-					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
-					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
-					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖004.jpeg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-1"></div>
-		</div>
-	</div>
-	<!-- 熱門課程區塊(水平滾動) -->
-
-	<!-- 募資課程區塊(水平滾動) -->
-	<div class="container-fluid justify-content-center" id="paragraphTitle">
-		<div class="row">
-			<div class="col-1"></div>
-			<div class="col-9">
-				<h4 id="paragraphTitle">
-					<strong>募資課程</strong>
-				</h4>
-			</div>
-			<div class="col-1">
-				<div>
-					<a href="">更多 ></a>
-				</div>
-			</div>
-			<div class="col-1"></div>
-		</div>
-
-		<div class="row ">
-			<div class="col-1"></div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
-					<img src="<c:url value='/assets/images/課程封面圖001.jpeg'/>"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
-					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
-					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
-					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖004.jpeg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-1"></div>
-		</div>
-	</div>
-	<!-- 募資課程區塊(水平滾動) -->
-
-	<!-- 熱門類別 -->
-	<div class="container-fluid justify-content-center" id="paragraphTitle">
-		<div class="row">
-			<div class="col-1"></div>
-			<div class="col-9">
-				<h4 id="paragraphTitle">
-					<strong>熱門類別</strong>
-				</h4>
-			</div>
-			<div class="col-1">
-				<div>
-					<a href="">更多 ></a>
-				</div>
-			</div>
-			<div class="col-1"></div>
-		</div>
-
-		<div class="row">
-			<div class="col-1"></div>
-			<div class="col d-grid gap-2 mx-auto">
-				<button type="button"
-					class="btn btn-outline-secondary btn-lg btnClass">語言</button>
-			</div>
-			<div class="col d-grid gap-2 mx-auto">
-				<button type="button"
-					class="btn btn-outline-secondary btn-lg btnClass">開發</button>
-			</div>
-			<div class="col d-grid gap-2 mx-auto">
-				<button type="button"
-					class="btn btn-outline-secondary btn-lg btnClass">行銷</button>
-			</div>
-			<div class="col d-grid gap-2 mx-auto">
-				<button type="button"
-					class="btn btn-outline-secondary btn-lg btnClass">投資理財</button>
-			</div>
-			<div class="col-2"></div>
-		</div>
-
-		<div class="row">
-			<div class="col-1"></div>
-			<div class="col d-grid gap-2 mx-auto">
-				<button type="button"
-					class="btn btn-outline-secondary btn-lg btnClass">音樂</button>
-			</div>
-			<div class="col d-grid gap-2 mx-auto">
-				<button type="button"
-					class="btn btn-outline-secondary btn-lg btnClass">攝影</button>
-			</div>
-			<div class="col d-grid gap-2 mx-auto">
-				<button type="button"
-					class="btn btn-outline-secondary btn-lg btnClass">設計</button>
-			</div>
-			<div class="col d-grid gap-2 mx-auto">
-				<button type="button"
-					class="btn btn-outline-secondary btn-lg btnClass">職場技能</button>
-			</div>
-			<div class="col-2"></div>
-		</div>
-	</div>
-	<!-- 熱門類別 -->
-
-	<!-- 精選文章區塊(水平滾動) -->
-	<div class="container-fluid justify-content-center" id="paragraphTitle">
-		<div class="row">
-			<div class="col-1"></div>
-			<div class="col-9">
-				<h4 id="paragraphTitle">
-					<strong>精選文章</strong>
-				</h4>
-			</div>
-			<div class="col-1">
-				<div>
-					<a href="">更多 ></a>
-				</div>
-			</div>
-			<div class="col-1"></div>
-		</div>
-
-		<div class="row ">
-			<div class="col-1"></div>
-			<div class="col">
-				<div class="card" style="width: 25rem;">
-					<img src="<c:url value='/assets/images/課程封面圖001.jpeg'/>"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card" style="width: 25rem;">
-					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card" style="width: 25rem;">
-					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-1"></div>
-		</div>
-	</div>
-	<!-- 精選文章區塊(水平滾動) -->
 
 	<!-- 最底部 -->
 	<footer class="bd-footer py-5 mt-5 bg-light">
-		<div class="container py-5 justify-content-center">
-			<div class="row d-flex justify-content-center">
-				<div class="col-3 px-5"></div>
-				<div class="col-3 px-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-6">
 					<i class="fa-solid fa-graduation-cap fa-xl px-2"></i>
 
 					<h4 class="d-inline">5mart</h4>
 				</div>
-				<div class="col-4 px-5">
-					<i class="fa-brands fa-java fa-2xl px-2" style="color: #0b6cb0;"></i>
-					<i class="fa-brands fa-html5 fa-2xl px-2" style="color: #de4b25;"></i>
-					<i class="fa-brands fa-css3-alt fa-2xl px-2"
-						style="color: #254bdd;"></i> <i
-						class="fa-brands fa-js fa-2xl px-2" style="color: #e8d44d;"></i> <i
-						class="fa-brands fa-bootstrap fa-2xl px-2" style="color: #6d10f3;"></i>
-
+				<div class="col-12 col-md-6">
+					<div>
+						<i class="fa-brands fa-java fa-2xl px-2" style="color: #0b6cb0"></i>
+						<i class="fa-brands fa-html5 fa-2xl px-2" style="color: #de4b25"></i>
+						<i class="fa-brands fa-css3-alt fa-2xl px-2"
+							style="color: #254bdd"></i> <i
+							class="fa-brands fa-js fa-2xl px-2" style="color: #e8d44d"></i> <i
+							class="fa-brands fa-bootstrap fa-2xl px-2" style="color: #6d10f3"></i>
+					</div>
 				</div>
 			</div>
-			<hr>
-			<div class="row d-flex justify-content-center">
-				<div class="col-6 col-lg-4 offset-lg-1 mb-3 justify-content-around">
-					<h5>關於</h5>
+			<hr />
+			<div class="row">
+				<div class="col-6 justify-content-around">
+					<h6>關於</h6>
 					<ul class="list-unstyled">
 						<li class="mb-2"><a href="">關於我們</a></li>
-
 					</ul>
 				</div>
-				<div class="col-6 col-lg-4 mb-3 justify-content-around">
-					<h5>幫助</h5>
+				<div class="col-6 justify-content-around">
+					<h6>幫助</h6>
 					<ul class="list-unstyled">
 						<li class="mb-2"><a href="">常見問題</a></li>
 					</ul>
 				</div>
-
-
 			</div>
 		</div>
 	</footer>
 	<!-- 最底部 -->
-
-
-	<!-- CDN引入 -->
-	<!-- 		<script -->
-	<!-- 			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" -->
-	<!-- 			integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" -->
-	<!-- 			crossorigin="anonymous"></script> -->
+	<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"
 		integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ"
 		crossorigin="anonymous"></script>
-	<!-- CDN引入 -->
-	<script type="text/javascript"
-		src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
 	<script type="text/javascript">
-		$(document).ready(function() {
-			$(".autoplay").slick({
-				slidesToShow : 4,
-				slidesToScroll : 1,
-				autoplay : true,
-				autoplaySpeed : 2000,
-				loop : true,
-				accessibility:true
-			});
-		});
+		$(document).ready(
+				function() {
+					// 輪播圖相關設定
+					var myCarousel = document
+							.querySelector("#carouselExampleIndicators");
+					var carousel = new bootstrap.Carousel(myCarousel, {
+						interval : 4000, // 自動輪播的延遲時間
+						pause : false,
+					// 滑鼠碰到圖片時，輪播不會停止;改成"hover"時，輪播會停止
+					});
+
+					$(".slick-card").slick({
+						dots : true,
+						infinite : false,
+						speed : 300,
+						slidesToShow : 4,
+						responsive : [ {
+							breakpoint : 768,
+							settings : {
+								slidesToShow : 1,
+							},
+						}, {
+							breakpoint : 500,
+							settings : {
+								slidesToShow : 2,
+							},
+						}, ],
+					});
+				});
 	</script>
-
-
-
 </body>
 </html>
