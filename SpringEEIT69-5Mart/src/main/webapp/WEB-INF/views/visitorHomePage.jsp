@@ -335,7 +335,7 @@
               <input type="checkbox" class="remember"> 記住我的密碼
             </div>
             <!-- 送出按鈕 -->
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">登入</button>
+            <a type="button" href="<c:url value='/memberHomePage' />" class="btn btn-secondary" data-bs-dismiss="modal">登入</a>
             <a type="button" href="#" class="d-md-flex justify-content-center">忘記密碼</a>
 
           </form>
