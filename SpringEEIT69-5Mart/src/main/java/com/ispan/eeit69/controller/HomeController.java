@@ -24,6 +24,12 @@ public class HomeController {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
 		return "test3";
 	}
+	
+	@GetMapping("/test4")
+	public String test4(Model model) {
+		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		return "test4";
+	}
 
 	@GetMapping("/visitorhomepage")
 	public String visitorhomepage(Model model) {
