@@ -192,7 +192,7 @@
 									</button>
 								</span>
 							</div>
-							<div id="unitGroup">
+							<div class="unitGroup">
 								<div class="form-group unit my-2">
 									<span class="chapterIcon">拖拉</span> <label class="py-1">單元
 										1</label><input class="chapterInput" type="text" value=""> <span>
@@ -219,7 +219,7 @@
                                     <button class="mx-1 btn iconbtn chapterDelete"><i class="bi bi-trash"></i></button>
                                 </span>
                             </div>
-                            <div id="unitGroup">
+                            <div class="unitGroup">
                                 <div class="form-group unit my-2">
                                     <span class="chapterIcon">拖拉</span>
                                     <label class="py-1">單元 1</label><input class="chapterInput" type="text" value="">
@@ -261,9 +261,9 @@
                             })
                         }
                         function unitRename() {
-                            $("#unitGroup").each(function (index, element) {
+                            $(".unitGroup").each(function (index, element) {
                                 $(this).children("div").each(function(index,element){
-                                    $(this).children("label").html("單元 " + (index + 1))
+                                    $(this).children("label").eq(0).html("單元 " + (index + 1))
                                 })
                             })
                         }
