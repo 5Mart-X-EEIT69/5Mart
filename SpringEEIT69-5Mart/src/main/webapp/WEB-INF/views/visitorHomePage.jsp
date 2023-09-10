@@ -48,10 +48,6 @@
 <!-- <!-- CDN引入 -->
 
 <style type="text/css">
-#paragraphTitle {
-	margin: 13px 0px
-}
-
 #carouselExampleIndicators {
 	margin: 0px 0px 6px
 }
@@ -59,7 +55,6 @@
 .btnClass {
 	padding-top: 35px;
 	padding-bottom: 35px;
-	margin: 10px;
 }
 
 .navbar-nav li:hover>ul.dropdown-menu {
@@ -116,6 +111,12 @@
 	margin-top: 10px;
 }
 /* 登入註冊彈跳式視窗調整 */
+
+.globe{
+	padding-bottom: 2px;
+	padding-top: 0.5px;
+}
+
 </style>
 
 </head>
@@ -137,8 +138,6 @@
 
 <body>
 	<!-- 導覽列 -->
-	<!-- 	<div class="container-fluid" style="position: fixed; z-index: 5"> -->
-	<!-- 		<div class="row "> -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
 		<div class="container-fluid">
 			<!-- 品牌logo -->
@@ -258,16 +257,16 @@
 				</ul>
 
 
-				<!-- 				登入註冊按鈕 -->
+				<!-- 登入註冊按鈕 -->
 				<button type="button" class="btn btn-outline-success me-2"
 					data-bs-toggle="modal" data-bs-target="#loginModal">登入/註冊</button>
 
 
 				<div class="btn-group d-block">
 					<button type="button"
-						class="btn btn-outline-success dropdown-toggle"
+						class="btn btn-outline-success dropdown-toggle globe "
 						data-bs-toggle="dropdown" aria-expanded="false">
-						<span class="material-symbols-outlined "> globe </span>
+						<span class="material-symbols-outlined pt-1"> globe </span>
 					</button>
 					<ul class="dropdown-menu dropdown-menu-end">
 						<li><a class="dropdown-item" href="#">英文</a></li>
@@ -289,8 +288,6 @@
 			</div>
 		</div>
 	</nav>
-	<!-- 		</div> -->
-	<!-- 	</div> -->
 	<!-- 導覽列 -->
 
 
@@ -305,13 +302,11 @@
 					<h3 class="modal-title" id="staticBackdropLabel">
 						<strong>登入</strong>
 					</h3>
-					<div class="d-md-flex justify-content-end">
-						<div class="pt-3">
-							<p>尚未註冊？</p>
-						</div>
-						<button type="button" class="btn btn-link" data-bs-toggle="modal"
-							data-bs-target="#signinModal" data-bs-dismiss="modal"
-							style="text-decoration: none">註冊</button>
+					<div class="d-flex align-items-center">
+						<p class="mb-0">尚未註冊？</p>
+						<button type="button" class="btn btn-link me-2"
+							data-bs-toggle="modal" data-bs-target="#signinModal"
+							data-bs-dismiss="modal" style="text-decoration: none">註冊</button>
 
 
 						<button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -377,10 +372,8 @@
 					<h3 class="modal-title" id="staticBackdropLabel">
 						<strong>註冊</strong>
 					</h3>
-					<div class="d-grid gap-2 d-md-flex justify-content-end ">
-						<div class="pt-3">
-							<p>已經擁有帳戶？</p>
-						</div>
+					<div class="d-flex align-items-center">
+						<p class="mb-0">已經擁有帳戶？</p>
 						<button type="button" class="btn btn-link me-2"
 							data-bs-toggle="modal" data-bs-target="#loginModal"
 							data-bs-dismiss="modal" style="text-decoration: none">登入</button>
@@ -445,7 +438,7 @@
 
 
 	<!-- 輪播圖 -->
-	<div class="container-lg">
+	<div class="container mb-5">
 		<div class="row">
 			<div id="carouselExampleIndicators" class="carousel slide"
 				data-bs-ride="carousel" data-bs-interval="500">
@@ -465,19 +458,19 @@
 					<!-- 輪播圖片的部分 -->
 					<div class="carousel-item active">
 						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖002.jpg"
-							class="d-block w-100" alt="...">
+							class="d-block w-100 " alt="...">
 					</div>
 					<div class="carousel-item">
 						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg"
-							class="d-block w-100" alt="...">
+							class="d-block w-100 " alt="...">
 					</div>
 					<div class="carousel-item">
 						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖010.jpeg"
-							class="d-block w-100" alt="...">
+							class="d-block w-100 " alt="...">
 					</div>
 					<div class="carousel-item">
 						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg"
-							class="d-block w-100" alt="...">
+							class="d-block w-100 " alt="...">
 					</div>
 				</div>
 				<button class="carousel-control-prev" type="button"
@@ -495,26 +488,25 @@
 	</div>
 	<!-- 輪播圖 -->
 	<!-- 熱門課程區塊(水平滾動) -->
-	<div class="container-fluid justify-content-center" id="paragraphTitle">
-		<div class="row">
-			<div class="col-1"></div>
-			<div class="col-9">
+	<div class="container mb-5" id="paragraphTitle">
+		<div class="row mb-2">
+			<div class="col-10">
 				<h4>
 					<strong>熱門課程</strong>
 				</h4>
 			</div>
-			<div class="col-1">
-				<div>
-					<a href="">更多 ></a>
+			<div class="col-2">
+				<div class="text-end">
+					<div>
+						<a href="">更多 ></a>
+					</div>
 				</div>
 			</div>
-			<div class="col-1"></div>
 		</div>
 
-		<div class="row ">
-			<div class="col-1"></div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
+		<div class="row">
+			<div class="col-12 col-md-3">
+				<div class="card">
 					<img src="<c:url value='/assets/images/課程封面圖001.jpeg'/>"
 						class="card-img-top" alt="...">
 					<div class="card-body">
@@ -523,8 +515,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
+			<div class="col-12 col-md-3">
+				<div class="card">
 					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
 						class="card-img-top" alt="...">
 					<div class="card-body">
@@ -533,8 +525,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
+			<div class="col-12 col-md-3">
+				<div class="card">
 					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg"
 						class="card-img-top" alt="...">
 					<div class="card-body">
@@ -543,8 +535,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
+			<div class="col-12 col-md-3">
+				<div class="card">
 					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖004.jpeg"
 						class="card-img-top" alt="...">
 					<div class="card-body">
@@ -553,32 +545,30 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-1"></div>
 		</div>
 	</div>
 	<!-- 熱門課程區塊(水平滾動) -->
 
 	<!-- 募資課程區塊(水平滾動) -->
-	<div class="container-fluid justify-content-center" id="paragraphTitle">
-		<div class="row">
-			<div class="col-1"></div>
-			<div class="col-9">
-				<h4 id="paragraphTitle">
+	<div class="container mb-5" id="paragraphTitle">
+		<div class="row mb-2">
+			<div class="col-10">
+				<h4>
 					<strong>募資課程</strong>
 				</h4>
 			</div>
-			<div class="col-1">
-				<div>
-					<a href="">更多 ></a>
+			<div class="col-2">
+				<div class="text-end">
+					<div>
+						<a href="">更多 ></a>
+					</div>
 				</div>
 			</div>
-			<div class="col-1"></div>
 		</div>
 
-		<div class="row ">
-			<div class="col-1"></div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
+		<div class="row">
+			<div class="col-12 col-md-3">
+				<div class="card">
 					<img src="<c:url value='/assets/images/課程封面圖001.jpeg'/>"
 						class="card-img-top" alt="...">
 					<div class="card-body">
@@ -587,8 +577,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
+			<div class="col-12 col-md-3">
+				<div class="card">
 					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
 						class="card-img-top" alt="...">
 					<div class="card-body">
@@ -597,8 +587,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
+			<div class="col-12 col-md-3">
+				<div class="card">
 					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg"
 						class="card-img-top" alt="...">
 					<div class="card-body">
@@ -607,8 +597,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="col">
-				<div class="card" style="width: 18rem;">
+			<div class="col-12 col-md-3">
+				<div class="card">
 					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖004.jpeg"
 						class="card-img-top" alt="...">
 					<div class="card-body">
@@ -617,93 +607,84 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-1"></div>
 		</div>
 	</div>
 	<!-- 募資課程區塊(水平滾動) -->
 
 	<!-- 熱門類別 -->
-	<div class="container-fluid justify-content-center" id="paragraphTitle">
-		<div class="row">
-			<div class="col-1"></div>
-			<div class="col-9">
-				<h4 id="paragraphTitle">
+	<div class="container mb-5" id="paragraphTitle">
+		<div class="row mb-2">
+			<div class="col-10">
+				<h4>
 					<strong>熱門類別</strong>
 				</h4>
 			</div>
-			<div class="col-1">
-				<div>
-					<a href="">更多 ></a>
+			<div class="col-2">
+				<div class="text-end">
+					<div>
+						<a href="">更多 ></a>
+					</div>
 				</div>
 			</div>
-			<div class="col-1"></div>
 		</div>
 
 		<div class="row">
-			<div class="col-1"></div>
-			<div class="col d-grid gap-2 mx-auto">
+			<div class="col-6 col-md-3 mb-3">
 				<button type="button"
-					class="btn btn-outline-secondary btn-lg btnClass">語言</button>
+					class="w-100 btn btn-outline-secondary btn-lg btnClass">語言</button>
 			</div>
-			<div class="col d-grid gap-2 mx-auto">
+			<div class="col-6 col-md-3 mb-3">
 				<button type="button"
-					class="btn btn-outline-secondary btn-lg btnClass">開發</button>
+					class="w-100 btn btn-outline-secondary btn-lg btnClass">開發</button>
 			</div>
-			<div class="col d-grid gap-2 mx-auto">
+			<div class="col-6 col-md-3 mb-3">
 				<button type="button"
-					class="btn btn-outline-secondary btn-lg btnClass">行銷</button>
+					class="w-100 btn btn-outline-secondary btn-lg btnClass">行銷</button>
 			</div>
-			<div class="col d-grid gap-2 mx-auto">
+			<div class="col-6 col-md-3 mb-3">
 				<button type="button"
-					class="btn btn-outline-secondary btn-lg btnClass">投資理財</button>
+					class="w-100 btn btn-outline-secondary btn-lg btnClass">投資理財</button>
 			</div>
-			<div class="col-2"></div>
-		</div>
-
-		<div class="row">
-			<div class="col-1"></div>
-			<div class="col d-grid gap-2 mx-auto">
+			<div class="col-6 col-md-3 mb-3">
 				<button type="button"
-					class="btn btn-outline-secondary btn-lg btnClass">音樂</button>
+					class="w-100 btn btn-outline-secondary btn-lg btnClass">音樂</button>
 			</div>
-			<div class="col d-grid gap-2 mx-auto">
+			<div class="col-6 col-md-3 mb-3">
 				<button type="button"
-					class="btn btn-outline-secondary btn-lg btnClass">攝影</button>
+					class="w-100 btn btn-outline-secondary btn-lg btnClass">攝影</button>
 			</div>
-			<div class="col d-grid gap-2 mx-auto">
+			<div class="col-6 col-md-3 mb-3">
 				<button type="button"
-					class="btn btn-outline-secondary btn-lg btnClass">設計</button>
+					class="w-100 btn btn-outline-secondary btn-lg btnClass">設計</button>
 			</div>
-			<div class="col d-grid gap-2 mx-auto">
+			<div class="col-6 col-md-3 mb-3">
 				<button type="button"
-					class="btn btn-outline-secondary btn-lg btnClass">職場技能</button>
+					class="w-100 btn btn-outline-secondary btn-lg btnClass">職場技能</button>
 			</div>
-			<div class="col-2"></div>
 		</div>
 	</div>
 	<!-- 熱門類別 -->
 
 	<!-- 精選文章區塊(水平滾動) -->
-	<div class="container-fluid justify-content-center" id="paragraphTitle">
-		<div class="row">
-			<div class="col-1"></div>
-			<div class="col-9">
-				<h4 id="paragraphTitle">
+	<div class="container mb-5" id="paragraphTitle">
+		<div class="row mb-2">
+			<div class="col-10">
+				<h4>
 					<strong>精選文章</strong>
 				</h4>
 			</div>
-			<div class="col-1">
-				<div>
-					<a href="">更多 ></a>
+			<div class="col-2">
+				<div class="text-end">
+					<div>
+						<a href="">更多 ></a>
+					</div>
 				</div>
 			</div>
-			<div class="col-1"></div>
 		</div>
 
-		<div class="row ">
-			<div class="col-1"></div>
-			<div class="col">
-				<div class="card" style="width: 25rem;">
+		<div class="row">
+			<div class="col-12 col-md-4">
+				<div class="card">
 					<img src="<c:url value='/assets/images/課程封面圖001.jpeg'/>"
 						class="card-img-top" alt="...">
 					<div class="card-body">
@@ -712,8 +693,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="col">
-				<div class="card" style="width: 25rem;">
+			<div class="col-12 col-md-4">
+				<div class="card">
 					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
 						class="card-img-top" alt="...">
 					<div class="card-body">
@@ -722,8 +703,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="col">
-				<div class="card" style="width: 25rem;">
+			<div class="col-12 col-md-4">
+				<div class="card">
 					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg"
 						class="card-img-top" alt="...">
 					<div class="card-body">
@@ -732,49 +713,34 @@
 					</div>
 				</div>
 			</div>
-
-			<div class="col-1"></div>
 		</div>
 	</div>
 	<!-- 精選文章區塊(水平滾動) -->
 
 	<!-- 最底部 -->
 	<footer class="bd-footer py-5 mt-5 bg-light">
-		<div class="container py-5 justify-content-center">
-			<div class="row d-flex justify-content-center">
-				<div class="col-3 px-5"></div>
-				<div class="col-3 px-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 d-flex justify-content-center align-items-center">
 					<i class="fa-solid fa-graduation-cap fa-xl px-2"></i>
 
-					<h4 class="d-inline">5mart</h4>
+					<h4 class="d-inline mb-0">5mart</h4>
 				</div>
-				<div class="col-4 px-5">
-					<i class="fa-brands fa-java fa-2xl px-2" style="color: #0b6cb0;"></i>
-					<i class="fa-brands fa-html5 fa-2xl px-2" style="color: #de4b25;"></i>
-					<i class="fa-brands fa-css3-alt fa-2xl px-2"
-						style="color: #254bdd;"></i> <i
-						class="fa-brands fa-js fa-2xl px-2" style="color: #e8d44d;"></i> <i
-						class="fa-brands fa-bootstrap fa-2xl px-2" style="color: #6d10f3;"></i>
-
-				</div>
+				
 			</div>
 			<hr>
-			<div class="row d-flex justify-content-center">
-				<div class="col-6 col-lg-4 offset-lg-1 mb-3 justify-content-around">
-					<h5>關於</h5>
-					<ul class="list-unstyled">
-						<li class="mb-2"><a href="">關於我們</a></li>
-
-					</ul>
+			<div class="row">
+				<div class="col-12 d-flex justify-content-center align-items-center mt-2">
+					<div>
+						<i class="fa-brands fa-java fa-2xl px-2" style="color: #0b6cb0;"></i>
+						<i class="fa-brands fa-html5 fa-2xl px-2" style="color: #de4b25;"></i>
+						<i class="fa-brands fa-css3-alt fa-2xl px-2"
+							style="color: #254bdd;"></i> <i
+							class="fa-brands fa-js fa-2xl px-2" style="color: #e8d44d;"></i>
+						<i class="fa-brands fa-bootstrap fa-2xl px-2"
+							style="color: #6d10f3;"></i>
+					</div>
 				</div>
-				<div class="col-6 col-lg-4 mb-3 justify-content-around">
-					<h5>幫助</h5>
-					<ul class="list-unstyled">
-						<li class="mb-2"><a href="">常見問題</a></li>
-					</ul>
-				</div>
-
-
 			</div>
 		</div>
 	</footer>
