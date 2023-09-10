@@ -283,8 +283,8 @@
 
 
 					<div class="row">
-						<div class="col-5"></div>
-						<div class="col-2" style="font-size: 13px">篩選評等</div>
+						<div class="col-6"></div>
+						<div class="col-3" style="font-size: 13px">篩選評等</div>
 					</div>
 
 					<br>
