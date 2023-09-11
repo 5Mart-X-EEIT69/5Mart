@@ -640,7 +640,7 @@
 								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
 									$2,000</p>
 							</div>
-							<div class="col text-center">
+							<div class="col text-end">
 								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
 
 							</div>
@@ -676,7 +676,7 @@
 								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
 									$2,000</p>
 							</div>
-							<div class="col text-center">
+							<div class="col text-end">
 								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
 
 							</div>
@@ -712,7 +712,7 @@
 								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
 									$2,000</p>
 							</div>
-							<div class="col text-center">
+							<div class="col text-end">
 								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
 
 							</div>
@@ -748,7 +748,7 @@
 								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
 									$2,000</p>
 							</div>
-							<div class="col text-center">
+							<div class="col text-end">
 								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
 
 							</div>
