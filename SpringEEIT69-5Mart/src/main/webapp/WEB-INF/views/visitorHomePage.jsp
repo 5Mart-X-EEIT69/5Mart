@@ -966,8 +966,6 @@
 	</div>
 	<!-- 精選文章區塊(水平滾動) -->
 
-
-
 	<!-- 最底部 -->
 	<footer class="bd-footer py-5 mt-5 bg-light">
 		<div class="container">
