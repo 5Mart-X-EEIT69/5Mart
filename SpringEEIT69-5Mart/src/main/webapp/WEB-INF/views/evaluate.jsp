@@ -346,6 +346,10 @@
 
 			</div>
 		</div>
+		<div class="d-grid gap-2 col-4 mx-auto">
+			<button class="btn btn-outline-secondary" type="button">查看更多評論</button>
+
+		</div>
 	</div>
 </body>
 </html>
