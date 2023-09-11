@@ -198,48 +198,48 @@
 							</div>
 						</div>
 					</div>
+				</div>
 
 
 
-
-					<p>
-					<div class="row">
-						<div class="col">
-							<button type="button" class="btn btn-outline-secondary"
-								data-bs-toggle="modal" data-bs-target="#reviewModal">撰寫評論</button>
-						</div>
+				<p>
+				<div class="row">
+					<div class="col">
+						<button type="button" class="btn btn-outline-secondary"
+							data-bs-toggle="modal" data-bs-target="#reviewModal">撰寫評論</button>
 					</div>
+				</div>
 
-					<!-- 评价模态框 -->
-					<div class="modal fade" id="reviewModal" tabindex="-1"
-						aria-labelledby="reviewModalLabel" aria-hidden="true">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title" id="reviewModalLabel">評論</h5>
-									<button type="button" class="btn-close" data-bs-dismiss="modal"
-										aria-label="Close"></button>
+				<!-- 评价模态框 -->
+				<div class="modal fade" id="reviewModal" tabindex="-1"
+					aria-labelledby="reviewModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="reviewModalLabel">評論</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<!-- 在这里添加评价表单或内容 -->
+
+								星等： <br>
+
+								<div class="rating">
+									<input type="radio" name="star" id="star1" /><label
+										for="star1">&#9733;</label> <input type="radio" name="star"
+										id="star2" /><label for="star2">&#9733;</label> <input
+										type="radio" name="star" id="star3" /><label for="star3">&#9733;</label>
+									<input type="radio" name="star" id="star4" /><label
+										for="star4">&#9733;</label> <input type="radio" name="star"
+										id="star5" /><label for="star5">&#9733;</label>
 								</div>
-								<div class="modal-body">
-									<!-- 在这里添加评价表单或内容 -->
-
-									星等： <br>
-
-									<div class="rating">
-										<input type="radio" name="star" id="star1" /><label
-											for="star1">&#9733;</label> <input type="radio" name="star"
-											id="star2" /><label for="star2">&#9733;</label> <input
-											type="radio" name="star" id="star3" /><label for="star3">&#9733;</label>
-										<input type="radio" name="star" id="star4" /><label
-											for="star4">&#9733;</label> <input type="radio" name="star"
-											id="star5" /><label for="star5">&#9733;</label>
-									</div>
-									<div class="rating-text">太棒了</div>
-									<div class="rating-text">不錯</div>
-									<div class="rating-text">一般</div>
-									<div class="rating-text">差</div>
-									<div class="rating-text">很糟</div>
-									<script>
+								<div class="rating-text">太棒了</div>
+								<div class="rating-text">不錯</div>
+								<div class="rating-text">一般</div>
+								<div class="rating-text">差</div>
+								<div class="rating-text">很糟</div>
+								<script>
                 const ratingInputs = document.querySelectorAll('.rating input');
                 const ratingTexts = document.querySelectorAll('.rating-text');
 
@@ -255,98 +255,97 @@
                   });
                 });
               </script>
-									<div class="mb-3">
-										<label for="exampleFormControlTextarea1" class="form-label">說明：</label>
-										<textarea class="form-control"
-											id="exampleFormControlTextarea1" rows="3"
-											placeholder="請告訴我們您在這門課上的個人體驗。他適合您嗎？"></textarea>
-									</div>
+								<div class="mb-3">
+									<label for="exampleFormControlTextarea1" class="form-label">說明：</label>
+									<textarea class="form-control" id="exampleFormControlTextarea1"
+										rows="3" placeholder="請告訴我們您在這門課上的個人體驗。他適合您嗎？"></textarea>
 								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-										data-bs-dismiss="modal">關閉</button>
-									<button type="button" class="btn btn-dark">提交評價</button>
-								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-bs-dismiss="modal">關閉</button>
+								<button type="button" class="btn btn-dark">提交評價</button>
 							</div>
 						</div>
 					</div>
-					</p>
+				</div>
+				</p>
 
+
+				<p>
+				<div class="row">
+					<div class="col" style="font-weight: bold;">
+						<h3>評論</h3>
+					</div>
+				</div>
+				</p>
+
+
+				<div class="row">
+					<div class="col-6"></div>
+					<div class="col-3" style="font-size: 13px">篩選評等</div>
+				</div>
+
+				<br>
+
+				<div class="row">
+					<div class="col-6">
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" placeholder="搜尋評論"
+								aria-label="Recipient's username"
+								aria-describedby="button-addon2">
+							<button class="btn btn-outline-secondary" type="button"
+								id="button-addon2">
+								<i class="bi bi-search-heart"></i> Search
+							</button>
+						</div>
+					</div>
+					<div class="col-2">
+						<select class="form-select narrow-select"
+							aria-label="Default select example">
+							<option selected>所有評等</option>
+							<option value="1">五星</option>
+							<option value="2">四星</option>
+							<option value="3">三星</option>
+							<option value="4">二星</option>
+							<option value="5">一星</option>
+						</select>
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col-1">
+						<img src="/SpringEEIT69-5Mart/assets/images/評論人頭照.jpeg" alt="xxxx"
+							style="max-width: 80px; max-height: 80px;">
+					</div>
+					<div class="col-6">
+						<div>Nikita S.</div>
+
+						<div>
+							<img src="/SpringEEIT69-5Mart/assets/images/4star.png" alt="xxxx"
+								style="max-width: 80px; max-height: 80px;">
+						</div>
+						<div>This is amazing! The only instructor I understand in
+							teaching Spring is Chad! The best thing of this lessons are
+							they're keep getting updated and have staffs to answer and
+							support you with your questions. Thank you so much I learned a
+							lot! I hope your courses will also be available in LinkedIn
+							Learning.</div>
+
+
+					</div>
 
 					<p>
-					<div class="row">
-						<div class="col" style="font-weight: bold;">
-							<h3>評論</h3>
-						</div>
-					</div>
+					<hr style="width: 59%;">
 					</p>
-
-
-					<div class="row">
-						<div class="col-6"></div>
-						<div class="col-3" style="font-size: 13px">篩選評等</div>
-					</div>
-
-					<br>
-
-					<div class="row">
-						<div class="col-6">
-							<div class="input-group mb-3">
-								<input type="text" class="form-control" placeholder="搜尋評論"
-									aria-label="Recipient's username"
-									aria-describedby="button-addon2">
-								<button class="btn btn-outline-secondary" type="button"
-									id="button-addon2">
-									<i class="bi bi-search-heart"></i> Search
-								</button>
-							</div>
-						</div>
-						<div class="col-2">
-							<select class="form-select narrow-select"
-								aria-label="Default select example">
-								<option selected>所有評等</option>
-								<option value="1">五星</option>
-								<option value="2">四星</option>
-								<option value="3">三星</option>
-								<option value="4">二星</option>
-								<option value="5">一星</option>
-							</select>
-						</div>
-					</div>
-
-
-					<div class="row">
-						<div class="col-1">
-							<img src="/SpringEEIT69-5Mart/assets/images/評論人頭照.jpeg"
-								alt="xxxx" style="max-width: 80px; max-height: 80px;">
-						</div>
-						<div class="col-6">
-							<div>Nikita S.</div>
-
-							<div>
-								<img src="/SpringEEIT69-5Mart/assets/images/4star.png"
-									alt="xxxx" style="max-width: 80px; max-height: 80px;">
-							</div>
-							<div>This is amazing! The only instructor I understand in
-								teaching Spring is Chad! The best thing of this lessons are
-								they're keep getting updated and have staffs to answer and
-								support you with your questions. Thank you so much I learned a
-								lot! I hope your courses will also be available in LinkedIn
-								Learning.</div>
-
-
-						</div>
-
-						<p>
-						<hr style="width: 59%;">
-						</p>
-
-
-					</div>
 
 
 				</div>
+
+
 			</div>
 		</div>
+	</div>
 </body>
 </html>
