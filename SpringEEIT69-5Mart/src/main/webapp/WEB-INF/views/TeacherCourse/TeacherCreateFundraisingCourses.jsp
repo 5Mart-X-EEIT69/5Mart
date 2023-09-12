@@ -313,9 +313,11 @@
                                     let chapterAndUnitNameVlaue = {};
                                     chapterAndUnitNameVlaue[`chapter${index + 1}`] = $(this).val();
                                     $(this).closest('.chapter').next('.unitGroup').children().children(".unitName").each(function(index,element){
-                                        chapterAndUnitNameVlaue[`unit${index + 1}`] = $(this).val();
+                                    	console.log(index);
+                                        chapterAndUnitNameVlaue["unit"+(index+1)] = $(this).val();                                        
                                     })
                                     allNameValue.push(chapterAndUnitNameVlaue);
+                                    
                                 });
                                 console.log(allNameValue)//章節單元的陣列
                                 console.log(allNameValue[0].chapter1)//章節單元的陣列
