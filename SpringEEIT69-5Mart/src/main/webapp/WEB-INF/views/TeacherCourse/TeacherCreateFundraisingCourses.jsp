@@ -37,6 +37,14 @@
 	display: flex;
 }
 
+.chapterVideo {
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	border-radius: var(--bs-border-radius);
+	padding: 0.375rem 0.75rem;
+	color: rgb(155, 155, 155);
+	display: flex;
+}
+
 .chapterInput {
 	flex: 1 1 0%;
 	border: transparent;
@@ -60,8 +68,24 @@
 	margin-left: 50px;
 }
 
+.unitVideo {
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	border-radius: var(--bs-border-radius);
+	padding: 0.375rem 0.75rem;
+	color: rgb(155, 155, 155);
+	display: flex;
+	margin-left: 50px;
+}
+
 .iconbtn {
 	padding: 3px 0px 0px 0px;
+}
+
+.videobtn {
+	border: transparent;
+	background: transparent;
+	width: 230px;
+	padding: 0.2rem 0.75rem;
 }
 </style>
 </head>
@@ -82,38 +106,43 @@
 					5mart</span>
 			</a>
 			<hr>
-			<ul class="nav nav-pills flex-column mb-auto">			
-				<li class="nav-item pb-2"><a href="<c:url value="/TeacherMain"></c:url>"
-					class="nav-link active" aria-current="page"> <span
-						style="font-size: 32px;"><i class="bi bi-display"></i> 課程</span>
+			<ul class="nav nav-pills flex-column mb-auto">
+				<li class="nav-item pb-2"><a
+					href="<c:url value="/TeacherMain"></c:url>" class="nav-link active"
+					aria-current="page"> <span style="font-size: 32px;"><i
+							class="bi bi-display"></i> 課程</span>
 				</a></li>
 
-				<li class="nav-item"><a href="<c:url value="/TeacherCreate"></c:url>"
+				<li class="nav-item"><a
+					href="<c:url value="/TeacherCreate"></c:url>"
 					class="nav-link link-dark" aria-current="page"> <span
 						style="font-size: 24px;">- 建立課程</span>
 				</a></li>
-				<li class="pe-5"><a href="<c:url value="/TeacherCreateFundraisingCourses"></c:url>"
+				<li class="pe-5"><a
+					href="<c:url value="/TeacherCreateFundraisingCourses"></c:url>"
 					class="nav-link active"> <span style="font-size: 24px;">-
 							建立募資課程</span>
 				</a></li>
-				<li><a href="<c:url value="/TeacherCreateArticle"></c:url>" class="nav-link link-dark">
-						<span style="font-size: 24px;">- 建立文章</span>
+				<li><a href="<c:url value="/TeacherCreateArticle"></c:url>"
+					class="nav-link link-dark"> <span style="font-size: 24px;">-
+							建立文章</span>
 				</a></li>
-				<li><a href="<c:url value="/TeacherCourseList"></c:url>" class="nav-link link-dark">
-						<span style="font-size: 24px;">- 已開課內容 </span>
+				<li><a href="<c:url value="/TeacherCourseList"></c:url>"
+					class="nav-link link-dark"> <span style="font-size: 24px;">-
+							已開課內容 </span>
 				</a></li>
 
-				<li><a href="<c:url value="/TeacherComminicate"></c:url>" class="nav-link link-dark">
-						<span style="font-size: 32px;"><i class="bi bi-chat-left"
-							style="font-size: 32px;"></i> 學生交流</span>
+				<li><a href="<c:url value="/TeacherComminicate"></c:url>"
+					class="nav-link link-dark"> <span style="font-size: 32px;"><i
+							class="bi bi-chat-left" style="font-size: 32px;"></i> 學生交流</span>
 				</a></li>
-				<li><a href="<c:url value="/TeacherDashboard"></c:url>" class="nav-link link-dark">
-						<span style="font-size: 32px;"><i class="bi bi-graph-up"></i>
-							儀表板</span>
+				<li><a href="<c:url value="/TeacherDashboard"></c:url>"
+					class="nav-link link-dark"> <span style="font-size: 32px;"><i
+							class="bi bi-graph-up"></i> 儀表板</span>
 				</a></li>
-				<li><a href="<c:url value="/TeacherInformation"></c:url>" class="nav-link link-dark">
-						<span style="font-size: 32px;"><i class="bi bi-award-fill"></i>
-							講師個人資料 </span>
+				<li><a href="<c:url value="/TeacherInformation"></c:url>"
+					class="nav-link link-dark"> <span style="font-size: 32px;"><i
+							class="bi bi-award-fill"></i> 講師個人資料 </span>
 				</a></li>
 			</ul>
 			<hr>
@@ -172,8 +201,9 @@
 					<div class="form-group">
 						<label>售價</label> <input class="form-control" />
 					</div>
-					<div class="pt-3">
-						<button type="button" onclick="stepper.next()">下一步</button>
+					<div class="pt-3 d-flex justify-content-center">
+						<button class="btn btn-secondary" type="button"
+							onclick="stepper.next()">下一步</button>
 					</div>
 				</div>
 				<div id="step2" class="content" role="tabpanel"
@@ -183,7 +213,8 @@
 						<div>
 							<div class="form-group chapter my-2">
 								<span class="chapterIcon">拖拉</span> <span class="py-1">章節
-									1</span><input class="chapterInput" type="text" value=""> <span>
+									1</span><input class="chapterInput chapterName" type="text" value="">
+								<span>
 									<button class="mx-1 btn iconbtn addChapter">
 										<i class="bi bi-plus-circle"></i>
 									</button>
@@ -195,7 +226,8 @@
 							<div class="unitGroup">
 								<div class="form-group unit my-2">
 									<span class="chapterIcon">拖拉</span> <label class="py-1">單元
-										1</label><input class="chapterInput" type="text" value=""> <span>
+										1</label><input class="chapterInput unitName" type="text" value="">
+									<span>
 										<button class="mx-1 btn iconbtn addUnit">
 											<i class="bi bi-plus-circle"></i>
 										</button>
@@ -206,14 +238,21 @@
 								</div>
 							</div>
 						</div>
+						<div class="pt-2 d-flex justify-content-center">
+							<button class="mx-1 btn btn-secondary" type="button"
+								onclick="stepper.previous()">上一步</button>
+							<button id="step2btn" class="mx-1 btn btn-secondary"
+								type="button" onclick="stepper.next()">下一步</button>
+						</div>
 					</div>
 					<script>
-                        $("#chapterContainer").on("click", ".addChapter", function () {
-                            let iIndex = $(this).parent().parent().parent().index();
-                            let html = `
+                        window.onload = function () {
+                            $("#chapterContainer").on("click", ".addChapter", function () {
+                                let iIndex = $(this).parent().parent().parent().index();
+                                let html = `
                             <div class="form-group chapter my-2">
                                 <span class="chapterIcon">拖拉</span>
-                                <span class="py-1">章節 1</span><input class="chapterInput" type="text" value="">
+                                <span class="py-1">章節 1</span><input class="chapterInput chapterName" type="text" value="">
                                 <span>
                                     <button class="mx-1 btn iconbtn addChapter"><i class="bi bi-plus-circle"></i></button>
                                     <button class="mx-1 btn iconbtn chapterDelete"><i class="bi bi-trash"></i></button>
@@ -222,7 +261,7 @@
                             <div class="unitGroup">
                                 <div class="form-group unit my-2">
                                     <span class="chapterIcon">拖拉</span>
-                                    <label class="py-1">單元 1</label><input class="chapterInput" type="text" value="">
+                                    <label class="py-1">單元 1</label><input class="chapterInput unitName" type="text" value="">
                                     <span>
                                         <button class="mx-1 btn iconbtn addUnit"><i class="bi bi-plus-circle"></i></button>
                                         <button class="mx-1 btn iconbtn chapterDelete"><i class="bi bi-trash"></i></button>
@@ -230,65 +269,89 @@
                                 </div>
                             </div>   
                             `;
-                            $(this).parent().parent().parent().append(html);
-                            chapterRename();
-                        });//動態增加章節單元元素
+                                $(this).parent().parent().parent().append(html);
+                                chapterRename();
+                            });//動態增加章節單元元素
 
-                        $("#chapterContainer").on("click", ".addUnit", function (){
-                            let iIndex = $(this).parent().parent().index();
-                            let html =`
+                            $("#chapterContainer").on("click", ".addUnit", function () {
+                                let iIndex = $(this).parent().parent().index();
+                                let html = `
                             <div class="form-group unit my-2">
                                 <span class="chapterIcon">拖拉</span>
-                                <label class="py-1">單元 ${iIndex+2}</label><input class="chapterInput" type="text" value="">
+                                <label class="py-1">單元 ${iIndex + 2}</label><input class="chapterInput unitName" type="text" value="">
                                 <span>
                                     <button class="mx-1 btn iconbtn addUnit"><i class="bi bi-plus-circle"></i></button>
                                     <button class="mx-1 btn iconbtn chapterDelete"><i class="bi bi-trash"></i></button>
                                 </span>
                             </div>
                             `;
-                            $(this).parent().parent().after(html);
-                            unitRename();
-                        })//動態增加單元元素
+                                $(this).parent().parent().after(html);
+                                unitRename();
+                            })//動態增加單元元素
 
 
-                        $(".chapterDelete").click(function () {
-                            alert("chapterDelete");
-                        })
-
-                        function chapterRename() {
-                            $(".chapter").each(function (index, element) {
-                                $(this).children("span").eq(1).html("章節 " + (index + 1))
+                            $(".chapterDelete").click(function () {
+                                alert("chapterDelete");
                             })
-                        }
-                        function unitRename() {
-                            $(".unitGroup").each(function (index, element) {
-                                $(this).children("div").each(function(index,element){
-                                    $(this).children("label").eq(0).html("單元 " + (index + 1))
+
+                            function chapterRename() {
+                                $(".chapter").each(function (index, element) {
+                                    $(this).children("span").eq(1).html("章節 " + (index + 1))
                                 })
+                            }
+                            function unitRename() {
+                                $(".unitGroup").each(function (index, element) {
+                                    $(this).children("div").each(function (index, element) {
+                                        $(this).children("label").eq(0).html("單元 " + (index + 1))
+                                    })
+                                })
+                            }
+
+                            $('#chapterContainer').on("click", "#step2btn", function () {
+                                let allNameValue = [];
+                                $(".chapterName").each(function (index, element) {
+                                    let chapterAndUnitNameVlaue = {};
+                                    chapterAndUnitNameVlaue[`chapter${index + 1}`] = $(this).val();
+                                    $(this).closest('.chapter').next('.unitGroup').children().children(".unitName").each(function(index,element){
+                                        chapterAndUnitNameVlaue[`unit${index + 1}`] = $(this).val();
+                                    })
+                                    allNameValue.push(chapterAndUnitNameVlaue);
+                                });
+                                console.log(allNameValue)//章節單元的陣列
+                                console.log(allNameValue[0].chapter1)//章節單元的陣列
                             })
+
+
                         }
 
                     </script>
 					<!-- 章節單元標籤 -->
-					<div>
-						<button class="btn btn-secondary" type="button"
-							onclick="stepper.previous()">上一步</button>
-						<button class="btn btn-secondary" type="button"
-							onclick="stepper.next()">下一步</button>
-					</div>
 				</div>
 				<div id="step3" class="content" role="tabpanel"
 					aria-labelledby="step3-trigger">
-					<div class="form-group">
-						<label>姓名</label> <input class="form-control" />
+
+					<div id="chapterVideoContainer">
+						<div>
+							<div class="form-group chapterVideo my-2">
+								<span class="chapterIcon">拖拉</span> <span class="py-1">章節
+									1</span><label class="py-1 chapterInput">字元字元字元字元字元字元字元字元</label>
+							</div>
+							<div class="unitGroup">
+								<div class="form-group unitVideo my-2">
+									<span class="chapterIcon">拖拉</span> <label class="py-1">單元
+										1</label><label class="pe-3 py-1 chapterInput">字元字元字元字元字元</label> <input
+										class="form-control videobtn" type="file" />
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="form-group">
-						<label>手機號碼</label> <input class="form-control" />
+					<div class="pt-2 d-flex justify-content-center">
+						<button class="mx-1 btn btn-secondary" type="button"
+							onclick="stepper.previous()">上一步</button>
+						<button class="mx-1 btn btn-secondary" type="button"
+							onclick="stepper.next()">下一步</button>
 					</div>
-					<div>
-						<button type="button" onclick="stepper.previous()">上一步</button>
-						<button type="button" onclick="stepper.next()">下一步</button>
-					</div>
+
 				</div>
 				<div id="step4" class="content" role="tabpanel"
 					aria-labelledby="step4-trigger">
