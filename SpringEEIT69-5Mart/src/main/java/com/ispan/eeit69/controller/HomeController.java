@@ -30,8 +30,8 @@ public class HomeController {
 		return "TeacherMain";
 	}
 	
-	@GetMapping("/test")
-	public String test(Model model) {	
-		return "test";
+	@GetMapping("courseDetail")
+	public String courseDetail(Model model) {	
+		return "courseDetail";
 	}
 }
