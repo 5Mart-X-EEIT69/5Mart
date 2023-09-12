@@ -25,13 +25,101 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bs-stepper/dist/js/bs-stepper.min.js"></script>
 <!-- stepper -->
-</head>
-<script type="text/javascript">
-	window.onload()
-	{
+<style>
+.chapter {
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	border-radius: var(--bs-border-radius);
+	padding: 0.375rem 0.75rem;
+	color: rgb(155, 155, 155);
+	display: flex;
+}
 
+.chapterVideo {
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	border-radius: var(--bs-border-radius);
+	padding: 0.375rem 0.75rem;
+	color: rgb(155, 155, 155);
+	display: flex;
+}
+
+.chapterInput {
+	flex: 1 1 0%;
+	border: transparent;
+	background: transparent;
+	margin-left: 10px;
+	outline: none;
+}
+
+.chapterIcon {
+	transform: translateX(-130%);
+	padding: 4px 10px;
+	position: absolute;
+}
+
+.unit {
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	border-radius: var(--bs-border-radius);
+	padding: 0.375rem 0.75rem;
+	color: rgb(155, 155, 155);
+	display: flex;
+	margin-left: 50px;
+}
+
+.unitVideo {
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	border-radius: var(--bs-border-radius);
+	padding: 0.375rem 0.75rem;
+	color: rgb(155, 155, 155);
+	display: flex;
+	margin-left: 50px;
+}
+
+.iconbtn {
+	padding: 3px 0px 0px 0px;
+}
+
+.videobtn {
+	border: transparent;
+	background: transparent;
+	width: 230px;
+	padding: 0.2rem 0.75rem;
+}
+</style>
+</head>
+<!-- 
+<script>
+	var stepperElem = document.querySelector('.bs-stepper');
+	var stepper = new Stepper(stepperElem);
+	var done = false;
+	var currStep = 1;
+	history.pushState(currStep, '');
+	//切換到步驟前觸發，呼叫e.preventDefault()可阻止切換
+	stepperElem.addEventListener("show.bs-stepper", function(e) {
+		if (done) { //若程序完成，不再切換
+			e.preventDefault();
+			return;
+		}
+	});
+	//切換到步驟後觸發，e.detail.indexStep為目前步驟序號(從0開始)
+	stepperElem.addEventListener("shown.bs-stepper", function(e) {
+		var idx = e.detail.indexStep + 1;
+		currStep = idx;
+		//pushState()記下歷程以支援瀏覽器回上頁功能
+		history.pushState(idx, '');
+	})
+	//瀏覽器上一頁下一頁觸發
+	window.onpopstate = function(e) {
+		if (e.state && e.state != currStep)
+			stepper.to(e.state);
+	};
+	//模擬送出表單，註記已完成，不再允許切換步驟
+	function simulateSubmit() {
+		stepper.next();
+		done = true;
 	}
 </script>
+ -->
+
 <body>
 	<div class="d-flex flex-row min-vh-100">
 		<div class="d-flex flex-column p-3 bg-light" style="width: 300px;">
@@ -83,121 +171,298 @@
 			</ul>
 			<hr>
 		</div>
-		<!-- 		選單右邊 -->
-		<h3 class="text-center">茶包弓箭組商品登錄</h3>
-		<form class="container">
-			<div class="bs-stepper">
-				<div class="bs-stepper-header" role="tablist">
-					<div class="step" data-target="#step1">
-						<button type="button" class="step-trigger" role="tab">
-							<span class="bs-stepper-circle">1</span> <span
-								class="bs-stepper-label">商品資料</span>
-						</button>
-					</div>
-					<div class="line"></div>
-					<div class="step" data-target="#step2">
-						<button type="button" class="step-trigger" role="tab">
-							<span class="bs-stepper-circle">2</span> <span
-								class="bs-stepper-label">連絡資訊</span>
-						</button>
-					</div>
-					<div class="line"></div>
-					<div class="step" data-target="#step3">
-						<button type="button" class="step-trigger" role="tab">
-							<span class="bs-stepper-circle">3</span> <span
-								class="bs-stepper-label">送出資料</span>
-						</button>
-					</div>
-					<div class="line"></div>
-					<div class="step" data-target="#step4">
-						<button type="button" class="step-trigger" role="tab">
-							<span class="bs-stepper-circle">4</span> <span
-								class="bs-stepper-label">完成登錄</span>
-						</button>
-					</div>
-				</div>
-				<div class="bs-stepper-content">
-					<div id="step1" class="content" role="tabpanel">
-						<div class="form-group">
-							<label> 商品型號 </label> <select class="form-control">
-								<option>百步穿揚組合包</option>
-								<option>例無虛發同綁包</option>
-								<option>亂槍打鳥特大包</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label> 商品序號 </label> <input class="form-control" />
-						</div>
-						<div>
-							<button type="button" onclick="stepper.next()">下一步</button>
-						</div>
-					</div>
-					<div id="step2" class="content" role="tabpanel">
-						<div class="form-group">
-							<label>姓名</label> <input class="form-control" />
-						</div>
-						<div class="form-group">
-							<label>手機號碼</label> <input class="form-control" />
-						</div>
-						<div>
-							<button type="button" onclick="stepper.previous()">上一步</button>
-							<button type="button" onclick="stepper.next()">下一步</button>
-						</div>
-					</div>
-					<div id="step3" class="content" role="tabpanel">
-						<div class="form-group">
-							<label>電子郵件</label> <input type="email" class="form-control" />
-						</div>
-						<div class="form-group">
-							<label> <input type="checkbox"> 我願意收到優惠活動及商品資訊
-							</label>
-						</div>
-						<div>
-							<button type="button" onclick="stepper.previous()">上一步</button>
-							<button type="button" onclick="simulateSubmit()">確認送出</button>
-						</div>
-					</div>
-					<div id="step4" class="content" role="tabpanel">
-						<div class="alert alert-success">
-							感謝您購買本公司商品並完成線上登錄，祝茶包退散，永不來犯。</div>
-					</div>
-				</div>
-			</div>
-		</form>
-		<script>
-			var stepperElem = document.querySelector('.bs-stepper');
-			var stepper = new Stepper(stepperElem);
-			var done = false;
-			var currStep = 1;
-			history.pushState(currStep, '');
-			//切換到步驟前觸發，呼叫e.preventDefault()可阻止切換
-			stepperElem.addEventListener("show.bs-stepper", function(e) {
-				if (done) { //若程序完成，不再切換
-					e.preventDefault();
-					return;
-				}
-			});
-			//切換到步驟後觸發，e.detail.indexStep為目前步驟序號(從0開始)
-			stepperElem.addEventListener("shown.bs-stepper", function(e) {
-				var idx = e.detail.indexStep + 1;
-				currStep = idx;
-				//pushState()記下歷程以支援瀏覽器回上頁功能
-				history.pushState(idx, '');
-			})
-			//瀏覽器上一頁下一頁觸發
-			window.onpopstate = function(e) {
-				if (e.state && e.state != currStep)
-					stepper.to(e.state);
-			};
-			//模擬送出表單，註記已完成，不再允許切換步驟
-			function simulateSubmit() {
-				stepper.next();
-				done = true;
-			}
-		</script>
-		<div><button type="button" onclick="" >test</button></div>
-		
-	</div>
+        <!-- 		選單右邊 -->
+        <div style="width: 25%"></div>
+        <div class="bs-stepper ">
+            <div class="bs-stepper-header" role="tablist">
+                <!-- your steps here -->
+                <div class="step" data-target="#step1">
+                    <button type="button" class="step-trigger" role="tab" aria-controls="logins-part"
+                        id="step1-trigger">
+                        <span class="bs-stepper-circle">1</span> <span class="bs-stepper-label">第一步</span>
+                    </button>
+                </div>
+                <div class="line"></div>
+                <div class="step" data-target="#step2">
+                    <button type="button" class="step-trigger" role="tab" aria-controls="information-part"
+                        id="step2-trigger">
+                        <span class="bs-stepper-circle">2</span> <span class="bs-stepper-label">第二步</span>
+                    </button>
+                </div>
+                <div class="line"></div>
+                <div class="step" data-target="#step3">
+                    <button type="button" class="step-trigger" role="tab" aria-controls="information-part"
+                        id="step3-trigger">
+                        <span class="bs-stepper-circle">3</span> <span class="bs-stepper-label">第三步</span>
+                    </button>
+                </div>
+                <div class="line"></div>
+                <div class="step" data-target="#step4">
+                    <button type="button" class="step-trigger" role="tab" aria-controls="information-part"
+                        id="step4-trigger">
+                        <span class="bs-stepper-circle">4</span> <span class="bs-stepper-label">第四步</span>
+                    </button>
+                </div>
+            </div>
+            <div class="bs-stepper-content">
+                <!-- your steps content here -->
+                <div id="step1" class="content" role="tabpanel" aria-labelledby="step1-trigger">
+                    <div class="form-group">
+                        <label> 課程標題 </label> <input class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label> 課程簡介 </label> <input class="form-control" style="height: 10rem" />
+                    </div>
+                    <div class="form-group">
+                        <label> 封面照片 </label> <input class="form-control" type="file" />
+                    </div>
+                    <div class="form-group">
+                        <label>售價</label> <input class="form-control" />
+                    </div>
+                    <div class="pt-3 d-flex justify-content-center">
+                        <button class="btn btn-secondary" type="button" onclick="stepper.next()">下一步</button>
+                    </div>
+                </div>
+                <div id="step2" class="content" role="tabpanel" aria-labelledby="step2-trigger">
+                    <!-- 章節單元標籤 -->
+                    <div id="chapterContainer">
+                        <div>
+                            <div class="form-group chapter my-2">
+                                <span class="chapterIcon">拖拉</span> <span class="py-1">章節
+                                    1</span><input class="chapterInput chapterName" type="text" value="">
+                                <span>
+                                    <button class="mx-1 btn iconbtn addChapter">
+                                        <i class="bi bi-plus-circle"></i>
+                                    </button>
+                                    <button class="mx-1 btn iconbtn chapterDelete">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <div class="unitGroup">
+                                <div class="form-group unit my-2">
+                                    <span class="chapterIcon">拖拉</span> <label class="py-1">單元
+                                        1</label><input class="chapterInput unitName" type="text" value="">
+                                    <span>
+                                        <button class="mx-1 btn iconbtn addUnit">
+                                            <i class="bi bi-plus-circle"></i>
+                                        </button>
+                                        <button class="mx-1 btn iconbtn unitDelete">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-2 d-flex justify-content-center">
+                            <button class="mx-1 btn btn-secondary" type="button"
+                                onclick="stepper.previous()">上一步</button>
+                            <button id="step2NextBtn" class="mx-1 btn btn-secondary" type="button"
+                                onclick="stepper.next()">下一步</button>
+                        </div>
+                    </div>
+                    <script>
+                        window.onload = function () {
+                            $("#chapterContainer").on("click", ".addChapter", function () {
+                                let iIndex = $(this).parent().parent().parent().index();
+                                let html = `
+                            <div class="form-group chapter my-2">
+                                <span class="chapterIcon">拖拉</span>
+                                <span class="py-1">章節 1</span><input class="chapterInput chapterName" type="text" value="">
+                                <span>
+                                    <button class="mx-1 btn iconbtn addChapter"><i class="bi bi-plus-circle"></i></button>
+                                    <button class="mx-1 btn iconbtn chapterDelete"><i class="bi bi-trash"></i></button>
+                                </span>
+                            </div>
+                            <div class="unitGroup">
+                                <div class="form-group unit my-2">
+                                    <span class="chapterIcon">拖拉</span>
+                                    <label class="py-1">單元 1</label><input class="chapterInput unitName" type="text" value="">
+                                    <span>
+                                        <button class="mx-1 btn iconbtn addUnit"><i class="bi bi-plus-circle"></i></button>
+                                        <button class="mx-1 btn iconbtn unitDelete"><i class="bi bi-trash"></i></button>
+                                    </span>
+                                </div>
+                            </div>   
+                            `;
+                                $(this).parent().parent().parent().append(html);
+                                chapterRename();
+                            });//動態增加章節單元元素
+
+                            $("#chapterContainer").on("click", ".addUnit", function () {
+                                let iIndex = $(this).parent().parent().index();
+                                let html = `
+                            <div class="form-group unit my-2">
+                                <span class="chapterIcon">拖拉</span>
+                                <label class="py-1">單元 ${iIndex + 2}</label><input class="chapterInput unitName" type="text" value="">
+                                <span>
+                                    <button class="mx-1 btn iconbtn addUnit"><i class="bi bi-plus-circle"></i></button>
+                                    <button class="mx-1 btn iconbtn unitDelete"><i class="bi bi-trash"></i></button>
+                                </span>
+                            </div>
+                            `;
+                                $(this).parent().parent().after(html);
+                                unitRename();
+                            })//動態增加單元元素
+
+
+                            $("#chapterContainer").on("click",".chapterDelete",function(){
+                                let iIndex = $(this).parent().parent().index()
+                                console.log($(this).parent().parent().index())
+                                $(this).parent().parent().parent().children().eq(iIndex+1).remove()
+                                $(this).parent().parent().parent().children().eq(iIndex).remove()
+                                chapterRename()
+                            })//章節及單元刪除
+
+                            $("#chapterContainer").on("click",".unitDelete",function(){
+
+                                console.log($(this).parent().parent().parent().children().length)
+                                let count = $(this).parent().parent().parent().children().length ;
+                                if(count!=1){
+                                    let iIndex = $(this).parent().parent().remove()
+                                    unitRename()
+                                }else{
+                                    alert("每個章節至少需要一個單元!")
+                                }
+
+                            })//單元刪除
+
+                            function chapterRename() {
+                                $(".chapter").each(function (index, element) {
+                                    $(this).children("span").eq(1).html("章節 " + (index + 1))
+                                })
+                            }//章節重新命名
+                            function unitRename() {
+                                $(".unitGroup").each(function (index, element) {
+                                    $(this).children("div").each(function (index, element) {
+                                        $(this).children("label").eq(0).html("單元 " + (index + 1))
+                                    })
+                                })
+                            }//單元重新命名
+
+                            $('#chapterContainer').on("click", "#step2NextBtn", function () {
+                                let allNameValue = [];
+                                $(".chapterName").each(function (index, element) {
+                                    let chapterAndUnitNameVlaue = {};
+                                    chapterAndUnitNameVlaue[`chapter${index + 1}`] = $(this).val();
+                                    $(this).closest('.chapter').next('.unitGroup').children().children(".unitName").each(function (index, element) {
+                                        // console.log(index);
+                                        chapterAndUnitNameVlaue["unit" + (index + 1)] = $(this).val();
+                                    })
+                                    allNameValue.push(chapterAndUnitNameVlaue);
+
+                                });
+                                console.log(allNameValue)
+                                $(allNameValue).each(function (index, element) {
+                                    let i = 1
+                                    $.each(element,function (key, value) {
+                                        if (i == 1) {
+                                            // let html = `
+                                            // <div>
+                                            //     <div class="form-group chapterVideo my-2">
+                                            //         <span class="chapterIcon">拖拉</span>
+                                            //         <span class="py-1">章節 ${index+1}</span>
+                                            //         <label class="py-1 chapterInput">${value}</label>
+                                            //     </div>
+                                            // </div>
+                                            // <div class="unitGroup">
+                                            // </div>
+                                            // `
+                                            let html = '<div><div class="form-group chapterVideo my-2"><span class="chapterIcon">拖拉</span><span class="py-1">章節 '+
+                                                (index+1) +
+                                                '</span><label class="py-1 chapterInput">'+
+                                                    value +
+                                                    '</label></div></div><div class="unitGroup"></div>'
+                                            $('#chapterVideoContainer').append(html)
+                                            i++;
+                                        } else {
+                                            // let html = `
+                                        	// 	<div class="form-group unitVideo my-2">
+                                	        //         <span class="chapterIcon">拖拉</span>
+                                            //         <label class="py-1">單元 ${i-1}</label>
+                                            //         <label class="pe-3 py-1 chapterInput">${value}</label>
+                                            //         <input class="form-control videobtn" type="file" />
+                                            //     </div>
+                                            // `
+                                            let html = '<div class="form-group unitVideo my-2"><span class="chapterIcon">拖拉</span><label class="py-1">單元 ' 
+                                                +(i-1) + '</label><label class="pe-3 py-1 chapterInput">' + value + '</label><input class="form-control videobtn" type="file" /></div>'
+                                            $('#chapterVideoContainer').children('.unitGroup').eq(index).append(html)
+                                            i++;
+                                        }
+                                    })
+                                })
+                            })
+
+                            $('#step3').on("click","#step3PrevBtn",function(){
+                                console.log("empty")
+                                $('#chapterVideoContainer').empty()
+                            })
+                        }//根據第二頁表單內容產生第三頁表單
+
+                    </script>
+                    <!-- 章節單元標籤 -->
+                </div>
+                <div id="step3" class="content" role="tabpanel" aria-labelledby="step3-trigger">
+
+                    <div id="chapterVideoContainer">
+                        <!-- <div>
+							<div class="form-group chapterVideo my-2">
+								<span class="chapterIcon">拖拉</span> <span class="py-1">章節
+									1</span><label class="py-1 chapterInput">字元字元字元字元字元字元字元字元</label>
+							</div>
+							<div class="unitGroup">
+								<div class="form-group unitVideo my-2">
+									<span class="chapterIcon">拖拉</span> <label class="py-1">單元
+										1</label><label class="pe-3 py-1 chapterInput">字元字元字元字元字元</label> <input
+										class="form-control videobtn" type="file" />
+								</div>
+							</div>
+						</div> -->
+                    </div>
+                    <div class="pt-2 d-flex justify-content-center">
+                        <button id="step3PrevBtn" class="mx-1 btn btn-secondary" type="button" onclick="stepper.previous()">上一步</button>
+                        <button class="mx-1 btn btn-secondary" type="button" onclick="stepper.next()">下一步</button>
+                    </div>
+
+                </div>
+                <div id="step4" class="content" role="tabpanel" aria-labelledby="step4-trigger">
+                    <div class="form-group">
+                        <label>姓名</label> <input class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>手機號碼</label> <input class="form-control" />
+                    </div>
+                    <div>
+                        <button type="button" onclick="stepper.previous()">上一步</button>
+                        <button type="button" onclick="stepper.next()">下一步</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>test</div>
+    </div>
+
 
 </body>
+<script type="text/javascript">
+	var stepper;
+	var stepperElem = document.querySelector('.bs-stepper')
+	document.addEventListener('DOMContentLoaded', function() {
+		stepper = new Stepper(document.querySelector('.bs-stepper'))
+	});//步進表單stepper
+		console.log(stepperElem)
+	
+	stepperElem.addEventListener("shown.bs-stepper", function(e) {
+		var idx = e.detail.indexStep + 1;
+		currStep = idx;
+		//pushState()記下歷程以支援瀏覽器回上頁功能
+		history.pushState(idx, '');
+	})
+	//瀏覽器上一頁下一頁觸發
+	window.onpopstate = function(e) {
+		if (e.state && e.state != currStep)
+			stepper.to(e.state);
+	};
+</script>
 </html>
