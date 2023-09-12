@@ -115,7 +115,7 @@
                                 <div class="carousel-item active">
                                     <div style="display: flex;">
                                         <a href="链接到的目标网址">
-                                            <div class="card" style="width: 18rem; margin-top: 20px; margin-left: 45px;">
+                                            <div class="card" style="width: 18rem; margin-top: 20px; margin-left: 5px;">
                                                 <img src="\SpringEEIT69-5Mart\assets\images\課程封面圖002.jpg" class="card-img-top" alt="...">
                                                 <div class="card-body">
                                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -144,7 +144,7 @@
                                 <div class="carousel-item">
                                     <div style="display: flex;">
                                         <a href="链接到的目标网址">
-                                            <div class="card" style="width: 18rem; margin-top: 20px; margin-left: 45px;">
+                                            <div class="card" style="width: 18rem; margin-top: 20px; margin-left: 5px;">
                                                 <img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg" class="card-img-top" alt="...">
                                                 <div class="card-body">
                                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -193,7 +193,7 @@
                                 <div class="carousel-item active">
                                     <div style="display: flex;">
                                         <a href="链接到的目标网址">
-                                            <div class="card" style="width: 18rem; margin-top: 20px; margin-left: 45px;">
+                                            <div class="card" style="width: 18rem; margin-top: 20px; margin-left: 5px;">
                                                 <img src="\SpringEEIT69-5Mart\assets\images\課程封面圖010.jpeg" class="card-img-top" alt="...">
                                                 <div class="card-body">
                                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -222,7 +222,7 @@
                                 <div class="carousel-item">
                                     <div style="display: flex;">
                                         <a href="链接到的目标网址">
-                                            <div class="card" style="width: 18rem; margin-top: 20px; margin-left: 45px;">
+                                            <div class="card" style="width: 18rem; margin-top: 20px; margin-left: 5px;">
                                                 <img src="\SpringEEIT69-5Mart\assets\images\課程封面圖007.jpeg" class="card-img-top" alt="...">
                                                 <div class="card-body">
                                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

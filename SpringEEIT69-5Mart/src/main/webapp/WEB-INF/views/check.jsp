@@ -6,17 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>結帳</title>
-
+<title>文章總攬</title>
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <!-- jquery -->
 <!-- bootstrap -->
-<link rel='stylesheet'
-	href="<c:url value='/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.css' />"
-	type="text/css" />
-<script
-	src="<c:url value="/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.js"/>"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"></script>
 <link rel='stylesheet'
 	href="<c:url value="/assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css"/>"
 	type="text/css" />
@@ -34,11 +33,6 @@
 	border: 1px solid #ccc;
 	max-width: 300px;
 	background-color: #fcfafa;
-}
-
-.price {
-	font-size: 18px;
-	margin-left: 60px;
 }
 
 .credit-card-icon {
@@ -96,13 +90,21 @@
 
 	<div class="container-fluid p-0 ">
 		<div class="row no-gutters">
-			<div class="col-md-6 left-background">
+			<div class="col-md-7 left-background">
 				<div class="content p-5">
+				
+				
 					<h2 style="font-weight: bold;">結帳</h2>
 					<br>
 					<h4 style="font-weight: bold;">付款方式</h4>
 					<br>
+					
+					
+					
 					<ul class="list-group">
+					
+					
+					
 						<li class="list-group-item">
 							<div class="form-check">
 								<input class="form-check-input" type="radio"
@@ -113,6 +115,9 @@
 								</label>
 							</div>
 						</li>
+						
+						
+						
 						<li class="list-group-item">
 							<div class="form-check">
 								<input class="form-check-input" type="radio"
@@ -127,26 +132,42 @@
 					<br>
 					<h4 style="font-weight: bold;">訂單詳細資料</h4>
 					<br>
-					<p>
-						<img src="your-image.jpg" width="50" height="50" /> JSP, Servlets
-						and JDBC for Beginners<span class="price">$330</span>
-					</p>
+					<div class="row">
+					<div class="col-2"><img src="\SpringEEIT69-5Mart\assets\images\課程封面圖002.jpg" width="50" height="50" /></div>
+					<div class ="col-8">JSP, Servlets
+						and JDBC for Beginners</div>
+					<div class="col-2">$330</div>
+					
+					</div>
+					
 				</div>
 			</div>
-			<div class="col-md-6 right-background">
+			<div class="col-md-5 right-background">
 				<div class="content p-3 ">
+
 					<h4 style="font-weight: bold;">摘要</h4>
+					
+					<div class="row">
+					<div class="col-4">金額：</div>
+					<div class="col-4">$330</div>
+					</div>
+					
 					<br>
-					<p>
-						金額: <span class="price">$330</span>
-					</p>
-					<p>
-						折扣: <span class="price">$0</span>
-					</p>
-					<hr style="width: 40%;">
-					<p style="font-weight: bold;">
-						總計: <span class="price">$330</span>
-					</p>
+					
+					<div class="row">
+					<div class="col-4">折扣：</div>
+					<div class="col-4">$0</div>
+					</div>
+					
+					<div class="row">
+					<div class="col-6"><hr></div>
+					</div>
+					
+					<div class="row" style="font-weight: bold;">
+					<div class="col-4">總計：</div>
+					<div class="col-4">$330</div>
+					</div>
+					
 					<br>
 					<button type="button" class="btn btn-custom">完成結帳</button>
 				</div>
