@@ -128,12 +128,14 @@
 
 .slide-arrow {
 	position: absolute;
-	top: 50%;
-	margin-top: -15px;
+	top: 45%;
+/* 	margin-top: -15px; */
+    z-index:1; 
+   
 }
 
 .prev-arrow {
-	left: -40px;
+	left: -15px;
 	width: 0;
 	height: 0;
 	border-left: 0 solid transparent;
@@ -144,14 +146,40 @@
 }
 
 .next-arrow {
-	right: -40px;
+	right: -15px;
 	width: 0;
 	height: 0;
 	border-right: 0 solid transparent;
 	border-left: 15px solid #113463;
 	border-top: 10px solid transparent;
 	border-bottom: 10px solid transparent;
-	background-color: white;
+	background: rgba(192, 192, 192, 0.6);
+}
+
+
+
+.top_e {
+	position: fixed;
+	right: 40px;
+	bottom: 40px;
+	background: rgba(192, 192, 192, 0.6);
+	border-radius: 50px;
+	border: 1px solid #A9A9A9;
+	cursor: pointer;
+	display: none;
+	width: 60px;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+}
+
+.top_e:hover {
+	color: white;
+	background: rgba(128, 138, 135, 0.6);
+}
+
+.fa-angle-up:hover {
+	color: white;
 }
 </style>
 
@@ -240,6 +268,34 @@
 		// 				console.log(heartcount);
 		// 			});
 		// 		}
+
+		// 控制按钮的显示和消失
+		$(window).scroll(function() {
+			if ($(window).scrollTop() > 300) {
+				$('#return-top').fadeIn(300);
+			} else {
+				$('#return-top').fadeOut(200);
+			}
+		})
+
+		// 点击按钮，使得页面返回顶部
+		$("#return-top").click(function() {
+			scrollTo(0, 0);
+		});
+
+		// 控制按钮的显示和消失
+		$(window).scroll(function() {
+			if ($(window).scrollTop() > 300) {
+				$('#return-top2').fadeIn(300);
+			} else {
+				$('#return-top2').fadeOut(200);
+			}
+		})
+
+		// 点击按钮，使得页面返回顶部
+		$("#return-top2").click(function() {
+			scrollTo(0, 0);
+		});
 
 	});
 </script>
@@ -966,6 +1022,12 @@
 	</div>
 	<!-- 精選文章區塊(水平滾動) -->
 
+	<div id="return-top" class="top_e shadow-sm">
+		<i class="fa-solid fa-angle-up fa-2xl" style="color: #919191;"></i>
+		<!-- 				<i class="fa-solid fa-angle-up fa-xl "></i> -->
+	</div>
+
+
 	<!-- 最底部 -->
 	<footer class="bd-footer py-5 mt-5 bg-light">
 		<div class="container">
@@ -1002,15 +1064,15 @@
 	<!-- 			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" -->
 	<!-- 			integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" -->
 	<!-- 			crossorigin="anonymous"></script> -->
-	<!-- 		<script -->
-	<!-- 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" -->
-	<!-- 			integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" -->
-	<!-- 			crossorigin="anonymous"></script> -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"
+		integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ"
+		crossorigin="anonymous"></script>
 	<!-- CDN引入 -->
 
 	<!-- bootstrap -->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- 	<script -->
+	<!-- 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script> -->
 	<!-- bootstrap -->
 	<!-- slick -->
 	<script type="text/javascript"
