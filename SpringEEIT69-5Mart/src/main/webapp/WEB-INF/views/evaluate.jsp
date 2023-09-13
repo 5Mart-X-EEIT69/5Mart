@@ -6,16 +6,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>index-templates</title>
+<title>結帳</title>
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
 <!-- jquery -->
 <!-- bootstrap -->
-<link rel='stylesheet'
-	href="<c:url value='/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.css' />"
-	type="text/css" />
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+	crossorigin="anonymous">
 <script
-	src="<c:url value="/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.js"/>"></script>
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+	crossorigin="anonymous"></script>
 <link rel='stylesheet'
 	href="<c:url value="/assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css"/>"
 	type="text/css" />
@@ -87,7 +92,6 @@
 						<h3>課程意見反應</h3>
 					</div>
 				</div>
-				</p>
 
 				<br>
 
@@ -115,7 +119,7 @@
 							<div class="col-md-5">
 								<div class="progress" style="height: 13px;">
 									<div class="progress-bar bg-secondary" role="progressbar"
-										style="width: 61%;" aria-valuenow="80" aria-valuemin="0"
+										style="width: 61%;" aria-valuenow="61" aria-valuemin="0"
 										aria-valuemax="100"></div>
 								</div>
 							</div>
@@ -129,11 +133,13 @@
 						</div>
 
 
+
+
 						<div class="row align-items-center">
 							<div class="col-md-5">
 								<div class="progress" style="height: 13px;">
 									<div class="progress-bar bg-secondary" role="progressbar"
-										style="width: 30%;" aria-valuenow="80" aria-valuemin="0"
+										style="width: 30%;" aria-valuenow="30" aria-valuemin="0"
 										aria-valuemax="100"></div>
 								</div>
 							</div>
@@ -151,7 +157,7 @@
 							<div class="col-md-5">
 								<div class="progress" style="height: 13px;">
 									<div class="progress-bar bg-secondary" role="progressbar"
-										style="width: 5%;" aria-valuenow="80" aria-valuemin="0"
+										style="width: 5%;" aria-valuenow="5" aria-valuemin="0"
 										aria-valuemax="100"></div>
 								</div>
 							</div>
@@ -169,7 +175,7 @@
 							<div class="col-md-5">
 								<div class="progress" style="height: 13px;">
 									<div class="progress-bar bg-secondary" role="progressbar"
-										style="width: 3%;" aria-valuenow="80" aria-valuemin="0"
+										style="width: 3%;" aria-valuenow="3" aria-valuemin="0"
 										aria-valuemax="100"></div>
 								</div>
 							</div>
@@ -185,7 +191,7 @@
 							<div class="col-md-5">
 								<div class="progress" style="height: 13px;">
 									<div class="progress-bar bg-secondary" role="progressbar"
-										style="width: 1%;" aria-valuenow="80" aria-valuemin="0"
+										style="width: 1%;" aria-valuenow="1" aria-valuemin="0"
 										aria-valuemax="100"></div>
 								</div>
 							</div>
@@ -313,43 +319,160 @@
 					</div>
 				</div>
 
+				<div class="comment-container">
+				
+					<div class="comment" style="display:block">
+					<div class="row">
+						<div class="col-1">
+							<img src="/SpringEEIT69-5Mart/assets/images/評論人頭照.jpeg"
+								alt="xxxx" style="max-width: 80px; max-height: 80px;">
+						</div>
+						<div class="col-6">
+							<div>Nikita S.</div>
 
-				<div class="row">
-					<div class="col-1">
-						<img src="/SpringEEIT69-5Mart/assets/images/評論人頭照.jpeg" alt="xxxx"
-							style="max-width: 80px; max-height: 80px;">
-					</div>
-					<div class="col-6">
-						<div>Nikita S.</div>
+							<div>
+								<img src="/SpringEEIT69-5Mart/assets/images/4star.png"
+									alt="xxxx" style="max-width: 80px; max-height: 80px;">
+							</div>
+							<div>This is amazing! The only instructor I understand in
+								teaching Spring is Chad! The best thing of this lessons are
+								they're keep getting updated and have staffs to answer and
+								support you with your questions. Thank you so much I learned a
+								lot! I hope your courses will also be available in LinkedIn
+								Learning.</div>
+
+
+						</div>
 
 						<div>
-							<img src="/SpringEEIT69-5Mart/assets/images/4star.png" alt="xxxx"
-								style="max-width: 80px; max-height: 80px;">
+						<hr style="width: 59%;">
 						</div>
-						<div>This is amazing! The only instructor I understand in
-							teaching Spring is Chad! The best thing of this lessons are
-							they're keep getting updated and have staffs to answer and
-							support you with your questions. Thank you so much I learned a
-							lot! I hope your courses will also be available in LinkedIn
-							Learning.</div>
+						</div>
+						</div>
+
+						<div class="comment" style="display:block">
+					<div class="row">
+						<div class="col-1">
+							<img src="/SpringEEIT69-5Mart/assets/images/評論人頭照.jpeg"
+								alt="xxxx" style="max-width: 80px; max-height: 80px;">
+						</div>
+						<div class="col-6">
+							<div>Nikita S.</div>
+
+							<div>
+								<img src="/SpringEEIT69-5Mart/assets/images/4star.png"
+									alt="xxxx" style="max-width: 80px; max-height: 80px;">
+							</div>
+							<div>This is amazing! The only instructor I understand in
+								teaching Spring is Chad! The best thing of this lessons are
+								they're keep getting updated and have staffs to answer and
+								support you with your questions. Thank you so much I learned a
+								lot! I hope your courses will also be available in LinkedIn
+								Learning.</div>
 
 
-					</div>
+						</div>
 
-					<p>
-					<hr style="width: 59%;">
-					</p>
+						<div>
+						<hr style="width: 59%;">
+						</div>
+						</div>
+						</div>
+						
+						<div class="comment" style="display:block">
+					<div class="row">
+						<div class="col-1">
+							<img src="/SpringEEIT69-5Mart/assets/images/評論人頭照.jpeg"
+								alt="xxxx" style="max-width: 80px; max-height: 80px;">
+						</div>
+						<div class="col-6">
+							<div>Nikita S.</div>
+
+							<div>
+								<img src="/SpringEEIT69-5Mart/assets/images/4star.png"
+									alt="xxxx" style="max-width: 80px; max-height: 80px;">
+							</div>
+							<div>This is amazing! The only instructor I understand in
+								teaching Spring is Chad! The best thing of this lessons are
+								they're keep getting updated and have staffs to answer and
+								support you with your questions. Thank you so much I learned a
+								lot! I hope your courses will also be available in LinkedIn
+								Learning.</div>
 
 
-				</div>
+						</div>
+
+						<div>
+						<hr style="width: 59%;">
+						</div>
+						</div>
+						</div>
+						
+						<div class="comment" style="display:none">
+					<div class="row">
+						<div class="col-1">
+							<img src="/SpringEEIT69-5Mart/assets/images/評論人頭照.jpeg"
+								alt="xxxx" style="max-width: 80px; max-height: 80px;">
+						</div>
+						<div class="col-6">
+							<div>Nikita S.</div>
+
+							<div>
+								<img src="/SpringEEIT69-5Mart/assets/images/4star.png"
+									alt="xxxx" style="max-width: 80px; max-height: 80px;">
+							</div>
+							<div>This is amazing! The only instructor I understand in
+								teaching Spring is Chad! The best thing of this lessons are
+								they're keep getting updated and have staffs to answer and
+								support you with your questions. Thank you so much I learned a
+								lot! I hope your courses will also be available in LinkedIn
+								Learning.</div>
 
 
-			</div>
+						</div>
+
+						<div>
+						<hr style="width: 59%;">
+						</div>
+						</div>
+						</div>
+							</div>
+						
+			
+		<div class="d-grid gap-2 col-6">
+			<button class="btn btn-outline-secondary" type="button" id="showMore">查看更多評論</button>
+
 		</div>
-		<div class="d-grid gap-2 col-4 mx-auto">
-			<button class="btn btn-outline-secondary" type="button">查看更多評論</button>
+		<script>
+      const showMoreButton = document.getElementById("showMore");
+      let commentIndex = 3;
 
-		</div>
+      showMoreButton.addEventListener("click", function () {
+        const comments = document.querySelectorAll(
+          ".comment-container .comment"
+        );
+        const totalComments = comments.length;
+
+        if (commentIndex < totalComments) {
+          for (
+            let i = commentIndex;
+            i < Math.min(commentIndex + 5, totalComments);
+            i++
+          ) {
+            comments[i].style.display = "block";
+          }
+
+          commentIndex += 5;
+
+          if (commentIndex >= totalComments) {
+            showMoreButton.style.display = "none";
+          }
+        }
+      });
+    </script>
+		
+		
+		
 	</div>
 </body>
 </html>
