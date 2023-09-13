@@ -252,59 +252,65 @@
 		$(".card").mouseenter(function() {
 			$(this).addClass("shadow");
 		}).mouseleave(function() {
-			$(this).removeClass("shadow")
+			$(this).removeClass("shadow");
 		});
 
+		// 愛心滑鼠經過點擊變化
 		var heartcount = false;
-
-				$(".fa-heart").mouseenter(function() {
-					$(this).addClass("fa-solid").removeClass("fa-regular");
-					$(".fa-heart").on('click',function(){
-						if(!heartcount){
-							heartcount = true	
-						}else{
-							heartcount = false
-						}
-						
-					})
-				}).mouseleave(function() {
-					if(!heartcount){
-						$(this).addClass("fa-regular").removeClass("fa-solid");	
-					}			
-				})
-
-// 		function heart() {
-
-// 			if (heartcount) {
-// 				$(".fa-heart").click(function() {
-// 					console.log("ok");
-// 					$(this).addClass("fa-regular");
-// 					$(this).removeClass("fa-solid");
-// 					heartcount = false;
-// 				});
-// 			} else {
-// 				$(".fa-heart").mouseenter(function() {
-// 					$(this).addClass("fa-solid");
-// 					$(this).removeClass("fa-regular");
-// 				}).mouseleave(function() {
-// 					$(this).addClass("fa-regular");
-// 					$(this).removeClass("fa-solid");
-// 				}).click(function() {
-// 					$(this).addClass("fa-solid");
-// 					$(this).removeClass("fa-regular");
-// 					console.log("xx");
-// 					heartcount = true;
-// 					console.log(heartcount);
-// 				});
-// 			}
-
-// 		}
+		$(".fa-heart").click(function() {
+			if (!heartcount) {
+				$(this).addClass("fa-solid").removeClass("fa-regular").css("color","#D40202");
+				heartcount = true;
+			} else {
+				heartcount = false;
+				$(this).addClass("fa-regular").removeClass("fa-solid").css("color","#f70000");
+			}
+		})
 		
-// 		$(".fa-heart").click(function() {
-// 			heart();
-// 		}
+		$(".fa-heart").mouseenter(function() {
+			if(!heartcount){
+				$(this).addClass("fa-solid").removeClass("fa-regular");	
+			}
+		})
+		
+		$(".fa-heart").mouseleave(function() {
+			if(!heartcount){
+				$(this).addClass("fa-regular").removeClass("fa-solid");
+			}
+		})
 
-		// 控制按钮的显示和消失
+		// 		function heart() {
+
+		// 			if (heartcount) {
+		// 				$(".fa-heart").click(function() {
+		// 					console.log("ok");
+		// 					$(this).addClass("fa-regular");
+		// 					$(this).removeClass("fa-solid");
+		// 					heartcount = false;
+		// 				});
+		// 			} else {
+		// 				$(".fa-heart").mouseenter(function() {
+		// 					$(this).addClass("fa-solid");
+		// 					$(this).removeClass("fa-regular");
+		// 				}).mouseleave(function() {
+		// 					$(this).addClass("fa-regular");
+		// 					$(this).removeClass("fa-solid");
+		// 				}).click(function() {
+		// 					$(this).addClass("fa-solid");
+		// 					$(this).removeClass("fa-regular");
+		// 					console.log("xx");
+		// 					heartcount = true;
+		// 					console.log(heartcount);
+		// 				});
+		// 			}
+
+		// 		}
+
+		// 		$(".fa-heart").click(function() {
+		// 			heart();
+		// 		}
+
+		// 回到頂部的按鈕顯示和消失
 		$(window).scroll(function() {
 			if ($(window).scrollTop() > 300) {
 				$('#return-top').fadeIn(300);
@@ -313,7 +319,7 @@
 			}
 		})
 
-		// 点击按钮，使得页面返回顶部
+		// 點擊回到頂部按鈕，回到頁面頂部
 		$("#return-top").click(function() {
 			scrollTo(0, 0);
 		});
@@ -337,7 +343,8 @@
 
 <body>
 	<!-- 導覽列 -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+	<nav
+		class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow">
 		<div class="container-fluid">
 			<!-- 品牌logo -->
 			<a class="navbar-brand" href="#"><i

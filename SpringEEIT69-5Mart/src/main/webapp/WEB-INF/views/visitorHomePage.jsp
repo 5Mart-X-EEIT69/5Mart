@@ -302,7 +302,7 @@
 
 <body>
 	<!-- 導覽列 -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow">
 		<div class="container-fluid">
 			<!-- 品牌logo -->
 			<a class="navbar-brand" href="#"><i
