@@ -331,23 +331,17 @@
 								</ul></li>
 
 						</ul></li>
-					<!-- 					<li class="nav-item"><a class="nav-link active" -->
-					<!-- 						aria-current="page" href="#">Home</a></li> -->
+					
 					<li class="nav-item px-4"><a class="nav-link" href="#">文章</a></li>
 
-
 					<li class="nav-item px-10">
-						<form class="d-lg-flex d-none nav-item input-group ">
-							<input class="form-control me-2" type="search" placeholder="搜尋課程"
-								aria-label="Search">
+						<form class="d-lg-flex d-none nav-item input-group">
+							<input class="form-control me-2 " type="search"
+								placeholder="搜尋課程" aria-label="Search">
 							<button class="btn btn-outline-success" type="submit">搜尋</button>
 						</form>
 					</li>
-
-					<!-- 												<li class="nav-item"><a class="nav-link" href="#">我的學習</a></li> -->
-					<!-- 												<li class="nav-item"><a class="nav-link" href="#">願望清單</a></li> -->
 				</ul>
-
 
 				<!-- 登入註冊按鈕 -->
 				<button type="button" class="btn btn-outline-success me-2"
@@ -375,7 +369,6 @@
 						aria-label="Search">
 					<button class="btn btn-outline-success" type="submit">搜尋</button>
 				</form>
-
 
 			</div>
 		</div>
@@ -823,8 +816,9 @@
 							<p class="mb-2" style="font-size: small;">趙令文</p>
 						</div>
 						<div class="row d-flex justify-content-between">
-						<div class="col-7" style="font-size: small;font-weight: bolder">募資倒數10天</div>
-						<div class="col-3" style="font-size: small;font-weight: bolder">25%</div>
+							<div class="col-7" style="font-size: small; font-weight: bolder">募資倒數10天</div>
+							<div class="col-4 text-end"
+								style="font-size: small; font-weight: bolder">25%</div>
 						</div>
 						<div class="row d-flex justify-content-center">
 							<div class="progress px-0" style="width: 90%; height: 0.5rem">
@@ -832,12 +826,15 @@
 									aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 							</div>
 						</div>
-						<div class="row mt-2">
+						<div class="row pt-3">
 							<div class="col">
-								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
-									$2,000</p>
+								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT$2,000</p>
+								<p class="mb-0 text-decoration-line-through"
+									style="font-weight: bolder; color: grey; font-size: small;">NT
+									$4,000</p>
+
 							</div>
-							<div class="col text-end">
+							<div class="col-4 text-end">
 								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
 
 							</div>
@@ -860,20 +857,26 @@
 						<div class="row">
 							<p class="mb-2" style="font-size: small;">趙令文</p>
 						</div>
-						<div class="row d-inline ">
-							<strong style="font-size: large;">3.5 </strong> <i
-								class="bi bi-star-fill px-0"></i> <i
-								class="bi bi-star-fill px-0"></i> <i
-								class="bi bi-star-fill px-0"></i> <i
-								class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
-							(123)
+						<div class="row d-flex justify-content-between">
+							<div class="col-7" style="font-size: small; font-weight: bolder">募資倒數10天</div>
+							<div class="col-4 text-end"
+								style="font-size: small; font-weight: bolder">25%</div>
 						</div>
-						<div class="row mt-2">
-							<div class="col">
-								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
-									$2,000</p>
+						<div class="row d-flex justify-content-center">
+							<div class="progress px-0" style="width: 90%; height: 0.5rem">
+								<div class="progress-bar" role="progressbar" style="width: 25%;"
+									aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 							</div>
-							<div class="col text-end">
+						</div>
+						<div class="row pt-3">
+							<div class="col">
+								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT$2,000</p>
+								<p class="mb-0 text-decoration-line-through"
+									style="font-weight: bolder; color: grey; font-size: small;">NT
+									$4,000</p>
+
+							</div>
+							<div class="col-4 text-end">
 								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
 
 							</div>
@@ -896,20 +899,26 @@
 						<div class="row">
 							<p class="mb-2" style="font-size: small;">趙令文</p>
 						</div>
-						<div class="row d-inline ">
-							<strong style="font-size: large;">3.5 </strong> <i
-								class="bi bi-star-fill px-0"></i> <i
-								class="bi bi-star-fill px-0"></i> <i
-								class="bi bi-star-fill px-0"></i> <i
-								class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
-							(123)
+						<div class="row d-flex justify-content-between">
+							<div class="col-7" style="font-size: small; font-weight: bolder">募資倒數10天</div>
+							<div class="col-4 text-end"
+								style="font-size: small; font-weight: bolder">25%</div>
 						</div>
-						<div class="row mt-2">
-							<div class="col">
-								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
-									$2,000</p>
+						<div class="row d-flex justify-content-center">
+							<div class="progress px-0" style="width: 90%; height: 0.5rem">
+								<div class="progress-bar" role="progressbar" style="width: 25%;"
+									aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 							</div>
-							<div class="col text-end">
+						</div>
+						<div class="row pt-3">
+							<div class="col">
+								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT$2,000</p>
+								<p class="mb-0 text-decoration-line-through"
+									style="font-weight: bolder; color: grey; font-size: small;">NT
+									$4,000</p>
+
+							</div>
+							<div class="col-4 text-end">
 								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
 
 							</div>
@@ -932,20 +941,26 @@
 						<div class="row">
 							<p class="mb-2" style="font-size: small;">趙令文</p>
 						</div>
-						<div class="row d-inline ">
-							<strong style="font-size: large;">3.5 </strong> <i
-								class="bi bi-star-fill px-0"></i> <i
-								class="bi bi-star-fill px-0"></i> <i
-								class="bi bi-star-fill px-0"></i> <i
-								class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
-							(123)
+						<div class="row d-flex justify-content-between">
+							<div class="col-7" style="font-size: small; font-weight: bolder">募資倒數10天</div>
+							<div class="col-4 text-end"
+								style="font-size: small; font-weight: bolder">25%</div>
 						</div>
-						<div class="row mt-2">
-							<div class="col">
-								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
-									$2,000</p>
+						<div class="row d-flex justify-content-center">
+							<div class="progress px-0" style="width: 90%; height: 0.5rem">
+								<div class="progress-bar" role="progressbar" style="width: 25%;"
+									aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 							</div>
-							<div class="col text-end">
+						</div>
+						<div class="row pt-3">
+							<div class="col">
+								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT$2,000</p>
+								<p class="mb-0 text-decoration-line-through"
+									style="font-weight: bolder; color: grey; font-size: small;">NT
+									$4,000</p>
+
+							</div>
+							<div class="col-4 text-end">
 								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
 
 							</div>
@@ -958,18 +973,86 @@
 			<div class="card mx-3">
 				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
 					class="card-img-top" alt="..." />
-				<div class="card-body">
-					<p class="card-text">Some quick example text to build on the
-						card title and make up the bulk of the card's content.</p>
+				<div class="card-body py-0">
+					<p class="card-text">
+					<div class="container px-0">
+						<div class="row">
+							<h5 style="font-weight: bolder;">
+								<strong>Java從零開始學習</strong>
+							</h5>
+						</div>
+						<div class="row">
+							<p class="mb-2" style="font-size: small;">趙令文</p>
+						</div>
+						<div class="row d-flex justify-content-between">
+							<div class="col-7" style="font-size: small; font-weight: bolder">募資倒數10天</div>
+							<div class="col-4 text-end"
+								style="font-size: small; font-weight: bolder">25%</div>
+						</div>
+						<div class="row d-flex justify-content-center">
+							<div class="progress px-0" style="width: 90%; height: 0.5rem">
+								<div class="progress-bar" role="progressbar" style="width: 25%;"
+									aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+							</div>
+						</div>
+						<div class="row pt-3">
+							<div class="col">
+								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT$2,000</p>
+								<p class="mb-0 text-decoration-line-through"
+									style="font-weight: bolder; color: grey; font-size: small;">NT
+									$4,000</p>
+
+							</div>
+							<div class="col-4 text-end">
+								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+
+							</div>
+						</div>
+					</div>
+					</p>
 				</div>
 			</div>
 
 			<div class="card mx-3">
 				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖011.jpeg"
 					class="card-img-top" alt="..." />
-				<div class="card-body">
-					<p class="card-text">Some quick example text to build on the
-						card title and make up the bulk of the card's content.</p>
+				<div class="card-body py-0">
+					<p class="card-text">
+					<div class="container px-0">
+						<div class="row">
+							<h5 style="font-weight: bolder;">
+								<strong>Java從零開始學習</strong>
+							</h5>
+						</div>
+						<div class="row">
+							<p class="mb-2" style="font-size: small;">趙令文</p>
+						</div>
+						<div class="row d-flex justify-content-between">
+							<div class="col-7" style="font-size: small; font-weight: bolder">募資倒數10天</div>
+							<div class="col-4 text-end"
+								style="font-size: small; font-weight: bolder">25%</div>
+						</div>
+						<div class="row d-flex justify-content-center">
+							<div class="progress px-0" style="width: 90%; height: 0.5rem">
+								<div class="progress-bar" role="progressbar" style="width: 25%;"
+									aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+							</div>
+						</div>
+						<div class="row pt-3">
+							<div class="col">
+								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT$2,000</p>
+								<p class="mb-0 text-decoration-line-through"
+									style="font-weight: bolder; color: grey; font-size: small;">NT
+									$4,000</p>
+
+							</div>
+							<div class="col-4 text-end">
+								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+
+							</div>
+						</div>
+					</div>
+					</p>
 				</div>
 			</div>
 
@@ -1082,29 +1165,20 @@
 					<div class="container px-0">
 						<div class="row">
 							<h5 style="font-weight: bolder;">
-								<strong>Java從零開始學習</strong>
+								<strong>給Java初學者的建議，這樣學一定會變成大師！</strong>
 							</h5>
 						</div>
 						<div class="row">
-							<p class="mb-2" style="font-size: small;">趙令文</p>
+							<p class="mb-2" style="font-size: small;">在一開始學習Java時，有幾點需要特別注意...</p>
 						</div>
-						<div class="row d-inline ">
-							<strong style="font-size: large;">3.5 </strong> <i
-								class="bi bi-star-fill px-0"></i> <i
-								class="bi bi-star-fill px-0"></i> <i
-								class="bi bi-star-fill px-0"></i> <i
-								class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
-							(123)
-						</div>
-						<div class="row mt-2">
-							<div class="col">
-								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
-									$2,000</p>
-							</div>
-							<div class="col text-end">
-								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
-
-							</div>
+						<div class="row">
+							<p class="d-flex justify-content-between align-items-cente">
+								<strong style="font-size: small;">趙令文 </strong> <span
+									style="font-size: small;"><i
+									class="fa-regular fa-calendar-days"></i> 2023/08/20</span><span
+									style="font-size: small;"><i class="fa-solid fa-eye"></i> 4678</span>
+								<i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
+							</p>
 						</div>
 					</div>
 					</p>
@@ -1118,29 +1192,20 @@
 					<div class="container px-0">
 						<div class="row">
 							<h5 style="font-weight: bolder;">
-								<strong>Java從零開始學習</strong>
+								<strong>給Java初學者的建議，這樣學一定會變成大師！</strong>
 							</h5>
 						</div>
 						<div class="row">
-							<p class="mb-2" style="font-size: small;">趙令文</p>
+							<p class="mb-2" style="font-size: small;">在一開始學習Java時，有幾點需要特別注意...</p>
 						</div>
-						<div class="row d-inline ">
-							<strong style="font-size: large;">3.5 </strong> <i
-								class="bi bi-star-fill px-0"></i> <i
-								class="bi bi-star-fill px-0"></i> <i
-								class="bi bi-star-fill px-0"></i> <i
-								class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
-							(123)
-						</div>
-						<div class="row mt-2">
-							<div class="col">
-								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
-									$2,000</p>
-							</div>
-							<div class="col text-end">
-								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
-
-							</div>
+						<div class="row">
+							<p class="d-flex justify-content-between align-items-cente">
+								<strong style="font-size: small;">趙令文 </strong> <span
+									style="font-size: small;"><i
+									class="fa-regular fa-calendar-days"></i> 2023/08/20</span><span
+									style="font-size: small;"><i class="fa-solid fa-eye"></i> 4678</span>
+								<i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
+							</p>
 						</div>
 					</div>
 					</p>
@@ -1154,29 +1219,20 @@
 					<div class="container px-0">
 						<div class="row">
 							<h5 style="font-weight: bolder;">
-								<strong>Java從零開始學習</strong>
+								<strong>給Java初學者的建議，這樣學一定會變成大師！</strong>
 							</h5>
 						</div>
 						<div class="row">
-							<p class="mb-2" style="font-size: small;">趙令文</p>
+							<p class="mb-2" style="font-size: small;">在一開始學習Java時，有幾點需要特別注意...</p>
 						</div>
-						<div class="row d-inline ">
-							<strong style="font-size: large;">3.5 </strong> <i
-								class="bi bi-star-fill px-0"></i> <i
-								class="bi bi-star-fill px-0"></i> <i
-								class="bi bi-star-fill px-0"></i> <i
-								class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
-							(123)
-						</div>
-						<div class="row mt-2">
-							<div class="col">
-								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
-									$2,000</p>
-							</div>
-							<div class="col text-end">
-								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
-
-							</div>
+						<div class="row">
+							<p class="d-flex justify-content-between align-items-cente">
+								<strong style="font-size: small;">趙令文 </strong> <span
+									style="font-size: small;"><i
+									class="fa-regular fa-calendar-days"></i> 2023/08/20</span><span
+									style="font-size: small;"><i class="fa-solid fa-eye"></i> 4678</span>
+								<i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
+							</p>
 						</div>
 					</div>
 					</p>
@@ -1190,29 +1246,20 @@
 					<div class="container px-0">
 						<div class="row">
 							<h5 style="font-weight: bolder;">
-								<strong>Java從零開始學習</strong>
+								<strong>給Java初學者的建議，這樣學一定會變成大師！</strong>
 							</h5>
 						</div>
 						<div class="row">
-							<p class="mb-2" style="font-size: small;">趙令文</p>
+							<p class="mb-2" style="font-size: small;">在一開始學習Java時，有幾點需要特別注意...</p>
 						</div>
-						<div class="row d-inline ">
-							<strong style="font-size: large;">3.5 </strong> <i
-								class="bi bi-star-fill px-0"></i> <i
-								class="bi bi-star-fill px-0"></i> <i
-								class="bi bi-star-fill px-0"></i> <i
-								class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
-							(123)
-						</div>
-						<div class="row mt-2">
-							<div class="col">
-								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
-									$2,000</p>
-							</div>
-							<div class="col text-end">
-								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
-
-							</div>
+						<div class="row">
+							<p class="d-flex justify-content-between align-items-cente">
+								<strong style="font-size: small;">趙令文 </strong> <span
+									style="font-size: small;"><i
+									class="fa-regular fa-calendar-days"></i> 2023/08/20</span><span
+									style="font-size: small;"><i class="fa-solid fa-eye"></i> 4678</span>
+								<i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
+							</p>
 						</div>
 					</div>
 					</p>
@@ -1222,9 +1269,28 @@
 			<div class="card mx-3">
 				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
 					class="card-img-top" alt="..." />
-				<div class="card-body">
-					<p class="card-text">Some quick example text to build on the
-						card title and make up the bulk of the card's content.</p>
+				<div class="card-body py-0">
+					<p class="card-text">
+					<div class="container px-0">
+						<div class="row">
+							<h5 style="font-weight: bolder;">
+								<strong>給Java初學者的建議，這樣學一定會變成大師！</strong>
+							</h5>
+						</div>
+						<div class="row">
+							<p class="mb-2" style="font-size: small;">在一開始學習Java時，有幾點需要特別注意...</p>
+						</div>
+						<div class="row">
+							<p class="d-flex justify-content-between align-items-cente">
+								<strong style="font-size: small;">趙令文 </strong> <span
+									style="font-size: small;"><i
+									class="fa-regular fa-calendar-days"></i> 2023/08/20</span><span
+									style="font-size: small;"><i class="fa-solid fa-eye"></i> 4678</span>
+								<i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
+							</p>
+						</div>
+					</div>
+					</p>
 				</div>
 			</div>
 

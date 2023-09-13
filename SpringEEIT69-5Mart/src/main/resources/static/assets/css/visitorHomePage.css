@@ -177,3 +177,15 @@
 .fa-angle-up:hover {
 	color: white;
 }
+
+.bi-star-fill, .bi-star-half, .bi-star{
+	color: #FFC800;
+}
+
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+/*.navbar-nav>.dropdown-toggle::after {*/
+/*    display: none !important;*/
+/*}*/
