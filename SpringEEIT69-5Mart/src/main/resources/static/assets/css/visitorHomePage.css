@@ -1,0 +1,179 @@
+@charset "UTF-8";
+#carouselExampleIndicators {
+	margin: 0px 0px 6px
+}
+
+.btnClass {
+	padding-top: 35px;
+	padding-bottom: 35px;
+}
+
+.navbar-nav li:hover>ul.dropdown-menu {
+	display: block;
+}
+
+.dropdown-submenu {
+	position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+	top: 0%;
+	left: 100%;
+	margin-top: -3px;
+}
+
+.dropdown-menu>li>a:hover:after {
+	transform: rotate(-90deg);
+	transition: 0.5s;
+}
+
+.modal-header h3 {
+	font-size: 30px;
+}
+
+/* 登入註冊彈跳式視窗調整 */
+.modal-header h3 {
+	font-size: 30px;
+	margin-left: 10px;
+}
+
+.modal-body form .text, .modal-body form .account, .modal-body form .password
+	{
+	margin-left: 20px;
+	margin-bottom: 10px;
+	width: 90%;
+	height: 50px;
+}
+
+.remember {
+	margin-bottom: 20px;
+	margin-left: 20px;
+}
+
+.modal-body form .btn {
+	width: 90%;
+	font-size: 25px;
+	margin-left: 20px;
+	color: white;
+}
+
+.modal-body a {
+	font-size: 20px;
+	margin-top: 10px;
+}
+/* 登入註冊彈跳式視窗調整 */
+.globe {
+	padding-bottom: 2px;
+	padding-top: 0.5px;
+}
+
+/*.slide-arrow {*/
+/*	position: absolute;*/
+/*	top: 45%;*/
+/* 	margin-top: -15px; */
+/*    z-index:1; */
+   
+/*}*/
+
+.slick-rightbtn {
+	position: absolute;
+	top: 53%;
+	/* 	margin-top: -15px; */
+	right: -1%;
+	width: 50px;
+	height: 50px;
+}
+
+.slick-rightbtn span {
+	font-size: 25px;
+	color: rgb(255, 255, 255);
+/*	border: 1px solid red;*/
+	display: block;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	cursor: pointer;
+	background-color: rgb(26, 79, 151);
+	border-radius: 50px;
+}
+
+.slick-rightbtn span:hover{
+	background-color: rgb(16, 49, 95);
+}
+
+.slick-leftbtn {
+	position: absolute;
+	top: 53%;
+	/* 	margin-top: -15px; */
+	left: -1%;
+	width: 50px;
+	height: 50px;
+}
+
+.slick-leftbtn span {
+	font-size: 25px;
+	color: rgb(255, 255, 255);
+/*	border: 1px solid red;*/
+	display: block;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	cursor: pointer;
+	background-color: rgb(26, 79, 151);
+	border-radius: 50px;
+}
+
+.slick-leftbtn span:hover{
+	background-color: rgb(16, 49, 95);
+}
+
+.prev-arrow {
+	left: -15px;
+	width: 0;
+	height: 0;
+	border-left: 0 solid transparent;
+	border-right: 15px solid #113463;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	background-color: white;
+}
+
+.next-arrow {
+	right: -15px;
+	width: 0;
+	height: 0;
+	border-right: 0 solid transparent;
+	border-left: 15px solid #113463;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	background: rgba(192, 192, 192, 0.6);
+}
+
+
+
+.top_e {
+	position: fixed;
+	right: 40px;
+	bottom: 40px;
+	background: rgba(192, 192, 192, 0.6);
+	border-radius: 50px;
+	border: 1px solid #A9A9A9;
+	cursor: pointer;
+	display: none;
+	width: 60px;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	
+}
+
+.top_e:hover {
+	color: white;
+	background: rgba(128, 138, 135, 0.6);
+}
+
+.fa-angle-up:hover {
+	color: white;
+}

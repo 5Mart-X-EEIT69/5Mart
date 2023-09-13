@@ -57,130 +57,12 @@
 	href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 <!-- slick -->
 
+<link rel='stylesheet'
+	href="<c:url value='/assets/css/visitorHomePage.css' />"
+	type="text/css" />
+
+
 <style type="text/css">
-#carouselExampleIndicators {
-	margin: 0px 0px 6px
-}
-
-.btnClass {
-	padding-top: 35px;
-	padding-bottom: 35px;
-}
-
-.navbar-nav li:hover>ul.dropdown-menu {
-	display: block;
-}
-
-.dropdown-submenu {
-	position: relative;
-}
-
-.dropdown-submenu>.dropdown-menu {
-	top: 0%;
-	left: 100%;
-	margin-top: -3px;
-}
-
-.dropdown-menu>li>a:hover:after {
-	transform: rotate(-90deg);
-	transition: 0.5s;
-}
-
-.modal-header h3 {
-	font-size: 30px;
-}
-
-/* 登入註冊彈跳式視窗調整 */
-.modal-header h3 {
-	font-size: 30px;
-	margin-left: 10px;
-}
-
-.modal-body form .text, .modal-body form .account, .modal-body form .password
-	{
-	margin-left: 20px;
-	margin-bottom: 10px;
-	width: 90%;
-	height: 50px;
-}
-
-.remember {
-	margin-bottom: 20px;
-	margin-left: 20px;
-}
-
-.modal-body form .btn {
-	width: 90%;
-	font-size: 25px;
-	margin-left: 20px;
-	color: white;
-}
-
-.modal-body a {
-	font-size: 20px;
-	margin-top: 10px;
-}
-/* 登入註冊彈跳式視窗調整 */
-.globe {
-	padding-bottom: 2px;
-	padding-top: 0.5px;
-}
-
-.slide-arrow {
-	position: absolute;
-	top: 45%;
-/* 	margin-top: -15px; */
-    z-index:1; 
-   
-}
-
-.prev-arrow {
-	left: -15px;
-	width: 0;
-	height: 0;
-	border-left: 0 solid transparent;
-	border-right: 15px solid #113463;
-	border-top: 10px solid transparent;
-	border-bottom: 10px solid transparent;
-	background-color: white;
-}
-
-.next-arrow {
-	right: -15px;
-	width: 0;
-	height: 0;
-	border-right: 0 solid transparent;
-	border-left: 15px solid #113463;
-	border-top: 10px solid transparent;
-	border-bottom: 10px solid transparent;
-	background: rgba(192, 192, 192, 0.6);
-}
-
-
-
-.top_e {
-	position: fixed;
-	right: 40px;
-	bottom: 40px;
-	background: rgba(192, 192, 192, 0.6);
-	border-radius: 50px;
-	border: 1px solid #A9A9A9;
-	cursor: pointer;
-	display: none;
-	width: 60px;
-	height: 60px;
-	text-align: center;
-	line-height: 60px;
-}
-
-.top_e:hover {
-	color: white;
-	background: rgba(128, 138, 135, 0.6);
-}
-
-.fa-angle-up:hover {
-	color: white;
-}
 </style>
 
 </head>
@@ -201,108 +83,154 @@
  </script> -->
 
 <script type="text/javascript">
-	$(document).ready(function() {
-		// 輪播圖相關設定
-		var myCarousel = document.querySelector("#carouselExampleIndicators");
-		var carousel = new bootstrap.Carousel(myCarousel, {
-			interval : 4000, // 自動輪播的延遲時間
-			pause : false,
-		// 滑鼠碰到圖片時，輪播不會停止;改成"hover"時，輪播會停止
-		});
+	$(document).ready(
+			function() {
+				// 輪播圖相關設定
+				var myCarousel = document
+						.querySelector("#carouselExampleIndicators");
+				var carousel = new bootstrap.Carousel(myCarousel, {
+					interval : 4000, // 自動輪播的延遲時間
+					pause : false,
+				// 滑鼠碰到圖片時，輪播不會停止;改成"hover"時，輪播會停止
+				});
 
-		$(".slick-card").slick({
-			dots : true, // 顯示圓點指示器
-			infinite : false, // 無限循環滑動
-			// 			prevArrow : <button type="button" class="slick-prev">上一個</button>,
-			prevArrow : '<button class="slide-arrow prev-arrow"></button>',
-			nextArrow : '<button class="slide-arrow next-arrow"></button>',
-			// 			nextArrow : '<button class="slide-arrow next-arrow"><i class="fa-solid fa-chevron-right"></i></button>',
+				$(".slick-card-hotcourse").slick({
+					dots : true, // 顯示圓點指示器
+					infinite : false, // 無限循環滑動
+					prevArrow : '.arrow-prev-hotcourse',
+					nextArrow : '.arrow-next-hotcourse',
+					speed : 300,
+					slidesToShow : 4,
+					responsive : [ {
+						breakpoint : 768,
+						settings : {
+							slidesToShow : 1,
+						},
+					}, {
+						breakpoint : 500,
+						settings : {
+							slidesToShow : 2,
+						},
+					}, ],
+				});
 
-			speed : 300,
-			slidesToShow : 4,
-			responsive : [ {
-				breakpoint : 768,
-				settings : {
-					slidesToShow : 1,
-				},
-			}, {
-				breakpoint : 500,
-				settings : {
-					slidesToShow : 2,
-				},
-			}, ],
-		});
+				$(".slick-card-crowdfundingcourse").slick({
+					dots : true, // 顯示圓點指示器
+					infinite : false, // 無限循環滑動
+					prevArrow : '.arrow-prev-crowdfundingcourse',
+					nextArrow : '.arrow-next-crowdfundingcourse',
+					speed : 300,
+					slidesToShow : 4,
+					responsive : [ {
+						breakpoint : 768,
+						settings : {
+							slidesToShow : 1,
+						},
+					}, {
+						breakpoint : 500,
+						settings : {
+							slidesToShow : 2,
+						},
+					}, ],
+				});
 
-		$(".card").mouseenter(function() {
-			$(this).addClass("shadow");
-		}).mouseleave(function() {
-			$(this).removeClass("shadow")
-		});
+				$(".slick-card-hotarticle").slick({
+					dots : true, // 顯示圓點指示器
+					infinite : false, // 無限循環滑動
+					prevArrow : '.arrow-prev-hotarticle',
+					nextArrow : '.arrow-next-hotarticle',
+					speed : 300,
+					slidesToShow : 3,
+					responsive : [ {
+						breakpoint : 768,
+						settings : {
+							slidesToShow : 1,
+						},
+					}, {
+						breakpoint : 500,
+						settings : {
+							slidesToShow : 2,
+						},
+					}, ],
+				});
 
-		var heartcount = false;
+				$(".card").mouseenter(function() {
+					$(this).addClass("shadow");
+				}).mouseleave(function() {
+					$(this).removeClass("shadow")
+				});
 
-		$(".fa-heart").mouseenter(function() {
-			$(this).addClass("fa-solid").removeClass("fa-regular");
-		}).mouseleave(function() {
-			$(this).addClass("fa-regular").removeClass("fa-solid");
-		})
-		// 		if (heartcount) {
-		// 			$(".fa-heart").click(function() {
-		// 				console.log("ok");
-		// 				$(this).addClass("fa-regular");
-		// 				$(this).removeClass("fa-solid");
-		// 				heartcount = false;
-		// 			});
-		// 		} else {
-		// 			$(".fa-heart").mouseenter(function() {
-		// 				$(this).addClass("fa-solid");
-		// 				$(this).removeClass("fa-regular");
-		// 			}).mouseleave(function() {
-		// 				$(this).addClass("fa-regular");
-		// 				$(this).removeClass("fa-solid");
-		// 			}).click(function() {
-		// 				$(this).addClass("fa-solid");
-		// 				$(this).removeClass("fa-regular");
-		// 				console.log("xx");
-		// 				heartcount = true;
-		// 				console.log(heartcount);
-		// 			});
-		// 		}
+				// 愛心滑鼠經過點擊變化
+				var heartcount = false;
+				$(".fa-heart").click(
+						function() {
+							if (!heartcount) {
+								$(this).addClass("fa-solid").removeClass(
+										"fa-regular").css("color", "#D10A0A");
+								heartcount = true;
+							} else {
+								heartcount = false;
+								$(this).addClass("fa-regular").removeClass(
+										"fa-solid").css("color", "#f70000");
+							}
+						})
 
-		// 控制按钮的显示和消失
-		$(window).scroll(function() {
-			if ($(window).scrollTop() > 300) {
-				$('#return-top').fadeIn(300);
-			} else {
-				$('#return-top').fadeOut(200);
-			}
-		})
+				$(".fa-heart").mouseenter(function() {
+					if (!heartcount) {
+						$(this).addClass("fa-solid").removeClass("fa-regular");
+					}
+				})
 
-		// 点击按钮，使得页面返回顶部
-		$("#return-top").click(function() {
-			scrollTo(0, 0);
-		});
+				$(".fa-heart").mouseleave(function() {
+					if (!heartcount) {
+						$(this).addClass("fa-regular").removeClass("fa-solid");
+					}
+				})
 
-		// 控制按钮的显示和消失
-		$(window).scroll(function() {
-			if ($(window).scrollTop() > 300) {
-				$('#return-top2').fadeIn(300);
-			} else {
-				$('#return-top2').fadeOut(200);
-			}
-		})
+				// 		if (heartcount) {
+				// 			$(".fa-heart").click(function() {
+				// 				console.log("ok");
+				// 				$(this).addClass("fa-regular");
+				// 				$(this).removeClass("fa-solid");
+				// 				heartcount = false;
+				// 			});
+				// 		} else {
+				// 			$(".fa-heart").mouseenter(function() {
+				// 				$(this).addClass("fa-solid");
+				// 				$(this).removeClass("fa-regular");
+				// 			}).mouseleave(function() {
+				// 				$(this).addClass("fa-regular");
+				// 				$(this).removeClass("fa-solid");
+				// 			}).click(function() {
+				// 				$(this).addClass("fa-solid");
+				// 				$(this).removeClass("fa-regular");
+				// 				console.log("xx");
+				// 				heartcount = true;
+				// 				console.log(heartcount);
+				// 			});
+				// 		}
 
-		// 点击按钮，使得页面返回顶部
-		$("#return-top2").click(function() {
-			scrollTo(0, 0);
-		});
+				// 回到頂部的按鈕顯示和消失
+				$(window).scroll(function() {
+					if ($(window).scrollTop() > 300) {
+						$('#return-top').fadeIn(300);
+					} else {
+						$('#return-top').fadeOut(200);
+					}
+				})
 
-	});
+				// 點擊回到頂部按鈕，回到頁面頂部
+				$("#return-top").click(function() {
+					scrollTo(0, 0);
+				});
+
+			});
 </script>
 
 <body>
 	<!-- 導覽列 -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow">
+	<nav
+		class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow">
 		<div class="container-fluid">
 			<!-- 品牌logo -->
 			<a class="navbar-brand" href="#"><i
@@ -653,7 +581,7 @@
 	<!-- 輪播圖 -->
 
 	<!-- 熱門課程區塊(水平滾動) -->
-	<div class="container mb-5">
+	<div class="container mb-5" style="position: relative;">
 		<div class="row mb-2">
 			<div class="col-10">
 				<h4>
@@ -668,7 +596,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row slick-card">
+		<div class="row slick-card-hotcourse">
 			<div class="card mx-3">
 				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg"
 					class="card-img-top" alt="..." />
@@ -850,12 +778,20 @@
 				</div>
 			</div>
 		</div>
+		<div class="arrow-next-hotcourse slick-rightbtn">
+			<span> <i class="fa-solid fa-chevron-right"></i>
+			</span>
+		</div>
+		<div class="arrow-prev-hotcourse slick-leftbtn">
+			<span> <i class="fa-solid fa-chevron-left"></i>
+			</span>
+		</div>
 	</div>
 
 	<!-- 熱門課程區塊(水平滾動) -->
 
 	<!-- 募資課程區塊(水平滾動) -->
-	<div class="container mb-5" id="paragraphTitle">
+	<div class="container mb-5" style="position: relative;">
 		<div class="row mb-2">
 			<div class="col-10">
 				<h4>
@@ -871,47 +807,197 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col-12 col-md-3">
-				<div class="card">
-					<img src="<c:url value='/assets/images/課程封面圖001.jpeg'/>"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
+		<div class="row slick-card-crowdfundingcourse">
+			<div class="card mx-3">
+				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg"
+					class="card-img-top" alt="..." />
+				<div class="card-body py-0">
+					<p class="card-text">
+					<div class="container px-0">
+						<div class="row">
+							<h5 style="font-weight: bolder;">
+								<strong>Java從零開始學習</strong>
+							</h5>
+						</div>
+						<div class="row">
+							<p class="mb-2" style="font-size: small;">趙令文</p>
+						</div>
+						<div class="row d-flex justify-content-between">
+						<div class="col-7" style="font-size: small;font-weight: bolder">募資倒數10天</div>
+						<div class="col-3" style="font-size: small;font-weight: bolder">25%</div>
+						</div>
+						<div class="row d-flex justify-content-center">
+							<div class="progress px-0" style="width: 90%; height: 0.5rem">
+								<div class="progress-bar" role="progressbar" style="width: 25%;"
+									aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+							</div>
+						</div>
+						<div class="row mt-2">
+							<div class="col">
+								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
+									$2,000</p>
+							</div>
+							<div class="col text-end">
+								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+
+							</div>
+						</div>
 					</div>
+					</p>
 				</div>
 			</div>
-			<div class="col-12 col-md-3">
-				<div class="card">
-					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
+			<div class="card mx-3">
+				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
+					class="card-img-top" alt="..." />
+				<div class="card-body py-0">
+					<p class="card-text">
+					<div class="container px-0">
+						<div class="row">
+							<h5 style="font-weight: bolder;">
+								<strong>Java從零開始學習</strong>
+							</h5>
+						</div>
+						<div class="row">
+							<p class="mb-2" style="font-size: small;">趙令文</p>
+						</div>
+						<div class="row d-inline ">
+							<strong style="font-size: large;">3.5 </strong> <i
+								class="bi bi-star-fill px-0"></i> <i
+								class="bi bi-star-fill px-0"></i> <i
+								class="bi bi-star-fill px-0"></i> <i
+								class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
+							(123)
+						</div>
+						<div class="row mt-2">
+							<div class="col">
+								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
+									$2,000</p>
+							</div>
+							<div class="col text-end">
+								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+
+							</div>
+						</div>
 					</div>
+					</p>
 				</div>
 			</div>
-			<div class="col-12 col-md-3">
-				<div class="card">
-					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
+			<div class="card mx-3">
+				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg"
+					class="card-img-top" alt="..." />
+				<div class="card-body py-0">
+					<p class="card-text">
+					<div class="container px-0">
+						<div class="row">
+							<h5 style="font-weight: bolder;">
+								<strong>Java從零開始學習</strong>
+							</h5>
+						</div>
+						<div class="row">
+							<p class="mb-2" style="font-size: small;">趙令文</p>
+						</div>
+						<div class="row d-inline ">
+							<strong style="font-size: large;">3.5 </strong> <i
+								class="bi bi-star-fill px-0"></i> <i
+								class="bi bi-star-fill px-0"></i> <i
+								class="bi bi-star-fill px-0"></i> <i
+								class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
+							(123)
+						</div>
+						<div class="row mt-2">
+							<div class="col">
+								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
+									$2,000</p>
+							</div>
+							<div class="col text-end">
+								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+
+							</div>
+						</div>
 					</div>
+					</p>
 				</div>
 			</div>
-			<div class="col-12 col-md-3">
-				<div class="card">
-					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖004.jpeg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
+			<div class="card mx-3">
+				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖004.jpeg"
+					class="card-img-top" alt="..." />
+				<div class="card-body py-0">
+					<p class="card-text">
+					<div class="container px-0">
+						<div class="row">
+							<h5 style="font-weight: bolder;">
+								<strong>Java從零開始學習</strong>
+							</h5>
+						</div>
+						<div class="row">
+							<p class="mb-2" style="font-size: small;">趙令文</p>
+						</div>
+						<div class="row d-inline ">
+							<strong style="font-size: large;">3.5 </strong> <i
+								class="bi bi-star-fill px-0"></i> <i
+								class="bi bi-star-fill px-0"></i> <i
+								class="bi bi-star-fill px-0"></i> <i
+								class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
+							(123)
+						</div>
+						<div class="row mt-2">
+							<div class="col">
+								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
+									$2,000</p>
+							</div>
+							<div class="col text-end">
+								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+
+							</div>
+						</div>
 					</div>
+					</p>
 				</div>
 			</div>
+
+			<div class="card mx-3">
+				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
+					class="card-img-top" alt="..." />
+				<div class="card-body">
+					<p class="card-text">Some quick example text to build on the
+						card title and make up the bulk of the card's content.</p>
+				</div>
+			</div>
+
+			<div class="card mx-3">
+				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖011.jpeg"
+					class="card-img-top" alt="..." />
+				<div class="card-body">
+					<p class="card-text">Some quick example text to build on the
+						card title and make up the bulk of the card's content.</p>
+				</div>
+			</div>
+
+			<div class="card mx-3">
+				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖012.jpeg"
+					class="card-img-top" alt="..." />
+				<div class="card-body">
+					<p class="card-text">Some quick example text to build on the
+						card title and make up the bulk of the card's content.</p>
+				</div>
+			</div>
+
+			<div class="card mx-3">
+				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖007.jpeg"
+					class="card-img-top" alt="..." />
+				<div class="card-body">
+					<p class="card-text">Some quick example text to build on the
+						card title and make up the bulk of the card's content.</p>
+				</div>
+			</div>
+		</div>
+		<div class="arrow-next-crowdfundingcourse slick-rightbtn">
+			<span> <i class="fa-solid fa-chevron-right"></i>
+			</span>
+		</div>
+		<div class="arrow-prev-crowdfundingcourse slick-leftbtn">
+			<span> <i class="fa-solid fa-chevron-left"></i>
+			</span>
 		</div>
 	</div>
 	<!-- 募資課程區塊(水平滾動) -->
@@ -971,7 +1057,7 @@
 	<!-- 熱門類別 -->
 
 	<!-- 精選文章區塊(水平滾動) -->
-	<div class="container mb-5" id="paragraphTitle">
+	<div class="container mb-5" style="position: relative;">
 		<div class="row mb-2">
 			<div class="col-10">
 				<h4>
@@ -987,37 +1073,195 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col-12 col-md-4">
-				<div class="card">
-					<img src="<c:url value='/assets/images/課程封面圖001.jpeg'/>"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
+		<div class="row slick-card-hotarticle">
+			<div class="card mx-3">
+				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg"
+					class="card-img-top" alt="..." />
+				<div class="card-body py-0">
+					<p class="card-text">
+					<div class="container px-0">
+						<div class="row">
+							<h5 style="font-weight: bolder;">
+								<strong>Java從零開始學習</strong>
+							</h5>
+						</div>
+						<div class="row">
+							<p class="mb-2" style="font-size: small;">趙令文</p>
+						</div>
+						<div class="row d-inline ">
+							<strong style="font-size: large;">3.5 </strong> <i
+								class="bi bi-star-fill px-0"></i> <i
+								class="bi bi-star-fill px-0"></i> <i
+								class="bi bi-star-fill px-0"></i> <i
+								class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
+							(123)
+						</div>
+						<div class="row mt-2">
+							<div class="col">
+								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
+									$2,000</p>
+							</div>
+							<div class="col text-end">
+								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+
+							</div>
+						</div>
 					</div>
+					</p>
 				</div>
 			</div>
-			<div class="col-12 col-md-4">
-				<div class="card">
-					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
+			<div class="card mx-3">
+				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
+					class="card-img-top" alt="..." />
+				<div class="card-body py-0">
+					<p class="card-text">
+					<div class="container px-0">
+						<div class="row">
+							<h5 style="font-weight: bolder;">
+								<strong>Java從零開始學習</strong>
+							</h5>
+						</div>
+						<div class="row">
+							<p class="mb-2" style="font-size: small;">趙令文</p>
+						</div>
+						<div class="row d-inline ">
+							<strong style="font-size: large;">3.5 </strong> <i
+								class="bi bi-star-fill px-0"></i> <i
+								class="bi bi-star-fill px-0"></i> <i
+								class="bi bi-star-fill px-0"></i> <i
+								class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
+							(123)
+						</div>
+						<div class="row mt-2">
+							<div class="col">
+								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
+									$2,000</p>
+							</div>
+							<div class="col text-end">
+								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+
+							</div>
+						</div>
 					</div>
+					</p>
 				</div>
 			</div>
-			<div class="col-12 col-md-4">
-				<div class="card">
-					<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
+			<div class="card mx-3">
+				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg"
+					class="card-img-top" alt="..." />
+				<div class="card-body py-0">
+					<p class="card-text">
+					<div class="container px-0">
+						<div class="row">
+							<h5 style="font-weight: bolder;">
+								<strong>Java從零開始學習</strong>
+							</h5>
+						</div>
+						<div class="row">
+							<p class="mb-2" style="font-size: small;">趙令文</p>
+						</div>
+						<div class="row d-inline ">
+							<strong style="font-size: large;">3.5 </strong> <i
+								class="bi bi-star-fill px-0"></i> <i
+								class="bi bi-star-fill px-0"></i> <i
+								class="bi bi-star-fill px-0"></i> <i
+								class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
+							(123)
+						</div>
+						<div class="row mt-2">
+							<div class="col">
+								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
+									$2,000</p>
+							</div>
+							<div class="col text-end">
+								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+
+							</div>
+						</div>
 					</div>
+					</p>
 				</div>
 			</div>
+			<div class="card mx-3">
+				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖004.jpeg"
+					class="card-img-top" alt="..." />
+				<div class="card-body py-0">
+					<p class="card-text">
+					<div class="container px-0">
+						<div class="row">
+							<h5 style="font-weight: bolder;">
+								<strong>Java從零開始學習</strong>
+							</h5>
+						</div>
+						<div class="row">
+							<p class="mb-2" style="font-size: small;">趙令文</p>
+						</div>
+						<div class="row d-inline ">
+							<strong style="font-size: large;">3.5 </strong> <i
+								class="bi bi-star-fill px-0"></i> <i
+								class="bi bi-star-fill px-0"></i> <i
+								class="bi bi-star-fill px-0"></i> <i
+								class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
+							(123)
+						</div>
+						<div class="row mt-2">
+							<div class="col">
+								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
+									$2,000</p>
+							</div>
+							<div class="col text-end">
+								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+
+							</div>
+						</div>
+					</div>
+					</p>
+				</div>
+			</div>
+
+			<div class="card mx-3">
+				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
+					class="card-img-top" alt="..." />
+				<div class="card-body">
+					<p class="card-text">Some quick example text to build on the
+						card title and make up the bulk of the card's content.</p>
+				</div>
+			</div>
+
+			<div class="card mx-3">
+				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖011.jpeg"
+					class="card-img-top" alt="..." />
+				<div class="card-body">
+					<p class="card-text">Some quick example text to build on the
+						card title and make up the bulk of the card's content.</p>
+				</div>
+			</div>
+
+			<div class="card mx-3">
+				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖012.jpeg"
+					class="card-img-top" alt="..." />
+				<div class="card-body">
+					<p class="card-text">Some quick example text to build on the
+						card title and make up the bulk of the card's content.</p>
+				</div>
+			</div>
+
+			<div class="card mx-3">
+				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖007.jpeg"
+					class="card-img-top" alt="..." />
+				<div class="card-body">
+					<p class="card-text">Some quick example text to build on the
+						card title and make up the bulk of the card's content.</p>
+				</div>
+			</div>
+		</div>
+		<div class="arrow-next-hotarticle slick-rightbtn">
+			<span> <i class="fa-solid fa-chevron-right"></i>
+			</span>
+		</div>
+		<div class="arrow-prev-hotarticle slick-leftbtn">
+			<span> <i class="fa-solid fa-chevron-left"></i>
+			</span>
 		</div>
 	</div>
 	<!-- 精選文章區塊(水平滾動) -->
