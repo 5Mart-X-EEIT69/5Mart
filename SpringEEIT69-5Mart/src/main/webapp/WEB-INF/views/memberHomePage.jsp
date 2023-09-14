@@ -169,6 +169,7 @@
 
 				// 愛心滑鼠經過點擊變化
 				$("div>.fa-heart").addClass("heart");
+				$("p>.fa-heart").addClass("heart");
 
 				var heartcount = false;
 				$(".heart").click(
@@ -184,13 +185,13 @@
 							}
 						})
 
-				$(".fa-heart").mouseenter(function() {
+				$(".heart").mouseenter(function() {
 					if (!heartcount) {
 						$(this).addClass("fa-solid").removeClass("fa-regular");
 					}
 				})
 
-				$(".fa-heart").mouseleave(function() {
+				$(".heart").mouseleave(function() {
 					if (!heartcount) {
 						$(this).addClass("fa-regular").removeClass("fa-solid");
 					}
@@ -215,13 +216,13 @@
 
 <body>
 	<!-- 導覽列 -->
-	<nav class="navbar navbar-expand-lg   sticky-top shadow-lg ">
+	<nav
+		class="navbar navbar-expand-lg bg-body-tertiary sticky-top shadow-lg">
 		<div class="container-fluid ">
 			<!-- 品牌logo -->
 			<a class="navbar-brand" href="#"><i
-				class="fa-solid fa-graduation-cap fa-xl px-2"
-				style="color: #ffffff;"></i></a>
-
+				class="fa-solid fa-graduation-cap fa-xl px-2"></i></a>
+			<!-- style="color: #ffffff;" -->
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -328,7 +329,7 @@
 							<button class="btn btn-outline-success" type="submit">搜尋</button>
 						</form>
 					</li>
-					<li class="nav-item dropdown px-4"><a
+					<li class="nav-item dropdown ps-5"><a
 						class="nav-link dropdown-toggle " href="#" id="navbarDropdown"
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							我的學習 </a>
@@ -343,7 +344,7 @@
 										<div class="col-md-8">
 											<div class="card-body">
 												<h5 class="card-title">Card title</h5>
-												<p class="card-text" >This is a wider card with
+												<p class="card-text">This is a wider card with
 													supporting text below as a natural lead-in to additional
 													content. This content is a little bit longer.</p>
 												<p class="card-text">
@@ -355,20 +356,19 @@
 								</div></li>
 						</ul></li>
 
-					<li class="nav-item px-4"><a class="nav-link" href="#"><i
-							class="fa-regular fa-heart fa-xl mt-2" style="color: #f70000;"></i></a></li>
-					<li class="nav-item px-4"><a class="nav-link" href="#"><i
+					<!-- 願望清單 -->
+					<li class="nav-item dropdown px-2"><a class="nav-link"
+						href="#"><i class="fa-solid fa-heart fa-xl mt-2"></i></a></li>
+					<!-- 購物車 fontawesome -->
+					<li class="nav-item px-2"><a class="nav-link" href="#"><i
 							class="fa-solid fa-cart-shopping fa-xl"></i></a></li>
-					<li class="nav-item px-4"><a class="nav-link py-0" href="#"><i
-							class="bi bi-cart3" style="font-size: 25px; font-weight: bolder;"></i></a></li>
-					<li class="nav-item px-4"><a class="nav-link" href="#"><span
-							class="material-symbols-outlined"> shopping_cart </span></a></li>
-					<li class="nav-item px-4"><a class="nav-link" href="#"><i
-							class="fa-regular fa-bell fa-xl"></i></a></li>
+					<!-- 通知 -->
+					<li class="nav-item px-2"><a class="nav-link" href="#"><i
+							class="fa-solid fa-bell fa-xl"></i></a></li>
 
 
 				</ul>
-
+				
 				<div class="btn-group d-block">
 					<button type="button"
 						class="btn btn-outline-success dropdown-toggle globe "
@@ -464,7 +464,7 @@
 			</div>
 		</div>
 		<div class="row slick-card-hotcourse">
-			<div class="card mx-3">
+			<div class="card mx-3 border-light">
 				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg"
 					class="card-img-top" alt="..." />
 				<div class="card-body py-0">
@@ -1210,19 +1210,22 @@
 		</div>
 	</div>
 	<!-- 精選文章區塊(水平滾動) -->
+
+	<!-- 回到頂部按鈕 -->
 	<div id="return-top" class="top_e shadow-sm">
 		<i class="fa-solid fa-angle-up fa-2xl" style="color: #919191;"></i>
 		<!-- 				<i class="fa-solid fa-angle-up fa-xl "></i> -->
 	</div>
+	<!-- 回到頂部按鈕 -->
 
 
 	<!-- 最底部 -->
-	<footer class="bd-footer py-5 mt-5 ">
+	<footer class="bd-footer py-5 mt-5 bg-light">
 		<div class="container">
 			<div class="row">
 				<div class="col-12 d-flex justify-content-center align-items-center">
-					<i class="fa-solid fa-graduation-cap fa-xl px-2"
-						style="color: #ffffff;"></i>
+					<i class="fa-solid fa-graduation-cap fa-xl px-2"></i>
+					<!-- style="color: #ffffff;" -->
 
 					<h4 class="d-inline mb-0">5mart</h4>
 				</div>

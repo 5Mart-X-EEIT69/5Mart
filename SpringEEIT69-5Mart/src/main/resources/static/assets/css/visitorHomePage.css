@@ -1,28 +1,24 @@
 @charset "UTF-8";
 
+/* 全部的字體 */
 * {
 	font-family: 'Noto Sans TC', sans-serif;
-
 }
 
-#carouselExampleIndicators {
-	margin: 0px 0px 6px
-}
-
+/* 熱門類別按鈕 */
 .btnClass {
 	padding-top: 35px;
 	padding-bottom: 35px;
 }
 
-.navbar{
-	background-color: #032541;
-}
+/* 導覽列和最底部 */
+/*.navbar,.bd-footer{*/
+/*	background-color: #032541;*/
+/*	最底部文字顏色*/
+/*	color: white;  */
+/*}*/
 
-.bd-footer{
-	background-color: #032541;	
-}
-
-
+/* 下拉式選單(滑鼠經過、子選單位置、子選單箭頭轉向、導覽標題箭頭取消、導覽標題顏色) */
 .navbar-nav li:hover>ul.dropdown-menu {
 	display: block;
 }
@@ -42,8 +38,19 @@
 	transition: 0.5s;
 }
 
-.modal-header h3 {
-	font-size: 30px;
+.navbar-nav>li>.dropdown-toggle::after {
+	display: none !important;
+}
+
+.nav-link {
+	font-weight: bolder;
+/*	color: white;*/
+}
+
+/* 切換語言按鈕 */
+.globe {
+	padding-bottom: 2px;
+	padding-top: 0.5px;
 }
 
 /* 登入註冊彈跳式視窗調整 */
@@ -78,20 +85,7 @@
 	margin-top: 10px;
 }
 
-/* 登入註冊彈跳式視窗調整 */
-.globe {
-	padding-bottom: 2px;
-	padding-top: 0.5px;
-}
-
-/*.slide-arrow {*/
-/*	position: absolute;*/
-/*	top: 45%;*/
-/* 	margin-top: -15px; */
-/*    z-index:1; */
-
-/*}*/
-
+/* 手動輪播左右按鈕 */
 .slick-rightbtn {
 	position: absolute;
 	top: 53%;
@@ -169,7 +163,7 @@
 }
 
 
-
+/* 回到頂部按鈕 */
 .top_e {
 	position: fixed;
 	right: 40px;
@@ -183,7 +177,6 @@
 	height: 60px;
 	text-align: center;
 	line-height: 60px;
-
 }
 
 .top_e:hover {
@@ -195,17 +188,10 @@
 	color: white;
 }
 
+/* 評價星星 */
 .bi-star-fill,
 .bi-star-half,
 .bi-star {
 	color: #FFC800;
 }
 
-.navbar-nav>li>.dropdown-toggle::after {
-	display: none !important;
-}
-
-.nav-link {
-	font-weight: bolder;
-	color: white;
-}
