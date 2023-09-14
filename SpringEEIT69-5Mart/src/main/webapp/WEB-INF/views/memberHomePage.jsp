@@ -30,7 +30,7 @@
 
 <!-- google fonts的icon庫引入 -->
 <link rel="stylesheet"
-	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0" />
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <!-- google fonts的icon庫引入 -->
 
 <!-- font awesome的icon庫引入 -->
@@ -60,6 +60,13 @@
 <link rel='stylesheet'
 	href="<c:url value='/assets/css/visitorHomePage.css' />"
 	type="text/css" />
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@600&family=Noto+Serif+TC:wght@200;700&display=swap"
+	rel="stylesheet">
 
 
 <style type="text/css">
@@ -161,8 +168,10 @@
 				});
 
 				// 愛心滑鼠經過點擊變化
+				$("div>.fa-heart").addClass("heart");
+
 				var heartcount = false;
-				$(".fa-heart").click(
+				$(".heart").click(
 						function() {
 							if (!heartcount) {
 								$(this).addClass("fa-solid").removeClass(
@@ -206,12 +215,13 @@
 
 <body>
 	<!-- 導覽列 -->
-	<nav
-		class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow">
-		<div class="container-fluid">
+	<nav class="navbar navbar-expand-lg   sticky-top shadow-lg ">
+		<div class="container-fluid ">
 			<!-- 品牌logo -->
 			<a class="navbar-brand" href="#"><i
-				class="fa-solid fa-graduation-cap fa-xl px-2"></i></a>
+				class="fa-solid fa-graduation-cap fa-xl px-2"
+				style="color: #ffffff;"></i></a>
+
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -221,7 +231,7 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item dropdown px-2"><a
-						class="nav-link dropdown-toggle "  href="#" id="navbarDropdown"
+						class="nav-link dropdown-toggle " href="#" id="navbarDropdown"
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							課程類別 </a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -318,8 +328,8 @@
 							<button class="btn btn-outline-success" type="submit">搜尋</button>
 						</form>
 					</li>
-					<li class="nav-item dropdown px-2"><a
-						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					<li class="nav-item dropdown px-4"><a
+						class="nav-link dropdown-toggle " href="#" id="navbarDropdown"
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							我的學習 </a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -333,7 +343,7 @@
 										<div class="col-md-8">
 											<div class="card-body">
 												<h5 class="card-title">Card title</h5>
-												<p class="card-text">This is a wider card with
+												<p class="card-text" >This is a wider card with
 													supporting text below as a natural lead-in to additional
 													content. This content is a little bit longer.</p>
 												<p class="card-text">
@@ -344,7 +354,18 @@
 									</div>
 								</div></li>
 						</ul></li>
-					
+
+					<li class="nav-item px-4"><a class="nav-link" href="#"><i
+							class="fa-regular fa-heart fa-xl mt-2" style="color: #f70000;"></i></a></li>
+					<li class="nav-item px-4"><a class="nav-link" href="#"><i
+							class="fa-solid fa-cart-shopping fa-xl"></i></a></li>
+					<li class="nav-item px-4"><a class="nav-link py-0" href="#"><i
+							class="bi bi-cart3" style="font-size: 25px; font-weight: bolder;"></i></a></li>
+					<li class="nav-item px-4"><a class="nav-link" href="#"><span
+							class="material-symbols-outlined"> shopping_cart </span></a></li>
+					<li class="nav-item px-4"><a class="nav-link" href="#"><i
+							class="fa-regular fa-bell fa-xl"></i></a></li>
+
 
 				</ul>
 
@@ -373,7 +394,7 @@
 		</div>
 	</nav>
 	<!-- 導覽列 -->
-	
+
 
 	<!-- 輪播圖 -->
 	<div class="container mb-5">
@@ -1196,11 +1217,12 @@
 
 
 	<!-- 最底部 -->
-	<footer class="bd-footer py-5 mt-5 bg-light">
+	<footer class="bd-footer py-5 mt-5 ">
 		<div class="container">
 			<div class="row">
 				<div class="col-12 d-flex justify-content-center align-items-center">
-					<i class="fa-solid fa-graduation-cap fa-xl px-2"></i>
+					<i class="fa-solid fa-graduation-cap fa-xl px-2"
+						style="color: #ffffff;"></i>
 
 					<h4 class="d-inline mb-0">5mart</h4>
 				</div>
@@ -1238,8 +1260,8 @@
 	<!-- CDN引入 -->
 
 	<!-- bootstrap -->
-	<!-- 	<script -->
-	<!-- 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script> -->
+	<!-- 		<script -->
+	<!-- 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script> -->
 	<!-- bootstrap -->
 	<!-- slick -->
 	<script type="text/javascript"
