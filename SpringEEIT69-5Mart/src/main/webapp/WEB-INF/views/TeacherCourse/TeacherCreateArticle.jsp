@@ -21,14 +21,14 @@
 <!-- bootstrap -->
 </head>
 <script type="text/javascript">
-	window.onload(){
-
-
+	window.onload = function(){
+	
+	
 	}
 </script>
 <body>
 	<div class="bg-primary d-flex flex-row min-vh-100">
-		<div class="d-flex flex-column p-3 bg-light" style="width: 300px;">
+		<div class="col-2 d-flex flex-column p-3 bg-light">
 			<a href="<c:url value="/"></c:url>"
 				class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
 				<span style="font-size: 40px;"><i class="bi bi-5-square "></i>
@@ -73,7 +73,9 @@
 			<hr>
 		</div>
 <!-- 		選單右邊 -->
-		<div>test</div>
+		<div class="col-2">test</div>
+		<div class="col-4">test</div>
+		<div class="col-4">test</div>
 	</div>
 
 

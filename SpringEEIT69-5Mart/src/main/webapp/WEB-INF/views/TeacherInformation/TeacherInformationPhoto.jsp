@@ -70,28 +70,34 @@
 		</div>
 	<!-- 		選單右邊 -->
 		<div class="col-2">test</div>
-		<div class="col-4 d-flex flex-column align-items-center" id="photoContainer">
-			<label for="formFileLg" class="form-label m-3">更新您的個人照片</label> 
-			<div class="w-100 m-3 border rounded" style="height: 357px">
-				<figure class="figure">
-					<img src="" class="ifigure-img img-fluid rounded">
-				</figure>				
-			</div>			
-			<input class="form-control form-control-lg" id="imgbtn" type="file" accept="image/*">
-			<button type="button" class="btn btn-secondary mt-3">儲存照片</button>
+		<div class="col-4 d-flex align-items-center" id="photoContainer">
+			<form action="?" method="post" class="w-100 mb-3" onsubmit="return sumbit()" >
+				<div class="d-flex justify-content-center">
+					<h1>自我介紹</h1>
+				</div>
+			
+				<label class="form-label">更新您的個人照片</label>
+				<div class="w-100 mb-3 border rounded" style="height: 357px">
+					<figure class="figure m-0 d-flex justify-content-center">
+						<img src="" class="ifigure-img img-fluid rounded">
+					</figure>				
+				</div>			
+				<input class="form-control form-control-lg" id="imgbtn" type="file" accept="image/*">
+				<div class="d-flex justify-content-center">
+					<button type="submit" class="btn btn-secondary mt-3" >儲存照片</button>				
+				</div>
+			</form>
 		</div>
 		<div class="col-4">test</div>
 	</div>
-	
+<!-- 	圖片base64還沒抓，先做好靜態 -->
 	<script type="text/javascript">
 	    $('#photoContainer').on("change", "#imgbtn", function () {
 	
-	    	alert("test")
 	        image = $(this).prev().children().children()[0]
 	        // console.log("test"+video)
 	        console.log(image)
 	
-            alert(this)
             let input = $(this)[0].files;
             // console.log(input)
             // console.log(input.length)
@@ -106,9 +112,16 @@
                 fileReader.readAsDataURL(fileToLoad);
             }
 			
-            console.log($('#photoContainer').children('div').eq(0).removeAttr('style'))
+            $('#photoContainer').children().children('div').eq(1).removeAttr('style')
 	    })
-	
+			    
+		function sumbit() {
+			if (confirm("確定要更新個人照片嗎?") == true) {
+				return true;
+			} else {
+				return false;
+			}
+		}
 	</script>
 </body>
 </html>

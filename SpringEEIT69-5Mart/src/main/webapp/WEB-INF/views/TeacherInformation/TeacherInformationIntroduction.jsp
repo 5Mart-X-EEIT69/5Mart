@@ -19,16 +19,17 @@
 	href="<c:url value="/assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css"/>"
 	type="text/css" />
 <!-- bootstrap -->
+
 </head>
 <script type="text/javascript">
-	window.onload(){
+	window.onload = function(){
 
 
 	}
 </script>
 <body>
-	<div class="bg-primary d-flex flex-row min-vh-100">
-		<div class="d-flex flex-column p-3 bg-light" style="width: 300px;">
+	<div class="d-flex flex-row min-vh-100">
+		<div class="col-2 d-flex flex-column p-3 bg-light">
 			<a href="<c:url value="/"></c:url>"
 				class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
 				<span style="font-size: 40px;"><i class="bi bi-5-square "></i>
@@ -69,9 +70,44 @@
 			<hr>
 		</div>
 <!-- 		選單右邊 -->
-		<div>test</div>
-	</div>
+		<div class="col-2">test</div>
+		<div class="col-4 d-flex align-items-center">
+			<form action="?" method="post" class="w-100 mb-3" onsubmit="return sumbit()">
+					<div class="d-flex justify-content-center">
+						<h1>自我介紹</h1>
+					</div>
+										
+					<label for="introduction" class="form-label mt-3">輸入你的自我介紹吧!(選填)</label>
+					<textarea class="form-control" id="introduction" rows="3"></textarea>
+					
+					<label for="skill" class="form-label mt-3">輸入你的專長吧!(選填)</label>
+					<textarea class="form-control" id="skill" rows="3"></textarea>
+					
+					<label for="blog" class="form-label mt-3">宣傳你的個人部落格吧(選填)</label>
+					<input type="url" class="form-control" id="blog" placeholder="https://...">
+					
+					<label for="youtube" class="form-label mt-3">宣傳你的個人Youtube吧(選填)</label>
+					<input type="url" class="form-control" id="youtube" placeholder="https://www.youtube.com/...">
+					
+					<label for="facebook" class="form-label mt-3">宣傳你的個人Facebook吧(選填)</label>
+					<input type="url" class="form-control" id="facebook" placeholder="https://www.facebook.com/...">
 
+					<div class="d-flex justify-content-center">
+						<button type="submit" class="btn btn-secondary mt-3">送出</button>
+					</div>
+			</form>
+		</div>
+		<div class="col-4">test</div>
+	</div>
+	<script type="text/javascript">
+	function sumbit() {
+		if (confirm("確定要更新個人資訊嗎?") == true) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+	</script>
 
 </body>
 </html>
