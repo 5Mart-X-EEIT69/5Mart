@@ -21,14 +21,14 @@
 <!-- bootstrap -->
 </head>
 <script type="text/javascript">
-	window.onload(){
+	window.onload=function(){
 
 
 	}
 </script>
 <body>
-	<div class="bg-primary d-flex flex-row min-vh-100">
-		<div class="d-flex flex-column p-3 bg-light" style="width: 300px;">
+	<div class="d-flex flex-row min-vh-100">
+		<div class="col-2 d-flex flex-column p-3 bg-light" >
 			<a href="<c:url value="/"></c:url>"
 				class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
 				<span style="font-size: 40px;"><i class="bi bi-5-square "></i>
@@ -68,10 +68,47 @@
 			</ul>
 			<hr>
 		</div>
-<!-- 		選單右邊 -->
-		<div>test</div>
+	<!-- 		選單右邊 -->
+		<div class="col-2">test</div>
+		<div class="col-4 d-flex flex-column align-items-center" id="photoContainer">
+			<label for="formFileLg" class="form-label m-3">更新您的個人照片</label> 
+			<div class="w-100 m-3 border rounded" style="height: 357px">
+				<figure class="figure">
+					<img src="" class="ifigure-img img-fluid rounded">
+				</figure>				
+			</div>			
+			<input class="form-control form-control-lg" id="imgbtn" type="file" accept="image/*">
+			<button type="button" class="btn btn-secondary mt-3">儲存照片</button>
+		</div>
+		<div class="col-4">test</div>
 	</div>
+	
+	<script type="text/javascript">
+	    $('#photoContainer').on("change", "#imgbtn", function () {
+	
+	    	alert("test")
+	        image = $(this).prev().children().children()[0]
+	        // console.log("test"+video)
+	        console.log(image)
+	
+            alert(this)
+            let input = $(this)[0].files;
+            // console.log(input)
+            // console.log(input.length)
+            if (input.length > 0) {
+                let fileReader = new FileReader();
 
-
+                let fileToLoad = input[0];
+                console.log("fileToLoad=" + fileToLoad.name);
+                fileReader.onload = function (fileLoadedEvent) {
+                	image.src = fileLoadedEvent.target.result;
+                };
+                fileReader.readAsDataURL(fileToLoad);
+            }
+			
+            console.log($('#photoContainer').children('div').eq(0).removeAttr('style'))
+	    })
+	
+	</script>
 </body>
 </html>
