@@ -21,7 +21,12 @@
 	type="text/css" />
 <!-- bootstrap -->
 </head>
-
+<style>
+/* 評價星星 */
+.bi-star-fill, .bi-star-half, .bi-star {
+	color: #FFC800;
+}
+</style>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container">
@@ -43,39 +48,69 @@
 			</div>
 		</div>
 	</nav>
+	<!-- Post header-->
+	<header class="mb-4">
+		<!-- Post title-->
+		<h1 class="fw-bolder mb-1"></h1>
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="#">首頁</a></li>
+				<li class="breadcrumb-item"><a href="#">課程</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Java從零開始學習</li>
+			</ol>
+		</nav>
+	</header>
 	<!-- Page content -->
 	<div class="container mt-5">
 		<div class="row">
 			<div class="col-lg-8">
 				<!-- Post content-->
 				<article>
-					<!-- Post header-->
-					<header class="mb-4">
-						<!-- Post title-->
-						<h1 class="fw-bolder mb-1">課程名稱</h1>
-						<!-- Post meta content-->
-						<div class="text-muted fst-italic mb-2">Posted on January 1,
-							2023 by 5Mart Start</div>
-						<!-- Post categories-->
-						<a class="badge bg-secondary text-decoration-none link-light"
-							href="#!">Web Design</a> <a
-							class="badge bg-secondary text-decoration-none link-light"
-							href="#!">Freebies</a>
-						<nav aria-label="breadcrumb">
-							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#">首頁</a></li>
-								<li class="breadcrumb-item"><a href="#">課程</a></li>
-								<li class="breadcrumb-item active" aria-current="page">課程名稱</li>
-							</ol>
-						</nav>
-					</header>
-					<!-- Preview image figure-->
-					<figure class="mb-4">
-						<img class="img-fluid rounded"
-							src="https://picsum.photos/900/400?random=10" alt="...">
-					</figure>
+					<div class="row gx-4 gx-lg-5 align-items-center my-5">
+						<div class="col-lg-7">
+							<img class="img-fluid rounded mb-4 mb-lg-0"
+								src="https://picsum.photos/380/260?random=10" alt="...">
+						</div>
+						<div class="col-lg-5">
+							<div class="container px-0">
+								<div class="row">
+									<h1 style="font-weight: bolder;">
+										<strong>Java從零開始學習</strong>
+									</h1>
+								</div>
+								<div class="row">
+									<p class="mb-2" style="font-size: small;">趙令文</p>
+								</div>
+								<div class="row d-inline ">
+									<strong style="font-size: large;">3.5 </strong> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
+									(123)
+								</div>
+								<div class="row mt-2">
+									<div class="col">
+										<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
+											$2,000</p>
+									</div>
+									<div class="col text-end">
+										<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+
+									</div>
+								</div>
+							</div>
+							<p>This is a template that is great for small businesses. It
+								doesn't have too much fancy flare to it, but it makes a great
+								use of the standard Bootstrap core components. Feel free to use
+								this template for any project you want!</p>
+
+							<a class="btn btn-primary" href="#!">加入購物車</a>
+						</div>
+					</div>
 					<!-- Post content-->
 					<section class="mb-5">
+						<h3>課程介紹</h3>
 						<p class="fs-5 mb-4">Science is an enterprise that should be
 							cherished as an activity of the free human mind. Because it
 							transforms who we are, how we live, and it gives us an
@@ -205,7 +240,7 @@
 										src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
 								</div>
 								<div class="ms-3">
-									<div class="fw-bold">Commenter Name</div>
+									<div class="fw-bold">Hank Lee</div>
 									If you're going to lead a space frontier, it has to be
 									government; it'll never be private enterprise. Because the
 									space frontier is dangerous, and it's expensive, and it has
@@ -218,7 +253,7 @@
 												alt="..." />
 										</div>
 										<div class="ms-3">
-											<div class="fw-bold">Commenter Name</div>
+											<div class="fw-bold">Zhang Sam</div>
 											And under those conditions, you cannot establish a
 											capital-market evaluation of that enterprise. You can't get
 											investors.
@@ -232,9 +267,8 @@
 												alt="..." />
 										</div>
 										<div class="ms-3">
-											<div class="fw-bold">Commenter Name</div>
-											When you put money directly to a problem, it makes a good
-											headline.
+											<div class="fw-bold">趙令文</div>
+											沒問題，已上傳Github。
 										</div>
 									</div>
 								</div>
