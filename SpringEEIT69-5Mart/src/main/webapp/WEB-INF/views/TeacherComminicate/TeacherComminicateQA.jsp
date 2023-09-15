@@ -27,7 +27,7 @@
 	}
 </script>
 <body>
-	<div class="bg-primary d-flex flex-row min-vh-100">
+	<div class="d-flex flex-row min-vh-100">
 		<div class="col-2 d-flex flex-column p-3 bg-light">
 			<a href="<c:url value="/"></c:url>"
 				class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
@@ -51,9 +51,9 @@
 				<li><a href="<c:url value="/TeacherComminicateMessage"></c:url>" class="nav-link link-dark"> <span
 						style="font-size: 24px;">-  私人訊息</span>
 				</a></li>
-				<li><a href="<c:url value="/TeacherComminicateTask"></c:url>" class="nav-link link-dark"> <span
-						style="font-size: 24px;">-  作業</span>
-				</a></li>
+<%-- 				<li><a href="<c:url value="/TeacherComminicateTask"></c:url>" class="nav-link link-dark"> <span --%>
+<!-- 						style="font-size: 24px;">-  作業</span> -->
+<!-- 				</a></li> -->
 				<li><a href="<c:url value="/TeacherComminicateAnnouncement"></c:url>" class="nav-link link-dark"> <span
 						style="font-size: 24px;">-  公告 </span>
 				</a></li>
@@ -68,11 +68,167 @@
 			</ul>
 			<hr>
 		</div>
-<!-- 		選單右邊 -->
-		<div class="col-2">test</div>
-		<div class="col-4">test</div>
-		<div class="col-4">test</div>
-	</div>
+        <!-- 		選單右邊 -->
+        <div class="col-1">test</div>
+        <div class="col-7 pb-3" style="padding: 72px 0 0;">
+            <h1>問與答</h1>
+            <hr />
+            <h4>課程總覽</h4>
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseOne">
+                            
+                            <img src="<c:url value="/assets/images/godtone.jpg" />" alt="godtone" width="48" height="48" class="rounded flex-shrink-0">
+                            <div class="d-flex gap-2 w-100 justify-content-between align-items-center ps-3">
+                                <div>
+                                    <h6 class="mb-0 fs-4 fw-bolder">JAVA從入門到放棄</h6>
+                                    <p class="mb-0 opacity-50 fw-bolder" style="color:red;">目前有三個問與答尚未回覆</p>
+                                </div>
+                            </div>
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingOne">
+                        <div class="accordion-body">
+                            <div class="d-flex align-items-center flex-wrap">
+                                <label class="col-1">問題</label>
+                                <label class="col-1">發問人</label>
+                                <label class="col-1">發問時間</label>
+                                <label class="col-5 px-3">內容</label>
+                                <label class="col-3">回覆內容</label>
+                                <label class="col-1 ps-2">功能</label>
+                            </div>
+                            <hr>
+                            <div class="d-flex align-items-center flex-wrap">
+                                <span class="col-1 ps-2">1</span>
+                                <span class="col-1">張嘉航</span>
+                                <span class="col-1">2023/9/15</span>
+                                <span class="col-5 px-3">你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句</span>
+                                <span class="col-3">尚未回覆</span>
+                                <button class="col-1 btn btn-link m-0 ps-2" style="text-align: left;">回覆</button>
+                            </div>
+                            <hr>
+                            <div class="d-flex align-items-center flex-wrap">
+                                <span class="col-1 ps-2">2</span>
+                                <span class="col-1">張嘉航</span>
+                                <span class="col-1">2023/9/15</span>
+                                <span class="col-5 px-3">你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句</span>
+                                <span class="col-3">尚未回覆</span>
+                                <button class="col-1 btn btn-link m-0 ps-2" style="text-align: left;">回覆</button>
+                            </div>
+                            <hr>
+                            <div class="d-flex align-items-center flex-wrap">
+                                <span class="col-1 ps-2">3</span>
+                                <span class="col-1">張嘉航</span>
+                                <span class="col-1">2023/9/15</span>
+                                <span class="col-5 px-3">你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句</span>
+                                <span class="col-3">尚未回覆</span>
+                                <button class="col-1 btn btn-link m-0 ps-2" style="text-align: left;">回覆</button>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseTwo">
+                            <img src="<c:url value="/assets/images/godtone.jpg" />" alt="godtone" width="48" height="48" class="rounded flex-shrink-0">
+                            <div class="d-flex gap-2 w-100 justify-content-between align-items-center ps-3">
+                                <div>
+                                    <h6 class="mb-0 fs-4 fw-bolder">JAVA從入門到放棄</h6>
+                                    <p class="mb-0 opacity-50 fw-bolder" style="color:red;">目前有兩個問與答尚未回覆</p>
+                                </div>
+                            </div>
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingTwo">
+                        <div class="accordion-body">
+                            <div class="d-flex align-items-center flex-wrap">
+                                <label class="col-1">問題</label>
+                                <label class="col-1">發問人</label>
+                                <label class="col-1">發問時間</label>
+                                <label class="col-5 px-3">內容</label>
+                                <label class="col-3">回覆內容</label>
+                                <label class="col-1 ps-2">功能</label>
+                            </div>
+                            <hr>
+                            <div class="d-flex align-items-center flex-wrap">
+                                <span class="col-1 ps-2">1</span>
+                                <span class="col-1">張嘉航</span>
+                                <span class="col-1">2023/9/15</span>
+                                <span class="col-5 px-3">你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句</span>
+                                <span class="col-3">尚未回覆</span>
+                                <button class="col-1 btn btn-link m-0 ps-2" style="text-align: left;">回覆</button>
+                            </div>
+                            <hr>
+                            <div class="d-flex align-items-center flex-wrap">
+                                <span class="col-1 ps-2">2</span>
+                                <span class="col-1">張嘉航</span>
+                                <span class="col-1">2023/9/15</span>
+                                <span class="col-5 px-3">你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句</span>
+                                <span class="col-3">尚未回覆</span>
+                                <button class="col-1 btn btn-link m-0 ps-2" style="text-align: left;">回覆</button>
+                            </div>
+                            <hr>
+                            <div class="d-flex align-items-center flex-wrap">
+                                <span class="col-1 ps-2">3</span>
+                                <span class="col-1">張嘉航</span>
+                                <span class="col-1">2023/9/15</span>
+                                <span class="col-5 px-3">你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句</span>
+                                <span class="col-3">你從桃園新竹你從桃園新竹你從桃園新竹你從桃園新竹你從桃園新竹你從桃園新竹你從桃園新竹你從桃園新竹你從桃園新竹你從桃園新竹你從桃園新竹</span>
+                                <button class="col-1 btn btn-link m-0 ps-2" style="text-align: left;">回覆</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseThree">
+                            <img src="<c:url value="/assets/images/godtone.jpg" />" alt="godtone" width="48" height="48" class="rounded flex-shrink-0">
+                            <div class="d-flex gap-2 w-100 justify-content-between align-items-center ps-3">
+                                <div>
+                                    <h6 class="mb-0 fs-4 fw-bolder">JAVA從入門到放棄</h6>
+                                    <p class="mb-0 opacity-50 fw-bolder" style="color:red;">目前有一個問與答尚未回覆</p>
+                                </div>
+                            </div>
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingThree">
+                        <div class="accordion-body">
+                            <div class="d-flex align-items-center flex-wrap">
+                                <label class="col-1">問題</label>
+                                <label class="col-1">發問人</label>
+                                <label class="col-1">發問時間</label>
+                                <label class="col-5 px-3">內容</label>
+                                <label class="col-3">回覆內容</label>
+                                <label class="col-1 ps-2">功能</label>
+                            </div>
+                            <hr>
+                            <div class="d-flex align-items-center flex-wrap">
+                                <span class="col-1 ps-2">1</span>
+                                <span class="col-1">張嘉航</span>
+                                <span class="col-1">2023/9/15</span>
+                                <span class="col-5 px-3">你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句</span>
+                                <span class="col-3">尚未回覆</span>
+                                <button class="col-1 btn btn-link m-0 ps-2" style="text-align: left;">回覆</button>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-2">test</div>
+    </div>
 
 
 </body>

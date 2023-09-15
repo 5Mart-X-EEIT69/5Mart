@@ -51,9 +51,9 @@
 				<li class="pe-5"><a href="<c:url value="/TeacherComminicateMessage"></c:url>" class="nav-link active"> <span
 						style="font-size: 24px;">-  私人訊息</span>
 				</a></li>
-				<li ><a href="<c:url value="/TeacherComminicateTask"></c:url>" class="nav-link link-dark"> <span
-						style="font-size: 24px;">-  作業</span>
-				</a></li>
+<%-- 				<li ><a href="<c:url value="/TeacherComminicateTask"></c:url>" class="nav-link link-dark"> <span --%>
+<!-- 						style="font-size: 24px;">-  作業</span> -->
+<!-- 				</a></li> -->
 				<li><a href="<c:url value="/TeacherComminicateAnnouncement"></c:url>" class="nav-link link-dark"> <span
 						style="font-size: 24px;">-  公告 </span>
 				</a></li>

@@ -70,7 +70,7 @@
 		</div>
 <!-- 		選單右邊 -->
 		<div class="col-2">test</div>
-		<div class="col-4">test</div>
+		<div class="col-4">大便頁面 不要了(delete)</div>
 		<div class="col-4">test</div>
 	</div>
 

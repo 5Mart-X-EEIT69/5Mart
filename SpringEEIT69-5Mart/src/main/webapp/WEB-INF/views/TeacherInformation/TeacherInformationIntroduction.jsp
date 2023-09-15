@@ -59,9 +59,6 @@
 				<li class="pe-5"><a href="<c:url value="/TeacherInformationIntroduction"></c:url>" class="nav-link active"> <span
 						style="font-size: 24px;">-  自我介紹</span>
 				</a></li>
-				<li><a href="<c:url value="/TeacherInformationAbility"></c:url>" class="nav-link link-dark"> <span
-						style="font-size: 24px;">-  相關能力證明</span>
-				</a></li>
 				<li><a href="<c:url value="/TeacherInformationAccount"></c:url>" class="nav-link link-dark"> <span
 						style="font-size: 24px;">-  收款帳戶 </span>
 				</a></li>

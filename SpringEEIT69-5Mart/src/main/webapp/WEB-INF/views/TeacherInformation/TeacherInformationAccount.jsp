@@ -27,7 +27,7 @@
 	}
 </script>
 <body>
-	<div class="bg-primary d-flex flex-row min-vh-100">
+	<div class="d-flex flex-row min-vh-100">
 		<div class="col-2 d-flex flex-column p-3 bg-light"">
 			<a href="<c:url value="/"></c:url>"
 				class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
@@ -58,9 +58,6 @@
 				<li><a href="<c:url value="/TeacherInformationIntroduction"></c:url>" class="nav-link link-dark"> <span
 						style="font-size: 24px;">-  自我介紹</span>
 				</a></li>
-				<li><a href="<c:url value="/TeacherInformationAbility"></c:url>" class="nav-link link-dark"> <span
-						style="font-size: 24px;">-  相關能力證明</span>
-				</a></li>
 				<li class="pe-5"><a href="<c:url value="/TeacherInformationAccount"></c:url>" class="nav-link active"> <span
 						style="font-size: 24px;">-  收款帳戶 </span>
 				</a></li>
@@ -70,10 +67,32 @@
 		</div>
 <!-- 		選單右邊 -->
 		<div class="col-2">test</div>
-		<div class="col-4">test</div>
+		<div class="col-4 container">
+            <div class="row h-100">
+                <div class="col d-flex flex-column justify-content-center">
+                    <div class="d-flex justify-content-center">
+                        <h1>新增你的收款帳戶</h1>
+                    </div>
+                                        
+                    <div class="border d-flex align-items-center">
+                        <div class="ms-3 me-auto">                        
+                            <img src="<c:url value="/assets/images/綠界.png"></c:url>" style="height: 4rem;">
+                        </div>
+                        <div class="mx-3">
+                            <span class="mx-2">未連結</span>
+                            <button class="btn btn-dark" onclick="ecpay()">登入以連結綠界</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
 		<div class="col-4">test</div>
 	</div>
-
+    <script>
+        function ecpay(){
+            alert("test")
+        }
+    </script>
 
 </body>
 </html>
