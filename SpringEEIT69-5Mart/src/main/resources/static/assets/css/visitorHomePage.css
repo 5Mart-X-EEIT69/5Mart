@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
 /* 全部的字體 */
-* {
-	font-family: 'Noto Sans TC', sans-serif;
-}
+/** {*/
+/*	font-family: 'Noto Sans TC', sans-serif;*/
+/*}*/
 
 /* 熱門類別按鈕 */
 .btnClass {
@@ -216,6 +216,19 @@
 	flex-direction: row;
 	width: 20em;
 
+}
+
+.notice {
+	/*	max-width: 25em;*/
+	width: 20em;
+
+}
+
+.noticeText {
+	width: 100px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .myCourseCard img {

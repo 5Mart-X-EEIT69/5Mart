@@ -460,31 +460,70 @@
 								class="btn btn-success w-100">前往購物車</a></li>
 						</ul></li>
 					<!-- 通知 -->
-					<li class="nav-item px-2"><a class="nav-link" href="#"><i
-							class="fa-solid fa-bell fa-xl"></i></a></li>
+					<li class="nav-item dropdown px-2"><a
+						class="nav-link dropdown-toggle " href="#" id="navbarDropdown"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<i class="fa-solid fa-bell fa-xl"></i>
+					</a>
+						<ul class="dropdown-menu dropdown-menu-end notice"
+							aria-labelledby="navbarDropdown">
+							<li>
+								<div class="ps-3">
+									<h6>通知</h6>
+								</div>
+							</li>
+							<li><hr class="dropdown-divider"></li>
+							<li  style="border-bottom:1px solid gray">
+								<div class="d-flex flex-row w-100 ">
+									<div class="ps-3">
+										<img class="circleImg"
+											src="\SpringEEIT69-5Mart\assets\images\人像頭貼002.jpeg" />
+									</div>
+									<div>
+										<div class="d-flex bd-highlight mb-0">
+
+											<div class="px-2 bd-highlight" style="font-weight: border:;">Tung</div>
+											<div class="bd-highlight">傳了一則通知給您</div>
+											<div class="ms-4 px-2 mt-1 bd-highlight"
+												style="font-size: smaller; color: gray;">3天前</div>
+										</div>
+										<div class="noticeText" style="font-size: x-small;">
+											<p>你好，我有收到你的訊息，針對你的問題，給你一些回覆</p>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li><hr class="dropdown-divider"></li>
+						</ul></li>
+
 
 				</ul>
 				<div class="btn-group d-block headImg pe-2">
 					<a class="nav-link dropdown-toggle " href="#" id="navbarDropdown"
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						<img class="circleImg"
-						src="\SpringEEIT69-5Mart\assets\images\人像頭貼.jpg" />
+						src="\SpringEEIT69-5Mart\assets\images\人像頭貼001.jpg" />
 					</a>
-					<ul class="dropdown-menu dropdown-menu-end px-1 fs-6" >
+					<ul class="dropdown-menu dropdown-menu-end px-1 fs-6">
 						<li class=""><a class="dropdown-item" href="#"><i
-								class="fa-regular fa-user " style="padding:0 8px"></i>個人檔案</a></li>
-						<li><a class="dropdown-item" href="#"><i class="fa-solid fa-chalkboard" style="padding:0 6px"></i>我的學習</a></li>
+								class="fa-regular fa-user " style="padding: 0 8px"></i>個人檔案</a></li>
 						<li><a class="dropdown-item" href="#"><i
-								class="fa-regular fa-heart " style="padding:0 7px"></i>願望清單</a></li>
+								class="fa-solid fa-chalkboard" style="padding: 0 6px"></i>我的學習</a></li>
 						<li><a class="dropdown-item" href="#"><i
-								class="bi bi-cart3" style="padding:0 7px"></i>購物車</a></li>
+								class="fa-regular fa-heart " style="padding: 0 7px"></i>願望清單</a></li>
+						<li><a class="dropdown-item" href="#"><i
+								class="bi bi-cart3" style="padding: 0 7px"></i>購物車</a></li>
 						<li><hr class="dropdown-divider"></li>
 						<li><a class="dropdown-item" href="#"><i
-								class="fa-regular fa-file" style="padding:0 9px"></i>訂單紀錄</a></li>
-						<li><a class="dropdown-item" href="#"><i class="bi bi-gear" style="padding:0 7px"></i>帳戶設定</a></li>
-						<li><a class="dropdown-item" href="#"><i class="fa-regular fa-credit-card" style="padding:0 6px"></i>付款方式</a></li>
+								class="fa-regular fa-file" style="padding: 0 9px"></i>訂單紀錄</a></li>
+						<li><a class="dropdown-item" href="#"><i
+								class="bi bi-gear" style="padding: 0 7px"></i>帳戶設定</a></li>
+						<li><a class="dropdown-item" href="#"><i
+								class="fa-regular fa-credit-card" style="padding: 0 6px"></i>付款方式</a></li>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="#"><i class="fa-solid fa-arrow-right-from-bracket" style="padding:0 7px"></i>登出</a></li>
+						<li><a class="dropdown-item" href="#"><i
+								class="fa-solid fa-arrow-right-from-bracket"
+								style="padding: 0 7px"></i>登出</a></li>
 					</ul>
 				</div>
 
@@ -1330,7 +1369,6 @@
 				<div class="col-12 d-flex justify-content-center align-items-center">
 					<i class="fa-solid fa-graduation-cap fa-xl px-2"></i>
 					<!-- style="color: #ffffff;" -->
-
 					<h4 class="d-inline mb-0">5mart</h4>
 				</div>
 
