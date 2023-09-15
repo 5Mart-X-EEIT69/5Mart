@@ -25,9 +25,9 @@ public class HomeController {
 		return "test3";
 	}
 	
-	@GetMapping("/teacher")
-	public String teacher(Model model) {	
-		return "TeacherMain";
+	@GetMapping("/evaluate")
+	public String evaluate(Model model) {	
+		return "evaluate";
 	}
 	
 	@GetMapping("/check")
