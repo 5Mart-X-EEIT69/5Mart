@@ -23,6 +23,18 @@
 	display: block;
 }
 
+.headImg:hover>ul.dropdown-menu {
+	display: block;
+}
+
+.navbar-nav li:hover>ul.dropdown-menu-end {
+	right: -1%;
+}
+
+.headImg:hover>ul.dropdown-menu-end {
+	right: -1%;
+}
+
 .dropdown-submenu {
 	position: relative;
 }
@@ -42,9 +54,13 @@
 	display: none !important;
 }
 
+.headImg>.dropdown-toggle::after {
+	display: none !important;
+}
+
 .nav-link {
 	font-weight: bolder;
-/*	color: white;*/
+	/*	color: white;*/
 }
 
 /* 切換語言按鈕 */
@@ -195,3 +211,46 @@
 	color: #FFC800;
 }
 
+.myCourseCard {
+	max-width: 25em;
+	flex-direction: row;
+	width: 20em;
+
+}
+
+.myCourseCard img {
+	/*	max-width: 25%;*/
+	/*	max-height: 25%;*/
+	/*	margin: auto;*/
+	/*	padding: 0.5em;*/
+	border-radius: 0.5em;
+	object-fit: cover;
+	/*	height: 100%;*/
+	width: 35%;
+	aspect-ratio: 1 / 1;
+}
+
+.myCourseCardBody {
+	display: flex;
+	/*	justify-content: space-between;*/
+}
+
+.text-section {
+	max-width: 60%;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+/*.cta-section {*/
+/*		max-width: 40%;*/
+/*		display: flex;*/
+/*		flex-direction: column;*/
+/*		align-items: flex-end;*/
+/*		justify-content: space-between;*/
+/*}*/
+
+.circleImg {
+	border-radius: 30px;
+	width: 45px;
+	height: 45px;
+}

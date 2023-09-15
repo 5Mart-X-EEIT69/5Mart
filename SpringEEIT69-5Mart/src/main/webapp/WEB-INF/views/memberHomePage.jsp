@@ -167,6 +167,8 @@
 					$(this).removeClass("shadow")
 				});
 
+				$(".card").addClass("border-light");
+
 				// 愛心滑鼠經過點擊變化
 				$("div>.fa-heart").addClass("heart");
 				$("p>.fa-heart").addClass("heart");
@@ -220,7 +222,7 @@
 		class="navbar navbar-expand-lg bg-body-tertiary sticky-top shadow-lg">
 		<div class="container-fluid ">
 			<!-- 品牌logo -->
-			<a class="navbar-brand" href="#"><i
+			<a class="navbar-brand" href="<c:url value='/visitorhomepage' />"><i
 				class="fa-solid fa-graduation-cap fa-xl px-2"></i></a>
 			<!-- style="color: #ffffff;" -->
 			<button class="navbar-toggler" type="button"
@@ -333,54 +335,156 @@
 						class="nav-link dropdown-toggle " href="#" id="navbarDropdown"
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							我的學習 </a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<li class="dropdown-item"><div class="card mb-3"
-									style="width: 100%;">
-									<div class="row g-0 ">
-										<div class="col-md-4 w-20">
-											<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
-												alt="...">
+						<ul class="dropdown-menu dropdown-menu-end"
+							aria-labelledby="navbarDropdown">
+							<li class="dropdown-item px-2  pb-2">
+								<div class="card myCourseCard ">
+									<!-- 									<figure class="figure" style="margin: 0;"> -->
+									<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg"
+										class="card-img-top " alt="...">
+									<!-- 									</figure> figure-img img-fluid rounded-->
+									<div class="card-body myCourseCardBody p-2 pe-0 w-100">
+										<div class="text-section">
+											<h6 class="card-title">Java從零開始學習</h6>
+											<p class="card-text" style="font-size: small;">趙令文</p>
+											<div>$2,000</div>
 										</div>
-										<div class="col-md-8">
-											<div class="card-body">
-												<h5 class="card-title">Card title</h5>
-												<p class="card-text">This is a wider card with
-													supporting text below as a natural lead-in to additional
-													content. This content is a little bit longer.</p>
-												<p class="card-text">
-													<small class="text-muted">Last updated 3 mins ago</small>
-												</p>
-											</div>
+										<!-- 										<div -->
+										<!-- 											class="cta-section w-100 d-flex justify-content-center align-items-center"> -->
+										<!-- 											<a href="#" class="btn btn-light "><i -->
+										<!-- 												class="fa-solid fa-cart-shopping fa-xl"></i></a> -->
+										<!-- 										</div> -->
+									</div>
+								</div>
+							</li>
+							<li class="dropdown-item px-2  pb-2">
+								<div class="card myCourseCard ">
+									<!-- 									<figure class="figure" style="margin: 0;"> -->
+									<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg"
+										class="card-img-top " alt="...">
+									<!-- 									</figure> figure-img img-fluid rounded-->
+									<div class="card-body myCourseCardBody p-2 pe-0 w-100">
+										<div class="text-section">
+											<h6 class="card-title">Java從零開始學習</h6>
+											<p class="card-text" style="font-size: small;">趙令文</p>
+											<div>$2,000</div>
 										</div>
 									</div>
-								</div></li>
+								</div>
+							</li>
+							<li class="dropdown-item px-2  pb-2">
+								<div class="card myCourseCard  ">
+									<!-- 									<figure class="figure" style="margin: 0;"> -->
+									<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg"
+										class="card-img-top " alt="...">
+									<!-- 									</figure> figure-img img-fluid rounded-->
+									<div class="card-body myCourseCardBody p-2 pe-0 w-100">
+										<div class="text-section">
+											<h6 class="card-title">Java從零開始學習</h6>
+											<p class="card-text" style="font-size: small;">趙令文</p>
+											<div>$2,000</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li><hr class="dropdown-divider"></li>
+							<li class="dropdown-item px-2 py-0"><a href="#"
+								class="btn btn-success w-100">前往我的學習</a></li>
+
+
 						</ul></li>
 
 					<!-- 願望清單 -->
-					<li class="nav-item dropdown px-2"><a class="nav-link"
-						href="#"><i class="fa-solid fa-heart fa-xl mt-2"></i></a></li>
+					<li class="nav-item dropdown px-2"><a
+						class="nav-link dropdown-toggle " href="#" id="navbarDropdown"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<i class="fa-solid fa-heart fa-xl mt-2"></i>
+					</a>
+						<ul class="dropdown-menu dropdown-menu-end"
+							aria-labelledby="navbarDropdown">
+							<li class="dropdown-item px-2  pb-2">
+								<div class="card myCourseCard ">
+									<!-- 									<figure class="figure" style="margin: 0;"> -->
+									<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg"
+										class="card-img-top " alt="...">
+									<!-- 									</figure> figure-img img-fluid rounded-->
+									<div class="card-body myCourseCardBody p-2 pe-0 w-100">
+										<div class="text-section">
+											<h6 class="card-title">Java從零開始學習</h6>
+											<p class="card-text" style="font-size: small;">趙令文</p>
+											<div>$2,000</div>
+										</div>
+										<div
+											class="cta-section w-100 d-flex justify-content-center align-items-center ps-3">
+											<a href="#" class="btn btn-light px-2"><i
+												class="fa-solid fa-cart-shopping fa-xl"></i></a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li><hr class="dropdown-divider"></li>
+							<li class="dropdown-item px-2 py-0"><a href="#"
+								class="btn btn-success w-100">前往願望清單</a></li>
+						</ul></li>
+
 					<!-- 購物車 fontawesome -->
-					<li class="nav-item px-2"><a class="nav-link" href="#"><i
-							class="fa-solid fa-cart-shopping fa-xl"></i></a></li>
+					<li class="nav-item dropdown px-2"><a
+						class="nav-link dropdown-toggle " href="#" id="navbarDropdown"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<i class="fa-solid fa-cart-shopping fa-xl"></i>
+					</a>
+						<ul class="dropdown-menu dropdown-menu-end"
+							aria-labelledby="navbarDropdown">
+							<li class="dropdown-item px-2  pb-2">
+								<div class="card myCourseCard ">
+									<!-- 									<figure class="figure" style="margin: 0;"> -->
+									<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg"
+										class="card-img-top " alt="...">
+									<!-- 									</figure> figure-img img-fluid rounded-->
+									<div class="card-body myCourseCardBody p-2 pe-0 w-100">
+										<div class="text-section">
+											<h6 class="card-title">Java從零開始學習</h6>
+											<p class="card-text" style="font-size: small;">趙令文</p>
+											<div>$2,000</div>
+										</div>
+										<div
+											class="cta-section w-100 d-flex justify-content-center align-items-center ps-3">
+											<a href="#" class="btn btn-light px-2"><i
+												class="fa-solid fa-trash fa-xl"></i></a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li><hr class="dropdown-divider"></li>
+							<li class="dropdown-item px-2 py-0"><a href="#"
+								class="btn btn-success w-100">前往購物車</a></li>
+						</ul></li>
 					<!-- 通知 -->
 					<li class="nav-item px-2"><a class="nav-link" href="#"><i
 							class="fa-solid fa-bell fa-xl"></i></a></li>
 
-
 				</ul>
-				
-				<div class="btn-group d-block">
-					<button type="button"
-						class="btn btn-outline-success dropdown-toggle globe "
-						data-bs-toggle="dropdown" aria-expanded="false">
-						<span class="material-symbols-outlined pt-1"> globe </span>
-					</button>
-					<ul class="dropdown-menu dropdown-menu-end">
-						<li><a class="dropdown-item" href="#">英文</a></li>
-						<li><a class="dropdown-item" href="#">日文</a></li>
-						<li><a class="dropdown-item" href="#">韓文</a></li>
-						<li><a class="dropdown-item" href="#">西班牙文</a></li>
-						<li><a class="dropdown-item" href="#">簡體中文</a></li>
+				<div class="btn-group d-block headImg pe-2">
+					<a class="nav-link dropdown-toggle " href="#" id="navbarDropdown"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<img class="circleImg"
+						src="\SpringEEIT69-5Mart\assets\images\人像頭貼.jpg" />
+					</a>
+					<ul class="dropdown-menu dropdown-menu-end px-1 fs-6" >
+						<li class=""><a class="dropdown-item" href="#"><i
+								class="fa-regular fa-user " style="padding:0 8px"></i>個人檔案</a></li>
+						<li><a class="dropdown-item" href="#"><i class="fa-solid fa-chalkboard" style="padding:0 6px"></i>我的學習</a></li>
+						<li><a class="dropdown-item" href="#"><i
+								class="fa-regular fa-heart " style="padding:0 7px"></i>願望清單</a></li>
+						<li><a class="dropdown-item" href="#"><i
+								class="bi bi-cart3" style="padding:0 7px"></i>購物車</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="#"><i
+								class="fa-regular fa-file" style="padding:0 9px"></i>訂單紀錄</a></li>
+						<li><a class="dropdown-item" href="#"><i class="bi bi-gear" style="padding:0 7px"></i>帳戶設定</a></li>
+						<li><a class="dropdown-item" href="#"><i class="fa-regular fa-credit-card" style="padding:0 6px"></i>付款方式</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="#"><i class="fa-solid fa-arrow-right-from-bracket" style="padding:0 7px"></i>登出</a></li>
 					</ul>
 				</div>
 
@@ -500,7 +604,7 @@
 					</p>
 				</div>
 			</div>
-			<div class="card mx-3">
+			<div class="card mx-3 ">
 				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg"
 					class="card-img-top" alt="..." />
 				<div class="card-body py-0">
