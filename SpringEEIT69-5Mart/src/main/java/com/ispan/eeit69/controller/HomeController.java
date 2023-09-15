@@ -30,7 +30,7 @@ public class HomeController {
 		return "TeacherMain";
 	}
 	
-	@GetMapping("courseDetail")
+	@GetMapping("/courseDetail")
 	public String courseDetail(Model model) {	
 		return "courseDetail";
 	}
