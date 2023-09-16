@@ -166,6 +166,13 @@
 				}).mouseleave(function() {
 					$(this).removeClass("shadow")
 				});
+				
+				$(".noticeItem").mouseenter(function() {
+					$(this).addClass("shadow");
+				}).mouseleave(function() {
+					$(this).removeClass("shadow")
+				});
+				
 
 				$(".card").addClass("border-light");
 
@@ -468,32 +475,77 @@
 						<ul class="dropdown-menu dropdown-menu-end notice"
 							aria-labelledby="navbarDropdown">
 							<li>
-								<div class="ps-3">
+								<div class="ps-3 pt-1">
 									<h6>通知</h6>
 								</div>
 							</li>
 							<li><hr class="dropdown-divider"></li>
-							<li  style="border-bottom:1px solid gray">
-								<div class="d-flex flex-row w-100 ">
+<!-- 							style="border-bottom:1px solid lightgray;" -->
+							<li class="noticeItem">
+								<div class="d-flex flex-row w-100 pt-2 pb-3">
 									<div class="ps-3">
 										<img class="circleImg"
 											src="\SpringEEIT69-5Mart\assets\images\人像頭貼002.jpeg" />
 									</div>
-									<div>
+									<div class="w-100">
 										<div class="d-flex bd-highlight mb-0">
 
 											<div class="px-2 bd-highlight" style="font-weight: border:;">Tung</div>
-											<div class="bd-highlight">傳了一則通知給您</div>
-											<div class="ms-4 px-2 mt-1 bd-highlight"
-												style="font-size: smaller; color: gray;">3天前</div>
+											<div class="bd-highlight mt-1" style="font-size: small">傳了一則通知給您</div>
+											<div class="ms-auto px-3 mt-1 bd-highlight"
+												style="font-size: small; color: gray;">3天前</div>
 										</div>
-										<div class="noticeText" style="font-size: x-small;">
-											<p>你好，我有收到你的訊息，針對你的問題，給你一些回覆</p>
+										<div class="ps-2 pt-1" style="font-size: x-small;">
+											<p class="noticeText w-75 me-0 mb-0" >你好，我有收到你的訊息，針對你的問題，給你一些回覆</p>
 										</div>
 									</div>
 								</div>
 							</li>
 							<li><hr class="dropdown-divider"></li>
+							<li class="noticeItem">
+								<div class="d-flex flex-row w-100 pt-2 pb-3">
+									<div class="ps-3">
+										<img class="circleImg"
+											src="\SpringEEIT69-5Mart\assets\images\人像頭貼003.jpg" />
+									</div>
+									<div class="w-100">
+										<div class="d-flex bd-highlight mb-0">
+
+											<div class="px-2 bd-highlight" style="font-weight: border;">NONO</div>
+											<div class="bd-highlight mt-1" style="font-size: small">傳了一則訊息給您</div>
+											<div class="ms-auto px-3 mt-1 bd-highlight"
+												style="font-size: small; color: gray;">3小時前</div>
+										</div>
+										<div class="ps-2 pt-1" style="font-size: x-small;">
+											<p class="noticeText w-75 me-0 mb-0">你好，我有收到你的訊息，針對你的問題，給你一些回覆</p>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li><hr class="dropdown-divider"></li>
+							<li class="noticeItem" style="border-bottom:1px solid lightgray;">
+								<div class="d-flex flex-row w-100 pt-2 pb-3">
+									<div class="ps-3">
+										<img class="circleImg"
+											src="\SpringEEIT69-5Mart\assets\images\人像頭貼004.jpeg" />
+									</div>
+									<div class="w-100">
+										<div class="d-flex bd-highlight mb-0">
+
+											<div class="px-2 bd-highlight" style="font-weight: border;">賈靜雯</div>
+											<div class="bd-highlight mt-1" style="font-size: small">傳了一則訊息給您</div>
+											<div class="ms-auto px-3 mt-1 bd-highlight"
+												style="font-size: small; color: gray;">5分鐘前</div>
+										</div>
+										<div class="ps-2 pt-1" style="font-size: x-small;">
+											<p class="noticeText w-75 me-0 mb-0">你好，我有收到你的訊息，針對你的問題，給你一些回覆</p>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li><hr class="dropdown-divider"></li>
+							<li class="dropdown-item px-2 py-0"><a href="#"
+								class="btn btn-success w-100">前往通知</a></li>
 						</ul></li>
 
 
