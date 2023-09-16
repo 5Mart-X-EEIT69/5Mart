@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- 響應式的引入 -->
 
-<title>訪客首頁</title>
+<title>搜尋首頁(訪客)</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -171,7 +171,7 @@
 		class="navbar navbar-expand-lg bg-body-tertiary  sticky-top shadow">
 		<div class="container-fluid">
 			<!-- 品牌logo -->
-			<a class="navbar-brand" href="#"><i
+			<a class="navbar-brand" href="<c:url value='/visitorhomepage' />"><i
 				class="fa-solid fa-graduation-cap fa-xl px-2"></i></a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -459,6 +459,161 @@
 	</div>
 	<!-- 註冊彈跳式視窗 -->
 
+	<div class="container">
+		<div class="row">
+			<div>
+				<h2 style="font-weight: bolder; margin-top: 40px;">有 9,999 項
+					Java 結果</h2>
+			</div>
+		</div>
+		<div class="row">
+			<p class="d-flex justify-content-end py-2">
+				｜ <a href="" class="nav-link">最相關</a>｜最熱門｜依人數｜依評價｜依時間｜
+			</p>
+		</div>
+		<div class="row">
+			<div class="card mb-3">
+				<div class="row g-0 ">
+					<div class="col-md-4 d-flex align-items-center">
+						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg"
+							alt="...">
+					</div>
+					<div class="col-md-8">
+						<div class="card-body">
+							<div class="d-flex justify-content-between">
+								<h4 style="font-weight: bolder;">
+									<strong>Java從零開始學習</strong>
+								</h4>
+								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
+									$2,000</p>
+							</div>
+							<div class="d-flex flex-row align-items-end">
+								<p class="card-text  pe-10"
+									style="font-size: small; margin-bottom: 1px; margin-right: 1em;">趙令文</p>
+								<p class="card-text">
+									<strong style="font-size: large;">3.5 </strong> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
+									(123)
+								</p>
+							</div>
+							<p class="card-text pt-2">從入門開始學習Java語法，課程包含物件導向程式設計、製作貪吃蛇遊戲、面試題目解題、MySQL資料庫、JSP網頁開發等等內容，讓你一步一步成為Java大師</p>
+
+							<div class="col"></div>
+							<div class="col text-end">
+								<i class="fa-solid fa-cart-shopping px-2"></i> <i
+									class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="card mb-3">
+				<div class="row g-0 ">
+					<div class="col-md-4 d-flex align-items-center">
+						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg"
+							alt="...">
+					</div>
+					<div class="col-md-8">
+						<div class="card-body">
+							<div class="d-flex justify-content-between">
+								<h4 style="font-weight: bolder;">
+									<strong>Java從零開始學習</strong>
+								</h4>
+								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
+									$2,000</p>
+							</div>
+							<div class="d-flex flex-row align-items-end">
+								<p class="card-text  pe-10"
+									style="font-size: small; margin-bottom: 1px; margin-right: 1em;">趙令文</p>
+								<p class="card-text">
+									<strong style="font-size: large;">3.5 </strong> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
+									(123)
+								</p>
+							</div>
+							<p class="card-text pt-2">從入門開始學習Java語法，課程包含物件導向程式設計、製作貪吃蛇遊戲、面試題目解題、MySQL資料庫、JSP網頁開發等等內容，讓你一步一步成為Java大師</p>
+
+							<div class="col"></div>
+							<div class="col text-end">
+								<i class="fa-solid fa-cart-shopping px-2"></i> <i
+									class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="card mb-3">
+				<div class="row g-0 ">
+					<div class="col-md-4 d-flex align-items-center">
+						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg"
+							alt="...">
+					</div>
+					<div class="col-md-8">
+						<div class="card-body">
+							<div class="d-flex justify-content-between">
+								<h4 style="font-weight: bolder;">
+									<strong>Java從零開始學習</strong>
+								</h4>
+								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
+									$2,000</p>
+							</div>
+							<div class="d-flex flex-row align-items-end">
+								<p class="card-text  pe-10"
+									style="font-size: small; margin-bottom: 1px; margin-right: 1em;">趙令文</p>
+								<p class="card-text">
+									<strong style="font-size: large;">3.5 </strong> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
+									(123)
+								</p>
+							</div>
+							<p class="card-text pt-2">從入門開始學習Java語法，課程包含物件導向程式設計、製作貪吃蛇遊戲、面試題目解題、MySQL資料庫、JSP網頁開發等等內容，讓你一步一步成為Java大師</p>
+
+							<div class="col"></div>
+							<div class="col text-end">
+								<i class="fa-solid fa-cart-shopping px-2"></i> <i
+									class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<nav aria-label="Page navigation example" class="d-flex justify-content-center">
+				<ul class="pagination">
+					<li class="page-item"><a class="page-link" href="#"
+						aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+					</a></li>
+					<li class="page-item"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item"><a class="page-link" href="#"
+						aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+					</a></li>
+				</ul>
+			</nav>
+		</div>
+
+	</div>
+
 
 
 
@@ -504,15 +659,15 @@
 	<!-- 			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" -->
 	<!-- 			integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" -->
 	<!-- 			crossorigin="anonymous"></script> -->
-<!-- 	<script -->
-<!-- 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" -->
-<!-- 		integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" -->
-<!-- 		crossorigin="anonymous"></script> -->
+	<!-- 	<script -->
+	<!-- 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" -->
+	<!-- 		integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" -->
+	<!-- 		crossorigin="anonymous"></script> -->
 	<!-- CDN引入 -->
 
 	<!-- bootstrap -->
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- bootstrap -->
 	<!-- slick -->
 	<script type="text/javascript"
