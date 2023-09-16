@@ -166,13 +166,12 @@
 				}).mouseleave(function() {
 					$(this).removeClass("shadow")
 				});
-				
+
 				$(".noticeItem").mouseenter(function() {
 					$(this).addClass("shadow");
 				}).mouseleave(function() {
 					$(this).removeClass("shadow")
 				});
-				
 
 				$(".card").addClass("border-light");
 
@@ -479,29 +478,30 @@
 									<h6>通知</h6>
 								</div>
 							</li>
-							<li><hr class="dropdown-divider"></li>
-<!-- 							style="border-bottom:1px solid lightgray;" -->
-							<li class="noticeItem">
-								<div class="d-flex flex-row w-100 pt-2 pb-3">
-									<div class="ps-3">
-										<img class="circleImg"
-											src="\SpringEEIT69-5Mart\assets\images\人像頭貼002.jpeg" />
-									</div>
-									<div class="w-100">
-										<div class="d-flex bd-highlight mb-0">
+							<!-- 							<li><hr class="dropdown-divider"></li> -->
+							<!-- 							style="border-bottom:1px solid lightgray;" -->
+							<li class="noticeItem"><a class="nav-link p-0" role="button"
+								href="<c:url value='/test2'/>">
+									<div class="d-flex flex-row w-100 pt-2 pb-3">
+										<div class="ps-3">
+											<img class="circleImg"
+												src="\SpringEEIT69-5Mart\assets\images\人像頭貼002.jpeg" />
+										</div>
+										<div class="w-100">
+											<div class="d-flex bd-highlight mb-0">
 
-											<div class="px-2 bd-highlight" style="font-weight: border:;">Tung</div>
-											<div class="bd-highlight mt-1" style="font-size: small">傳了一則通知給您</div>
-											<div class="ms-auto px-3 mt-1 bd-highlight"
-												style="font-size: small; color: gray;">3天前</div>
-										</div>
-										<div class="ps-2 pt-1" style="font-size: x-small;">
-											<p class="noticeText w-75 me-0 mb-0" >你好，我有收到你的訊息，針對你的問題，給你一些回覆</p>
+												<div class="px-2 bd-highlight" style="font-weight: border:;">Tung</div>
+												<div class="bd-highlight mt-1" style="font-size: small">傳了一則通知給您</div>
+												<div class="ms-auto px-3 mt-1 bd-highlight"
+													style="font-size: small; color: gray;">3天前</div>
+											</div>
+											<div class="ps-2 pt-1" style="font-size: x-small;">
+												<p class="noticeText w-75 me-0 mb-0">你好，我有收到你的訊息，針對你的問題，給你一些回覆</p>
+											</div>
 										</div>
 									</div>
-								</div>
-							</li>
-							<li><hr class="dropdown-divider"></li>
+							</a></li>
+							<!-- 							<li><hr class="dropdown-divider"></li> -->
 							<li class="noticeItem">
 								<div class="d-flex flex-row w-100 pt-2 pb-3">
 									<div class="ps-3">
@@ -522,8 +522,9 @@
 									</div>
 								</div>
 							</li>
-							<li><hr class="dropdown-divider"></li>
-							<li class="noticeItem" style="border-bottom:1px solid lightgray;">
+							<!-- 							<li><hr class="dropdown-divider"></li> -->
+							<li class="noticeItem"
+								style="border-bottom: 1px solid lightgray;">
 								<div class="d-flex flex-row w-100 pt-2 pb-3">
 									<div class="ps-3">
 										<img class="circleImg"
@@ -543,8 +544,8 @@
 									</div>
 								</div>
 							</li>
-							<li><hr class="dropdown-divider"></li>
-							<li class="dropdown-item px-2 py-0"><a href="#"
+							<!-- 							<li><hr class="dropdown-divider"></li> -->
+							<li class="dropdown-item px-2 pb-0 pt-2"><a href="#"
 								class="btn btn-success w-100">前往通知</a></li>
 						</ul></li>
 
@@ -660,6 +661,8 @@
 		</div>
 		<div class="row slick-card-hotcourse">
 			<div class="card mx-3 border-light">
+				<!-- 			連結延伸 class="stretched-link" -->
+				<!--  <a href="<c:url value='/test2' />" class="nav-link">-->
 				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg"
 					class="card-img-top" alt="..." />
 				<div class="card-body py-0">
@@ -693,6 +696,7 @@
 						</div>
 					</div>
 					</p>
+					<!-- </a> -->
 				</div>
 			</div>
 			<div class="card mx-3 ">
