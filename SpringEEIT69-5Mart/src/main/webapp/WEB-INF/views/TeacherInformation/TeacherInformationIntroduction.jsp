@@ -70,10 +70,10 @@
 		<div class="col-2">test</div>
 		<div class="col-4 d-flex align-items-center">
 			<form action="?" method="post" class="w-100 mb-3" onsubmit="return sumbit()">
-					<div class="d-flex justify-content-center">
+					<div class="d-flex">
 						<h1>自我介紹</h1>
 					</div>
-										
+					<hr>			
 					<label for="introduction" class="form-label mt-3">輸入你的自我介紹吧!(選填)</label>
 					<textarea class="form-control" id="introduction" rows="3"></textarea>
 					

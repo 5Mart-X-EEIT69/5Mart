@@ -69,10 +69,10 @@
 		<div class="col-2">test</div>
 		<div class="col-4 d-flex align-items-center" id="photoContainer">
 			<form action="?" method="post" class="w-100 mb-3" onsubmit="return sumbit()" >
-				<div class="d-flex justify-content-center">
-					<h1>自我介紹</h1>
+				<div class="d-flex">
+					<h1>自我介紹</h1>	
 				</div>
-			
+				<hr>
 				<label class="form-label">更新您的個人照片</label>
 				<div class="w-100 mb-3 border rounded" style="height: 357px">
 					<figure class="figure m-0 d-flex justify-content-center">

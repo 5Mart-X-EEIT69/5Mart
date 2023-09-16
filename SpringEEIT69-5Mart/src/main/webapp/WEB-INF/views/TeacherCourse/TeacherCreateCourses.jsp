@@ -173,7 +173,9 @@
 		</div>
         <!-- 		選單右邊 -->
         <div class="col-2"></div>
-        <div class="col-4 bs-stepper ">
+        <div class="col-4 bs-stepper" style="margin-top: 72px">
+        	<h1>建立你的課程</h1>
+        	<hr>
             <div class="bs-stepper-header" role="tablist">
                 <!-- your steps here -->
                 <div class="step" data-target="#step1">

@@ -71,7 +71,7 @@
         <!-- 		選單右邊 -->
         <div class="col-1">test</div>
         <div class="col-7 pb-3" style="padding: 72px 0 0;">
-            <h1>問與答</h1>
+            <h1>公告</h1>
             <hr />
             <h4>課程總覽</h4>
             <div class="accordion" id="accordionPanelsStayOpenExample">

@@ -70,10 +70,10 @@
 		<div class="col-4 container">
             <div class="row h-100">
                 <div class="col d-flex flex-column justify-content-center">
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex">
                         <h1>新增你的收款帳戶</h1>
                     </div>
-                                        
+					<hr>
                     <div class="border d-flex align-items-center">
                         <div class="ms-3 me-auto">                        
                             <img src="<c:url value="/assets/images/綠界.png"></c:url>" style="height: 4rem;">
