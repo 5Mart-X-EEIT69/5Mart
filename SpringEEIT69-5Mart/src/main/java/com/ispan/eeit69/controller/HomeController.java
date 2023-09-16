@@ -60,4 +60,10 @@ public class HomeController {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
 		return "indextest2";
 	}
+	
+	@GetMapping("/visitorsearchpage")
+	public String visitorsearchpage(Model model) {
+		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		return "visitorSearchPage";
+	}
 }
