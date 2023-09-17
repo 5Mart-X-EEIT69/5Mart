@@ -471,11 +471,11 @@
 				｜ <a href="" class="nav-link">最相關</a>｜最熱門｜依人數｜依評價｜依時間｜
 			</p>
 		</div>
-		<div class="row">
-			<div class="card mb-3">
+		<div class="row mx-3">
+			<div class="card mb-3 border-light">
 				<div class="row g-0 ">
-					<div class="col-md-4 d-flex align-items-center">
-						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg"
+					<div class="col-md-3 d-flex align-items-center">
+						<img class="w-100" src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg"
 							alt="...">
 					</div>
 					<div class="col-md-8">
@@ -513,11 +513,11 @@
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row mx-3">
 			<div class="card mb-3">
 				<div class="row g-0 ">
-					<div class="col-md-4 d-flex align-items-center">
-						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg"
+					<div class="col-md-3 d-flex align-items-center">
+						<img class="w-100" src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg"
 							alt="...">
 					</div>
 					<div class="col-md-8">
@@ -555,11 +555,11 @@
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row mx-3">
 			<div class="card mb-3">
 				<div class="row g-0 ">
-					<div class="col-md-4 d-flex align-items-center">
-						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg"
+					<div class="col-md-3 d-flex align-items-center">
+						<img class="w-100" src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg"
 							alt="...">
 					</div>
 					<div class="col-md-8">

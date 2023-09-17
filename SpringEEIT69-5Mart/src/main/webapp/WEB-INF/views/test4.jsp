@@ -4,6 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- font awesome的icon庫引入 -->
+<script src="https://kit.fontawesome.com/7ae43304d6.js"
+	crossorigin="anonymous"></script>
+<!-- font awesome的icon庫引入 -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>index-templates</title>
@@ -16,337 +20,351 @@
 	type="text/css" />
 <script
 	src="<c:url value="/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.js"/>"></script>
+<script type="text/javascript">
+	$(document).ready(
+			// 愛心滑鼠經過點擊變化
+			var heartcount = false;
+			$("fa-heart").click(
+					function() {
+						if (!heartcount) {
+							$(this).addClass("fa-solid").removeClass(
+									"fa-regular").css("color", "#D10A0A");
+							heartcount = true;
+						} else {
+							heartcount = false;
+							$(this).addClass("fa-regular").removeClass(
+									"fa-solid").css("color", "#f70000");
+						}
+					})
+
+			$("fa-heart").mouseenter(function() {
+				if (!heartcount) {
+					$(this).addClass("fa-solid").removeClass("fa-regular");
+				}
+			})
+
+			$("fa-heart").mouseleave(function() {
+				if (!heartcount) {
+					$(this).addClass("fa-regular").removeClass("fa-solid");
+				}
+			})
+			</script>
 <link rel='stylesheet'
 	href="<c:url value="/assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css"/>"
 	type="text/css" />
 <!-- bootstrap -->
+</head>
 <style>
-.rating {
-	direction: rtl;
-	display: inline-flex;
+/* 評價星星 */
+.bi-star-fill, .bi-star-half, .bi-star {
+	color: #FFC800;
 }
 
-.rating input {
-	display: none;
-}
-
-.rating label {
-	font-size: 2em;
-	color: #cccccc;
-	cursor: pointer;
-}
-
-.rating input:checked ~label {
-	color: #f6c613;
-}
-
-.rating-text {
-	display: none;
-	color: #000000;
-	font-weight: bold;
-}
-
-.rating input:checked ~label+.rating-text {
-	display: inline;
-}
-
-.center-vertically {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	height: 100%;
-}
-
-/* 篩選評等寬度 */
-.narrow-select {
-	width: 120px;
+hr {
+	border: 2px solid #000; /* 設置分隔線的邊框 */
+	margin: 20px 0; /* 設置分隔線的上下間距 */
 }
 </style>
-
-</head>
-
 <body>
-
-	<nav class="navbar"
-		style="background-color: #ffffff; box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="#">5MART</a>
-		</div>
-	</nav>
-
-
-	<div class="container-fluid">
-
-		<div class="row">
-			<div class="col-3"></div>
-
-			<div class="col-9">
-				<div class="row">
-					<div class="col" style="font-weight: bold;">
-						<h3>課程意見反應</h3>
-					</div>
-				</div>
-				</p>
-
-				<br>
-
-				<p>
-				<div class="row">
-					<div class="col-1 center-vertically">
-
-						<p style="font-size: 30px; margin-bottom: 4px">4</p>
-						<p style="margin-bottom: 4px">
-							<img src="/SpringEEIT69-5Mart/assets/images/4star.png" alt="xxxx"
-								style="max-width: 100px; max-height: 100px;">
-						</p>
-						<p style="font-size: 13px">課程評等</p>
-
-
-
-					</div>
-
-
-
-					<!--條圖&星星&百分比-->
-
-					<div class="col-11">
-						<div class="row align-items-center">
-							<div class="col-md-5">
-								<div class="progress" style="height: 13px;">
-									<div class="progress-bar bg-secondary" role="progressbar"
-										style="width: 61%;" aria-valuenow="80" aria-valuemin="0"
-										aria-valuemax="100"></div>
-								</div>
-							</div>
-							<!-- 星星圖片 -->
-							<div class="col-md-4 d-flex align-items-center">
-								<img src="/SpringEEIT69-5Mart/assets/images/5star.png"
-									alt="xxxx"
-									style="max-width: 80px; max-height: 80px; float: left;">
-								<div style="margin-left: 15px;">61%</div>
-							</div>
-						</div>
-
-
-						<div class="row align-items-center">
-							<div class="col-md-5">
-								<div class="progress" style="height: 13px;">
-									<div class="progress-bar bg-secondary" role="progressbar"
-										style="width: 30%;" aria-valuenow="80" aria-valuemin="0"
-										aria-valuemax="100"></div>
-								</div>
-							</div>
-							<!-- 星星圖片 -->
-							<div class="col-md-4 d-flex align-items-center">
-								<img src="/SpringEEIT69-5Mart/assets/images/4star.png"
-									alt="xxxx"
-									style="max-width: 80px; max-height: 80px; float: left;">
-								<div style="margin-left: 15px;">30%</div>
-							</div>
-						</div>
-
-
-						<div class="row align-items-center">
-							<div class="col-md-5">
-								<div class="progress" style="height: 13px;">
-									<div class="progress-bar bg-secondary" role="progressbar"
-										style="width: 5%;" aria-valuenow="80" aria-valuemin="0"
-										aria-valuemax="100"></div>
-								</div>
-							</div>
-							<!-- 星星圖片 -->
-							<div class="col-md-4 d-flex align-items-center">
-								<img src="/SpringEEIT69-5Mart/assets/images/3star.png"
-									alt="xxxx"
-									style="max-width: 80px; max-height: 80px; float: left;">
-								<div style="margin-left: 15px;">5%</div>
-							</div>
-						</div>
-
-
-						<div class="row align-items-center">
-							<div class="col-md-5">
-								<div class="progress" style="height: 13px;">
-									<div class="progress-bar bg-secondary" role="progressbar"
-										style="width: 3%;" aria-valuenow="80" aria-valuemin="0"
-										aria-valuemax="100"></div>
-								</div>
-							</div>
-							<!-- 星星圖片 -->
-							<div class="col-md-4 d-flex align-items-center">
-								<img src="/SpringEEIT69-5Mart/assets/images/2star.png"
-									alt="xxxx"
-									style="max-width: 80px; max-height: 80px; float: left;">
-								<div style="margin-left: 15px;">3%</div>
-							</div>
-						</div>
-						<div class="row align-items-center">
-							<div class="col-md-5">
-								<div class="progress" style="height: 13px;">
-									<div class="progress-bar bg-secondary" role="progressbar"
-										style="width: 1%;" aria-valuenow="80" aria-valuemin="0"
-										aria-valuemax="100"></div>
-								</div>
-							</div>
-							<!-- 星星圖片 -->
-							<div class="col-md-4 d-flex align-items-center">
-								<img src="/SpringEEIT69-5Mart/assets/images/1star.png"
-									alt="xxxx"
-									style="max-width: 80px; max-height: 80px; float: left;">
-								<div style="margin-left: 15px;">1%</div>
-							</div>
-						</div>
-					</div>
-
-
-
-
-					<p>
-					<div class="row">
-						<div class="col">
-							<button type="button" class="btn btn-outline-secondary"
-								data-bs-toggle="modal" data-bs-target="#reviewModal">撰寫評論</button>
-						</div>
-					</div>
-
-					<!-- 评价模态框 -->
-					<div class="modal fade" id="reviewModal" tabindex="-1"
-						aria-labelledby="reviewModalLabel" aria-hidden="true">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title" id="reviewModalLabel">評論</h5>
-									<button type="button" class="btn-close" data-bs-dismiss="modal"
-										aria-label="Close"></button>
-								</div>
-								<div class="modal-body">
-									<!-- 在这里添加评价表单或内容 -->
-
-									星等： <br>
-
-									<div class="rating">
-										<input type="radio" name="star" id="star1" /><label
-											for="star1">&#9733;</label> <input type="radio" name="star"
-											id="star2" /><label for="star2">&#9733;</label> <input
-											type="radio" name="star" id="star3" /><label for="star3">&#9733;</label>
-										<input type="radio" name="star" id="star4" /><label
-											for="star4">&#9733;</label> <input type="radio" name="star"
-											id="star5" /><label for="star5">&#9733;</label>
-									</div>
-									<div class="rating-text">太棒了</div>
-									<div class="rating-text">不錯</div>
-									<div class="rating-text">一般</div>
-									<div class="rating-text">差</div>
-									<div class="rating-text">很糟</div>
-									<script>
-                const ratingInputs = document.querySelectorAll('.rating input');
-                const ratingTexts = document.querySelectorAll('.rating-text');
-
-                ratingInputs.forEach((input, index) => {
-                  input.addEventListener('change', () => {
-                    // Hide all rating texts
-                    ratingTexts.forEach((text) => {
-                      text.style.display = 'none';
-                    });
-
-                    // Show the selected rating text
-                    ratingTexts[index].style.display = 'inline';
-                  });
-                });
-              </script>
-									<div class="mb-3">
-										<label for="exampleFormControlTextarea1" class="form-label">說明：</label>
-										<textarea class="form-control"
-											id="exampleFormControlTextarea1" rows="3"
-											placeholder="請告訴我們您在這門課上的個人體驗。他適合您嗎？"></textarea>
-									</div>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-										data-bs-dismiss="modal">關閉</button>
-									<button type="button" class="btn btn-dark">提交評價</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					</p>
-
-
-					<p>
-					<div class="row">
-						<div class="col" style="font-weight: bold;">
-							<h3>評論</h3>
-						</div>
-					</div>
-					</p>
-
-
-					<div class="row">
-						<div class="col-6"></div>
-						<div class="col-3" style="font-size: 13px">篩選評等</div>
-					</div>
-
-					<br>
-
-					<div class="row">
-						<div class="col-6">
-							<div class="input-group mb-3">
-								<input type="text" class="form-control" placeholder="搜尋評論"
-									aria-label="Recipient's username"
-									aria-describedby="button-addon2">
-								<button class="btn btn-outline-secondary" type="button"
-									id="button-addon2">
-									<i class="bi bi-search-heart"></i> Search
-								</button>
-							</div>
-						</div>
-						<div class="col-2">
-							<select class="form-select narrow-select"
-								aria-label="Default select example">
-								<option selected>所有評等</option>
-								<option value="1">五星</option>
-								<option value="2">四星</option>
-								<option value="3">三星</option>
-								<option value="4">二星</option>
-								<option value="5">一星</option>
-							</select>
-						</div>
-					</div>
-
-
-					<div class="row">
-						<div class="col-1">
-							<img src="/SpringEEIT69-5Mart/assets/images/評論人頭照.jpeg"
-								alt="xxxx" style="max-width: 80px; max-height: 80px;">
-						</div>
-						<div class="col-6">
-							<div>Nikita S.</div>
-
-							<div>
-								<img src="/SpringEEIT69-5Mart/assets/images/4star.png"
-									alt="xxxx" style="max-width: 80px; max-height: 80px;">
-							</div>
-							<div>This is amazing! The only instructor I understand in
-								teaching Spring is Chad! The best thing of this lessons are
-								they're keep getting updated and have staffs to answer and
-								support you with your questions. Thank you so much I learned a
-								lot! I hope your courses will also be available in LinkedIn
-								Learning.</div>
-
-
-						</div>
-
-						<p>
-						<hr style="width: 59%;">
-						</p>
-
-
-					</div>
-
-
-				</div>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+			<a class="navbar-brand" href="#!">5Mart線上學習平台</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+					<li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="#">Blog</a></li>
+				</ul>
 			</div>
 		</div>
+	</nav>
+	<!-- Post header-->
+	<header class="mb-4">
+		<!-- Post title-->
+		<h1 class="fw-bolder mb-1"></h1>
+
+	</header>
+	<!-- Page content -->
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-lg-8">
+				<!-- Post content-->
+				<article>
+					<nav aria-label="breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="#">首頁</a></li>
+							<li class="breadcrumb-item"><a href="#">課程</a></li>
+							<li class="breadcrumb-item active" aria-current="page">Java從零開始學習</li>
+						</ol>
+					</nav>
+					<div class="row gx-4 gx-lg-5 align-items-center my-5">
+						<div class="col-lg-7">
+							<img class="img-fluid rounded mb-4 mb-lg-0"
+								src="https://picsum.photos/380/260?random=10" alt="...">
+						</div>
+						<div class="col-lg-5">
+							<div class="container px-0">
+								<div class="row">
+									<h1 style="font-weight: bolder;">
+										<strong>Java從零開始學習</strong>
+									</h1>
+								</div>
+								<div class="row">
+									<p class="mb-2" style="font-size: small;">趙令文</p>
+								</div>
+								<div class="row d-inline ">
+									<strong style="font-size: large;">3.5 </strong> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
+									(120)
+								</div>
+								<div class="row mt-2">
+									<div class="col">
+										<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
+											$2,000</p>
+									</div>
+								</div>
+							</div>
+							<p>This is a template that is great for small businesses. It
+								doesn't have too much fancy flare to it, but it makes a great
+								use of the standard Bootstrap core components. Feel free to use
+								this template for any project you want!</p>
+
+							<div col>
+								<a class="btn btn-primary" href="#!">加入購物車</a>
+							</div>
+							<div class="col">
+								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+							</div>
+						</div>
+
+					</div>
+					<!-- Post content-->
+					<section class="mb-5">
+						<h3 class="fw-bolder mb-4 mt-5">課程介紹</h3>
+						<hr>
+						<h4 class="fw-bolder mb-4 mt-5">課程內容</h4>
+						<p class="fs-5 mb-4">Science is an enterprise that should be
+							cherished as an activity of the free human mind. Because it
+							transforms who we are, how we live, and it gives us an
+							understanding of our place in the universe.</p>
+						<hr>
+						<h4 class="fw-bolder mb-4 mt-5">此課程您可以學到</h4>
+						<p class="fs-5 mb-4">The universe is large and old, and the
+							ingredients for life as we know it are everywhere, so there's no
+							reason to think that Earth would be unique in that regard.
+							Whether of not the life became intelligent is a different
+							question, and we'll see if we find that.</p>
+						<hr>
+						<h4 class="fw-bolder mb-4 mt-5">此課程適合那些人</h4>
+						<p class="fs-5 mb-4">If you get asteroids about a kilometer in
+							size, those are large enough and carry enough energy into our
+							system to disrupt transportation, communication, the food chains,
+							and that can be a really bad day on Earth.</p>
+						<hr>
+						<h4 class="fw-bolder mb-4 mt-5">課前準備</h4>
+						<p class="fs-5 mb-4">For me, the most fascinating interface is
+							Twitter. I have odd cosmic thoughts every day and I realized I
+							could hold them to myself or share them with people who might be
+							interested.</p>
+						<p class="fs-5 mb-4">Venus has a runaway greenhouse effect. I
+							kind of want to know what happened there because we're twirling
+							knobs here on Earth without knowing the consequences of it. Mars
+							once had running water. It's bone dry today. Something bad
+							happened there as well.</p>
+
+					</section>
+					<div class="accordion" id="accordionExample">
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button class="accordion-button" type="button"
+									data-bs-toggle="collapse" data-bs-target="#collapseOne"
+									aria-expanded="true" aria-controls="collapseOne">第一堂</button>
+							</h2>
+							<div id="collapseOne" class="accordion-collapse collapse show"
+								data-bs-parent="#accordionExample">
+								<div class="accordion-body">
+									<strong>This is the first item's accordion body.</strong> It is
+									shown by default, until the collapse plugin adds the
+									appropriate classes that we use to style each element. These
+									classes control the overall appearance, as well as the showing
+									and hiding via CSS transitions. You can modify any of this with
+									custom CSS or overriding our default variables. It's also worth
+									noting that just about any HTML can go within the
+									<code>.accordion-body</code>
+									, though the transition does limit overflow.
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+									aria-expanded="false" aria-controls="collapseTwo">第二堂</button>
+							</h2>
+							<div id="collapseTwo" class="accordion-collapse collapse"
+								data-bs-parent="#accordionExample">
+								<div class="accordion-body">
+									<strong>This is the second item's accordion body.</strong> It
+									is hidden by default, until the collapse plugin adds the
+									appropriate classes that we use to style each element. These
+									classes control the overall appearance, as well as the showing
+									and hiding via CSS transitions. You can modify any of this with
+									custom CSS or overriding our default variables. It's also worth
+									noting that just about any HTML can go within the
+									<code>.accordion-body</code>
+									, though the transition does limit overflow.
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#collapseThree"
+									aria-expanded="false" aria-controls="collapseThree">第三堂</button>
+							</h2>
+							<div id="collapseThree" class="accordion-collapse collapse"
+								data-bs-parent="#accordionExample">
+								<div class="accordion-body">
+									<strong>This is the third item's accordion body.</strong> It is
+									hidden by default, until the collapse plugin adds the
+									appropriate classes that we use to style each element. These
+									classes control the overall appearance, as well as the showing
+									and hiding via CSS transitions. You can modify any of this with
+									custom CSS or overriding our default variables. It's also worth
+									noting that just about any HTML can go within the
+									<code>.accordion-body</code>
+									, though the transition does limit overflow.
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#collapseFour"
+									aria-expanded="false" aria-controls="collapseFour">第四堂</button>
+							</h2>
+							<div id="collapseFour" class="accordion-collapse collapse"
+								data-bs-parent="#accordionExample">
+								<div class="accordion-body">
+									<strong>This is the third item's accordion body.</strong> It is
+									hidden by default, until the collapse plugin adds the
+									appropriate classes that we use to style each element. These
+									classes control the overall appearance, as well as the showing
+									and hiding via CSS transitions. You can modify any of this with
+									custom CSS or overriding our default variables. It's also worth
+									noting that just about any HTML can go within the
+									<code>.accordion-body</code>
+									, though the transition does limit overflow.
+								</div>
+							</div>
+						</div>
+						
+						<h4 class="fw-bolder mb-4 mt-5">講師介紹</h4>
+						<div class="p-5">
+							<img class="img-fluid rounded-circle"
+								src="https://picsum.photos/150/150?random=10" alt="...">
+						</div>
+						
+						<div class="col">
+							<p class="mb-2" style="font-size: lg;">趙令文</p>
+							<div class="container px-0">
+								<div class="row"></div>
+								<div class="row"></div>
+								<div class="row d-inline ">
+									<strong style="font-size: large;">4.5 </strong> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-half px-0"></i> (123)
+								</div>
+
+							</div>
+
+						</div>
+						<h4 class="fw-bolder mb-4 mt-5">課程評價</h4>
+					</div>
+			</div>
+		</div>
+		<!-- Comments section-->
+		<section class="mb-5">
+			<div class="card Lg">
+				<div class="card-body">
+					<!-- Comment form-->
+					<form class="mb-4">
+						<textarea class="form-control" rows="3"
+							placeholder="Join the discussion and leave a comment!"></textarea>
+					</form>
+					<!-- Comment with nested comments-->
+					<div class="d-flex mb-4">
+						<!-- Parent comment-->
+						<div class="flex-shrink-0">
+							<img class="rounded-circle"
+								src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
+						</div>
+						<div class="ms-3">
+							<div class="fw-bold">Hank Lee</div>
+							If you're going to lead a space frontier, it has to be
+							government; it'll never be private enterprise. Because the space
+							frontier is dangerous, and it's expensive, and it has
+							unquantified risks.
+							<!-- Child comment 1-->
+							<div class="d-flex mt-4">
+								<div class="flex-shrink-0">
+									<img class="rounded-circle"
+										src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
+								</div>
+								<div class="ms-3">
+									<div class="fw-bold">Zhang Sam</div>
+									And under those conditions, you cannot establish a
+									capital-market evaluation of that enterprise. You can't get
+									investors.
+								</div>
+							</div>
+							<!-- Child comment 2-->
+							<div class="d-flex mt-4">
+								<div class="flex-shrink-0">
+									<img class="rounded-circle"
+										src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
+								</div>
+								<div class="ms-3">
+									<div class="fw-bold">趙令文</div>
+									沒問題，已上傳Github。
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Single comment-->
+					<div class="d-flex">
+						<div class="flex-shrink-0">
+							<img class="rounded-circle"
+								src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
+						</div>
+						<div class="ms-3">
+							<div class="fw-bold">Commenter Name</div>
+							When I look at the universe and all the ways the universe wants
+							to kill us, I find it hard to reconcile that with statements of
+							beneficence.
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	</div>
+	</div>
+	<!-- Side widgets-->
+	<div class="col-lg-4"></div>
 </body>
 </html>
