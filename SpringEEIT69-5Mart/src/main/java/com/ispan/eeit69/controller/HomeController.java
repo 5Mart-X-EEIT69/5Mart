@@ -25,10 +25,9 @@ public class HomeController {
 		return "test3";
 	}
 	
-	@GetMapping("/test4")
-	public String test4(Model model) {
-		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
-		return "test4";
+	@GetMapping("/teacher")
+	public String teacher(Model model) {
+		return "TeacherMain";	
 	}
 
 	@GetMapping("/visitorhomepage")
@@ -43,21 +42,5 @@ public class HomeController {
 		return "memberHomePage";
 	}
 
-	@GetMapping("/teacher")
-	public String teacher(Model model) {
-		return "TeacherMain";
 
-	}
-
-	@GetMapping("/visitorhomepage2")
-	public String visitorhomepage2(Model model) {
-		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
-		return "visitorHomePage2";
-	}
-	
-	@GetMapping("/indextest2")
-	public String indextest2(Model model) {
-		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
-		return "indextest2";
-	}
 }
