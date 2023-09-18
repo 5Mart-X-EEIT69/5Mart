@@ -59,4 +59,17 @@ public class HomeController {
 		return "visitorSearchPage";
 	}
 	
+	@GetMapping("/student_dashboard")
+	public String student_dashboard(Model model) {
+		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		return "/student_lms/student_dashboard";
+	}
+	
+	@GetMapping("/student_course_viewer")
+	public String student_course_viewer(Model model) {
+		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		return "/student_lms/student_course_viewer";
+	}
+
+
 }
