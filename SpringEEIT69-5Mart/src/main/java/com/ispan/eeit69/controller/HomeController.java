@@ -66,4 +66,10 @@ public class HomeController {
 	public String courseDetail(Model model) {	
 		return "courseDetail";
 	}
+	
+	@GetMapping("/student_course_viewer")
+	public String student_course_viewer(Model model) {	
+		return "/student_lms/student_course_viewer";
+	}
+	
 }
