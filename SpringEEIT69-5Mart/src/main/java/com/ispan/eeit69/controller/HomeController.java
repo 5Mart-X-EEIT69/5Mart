@@ -66,4 +66,9 @@ public class HomeController {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
 		return "visitorSearchPage";
 	}
+	
+	@GetMapping("/courseDetail")
+	public String courseDetail(Model model) {	
+		return "courseDetail";
+	}
 }
