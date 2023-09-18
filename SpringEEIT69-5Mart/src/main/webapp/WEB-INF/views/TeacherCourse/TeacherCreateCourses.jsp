@@ -174,8 +174,8 @@
         <!-- 		選單右邊 -->
         <div class="col-2"></div>
         <div class="col-4 bs-stepper" style="margin-top: 72px">
-        	<h1>建立你的課程</h1>
-        	<hr>
+            <h1>建立你的課程</h1>
+            <hr>
             <div class="bs-stepper-header" role="tablist">
                 <!-- your steps here -->
                 <div class="step" data-target="#step1">
@@ -210,16 +210,19 @@
                 <!-- your steps content here -->
                 <div id="step1" class="content" role="tabpanel" aria-labelledby="step1-trigger">
                     <div class="form-group">
-                        <label> 課程標題 </label> <input class="form-control" />
+                        <label> 課程標題 </label> <input class="form-control" id="title" name="title" />
                     </div>
                     <div class="form-group">
-                        <label> 課程簡介 </label> <input class="form-control" style="height: 10rem" />
+                        <label> 課程簡介 </label> <input class="form-control" style="height: 10rem" id="introduction"
+                            name="introduction" />
+                    </div>
+                    <div id="photoContainer" class="form-group">
+                        <label> 封面照片 </label> <input class="form-control testphoto" type="file" accept="image/*" id="photoBtn"
+                            name="photoBtn" />
+                        <input type="hidden" id="photoValue" name="photoValue">
                     </div>
                     <div class="form-group">
-                        <label> 封面照片 </label> <input class="form-control" type="file" accept="image/*" />
-                    </div>
-                    <div class="form-group">
-                        <label>售價</label> <input class="form-control" />
+                        <label>售價</label> <input class="form-control" id="price" name="price" />
                     </div>
                     <div class="pt-3 d-flex justify-content-center">
                         <button class="btn btn-secondary" type="button" onclick="stepper.next()">下一步</button>
@@ -263,195 +266,21 @@
                                 onclick="stepper.next()">下一步</button>
                         </div>
                     </div>
-                    <script>
-                        window.onload = function () {
-                            $("#chapterContainer").on("click", ".addChapter", function () {
-                                let iIndex = $(this).parent().parent().parent().index();
-                                let html = `
-                            <div class="form-group chapter my-2">
-                                <span class="chapterIcon">拖拉</span>
-                                <span class="py-1">章節 1</span><input class="chapterInput chapterName" type="text" value="">
-                                <span>
-                                    <button class="mx-1 btn iconbtn addChapter"><i class="bi bi-plus-circle"></i></button>
-                                    <button class="mx-1 btn iconbtn chapterDelete"><i class="bi bi-trash"></i></button>
-                                </span>
-                            </div>
-                            <div class="unitGroup">
-                                <div class="form-group unit my-2">
-                                    <span class="chapterIcon">拖拉</span>
-                                    <label class="py-1">單元 1</label><input class="chapterInput unitName" type="text" value="">
-                                    <span>
-                                        <button class="mx-1 btn iconbtn addUnit"><i class="bi bi-plus-circle"></i></button>
-                                        <button class="mx-1 btn iconbtn unitDelete"><i class="bi bi-trash"></i></button>
-                                    </span>
-                                </div>
-                            </div>   
-                            `;
-                                $(this).parent().parent().parent().append(html);
-                                chapterRename();
-                            });//動態增加章節單元元素
-
-                            $("#chapterContainer").on("click", ".addUnit", function () {
-                                let iIndex = $(this).parent().parent().index();
-                                let html = `
-                            <div class="form-group unit my-2">
-                                <span class="chapterIcon">拖拉</span>
-                                <label class="py-1">單元 ${iIndex + 2}</label><input class="chapterInput unitName" type="text" value="">
-                                <span>
-                                    <button class="mx-1 btn iconbtn addUnit"><i class="bi bi-plus-circle"></i></button>
-                                    <button class="mx-1 btn iconbtn unitDelete"><i class="bi bi-trash"></i></button>
-                                </span>
-                            </div>
-                            `;
-                                $(this).parent().parent().after(html);
-                                unitRename();
-                            })//動態增加單元元素
-
-
-                            $("#chapterContainer").on("click", ".chapterDelete", function () {
-                                let iIndex = $(this).parent().parent().index()
-                                console.log($(this).parent().parent().index())
-                                $(this).parent().parent().parent().children().eq(iIndex + 1).remove()
-                                $(this).parent().parent().parent().children().eq(iIndex).remove()
-                                chapterRename()
-                            })//章節及單元刪除
-
-                            $("#chapterContainer").on("click", ".unitDelete", function () {
-
-                                console.log($(this).parent().parent().parent().children().length)
-                                let count = $(this).parent().parent().parent().children().length;
-                                if (count != 1) {
-                                    let iIndex = $(this).parent().parent().remove()
-                                    unitRename()
-                                } else {
-                                    alert("每個章節至少需要一個單元!")
-                                }
-
-                            })//單元刪除
-
-                            function chapterRename() {
-                                $(".chapter").each(function (index, element) {
-                                    $(this).children("span").eq(1).html("章節 " + (index + 1))
-                                })
-                            }//章節重新命名
-                            function unitRename() {
-                                $(".unitGroup").each(function (index, element) {
-                                    $(this).children("div").each(function (index, element) {
-                                        $(this).children("label").eq(0).html("單元 " + (index + 1))
-                                    })
-                                })
-                            }//單元重新命名
-
-                            $('#chapterContainer').on("click", "#step2NextBtn", function () {
-                                let allNameValue = [];
-                                $(".chapterName").each(function (index, element) {
-                                    let chapterAndUnitNameVlaue = {};
-                                    chapterAndUnitNameVlaue[`chapter${index + 1}`] = $(this).val();
-                                    $(this).closest('.chapter').next('.unitGroup').children().children(".unitName").each(function (index, element) {
-                                        // console.log(index);
-                                        chapterAndUnitNameVlaue["unit" + (index + 1)] = $(this).val();
-                                    })
-                                    allNameValue.push(chapterAndUnitNameVlaue);
-
-                                });
-                                console.log(allNameValue)
-                                $(allNameValue).each(function (index, element) {
-                                    let i = 1
-                                    $.each(element, function (key, value) {
-                                        if (i == 1) {
-                                            // let html = `
-                                            // <div>
-                                            //     <div class="form-group chapterVideo my-2">
-                                            //         <span class="chapterIcon">拖拉</span>
-                                            //         <span class="py-1">章節 ${index+1}</span>
-                                            //         <label class="py-1 chapterInput">${value}</label>
-                                            //     </div>
-                                            // </div>
-                                            // <div class="unitGroup">
-                                            // </div>
-                                            // `
-                                            let html = '<div><div class="form-group chapterVideo my-2"><span class="chapterIcon">拖拉</span><span class="py-1">章節 ' +
-                                                (index + 1) +
-                                                '</span><label class="py-1 chapterInput">' +
-                                                value +
-                                                '</label></div></div><div class="unitGroup"></div>'
-                                            $('#chapterVideoContainer').append(html)
-                                            i++;
-                                        } else {
-                                            // let html = `
-                                            // 	<div class="form-group unitVideo my-2">
-                                            //         <span class="chapterIcon">拖拉</span>
-                                            //         <label class="py-1">單元 ${i-1}</label>
-                                            //         <label class="pe-3 py-1 chapterInput">${value}</label>
-                                            //         <input class="form-control videobtn" type="file" />
-                                            //     </div>
-                                            // `
-                                            let html = '<div class="form-group unitVideo my-2"><span class="chapterIcon">拖拉</span><label class="py-1">單元 '
-                                                + (i - 1) + '</label><label class="pe-3 py-1 chapterInput">' + value + '</label><input id="inputFileToLoad" class="form-control videobtn" type="file" accept="video/*" /></div><input type="hidden" id="video" name="video">'
-                                            $('#chapterVideoContainer').children('.unitGroup').eq(index).append(html)
-                                            i++;
-                                        }
-                                    })
-                                })
-
-                                $('input[name="video"]').each(function(index,element){
-                                    let chapterIndex = ($(this).parent().prev().index())/2 +1
-                                    console.log("chapter" + chapterIndex)
-                                    // console.log("unit"+ $(this).prev().index())
-                                    let unitIndex = ($(this).prev().index())/2 +1
-                                    console.log("unit" + unitIndex)
-                                    $(this).attr('name','chapter'+chapterIndex +'-'+ unitIndex)
-                                    $(this).attr('id','chapter'+chapterIndex +'-'+ unitIndex)
-                                })
-                            })
-
-                            $('#step3').on("click", "#step3PrevBtn", function () {
-                                console.log("empty")
-                                $('#chapterVideoContainer').empty()
-                            })
-
-
-                            $('#chapterVideoContainer').on("change", ".videobtn", function () {
-
-                                video = $(this).parent().next()[0]
-                                // console.log("test"+video)
-                                // console.log(video)
-
-                                    alert(this)
-                                    let input = $(this)[0].files;
-                                    // console.log(input)
-                                    // console.log(input.length)
-                                    if (input.length > 0) {
-                                        let fileReader = new FileReader();
-
-                                        let fileToLoad = input[0];
-                                        console.log("fileToLoad=" + fileToLoad.name);
-                                        fileReader.onload = function (fileLoadedEvent) {
-                                            video.value = fileLoadedEvent.target.result;
-                                            // img.src = fileLoadedEvent.target.result;
-                                        };
-                                        fileReader.readAsDataURL(fileToLoad);
-                                    }
-
-                            })
-                        }//根據第二頁表單內容產生第三頁表單
-                    </script>
-                    <!-- 章節單元標籤 -->
                 </div>
                 <div id="step3" class="content" role="tabpanel" aria-labelledby="step3-trigger">
 
                     <div id="chapterVideoContainer">
                         <!-- <div>
-							<div class="form-group chapterVideo my-2">
+                            <div class="form-group chapterVideo my-2">
 								<span class="chapterIcon">拖拉</span> <span class="py-1">章節
-									1</span><label class="py-1 chapterInput">字元字元字元字元字元字元字元字元</label>
-							</div>
+                                    1</span><label class="py-1 chapterInput">字元字元字元字元字元字元字元字元</label>
+                                </div>
 							<div class="unitGroup">
-								<div class="form-group unitVideo my-2">
-									<span class="chapterIcon">拖拉</span> <label class="py-1">單元
-										1</label><label class="pe-3 py-1 chapterInput">字元字元字元字元字元</label> <input
+                                <div class="form-group unitVideo my-2">
+                                    <span class="chapterIcon">拖拉</span> <label class="py-1">單元
+                                        1</label><label class="pe-3 py-1 chapterInput">字元字元字元字元字元</label> <input
 										class="form-control videobtn" type="file" />
-								</div>
+                                    </div>
 							</div>
 						</div> -->
                     </div>
@@ -489,7 +318,7 @@
                     </div>
                     <div class="pt-2 d-flex justify-content-center">
                         <button class="mx-1 btn btn-secondary" type="button" onclick="stepper.previous()">上一步</button>
-                        <button class="mx-1 btn btn-secondary" type="button" onclick="stepper.next()">下一步</button>
+                        <button id="submitBtn" class="mx-1 btn btn-secondary" type="button">送出</button>
                     </div>
                 </div>
             </div>
@@ -497,6 +326,215 @@
 
         <div class="col-4">test</div>
     </div>
+    <script>
+        window.onload = function () {
+            $("#chapterContainer").on("click", ".addChapter", function () {
+                let iIndex = $(this).parent().parent().parent().index();
+                let html = `
+            <div class="form-group chapter my-2">
+                <span class="chapterIcon">拖拉</span>
+                <span class="py-1">章節 1</span><input class="chapterInput chapterName" type="text" value="">
+                <span>
+                    <button class="mx-1 btn iconbtn addChapter"><i class="bi bi-plus-circle"></i></button>
+                    <button class="mx-1 btn iconbtn chapterDelete"><i class="bi bi-trash"></i></button>
+                </span>
+            </div>
+            <div class="unitGroup">
+                <div class="form-group unit my-2">
+                    <span class="chapterIcon">拖拉</span>
+                    <label class="py-1">單元 1</label><input class="chapterInput unitName" type="text" value="">
+                    <span>
+                        <button class="mx-1 btn iconbtn addUnit"><i class="bi bi-plus-circle"></i></button>
+                        <button class="mx-1 btn iconbtn unitDelete"><i class="bi bi-trash"></i></button>
+                    </span>
+                </div>
+            </div>   
+            `;
+                $(this).parent().parent().parent().append(html);
+                chapterRename();
+            });//動態增加章節單元元素
+
+            $("#chapterContainer").on("click", ".addUnit", function () {
+                let iIndex = $(this).parent().parent().index();
+                let html = `
+            <div class="form-group unit my-2">
+                <span class="chapterIcon">拖拉</span>
+                <label class="py-1">單元 ${iIndex + 2}</label><input class="chapterInput unitName" type="text" value="">
+                <span>
+                    <button class="mx-1 btn iconbtn addUnit"><i class="bi bi-plus-circle"></i></button>
+                    <button class="mx-1 btn iconbtn unitDelete"><i class="bi bi-trash"></i></button>
+                </span>
+            </div>
+            `;
+                $(this).parent().parent().after(html);
+                unitRename();
+            })//動態增加單元元素
+
+
+            $("#chapterContainer").on("click", ".chapterDelete", function () {
+                let iIndex = $(this).parent().parent().index()
+                console.log($(this).parent().parent().index())
+                $(this).parent().parent().parent().children().eq(iIndex + 1).remove()
+                $(this).parent().parent().parent().children().eq(iIndex).remove()
+                chapterRename()
+            })//章節及單元刪除
+
+            $("#chapterContainer").on("click", ".unitDelete", function () {
+
+                console.log($(this).parent().parent().parent().children().length)
+                let count = $(this).parent().parent().parent().children().length;
+                if (count != 1) {
+                    let iIndex = $(this).parent().parent().remove()
+                    unitRename()
+                } else {
+                    alert("每個章節至少需要一個單元!")
+                }
+
+            })//單元刪除
+
+            function chapterRename() {
+                $(".chapter").each(function (index, element) {
+                    $(this).children("span").eq(1).html("章節 " + (index + 1))
+                })
+            }//章節重新命名
+            function unitRename() {
+                $(".unitGroup").each(function (index, element) {
+                    $(this).children("div").each(function (index, element) {
+                        $(this).children("label").eq(0).html("單元 " + (index + 1))
+                    })
+                })
+            }//單元重新命名
+
+            $('#chapterContainer').on("click", "#step2NextBtn", function () {
+                let allNameValue = [];
+                $(".chapterName").each(function (index, element) {
+                    let chapterAndUnitNameVlaue = {};
+                    chapterAndUnitNameVlaue[`chapter${index + 1}`] = $(this).val();
+                    $(this).closest('.chapter').next('.unitGroup').children().children(".unitName").each(function (index, element) {
+                        // console.log(index);
+                        chapterAndUnitNameVlaue["unit" + (index + 1)] = $(this).val();
+                    })
+                    allNameValue.push(chapterAndUnitNameVlaue);
+
+                });
+                console.log(allNameValue)
+                $(allNameValue).each(function (index, element) {
+                    let i = 1
+                    $.each(element, function (key, value) {
+                        if (i == 1) {
+                            // let html = `
+                            // <div>
+                            //     <div class="form-group chapterVideo my-2">
+                            //         <span class="chapterIcon">拖拉</span>
+                            //         <span class="py-1">章節 ${index+1}</span>
+                            //         <label class="py-1 chapterInput">${value}</label>
+                            //     </div>
+                            // </div>
+                            // <div class="unitGroup">
+                            // </div>
+                            // `
+                            let html = '<div><div class="form-group chapterVideo my-2"><span class="chapterIcon">拖拉</span><span class="py-1">章節 ' +
+                                (index + 1) +
+                                '</span><label class="py-1 chapterInput">' +
+                                value +
+                                '</label></div></div><div class="unitGroup"></div>'
+                            $('#chapterVideoContainer').append(html)
+                            i++;
+                        } else {
+                            // let html = `
+                            // 	<div class="form-group unitVideo my-2">
+                            //         <span class="chapterIcon">拖拉</span>
+                            //         <label class="py-1">單元 ${i-1}</label>
+                            //         <label class="pe-3 py-1 chapterInput">${value}</label>
+                            //         <input class="form-control videobtn" type="file" />
+                            //     </div>
+                            // `
+                            let html = '<div class="form-group unitVideo my-2"><span class="chapterIcon">拖拉</span><label class="py-1">單元 '
+                                + (i - 1) + '</label><label class="pe-3 py-1 chapterInput">' + value + '</label><input id="inputFileToLoad" class="form-control videobtn" type="file" accept="video/*" /></div><input type="hidden" id="video" name="video">'
+                            $('#chapterVideoContainer').children('.unitGroup').eq(index).append(html)
+                            i++;
+                        }
+                    })
+                })//根據第二頁表單內容產生第三頁表單
+
+                $('input[name="video"]').each(function (index, element) {
+                    let chapterIndex = ($(this).parent().prev().index()) / 2 + 1
+                    console.log("chapter" + chapterIndex)
+                    // console.log("unit"+ $(this).prev().index())
+                    let unitIndex = ($(this).prev().index()) / 2 + 1
+                    console.log("unit" + unitIndex)
+                    $(this).attr('name', 'chapter' + chapterIndex + '-' + unitIndex)
+                    $(this).attr('id', 'chapter' + chapterIndex + '-' + unitIndex)
+                })//更新放置影片編碼的id跟name
+            })
+
+            $('#step3').on("click", "#step3PrevBtn", function () {
+                console.log("empty")
+                $('#chapterVideoContainer').empty()
+            })
+
+
+            $('#chapterVideoContainer').on("change", ".videobtn", function () {
+
+                video = $(this).parent().next()[0]
+                // console.log("test"+video)
+                // console.log(video)
+
+                alert(this)
+                let input = $(this)[0].files;
+                // console.log(input)
+                // console.log(input.length)
+                if (input.length > 0) {
+                    let fileReader = new FileReader();
+
+                    let fileToLoad = input[0];
+                    console.log("fileToLoad=" + fileToLoad.name);
+                    fileReader.onload = function (fileLoadedEvent) {
+                        video.value = fileLoadedEvent.target.result;
+                        // img.src = fileLoadedEvent.target.result;
+                    };
+                    fileReader.readAsDataURL(fileToLoad);
+                }
+
+            })//抓影片編碼
+
+            $('#photoContainer').on("change", "#photoBtn", function () {
+
+                photo = $(this).next()[0]
+                // console.log("test"+photo)
+                // console.log(photo)
+
+                alert(this)
+                let input = $(this)[0].files;
+                // console.log(input)
+                // console.log(input.length)
+                if (input.length > 0) {
+                    let fileReader = new FileReader();
+
+                    let fileToLoad = input[0];
+                    console.log("fileToLoad=" + fileToLoad.name);
+                    fileReader.onload = function (fileLoadedEvent) {
+                        photo.value = fileLoadedEvent.target.result;
+                        // img.src = fileLoadedEvent.target.result;
+                    };
+                    fileReader.readAsDataURL(fileToLoad);
+                }
+
+            })//抓照片編碼
+
+            $('#step4').on("click", "#submitBtn", function () {
+                let formData = {};
+                formData.title = $('#title').val()
+                formData.introduction = $('#introduction').val()
+                formData.photo = $('#photoValue').val()
+                formData.price = $('#price').val()
+                console.log(formData)
+                console.log(formData.title)
+                console.log(formData.photo)
+                alert(formData)
+            })
+        }
+    </script>
 
 
 </body>
@@ -520,4 +558,5 @@
             stepper.to(e.state);
     };
 </script>
+
 </html>
