@@ -1,19 +1,40 @@
 package com.ispan.eeit69.controller;
 
+import java.sql.Clob;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+
+import javax.sql.rowset.serial.SerialClob;
+import javax.sql.rowset.serial.SerialException;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.ispan.eeit69.model.course;
+import com.ispan.eeit69.service.courseService;
 
 @Controller
 public class TeacherController {
 
+	courseService courseservice ;
 //	課程
+	
+	public TeacherController(courseService courseservice) {
+		this.courseservice = courseservice;
+	}
+	
 	
 	@GetMapping("/TeacherMain")
 	public String teacher(Model model) {	
 		return "TeacherMain";
 	}//跳轉至講師主頁面
 	
+
 	@GetMapping("/TeacherCreate")
 	public String teacherCreate(Model model) {	
 		return "/TeacherCourse/TeacherCreateCourses";
@@ -119,4 +140,61 @@ public class TeacherController {
 	public String bsjsTest(Model model) {	
 		return "/bsjsTest";
 	}//跳轉至講師資料帳戶頁面
+	
+	@PostMapping("/submitCourse")
+	public String createCourses(@RequestBody JsonNode formData , Model model ,@ModelAttribute("preCourse") course course) throws SerialException,SQLException {
+		
+		course.setTitle(formData.get("title").asText());
+//		System.out.println(formData.get("title").asText());
+//		System.out.println("------");
+		course.setIntroduction(formData.get("introduction").asText());
+//		System.out.println(formData.get("introduction").asText());
+//		System.out.println("------");
+		char[] c = formData.get("photo").asText().toCharArray();
+		Clob clob = new SerialClob(c);
+		course.setPhoto(clob);
+//		System.out.println(formData.get("photo").asText());
+//		System.out.println("------");
+		course.setPrice(formData.get("price").asInt());
+//		System.out.println(formData.get("price").asInt());
+//		System.out.println("------");
+//		JsonNode courseArray = formData.get("course");
+//		for(JsonNode courseobj : courseArray) {
+//			courseobj.fields().forEachRemaining(entry ->{
+//				String attributeName = entry.getKey();
+//				JsonNode attributeValue = entry.getValue();
+//				System.out.println(attributeName + ": " + attributeValue.asText());
+//			});
+//			System.out.println("run");
+//		}
+//		System.out.println("------");
+//		JsonNode videoArray = formData.get("video");
+//		for(JsonNode videoobj : videoArray) {
+//			videoobj.fields().forEachRemaining(entry ->{
+//				String attributeName = entry.getKey();
+//				JsonNode attributeValue = entry.getValue();
+//				System.out.println(attributeName + ": " + attributeValue.asText());
+//			});
+//			System.out.println("run");
+//		}
+//		System.out.println("------");
+		course.setLevel(formData.get("level").asText());
+//		System.out.println(formData.get("level").asText());
+//		System.out.println("------");
+		course.setSort(formData.get("sort").asText());
+//		System.out.println(formData.get("sort").asText());
+//		System.out.println("------");
+		courseservice.save(course);
+		return "/TeacherCourse/TeacherCourseList";
+	}
+	
+	@ModelAttribute("preCourse")
+	public course beforeSave() {
+		course course = new course();
+		Timestamp ts = new Timestamp(System.currentTimeMillis());
+		course.setRegisterTime(ts);
+		return course;
+	}
 }
+
+
