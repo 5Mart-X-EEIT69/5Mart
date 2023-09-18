@@ -14,16 +14,21 @@
 <link rel='stylesheet'
 	href="<c:url value='/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.css' />"
 	type="text/css" />
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+	crossorigin="anonymous"></script>
 <link rel='stylesheet'
 	href="<c:url value="/assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css"/>"
 	type="text/css" />
 <!-- bootstrap -->
+<!-- ckeditor -->
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
+<!-- ckeditor -->
 </head>
 <script type="text/javascript">
-	window.onload = function(){
-	
-	
+	window.onload = function() {
+
 	}
 </script>
 <body>
@@ -36,27 +41,32 @@
 			</a>
 			<hr>
 			<ul class="nav nav-pills flex-column mb-auto">
-				<li class="nav-item pb-2"><a href="<c:url value="/TeacherMain"></c:url>"
-					class="nav-link active" aria-current="page"> <span
-						style="font-size: 32px;"><i class="bi bi-display"></i> 課程</span>
+				<li class="nav-item pb-2"><a
+					href="<c:url value="/TeacherMain"></c:url>" class="nav-link active"
+					aria-current="page"> <span style="font-size: 32px;"><i
+							class="bi bi-display"></i> 課程</span>
 				</a></li>
 
 				<li class="nav-item"><a
 					href="<c:url value="/TeacherCreate"></c:url>"
 					class="nav-link link-dark" aria-current="page"> <span
-						style="font-size: 24px;">-  建立課程</span>
+						style="font-size: 24px;">- 建立課程</span>
 				</a></li>
 				<li><a
 					href="<c:url value="/TeacherCreateFundraisingCourses"></c:url>"
-					class="nav-link link-dark"> <span style="font-size: 24px;">-  建立募資課程</span>
+					class="nav-link link-dark"> <span style="font-size: 24px;">-
+							建立募資課程</span>
 				</a></li>
-				<li><a href="<c:url value="/TeacherCreateArticle"></c:url>"
-					class="nav-link link-dark"> <span style="font-size: 24px;">-  建立文章</span>
+				<li class="pe-5"><a
+					href="<c:url value="/TeacherCreateArticle"></c:url>"
+					class="nav-link active"> <span style="font-size: 24px;">-
+							建立文章</span>
 				</a></li>
 				<li><a href="<c:url value="/TeacherCourseList"></c:url>"
-					class="nav-link link-dark"> <span style="font-size: 24px;">-  已開課內容 </span>
+					class="nav-link link-dark"> <span style="font-size: 24px;">-
+							已開課內容 </span>
 				</a></li>
-				
+
 				<li><a href="<c:url value="/TeacherComminicate"></c:url>"
 					class="nav-link link-dark"> <span style="font-size: 32px;"><i
 							class="bi bi-chat-left" style="font-size: 32px;"></i> 學生交流</span>
@@ -73,36 +83,25 @@
 			<hr>
 		</div>
 		<!-- 		選單右邊 -->
-<!-- 		<div class="d-flex flex-column p-3 bg-light" style="width: 300px;"> -->
-<!-- 			<ul class="nav nav-pills flex-column mb-auto"> -->
-<!-- 				<li class="nav-item"><a -->
-<%-- 					href="<c:url value="/TeacherCreate"></c:url>" --%>
-<!-- 					class="nav-link link-dark" aria-current="page"> <span -->
-<!-- 						style="font-size: 32px;"> 建立課程</span> -->
-<!-- 				</a></li> -->
-<!-- 				<li><a -->
-<%-- 					href="<c:url value="/TeacherCreateFundraisingCourses"></c:url>" --%>
-<!-- 					class="nav-link link-dark"> <span style="font-size: 32px;"> -->
-<!-- 							建立募資課程</span> -->
-<!-- 				</a></li> -->
-<%-- 				<li><a href="<c:url value="/TeacherCreateArticle"></c:url>" --%>
-<!-- 					class="nav-link link-dark"> <span style="font-size: 32px;"> -->
-<!-- 							建立文章</span> -->
-<!-- 				</a></li> -->
-<%-- 				<li><a href="<c:url value="/TeacherCourseList"></c:url>" --%>
-<!-- 					class="nav-link link-dark"> <span style="font-size: 32px;"> -->
-<!-- 							已開課內容 </span> -->
-<!-- 				</a></li> -->
-<!-- 			</ul> -->
-<!-- 			<hr> -->
-<!-- 		</div> -->
-		<div class="col-2"></div>
-		<div class="col-4 d-flex align-items-center justify-content-center">
-		<h1>這裡是課程頁面</h1>
-		</div>
-		<div class="col-4"></div>
-	</div>
+		<div class="col-2">test</div>
+		<div class="col-4 d-flex flex-column justify-content-center">
+			<h1>建立文章</h1>
+			<hr>
+			<div id="editor">什麼都還沒做，之後再研究。</div>
+			<script>
+				ClassicEditor
+				        .create( document.querySelector( '#editor' ) )
+				        .then( editor => {
+				                console.log( editor );
+				        } )
+				        .catch( error => {
+				                console.error( error );
+				        } );
+			</script>
 
+		</div>
+		<div class="col-4">test</div>
+	</div>
 
 </body>
 </html>

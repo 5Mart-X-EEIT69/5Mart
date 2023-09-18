@@ -22,8 +22,8 @@
 </head>
 <script type="text/javascript">
 	window.onload = function(){
-	
-	
+		
+		
 	}
 </script>
 <body>
@@ -36,31 +36,34 @@
 			</a>
 			<hr>
 			<ul class="nav nav-pills flex-column mb-auto">
-				<li class="nav-item pb-2"><a href="<c:url value="/TeacherMain"></c:url>"
-					class="nav-link active" aria-current="page"> <span
+				<li class="nav-item"><a href="<c:url value="/TeacherMain"></c:url>"
+					class="nav-link link-dark" aria-current="page"> <span
 						style="font-size: 32px;"><i class="bi bi-display"></i> 課程</span>
+				</a></li>
+				<li class="pb-2"><a
+					href="<c:url value="/TeacherComminicate"></c:url>"
+					class="nav-link active"> <span style="font-size: 32px;"><i
+							class="bi bi-chat-left" style="font-size: 32px;"></i> 學生交流</span>
 				</a></li>
 
 				<li class="nav-item"><a
-					href="<c:url value="/TeacherCreate"></c:url>"
+					href="<c:url value="/TeacherComminicateQA"></c:url>"
 					class="nav-link link-dark" aria-current="page"> <span
-						style="font-size: 24px;">-  建立課程</span>
+						style="font-size: 24px;">-  問與答</span>
 				</a></li>
 				<li><a
-					href="<c:url value="/TeacherCreateFundraisingCourses"></c:url>"
-					class="nav-link link-dark"> <span style="font-size: 24px;">-  建立募資課程</span>
+					href="<c:url value="/TeacherComminicateMessage"></c:url>"
+					class="nav-link link-dark"> <span style="font-size: 24px;">-  私人訊息</span>
 				</a></li>
-				<li><a href="<c:url value="/TeacherCreateArticle"></c:url>"
-					class="nav-link link-dark"> <span style="font-size: 24px;">-  建立文章</span>
+<%-- 				<li><a href="<c:url value="/TeacherComminicateTask"></c:url>" --%>
+<!-- 					class="nav-link link-dark"> <span style="font-size: 24px;">-  作業</span> -->
+<!-- 				</a></li> -->
+				<li><a
+					href="<c:url value="/TeacherComminicateAnnouncement"></c:url>"
+					class="nav-link link-dark"> <span style="font-size: 24px;">-  公告 </span>
 				</a></li>
-				<li><a href="<c:url value="/TeacherCourseList"></c:url>"
-					class="nav-link link-dark"> <span style="font-size: 24px;">-  已開課內容 </span>
-				</a></li>
-				
-				<li><a href="<c:url value="/TeacherComminicate"></c:url>"
-					class="nav-link link-dark"> <span style="font-size: 32px;"><i
-							class="bi bi-chat-left" style="font-size: 32px;"></i> 學生交流</span>
-				</a></li>
+
+
 				<li><a href="<c:url value="/TeacherDashboard"></c:url>"
 					class="nav-link link-dark"> <span style="font-size: 32px;"><i
 							class="bi bi-graph-up"></i> 儀表板</span>
@@ -76,29 +79,30 @@
 <!-- 		<div class="d-flex flex-column p-3 bg-light" style="width: 300px;"> -->
 <!-- 			<ul class="nav nav-pills flex-column mb-auto"> -->
 <!-- 				<li class="nav-item"><a -->
-<%-- 					href="<c:url value="/TeacherCreate"></c:url>" --%>
+<%-- 					href="<c:url value="/TeacherComminicateQA"></c:url>" --%>
 <!-- 					class="nav-link link-dark" aria-current="page"> <span -->
-<!-- 						style="font-size: 32px;"> 建立課程</span> -->
+<!-- 						style="font-size: 32px;"> 問與答</span> -->
 <!-- 				</a></li> -->
 <!-- 				<li><a -->
-<%-- 					href="<c:url value="/TeacherCreateFundraisingCourses"></c:url>" --%>
+<%-- 					href="<c:url value="/TeacherComminicateMessage"></c:url>" --%>
 <!-- 					class="nav-link link-dark"> <span style="font-size: 32px;"> -->
-<!-- 							建立募資課程</span> -->
+<!-- 							私人訊息</span> -->
 <!-- 				</a></li> -->
-<%-- 				<li><a href="<c:url value="/TeacherCreateArticle"></c:url>" --%>
+<%-- 				<li><a href="<c:url value="/TeacherComminicateTask"></c:url>" --%>
 <!-- 					class="nav-link link-dark"> <span style="font-size: 32px;"> -->
-<!-- 							建立文章</span> -->
+<!-- 							作業</span> -->
 <!-- 				</a></li> -->
-<%-- 				<li><a href="<c:url value="/TeacherCourseList"></c:url>" --%>
+<!-- 				<li><a -->
+<%-- 					href="<c:url value="/TeacherComminicateAnnouncement"></c:url>" --%>
 <!-- 					class="nav-link link-dark"> <span style="font-size: 32px;"> -->
-<!-- 							已開課內容 </span> -->
+<!-- 							公告 </span> -->
 <!-- 				</a></li> -->
 <!-- 			</ul> -->
 <!-- 			<hr> -->
 <!-- 		</div> -->
 		<div class="col-2"></div>
 		<div class="col-4 d-flex align-items-center justify-content-center">
-		<h1>這裡是課程頁面</h1>
+		<h1>這裡是學生交流頁面</h1>
 		</div>
 		<div class="col-4"></div>
 	</div>

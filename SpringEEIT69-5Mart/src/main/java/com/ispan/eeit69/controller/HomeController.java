@@ -43,11 +43,6 @@ public class HomeController {
 		return "memberHomePage";
 	}
 
-	@GetMapping("/teacher")
-	public String teacher(Model model) {
-		return "TeacherMain";
-
-	}
 
 	@GetMapping("/visitorhomepage2")
 	public String visitorhomepage2(Model model) {
