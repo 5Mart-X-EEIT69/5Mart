@@ -40,6 +40,7 @@ public class HomeController {
 		return "TeacherMain";	
 
 	}
+	
 	@GetMapping("/visitorhomepage")
 	public String visitorhomepage(Model model) {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
@@ -51,6 +52,11 @@ public class HomeController {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
 		return "memberHomePage";
 	}
-
-
+	
+	@GetMapping("/visitorsearchpage")
+	public String visitorsearchpage(Model model) {
+		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		return "visitorSearchPage";
+	}
+	
 }
