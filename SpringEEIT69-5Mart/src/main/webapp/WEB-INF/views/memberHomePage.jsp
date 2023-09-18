@@ -337,6 +337,7 @@
 							<button class="btn btn-outline-success" type="submit">搜尋</button>
 						</form>
 					</li>
+					<li class="nav-item px-4"><a class="nav-link" href="<c:url value='/TeacherMain' />">教師</a></li>
 					<li class="nav-item dropdown ps-5"><a
 						class="nav-link dropdown-toggle " href="#" id="navbarDropdown"
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -394,7 +395,7 @@
 								</div>
 							</li>
 							<li><hr class="dropdown-divider"></li>
-							<li class="dropdown-item px-2 py-0"><a href="#"
+							<li class="dropdown-item px-2 py-0"><a href="<c:url value='/student_course_viewer' />"
 								class="btn btn-success w-100">前往我的學習</a></li>
 
 
@@ -661,10 +662,12 @@
 		</div>
 		<div class="row slick-card-hotcourse">
 			<div class="card mx-3 border-light">
+			<a href="<c:url value='/courseDetail' />" class="nav-link">
 				<!-- 			連結延伸 class="stretched-link" -->
 				<!--  <a href="<c:url value='/test2' />" class="nav-link">-->
 				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg"
 					class="card-img-top" alt="..." />
+			</a>
 				<div class="card-body py-0">
 					<p class="card-text">
 					<div class="container px-0">
