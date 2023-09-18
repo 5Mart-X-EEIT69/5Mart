@@ -25,11 +25,21 @@ public class HomeController {
 		return "test3";
 	}
 	
+
+	@GetMapping("/evaluate")
+	public String evaluate(Model model) {	
+		return "evaluate";
+	}
+	
+	@GetMapping("/check")
+	public String check(Model model) {	
+		return "check";
+	}
 	@GetMapping("/teacher")
 	public String teacher(Model model) {
 		return "TeacherMain";	
-	}
 
+	}
 	@GetMapping("/visitorhomepage")
 	public String visitorhomepage(Model model) {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
