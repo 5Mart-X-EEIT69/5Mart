@@ -1,153 +1,346 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html lang="zh">
-
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>結帳</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  <style>
-    .navbar-nav .nav-link {
-      color: purple !important;
-      font-size: small;
-      /* 設置文字顏色為紫色 */
-      text-decoration: underline !important;
-      /* 添加底線 */
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>結帳</title>
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<!-- jquery -->
+<!-- bootstrap -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+	crossorigin="anonymous"></script>
+<link rel='stylesheet'
+	href="<c:url value="/assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css"/>"
+	type="text/css" />
+<!-- bootstrap -->
+<style>
+.navbar-nav .nav-link {
+	color: purple !important;
+	font-size: small;
+	/* 設置文字顏色為紫色 */
+	text-decoration: underline !important;
+	/* 添加底線 */
+}
 
+.list-group-item {
+	border: 1px solid #ccc;
+	max-width: 300px;
+	background-color: #fcfafa;
+}
 
-    .list-group-item {
-      border: 1px solid #ccc;
-      max-width: 300px;
-      background-color: #fcfafa;
-    }
+.credit-card-icon {
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
+}
 
-    .price {
-      font-size: 18px;
-      margin-left: 60px;
-    }
+.left-background {
+	background-color: white;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	/* 垂直居中 */
+	justify-content: flex-end;
+}
 
-    .credit-card-icon {
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
-    }
+.right-background {
+	background-color: #f3f1f1;
+	height: 100vh;
+	/* 確保高度充滿整個螢幕 */
+	display: flex;
+	/* 使其成為Flex容器 */
+	align-items: center;
+	/* 垂直居中 */
+	justify-content: center;
+}
 
-    .left-background {
-      background-color: white;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      /* 垂直居中 */
-      justify-content: flex-end;
-    }
+.content {
+	width: 70%;
+}
 
-    .right-background {
-      background-color: #f3f1f1;
-      height: 100vh;
-      /* 確保高度充滿整個螢幕 */
+.btn-custom {
+	background-color: #b53fe4;
+	border-color: #b53fe4;
+	color: #fff;
+}
 
-      display: flex;
-      /* 使其成為Flex容器 */
-      align-items: center;
-      /* 垂直居中 */
-      justify-content: center;
-    }
+/* 移除右侧小箭头 */
+.accordion-button::after {
+	content: none;
+}
+</style>
 
-    .content {
-      width: 70%;
-    }
-
-    .btn-custom {
-      background-color: #b53fe4;
-      border-color: #b53fe4;
-      color: #fff;
-    }
-  </style>
 </head>
 
 
 <body>
-  <nav class="navbar" style="background-color: #ffffff; box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);">
-    <div class="container-fluid">
-      <span class="navbar-brand mb-0 h1">5MART</span>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">取消</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+	<nav class="navbar"
+		style="background-color: #ffffff; box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">5MART</a>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a class="nav-link" href="#">取消</a></li>
+			</ul>
+		</div>
+	</nav>
 
 
 
 
-  <div class="container-fluid p-0 ">
-    <div class="row no-gutters">
-      <div class="col-md-6 left-background">
-        <div class="content p-5">
-          <h2 style="font-weight: bold;">結帳</h2>
-          <br>
-          <h4 style="font-weight: bold;">付款方式</h4>
-          <br>
-          <ul class="list-group">
-            <li class="list-group-item">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-credit-card-2-back-fill" viewBox="0 0 16 16">
-                    <path
-                      d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5H0V4zm11.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-2zM0 11v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1H0z" />
-                  </svg>
-                  信用卡
-                </label>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
-                <label class="form-check-label" for="flexRadioDefault2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-coin"
-                    viewBox="0 0 16 16">
-                    <path
-                      d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z" />
-                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                    <path d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
-                  </svg>
-                  轉帳
-                </label>
-              </div>
-            </li>
-          </ul>
-          <br>
-          <h4 style="font-weight: bold;">訂單詳細資料</h4>
-          <br>
-          <p>
-            <img src="your-image.jpg" width="50" height="50" /> JSP, Servlets
-            and JDBC for Beginners<span class="price">$330</span>
-          </p>
-        </div>
-      </div>
-      <div class="col-md-6 right-background">
-        <div class="content p-3 ">
-          <h4 style="font-weight: bold;">摘要</h4>
-          <br>
-          <p>金額: <span class="price">$330</span></p>
-          <p>折扣: <span class="price">$0</span></p>
-          <hr style="width: 40%;">
-          <p style="font-weight: bold;">總計: <span class="price">$330</span></p>
-          <br>
-          <button type="button" class="btn btn-custom">完成結帳</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-    crossorigin="anonymous"></script>
+	<div class="container-fluid p-0 ">
+		<div class="row no-gutters">
+			<div class="col-md-7 left-background">
+				<div class="content p-5">
+
+
+					<h2 style="font-weight: bold;">結帳</h2>
+					<br>
+					<h4 style="font-weight: bold;">付款方式</h4>
+					<br>
+
+
+
+					<div class="accordion" id="accordionFlushExample"
+						style="width: 350px">
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="headingOne">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+									aria-expanded="false" aria-controls="flush-collapseOne">
+									<div class="form-check">
+										<input class="form-check-input" type="radio"
+											name="flexRadioDefault" id="flexRadioDefault1"> <label
+											class="form-check-label" for="flexRadioDefault1"> <i
+											class="bi bi-credit-card-2-back"></i> 信用卡
+										</label>
+									</div>
+								</button>
+							</h2>
+							<div id="flush-collapseOne" class="accordion-collapse collapse"
+								aria-labelledby="flush-headingOne"
+								data-bs-parent="#accordionFlushExample">
+								<div class="accordion-body">
+									<div class="row">
+										<div clas="col">持卡人姓名</div>
+									</div>
+
+									<div class="row">
+										<div class="col">
+											<div class="input-group mb-3">
+												<input type="text" class="form-control" placeholder="持卡人姓名"
+													aria-label="Username" aria-describedby="basic-addon1">
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div clas="col">信用卡卡號</div>
+									</div>
+
+									<div class="row">
+										<div class="col">
+											<div class="input-group mb-3">
+												<input type="text" id="creditCardInput" class="form-control"
+													placeholder="1234 5678 9123 4567" aria-label="Cardnumber"
+													aria-describedby="basic-addon2" maxlength="19">
+											</div>
+											<script>
+												// 获取输入字段
+												const creditCardInput = document
+														.getElementById('creditCardInput');
+
+												// 添加事件监听器以在输入时添加分隔符
+												creditCardInput
+														.addEventListener(
+																'input',
+																function(event) {
+																	let inputValue = event.target.value;
+																	inputValue = inputValue
+																			.replace(
+																					/\s/g,
+																					''); // 删除所有空格
+
+																	if (inputValue.length > 19) {
+																		inputValue = inputValue
+																				.slice(
+																						0,
+																						19); // 限制最大长度为19
+																	}
+
+																	let formattedValue = '';
+
+																	for (let i = 0; i < inputValue.length; i++) {
+																		formattedValue += inputValue[i];
+																		if ((i + 1) % 4 === 0
+																				&& (i + 1) < inputValue.length) {
+																			formattedValue += ' ';
+																		}
+																	}
+
+																	event.target.value = formattedValue;
+																});
+											</script>
+
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-6">到期日</div>
+										<div class="col-6">信用卡安全碼</div>
+									</div>
+
+									<div class="row">
+										<div class="col-6">
+											<input type="text" class="form-control" placeholder="月月/年年"
+												aria-label="Date" aria-describedby="basic-addon3"
+												id="expiryDate" maxlength="7">
+
+											<script>
+												const expiryDateInput = document
+														.getElementById('expiryDate');
+
+												expiryDateInput
+														.addEventListener(
+																'input',
+																function(event) {
+																	let inputValue = event.target.value;
+																	inputValue = inputValue
+																			.replace(
+																					/\D/g,
+																					''); // 删除非数字字符
+
+																	if (inputValue.length > 4) {
+																		inputValue = inputValue
+																				.slice(
+																						0,
+																						4);
+																	}
+
+																	let formattedValue = '';
+
+																	if (inputValue.length > 2) {
+																		formattedValue += inputValue
+																				.slice(
+																						0,
+																						2)
+																				+ '/';
+																		formattedValue += inputValue
+																				.slice(2);
+																	} else {
+																		formattedValue = inputValue;
+																	}
+
+																	event.target.value = formattedValue;
+																});
+											</script>
+
+										</div>
+										<div class="col-6">
+											<input type="text" class="form-control" placeholder="CVC"
+												aria-label="CVC" aria-describedby="basic-addon4"
+												maxlength="3">
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="flush-headingTwo">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
+									aria-expanded="false" aria-controls="flush-collapseTwo">
+									<div class="form-check">
+										<input class="form-check-input" type="radio"
+											name="flexRadioDefault" id="flexRadioDefault2"> <label
+											class="form-check-label" for="flexRadioDefault2"> <i
+											class="bi bi-coin"></i> 轉帳
+										</label>
+									</div>
+								</button>
+							</h2>
+							<div id="flush-collapseTwo" class="accordion-collapse collapse"
+								aria-labelledby="flush-headingTwo"
+								data-bs-parent="#accordionFlushExample">
+								<div class="accordion-body">
+									<div class="row">
+										<div class="rol">轉帳銀行：822</div>
+									</div>
+
+									<div class="row">
+										<div class="rol">帳號：123456789123</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+
+
+					<br>
+					<h4 style="font-weight: bold;">訂單詳細資料</h4>
+					<br>
+					<div class="row">
+						<div class="col-1">
+							<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖002.jpg"
+								width="50" height="50" />
+						</div>
+						<div class="col-6">JSP, Servlets and JDBC for Beginners</div>
+						<div class="col-1">$330</div>
+
+					</div>
+
+				</div>
+			</div>
+			<div class="col-md-5 right-background">
+				<div class="content p-3 ">
+
+					<h4 style="font-weight: bold;">摘要</h4>
+
+					<div class="row">
+						<div class="col-4">金額：</div>
+						<div class="col-4">$330</div>
+					</div>
+
+					<br>
+
+					<div class="row">
+						<div class="col-4">折扣：</div>
+						<div class="col-4">$0</div>
+					</div>
+
+					<div class="row">
+						<div class="col-6">
+							<hr>
+						</div>
+					</div>
+
+					<div class="row" style="font-weight: bold;">
+						<div class="col-4">總計：</div>
+						<div class="col-4">$330</div>
+					</div>
+
+					<br>
+					<button type="button" class="btn btn-custom">完成結帳</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 </body>
 
 </html>
