@@ -1,5 +1,7 @@
 package com.ispan.eeit69.dao;
 
-public class unitRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface unitRepository extends JpaRepository<T, ID> {
 
 }
