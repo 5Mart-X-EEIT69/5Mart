@@ -20,7 +20,7 @@ public class member implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String name;
+	private String username;
 	private String account;
 	private String password;
 	private Timestamp registerTime;
@@ -30,10 +30,10 @@ public class member implements Serializable {
 		super();
 	}
 
-	public member(Integer id, String name, String account, String password) {
+	public member(Integer id, String username, String account, String password) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.username = username;
 		this.account = account;
 		this.password = password;
 	}
@@ -54,12 +54,13 @@ public class member implements Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	
+	public String getUsername() {
+		return username;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getAccount() {
@@ -88,9 +89,11 @@ public class member implements Serializable {
 
 	@Override
 	public String toString() {
-		return "member [id=" + id + ", name=" + name + ", account=" + account + ", password=" + password
+		return "member [id=" + id + ", username=" + username + ", account=" + account + ", password=" + password
 				+ ", registerTime=" + registerTime + "]";
 	}
+
+	
 	
 	
 

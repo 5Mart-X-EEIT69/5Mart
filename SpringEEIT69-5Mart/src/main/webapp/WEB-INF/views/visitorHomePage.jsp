@@ -474,20 +474,20 @@
 				</div>
 				<!-- Body -->
 				<div class="modal-body">
-					<form action="">
+					<form action="" method="post">
 						<!-- 姓名 -->
 						<div class="form-group">
-							<input type="text" class="text form-control" placeholder="全名">
+							<input type="text" class="text form-control" placeholder="全名" name="username">
 						</div>
 						<!-- email -->
 						<div class="form-group">
 							<input type="email" class="account form-control"
-								placeholder="電子郵件">
+								placeholder="電子郵件" name="account">
 						</div>
 						<!-- 密碼 -->
 						<div class="form-group">
 							<input type="password" class="password form-control"
-								placeholder="密碼">
+								placeholder="密碼" name="password">
 						</div>
 						<!-- 再次輸入密碼 -->
 						<div class="form-group">
