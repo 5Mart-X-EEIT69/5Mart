@@ -1,122 +1,235 @@
 package com.ispan.eeit69.controller;
 
+import java.io.OutputStream;
+import java.sql.Clob;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+
+import javax.sql.rowset.serial.SerialClob;
+import javax.sql.rowset.serial.SerialException;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.ispan.eeit69.model.Chapter;
+import com.ispan.eeit69.model.Course;
+import com.ispan.eeit69.model.Unit;
+import com.ispan.eeit69.model.Video;
+import com.ispan.eeit69.service.ChapterService;
+import com.ispan.eeit69.service.CourseService;
+import com.ispan.eeit69.service.UnitService;
+import com.ispan.eeit69.service.VideoService;
 
 @Controller
 public class TeacherController {
 
+	CourseService courseService;
+	ChapterService chapterService;
+	UnitService unitService;
+	VideoService videoService;
 //	課程
-	
+
+	public TeacherController(CourseService courseService, ChapterService chapterService, UnitService unitService,
+			VideoService videoService) {
+		super();
+		this.courseService = courseService;
+		this.chapterService = chapterService;
+		this.unitService = unitService;
+		this.videoService = videoService;
+	}
+
+
 	@GetMapping("/TeacherMain")
-	public String teacher(Model model) {	
+	public String teacher(Model model) {
 		return "TeacherMain";
-	}//跳轉至講師主頁面
-	
+	}// 跳轉至講師主頁面
+
+
 	@GetMapping("/TeacherCreate")
-	public String teacherCreate(Model model) {	
+	public String teacherCreate(Model model) {
 		return "/TeacherCourse/TeacherCreateCourses";
-	}//跳轉至建立課程頁面
-	
+	}// 跳轉至建立課程頁面
+
 	@GetMapping("/TeacherCreateFundraisingCourses")
-	public String TeacherCreateFundraisingCourses(Model model) {	
+	public String TeacherCreateFundraisingCourses(Model model) {
 		return "/TeacherCourse/TeacherCreateFundraisingCourses";
-	}//跳轉至建立募資課程頁面
-	
+	}// 跳轉至建立募資課程頁面
+
 	@GetMapping("/TeacherCreateArticle")
-	public String TeacherCreateArticle(Model model) {	
+	public String TeacherCreateArticle(Model model) {
 		return "/TeacherCourse/TeacherCreateArticle";
-	}//跳轉至建立文章頁面
-	
+	}// 跳轉至建立文章頁面
+
 	@GetMapping("/TeacherCourseList")
-	public String TeacherCourseList(Model model) {	
+	public String TeacherCourseList(Model model) {
 		return "/TeacherCourse/TeacherCourseList";
-	}//跳轉至課程清單頁面
-	
+	}// 跳轉至課程清單頁面
+
 //	講師交流
-	
+
 	@GetMapping("/TeacherComminicate")
-	public String TeacherComminicate(Model model) {	
+	public String TeacherComminicate(Model model) {
 		return "/TeacherComminicate/TeacherComminicate";
-	}//跳轉至講師交流頁面	
-	
+	}// 跳轉至講師交流頁面
+
 	@GetMapping("/TeacherComminicateQA")
-	public String TeacherComminicateQA(Model model) {	
+	public String TeacherComminicateQA(Model model) {
 		return "/TeacherComminicate/TeacherComminicateQA";
-	}//跳轉至講師交流問與答頁面
-	
+	}// 跳轉至講師交流問與答頁面
+
 	@GetMapping("/TeacherComminicateMessage")
-	public String TeacherComminicateMessage(Model model) {	
+	public String TeacherComminicateMessage(Model model) {
 		return "/TeacherComminicate/TeacherComminicateMessage";
-	}//跳轉至講師交流私人訊息頁面
-	
+	}// 跳轉至講師交流私人訊息頁面
+
 	@GetMapping("/TeacherComminicateTask")
-	public String TeacherComminicateTask(Model model) {	
+	public String TeacherComminicateTask(Model model) {
 		return "/TeacherComminicate/TeacherComminicateTask";
-	}//跳轉至講師交流作業頁面
-	
+	}// 跳轉至講師交流作業頁面
+
 	@GetMapping("/TeacherComminicateAnnouncement")
-	public String TeacherComminicateAnnouncement(Model model) {	
+	public String TeacherComminicateAnnouncement(Model model) {
 		return "/TeacherComminicate/TeacherComminicateAnnouncement";
-	}//跳轉至講師交流公告頁面
-	
+	}// 跳轉至講師交流公告頁面
+
 //	儀表板
-	
+
 	@GetMapping("/TeacherDashboard")
-	public String TeacherDashboard(Model model) {	
+	public String TeacherDashboard(Model model) {
 		return "/TeacherDashboard/TeacherDashboard";
-	}//跳轉至儀錶板頁面
-	
+	}// 跳轉至儀錶板頁面
+
 	@GetMapping("/TeacherDashboardRevenue")
-	public String TeacherDashboardRevenue(Model model) {	
+	public String TeacherDashboardRevenue(Model model) {
 		return "/TeacherDashboard/TeacherDashboardRevenue";
-	}//跳轉至儀錶板營收頁面
-	
+	}// 跳轉至儀錶板營收頁面
+
 	@GetMapping("/TeacherDashboardTraffic")
-	public String TeacherDashboardTraffic(Model model) {	
+	public String TeacherDashboardTraffic(Model model) {
 		return "/TeacherDashboard/TeacherDashboardTraffic";
-	}//跳轉至儀表板流量頁面
-	
+	}// 跳轉至儀表板流量頁面
+
 	@GetMapping("/TeacherDashboardWatched")
-	public String TeacherDashboardWatched(Model model) {	
+	public String TeacherDashboardWatched(Model model) {
 		return "/TeacherDashboard/TeacherDashboardWatched";
-	}//跳轉至儀表板觀看時數頁面
-	
+	}// 跳轉至儀表板觀看時數頁面
+
 	@GetMapping("/TeacherDashboardStudent")
-	public String TeacherDashboardStudent(Model model) {	
+	public String TeacherDashboardStudent(Model model) {
 		return "/TeacherDashboard/TeacherDashboardStudent";
-	}//跳轉至儀表板學生頁面
-	
+	}// 跳轉至儀表板學生頁面
+
 //	講師資料 
-	
+
 	@GetMapping("/TeacherInformation")
-	public String TeacherInformation(Model model) {	
+	public String TeacherInformation(Model model) {
 		return "/TeacherInformation/TeacherInformation";
-	}//跳轉至講師資料頁面
-	
+	}// 跳轉至講師資料頁面
+
 	@GetMapping("/TeacherInformationPhoto")
-	public String TeacherInformationPhoto(Model model) {	
+	public String TeacherInformationPhoto(Model model) {
 		return "/TeacherInformation/TeacherInformationPhoto";
-	}//跳轉至講師資料照片頁面
-	
+	}// 跳轉至講師資料照片頁面
+
 	@GetMapping("/TeacherInformationIntroduction")
-	public String TeacherInformationIntroduction(Model model) {	
+	public String TeacherInformationIntroduction(Model model) {
 		return "/TeacherInformation/TeacherInformationIntroduction";
-	}//跳轉至講師資料自我介紹頁面
-	
+	}// 跳轉至講師資料自我介紹頁面
+
 	@GetMapping("/TeacherInformationAbility")
-	public String TeacherInformationAbility(Model model) {	
+	public String TeacherInformationAbility(Model model) {
 		return "/TeacherInformation/TeacherInformationAbility";
-	}//跳轉至講師資料能力證明頁面
+	}// 跳轉至講師資料能力證明頁面
 
 	@GetMapping("/TeacherInformationAccount")
-	public String TeacherInformationAccount(Model model) {	
+	public String TeacherInformationAccount(Model model) {
 		return "/TeacherInformation/TeacherInformationAccount";
-	}//跳轉至講師資料帳戶頁面
+	}// 跳轉至講師資料帳戶頁面
 
 	@GetMapping("/bsjsTest")
-	public String bsjsTest(Model model) {	
+	public String bsjsTest(Model model) {
 		return "/bsjsTest";
-	}//跳轉至講師資料帳戶頁面
+	}// 跳轉至講師資料帳戶頁面
+
+	@PostMapping("/submitCourse")
+	public String createCourses(@RequestBody JsonNode formData, Model model, @ModelAttribute("preCourse") Course course)
+			throws SerialException, SQLException {
+
+		course.setTitle(formData.get("title").asText());
+		course.setIntroduction(formData.get("introduction").asText());
+		char[] c = formData.get("photo").asText().toCharArray();
+		Clob clob = new SerialClob(c);
+		course.setPhoto(clob);
+		course.setPrice(formData.get("price").asInt());
+		course.setLevel(formData.get("level").asText());
+		course.setSort(formData.get("sort").asText());
+		courseService.save(course);
+
+		
+		JsonNode courseArray = formData.get("course");
+		final Chapter[] chapterTemp = new Chapter[1]; // 將 chapterTemp 定義為最終陣列，陣列是指向記憶體位置，寫Final也不影響
+		ArrayList<Unit> unitTemp = new ArrayList<Unit>();
+		for (JsonNode courseobj : courseArray) {
+			courseobj.fields().forEachRemaining(entry -> {
+				String attributeName = entry.getKey();
+				JsonNode attributeValue = entry.getValue();
+				System.out.println(attributeName + ": " + attributeValue.asText());
+				if (attributeName.contains("chapter")) {
+					// 章節
+					Chapter chapter = new Chapter();
+					chapter.setCourse(course);
+					chapter.setChapterName(attributeValue.asText());
+					chapter.setChapterNumber("章節" + (attributeName.substring(7)));
+					chapterTemp[0] = chapterService.save(chapter);
+				} else if(attributeName.contains("unit")){
+					// 單元
+					Unit unit = new Unit();
+					unit.setChapter(chapterTemp[0]);
+					unit.setUnitName(attributeValue.asText());
+					unit.setUnitNumber("單元" + (attributeName.substring(4)));					
+					unitTemp.add(unitService.save(unit));
+//					unitCount[0]++;
+//					System.out.println(unitCount[0]);
+				}
+			});
+			System.out.println("run");
+		}
+		
+		System.out.println("---videoStart---");
+		JsonNode videoArray = formData.get("video");
+		int[] unitCount = {0};// 將 unitCount 定義為陣列，陣列是指向記憶體位置。
+			videoArray.fields().forEachRemaining(entry ->{
+				String attributeName = entry.getKey();
+				JsonNode attributeValue = entry.getValue();
+				System.out.println(attributeName + ": " + attributeValue.asText());
+				Video video = new Video();
+				video.setUnit(unitTemp.get(unitCount[0]++));
+				char[] videoValue = attributeValue.asText().toCharArray();
+				try {
+					Clob videoClob = new SerialClob(videoValue);
+					video.setVideoValue(videoClob);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				video.setVideoNumber(attributeName);
+				videoService.save(video);				
+			});
+			System.out.println("run");
+		System.out.println("---videoEnd---");//目前影片上傳資料庫很慢是個隱憂，有機會要解決
+		return "/TeacherCourse/TeacherCourseList";
+	}
+
+	@ModelAttribute("preCourse")
+	public Course beforeSave() {
+		Course course = new Course();
+		Timestamp ts = new Timestamp(System.currentTimeMillis());
+		course.setRegisterTime(ts);
+		return course;
+	}
 }

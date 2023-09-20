@@ -217,8 +217,8 @@
                             name="introduction" />
                     </div>
                     <div id="photoContainer" class="form-group">
-                        <label> 封面照片 </label> <input class="form-control testphoto" type="file" accept="image/*" id="photoBtn"
-                            name="photoBtn" />
+                        <label> 封面照片 </label> <input class="form-control testphoto" type="file" accept="image/*"
+                            id="photoBtn" name="photoBtn" />
                         <input type="hidden" id="photoValue" name="photoValue">
                     </div>
                     <div class="form-group">
@@ -294,7 +294,7 @@
                 <div id="step4" class="content" role="tabpanel" aria-labelledby="step4-trigger">
                     <div class="form-group">
                         <label>這堂課適合甚麼程度的學生?</label>
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example" id="level" name="level">
                             <option selected></option>
                             <option value="初學">初學</option>
                             <option value="進階">進階</option>
@@ -303,7 +303,7 @@
                     </div>
                     <div class="form-group">
                         <label>為你的這門課程添加分類吧</label>
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example" id="sort" name="sort">
                             <option selected></option>
                             <option value="語言">語言</option>
                             <option value="開發">開發</option>
@@ -328,6 +328,8 @@
     </div>
     <script>
         window.onload = function () {
+            let chapterAndUnitName = []
+
             $("#chapterContainer").on("click", ".addChapter", function () {
                 let iIndex = $(this).parent().parent().parent().index();
                 let html = `
@@ -409,7 +411,7 @@
                 let allNameValue = [];
                 $(".chapterName").each(function (index, element) {
                     let chapterAndUnitNameVlaue = {};
-                    chapterAndUnitNameVlaue[`chapter${index + 1}`] = $(this).val();
+                    chapterAndUnitNameVlaue["chapter" + (index + 1)] = $(this).val();
                     $(this).closest('.chapter').next('.unitGroup').children().children(".unitName").each(function (index, element) {
                         // console.log(index);
                         chapterAndUnitNameVlaue["unit" + (index + 1)] = $(this).val();
@@ -417,7 +419,8 @@
                     allNameValue.push(chapterAndUnitNameVlaue);
 
                 });
-                console.log(allNameValue)
+                chapterAndUnitName = allNameValue;
+                console.log(allNameValue,"區域變數")
                 $(allNameValue).each(function (index, element) {
                     let i = 1
                     $.each(element, function (key, value) {
@@ -524,18 +527,43 @@
 
             $('#step4').on("click", "#submitBtn", function () {
                 let formData = {};
-                formData.title = $('#title').val()
-                formData.introduction = $('#introduction').val()
-                formData.photo = $('#photoValue').val()
-                formData.price = $('#price').val()
-                console.log(formData)
-                console.log(formData.title)
-                console.log(formData.photo)
-                alert(formData)
+                let unitVideo = {};
+
+                formData.title = $('#title').val();
+                formData.introduction = $('#introduction').val();
+                formData.photo = $('#photoValue').val();
+                formData.price = $('#price').val();
+                formData.course = chapterAndUnitName;
+                $('input[name^="chapter"]').each(function (index, element) {
+                    console.log("start--------------");
+                    let idValue = $(this).attr('name');
+                    let value = $(this).val();
+                    unitVideo[idValue] = value;
+                    console.log("end--------------")
+                })
+                formData.video = unitVideo;
+                formData.level = $('#level').val();
+                formData.sort = $('#sort').val();
+
+                console.log(formData);
+
+				let curl = '<c:url value="/submitCourse" />';
+                $.ajax({
+                    url: curl,
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(formData),
+                    success: function(response){
+                       	console.log("成功",response);
+//                        	window.location.href = '<c:url value="/TeacherCourseList" />';
+                    },
+                    error: function(response){
+                        console.log("失敗",response);
+                    }
+                })
             })
         }
     </script>
-
 
 </body>
 <script type="text/javascript">
@@ -558,5 +586,4 @@
             stepper.to(e.state);
     };
 </script>
-
 </html>
