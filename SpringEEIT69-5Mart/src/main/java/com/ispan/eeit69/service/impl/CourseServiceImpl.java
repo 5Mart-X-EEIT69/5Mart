@@ -5,40 +5,40 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ispan.eeit69.dao.courseDao;
-import com.ispan.eeit69.model.course;
-import com.ispan.eeit69.service.courseService;
+import com.ispan.eeit69.dao.CourseDao;
+import com.ispan.eeit69.model.Course;
+import com.ispan.eeit69.service.CourseService;
 
 @Service
 @Transactional
-public class courseServiceImpl implements courseService{
+public class CourseServiceImpl implements CourseService{
 
-	courseDao CourseDao ;
+	CourseDao CourseDao ;
 	
 	
 //	@Autowired
-	public courseServiceImpl(courseDao courseDao) {
+	public CourseServiceImpl(CourseDao courseDao) {
 		CourseDao = courseDao;
 	}
 
 	@Override
-	public void save(course course) {
+	public void save(Course course) {
 		CourseDao.save(course);		
 	}
 
 	@Override
-	public void update(course course) {
+	public void update(Course course) {
 		CourseDao.update(course);
 		
 	}
 
 	@Override
-	public course findById(Integer id) {		
+	public Course findById(Integer id) {		
 		return CourseDao.findById(id);
 	}
 
 	@Override
-	public List<course> findAll() {
+	public List<Course> findAll() {
 		return CourseDao.findAll();
 	}
 
@@ -48,12 +48,12 @@ public class courseServiceImpl implements courseService{
 	}
 
 	@Override
-	public List<course> findBySort(String sort) {
+	public List<Course> findBySort(String sort) {
 		return CourseDao.findBySort(sort);
 	}
 
 	@Override
-	public List<course> findBylevel(String level) {
+	public List<Course> findBylevel(String level) {
 		return CourseDao.findBylevel(level);
 	}
 
@@ -63,7 +63,7 @@ public class courseServiceImpl implements courseService{
 	}
 
 	@Override
-	public List<course> findBytitle(String title) {
+	public List<Course> findBytitle(String title) {
 		return CourseDao.findBytitle(title);
 	}
 	

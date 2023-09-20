@@ -18,7 +18,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "course_5mart")
-public class course implements Serializable {
+public class Course implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -34,12 +34,12 @@ public class course implements Serializable {
 	private Timestamp registerTime;
 	
 	@OneToMany(mappedBy = "course")
-	private Set<chapter> chapter = new LinkedHashSet<chapter>();
+	private Set<Chapter> chapter = new LinkedHashSet<Chapter>();
 		
-	public course() {
+	public Course() {
 	}
 
-	public course(Integer id, String title, String introduction, Clob photo, Integer price, String level, String sort) {
+	public Course(Integer id, String title, String introduction, Clob photo, Integer price, String level, String sort) {
 		this.id = id;
 		this.title = title;
 		this.introduction = introduction;
@@ -104,11 +104,11 @@ public class course implements Serializable {
 	
 	
 
-	public Set<chapter> getChapter() {
+	public Set<Chapter> getChapter() {
 		return chapter;
 	}
 
-	public void setChapter(Set<chapter> chapter) {
+	public void setChapter(Set<Chapter> chapter) {
 		this.chapter = chapter;
 	}
 

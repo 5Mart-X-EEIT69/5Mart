@@ -4,14 +4,14 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.ispan.eeit69.dao.courseDao;
-import com.ispan.eeit69.model.course;
+import com.ispan.eeit69.dao.CourseDao;
+import com.ispan.eeit69.model.Course;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 
 @Repository
-public class courseDaoImpl implements courseDao{
+public class CourseDaoImpl implements CourseDao{
 
 	@PersistenceContext //類似Autowired
 	EntityManager entityManager; // session
@@ -19,30 +19,30 @@ public class courseDaoImpl implements courseDao{
 
 
 	@Override
-	public void save(course course) {
+	public void save(Course course) {
 		entityManager.persist(course);
 		
 	}
 
 	@Override
-	public void update(course course) {
-		course tmp = findById(course.getId());
+	public void update(Course course) {
+		Course tmp = findById(course.getId());
 		tmp.setRegisterTime(tmp.getRegisterTime());
 		entityManager.detach(tmp);
 		
 	}
 
 	@Override
-	public course findById(Integer id) {
-		course result = entityManager.find(course.class, id);
+	public Course findById(Integer id) {
+		Course result = entityManager.find(Course.class, id);
 		return result;
 	}
 
 	@Override
-	public List<course> findAll() {
+	public List<Course> findAll() {
 		
 		String hql = "FROM course";
-		List<course> courses = entityManager.createQuery(hql,course.class).getResultList(); 
+		List<Course> courses = entityManager.createQuery(hql,Course.class).getResultList(); 
 		
 		return courses;
 	}
@@ -55,23 +55,23 @@ public class courseDaoImpl implements courseDao{
 	}
 
 	@Override
-	public List<course> findBySort(String sort) {
+	public List<Course> findBySort(String sort) {
 		String hql = "FROM course c WHERE c.sort = :sort ";
-		List<course> courses = entityManager.createQuery(hql,course.class).setParameter("sort", sort).getResultList();
+		List<Course> courses = entityManager.createQuery(hql,Course.class).setParameter("sort", sort).getResultList();
 		return courses;
 	}
 
 	@Override
-	public List<course> findBylevel(String level) {
+	public List<Course> findBylevel(String level) {
 		String hql = "FROM course c WHERE c.level = :level ";
-		List<course> courses = entityManager.createQuery(hql,course.class).setParameter("level", level).getResultList();
+		List<Course> courses = entityManager.createQuery(hql,Course.class).setParameter("level", level).getResultList();
 		return courses;
 	}
 
 	@Override
-	public List<course> findBytitle(String title) {
+	public List<Course> findBytitle(String title) {
 		String hql = "FROM course c WHERE c.title = :title ";
-		List<course> courses = entityManager.createQuery(hql,course.class).setParameter("title", title).getResultList();
+		List<Course> courses = entityManager.createQuery(hql,Course.class).setParameter("title", title).getResultList();
 		return courses;
 	}
 

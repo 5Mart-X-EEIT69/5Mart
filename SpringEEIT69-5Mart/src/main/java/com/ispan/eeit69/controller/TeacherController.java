@@ -1,8 +1,10 @@
 package com.ispan.eeit69.controller;
 
+import java.io.OutputStream;
 import java.sql.Clob;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 import javax.sql.rowset.serial.SerialClob;
 import javax.sql.rowset.serial.SerialException;
@@ -15,27 +17,39 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.ispan.eeit69.model.chapter;
-import com.ispan.eeit69.model.course;
-import com.ispan.eeit69.service.chapterService;
-import com.ispan.eeit69.service.courseService;
+import com.ispan.eeit69.model.Chapter;
+import com.ispan.eeit69.model.Course;
+import com.ispan.eeit69.model.Unit;
+import com.ispan.eeit69.model.Video;
+import com.ispan.eeit69.service.ChapterService;
+import com.ispan.eeit69.service.CourseService;
+import com.ispan.eeit69.service.UnitService;
+import com.ispan.eeit69.service.VideoService;
 
 @Controller
 public class TeacherController {
 
-	courseService courseService;
-	chapterService chapterService;
+	CourseService courseService;
+	ChapterService chapterService;
+	UnitService unitService;
+	VideoService videoService;
 //	課程
 
-	public TeacherController(courseService courseService ,chapterService chapterService) {
+	public TeacherController(CourseService courseService, ChapterService chapterService, UnitService unitService,
+			VideoService videoService) {
+		super();
 		this.courseService = courseService;
 		this.chapterService = chapterService;
+		this.unitService = unitService;
+		this.videoService = videoService;
 	}
+
 
 	@GetMapping("/TeacherMain")
 	public String teacher(Model model) {
 		return "TeacherMain";
 	}// 跳轉至講師主頁面
+
 
 	@GetMapping("/TeacherCreate")
 	public String teacherCreate(Model model) {
@@ -144,7 +158,7 @@ public class TeacherController {
 	}// 跳轉至講師資料帳戶頁面
 
 	@PostMapping("/submitCourse")
-	public String createCourses(@RequestBody JsonNode formData, Model model, @ModelAttribute("preCourse") course course)
+	public String createCourses(@RequestBody JsonNode formData, Model model, @ModelAttribute("preCourse") Course course)
 			throws SerialException, SQLException {
 
 		course.setTitle(formData.get("title").asText());
@@ -153,22 +167,14 @@ public class TeacherController {
 		Clob clob = new SerialClob(c);
 		course.setPhoto(clob);
 		course.setPrice(formData.get("price").asInt());
-//		System.out.println("------");
-//		JsonNode videoArray = formData.get("video");
-//		for(JsonNode videoobj : videoArray) {
-//			videoobj.fields().forEachRemaining(entry ->{
-//				String attributeName = entry.getKey();
-//				JsonNode attributeValue = entry.getValue();
-//				System.out.println(attributeName + ": " + attributeValue.asText());
-//			});
-//			System.out.println("run");
-//		}
-//		System.out.println("------");
 		course.setLevel(formData.get("level").asText());
 		course.setSort(formData.get("sort").asText());
 		courseService.save(course);
 
+		
 		JsonNode courseArray = formData.get("course");
+		final Chapter[] chapterTemp = new Chapter[1]; // 將 chapterTemp 定義為最終陣列，陣列是指向記憶體位置，寫Final也不影響
+		ArrayList<Unit> unitTemp = new ArrayList<Unit>();
 		for (JsonNode courseobj : courseArray) {
 			courseobj.fields().forEachRemaining(entry -> {
 				String attributeName = entry.getKey();
@@ -176,25 +182,52 @@ public class TeacherController {
 				System.out.println(attributeName + ": " + attributeValue.asText());
 				if (attributeName.contains("chapter")) {
 					// 章節
-					chapter chapter = new chapter();
+					Chapter chapter = new Chapter();
 					chapter.setCourse(course);
 					chapter.setChapterName(attributeValue.asText());
 					chapter.setChapterNumber("章節" + (attributeName.substring(7)));
-					chapterService.save(chapter);
-				} else {
+					chapterTemp[0] = chapterService.save(chapter);
+				} else if(attributeName.contains("unit")){
 					// 單元
-					System.out.println("還沒寫");
+					Unit unit = new Unit();
+					unit.setChapter(chapterTemp[0]);
+					unit.setUnitName(attributeValue.asText());
+					unit.setUnitNumber("單元" + (attributeName.substring(4)));					
+					unitTemp.add(unitService.save(unit));
+//					unitCount[0]++;
+//					System.out.println(unitCount[0]);
 				}
 			});
 			System.out.println("run");
 		}
-
+		
+		System.out.println("---videoStart---");
+		JsonNode videoArray = formData.get("video");
+		int[] unitCount = {0};// 將 unitCount 定義為陣列，陣列是指向記憶體位置。
+			videoArray.fields().forEachRemaining(entry ->{
+				String attributeName = entry.getKey();
+				JsonNode attributeValue = entry.getValue();
+				System.out.println(attributeName + ": " + attributeValue.asText());
+				Video video = new Video();
+				video.setUnit(unitTemp.get(unitCount[0]++));
+				char[] videoValue = attributeValue.asText().toCharArray();
+				try {
+					Clob videoClob = new SerialClob(videoValue);
+					video.setVideoValue(videoClob);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				video.setVideoNumber(attributeName);
+				videoService.save(video);				
+			});
+			System.out.println("run");
+		System.out.println("---videoEnd---");//目前影片上傳資料庫很慢是個隱憂，有機會要解決
 		return "/TeacherCourse/TeacherCourseList";
 	}
 
 	@ModelAttribute("preCourse")
-	public course beforeSave() {
-		course course = new course();
+	public Course beforeSave() {
+		Course course = new Course();
 		Timestamp ts = new Timestamp(System.currentTimeMillis());
 		course.setRegisterTime(ts);
 		return course;

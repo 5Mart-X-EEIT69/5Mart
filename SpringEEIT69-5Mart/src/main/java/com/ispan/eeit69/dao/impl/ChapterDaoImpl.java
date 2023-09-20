@@ -4,39 +4,39 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.ispan.eeit69.dao.chapterDao;
-import com.ispan.eeit69.model.chapter;
+import com.ispan.eeit69.dao.ChapterDao;
+import com.ispan.eeit69.model.Chapter;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 
 @Repository
-public class chapterDaoImpl implements chapterDao {
+public class ChapterDaoImpl implements ChapterDao {
 	
 	@PersistenceContext //類似Autowired
 	EntityManager entityManager; // session
 
 	@Override
-	public void save(chapter chapter) {
+	public void save(Chapter chapter) {
 		entityManager.persist(chapter);
 
 	}
 
 	@Override
-	public void update(chapter chapter) {
+	public void update(Chapter chapter) {
 		entityManager.persist(chapter);//可能要改
 	}
 
 	@Override
-	public chapter findById(Integer id) {
-		chapter result = entityManager.find(chapter.class, id);
+	public Chapter findById(Integer id) {
+		Chapter result = entityManager.find(Chapter.class, id);
 		return result;
 	}
 
 	@Override
-	public List<chapter> findAll() {
+	public List<Chapter> findAll() {
 		String hql = "FROM chapter";
-		List<chapter> chapters = entityManager.createQuery(hql,chapter.class).getResultList(); 
+		List<Chapter> chapters = entityManager.createQuery(hql,Chapter.class).getResultList(); 
 		
 		return chapters;
 	}

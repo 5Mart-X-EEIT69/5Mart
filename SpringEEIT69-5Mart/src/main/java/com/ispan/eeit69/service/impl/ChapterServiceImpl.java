@@ -5,40 +5,40 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ispan.eeit69.dao.chapterDao;
-import com.ispan.eeit69.model.chapter;
-import com.ispan.eeit69.service.chapterService;
+import com.ispan.eeit69.dao.ChapterDao;
+import com.ispan.eeit69.model.Chapter;
+import com.ispan.eeit69.service.ChapterService;
 
 @Service
 @Transactional
-public class chapterServiceImpl implements chapterService {
+public class ChapterServiceImpl implements ChapterService {
 
-	chapterDao ChapterDao ;
+	ChapterDao ChapterDao ;
 	
 //	@Autowired
-	public chapterServiceImpl(chapterDao chapterDao) {
+	public ChapterServiceImpl(ChapterDao chapterDao) {
 		ChapterDao = chapterDao;
 	}
 
 	@Override
-	public void save(chapter chapter) {
+	public Chapter save(Chapter chapter) {
 		ChapterDao.save(chapter);
-
+		return chapter ;
 	}
 
 	@Override
-	public void update(chapter chapter) {
+	public void update(Chapter chapter) {
 		ChapterDao.update(chapter);
 
 	}
 
 	@Override
-	public chapter findById(Integer id) {
+	public Chapter findById(Integer id) {
 		return ChapterDao.findById(id);		
 	}
 
 	@Override
-	public List<chapter> findAll() {
+	public List<Chapter> findAll() {
 		return ChapterDao.findAll();
 	}
 
