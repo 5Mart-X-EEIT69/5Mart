@@ -15,158 +15,144 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.ispan.eeit69.model.chapter;
 import com.ispan.eeit69.model.course;
+import com.ispan.eeit69.service.chapterService;
 import com.ispan.eeit69.service.courseService;
 
 @Controller
 public class TeacherController {
 
-	courseService courseservice ;
+	courseService courseService;
+	chapterService chapterService;
 //	課程
-	
-	public TeacherController(courseService courseservice) {
-		this.courseservice = courseservice;
+
+	public TeacherController(courseService courseService ,chapterService chapterService) {
+		this.courseService = courseService;
+		this.chapterService = chapterService;
 	}
-	
-	
+
 	@GetMapping("/TeacherMain")
-	public String teacher(Model model) {	
+	public String teacher(Model model) {
 		return "TeacherMain";
-	}//跳轉至講師主頁面
-	
+	}// 跳轉至講師主頁面
 
 	@GetMapping("/TeacherCreate")
-	public String teacherCreate(Model model) {	
+	public String teacherCreate(Model model) {
 		return "/TeacherCourse/TeacherCreateCourses";
-	}//跳轉至建立課程頁面
-	
+	}// 跳轉至建立課程頁面
+
 	@GetMapping("/TeacherCreateFundraisingCourses")
-	public String TeacherCreateFundraisingCourses(Model model) {	
+	public String TeacherCreateFundraisingCourses(Model model) {
 		return "/TeacherCourse/TeacherCreateFundraisingCourses";
-	}//跳轉至建立募資課程頁面
-	
+	}// 跳轉至建立募資課程頁面
+
 	@GetMapping("/TeacherCreateArticle")
-	public String TeacherCreateArticle(Model model) {	
+	public String TeacherCreateArticle(Model model) {
 		return "/TeacherCourse/TeacherCreateArticle";
-	}//跳轉至建立文章頁面
-	
+	}// 跳轉至建立文章頁面
+
 	@GetMapping("/TeacherCourseList")
-	public String TeacherCourseList(Model model) {	
+	public String TeacherCourseList(Model model) {
 		return "/TeacherCourse/TeacherCourseList";
-	}//跳轉至課程清單頁面
-	
+	}// 跳轉至課程清單頁面
+
 //	講師交流
-	
+
 	@GetMapping("/TeacherComminicate")
-	public String TeacherComminicate(Model model) {	
+	public String TeacherComminicate(Model model) {
 		return "/TeacherComminicate/TeacherComminicate";
-	}//跳轉至講師交流頁面	
-	
+	}// 跳轉至講師交流頁面
+
 	@GetMapping("/TeacherComminicateQA")
-	public String TeacherComminicateQA(Model model) {	
+	public String TeacherComminicateQA(Model model) {
 		return "/TeacherComminicate/TeacherComminicateQA";
-	}//跳轉至講師交流問與答頁面
-	
+	}// 跳轉至講師交流問與答頁面
+
 	@GetMapping("/TeacherComminicateMessage")
-	public String TeacherComminicateMessage(Model model) {	
+	public String TeacherComminicateMessage(Model model) {
 		return "/TeacherComminicate/TeacherComminicateMessage";
-	}//跳轉至講師交流私人訊息頁面
-	
+	}// 跳轉至講師交流私人訊息頁面
+
 	@GetMapping("/TeacherComminicateTask")
-	public String TeacherComminicateTask(Model model) {	
+	public String TeacherComminicateTask(Model model) {
 		return "/TeacherComminicate/TeacherComminicateTask";
-	}//跳轉至講師交流作業頁面
-	
+	}// 跳轉至講師交流作業頁面
+
 	@GetMapping("/TeacherComminicateAnnouncement")
-	public String TeacherComminicateAnnouncement(Model model) {	
+	public String TeacherComminicateAnnouncement(Model model) {
 		return "/TeacherComminicate/TeacherComminicateAnnouncement";
-	}//跳轉至講師交流公告頁面
-	
+	}// 跳轉至講師交流公告頁面
+
 //	儀表板
-	
+
 	@GetMapping("/TeacherDashboard")
-	public String TeacherDashboard(Model model) {	
+	public String TeacherDashboard(Model model) {
 		return "/TeacherDashboard/TeacherDashboard";
-	}//跳轉至儀錶板頁面
-	
+	}// 跳轉至儀錶板頁面
+
 	@GetMapping("/TeacherDashboardRevenue")
-	public String TeacherDashboardRevenue(Model model) {	
+	public String TeacherDashboardRevenue(Model model) {
 		return "/TeacherDashboard/TeacherDashboardRevenue";
-	}//跳轉至儀錶板營收頁面
-	
+	}// 跳轉至儀錶板營收頁面
+
 	@GetMapping("/TeacherDashboardTraffic")
-	public String TeacherDashboardTraffic(Model model) {	
+	public String TeacherDashboardTraffic(Model model) {
 		return "/TeacherDashboard/TeacherDashboardTraffic";
-	}//跳轉至儀表板流量頁面
-	
+	}// 跳轉至儀表板流量頁面
+
 	@GetMapping("/TeacherDashboardWatched")
-	public String TeacherDashboardWatched(Model model) {	
+	public String TeacherDashboardWatched(Model model) {
 		return "/TeacherDashboard/TeacherDashboardWatched";
-	}//跳轉至儀表板觀看時數頁面
-	
+	}// 跳轉至儀表板觀看時數頁面
+
 	@GetMapping("/TeacherDashboardStudent")
-	public String TeacherDashboardStudent(Model model) {	
+	public String TeacherDashboardStudent(Model model) {
 		return "/TeacherDashboard/TeacherDashboardStudent";
-	}//跳轉至儀表板學生頁面
-	
+	}// 跳轉至儀表板學生頁面
+
 //	講師資料 
-	
+
 	@GetMapping("/TeacherInformation")
-	public String TeacherInformation(Model model) {	
+	public String TeacherInformation(Model model) {
 		return "/TeacherInformation/TeacherInformation";
-	}//跳轉至講師資料頁面
-	
+	}// 跳轉至講師資料頁面
+
 	@GetMapping("/TeacherInformationPhoto")
-	public String TeacherInformationPhoto(Model model) {	
+	public String TeacherInformationPhoto(Model model) {
 		return "/TeacherInformation/TeacherInformationPhoto";
-	}//跳轉至講師資料照片頁面
-	
+	}// 跳轉至講師資料照片頁面
+
 	@GetMapping("/TeacherInformationIntroduction")
-	public String TeacherInformationIntroduction(Model model) {	
+	public String TeacherInformationIntroduction(Model model) {
 		return "/TeacherInformation/TeacherInformationIntroduction";
-	}//跳轉至講師資料自我介紹頁面
-	
+	}// 跳轉至講師資料自我介紹頁面
+
 	@GetMapping("/TeacherInformationAbility")
-	public String TeacherInformationAbility(Model model) {	
+	public String TeacherInformationAbility(Model model) {
 		return "/TeacherInformation/TeacherInformationAbility";
-	}//跳轉至講師資料能力證明頁面
+	}// 跳轉至講師資料能力證明頁面
 
 	@GetMapping("/TeacherInformationAccount")
-	public String TeacherInformationAccount(Model model) {	
+	public String TeacherInformationAccount(Model model) {
 		return "/TeacherInformation/TeacherInformationAccount";
-	}//跳轉至講師資料帳戶頁面
+	}// 跳轉至講師資料帳戶頁面
 
 	@GetMapping("/bsjsTest")
-	public String bsjsTest(Model model) {	
+	public String bsjsTest(Model model) {
 		return "/bsjsTest";
-	}//跳轉至講師資料帳戶頁面
-	
+	}// 跳轉至講師資料帳戶頁面
+
 	@PostMapping("/submitCourse")
-	public String createCourses(@RequestBody JsonNode formData , Model model ,@ModelAttribute("preCourse") course course) throws SerialException,SQLException {
-		
+	public String createCourses(@RequestBody JsonNode formData, Model model, @ModelAttribute("preCourse") course course)
+			throws SerialException, SQLException {
+
 		course.setTitle(formData.get("title").asText());
-//		System.out.println(formData.get("title").asText());
-//		System.out.println("------");
 		course.setIntroduction(formData.get("introduction").asText());
-//		System.out.println(formData.get("introduction").asText());
-//		System.out.println("------");
 		char[] c = formData.get("photo").asText().toCharArray();
 		Clob clob = new SerialClob(c);
 		course.setPhoto(clob);
-//		System.out.println(formData.get("photo").asText());
-//		System.out.println("------");
 		course.setPrice(formData.get("price").asInt());
-//		System.out.println(formData.get("price").asInt());
-//		System.out.println("------");
-//		JsonNode courseArray = formData.get("course");
-//		for(JsonNode courseobj : courseArray) {
-//			courseobj.fields().forEachRemaining(entry ->{
-//				String attributeName = entry.getKey();
-//				JsonNode attributeValue = entry.getValue();
-//				System.out.println(attributeName + ": " + attributeValue.asText());
-//			});
-//			System.out.println("run");
-//		}
 //		System.out.println("------");
 //		JsonNode videoArray = formData.get("video");
 //		for(JsonNode videoobj : videoArray) {
@@ -179,15 +165,33 @@ public class TeacherController {
 //		}
 //		System.out.println("------");
 		course.setLevel(formData.get("level").asText());
-//		System.out.println(formData.get("level").asText());
-//		System.out.println("------");
 		course.setSort(formData.get("sort").asText());
-//		System.out.println(formData.get("sort").asText());
-//		System.out.println("------");
-		courseservice.save(course);
+		courseService.save(course);
+
+		JsonNode courseArray = formData.get("course");
+		for (JsonNode courseobj : courseArray) {
+			courseobj.fields().forEachRemaining(entry -> {
+				String attributeName = entry.getKey();
+				JsonNode attributeValue = entry.getValue();
+				System.out.println(attributeName + ": " + attributeValue.asText());
+				if (attributeName.contains("chapter")) {
+					// 章節
+					chapter chapter = new chapter();
+					chapter.setCourse(course);
+					chapter.setChapterName(attributeValue.asText());
+					chapter.setChapterNumber("章節" + (attributeName.substring(7)));
+					chapterService.save(chapter);
+				} else {
+					// 單元
+					System.out.println("還沒寫");
+				}
+			});
+			System.out.println("run");
+		}
+
 		return "/TeacherCourse/TeacherCourseList";
 	}
-	
+
 	@ModelAttribute("preCourse")
 	public course beforeSave() {
 		course course = new course();
@@ -196,5 +200,3 @@ public class TeacherController {
 		return course;
 	}
 }
-
-

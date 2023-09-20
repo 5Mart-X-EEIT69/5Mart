@@ -23,8 +23,7 @@ public class courseServiceImpl implements courseService{
 
 	@Override
 	public void save(course course) {
-		CourseDao.save(course);
-		
+		CourseDao.save(course);		
 	}
 
 	@Override

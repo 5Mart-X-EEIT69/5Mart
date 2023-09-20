@@ -1,17 +1,24 @@
 package com.ispan.eeit69.model;
 
+import java.io.Serializable;
 import java.sql.Clob;
 import java.sql.Timestamp;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "course_5mart")
-public class course {
+public class course implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -26,13 +33,13 @@ public class course {
 	private String sort;
 	private Timestamp registerTime;
 	
+	@OneToMany(mappedBy = "course")
+	private Set<chapter> chapter = new LinkedHashSet<chapter>();
 		
 	public course() {
-		super();
 	}
 
 	public course(Integer id, String title, String introduction, Clob photo, Integer price, String level, String sort) {
-		super();
 		this.id = id;
 		this.title = title;
 		this.introduction = introduction;
@@ -42,9 +49,7 @@ public class course {
 		this.sort = sort;
 	}
 	
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -95,6 +100,16 @@ public class course {
 
 	public void setRegisterTime(Timestamp registerTime) {
 		this.registerTime = registerTime;
+	}
+	
+	
+
+	public Set<chapter> getChapter() {
+		return chapter;
+	}
+
+	public void setChapter(Set<chapter> chapter) {
+		this.chapter = chapter;
 	}
 
 	@Override
