@@ -29,7 +29,6 @@ public class CourseDaoImpl implements CourseDao{
 		Course tmp = findById(course.getId());
 		tmp.setRegisterTime(tmp.getRegisterTime());
 		entityManager.detach(tmp);
-		
 	}
 
 	@Override

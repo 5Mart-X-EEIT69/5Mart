@@ -1,5 +1,6 @@
 package com.ispan.eeit69.controller;
 
+import java.io.Console;
 import java.sql.Clob;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -9,12 +10,16 @@ import java.util.List;
 import javax.sql.rowset.serial.SerialClob;
 import javax.sql.rowset.serial.SerialException;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.ispan.eeit69.model.Chapter;
@@ -50,12 +55,17 @@ public class TeacherController {
 		return "TeacherMain";
 	}// 跳轉至講師主頁面
 
-
 	@GetMapping("/TeacherCreate")
 	public String teacherCreate(Model model) {
 		return "/TeacherCourse/TeacherCreateCourses";
 	}// 跳轉至建立課程頁面
 
+	@GetMapping("/TeacherEdit/{id}")
+	public String teacherEdit(Model model , @PathVariable Integer id) {
+		model.addAttribute("course", courseService.findById(id)); 
+		return "/TeacherCourse/TeacherEditCourses";
+	}// 跳轉至編輯課程頁面
+	
 	@GetMapping("/TeacherCreateFundraisingCourses")
 	public String TeacherCreateFundraisingCourses(Model model) {
 		return "/TeacherCourse/TeacherCreateFundraisingCourses";
@@ -229,6 +239,26 @@ public class TeacherController {
 		return "/TeacherCourse/TeacherCourseList";
 	}
 
+	@PutMapping("/TeacherUpdateCourse")
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+	public void teacherUpdateCouese(@RequestBody JsonNode formData ) throws SerialException, SQLException{
+		Course course = courseService.findById(formData.get("id").asInt());
+		System.out.println(formData.get("title").asText());
+		System.out.println(formData.get("id").asInt());
+		System.out.println(course.getTitle());
+		System.out.println(course.getRegisterTime()); 
+		course.setTitle(formData.get("title").asText());
+		course.setIntroduction(formData.get("introduction").asText());
+		char[] c = formData.get("photo").asText().toCharArray();
+		Clob clob = new SerialClob(c);
+		course.setPhoto(clob);
+		course.setPrice(formData.get("price").asInt());
+		course.setLevel(formData.get("level").asText());
+		course.setSort(formData.get("sort").asText());
+		courseService.save(course);
+		System.out.println("更新課程OK，章節單元還沒寫");
+	}// 更新課程後跳轉已開課內容
+	
 	@ModelAttribute("preCourse")
 	public Course beforeSave() {
 		Course course = new Course();

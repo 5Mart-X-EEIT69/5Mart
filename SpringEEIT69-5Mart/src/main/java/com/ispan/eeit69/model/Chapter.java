@@ -69,6 +69,14 @@ public class Chapter {
 		this.chapterName = chapterName;
 	}
 
+	public Set<Unit> getUnit() {
+		return unit;
+	}
+
+	public void setUnit(Set<Unit> unit) {
+		this.unit = unit;
+	}
+
 	@Override
 	public String toString() {
 		return "chapter [chapterId=" + chapterId + ", course=" + course + ", chapterNumber=" + chapterNumber
