@@ -511,7 +511,7 @@
                     data: JSON.stringify(formData),
                     success: function(response){
                        	console.log("成功",response);
-//                        	window.location.href = '<c:url value="/TeacherCourseList" />';
+                       	window.location.href = '<c:url value="/TeacherCourseList" />';
                     },
                     error: function(response){
                         console.log("失敗",response);
