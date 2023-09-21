@@ -41,7 +41,7 @@ public class CourseDaoImpl implements CourseDao{
 	@Override
 	public List<Course> findAll() {
 		
-		String hql = "FROM course";
+		String hql = "FROM Course";
 		List<Course> courses = entityManager.createQuery(hql,Course.class).getResultList(); 
 		
 		return courses;
@@ -49,28 +49,28 @@ public class CourseDaoImpl implements CourseDao{
 
 	@Override
 	public void deleteById(Integer id) {
-		String hql = "DELETE FROM course c WHERE c.id = :id";
+		String hql = "DELETE FROM Course c WHERE c.id = :id";
 		entityManager.createQuery(hql).setParameter("id", id).executeUpdate();
 		
 	}
 
 	@Override
 	public List<Course> findBySort(String sort) {
-		String hql = "FROM course c WHERE c.sort = :sort ";
+		String hql = "FROM Course c WHERE c.sort = :sort ";
 		List<Course> courses = entityManager.createQuery(hql,Course.class).setParameter("sort", sort).getResultList();
 		return courses;
 	}
 
 	@Override
 	public List<Course> findBylevel(String level) {
-		String hql = "FROM course c WHERE c.level = :level ";
+		String hql = "FROM Course c WHERE c.level = :level ";
 		List<Course> courses = entityManager.createQuery(hql,Course.class).setParameter("level", level).getResultList();
 		return courses;
 	}
 
 	@Override
 	public List<Course> findBytitle(String title) {
-		String hql = "FROM course c WHERE c.title = :title ";
+		String hql = "FROM Course c WHERE c.title = :title ";
 		List<Course> courses = entityManager.createQuery(hql,Course.class).setParameter("title", title).getResultList();
 		return courses;
 	}

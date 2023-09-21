@@ -1,10 +1,10 @@
 package com.ispan.eeit69.controller;
 
-import java.io.OutputStream;
 import java.sql.Clob;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.sql.rowset.serial.SerialClob;
 import javax.sql.rowset.serial.SerialException;
@@ -68,6 +68,8 @@ public class TeacherController {
 
 	@GetMapping("/TeacherCourseList")
 	public String TeacherCourseList(Model model) {
+		List<Course> course = courseService.findAll();
+		model.addAttribute("course", course);
 		return "/TeacherCourse/TeacherCourseList";
 	}// 跳轉至課程清單頁面
 
@@ -218,6 +220,8 @@ public class TeacherController {
 					e.printStackTrace();
 				}
 				video.setVideoNumber(attributeName);
+				String name = video.getUnit().getUnitName();
+				video.setVideoName(name + "_" + attributeName.substring(7));
 				videoService.save(video);				
 			});
 			System.out.println("run");
