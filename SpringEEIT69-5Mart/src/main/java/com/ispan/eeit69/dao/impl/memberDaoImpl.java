@@ -34,9 +34,9 @@ public class memberDaoImpl implements memberDao {
 	}
 
 	@Override
-	public member findByMemberIdAndPassword(String memberId, String password) {
-		// TODO Auto-generated method stub
-		return null;
+	public member findByAccountAndPassword(String account, String password) {
+		member result = entityManager.find(member.class, account);
+		return result;
 	}
 
 	@Override
