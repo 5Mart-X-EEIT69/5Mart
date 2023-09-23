@@ -26,6 +26,7 @@ public class RegController {
 	public String regMember(@ModelAttribute("preMember") member member , Model model) {	
 		System.out.println("測試");
 		memberService.save(member);
+		
 		return "/visitorHomePage";
 	}
 	

@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.ispan.eeit69.dao.memberDao;
-import com.ispan.eeit69.model.course;
 import com.ispan.eeit69.model.member;
 
 import jakarta.persistence.EntityManager;
