@@ -560,6 +560,10 @@
 					</a>
 					<ul class="dropdown-menu dropdown-menu-end px-1 fs-6">
 						<li class=""><a class="dropdown-item" href="#"><i
+								class="fa-regular fa-user " style="padding: 0 8px"></i><span>${memberdata.account}</span></a></li>
+						<li class=""><a class="dropdown-item" href="#"><i
+								class="fa-regular fa-user " style="padding: 0 8px"></i>個人檔案</a></li>
+						<li class=""><a class="dropdown-item" href="#"><i
 								class="fa-regular fa-user " style="padding: 0 8px"></i>個人檔案</a></li>
 						<li><a class="dropdown-item" href="#"><i
 								class="fa-solid fa-chalkboard" style="padding: 0 6px"></i>我的學習</a></li>
