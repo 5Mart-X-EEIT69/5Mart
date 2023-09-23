@@ -26,10 +26,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.ispan.eeit69.model.Chapter;
 import com.ispan.eeit69.model.Course;
+import com.ispan.eeit69.model.Introduction;
 import com.ispan.eeit69.model.Unit;
 import com.ispan.eeit69.model.Video;
 import com.ispan.eeit69.service.ChapterService;
 import com.ispan.eeit69.service.CourseService;
+import com.ispan.eeit69.service.IntroductionService;
 import com.ispan.eeit69.service.UnitService;
 import com.ispan.eeit69.service.VideoService;
 
@@ -40,21 +42,25 @@ public class TeacherController {
 	ChapterService chapterService;
 	UnitService unitService;
 	VideoService videoService;
+	IntroductionService introductionService;
 //	課程
 
 	public TeacherController(CourseService courseService, ChapterService chapterService, UnitService unitService,
-			VideoService videoService) {
-		super();
+			VideoService videoService, IntroductionService introductionService) {
 		this.courseService = courseService;
 		this.chapterService = chapterService;
 		this.unitService = unitService;
 		this.videoService = videoService;
+		this.introductionService = introductionService;
 	}
+	
 
 	@GetMapping("/TeacherMain")
 	public String teacher(Model model) {
 		return "TeacherMain";
 	}// 跳轉至講師主頁面
+
+	
 
 	@GetMapping("/TeacherCreate")
 	public String teacherCreate(Model model) {
@@ -290,5 +296,12 @@ public class TeacherController {
 		Timestamp ts = new Timestamp(System.currentTimeMillis());
 		course.setRegisterTime(ts);
 		return course;
+	}
+	
+	@PostMapping("/introduction")
+	public String introduction(@ModelAttribute Introduction introduction) {
+		introductionService.save(introduction);
+		System.out.println("測試");
+		return "/TeacherInformation/TeacherInformationIntroduction";
 	}
 }
