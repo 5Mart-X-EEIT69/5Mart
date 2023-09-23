@@ -1,5 +1,7 @@
 package com.ispan.eeit69.dao.impl;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -35,8 +37,15 @@ public class memberDaoImpl implements memberDao {
 
 	@Override
 	public member findByAccountAndPassword(String account, String password) {
-		member result = entityManager.find(member.class, account);
-		return result;
+		String hql = "FROM member m WHERE m.account = :account";  
+		List<member> result =  entityManager.createQuery(hql).setParameter("account", account).getResultList();
+		member data = result.get(0);
+		if(account.equals(data.getAccount()) && password.equals(data.getPassword()) ) {
+			return data;
+		}else{		
+			return null;
+		}
+		
 	}
 
 	@Override

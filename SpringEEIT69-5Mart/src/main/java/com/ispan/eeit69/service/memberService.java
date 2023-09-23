@@ -7,7 +7,7 @@ public interface memberService {
 
     member findByMemberId(Integer id);
     
-    member findByMemberIdAndPassword(String memberId, String password);
+    member findByAccountAndPassword(String account, String password);
 
 	void update(member member);
 	

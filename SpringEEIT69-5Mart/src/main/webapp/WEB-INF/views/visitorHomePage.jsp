@@ -87,7 +87,6 @@
 
  	}
  </script> -->
-
 <script type="text/javascript">
 	$(document).ready(
 			function() {
@@ -234,6 +233,7 @@
 </script>
 
 <body>
+
 	<!-- 導覽列 -->
 	<nav
 		class="navbar navbar-expand-lg bg-body-tertiary  sticky-top shadow">
@@ -443,6 +443,10 @@
 							class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i></a> <a
 							class="mx-2" type="button" href="#"><i
 							class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i></a>
+					</div>
+					
+					<div style="align-content: center">
+					<c:if test="${login == 'fail'}">${login}</c:if>
 					</div>
 				</div>
 			</div>

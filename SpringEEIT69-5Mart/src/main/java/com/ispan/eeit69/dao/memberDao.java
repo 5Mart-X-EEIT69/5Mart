@@ -9,5 +9,7 @@ public interface memberDao {
     member findByMemberId(Integer id);
     
     member findByAccountAndPassword(String account, String password);
+    
+    
 
 }

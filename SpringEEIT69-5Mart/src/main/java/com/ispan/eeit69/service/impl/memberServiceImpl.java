@@ -28,8 +28,8 @@ public class memberServiceImpl implements memberService {
 	}
 
 	@Override
-	public member findByMemberIdAndPassword(String memberId, String password) {
-		return findByMemberIdAndPassword(memberId, password);
+	public member findByAccountAndPassword(String account, String password) {
+		return MemberDao.findByAccountAndPassword(account, password);
 	}
 
 	@Override
