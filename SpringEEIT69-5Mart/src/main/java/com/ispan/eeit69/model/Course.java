@@ -14,6 +14,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
 
 @Entity
@@ -35,6 +36,7 @@ public class Course implements Serializable {
 	private Timestamp registerTime;
 	
 	@OneToMany(mappedBy = "course")
+	@OrderBy("chapterNumber")
 	private Set<Chapter> chapter = new LinkedHashSet<Chapter>();
 		
 	public Course() {

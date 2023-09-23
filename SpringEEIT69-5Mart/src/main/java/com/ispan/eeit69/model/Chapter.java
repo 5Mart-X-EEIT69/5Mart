@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
 
 @Entity
@@ -29,6 +30,7 @@ public class Chapter {
 	private String chapterName ;//章節名稱
 	
 	@OneToMany(mappedBy = "chapter")
+	@OrderBy("unitNumber")
 	private Set<Unit> unit = new LinkedHashSet<Unit>();
 	
 	

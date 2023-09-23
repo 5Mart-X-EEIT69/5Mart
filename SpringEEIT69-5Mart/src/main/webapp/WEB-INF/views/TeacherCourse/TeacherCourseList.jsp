@@ -129,6 +129,7 @@
                                 <div class="col-2 d-flex flex-column">
                                 
                                     <button class="btn btn-link m-0 ps-2" style="text-align: left;"><a href="<c:url value="/TeacherEdit/${courses.id}"/>">編輯課程</a></button>
+                                    <button class="btn btn-link m-0 ps-2" style="text-align: left;">編輯影片</button>
                                     <button class="btn btn-link m-0 ps-2" style="text-align: left;">刪除課程</button>
                                 </div>                                
                             </div>

@@ -243,6 +243,7 @@
 		                                <i class="bi bi-trash"></i>
 		                            </button>
 		                        </span>
+		                        <input type="hidden" name = "chapterId" value = "${chapter.chapterId}">
 		                    </div>
 							<div class="unitGroup">
 	                    <c:forEach items="${chapter.unit}" var="unit">
@@ -371,7 +372,7 @@
                 let html = `
             <div class="form-group unit my-2">
                 <span class="chapterIcon">拖拉</span>
-                <label class="py-1">單元 ${iIndex + 2}</label><input class="chapterInput unitName" type="text" value="">
+                <label class="py-1">單元1</label><input class="chapterInput unitName newUnit" type="text" value="">
                 <span>
                     <button class="mx-1 btn iconbtn addUnit"><i class="bi bi-plus-circle"></i></button>
                     <button class="mx-1 btn iconbtn unitDelete"><i class="bi bi-trash"></i></button>
@@ -489,7 +490,17 @@
                 formData.introduction = $('#introduction').val();
                 formData.photo = $('#photoValue').val();
                 formData.price = $('#price').val();
-                formData.course = chapterAndUnitName;
+//                 formData.course = chapterAndUnitName;
+				let newUnitGroup = {};
+				$('.newUnit').each(function(index , element){
+					let insertUnit = "chapterId" + $(this).parent().parent().prev().children("input[name='chapterId']").val() + "unit" + ($(this).parent().index()+1);
+					let unitName = $(this).val();
+					newUnitGroup[insertUnit] = unitName ; 
+					console.log(insertUnit);
+					console.log(unitName);
+				})//存取新增的單元給Controller
+				console.log(newUnitGroup);
+				formData.newUnit = newUnitGroup;//新增單元用
                 $('input[name^="chapter"]').each(function (index, element) {
                     console.log("start--------------");
                     let idValue = $(this).attr('name');
