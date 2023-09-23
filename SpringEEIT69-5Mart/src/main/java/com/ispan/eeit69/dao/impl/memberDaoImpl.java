@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.ispan.eeit69.dao.memberDao;
+import com.ispan.eeit69.model.course;
 import com.ispan.eeit69.model.member;
 
 import jakarta.persistence.EntityManager;
@@ -27,7 +28,7 @@ public class memberDaoImpl implements memberDao {
 	}
 
 	@Override
-	public member findByMemberId(String id) {
+	public member findByMemberId(Integer id) {
 		member result = entityManager.find(member.class, id);
 		return result;
 	}
@@ -38,4 +39,19 @@ public class memberDaoImpl implements memberDao {
 		return null;
 	}
 
+	@Override
+	public void update(member member) {
+		member tmp = findByMemberId(member.getId());
+		tmp.setRegisterTime(tmp.getRegisterTime());
+		entityManager.detach(tmp);
+		
+	}
+
+	@Override
+	public void deleteById(Integer id) {
+		String hql = "DELETE FROM member m WHERE m.id = :id";
+		entityManager.createQuery(hql).setParameter("id", id).executeUpdate();
+	}
+
+	
 }

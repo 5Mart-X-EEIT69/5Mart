@@ -31,8 +31,6 @@ public class member implements Serializable {
 	}
 
 	public member(Integer id, String username, String account, String password) {
-		super();
-		this.id = id;
 		this.username = username;
 		this.account = account;
 		this.password = password;

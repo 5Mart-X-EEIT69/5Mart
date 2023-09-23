@@ -407,25 +407,23 @@
 
 				<!-- Body -->
 				<div class="modal-body">
-
-					<form action="">
+					<form action="<c:url value="/login" />" method="post">
 						<!-- email -->
 						<div class="form-group">
 							<input type="email" class="account form-control"
-								placeholder="電子郵件">
+								placeholder="電子郵件" name="account">
 						</div>
 						<!-- 密碼 -->
 						<div class="form-group">
 							<input type="password" class="password form-control"
-								placeholder="密碼">
+								placeholder="密碼" name="password">
 						</div>
 						<!-- checkbox -->
 						<div class="form-group">
 							<input type="checkbox" class="remember"> 記住我的密碼
 						</div>
 						<!-- 送出按鈕 -->
-						<a role="button" href="<c:url value='/memberHomePage' />"
-							class="btn btn-secondary">登入</a> <a type="button" href="#"
+						<button type="submit" class="btn btn-secondary">登入</button> <a type="button" href="#"
 							class="d-md-flex justify-content-center">忘記密碼</a>
 
 					</form>
@@ -474,7 +472,8 @@
 				</div>
 				<!-- Body -->
 				<div class="modal-body">
-					<form action="" method="post">
+				
+					<form action="<c:url value="/regMember" />" method="post">
 						<!-- 姓名 -->
 						<div class="form-group">
 							<input type="text" class="text form-control" placeholder="全名" name="username">
@@ -495,7 +494,7 @@
 								placeholder="再次輸入密碼">
 						</div>
 						<!-- 送出按鈕 -->
-						<button type="button" class="btn btn-secondary mt-3"
+						<button type="submit" class="btn btn-secondary mt-3"
 							data-bs-dismiss="modal">註冊</button>
 						<div class="d-md-flex justify-content-center mt-2">
 							<p>

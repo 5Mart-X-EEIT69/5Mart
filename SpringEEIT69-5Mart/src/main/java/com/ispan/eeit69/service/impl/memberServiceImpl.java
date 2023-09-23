@@ -23,15 +23,26 @@ public class memberServiceImpl implements memberService {
 	}
 
 	@Override
-	public member findByMemberId(String id) {
-		// TODO Auto-generated method stub
-		return null;
+	public member findByMemberId(Integer id) {
+		return MemberDao.findByMemberId(id);
 	}
 
 	@Override
 	public member findByMemberIdAndPassword(String memberId, String password) {
-		// TODO Auto-generated method stub
-		return null;
+		return findByMemberIdAndPassword(memberId, password);
 	}
+
+	@Override
+	public void update(member member) {
+		MemberDao.update(member);
+	}
+
+	@Override
+	public void deleteById(Integer id) {
+		MemberDao.deleteById(id);
+		
+	}
+	
+	
 
 }

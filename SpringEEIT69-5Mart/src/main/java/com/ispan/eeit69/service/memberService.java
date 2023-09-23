@@ -5,8 +5,11 @@ import com.ispan.eeit69.model.member;
 public interface memberService {
 	void save(member member);
 
-    member findByMemberId(String id);
+    member findByMemberId(Integer id);
     
     member findByMemberIdAndPassword(String memberId, String password);
 
+	void update(member member);
+	
+	void deleteById(Integer id);
 }
