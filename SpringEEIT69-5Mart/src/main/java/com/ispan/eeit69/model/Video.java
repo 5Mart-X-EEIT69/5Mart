@@ -26,15 +26,21 @@ public class Video {
 	
 	private String videoNumber ; //第幾單元的影片
 	private Clob videoValue ;//影片base64
+	private String videoName ; //第幾單元的影片
 	
 	public Video() {
 	}
 	
-	public Video(Unit unit, String videoNumber, Clob videoValue) {
+
+	public Video(Unit unit, String videoNumber, Clob videoValue, String videoName) {
+		super();
 		this.unit = unit;
 		this.videoNumber = videoNumber;
 		this.videoValue = videoValue;
+		this.videoName = videoName;
 	}
+
+
 
 	public Integer getVideoId() {
 		return videoId;
@@ -68,11 +74,22 @@ public class Video {
 		this.videoValue = videoValue;
 	}
 
+	
+	public String getVideoName() {
+		return videoName;
+	}
+
+	public void setVideoName(String videoName) {
+		this.videoName = videoName;
+	}
+
 	@Override
 	public String toString() {
 		return "Video [videoId=" + videoId + ", unit=" + unit + ", videoNumber=" + videoNumber + ", videoValue="
-				+ videoValue + "]";
+				+ videoValue + ", videoName=" + videoName + "]";
 	}
+
+
 
 
 	

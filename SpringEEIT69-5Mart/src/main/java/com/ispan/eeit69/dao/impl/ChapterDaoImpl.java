@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ispan.eeit69.dao.ChapterDao;
 import com.ispan.eeit69.model.Chapter;
+import com.ispan.eeit69.model.Course;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -35,7 +36,7 @@ public class ChapterDaoImpl implements ChapterDao {
 
 	@Override
 	public List<Chapter> findAll() {
-		String hql = "FROM chapter";
+		String hql = "FROM Chapter";
 		List<Chapter> chapters = entityManager.createQuery(hql,Chapter.class).getResultList(); 
 		
 		return chapters;
@@ -43,7 +44,7 @@ public class ChapterDaoImpl implements ChapterDao {
 
 	@Override
 	public void deleteById(Integer id) {
-		String hql = "DELETE FROM chapter c WHERE c.id = :id";
+		String hql = "DELETE FROM Chapter c WHERE c.id = :id";
 		entityManager.createQuery(hql).setParameter("id", id).executeUpdate();
 
 	}

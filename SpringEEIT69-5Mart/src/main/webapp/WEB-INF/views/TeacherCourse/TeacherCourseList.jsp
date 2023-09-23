@@ -21,10 +21,24 @@
 <!-- bootstrap -->
 </head>
 <script type="text/javascript">
-	window.onload = function(){
-	
-	
-	}
+
+// 	function editCourse(courses) {
+// 		if (confirm('確定要編輯: ' + courses + '  這門課程?')) {
+// 			let url = "<c:url value='/employee/EmployeeDelete.do' />";
+// 			var input = document.createElement("input");
+// 			var container = document.forms[0];
+// 			container.appendChild(input);
+// 			input.type = "text";
+// 			input.name = "id";
+// 			input.value = ids;
+// 			document.forms[0].action = url;
+// 			document.forms[0].method = "POST";
+// 			document.forms[0].submit();
+// 			return true;
+// 		} else {
+// 			exit;
+// 		}
+// 	}
 </script>
 <body>
 	<div class="d-flex flex-row min-vh-100">
@@ -79,22 +93,23 @@
             <hr />
             <h4>已開課內容</h4>
             <div class="accordion" id="accordionPanelsStayOpenExample">
+            <c:forEach var="courses" items="${course}">
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    <h2 class="accordion-header" id="heading-${courses.id}">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapseOne">
-                            <img src="<c:url value="/assets/images/godtone.jpg" />" alt="twbs" width="48" height="48" class="rounded flex-shrink-0">
+                            data-bs-target="#collapse-${courses.id}" aria-expanded="false"
+                            aria-controls="#collapse-${courses.id}">
+                            <img src="${courses.dataUri}" alt="twbs" width="48" height="48" class="rounded flex-shrink-0">
                             <div class="d-flex gap-2 w-100 justify-content-between align-items-center ps-3">
                                 <div>
-                                    <h6 class="mb-0 fs-4 fw-bolder">JAVA從入門到放棄</h6>
-                                    <p class="mb-0 opacity-50 fw-bolder" style="color:red;">目前已有7414位學生購買課程</p>
+                                    <h6 class="mb-0 fs-4 fw-bolder">${courses.title}</h6>
+                                    <p class="mb-0 opacity-50 fw-bolder" style="color:red;">目前已有"還沒做"位學生購買課程</p>
                                 </div>
                             </div>
                         </button>
                     </h2>
-                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse"
-                        aria-labelledby="panelsStayOpen-headingOne">
+                    <div id="collapse-${courses.id}" class="accordion-collapse collapse"
+                        aria-labelledby="heading-${courses.id}">
                         <div class="accordion-body">
                             <div class="d-flex align-items-center flex-wrap">
                                 <label class="col-2">導師</label>
@@ -106,105 +121,113 @@
                             </div>
                             <hr>
                             <div class="d-flex align-items-center flex-wrap">
-                                <span class="col-2">張嘉航</span>
-                                <span class="col-2">2023/9/15</span>
-                                <span class="col-2 px-3">123456</span>
-                                <span class="col-2 ps-2">7414</span>
-                                <span class="col-2">4.7星</span>
+                                <span class="col-2">(還沒做)</span>
+                                <span class="col-2">${courses.registerTime}</span>
+                                <span class="col-2 px-3">(還沒做)</span>
+                                <span class="col-2 ps-2">(還沒做)</span>
+                                <span class="col-2">(還沒做)</span>
                                 <div class="col-2 d-flex flex-column">
-                                    <button class="btn btn-link m-0 ps-2" style="text-align: left;">編輯課程</button>
+                                
+                                    <button class="btn btn-link m-0 ps-2" style="text-align: left;"><a href="<c:url value="/TeacherEdit/${courses.id}"/>">編輯課程</a></button>
+                                    <button class="btn btn-link m-0 ps-2" style="text-align: left;">編輯影片</button>
                                     <button class="btn btn-link m-0 ps-2" style="text-align: left;">刪除課程</button>
                                 </div>                                
                             </div>
                             <hr>
                         </div>
                     </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapseTwo">
-                            <img src="<c:url value="/assets/images/godtone.jpg" />" alt="twbs" width="48" height="48" class="rounded flex-shrink-0">
-                            <div class="d-flex gap-2 w-100 justify-content-between align-items-center ps-3">
-                                <div>
-                                    <h6 class="mb-0 fs-4 fw-bolder">JAVA從入門到放棄</h6>
-                                    <p class="mb-0 opacity-50 fw-bolder" style="color:red;">目前已有12位學生購買課程</p>
-                                </div>
-                            </div>
-                        </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
-                        aria-labelledby="panelsStayOpen-headingTwo">
-                        <div class="accordion-body">
-                            <div class="d-flex align-items-center flex-wrap">
-                                <label class="col-2">導師</label>
-                                <label class="col-2">開課時間</label>
-                                <label class="col-2 px-3">瀏覽課程人次</label>
-                                <label class="col-2">購買課程人次</label>
-                                <label class="col-2">平均評價</label>
-                                <label class="col-2 ps-2">功能</label>
-                            </div>
-                            <hr>
-                            <div class="d-flex align-items-center flex-wrap">
-                                <span class="col-2">張嘉航</span>
-                                <span class="col-2">2023/9/15</span>
-                                <span class="col-2 px-3">123456</span>
-                                <span class="col-2 ps-2">12</span>
-                                <span class="col-2">4.7星</span>
-                                <div class="col-2 d-flex flex-column">
-                                    <button class="btn btn-link m-0 ps-2" style="text-align: left;">編輯課程</button>
-                                    <button class="btn btn-link m-0 ps-2" style="text-align: left;">刪除課程</button>
-                                </div>                                
-                            </div>
-                            <hr>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapseThree">
-                            <img src="<c:url value="/assets/images/godtone.jpg" />" alt="twbs" width="48" height="48" class="rounded flex-shrink-0">
-                            <div class="d-flex gap-2 w-100 justify-content-between align-items-center ps-3">
-                                <div>
-                                    <h6 class="mb-0 fs-4 fw-bolder">JAVA從入門到放棄</h6>
-                                    <p class="mb-0 opacity-50 fw-bolder" style="color:red;">目前已有7位學生購買課程</p>
-                                </div>
-                            </div>
-                        </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
-                        aria-labelledby="panelsStayOpen-headingThree">
-                        <div class="accordion-body">
-                            <div class="d-flex align-items-center flex-wrap">
-                                <label class="col-2">導師</label>
-                                <label class="col-2">開課時間</label>
-                                <label class="col-2 px-3">瀏覽課程人次</label>
-                                <label class="col-2">購買課程人次</label>
-                                <label class="col-2">平均評價</label>
-                                <label class="col-2 ps-2">功能</label>
-                            </div>
-                            <hr>
-                            <div class="d-flex align-items-center flex-wrap">
-                                <span class="col-2">張嘉航</span>
-                                <span class="col-2">2023/9/15</span>
-                                <span class="col-2 px-3">123456</span>
-                                <span class="col-2 ps-2">7</span>
-                                <span class="col-2">4.7星</span>
-                                <div class="col-2 d-flex flex-column">
-                                    <button class="btn btn-link m-0 ps-2" style="text-align: left;">編輯課程</button>
-                                    <button class="btn btn-link m-0 ps-2" style="text-align: left;">刪除課程</button>
-                                </div>                                
-                            </div>
-                            <hr>
-                        </div>
-                    </div>
-                </div>
+                </div>            
+            </c:forEach>
+<!--                 <div class="accordion-item"> -->
+<!--                     <h2 class="accordion-header" id="panelsStayOpen-headingTwo"> -->
+<!--                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" -->
+<!--                             data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" -->
+<!--                             aria-controls="panelsStayOpen-collapseTwo"> -->
+<%--                             <img src="<c:url value="/assets/images/godtone.jpg" />" alt="twbs" width="48" height="48" class="rounded flex-shrink-0"> --%>
+<!--                             <div class="d-flex gap-2 w-100 justify-content-between align-items-center ps-3"> -->
+<!--                                 <div> -->
+<!--                                     <h6 class="mb-0 fs-4 fw-bolder">JAVA從入門到放棄</h6> -->
+<!--                                     <p class="mb-0 opacity-50 fw-bolder" style="color:red;">目前已有12位學生購買課程</p> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                         </button> -->
+<!--                     </h2> -->
+<!--                     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" -->
+<!--                         aria-labelledby="panelsStayOpen-headingTwo"> -->
+<!--                         <div class="accordion-body"> -->
+<!--                             <div class="d-flex align-items-center flex-wrap"> -->
+<!--                                 <label class="col-2">導師</label> -->
+<!--                                 <label class="col-2">開課時間</label> -->
+<!--                                 <label class="col-2 px-3">瀏覽課程人次</label> -->
+<!--                                 <label class="col-2">購買課程人次</label> -->
+<!--                                 <label class="col-2">平均評價</label> -->
+<!--                                 <label class="col-2 ps-2">功能</label> -->
+<!--                             </div> -->
+<!--                             <hr> -->
+<!--                             <div class="d-flex align-items-center flex-wrap"> -->
+<!--                                 <span class="col-2">張嘉航</span> -->
+<!--                                 <span class="col-2">2023/9/15</span> -->
+<!--                                 <span class="col-2 px-3">123456</span> -->
+<!--                                 <span class="col-2 ps-2">12</span> -->
+<!--                                 <span class="col-2">4.7星</span> -->
+<!--                                 <div class="col-2 d-flex flex-column"> -->
+<!--                                     <button class="btn btn-link m-0 ps-2" style="text-align: left;">編輯課程</button> -->
+<!--                                     <button class="btn btn-link m-0 ps-2" style="text-align: left;">刪除課程</button> -->
+<!--                                 </div>                                 -->
+<!--                             </div> -->
+<!--                             <hr> -->
+<!--                         </div> -->
+<!--                     </div> -->
+<!--                 </div> -->
+<!--                 <div class="accordion-item"> -->
+<!--                     <h2 class="accordion-header" id="panelsStayOpen-headingThree"> -->
+<!--                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" -->
+<!--                             data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" -->
+<!--                             aria-controls="panelsStayOpen-collapseThree"> -->
+<%--                             <img src="<c:url value="/assets/images/godtone.jpg" />" alt="twbs" width="48" height="48" class="rounded flex-shrink-0"> --%>
+<!--                             <div class="d-flex gap-2 w-100 justify-content-between align-items-center ps-3"> -->
+<!--                                 <div> -->
+<!--                                     <h6 class="mb-0 fs-4 fw-bolder">JAVA從入門到放棄</h6> -->
+<!--                                     <p class="mb-0 opacity-50 fw-bolder" style="color:red;">目前已有7位學生購買課程</p> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                         </button> -->
+<!--                     </h2> -->
+<!--                     <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" -->
+<!--                         aria-labelledby="panelsStayOpen-headingThree"> -->
+<!--                         <div class="accordion-body"> -->
+<!--                             <div class="d-flex align-items-center flex-wrap"> -->
+<!--                                 <label class="col-2">導師</label> -->
+<!--                                 <label class="col-2">開課時間</label> -->
+<!--                                 <label class="col-2 px-3">瀏覽課程人次</label> -->
+<!--                                 <label class="col-2">購買課程人次</label> -->
+<!--                                 <label class="col-2">平均評價</label> -->
+<!--                                 <label class="col-2 ps-2">功能</label> -->
+<!--                             </div> -->
+<!--                             <hr> -->
+<!--                             <div class="d-flex align-items-center flex-wrap"> -->
+<!--                                 <span class="col-2">張嘉航</span> -->
+<!--                                 <span class="col-2">2023/9/15</span> -->
+<!--                                 <span class="col-2 px-3">123456</span> -->
+<!--                                 <span class="col-2 ps-2">7</span> -->
+<!--                                 <span class="col-2">4.7星</span> -->
+<!--                                 <div class="col-2 d-flex flex-column"> -->
+<!--                                     <button class="btn btn-link m-0 ps-2" style="text-align: left;">編輯課程</button> -->
+<!--                                     <button class="btn btn-link m-0 ps-2" style="text-align: left;">刪除課程</button> -->
+<!--                                 </div>                                 -->
+<!--                             </div> -->
+<!--                             <hr> -->
+<!--                         </div> -->
+<!--                     </div> -->
+<!--                 </div> -->
             </div>
         </div>
-        <div class="col-2">test</div>
+        <div class="col-2">
+			<form action="#" method='POST'>
+<!-- 			編輯課程用 -->
+				<!--        <input id='id' name='id' value=''> -->
+			</form>
+		</div>
     </div>
 
 

@@ -6,14 +6,15 @@ import java.sql.Timestamp;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ispan.eeit69.utils.SystemService;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
 
 @Entity
@@ -27,6 +28,7 @@ public class Course implements Serializable {
 	
 	private String title;
 	private String introduction;
+	@JsonIgnore
 	private Clob photo;
 	private Integer price;
 	private String level;
@@ -34,6 +36,7 @@ public class Course implements Serializable {
 	private Timestamp registerTime;
 	
 	@OneToMany(mappedBy = "course")
+	@OrderBy("chapterNumber")
 	private Set<Chapter> chapter = new LinkedHashSet<Chapter>();
 		
 	public Course() {
@@ -112,6 +115,10 @@ public class Course implements Serializable {
 		this.chapter = chapter;
 	}
 
+	public String getDataUri() throws Exception {
+		return SystemService.clobToString(photo);
+	}
+	
 	@Override
 	public String toString() {
 		return "course [id=" + id + ", title=" + title + ", introduction=" + introduction + ", photo=" + photo

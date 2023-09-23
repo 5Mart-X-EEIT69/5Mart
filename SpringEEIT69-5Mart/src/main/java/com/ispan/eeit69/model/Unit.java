@@ -35,11 +35,15 @@ public class Unit {
 	public Unit() {
 	}
 	
-	public Unit(Integer unitId, String unitNumber, String unitName) {
-		this.unitId = unitId;
+	
+
+	public Unit(Chapter chapter, String unitNumber, String unitName) {
+		this.chapter = chapter;
 		this.unitNumber = unitNumber;
 		this.unitName = unitName;
 	}
+
+
 
 	public Integer getUnitId() {
 		return unitId;
