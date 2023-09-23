@@ -68,7 +68,8 @@
 	<!-- 		選單右邊 -->
 		<div class="col-2">test</div>
 		<div class="col-4 d-flex align-items-center" id="photoContainer">
-			<form action="?" method="post" class="w-100 mb-3" onsubmit="return sumbit()" >
+		
+			<form action="<c:url value="/teacherpicture" />" method="post" class="w-100 mb-3" onsubmit="return submit()" enctype="multipart/form-data">
 				<div class="d-flex">
 					<h1>自我介紹</h1>	
 				</div>
@@ -79,7 +80,7 @@
 						<img src="" class="ifigure-img img-fluid rounded">
 					</figure>				
 				</div>			
-				<input class="form-control form-control-lg" id="imgbtn" type="file" accept="image/*">
+				<input class="form-control form-control-lg" id="imgbtn" type="file" accept="image/*" name="photo" >
 				<div class="d-flex justify-content-center">
 					<button type="submit" class="btn btn-secondary mt-3" >儲存照片</button>				
 				</div>
