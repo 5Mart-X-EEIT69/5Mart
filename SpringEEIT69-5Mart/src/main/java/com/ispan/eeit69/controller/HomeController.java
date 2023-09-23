@@ -1,11 +1,38 @@
 package com.ispan.eeit69.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.ispan.eeit69.model.Course;
+import com.ispan.eeit69.service.ChapterService;
+import com.ispan.eeit69.service.CourseService;
+import com.ispan.eeit69.service.IntroductionService;
+import com.ispan.eeit69.service.UnitService;
+import com.ispan.eeit69.service.VideoService;
+
 @Controller
 public class HomeController {
+
+	CourseService courseService;
+	ChapterService chapterService;
+	UnitService unitService;
+	VideoService videoService;
+	IntroductionService introductionService;
+	
+	
+
+	public HomeController(CourseService courseService, ChapterService chapterService, UnitService unitService,
+			VideoService videoService, IntroductionService introductionService) {
+		super();
+		this.courseService = courseService;
+		this.chapterService = chapterService;
+		this.unitService = unitService;
+		this.videoService = videoService;
+		this.introductionService = introductionService;
+	}
 
 	@GetMapping("/")
 	public String home(Model model) {
@@ -33,7 +60,8 @@ public class HomeController {
 
 	@GetMapping("/visitorhomepage")
 	public String visitorhomepage(Model model) {
-		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		List<Course> allCourse =  courseService.findAll();
+		model.addAttribute("allCourse", allCourse );
 		return "visitorHomePage";
 	}
 	
