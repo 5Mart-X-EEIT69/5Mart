@@ -69,25 +69,26 @@
 <!-- 		選單右邊 -->
 		<div class="col-2">test</div>
 		<div class="col-4 d-flex align-items-center">
-			<form action="?" method="post" class="w-100 mb-3" onsubmit="return sumbit()">
+		
+			<form action="<c:url value="/introduction" />" method="post" class="w-100 mb-3" onsubmit="return sumbit()">
 					<div class="d-flex">
 						<h1>自我介紹</h1>
 					</div>
 					<hr>			
 					<label for="introduction" class="form-label mt-3">輸入你的自我介紹吧!(選填)</label>
-					<textarea class="form-control" id="introduction" rows="3"></textarea>
+					<textarea class="form-control" id="IntroductionText" rows="3" name="IntroductionText"></textarea>
 					
 					<label for="skill" class="form-label mt-3">輸入你的專長吧!(選填)</label>
-					<textarea class="form-control" id="skill" rows="3"></textarea>
+					<textarea class="form-control" id="Expertise" rows="3" name="Expertise"></textarea>
 					
 					<label for="blog" class="form-label mt-3">宣傳你的個人部落格吧(選填)</label>
-					<input type="url" class="form-control" id="blog" placeholder="https://...">
+					<input type="url" class="form-control" id="Blog" placeholder="https://..." name="Blog">
 					
 					<label for="youtube" class="form-label mt-3">宣傳你的個人Youtube吧(選填)</label>
-					<input type="url" class="form-control" id="youtube" placeholder="https://www.youtube.com/...">
+					<input type="url" class="form-control" id="Youtube" placeholder="https://www.youtube.com/..." name="Youtube">
 					
 					<label for="facebook" class="form-label mt-3">宣傳你的個人Facebook吧(選填)</label>
-					<input type="url" class="form-control" id="facebook" placeholder="https://www.facebook.com/...">
+					<input type="url" class="form-control" id="Facebook" placeholder="https://www.facebook.com/..." name="Facebook">
 
 					<div class="d-flex justify-content-center">
 						<button type="submit" class="btn btn-secondary mt-3">送出</button>
