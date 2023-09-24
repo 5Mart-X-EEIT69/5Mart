@@ -99,6 +99,7 @@
 		<div class="col-2"></div>
 		<div class="col-4 d-flex align-items-center justify-content-center">
 		<h1>這裡是課程頁面</h1>
+		<h2>${member.account}</h2>
 		</div>
 		<div class="col-4"></div>
 	</div>

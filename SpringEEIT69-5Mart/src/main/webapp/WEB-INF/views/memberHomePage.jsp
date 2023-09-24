@@ -595,7 +595,7 @@
 		</div>
 	</nav>
 	<!-- 導覽列 -->
-
+<div>${member.account}</div>
 
 	<!-- 輪播圖 -->
 	<div class="container mb-5">
