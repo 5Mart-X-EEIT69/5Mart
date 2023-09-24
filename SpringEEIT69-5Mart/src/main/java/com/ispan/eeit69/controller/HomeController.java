@@ -109,4 +109,9 @@ public class HomeController {
 	public String check(Model model) {	
 		return "check";
 	}
+	
+	@GetMapping("/student_dashboard")
+	public String student_dashboard(Model model) {	
+		return "/student_lms/student_dashboard";
+	}
 }

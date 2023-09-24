@@ -28,12 +28,14 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.ispan.eeit69.model.Announcement;
 import com.ispan.eeit69.model.Chapter;
 import com.ispan.eeit69.model.Course;
 import com.ispan.eeit69.model.Introduction;
 import com.ispan.eeit69.model.TeacherPicture;
 import com.ispan.eeit69.model.Unit;
 import com.ispan.eeit69.model.Video;
+import com.ispan.eeit69.service.AnnouncementService;
 import com.ispan.eeit69.service.ChapterService;
 import com.ispan.eeit69.service.CourseService;
 import com.ispan.eeit69.service.IntroductionService;
@@ -50,19 +52,22 @@ public class TeacherController {
 	VideoService videoService;
 	IntroductionService introductionService;
 	TeacherPictureService teacherPictureService;
+	AnnouncementService announcementService;
 	
 //	課程
 
 	public TeacherController(CourseService courseService, ChapterService chapterService, UnitService unitService,
-			VideoService videoService, IntroductionService introductionService,
-			TeacherPictureService teacherPictureService) {
+			VideoService videoService, IntroductionService introductionService, TeacherPictureService teacherPictureService,
+			AnnouncementService announcementService) {
 		this.courseService = courseService;
 		this.chapterService = chapterService;
 		this.unitService = unitService;
 		this.videoService = videoService;
 		this.introductionService = introductionService;
 		this.teacherPictureService = teacherPictureService;
+		this.announcementService = announcementService;
 	}
+	
 	
 	
 
@@ -71,8 +76,6 @@ public class TeacherController {
 		return "TeacherMain";
 	}// 跳轉至講師主頁面
 
-
-	
 
 
 	@GetMapping("/TeacherCreate")
@@ -127,6 +130,8 @@ public class TeacherController {
 
 	@GetMapping("/TeacherComminicateAnnouncement")
 	public String TeacherComminicateAnnouncement(Model model) {
+		List<Course> course = courseService.findAll();
+		model.addAttribute("course", course);
 		return "/TeacherComminicate/TeacherComminicateAnnouncement";
 	}// 跳轉至講師交流公告頁面
 
@@ -339,4 +344,12 @@ public class TeacherController {
 		return "/TeacherInformation/TeacherInformationPhoto";
 	}
 	
+	@PostMapping("/newannouncement")
+	public String newannouncement(@ModelAttribute Announcement announcement, Model model) {
+		announcementService.save(announcement);
+		System.out.println("測試");
+		List<Course> course = courseService.findAll();
+		model.addAttribute("course", course);
+		return "/TeacherComminicate/TeacherComminicateAnnouncement";
+	}
 }
