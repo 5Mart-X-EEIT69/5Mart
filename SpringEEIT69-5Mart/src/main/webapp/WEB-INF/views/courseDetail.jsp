@@ -269,13 +269,13 @@ hr {
 								</div>
 							</div>
 						</div>
-						
+
 						<h4 class="fw-bolder mb-4 mt-5">講師介紹</h4>
 						<div class="p-5">
 							<img class="img-fluid rounded-circle"
 								src="https://picsum.photos/150/150?random=10" alt="...">
 						</div>
-						
+
 						<div class="col">
 							<p class="mb-2" style="font-size: lg;">趙令文</p>
 							<div class="container px-0">
