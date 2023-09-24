@@ -68,7 +68,8 @@
 	<!-- 		選單右邊 -->
 		<div class="col-2">test</div>
 		<div class="col-4 d-flex align-items-center" id="photoContainer">
-			<form action="?" method="post" class="w-100 mb-3" onsubmit="return sumbit()" >
+		
+			<form action="<c:url value="/teacherpicture" />" method="post" class="w-100 mb-3" onsubmit="return submit()" enctype="multipart/form-data">
 				<div class="d-flex">
 					<h1>自我介紹</h1>	
 				</div>
@@ -76,10 +77,21 @@
 				<label class="form-label">更新您的個人照片</label>
 				<div class="w-100 mb-3 border rounded" style="height: 357px">
 					<figure class="figure m-0 d-flex justify-content-center">
-						<img src="" class="ifigure-img img-fluid rounded">
+					<img src="<c:if test="${not empty base64Image}">
+					data:image/jpeg;base64,${base64Image}
+					</c:if>" class="ifigure-img img-fluid rounded">
+
+<%-- 					<c:choose> --%>
+<%-- 					<c:when test="${not empty base64Image}"> --%>
+<%-- 					<img src="data:image/jpeg;base64,${base64Image}" class="ifigure-img img-fluid rounded"> --%>
+<%-- 					</c:when> --%>
+<%-- 					<c:otherwise> --%>
+<!-- 					<img src="" class="ifigure-img img-fluid rounded"> -->
+<%-- 					</c:otherwise> --%>
+<%-- 					</c:choose> --%>
 					</figure>				
 				</div>			
-				<input class="form-control form-control-lg" id="imgbtn" type="file" accept="image/*">
+				<input class="form-control form-control-lg" id="imgbtn" type="file" accept="image/*" name="photo" >
 				<div class="d-flex justify-content-center">
 					<button type="submit" class="btn btn-secondary mt-3" >儲存照片</button>				
 				</div>
