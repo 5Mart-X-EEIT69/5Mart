@@ -1,7 +1,6 @@
 package com.ispan.eeit69.model;
 
 import java.sql.Blob;
-import java.sql.Clob;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,6 +17,11 @@ public class TeacherPicture {
 	private Integer TeacherPictureId;
 	
 	private Blob photo;
+
+	
+	
+	public TeacherPicture() {
+	}
 
 	public TeacherPicture(Blob photo) {
 		this.photo = photo;

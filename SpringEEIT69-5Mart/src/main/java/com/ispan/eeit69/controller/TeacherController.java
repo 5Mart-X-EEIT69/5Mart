@@ -6,6 +6,7 @@ import java.sql.Clob;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Iterator;
 import java.util.List;
 
@@ -318,13 +319,23 @@ public class TeacherController {
 	}
 	
 	@PostMapping("/teacherpicture")
-	public String teacherpicture(@RequestParam("photo") MultipartFile photo) throws IOException, SerialException, SQLException {
+	public String teacherpicture(@RequestParam("photo") MultipartFile photo ,Model model) throws IOException, SerialException, SQLException {
 		
 		byte[] photoBytes = photo.getBytes();
 		Blob blob = new SerialBlob(photoBytes);
 		TeacherPicture teacherPicture = new TeacherPicture(blob);
 		teacherPictureService.save(teacherPicture);
 		System.out.println("測試");
+		
+		TeacherPicture findpicture = new TeacherPicture();
+		findpicture = teacherPictureService.findById(10);
+		
+		// 将Blob数据转换为Base64编码的字符串
+		byte[] imageBytes = findpicture.getPhoto().getBytes(1, (int) findpicture.getPhoto().length());
+		String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+
+		
+		model.addAttribute("base64Image",base64Image);
 		return "/TeacherInformation/TeacherInformationPhoto";
 	}
 	
