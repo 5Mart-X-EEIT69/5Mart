@@ -394,16 +394,19 @@
                 chapterRename()
             })//章節及單元刪除
 
+            let dedeteIdgroup = {};
             $("#chapterContainer").on("click", ".unitDelete", function () {
 
                 console.log($(this).parent().parent().parent().children().length)
                 let count = $(this).parent().parent().parent().children().length;
                 if (count != 1) {
-                    let iIndex = $(this).parent().parent().remove()
+                	let deleteId = $(this).parent().next().val();
+                	dedeteIdgroup.
+                    let iIndex = $(this).parent().parent().remove();
                     unitRename()
                 } else {
                     alert("每個章節至少需要一個單元!")
-                }
+                }//////////////////////做到這裡
 
             })//單元刪除
 
