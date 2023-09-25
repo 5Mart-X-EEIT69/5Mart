@@ -5,10 +5,13 @@ import java.sql.Timestamp;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
@@ -24,6 +27,10 @@ public class member implements Serializable {
 	private String account;
 	private String password;
 	private Timestamp registerTime;
+	
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "photo_id")
+    private TeacherPicture TeacherPicture;
 
 	// 建構式
 	public member() {

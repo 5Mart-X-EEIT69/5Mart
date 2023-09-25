@@ -7,11 +7,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.ispan.eeit69.model.Course;
+import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.ChapterService;
 import com.ispan.eeit69.service.CourseService;
 import com.ispan.eeit69.service.IntroductionService;
 import com.ispan.eeit69.service.UnitService;
 import com.ispan.eeit69.service.VideoService;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class HomeController {
@@ -21,7 +24,7 @@ public class HomeController {
 	UnitService unitService;
 	VideoService videoService;
 	IntroductionService introductionService;
-	
+	HttpSession session; 
 	
 
 	public HomeController(CourseService courseService, ChapterService chapterService, UnitService unitService,
@@ -68,6 +71,8 @@ public class HomeController {
 	@GetMapping("/memberHomePage")
 	public String memberHomePage(Model model) {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		member member = (member) session.getAttribute("member");
+	
 		return "memberHomePage";
 	}
 

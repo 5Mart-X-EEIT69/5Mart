@@ -6,7 +6,6 @@ import java.sql.Clob;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.Iterator;
 import java.util.List;
 
@@ -35,6 +34,7 @@ import com.ispan.eeit69.model.Introduction;
 import com.ispan.eeit69.model.TeacherPicture;
 import com.ispan.eeit69.model.Unit;
 import com.ispan.eeit69.model.Video;
+import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.AnnouncementService;
 import com.ispan.eeit69.service.ChapterService;
 import com.ispan.eeit69.service.CourseService;
@@ -42,6 +42,8 @@ import com.ispan.eeit69.service.IntroductionService;
 import com.ispan.eeit69.service.TeacherPictureService;
 import com.ispan.eeit69.service.UnitService;
 import com.ispan.eeit69.service.VideoService;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class TeacherController {
@@ -53,12 +55,16 @@ public class TeacherController {
 	IntroductionService introductionService;
 	TeacherPictureService teacherPictureService;
 	AnnouncementService announcementService;
+	HttpSession session; 
 	
 //	課程
 
+
+	
 	public TeacherController(CourseService courseService, ChapterService chapterService, UnitService unitService,
 			VideoService videoService, IntroductionService introductionService, TeacherPictureService teacherPictureService,
-			AnnouncementService announcementService) {
+			AnnouncementService announcementService, HttpSession session) {
+		super();
 		this.courseService = courseService;
 		this.chapterService = chapterService;
 		this.unitService = unitService;
@@ -66,6 +72,7 @@ public class TeacherController {
 		this.introductionService = introductionService;
 		this.teacherPictureService = teacherPictureService;
 		this.announcementService = announcementService;
+		this.session = session;
 	}
 	
 	
@@ -73,8 +80,11 @@ public class TeacherController {
 
 	@GetMapping("/TeacherMain")
 	public String teacher(Model model) {
+		member member = (member) session.getAttribute("member");
 		return "TeacherMain";
 	}// 跳轉至講師主頁面
+
+
 
 
 
@@ -332,15 +342,15 @@ public class TeacherController {
 		teacherPictureService.save(teacherPicture);
 		System.out.println("測試");
 		
-		TeacherPicture findpicture = new TeacherPicture();
-		findpicture = teacherPictureService.findById(10);
-		
-		// 将Blob数据转换为Base64编码的字符串
-		byte[] imageBytes = findpicture.getPhoto().getBytes(1, (int) findpicture.getPhoto().length());
-		String base64Image = Base64.getEncoder().encodeToString(imageBytes);
-
-		
-		model.addAttribute("base64Image",base64Image);
+//		TeacherPicture findpicture = new TeacherPicture();
+//		findpicture = teacherPictureService.findById(10);
+//		
+//		// 将Blob数据转换为Base64编码的字符串
+//		byte[] imageBytes = findpicture.getPhoto().getBytes(1, (int) findpicture.getPhoto().length());
+//		String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+//
+//		
+//		model.addAttribute("base64Image",base64Image);
 		return "/TeacherInformation/TeacherInformationPhoto";
 	}
 	

@@ -4,7 +4,6 @@ import java.sql.Timestamp;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,14 +11,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.memberService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class RegController {
 
 	memberService memberService ;
 	
+	HttpSession session;  // 注入 HttpSession
+	
 
-	public RegController(memberService memberService) {
+	
+
+	public RegController(com.ispan.eeit69.service.memberService memberService, HttpSession session) {
+		
 		this.memberService = memberService;
+		this.session = session;
 	}
 
 	@PostMapping("/regMember")
@@ -43,8 +50,11 @@ public class RegController {
 			System.out.println("ok");
 			 model.addAttribute("memberdata", result);
 			 model.addAttribute("login", "success");
+			 session.setAttribute("member", result);
 			 return "/memberHomePage";
 		}
+		
+		
 		
 		
 		
