@@ -35,7 +35,7 @@ public class Course implements Serializable {
 	private String sort;
 	private Timestamp registerTime;
 	
-	@OneToMany(mappedBy = "course")
+	@OneToMany(mappedBy = "course" )
 	@OrderBy("chapterNumber")
 	private Set<Chapter> chapter = new LinkedHashSet<Chapter>();
 		

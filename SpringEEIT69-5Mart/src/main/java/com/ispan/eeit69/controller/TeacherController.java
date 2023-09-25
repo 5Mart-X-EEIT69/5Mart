@@ -286,35 +286,103 @@ public class TeacherController {
 		course.setLevel(formData.get("level").asText());
 		course.setSort(formData.get("sort").asText());
 		courseService.save(course);
+		System.out.println("修改課程基本資訊完成");
+		//修改課程基本資訊
+		JsonNode existingChapter = formData.get("existingChapter");
+		Iterator<JsonNode> existingChapterValue = existingChapter.iterator();
+		Iterator<String> existingChapterKey = existingChapter.fieldNames();
+		for (int i = 0; i < existingChapter.size(); i++) {
+			String chapterValue = existingChapterValue.next().asText();
+			String chapterKey = existingChapterKey.next();
+			Chapter existchapter = chapterService.findById(Integer.valueOf(chapterKey));
+			existchapter.setChapterName(chapterValue);
+			chapterService.save(existchapter);
+			System.out.println("修改現有章節名稱完成");
+		}
+		//修改章節名稱
+		JsonNode existingUnit = formData.get("existingUnit");
+		Iterator<JsonNode> existingUnitValue = existingUnit.iterator();
+		Iterator<String> existingUnitKey = existingUnit.fieldNames();
+		for (int i = 0; i < existingUnit.size(); i++) {
+			String unitValue = existingUnitValue.next().asText();
+			String unitKey = existingUnitKey.next();
+			Unit existUnit = unitService.findById(Integer.valueOf(unitKey));
+			existUnit.setUnitName(unitValue);
+			unitService.save(existUnit);
+			System.out.println("修改現有單元名稱完成");
+		}
+		//修改單元名稱
+		
 		System.out.println("修改現有課程名稱完成");
+//		修改課程
+		
+		JsonNode addChapter = formData.get("newChapter");
+		Iterator<JsonNode> addChapterValue = addChapter.iterator();
+		Iterator<String> addChapterKey = addChapter.fieldNames();
+		ArrayList<Chapter> chapterTemp = new ArrayList<Chapter>();
+		System.out.println(addChapter.size());
+		for (int i = 0; i < addChapter.size(); i++) {
+			String chapterValue = addChapterValue.next().asText();
+			String chapterKey = addChapterKey.next();
+			Integer courseId = Integer.valueOf(chapterKey.substring(8, chapterKey.indexOf("chapter")));
+			Integer chapterNumber = Integer.valueOf(chapterKey.substring(chapterKey.indexOf("chapter") + 7));
+			int chapterLen = courseService.findById(courseId).getChapter().size();
+			if(chapterLen>=chapterNumber) {
+				Iterator<Chapter> chapterIterator = courseService.findById(courseId).getChapter().iterator();
+				for (int j = 1; j < chapterNumber; j++) {
+					chapterIterator.next();
+				}
+				for(int k = 0 ; k<=(chapterLen-chapterNumber) ;k++) {
+					chapterIterator.next().setChapterNumber("章節"+(chapterNumber+1+k));
+				}
+			}//判斷是插入後先執行Rename再插入章節
+			Chapter newChapter = new Chapter(courseService.findById(courseId),"章節"+chapterNumber,chapterValue);
+			chapterService.save(newChapter);
+			chapterTemp.add(newChapter);
+			System.out.println("新增or插入章節完成");
+			
+			
+			System.out.println("courseId : " + courseId + "chapterNumber : " + chapterNumber + "value : " + chapterValue);
+		}
+//		新增章節
+		
 		
 		JsonNode addUnit = formData.get("newUnit");
 		Iterator<JsonNode> addUnitValue = addUnit.iterator();
 		Iterator<String> addUnitKey = addUnit.fieldNames();
 		System.out.println(addUnit.size());
+		int newChapterCount = 0 ; 
 		for (int i = 0; i < addUnit.size(); i++) {
 			String UnitValue = addUnitValue.next().asText();
 			String UnitKey = addUnitKey.next();
 			Integer chapterId = Integer.valueOf(UnitKey.substring(9, UnitKey.indexOf("unit")));
 			Integer unitNumber = Integer.valueOf(UnitKey.substring(UnitKey.indexOf("unit") + 4));
-			int unitLen = chapterService.findById(chapterId).getUnit().size();
-			if(unitLen>=unitNumber) {
-				Iterator<Unit> unitIterator = chapterService.findById(chapterId).getUnit().iterator();
-				for (int j = 1; j < unitNumber; j++) {
-					unitIterator.next();
-				}
-				for(int k = 0 ; k<=(unitLen-unitNumber) ;k++) {
-					unitIterator.next().setUnitNumber("單元"+(unitNumber+1+k));
-				}
-			}
-			Unit newUnit = new Unit(chapterService.findById(chapterId),"單元"+unitNumber,UnitValue);
-			unitService.save(newUnit);
+			if(chapterId == 0) {
+				//jsp中我將新章節的chapterId定義為0
+				Unit newUnit = new Unit(chapterTemp.get(newChapterCount++),"單元"+unitNumber,UnitValue);
+				unitService.save(newUnit);
+			}else {
+				int unitLen = chapterService.findById(chapterId).getUnit().size();
+				if(unitLen>=unitNumber) {
+					Iterator<Unit> unitIterator = chapterService.findById(chapterId).getUnit().iterator();
+					for (int j = 1; j < unitNumber; j++) {
+						unitIterator.next();
+					}
+					for(int k = 0 ; k<=(unitLen-unitNumber) ;k++) {
+						unitIterator.next().setUnitNumber("單元"+(unitNumber+1+k));
+					}
+				}//判斷是插入後先執行Rename再插入單元				
+				Unit newUnit = new Unit(chapterService.findById(chapterId),"單元"+unitNumber,UnitValue);
+				unitService.save(newUnit);
+			}//判斷該單元是插入至現有章節還是新增的章節內
 			System.out.println("新增or插入單元完成");
 			
 			
-			System.out.println("修改章節、單元名稱未完成，刪除章節、單元未完成");
 			System.out.println("ChapterId : " + chapterId + "unitId : " + unitNumber + "value : " + UnitValue);
 		}
+//		新增單元
+		
+		System.out.println("修改章節、單元名稱未完成，刪除章節、單元未完成");
 
 	}// 更新課程後跳轉已開課內容
 

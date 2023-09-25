@@ -38,11 +38,13 @@ public class Chapter {
 	public Chapter() {
 	}
 	
-	public Chapter(Integer chapterId, Course course, String chapterNumber, String chapterName, Set<Unit> unit) {
-		this.chapterId = chapterId;
+	public Chapter(Course course, String chapterNumber, String chapterName) {
+		this.course = course;
 		this.chapterNumber = chapterNumber;
 		this.chapterName = chapterName;
 	}
+
+
 
 
 
