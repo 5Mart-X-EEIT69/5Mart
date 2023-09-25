@@ -32,6 +32,10 @@ public class Introduction {
 		Facebook = facebook;
 	}
 
+	public Introduction() {
+		
+	}
+
 	public Integer getIntroductionId() {
 		return IntroductionId;
 	}
