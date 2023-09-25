@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.ispan.eeit69.model.Course;
+import com.ispan.eeit69.model.Introduction;
 import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.ChapterService;
 import com.ispan.eeit69.service.CourseService;
@@ -110,7 +111,10 @@ public class HomeController {
 		return "check";
 	}
 	@GetMapping("/blogpage")
-	public String blogpage(Model model) {	
+	public String blogpage(Model model) {
+		Introduction introduction= new Introduction();
+		introduction = introductionService.findById(6);
+		model.addAttribute("introduction",introduction);
 		return "blogpage";
 	}
 }
