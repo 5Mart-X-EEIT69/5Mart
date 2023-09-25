@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <title>課程學習頁面</title>
+    <style>
+      /* 自定義CSS，讓tab分頁佔滿寬度 */
+      .tab-pane {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container mt-5">
+      <h1>課程名稱</h1>
+      <!-- 使用 Bootstrap Grid System 進行布局 -->
+      <div class="row">
+        <!-- 影片播放器 -->
+        <div class="col-md-8">
+          <iframe
+            id="Youtube_GodKnows"
+            src="https://www.youtube.com/embed/WWB01IuMvzA?si=WCmvsCL27PkLCdWk"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <!-- 章節和單元的選單（手風琴） -->
+        <div class="col-md-4">
+          <!-- 主手風琴：章節 -->
+          <!-- 主手風琴：章節 -->
+          <div class="accordion" id="mainAccordion">
+            <!-- 章節1 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#chapter1"
+                >
+                  章節1
+                </button>
+              </h2>
+              <div
+                id="chapter1"
+                class="accordion-collapse collapse"
+                data-bs-parent="#mainAccordion"
+              >
+                <div class="accordion-body">
+                  <!-- 子手風琴：單元 -->
+                  <div class="accordion" id="unitAccordion1">
+                    <!-- 單元1 -->
+                    <div class="accordion-item">
+                      <h3 class="accordion-header">
+                        <button
+                          class="accordion-button"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#unit1-1"
+                        >
+                          單元1
+                        </button>
+                      </h3>
+                      <div
+                        id="unit1-1"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#unitAccordion1"
+                      >
+                        <div class="accordion-body">
+                          <!-- 課程影片按鈕 -->
+                          <button>影片1-1</button>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- 單元2 -->
+                    <div class="accordion-item">
+                      <h3 class="accordion-header">
+                        <button
+                          class="accordion-button"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#unit1-2"
+                        >
+                          單元2
+                        </button>
+                      </h3>
+                      <div
+                        id="unit1-2"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#unitAccordion1"
+                      >
+                        <div class="accordion-body">
+                          <!-- 課程影片按鈕 -->
+                          <button>影片1-2</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 章節2 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#chapter2"
+                >
+                  章節2
+                </button>
+              </h2>
+              <div
+                id="chapter2"
+                class="accordion-collapse collapse"
+                data-bs-parent="#mainAccordion"
+              >
+                <div class="accordion-body">
+                  <!-- 子手風琴：單元 -->
+                  <div class="accordion" id="unitAccordion2">
+                    <!-- 單元1 -->
+                    <div class="accordion-item">
+                      <h3 class="accordion-header">
+                        <button
+                          class="accordion-button"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#unit2-1"
+                        >
+                          單元1
+                        </button>
+                      </h3>
+                      <div
+                        id="unit2-1"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#unitAccordion2"
+                      >
+                        <div class="accordion-body">
+                          <!-- 課程影片按鈕 -->
+                          <button>影片2-1</button>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- 單元2 -->
+                    <div class="accordion-item">
+                      <h3 class="accordion-header">
+                        <button
+                          class="accordion-button"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#unit2-2"
+                        >
+                          單元2
+                        </button>
+                      </h3>
+                      <div
+                        id="unit2-2"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#unitAccordion2"
+                      >
+                        <div class="accordion-body">
+                          <!-- 課程影片按鈕 -->
+                          <button>影片2-2</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab分頁 -->
+      <div class="mt-5">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="#overview" data-bs-toggle="tab"
+              >課程總覽</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#qa" data-bs-toggle="tab">問與答</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#reviews" data-bs-toggle="tab">評論</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="overview">
+            這裡是課程總覽。
+            <!-- course overview code START -->
+            <div class="container">
+              <div class="row">
+                <div>
+                  <h3 style="font-weight: bold">關於此課程</h3>
+                </div>
+                <div>
+                  Spring Boot 3: Learn Spring 6, Spring Core, Spring REST,
+                  Spring MVC, Spring Security, Thymeleaf, JPA, Hibernate, MySQL
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <hr />
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-4">依編號</div>
+                <div class="col-4">
+                  <div>技能等級: 所有級別</div>
+                  <div>學生: 333617</div>
+                  <div>語言: 英語</div>
+                  <div>字幕: 是</div>
+                </div>
+                <div class="col-4">
+                  <div>講座: 366</div>
+                  <div>影片: 總計 31 小時</div>
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <hr />
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-4">證書</div>
+                <div class="col-4">
+                  <div>完成整門課程，取得 Udemy 證書</div>
+                  <br />
+                  <div>
+                    <div class="d-grid gap-2 col-6">
+                      <button type="button" class="btn btn-outline-dark">
+                        Udemy 證書
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <hr />
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-4">說明</div>
+                <div class="col-4">
+                  <div>
+                    NEW FOR SPRING BOOT 3 AND SPRING 6 POPULAR IDE - IntelliJ
+                    (free version) #1 BEST SELLING SPRING BOOT & HIBERNATE
+                    COURSE ON UDEMY - 320,000+ STUDENTS ENROLLED OVER 70,000
+                    REVIEWS - 5 STARS! THIS COURSE COVERS SPRING BOOT 3 AND
+                    SPRING 6 LEARN these HOT TOPICS in Spring Boot 3 and Spring
+                    6: Spring Boot 3 Spring Framework 6 Spring Boot 3 Core
+                    Spring Boot 3 Annotations Spring Boot 3 Java Configuration
+                    (all Java, no xml) Spring Boot 3 and Spring MVC Spring Boot
+                    3 Hibernate/JPA CRUD Spring Boot 3 Security Spring Boot 3
+                    REST API Maven
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <hr />
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-4">講師</div>
+                <div class="col-4">
+                  <div class="row">
+                    <div class="col-3">
+                      <img
+                        src="/SpringEEIT69-5Mart/assets/images/評論人頭照.jpeg"
+                        alt="xxxx"
+                        style="max-width: 80px; max-height: 80px"
+                      />
+                    </div>
+                    <div class="col-8">講師名稱</div>
+                  </div>
+                  <br />
+                  <div class="row">
+                    講師簡介 Chád (shod) Darby is an author, instructor and
+                    speaker in the Java development world. Chád is a
+                    contributing author to several Java books, including
+                    Professional Java E-Commerce (Wrox Press), Beginning Java
+                    Networking (Wrox Press), and XML and Web Services Unleashed
+                    (Sams Publishing). Chád has Java certifications from Oracle
+                    and IBM. He holds a B.S. in Computer Science from Carnegie
+                    Mellon University.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- course overview code END -->
+          <div class="tab-pane" id="qa">這裡是問與答。</div>
+          <div class="tab-pane" id="reviews">這裡是評論。</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // <Javascript function to handle video switching function START>
+      // 取得所有影片按鈕
+      const videoButtons = document.querySelectorAll("[data-video-id]");
+
+      // 為每個影片按鈕添加事件監聽器
+      videoButtons.forEach((btn) => {
+        btn.addEventListener("click", function () {
+          // 取得該按鈕上儲存的 YouTube 影片 ID
+          const videoId = this.getAttribute("data-video-id");
+
+          // 取得 YouTube iframe 元素
+          const youtubePlayer = document.getElementById("youtubePlayer");
+
+          // 更新 iframe 的 src 屬性以切換影片
+          youtubePlayer.src = `https://www.youtube.com/embed/${videoId}`;
+        });
+      });
+      // <Javascript function to handle video switching function END>
+    </script>
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -100,11 +100,6 @@ public class HomeController {
 		return "courseDetail";
 	}
 	
-	@GetMapping("/student_course_viewer")
-	public String student_course_viewer(Model model) {	
-		return "/student_lms/student_course_viewer";
-	}
-	
 	@GetMapping("/evaluate")
 	public String evaluate(Model model) {	
 		return "evaluate";
@@ -113,10 +108,5 @@ public class HomeController {
 	@GetMapping("/check")
 	public String check(Model model) {	
 		return "check";
-	}
-	
-	@GetMapping("/student_dashboard")
-	public String student_dashboard(Model model) {	
-		return "/student_lms/student_dashboard";
 	}
 }
