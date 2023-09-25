@@ -109,4 +109,8 @@ public class HomeController {
 	public String check(Model model) {	
 		return "check";
 	}
+	@GetMapping("/blogpage")
+	public String blogpage(Model model) {	
+		return "blogpage";
+	}
 }
