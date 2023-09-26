@@ -823,37 +823,41 @@
 
 		<div class="row">
 			<div class="col-6 col-md-3 mb-3">
-			<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="#" role="button">語言11</a>
-<!-- 				<button type="button" -->
-<!-- 					class="w-100 btn btn-outline-secondary btn-lg btnClass">語言</button> -->
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="/visitorsearchpage?sort=語言"
+					role="button">語言</a>
+
 			</div>
 			<div class="col-6 col-md-3 mb-3">
-				<button type="button"
-					class="w-100 btn btn-outline-secondary btn-lg btnClass">開發</button>
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="#"
+					role="button">開發</a>
 			</div>
 			<div class="col-6 col-md-3 mb-3">
-				<button type="button"
-					class="w-100 btn btn-outline-secondary btn-lg btnClass">行銷</button>
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="#"
+					role="button">行銷</a>
+
 			</div>
 			<div class="col-6 col-md-3 mb-3">
-				<button type="button"
-					class="w-100 btn btn-outline-secondary btn-lg btnClass">投資理財</button>
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="#"
+					role="button">投資理財</a> 
 			</div>
 			<div class="col-6 col-md-3 mb-3">
-				<button type="button"
-					class="w-100 btn btn-outline-secondary btn-lg btnClass">音樂</button>
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="#"
+					role="button">音樂</a>
+
 			</div>
 			<div class="col-6 col-md-3 mb-3">
-				<button type="button"
-					class="w-100 btn btn-outline-secondary btn-lg btnClass">攝影</button>
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="#"
+					role="button">攝影</a>
+
 			</div>
 			<div class="col-6 col-md-3 mb-3">
-				<button type="button"
-					class="w-100 btn btn-outline-secondary btn-lg btnClass">設計</button>
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="#"
+					role="button">設計</a>
+
 			</div>
 			<div class="col-6 col-md-3 mb-3">
-				<button type="button"
-					class="w-100 btn btn-outline-secondary btn-lg btnClass">職場技能</button>
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="#"
+					role="button">職場技能</a> 
 			</div>
 		</div>
 	</div>
