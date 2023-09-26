@@ -125,6 +125,11 @@ public class HomeController {
 
 	}
 
+	@GetMapping("/teacherNavBar")
+	public String teacherNavBar(Model model) {
+		return "teacherNavBar";
+	}
+	
 	@GetMapping("/searchsort")
 	public String searchsort(@RequestParam("sort") String sort, Model model) {
 		System.out.println(sort);
