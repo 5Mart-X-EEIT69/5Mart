@@ -108,12 +108,13 @@ hr {
 					<div class="row gx-4 gx-lg-5 align-items-center my-5">
 						<div class="col-lg-7">
 							<img class="img-fluid rounded mb-4 mb-lg-0"
-								src="https://picsum.photos/380/260?random=10" alt="...">
+								src="https://picsum.photos/400/380?random=10" alt="...">
 						</div>
 						<div class="col-lg-5">
 							<div class="container px-0">
 								<div class="row">
 									<h1 style="font-weight: bolder;">
+									<br>
 										<strong>Java從零開始學習</strong>
 									</h1>
 								</div>
@@ -139,15 +140,15 @@ hr {
 								doesn't have too much fancy flare to it, but it makes a great
 								use of the standard Bootstrap core components. Feel free to use
 								this template for any project you want!</p>
-
-							<div col>
+<div class="row">
+							<div class="col">
 								<a class="btn btn-primary" href="#!">加入購物車</a>
 							</div>
 							<div class="col">
-								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+								<i class="w-100 p-3 fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
 							</div>
 						</div>
-
+</div>
 					</div>
 					<!-- Post content-->
 					<section class="mb-5">
@@ -271,23 +272,30 @@ hr {
 						</div>
 
 						<h4 class="fw-bolder mb-4 mt-5">講師介紹</h4>
-						<div class="p-5">
-							<img class="img-fluid rounded-circle"
-								src="https://picsum.photos/150/150?random=10" alt="...">
-						</div>
+						<div class="row">
+							<div class="col-lg-7">
+								<div class="p-4">
+									<img class="w-50 img-fluid rounded-circle" 
+										src="https://picsum.photos/150/150?random=10" alt="...">
+								</div>
+							</div>
+							<div class="col-5">
+								<br>
+								<br>						
+								<br>
+								<p class="mb-2" style="font-size: lg;">趙令文</p>
+								<div class="container px-0">
+									<div class="row"></div>
+									<div class="row"></div>
+									<div class="row d-inline ">
+										<strong style="font-size: large;">4.5 </strong> <i
+											class="bi bi-star-fill px-0"></i> <i
+											class="bi bi-star-fill px-0"></i> <i
+											class="bi bi-star-fill px-0"></i> <i
+											class="bi bi-star-fill px-0"></i> <i
+											class="bi bi-star-half px-0"></i> (123)
+									</div>
 
-						<div class="col">
-							<p class="mb-2" style="font-size: lg;">趙令文</p>
-							<div class="container px-0">
-								<div class="row"></div>
-								<div class="row"></div>
-								<div class="row d-inline ">
-									<strong style="font-size: large;">4.5 </strong> <i
-										class="bi bi-star-fill px-0"></i> <i
-										class="bi bi-star-fill px-0"></i> <i
-										class="bi bi-star-fill px-0"></i> <i
-										class="bi bi-star-fill px-0"></i> <i
-										class="bi bi-star-half px-0"></i> (123)
 								</div>
 
 							</div>
@@ -298,71 +306,75 @@ hr {
 			</div>
 		</div>
 		<!-- Comments section-->
-		<section class="mb-5">
-			<div class="card Lg">
-				<div class="card-body">
-					<!-- Comment form-->
-					<form class="mb-4">
-						<textarea class="form-control" rows="3"
-							placeholder="Join the discussion and leave a comment!"></textarea>
-					</form>
-					<!-- Comment with nested comments-->
-					<div class="d-flex mb-4">
-						<!-- Parent comment-->
-						<div class="flex-shrink-0">
-							<img class="rounded-circle"
-								src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
-						</div>
-						<div class="ms-3">
-							<div class="fw-bold">Hank Lee</div>
-							If you're going to lead a space frontier, it has to be
-							government; it'll never be private enterprise. Because the space
-							frontier is dangerous, and it's expensive, and it has
-							unquantified risks.
-							<!-- Child comment 1-->
-							<div class="d-flex mt-4">
+		<div class="row container">
+			<div class="col-lg-8">
+				<section class="mb-5">
+					<div class="card Lg">
+						<div class="card-body">
+							<!-- Comment form-->
+							<form class="mb-4">
+								<textarea class="form-control" rows="3"
+									placeholder="Join the discussion and leave a comment!"></textarea>
+							</form>
+							<!-- Comment with nested comments-->
+							<div class="d-flex mb-4">
+								<!-- Parent comment-->
 								<div class="flex-shrink-0">
 									<img class="rounded-circle"
 										src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
 								</div>
 								<div class="ms-3">
-									<div class="fw-bold">Zhang Sam</div>
-									And under those conditions, you cannot establish a
-									capital-market evaluation of that enterprise. You can't get
-									investors.
+									<div class="fw-bold">Hank Lee</div>
+									If you're going to lead a space frontier, it has to be
+									government; it'll never be private enterprise. Because the
+									space frontier is dangerous, and it's expensive, and it has
+									unquantified risks.
+									<!-- Child comment 1-->
+									<div class="d-flex mt-4">
+										<div class="flex-shrink-0">
+											<img class="rounded-circle"
+												src="https://dummyimage.com/50x50/ced4da/6c757d.jpg"
+												alt="..." />
+										</div>
+										<div class="ms-3">
+											<div class="fw-bold">Zhang Sam</div>
+											And under those conditions, you cannot establish a
+											capital-market evaluation of that enterprise. You can't get
+											investors.
+										</div>
+									</div>
+									<!-- Child comment 2-->
+									<div class="d-flex mt-4">
+										<div class="flex-shrink-0">
+											<img class="rounded-circle"
+												src="https://dummyimage.com/50x50/ced4da/6c757d.jpg"
+												alt="..." />
+										</div>
+										<div class="ms-3">
+											<div class="fw-bold">趙令文</div>
+											沒問題，已上傳Github。
+										</div>
+									</div>
 								</div>
 							</div>
-							<!-- Child comment 2-->
-							<div class="d-flex mt-4">
+							<!-- Single comment-->
+							<div class="d-flex">
 								<div class="flex-shrink-0">
 									<img class="rounded-circle"
 										src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
 								</div>
 								<div class="ms-3">
-									<div class="fw-bold">趙令文</div>
-									沒問題，已上傳Github。
+									<div class="fw-bold">Commenter Name</div>
+									When I look at the universe and all the ways the universe wants
+									to kill us, I find it hard to reconcile that with statements of
+									beneficence.
 								</div>
 							</div>
 						</div>
 					</div>
-					<!-- Single comment-->
-					<div class="d-flex">
-						<div class="flex-shrink-0">
-							<img class="rounded-circle"
-								src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
-						</div>
-						<div class="ms-3">
-							<div class="fw-bold">Commenter Name</div>
-							When I look at the universe and all the ways the universe wants
-							to kill us, I find it hard to reconcile that with statements of
-							beneficence.
-						</div>
-					</div>
-				</div>
+				</section>
 			</div>
-		</section>
-	</div>
-	</div>
+		</div>
 	</div>
 	<!-- Side widgets-->
 	<div class="col-lg-4"></div>
