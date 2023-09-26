@@ -81,15 +81,16 @@ public class TeacherController {
 	@GetMapping("/TeacherMain")
 	public String teacher(Model model) {
 		member member = (member) session.getAttribute("member");
-		return "TeacherMain";
+		if(member != null) {
+			return "TeacherMain";			
+		}else {
+			return "redirect:/visitorhomepage";
+		}
 	}// 跳轉至講師主頁面
-
-
-
-
 
 	@GetMapping("/TeacherCreate")
 	public String teacherCreate(Model model) {
+	
 		return "/TeacherCourse/TeacherCreateCourses";
 	}// 跳轉至建立課程頁面
 

@@ -24,17 +24,17 @@ public class HomeController {
 	UnitService unitService;
 	VideoService videoService;
 	IntroductionService introductionService;
-	HttpSession session; 
-	
+	HttpSession session;
 
 	public HomeController(CourseService courseService, ChapterService chapterService, UnitService unitService,
-			VideoService videoService, IntroductionService introductionService) {
-		super();
+			VideoService videoService, IntroductionService introductionService, HttpSession session) {
+
 		this.courseService = courseService;
 		this.chapterService = chapterService;
 		this.unitService = unitService;
 		this.videoService = videoService;
 		this.introductionService = introductionService;
+		this.session = session;
 	}
 
 	@GetMapping("/")
@@ -54,7 +54,7 @@ public class HomeController {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
 		return "test3";
 	}
-	
+
 	@GetMapping("/test4")
 	public String test4(Model model) {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
@@ -63,60 +63,65 @@ public class HomeController {
 
 	@GetMapping("/visitorhomepage")
 	public String visitorhomepage(Model model) {
-		List<Course> allCourse =  courseService.findAll();
-		model.addAttribute("allCourse", allCourse );
-		return "visitorHomePage";
+		List<Course> allCourse = courseService.findAll();
+		model.addAttribute("allCourse", allCourse);
+		member member = (member) session.getAttribute("member");
+		if (member == null) {
+			return "visitorHomePage";
+		} else {
+			return "memberHomePage";
+		}
+
 	}
-	
+
 	@GetMapping("/memberHomePage")
 	public String memberHomePage(Model model) {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
 		member member = (member) session.getAttribute("member");
-	
+
 		return "memberHomePage";
 	}
-
 
 	@GetMapping("/visitorhomepage2")
 	public String visitorhomepage2(Model model) {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
 		return "visitorHomePage2";
 	}
-	
+
 	@GetMapping("/indextest2")
 	public String indextest2(Model model) {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
 		return "indextest2";
 	}
-	
+
 	@GetMapping("/visitorsearchpage")
 	public String visitorsearchpage(Model model) {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
 		return "visitorSearchPage";
 	}
-	
+
 	@GetMapping("/courseDetail")
-	public String courseDetail(Model model) {	
+	public String courseDetail(Model model) {
 		return "courseDetail";
 	}
-	
+
 	@GetMapping("/student_course_viewer")
-	public String student_course_viewer(Model model) {	
+	public String student_course_viewer(Model model) {
 		return "/student_lms/student_course_viewer";
 	}
-	
+
 	@GetMapping("/evaluate")
-	public String evaluate(Model model) {	
+	public String evaluate(Model model) {
 		return "evaluate";
 	}
-	
+
 	@GetMapping("/check")
-	public String check(Model model) {	
+	public String check(Model model) {
 		return "check";
 	}
-	
+
 	@GetMapping("/student_dashboard")
-	public String student_dashboard(Model model) {	
+	public String student_dashboard(Model model) {
 		return "/student_lms/student_dashboard";
 	}
 }

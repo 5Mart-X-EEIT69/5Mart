@@ -12,4 +12,7 @@ public interface memberService {
 	void update(member member);
 	
 	void deleteById(Integer id);
+	
+	boolean existsById(String account);
 }
+
