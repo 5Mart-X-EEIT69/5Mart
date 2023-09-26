@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,6 +25,10 @@ public class Introduction {
 	private String Youtube;
 	
 	private String Facebook;
+	
+	@OneToOne()
+    @JoinColumn(name = "member_id")
+    private member member;
 
 	public Introduction(String introductionText, String expertise, String blog, String youtube, String facebook) {
 		IntroductionText = introductionText;

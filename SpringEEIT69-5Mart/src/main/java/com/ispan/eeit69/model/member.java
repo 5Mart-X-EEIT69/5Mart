@@ -28,9 +28,11 @@ public class member implements Serializable {
 	private String password;
 	private Timestamp registerTime;
 	
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "photo_id")
+    @OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
     private TeacherPicture TeacherPicture;
+    
+    @OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
+    private Introduction introduction;
 
 	// 建構式
 	public member() {
@@ -92,11 +94,40 @@ public class member implements Serializable {
 		this.registerTime = registerTime;
 	}
 
+	
+	
+	public TeacherPicture getTeacherPicture() {
+		return TeacherPicture;
+	}
+
+	public void setTeacherPicture(TeacherPicture teacherPicture) {
+		TeacherPicture = teacherPicture;
+	}
+
+	public Introduction getIntroduction() {
+		return introduction;
+	}
+
+	public void setIntroduction(Introduction introduction) {
+		this.introduction = introduction;
+	}
+
+	public MultipartFile getMemberMultipartFile() {
+		return memberMultipartFile;
+	}
+
+	public void setMemberMultipartFile(MultipartFile memberMultipartFile) {
+		this.memberMultipartFile = memberMultipartFile;
+	}
+
 	@Override
 	public String toString() {
 		return "member [id=" + id + ", username=" + username + ", account=" + account + ", password=" + password
-				+ ", registerTime=" + registerTime + "]";
+				+ ", registerTime=" + registerTime + ", TeacherPicture=" + TeacherPicture + ", introduction="
+				+ introduction + ", memberMultipartFile=" + memberMultipartFile + "]";
 	}
+
+
 
 	
 	

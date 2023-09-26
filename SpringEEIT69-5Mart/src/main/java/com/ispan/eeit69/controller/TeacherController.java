@@ -6,6 +6,7 @@ import java.sql.Clob;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Iterator;
 import java.util.List;
 
@@ -42,6 +43,7 @@ import com.ispan.eeit69.service.IntroductionService;
 import com.ispan.eeit69.service.TeacherPictureService;
 import com.ispan.eeit69.service.UnitService;
 import com.ispan.eeit69.service.VideoService;
+import com.ispan.eeit69.service.memberService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -56,14 +58,15 @@ public class TeacherController {
 	TeacherPictureService teacherPictureService;
 	AnnouncementService announcementService;
 	HttpSession session; 
+	memberService memberService;
 	
 //	課程
 
 
-	
 	public TeacherController(CourseService courseService, ChapterService chapterService, UnitService unitService,
-			VideoService videoService, IntroductionService introductionService, TeacherPictureService teacherPictureService,
-			AnnouncementService announcementService, HttpSession session) {
+			VideoService videoService, IntroductionService introductionService,
+			TeacherPictureService teacherPictureService, AnnouncementService announcementService, HttpSession session,
+			com.ispan.eeit69.service.memberService memberService) {
 		super();
 		this.courseService = courseService;
 		this.chapterService = chapterService;
@@ -73,8 +76,10 @@ public class TeacherController {
 		this.teacherPictureService = teacherPictureService;
 		this.announcementService = announcementService;
 		this.session = session;
+		this.memberService = memberService;
 	}
 	
+
 	
 	
 
@@ -87,6 +92,7 @@ public class TeacherController {
 			return "redirect:/visitorhomepage";
 		}
 	}// 跳轉至講師主頁面
+
 
 	@GetMapping("/TeacherCreate")
 	public String teacherCreate(Model model) {
@@ -182,6 +188,27 @@ public class TeacherController {
 
 	@GetMapping("/TeacherInformationPhoto")
 	public String TeacherInformationPhoto(Model model) {
+		member member = (member) session.getAttribute("member");
+		System.out.println(member);
+		
+		TeacherPicture findpicture = new TeacherPicture();
+		findpicture = member.getTeacherPicture();
+		
+		if (findpicture != null) {
+		// 将Blob数据转换为Base64编码的字符串
+			System.out.println("TEST2");
+		byte[] imageBytes;
+		try {
+			imageBytes = findpicture.getPhoto().getBytes(1, (int) findpicture.getPhoto().length());
+			String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+			model.addAttribute("base64Image",base64Image);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		}
+		
 		return "/TeacherInformation/TeacherInformationPhoto";
 	}// 跳轉至講師資料照片頁面
 
@@ -335,23 +362,27 @@ public class TeacherController {
 	}
 	
 	@PostMapping("/teacherpicture")
-	public String teacherpicture(@RequestParam("photo") MultipartFile photo ,Model model) throws IOException, SerialException, SQLException {
+	public String teacherpicture(@RequestParam("photo") MultipartFile photo ,Model model,@RequestParam("memberId") Integer memberID) throws IOException, SerialException, SQLException {
 		
 		byte[] photoBytes = photo.getBytes();
 		Blob blob = new SerialBlob(photoBytes);
-		TeacherPicture teacherPicture = new TeacherPicture(blob);
+		member member = memberService.findByMemberId(memberID);
+		TeacherPicture teacherPicture = new TeacherPicture(blob,member);
 		teacherPictureService.save(teacherPicture);
-		System.out.println("測試");
+		
 		
 //		TeacherPicture findpicture = new TeacherPicture();
-//		findpicture = teacherPictureService.findById(10);
+//		findpicture = memberService.findByMemberId(memberID).getTeacherPicture();
 //		
+//		if (findpicture != null) {
 //		// 将Blob数据转换为Base64编码的字符串
 //		byte[] imageBytes = findpicture.getPhoto().getBytes(1, (int) findpicture.getPhoto().length());
 //		String base64Image = Base64.getEncoder().encodeToString(imageBytes);
-//
 //		
 //		model.addAttribute("base64Image",base64Image);
+//		}
+		
+		
 		return "/TeacherInformation/TeacherInformationPhoto";
 	}
 	

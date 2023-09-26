@@ -107,10 +107,6 @@ public class HomeController {
 	}
 
 
-	@GetMapping("/student_course_viewer")
-	public String student_course_viewer(Model model) {
-		return "/student_lms/student_course_viewer";
-	}
 
 
 	
@@ -126,10 +122,6 @@ public class HomeController {
 	}
 
 
-	@GetMapping("/student_dashboard")
-	public String student_dashboard(Model model) {
-		return "/student_lms/student_dashboard";
-	}
 	
 	@GetMapping("/blogpage")
 	public String blogpage(Model model) {
