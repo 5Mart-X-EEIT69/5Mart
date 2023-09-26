@@ -385,24 +385,33 @@
                 unitRename();
             })//動態增加單元元素
 
-
+            let ChapterdedeteIdgroup = [];
+            let UnitdedeteIdgroup = [];
+            
             $("#chapterContainer").on("click", ".chapterDelete", function () {
-                let iIndex = $(this).parent().parent().index()
-                console.log($(this).parent().parent().index())
-                $(this).parent().parent().parent().children().eq(iIndex + 1).remove()
-                $(this).parent().parent().parent().children().eq(iIndex).remove()
-                chapterRename()
+                let iIndex = $(this).parent().parent().index();
+                console.log(iIndex);
+                let chapterDeleteId = $(this).parent().next().val();
+                ChapterdedeteIdgroup.push(chapterDeleteId);
+                $(this).parent().parent().parent().children().eq(iIndex + 1).children().children("input[name='unitId']").each(function(index,element){
+                	let unitDeleteId = $(this).val();
+                	UnitdedeteIdgroup.push(unitDeleteId);
+                });
+                console.log(ChapterdedeteIdgroup,UnitdedeteIdgroup);
+                $(this).parent().parent().parent().children().eq(iIndex + 1).remove();
+                $(this).parent().parent().parent().children().eq(iIndex).remove();
+                chapterRename();
             })//章節及單元刪除
 
-            let dedeteIdgroup = {};
             $("#chapterContainer").on("click", ".unitDelete", function () {
 
-                console.log($(this).parent().parent().parent().children().length)
                 let count = $(this).parent().parent().parent().children().length;
+                console.log(count);
                 if (count != 1) {
                 	let deleteId = $(this).parent().next().val();
-                	dedeteIdgroup.
-                    let iIndex = $(this).parent().parent().remove();
+                	UnitdedeteIdgroup.push(deleteId)
+                    $(this).parent().parent().remove();
+                	console.log(UnitdedeteIdgroup)
                     unitRename()
                 } else {
                     alert("每個章節至少需要一個單元!")
@@ -551,6 +560,14 @@
 				formData.newUnit = newUnitGroup;//新增單元用
                 // ---新增單元---
                 
+                // ---刪除章節單元---
+            	formData.chapterdedeteIdgroup = ChapterdedeteIdgroup;
+            	formData.unitdedeteIdgroup = UnitdedeteIdgroup;
+            	console.log("刪除章節ID: " ,formData.ChapterdedeteIdgroup)
+            	console.log("刪除單元ID: " ,formData.UnitdedeteIdgroup)
+                // ---刪除章節單元---
+                
+                
                 $('input[name^="chapter"]').each(function (index, element) {
                     console.log("start--------------");
                     let idValue = $(this).attr('name');
@@ -572,6 +589,7 @@
                     data: JSON.stringify(formData),
                     success: function(response){
                        	console.log("成功",response);
+                       	alert("新增成功，將跳轉至已開課內容")
                        	window.location.href = '<c:url value="/TeacherCourseList" />';
                     },
                     error: function(response){

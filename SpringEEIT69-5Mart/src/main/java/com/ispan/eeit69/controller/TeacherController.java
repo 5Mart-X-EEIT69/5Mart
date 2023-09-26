@@ -313,8 +313,6 @@ public class TeacherController {
 		}
 		//修改單元名稱
 		
-		System.out.println("修改現有課程名稱完成");
-//		修改課程
 		
 		JsonNode addChapter = formData.get("newChapter");
 		Iterator<JsonNode> addChapterValue = addChapter.iterator();
@@ -339,9 +337,7 @@ public class TeacherController {
 			Chapter newChapter = new Chapter(courseService.findById(courseId),"章節"+chapterNumber,chapterValue);
 			chapterService.save(newChapter);
 			chapterTemp.add(newChapter);
-			System.out.println("新增or插入章節完成");
-			
-			
+			System.out.println("新增or插入章節完成");			
 			System.out.println("courseId : " + courseId + "chapterNumber : " + chapterNumber + "value : " + chapterValue);
 		}
 //		新增章節
@@ -375,14 +371,24 @@ public class TeacherController {
 				Unit newUnit = new Unit(chapterService.findById(chapterId),"單元"+unitNumber,UnitValue);
 				unitService.save(newUnit);
 			}//判斷該單元是插入至現有章節還是新增的章節內
-			System.out.println("新增or插入單元完成");
-			
-			
+			System.out.println("新增or插入單元完成");			
 			System.out.println("ChapterId : " + chapterId + "unitId : " + unitNumber + "value : " + UnitValue);
 		}
 //		新增單元
+		JsonNode chaptereDeleteIdGroup = formData.get("chapterdedeteIdgroup");
+		JsonNode unitDeleteIdGroup = formData.get("unitdedeteIdgroup");
+		for(JsonNode unitDeleteId :unitDeleteIdGroup) {
+			unitService.deleteById(unitDeleteId.asInt());
+			System.out.println("單元ID");
+			System.out.println(unitDeleteId.asInt());
+		}
+		for(JsonNode chapterDeleteId :chaptereDeleteIdGroup) {
+			chapterService.deleteById(chapterDeleteId.asInt());
+			System.out.println("章節ID");
+			System.out.println(chapterDeleteId.asInt());
+		}
 		
-		System.out.println("修改章節、單元名稱未完成，刪除章節、單元未完成");
+		System.out.println("刪除章節、單元完成");
 
 	}// 更新課程後跳轉已開課內容
 

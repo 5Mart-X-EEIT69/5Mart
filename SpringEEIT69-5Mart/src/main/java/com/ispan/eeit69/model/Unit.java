@@ -29,7 +29,7 @@ public class Unit {
 	private String unitNumber ; //第幾單元
 	private String unitName ;//單元名稱
 	
-	@OneToMany(mappedBy = "unit")
+	@OneToMany(mappedBy = "unit" ,cascade = CascadeType.ALL)
 	private Set<Video> video = new LinkedHashSet<Video>();
 	
 	public Unit() {

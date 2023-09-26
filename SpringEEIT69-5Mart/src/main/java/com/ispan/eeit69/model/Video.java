@@ -20,7 +20,7 @@ public class Video {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer videoId;//單元唯一碼
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne()
 	@JoinColumn(name = "unitId")
 	private Unit unit;//對應到的課程ID
 	
