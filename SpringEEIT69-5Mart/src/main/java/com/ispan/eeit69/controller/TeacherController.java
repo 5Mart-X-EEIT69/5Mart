@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import javax.sql.rowset.serial.SerialBlob;
 import javax.sql.rowset.serial.SerialClob;
@@ -16,6 +17,7 @@ import javax.sql.rowset.serial.SerialException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -392,6 +394,26 @@ public class TeacherController {
 
 	}// 更新課程後跳轉已開課內容
 
+	@DeleteMapping("/TeacherDelete/{id}")
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+	public void TeacherDelete(@PathVariable Integer id) {
+		if(courseService.findById(id)!=null) {
+			System.out.println("測試刪除" + id);
+			Course deleteCourse = courseService.findById(id);
+			Set<Chapter> deleteChapters = deleteCourse.getChapter();
+			for(Chapter deleteChapter :deleteChapters) {
+				System.out.println("執行迴圈1...");
+				Set<Unit> deleteUnits = deleteChapter.getUnit();
+				for(Unit deleteUnit :deleteUnits) {
+					System.out.println("執行迴圈2...");
+					unitService.deleteById(deleteUnit.getUnitId());
+				}
+				chapterService.deleteById(deleteChapter.getChapterId());
+			}
+			courseService.deleteById(id);
+		}
+	}
+	
 	@ModelAttribute("preCourse")
 	public Course beforeSave() {
 		Course course = new Course();

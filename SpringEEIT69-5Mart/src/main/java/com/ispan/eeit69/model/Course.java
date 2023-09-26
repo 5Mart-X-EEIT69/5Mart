@@ -9,6 +9,7 @@ import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ispan.eeit69.utils.SystemService;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -35,7 +36,7 @@ public class Course implements Serializable {
 	private String sort;
 	private Timestamp registerTime;
 	
-	@OneToMany(mappedBy = "course" )
+	@OneToMany(mappedBy = "course" ,cascade = CascadeType.ALL)
 	@OrderBy("chapterNumber")
 	private Set<Chapter> chapter = new LinkedHashSet<Chapter>();
 		
