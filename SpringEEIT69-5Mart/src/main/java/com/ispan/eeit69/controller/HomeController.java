@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ispan.eeit69.model.Course;
 import com.ispan.eeit69.model.Introduction;
@@ -83,6 +85,16 @@ public class HomeController {
 		return "visitorSearchPage";
 	}
 
+	@PostMapping("/visitorsearchpage")
+	public String searchKeyword(@RequestParam("keyword") String keyword, Model model) {
+		System.out.println("關鍵字" + keyword);
+		model.addAttribute("keyword", keyword);
+		List<Course> result = courseService.findByKeyword(keyword);
+		model.addAttribute("keywordResult", result);
+		
+		return "visitorSearchPage";
+	}
+
 	@GetMapping("/courseDetail")
 	public String courseDetail(Model model) {
 		return "courseDetail";
@@ -97,12 +109,12 @@ public class HomeController {
 	public String check(Model model) {
 		return "check";
 	}
-	
+
 	@GetMapping("/blogpage")
 	public String blogpage(Model model) {
-		Introduction introduction= new Introduction();
+		Introduction introduction = new Introduction();
 		introduction = introductionService.findById(4);
-		model.addAttribute("introduction",introduction);
+		model.addAttribute("introduction", introduction);
 		return "blogpage";
 
 	}

@@ -111,9 +111,9 @@
 				<li class="nav-item px-4"><a class="nav-link" href="#">文章</a></li>
 
 				<li class="nav-item px-10">
-					<form class="d-lg-flex d-none nav-item input-group">
+					<form class="d-lg-flex d-none nav-item input-group" action="<c:url value="/visitorsearchpage" />" method="post">
 						<input class="form-control me-2 " type="search" placeholder="搜尋課程"
-							aria-label="Search">
+							aria-label="Search" name="keyword">
 						<button class="btn btn-outline-success" type="submit">搜尋</button>
 					</form>
 				</li>
