@@ -10,6 +10,8 @@ import com.ispan.eeit69.dao.memberDao;
 import com.ispan.eeit69.model.member;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
+import jakarta.persistence.NonUniqueResultException;
 import jakarta.persistence.PersistenceContext;
 
 @Repository
@@ -29,6 +31,28 @@ public class memberDaoImpl implements memberDao {
 	}
 
 	@Override
+	public boolean existsById(String account) {
+		log.info("會員註冊功能之Dao: 檢查會員輸入的編號是否已被使用");
+		Boolean isExist = false;
+		String hql = "FROM member m WHERE account = :account ";
+
+		try {
+			member result = (member) entityManager.createQuery(hql).setParameter("account", account).getSingleResult();
+
+			if (result != null) {
+				isExist = true;
+			}
+		} catch (NoResultException e) {
+			isExist = false;
+		} catch (NonUniqueResultException e) {
+			isExist = true;
+		}
+		log.info("會員註冊功能之Dao: 檢查會員輸入的編號是否已被使用, exist=" + isExist);
+
+		return isExist;
+	}
+
+	@Override
 	public member findByMemberId(Integer id) {
 		member result = entityManager.find(member.class, id);
 		return result;
@@ -36,15 +60,20 @@ public class memberDaoImpl implements memberDao {
 
 	@Override
 	public member findByAccountAndPassword(String account, String password) {
-		String hql = "FROM member m WHERE m.account = :account";  
-		List<member> result =  entityManager.createQuery(hql).setParameter("account", account).getResultList();
-		member data = result.get(0);
-		if(account.equals(data.getAccount()) && password.equals(data.getPassword()) ) {
-			return data;
-		}else{		
+		String hql = "FROM member m WHERE m.account = :account";
+		List<member> result = entityManager.createQuery(hql).setParameter("account", account).getResultList();
+		if (result.isEmpty()) {
 			return null;
+		} else {
+			member data = result.get(0);
+			if (account.equals(data.getAccount()) && password.equals(data.getPassword())) {
+				return data;
+			} else {
+				return null;
+			}
+
 		}
-		
+
 	}
 
 	@Override
@@ -52,7 +81,7 @@ public class memberDaoImpl implements memberDao {
 		member tmp = findByMemberId(member.getId());
 		tmp.setRegisterTime(tmp.getRegisterTime());
 		entityManager.detach(tmp);
-		
+
 	}
 
 	@Override
@@ -61,5 +90,4 @@ public class memberDaoImpl implements memberDao {
 		entityManager.createQuery(hql).setParameter("id", id).executeUpdate();
 	}
 
-	
 }
