@@ -9,7 +9,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary  sticky-top shadow">
 	<div class="container-fluid">
 		<!-- 品牌logo -->
-		<a class="navbar-brand" href="<c:url value='/visitorhomepage' />"><i
+		<a class="navbar-brand" href="<c:url value='/homepage' />"><i
 			class="fa-solid fa-graduation-cap fa-xl px-2"></i></a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#navbarSupportedContent"
@@ -111,13 +111,13 @@
 				<li class="nav-item px-4"><a class="nav-link" href="#">文章</a></li>
 
 				<li class="nav-item px-10">
-					<form class="d-lg-flex d-none nav-item input-group" action="<c:url value="/visitorsearchpage" />" method="post">
+					<form class="d-lg-flex d-none nav-item input-group"
+						action="<c:url value="/visitorsearchpage" />" method="post">
 						<input class="form-control me-2 " type="search" placeholder="搜尋課程"
 							aria-label="Search" name="keyword">
 						<button class="btn btn-outline-success" type="submit">搜尋</button>
 					</form>
 				</li>
-				<li class="nav-item px-4"><a class="nav-link" href="<c:url value='/visitorsearchpage' />">暫時搜尋</a></li>
 			</ul>
 
 			<!-- 登入註冊按鈕 -->

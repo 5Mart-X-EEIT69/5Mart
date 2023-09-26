@@ -174,13 +174,11 @@
 	<!-- 導覽列 -->
 	<div>帳號 ${member.account}</div>
 
-	
-
 	<div class="container">
 		<div class="row">
 			<div>
 				<h2 style="font-weight: bolder; margin-top: 40px;">有  ${empty keywordResult ? 0 : keywordResult.size()} 項
-					${keyword} 結果</h2>
+					『${keyword}』 結果</h2>
 			</div>
 		</div>
 		<div class="row">
@@ -231,154 +229,6 @@
 			</div>
 		</div>
 		</c:forEach>
-		
-		
-<!-- 		<div class="row mx-3"> -->
-<!-- 			<div class="card mb-3 border-light"> -->
-<!-- 				<div class="row g-0 "> -->
-<!-- 					<div class="col-md-3 d-flex align-items-center"> -->
-<!-- 						<img class="w-100" -->
-<!-- 							src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg" alt="..."> -->
-<!-- 					</div> -->
-<!-- 					<div class="col-md-8"> -->
-<!-- 						<div class="card-body"> -->
-<!-- 							<div class="d-flex justify-content-between"> -->
-<!-- 								<h4 style="font-weight: bolder;"> -->
-<!-- 									<strong>Java從零開始學習</strong> -->
-<!-- 								</h4> -->
-<!-- 								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT -->
-<!-- 									$2,000</p> -->
-<!-- 							</div> -->
-<!-- 							<div class="d-flex flex-row align-items-end"> -->
-<!-- 								<p class="card-text  pe-10" -->
-<!-- 									style="font-size: small; margin-bottom: 1px; margin-right: 1em;">趙令文</p> -->
-<!-- 								<p class="card-text"> -->
-<!-- 									<strong style="font-size: large;">3.5 </strong> <i -->
-<!-- 										class="bi bi-star-fill px-0"></i> <i -->
-<!-- 										class="bi bi-star-fill px-0"></i> <i -->
-<!-- 										class="bi bi-star-fill px-0"></i> <i -->
-<!-- 										class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i> -->
-<!-- 									(123) -->
-<!-- 								</p> -->
-<!-- 							</div> -->
-<!-- 							<p class="card-text pt-2">從入門開始學習Java語法，課程包含物件導向程式設計、製作貪吃蛇遊戲、面試題目解題、MySQL資料庫、JSP網頁開發等等內容，讓你一步一步成為Java大師</p> -->
-
-<!-- 							<div class="col"></div> -->
-<!-- 							<div class="col text-end"> -->
-<!-- 								<i class="fa-solid fa-cart-shopping px-2"></i> <i -->
-<!-- 									class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i> -->
-
-<!-- 							</div> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-
-<!-- 		<div class="row mx-3"> -->
-<!-- 			<div class="card mb-3"> -->
-<!-- 				<div class="row g-0 "> -->
-<!-- 					<div class="col-md-3 d-flex align-items-center"> -->
-<!-- 						<img class="w-100" -->
-<!-- 							src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg" alt="..."> -->
-<!-- 					</div> -->
-<!-- 					<div class="col-md-8"> -->
-<!-- 						<div class="card-body"> -->
-<!-- 							<div class="d-flex justify-content-between"> -->
-<!-- 								<h4 style="font-weight: bolder;"> -->
-<!-- 									<strong>Java從零開始學習</strong> -->
-<!-- 								</h4> -->
-<!-- 								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT -->
-<!-- 									$2,000</p> -->
-<!-- 							</div> -->
-<!-- 							<div class="d-flex flex-row align-items-end"> -->
-<!-- 								<p class="card-text  pe-10" -->
-<!-- 									style="font-size: small; margin-bottom: 1px; margin-right: 1em;">趙令文</p> -->
-<!-- 								<p class="card-text"> -->
-<!-- 									<strong style="font-size: large;">3.5 </strong> <i -->
-<!-- 										class="bi bi-star-fill px-0"></i> <i -->
-<!-- 										class="bi bi-star-fill px-0"></i> <i -->
-<!-- 										class="bi bi-star-fill px-0"></i> <i -->
-<!-- 										class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i> -->
-<!-- 									(123) -->
-<!-- 								</p> -->
-<!-- 							</div> -->
-<!-- 							<p class="card-text pt-2">從入門開始學習Java語法，課程包含物件導向程式設計、製作貪吃蛇遊戲、面試題目解題、MySQL資料庫、JSP網頁開發等等內容，讓你一步一步成為Java大師</p> -->
-
-<!-- 							<div class="col"></div> -->
-<!-- 							<div class="col text-end"> -->
-<!-- 								<i class="fa-solid fa-cart-shopping px-2"></i> <i -->
-<!-- 									class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i> -->
-
-<!-- 							</div> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-
-<!-- 		<div class="row mx-3"> -->
-<!-- 			<div class="card mb-3"> -->
-<!-- 				<div class="row g-0 "> -->
-<!-- 					<div class="col-md-3 d-flex align-items-center"> -->
-<!-- 						<img class="w-100" -->
-<!-- 							src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg" alt="..."> -->
-<!-- 					</div> -->
-<!-- 					<div class="col-md-8"> -->
-<!-- 						<div class="card-body"> -->
-<!-- 							<div class="d-flex justify-content-between"> -->
-<!-- 								<h4 style="font-weight: bolder;"> -->
-<!-- 									<strong>Java從零開始學習</strong> -->
-<!-- 								</h4> -->
-<!-- 								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT -->
-<!-- 									$2,000</p> -->
-<!-- 							</div> -->
-<!-- 							<div class="d-flex flex-row align-items-end"> -->
-<!-- 								<p class="card-text  pe-10" -->
-<!-- 									style="font-size: small; margin-bottom: 1px; margin-right: 1em;">趙令文</p> -->
-<!-- 								<p class="card-text"> -->
-<!-- 									<strong style="font-size: large;">3.5 </strong> <i -->
-<!-- 										class="bi bi-star-fill px-0"></i> <i -->
-<!-- 										class="bi bi-star-fill px-0"></i> <i -->
-<!-- 										class="bi bi-star-fill px-0"></i> <i -->
-<!-- 										class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i> -->
-<!-- 									(123) -->
-<!-- 								</p> -->
-<!-- 							</div> -->
-<!-- 							<p class="card-text pt-2">從入門開始學習Java語法，課程包含物件導向程式設計、製作貪吃蛇遊戲、面試題目解題、MySQL資料庫、JSP網頁開發等等內容，讓你一步一步成為Java大師</p> -->
-
-<!-- 							<div class="col"></div> -->
-<!-- 							<div class="col text-end"> -->
-<!-- 								<i class="fa-solid fa-cart-shopping px-2"></i> <i -->
-<!-- 									class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i> -->
-
-<!-- 							</div> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 		<div class="row"> -->
-<!-- 			<nav aria-label="Page navigation example" -->
-<!-- 				class="d-flex justify-content-center"> -->
-<!-- 				<ul class="pagination"> -->
-<!-- 					<li class="page-item"><a class="page-link" href="#" -->
-<!-- 						aria-label="Previous"> <span aria-hidden="true">&laquo;</span> -->
-<!-- 					</a></li> -->
-<!-- 					<li class="page-item"><a class="page-link" href="#">1</a></li> -->
-<!-- 					<li class="page-item"><a class="page-link" href="#">2</a></li> -->
-<!-- 					<li class="page-item"><a class="page-link" href="#">3</a></li> -->
-<!-- 					<li class="page-item"><a class="page-link" href="#" -->
-<!-- 						aria-label="Next"> <span aria-hidden="true">&raquo;</span> -->
-<!-- 					</a></li> -->
-<!-- 				</ul> -->
-<!-- 			</nav> -->
-<!-- 		</div> -->
-
-<!-- 	</div> -->
-
-
-
 
 	<div id="return-top" class="top_e shadow-sm">
 		<i class="fa-solid fa-angle-up fa-2xl" style="color: #919191;"></i>

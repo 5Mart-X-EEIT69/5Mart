@@ -56,7 +56,13 @@ public class HomeController {
 		} else {
 			return "memberHomePage";
 		}
-
+	}
+	
+	@GetMapping("/homepage")
+	public String homepage(Model model) {
+		List<Course> allCourse = courseService.findAll();
+		model.addAttribute("allCourse", allCourse);
+		return "homePage";
 	}
 
 	@GetMapping("/memberHomePage")
