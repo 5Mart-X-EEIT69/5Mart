@@ -823,40 +823,40 @@
 
 		<div class="row">
 			<div class="col-6 col-md-3 mb-3">
-				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="/visitorsearchpage?sort=語言"
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="<c:url value='/searchsort?sort=語言' />"
 					role="button">語言</a>
 
 			</div>
 			<div class="col-6 col-md-3 mb-3">
-				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="#"
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="<c:url value='/searchsort?sort=開發' />"
 					role="button">開發</a>
 			</div>
 			<div class="col-6 col-md-3 mb-3">
-				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="#"
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="<c:url value='/searchsort?sort=行銷' />"
 					role="button">行銷</a>
 
 			</div>
 			<div class="col-6 col-md-3 mb-3">
-				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="#"
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="<c:url value='/searchsort?sort=投資理財' />"
 					role="button">投資理財</a> 
 			</div>
 			<div class="col-6 col-md-3 mb-3">
-				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="#"
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="<c:url value='/searchsort?sort=音樂' />"
 					role="button">音樂</a>
 
 			</div>
 			<div class="col-6 col-md-3 mb-3">
-				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="#"
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="<c:url value='/searchsort?sort=攝影' />"
 					role="button">攝影</a>
 
 			</div>
 			<div class="col-6 col-md-3 mb-3">
-				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="#"
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="<c:url value='/searchsort?sort=設計' />"
 					role="button">設計</a>
 
 			</div>
 			<div class="col-6 col-md-3 mb-3">
-				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="#"
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="<c:url value='/searchsort?sort=職場技能' />"
 					role="button">職場技能</a> 
 			</div>
 		</div>

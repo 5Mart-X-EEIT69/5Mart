@@ -91,7 +91,7 @@ public class HomeController {
 		model.addAttribute("keyword", keyword);
 		List<Course> result = courseService.findByKeyword(keyword);
 		model.addAttribute("keywordResult", result);
-		
+
 		return "visitorSearchPage";
 	}
 
@@ -118,4 +118,15 @@ public class HomeController {
 		return "blogpage";
 
 	}
+
+	@GetMapping("/searchsort")
+	public String searchsort(@RequestParam("sort") String sort, Model model) {
+		System.out.println(sort);
+		model.addAttribute("keyword",sort);
+		List<Course> result = courseService.findBySort(sort);
+		model.addAttribute("keywordResult",result);
+		
+		return "visitorSearchPage";
+	}
+
 }
