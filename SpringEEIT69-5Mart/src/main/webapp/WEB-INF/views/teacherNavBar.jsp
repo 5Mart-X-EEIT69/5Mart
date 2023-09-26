@@ -70,7 +70,7 @@
 
 	<div class="main-container d-flex">
 		<div class="sidebar" id="side_nav">
-			<div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
+			<div class="header-box ms-2 px-2 pt-3 pb-4 d-flex justify-content-between">
 				<h1 class="fs-4">
 					<span class="bg-white text-dark rounded shadow px-2 me-2">5</span><span
 						class="text-white me-2">mart</span>
@@ -81,31 +81,24 @@
 			</div>
 			<ul class="list-unstyled px-2">
 				<li class="active"><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-house pe-2" style="color: #ffffff;"></i>Dashboard</a></li>
-				<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-list pe-2" style="color: #ffffff;"></i>project</a></li>
+					class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-tv pe-2" style="color: #ffffff;"></i>課程管理</a></li>
+			
 				<li class=""><a href="#"
 					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
-							class="fa-solid fa-comment pe-2" style="color: #ffffff;"></i>message</span><span
+							class="fa-solid fa-comment pe-2" style="color: #ffffff;"></i>師生交流</span><span
 						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
 				<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-envelope-open-text pe-2" style="color: #ffffff;"></i>services</a></li>
+					class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-chart-line pe-2" style="color: #ffffff;"></i>儀錶板</a></li>
 				<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-users pe-2" style="color: #ffffff;"></i>customers</a></li>
+					class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-user pe-2" style="color: #ffffff;"></i>講師個人資料</a></li>
 			</ul>
 			<hr class="h-color mx-2">
 
 			<ul class="list-unstyled px-2">
 				<li class=""><a href="#"
 					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>setting</a></li>
-				<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-bell pe-2" style="color: #ffffff;"></i>notifications</a></li>
+						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>設定</a></li>
+				
 			</ul>
 		</div>
 		<div class="content">
@@ -126,13 +119,10 @@
 						<i class="fa-solid fa-bars"></i>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav  mb-2 mb-lg-0">
+						<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 							<li class="nav-item"><a class="nav-link active"
 								aria-current="page" href="#">profile</a></li>
-
-
 						</ul>
-
 					</div>
 				</div>
 			</nav>
