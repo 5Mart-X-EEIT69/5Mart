@@ -44,24 +44,6 @@ public class HomeController {
 		return "test1";
 	}
 
-	@GetMapping("/test2")
-	public String test2(Model model) {
-		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
-		return "test2";
-	}
-
-	@GetMapping("/test3")
-	public String test3(Model model) {
-		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
-		return "test3";
-	}
-
-	@GetMapping("/test4")
-	public String test4(Model model) {
-		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
-		return "test4";
-	}
-
 	@GetMapping("/visitorhomepage")
 	public String visitorhomepage(Model model) {
 		List<Course> allCourse = courseService.findAll();
@@ -106,15 +88,6 @@ public class HomeController {
 		return "courseDetail";
 	}
 
-
-	@GetMapping("/student_course_viewer")
-	public String student_course_viewer(Model model) {
-		return "/student_lms/student_course_viewer";
-	}
-
-
-	
-
 	@GetMapping("/evaluate")
 	public String evaluate(Model model) {
 		return "evaluate";
@@ -123,12 +96,6 @@ public class HomeController {
 	@GetMapping("/check")
 	public String check(Model model) {
 		return "check";
-	}
-
-
-	@GetMapping("/student_dashboard")
-	public String student_dashboard(Model model) {
-		return "/student_lms/student_dashboard";
 	}
 	
 	@GetMapping("/blogpage")
