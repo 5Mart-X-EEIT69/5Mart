@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.ispan.eeit69.model.Course;
+import com.ispan.eeit69.model.Introduction;
 import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.ChapterService;
 import com.ispan.eeit69.service.CourseService;
@@ -105,10 +106,14 @@ public class HomeController {
 		return "courseDetail";
 	}
 
+
 	@GetMapping("/student_course_viewer")
 	public String student_course_viewer(Model model) {
 		return "/student_lms/student_course_viewer";
 	}
+
+
+	
 
 	@GetMapping("/evaluate")
 	public String evaluate(Model model) {
@@ -120,8 +125,18 @@ public class HomeController {
 		return "check";
 	}
 
+
 	@GetMapping("/student_dashboard")
 	public String student_dashboard(Model model) {
 		return "/student_lms/student_dashboard";
+	}
+	
+	@GetMapping("/blogpage")
+	public String blogpage(Model model) {
+		Introduction introduction= new Introduction();
+		introduction = introductionService.findById(6);
+		model.addAttribute("introduction",introduction);
+		return "blogpage";
+
 	}
 }
