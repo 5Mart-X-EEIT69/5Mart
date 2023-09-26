@@ -11,7 +11,10 @@ import com.ispan.eeit69.dao.TeacherPictureRepository;
 import com.ispan.eeit69.model.TeacherPicture;
 import com.ispan.eeit69.service.TeacherPictureService;
 
+import jakarta.transaction.Transactional;
+
 @Service
+@Transactional
 public class TeacherPictureServiceImpl implements TeacherPictureService {
 
 	final static Logger log = LoggerFactory.getLogger(TeacherPictureServiceImpl.class);

@@ -11,7 +11,10 @@ import com.ispan.eeit69.dao.AnnouncementRepository;
 import com.ispan.eeit69.model.Announcement;
 import com.ispan.eeit69.service.AnnouncementService;
 
+import jakarta.transaction.Transactional;
+
 @Service
+@Transactional
 public class AnnouncementServiceImpl implements AnnouncementService{
 
 	final static Logger log = LoggerFactory.getLogger(AnnouncementServiceImpl.class);
