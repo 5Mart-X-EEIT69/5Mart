@@ -823,8 +823,9 @@
 
 		<div class="row">
 			<div class="col-6 col-md-3 mb-3">
-				<button type="button"
-					class="w-100 btn btn-outline-secondary btn-lg btnClass">語言</button>
+			<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="#" role="button">語言11</a>
+<!-- 				<button type="button" -->
+<!-- 					class="w-100 btn btn-outline-secondary btn-lg btnClass">語言</button> -->
 			</div>
 			<div class="col-6 col-md-3 mb-3">
 				<button type="button"
