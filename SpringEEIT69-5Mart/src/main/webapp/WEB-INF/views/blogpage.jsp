@@ -164,7 +164,7 @@ hr {
 
 							</div>
 							<div class="row">
-								<div class="col-6">
+								<div class="col">
 									<div class="card mx-3 slick-slide slick-active" tabindex="0"
 										role="tabpanel" id="slick-slide03"
 										aria-describedby="slick-slide-control03" style="width: 253px;"
@@ -249,12 +249,12 @@ hr {
 										</div>
 									</div>
 								</div>
-								<div class="col-6"></div>
+								
 
 							</div>
 							<br>
 							<div class="row">
-								<div class="col-6">
+								<div class="col">
 									<div class="card mx-3 slick-slide slick-active" tabindex="0"
 										role="tabpanel" id="slick-slide03"
 										aria-describedby="slick-slide-control03" style="width: 253px;"
@@ -339,12 +339,12 @@ hr {
 										</div>
 									</div>
 								</div>
-								<div class="col-6"></div>
+								
 
 							</div>
 							<br>
 							<div class="row">
-								<div class="col-6">
+								<div class="col">
 									<div class="card mx-3 slick-slide slick-active" tabindex="0"
 										role="tabpanel" id="slick-slide03"
 										aria-describedby="slick-slide-control03" style="width: 253px;"
@@ -429,7 +429,7 @@ hr {
 										</div>
 									</div>
 								</div>
-								<div class="col-6"></div>
+								
 
 							</div>
 

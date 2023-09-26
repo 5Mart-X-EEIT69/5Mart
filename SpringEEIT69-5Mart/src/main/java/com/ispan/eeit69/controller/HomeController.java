@@ -113,7 +113,7 @@ public class HomeController {
 	@GetMapping("/blogpage")
 	public String blogpage(Model model) {
 		Introduction introduction= new Introduction();
-		introduction = introductionService.findById(6);
+		introduction = introductionService.findById(4);
 		model.addAttribute("introduction",introduction);
 		return "blogpage";
 	}
