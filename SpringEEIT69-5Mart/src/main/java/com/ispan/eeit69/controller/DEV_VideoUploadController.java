@@ -61,7 +61,7 @@ public class DEV_VideoUploadController {
 			devvideoService.save(video); // 使用自定義 VideoService 方法
 			
 			//顯示資訊到前端頁面上
-			message = "影片上傳成功！，生成的UUID 是：" + uniqueID;
+			message = "影片上傳成功！，產生的UUID 是：" + uniqueID;
 		} catch (Exception e) {
 			message = "影片上傳失敗：" + e.getMessage();
 		}

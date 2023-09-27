@@ -28,8 +28,8 @@
 </video>
 
 <!-- Buttons to load video by UUID -->
-<button onclick="loadVideo('7fbf2f8c-95b3-4980-98af-87553cab1b14')">Load Video 1</button>
-<button onclick="loadVideo('54435c6b-15e6-4565-aad8-1a587a374276')">Load Video 2</button>
+<button onclick="loadVideo('9f250c1e-6bb2-4c0a-8dd0-c404128fd0ce')">Load Video 1</button>
+<button onclick="loadVideo('adbfca88-3b10-452f-945b-06ac126d1605')">Load Video 2</button>
 
 <script>
 
