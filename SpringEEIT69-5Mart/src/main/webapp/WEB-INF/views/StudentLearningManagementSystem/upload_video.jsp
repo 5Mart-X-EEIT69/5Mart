@@ -27,8 +27,9 @@
         <label for="videoName">Video Name:</label>
         <input type="text" id="videoName" name="videoName"><br><br>
 
+	<!-- 選擇影片檔案，同時有檔案限制規範，這邊限制為MP4影片檔案 -->
         <label for="file">Choose Video:</label>
-        <input type="file" id="file" name="file"><br><br>
+        <input type="file" id="file" name="file" accept="video/mp4"><br><br>
 
         <button type="submit">Upload</button>
     </form>
