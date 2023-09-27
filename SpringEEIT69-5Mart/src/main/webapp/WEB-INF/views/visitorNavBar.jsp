@@ -127,9 +127,10 @@
 
 			<div class="btn-group d-block">
 				<button type="button"
-					class="btn btn-outline-success dropdown-toggle globe "
+					class="btn btn-outline-success dropdown-toggle globe py-1"
 					data-bs-toggle="dropdown" aria-expanded="false">
-					<span class="material-symbols-outlined pt-1"> globe </span>
+<!-- 					<span class="material-symbols-outlined pt-1"> globe </span> -->
+					<i class="fa-solid fa-earth-americas fa-lg"></i>
 				</button>
 				<ul class="dropdown-menu dropdown-menu-end">
 					<li><a class="dropdown-item" href="#">英文</a></li>

@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ispan.eeit69.model.Chapter;
 import com.ispan.eeit69.model.Course;
 import com.ispan.eeit69.model.Introduction;
-import com.ispan.eeit69.model.TeacherPicture;
-import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.ChapterService;
 import com.ispan.eeit69.service.CourseService;
 import com.ispan.eeit69.service.IntroductionService;
@@ -53,54 +52,52 @@ public class HomeController {
 		return "test1";
 	}
 
-	@GetMapping("/visitorhomepage")
-	public String visitorhomepage(Model model) {
-		List<Course> allCourse = courseService.findAll();
-		model.addAttribute("allCourse", allCourse);
-		member member = (member) session.getAttribute("member");
-		if (member == null) {
-			return "visitorHomePage";
-		} else {
-			return "memberHomePage";
-		}
-	}
+//	@GetMapping("/visitorhomepage")
+//	public String visitorhomepage(Model model) {
+//		List<Course> allCourse = courseService.findAll();
+//		model.addAttribute("allCourse", allCourse);
+//		member member = (member) session.getAttribute("member");
+//		if (member == null) {
+//			return "visitorHomePage";
+//		} else {
+//			return "memberHomePage";
+//		}
+//	}
 	
 	@GetMapping("/homepage")
 	public String homepage(Model model) {
 		List<Course> allCourse = courseService.findAll();
 		model.addAttribute("allCourse", allCourse);
-		
-		TeacherPicture result = teacherPictureService.findById(null);
-		
+		session.setAttribute("allCourse", allCourse);
 		
 		return "homePage";
 	}
 
-	@GetMapping("/memberHomePage")
-	public String memberHomePage(Model model) {
-		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
-		member member = (member) session.getAttribute("member");
+//	@GetMapping("/memberHomePage")
+//	public String memberHomePage(Model model) {
+//		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+//		member member = (member) session.getAttribute("member");
+//
+//		return "memberHomePage";
+//	}
 
-		return "memberHomePage";
-	}
+//	@GetMapping("/visitorhomepage2")
+//	public String visitorhomepage2(Model model) {
+//		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+//		return "visitorHomePage2";
+//	}
 
-	@GetMapping("/visitorhomepage2")
-	public String visitorhomepage2(Model model) {
-		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
-		return "visitorHomePage2";
-	}
+//	@GetMapping("/indextest2")
+//	public String indextest2(Model model) {
+//		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+//		return "indextest2";
+//	}
 
-	@GetMapping("/indextest2")
-	public String indextest2(Model model) {
-		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
-		return "indextest2";
-	}
-
-	@GetMapping("/visitorsearchpage")
-	public String visitorsearchpage(Model model) {
-		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
-		return "visitorSearchPage";
-	}
+//	@GetMapping("/visitorsearchpage")
+//	public String visitorsearchpage(Model model) {
+//		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+//		return "visitorSearchPage";
+//	}
 
 	@PostMapping("/visitorsearchpage")
 	public String searchKeyword(@RequestParam("keyword") String keyword, Model model) {
@@ -113,7 +110,12 @@ public class HomeController {
 	}
 
 	@GetMapping("/courseDetail")
-	public String courseDetail(Model model) {
+	public String courseDetail(@RequestParam("id") String id, Model model) {
+		Integer intId = Integer.parseInt(id);
+		Course course = courseService.findById(intId);
+		model.addAttribute("courseData",course);
+		Chapter chapter = chapterService.findById(intId);
+		model.addAttribute("chapter",chapter);
 		return "courseDetail";
 	}
 

@@ -20,13 +20,12 @@
 	href="<c:url value='/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.css' />"
 	type="text/css" />
 
-<!-- <link rel='stylesheet' -->
-<%-- 	href="<c:url value=" --%>
-<%-- 				/assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css" />" --%>
-<!-- 	type="text/css" /> -->
+<link rel='stylesheet'
+	href="<c:url value="/assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css" />"
+	type="text/css" />
 <!-- bootstrap 公版-->
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<!-- <link rel="stylesheet" -->
+<!-- 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> -->
 
 <!-- google fonts的icon庫引入 -->
 <link rel="stylesheet"
@@ -73,20 +72,6 @@
 
 </head>
 
-<!-- <script type="text/javascript"> 
- 	window.onload = function() {
-
- 		// 輪播圖相關設定
- 		var myCarousel = document.querySelector('#carouselExampleIndicators')
-		var carousel = new bootstrap.Carousel(myCarousel, {
- 			interval : 4000, // 自動輪播的延遲時間
-			pause : false
-		// 滑鼠碰到圖片時，輪播不會停止;改成"hover"時，輪播會停止
-
- 		})
-
- 	}
- </script> -->
 <script type="text/javascript">
 	$(document).ready(
 			function() {
@@ -192,29 +177,6 @@
 					}
 				})
 
-				// 		if (heartcount) {
-				// 			$(".fa-heart").click(function() {
-				// 				console.log("ok");
-				// 				$(this).addClass("fa-regular");
-				// 				$(this).removeClass("fa-solid");
-				// 				heartcount = false;
-				// 			});
-				// 		} else {
-				// 			$(".fa-heart").mouseenter(function() {
-				// 				$(this).addClass("fa-solid");
-				// 				$(this).removeClass("fa-regular");
-				// 			}).mouseleave(function() {
-				// 				$(this).addClass("fa-regular");
-				// 				$(this).removeClass("fa-solid");
-				// 			}).click(function() {
-				// 				$(this).addClass("fa-solid");
-				// 				$(this).removeClass("fa-regular");
-				// 				console.log("xx");
-				// 				heartcount = true;
-				// 				console.log(heartcount);
-				// 			});
-				// 		}
-
 				// 回到頂部的按鈕顯示和消失
 				$(window).scroll(function() {
 					if ($(window).scrollTop() > 300) {
@@ -235,8 +197,10 @@
 <body>
 	<!-- 導覽列 -->
 	<c:choose>
-		<c:when test="${not empty member.account}"><jsp:include page="/WEB-INF/views/memberNavBar.jsp" /></c:when>
-		<c:otherwise><jsp:include page="/WEB-INF/views/visitorNavBar.jsp" /></c:otherwise>
+		<c:when test="${not empty member.account}"><jsp:include
+				page="/WEB-INF/views/memberNavBar.jsp" /></c:when>
+		<c:otherwise><jsp:include
+				page="/WEB-INF/views/visitorNavBar.jsp" /></c:otherwise>
 	</c:choose>
 	<!-- 導覽列 -->
 	<div>帳號 ${member.account}</div>
@@ -310,41 +274,44 @@
 
 		<div class="row slick-card-hotcourse">
 			<c:forEach items="${allCourse}" var="course">
-				<div class="card mx-3">
-					<img src="${course.dataUri}" class="card-img-top" alt="..." />
-					<div class="card-body py-0">
-						<p class="card-text">
-						<div class="container px-0">
-							<div class="row">
-								<h5 style="font-weight: bolder">
-									<strong>${course.title}</strong>
-								</h5>
-							</div>
-							<div class="row">
-								<p class="mb-2" style="font-size: small">趙令文</p>
-							</div>
-							<div class="row d-inline ">
-								<strong style="font-size: large">3.5 </strong> <i
-									class="bi bi-star-fill px-0"></i> <i
-									class="bi bi-star-fill px-0"></i> <i
-									class="bi bi-star-fill px-0"></i> <i
-									class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
-								(123)
-							</div>
-							<div class="row mt-2">
-								<div class="col">
-									<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
-										$ ${course.price}</p>
+				<a href="<c:url value='/courseDetail?id=${course.id} ' />"
+					class="text-reset text-decoration-none">
+					<div class="card mx-3">
+						<img src="${course.dataUri}" class="card-img-top" alt="..." />
+						<div class="card-body py-0">
+							<p class="card-text">
+							<div class="container px-0">
+								<div class="row">
+									<h5 style="font-weight: bolder">
+										<strong>${course.title}</strong>
+									</h5>
 								</div>
-								<div class="col text-end">
-									<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+								<div class="row">
+									<p class="mb-2" style="font-size: small">趙令文</p>
+								</div>
+								<div class="row d-inline ">
+									<strong style="font-size: large">3.5 </strong> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
+									(123)
+								</div>
+								<div class="row mt-2">
+									<div class="col">
+										<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
+											$ ${course.price}</p>
+									</div>
+									<div class="col text-end">
+										<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
 
+									</div>
 								</div>
 							</div>
+							</p>
 						</div>
-						</p>
 					</div>
-				</div>
+				</a>
 			</c:forEach>
 		</div>
 
@@ -681,41 +648,41 @@
 
 		<div class="row">
 			<div class="col-6 col-md-3 mb-3">
-				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="<c:url value='/searchsort?sort=語言' />"
-					role="button">語言</a>
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass"
+					href="<c:url value='/searchsort?sort=語言' />" role="button">語言</a>
 
 			</div>
 			<div class="col-6 col-md-3 mb-3">
-				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="<c:url value='/searchsort?sort=開發' />"
-					role="button">開發</a>
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass"
+					href="<c:url value='/searchsort?sort=開發' />" role="button">開發</a>
 			</div>
 			<div class="col-6 col-md-3 mb-3">
-				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="<c:url value='/searchsort?sort=行銷' />"
-					role="button">行銷</a>
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass"
+					href="<c:url value='/searchsort?sort=行銷' />" role="button">行銷</a>
 
 			</div>
 			<div class="col-6 col-md-3 mb-3">
-				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="<c:url value='/searchsort?sort=投資理財' />"
-					role="button">投資理財</a> 
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass"
+					href="<c:url value='/searchsort?sort=投資理財' />" role="button">投資理財</a>
 			</div>
 			<div class="col-6 col-md-3 mb-3">
-				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="<c:url value='/searchsort?sort=音樂' />"
-					role="button">音樂</a>
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass"
+					href="<c:url value='/searchsort?sort=音樂' />" role="button">音樂</a>
 
 			</div>
 			<div class="col-6 col-md-3 mb-3">
-				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="<c:url value='/searchsort?sort=攝影' />"
-					role="button">攝影</a>
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass"
+					href="<c:url value='/searchsort?sort=攝影' />" role="button">攝影</a>
 
 			</div>
 			<div class="col-6 col-md-3 mb-3">
-				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="<c:url value='/searchsort?sort=設計' />"
-					role="button">設計</a>
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass"
+					href="<c:url value='/searchsort?sort=設計' />" role="button">設計</a>
 
 			</div>
 			<div class="col-6 col-md-3 mb-3">
-				<a class="w-100 btn btn-outline-secondary btn-lg btnClass" href="<c:url value='/searchsort?sort=職場技能' />"
-					role="button">職場技能</a> 
+				<a class="w-100 btn btn-outline-secondary btn-lg btnClass"
+					href="<c:url value='/searchsort?sort=職場技能' />" role="button">職場技能</a>
 			</div>
 		</div>
 	</div>
@@ -975,6 +942,7 @@
 	<script type="text/javascript"
 		src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 	<!-- slick -->
+
 
 
 </body>
