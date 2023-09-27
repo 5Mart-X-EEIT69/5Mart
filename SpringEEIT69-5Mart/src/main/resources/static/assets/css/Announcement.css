@@ -1,0 +1,275 @@
+@charset "UTF-8";
+
+/* 全部的字體 */
+/** {*/
+/*	font-family: 'Noto Sans TC', sans-serif;*/
+/*}*/
+
+/* 熱門類別按鈕 */
+.btnClass {
+	padding-top: 35px;
+	padding-bottom: 35px;
+}
+
+/* 導覽列和最底部 */
+/*.navbar,.bd-footer{*/
+/*	background-color: #032541;*/
+/*	最底部文字顏色*/
+/*	color: white;  */
+/*}*/
+
+/* 下拉式選單(滑鼠經過、子選單位置、子選單箭頭轉向、導覽標題箭頭取消、導覽標題顏色) */
+.navbar-nav li:hover>ul.dropdown-menu {
+	display: block;
+}
+
+.headImg:hover>ul.dropdown-menu {
+	display: block;
+}
+
+.navbar-nav li:hover>ul.dropdown-menu-end {
+	right: -1%;
+}
+
+.headImg:hover>ul.dropdown-menu-end {
+	right: -1%;
+}
+
+.dropdown-submenu {
+	position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+	top: 0%;
+	left: 100%;
+	margin-top: -3px;
+}
+
+.dropdown-menu>li>a:hover:after {
+	transform: rotate(-90deg);
+	transition: 0.5s;
+}
+
+.navbar-nav>li>.dropdown-toggle::after {
+	display: none !important;
+}
+
+.headImg>.dropdown-toggle::after {
+	display: none !important;
+}
+
+.nav-link {
+	font-weight: bolder;
+	/*	color: white;*/
+}
+
+/* 切換語言按鈕 */
+.globe {
+	padding-bottom: 2px;
+	padding-top: 0.5px;
+}
+
+/* 登入註冊彈跳式視窗調整 */
+.modal-header h3 {
+	font-size: 30px;
+	margin-left: 10px;
+}
+
+.modal-body form .text,
+.modal-body form .account,
+.modal-body form .password {
+	margin-left: 20px;
+	margin-bottom: 10px;
+	width: 90%;
+	height: 50px;
+}
+
+.remember {
+	margin-bottom: 20px;
+	margin-left: 20px;
+}
+
+.modal-body form .btn {
+	width: 90%;
+	font-size: 25px;
+	margin-left: 20px;
+	color: white;
+}
+
+.modal-body a {
+	font-size: 20px;
+	margin-top: 10px;
+}
+
+/* 手動輪播左右按鈕 */
+.slick-rightbtn {
+	position: absolute;
+	top: 53%;
+	/* 	margin-top: -15px; */
+	right: -1%;
+	width: 50px;
+	height: 50px;
+}
+
+.slick-rightbtn span {
+	font-size: 25px;
+	color: rgb(255, 255, 255);
+	/*	border: 1px solid red;*/
+	display: block;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	cursor: pointer;
+	background-color: rgb(26, 79, 151);
+	border-radius: 50px;
+}
+
+.slick-rightbtn span:hover {
+	background-color: rgb(16, 49, 95);
+}
+
+.slick-leftbtn {
+	position: absolute;
+	top: 53%;
+	/* 	margin-top: -15px; */
+	left: -1%;
+	width: 50px;
+	height: 50px;
+}
+
+.slick-leftbtn span {
+	font-size: 25px;
+	color: rgb(255, 255, 255);
+	/*	border: 1px solid red;*/
+	display: block;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	cursor: pointer;
+	background-color: rgb(26, 79, 151);
+	border-radius: 50px;
+}
+
+.slick-leftbtn span:hover {
+	background-color: rgb(16, 49, 95);
+}
+
+.prev-arrow {
+	left: -15px;
+	width: 0;
+	height: 0;
+	border-left: 0 solid transparent;
+	border-right: 15px solid #113463;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	background-color: white;
+}
+
+.next-arrow {
+	right: -15px;
+	width: 0;
+	height: 0;
+	border-right: 0 solid transparent;
+	border-left: 15px solid #113463;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	background: rgba(192, 192, 192, 0.6);
+}
+
+
+/* 回到頂部按鈕 */
+.top_e {
+	position: fixed;
+	right: 40px;
+	bottom: 40px;
+	background: rgba(192, 192, 192, 0.6);
+	border-radius: 50px;
+	border: 1px solid #A9A9A9;
+	cursor: pointer;
+	display: none;
+	width: 60px;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+}
+
+.top_e:hover {
+	color: white;
+	background: rgba(128, 138, 135, 0.6);
+}
+
+.fa-angle-up:hover {
+	color: white;
+}
+
+/* 評價星星 */
+.bi-star-fill,
+.bi-star-half,
+.bi-star {
+	color: #FFC800;
+}
+
+.myCourseCard {
+	max-width: 25em;
+	flex-direction: row;
+	width: 20em;
+
+}
+
+.notice {
+	/*	max-width: 25em;*/
+	width: 23em;
+
+}
+
+.noticeText {
+	width: 100px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.noticeItem{
+	border-bottom:1px solid lightgray ;
+	border-top: 1px solid lightgray;
+}
+
+.myCourseCard img {
+	/*	max-width: 25%;*/
+	/*	max-height: 25%;*/
+	/*	margin: auto;*/
+	/*	padding: 0.5em;*/
+	border-radius: 0.5em;
+	object-fit: cover;
+	/*	height: 100%;*/
+	width: 35%;
+	aspect-ratio: 1 / 1;
+}
+
+.myCourseCardBody {
+	display: flex;
+	/*	justify-content: space-between;*/
+}
+
+.text-section {
+	max-width: 60%;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+/*.cta-section {*/
+/*		max-width: 40%;*/
+/*		display: flex;*/
+/*		flex-direction: column;*/
+/*		align-items: flex-end;*/
+/*		justify-content: space-between;*/
+/*}*/
+
+.circleImg {
+	border-radius: 30px;
+	width: 45px;
+	height: 45px;
+	object-fit: cover;
+}

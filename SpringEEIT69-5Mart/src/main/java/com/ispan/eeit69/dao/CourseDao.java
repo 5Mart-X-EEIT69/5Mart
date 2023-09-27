@@ -17,4 +17,6 @@ public interface CourseDao {
 	List<Course> findBytitle(String title);//配合網站需求自定義的Dao
 	
 	List<Course> findByKeyword(String keyword); //  搜尋關鍵字
+	
+	List<Course> findByTeacherId(Integer id); //  搜尋關鍵字
 }
