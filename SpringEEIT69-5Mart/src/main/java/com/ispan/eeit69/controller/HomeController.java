@@ -70,7 +70,7 @@ public class HomeController {
 		List<Course> allCourse = courseService.findAll();
 		model.addAttribute("allCourse", allCourse);
 		
-		TeacherPicture result = teacherPictureService.findById(null);
+		// TeacherPicture result = teacherPictureService.findById(null);
 		
 		
 		return "homePage";
