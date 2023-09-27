@@ -1,6 +1,7 @@
 package com.ispan.eeit69.controller;
 
 import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +24,7 @@ public class VideoUploadController {
 
 	//	Spring 自動將路徑映射（mapping）到uploadVideo 方法 Spring MVC 內建功能
 	//	@RequestParam("file") MultipartFile file：從 HTTP 請求中獲取名為 "file" 的上傳檔案
-    //	Model model：用於將資料傳遞給視圖（view）
+   	//	Model model：用於將資料傳遞給視圖（view）
 	
 	@PostMapping("/uploadVideo")
 	public String uploadVideo(@RequestParam("file") MultipartFile file, Model model) {
@@ -34,7 +35,7 @@ public class VideoUploadController {
 		try {
 			// 創建 Video 物件並設定影片資料
 			Video video = new Video();
-			video.setVideoValueFromMultipartFile(file); // 使用 自定義 Video.java 方法
+			video.setVideoDataFromMultipartFile(file); // 使用 自定義 Video.java 方法
 
 			// 產生一個唯一的 UUID 並設定到 Video 物件中
 			String uniqueID = UUID.randomUUID().toString();
