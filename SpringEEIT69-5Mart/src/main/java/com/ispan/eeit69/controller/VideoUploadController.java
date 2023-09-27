@@ -40,7 +40,7 @@ public class VideoUploadController {
 	    
 	    // 檢查檔案大小
 	    long size = file.getSize();
-	    if (size > 52428800) {  // 限制為 10MB
+	    if (size > 52428800) {  // 限制為 50MB
 	        model.addAttribute("message", "檔案太大，不能超過 50MB");
 	        return "/StudentLearningManagementSystem/upload_video";
 	    }
