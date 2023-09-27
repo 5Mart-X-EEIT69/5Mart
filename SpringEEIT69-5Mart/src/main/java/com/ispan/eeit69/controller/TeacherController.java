@@ -218,28 +218,8 @@ public class TeacherController {
 	public String TeacherInformationIntroduction(Model model) {
 		member member = (member) session.getAttribute("member");
 		Introduction introduction = introductionService.findByMember(member);
-		
-		
 		model.addAttribute("introduction",introduction);
-			
-			
-		if(introduction ==null) {
-			
-			System.out.println("null");
-		
-			
-		}
-		if(introduction !=null) {
-			
-			System.out.println("not null");
-		
-			
-		}
-		
-		
-		
-		
-		
+
 		return "/TeacherInformation/TeacherInformationIntroduction";
 	}// 跳轉至講師資料自我介紹頁面
 
@@ -480,14 +460,23 @@ public class TeacherController {
 								@RequestParam("Expertise") String Expertise,@RequestParam("Blog") String Blog,
 								@RequestParam("Youtube") String Youtube,@RequestParam("Facebook") String Facebook) {
 	
+		member member = (member) session.getAttribute("member");  //找出會員
+		Introduction introduction1 = introductionService.findByMember(member);  //在Introduction表內，用member去找到自我介紹那行
 		
 		
-		
-		
-		member member = memberService.findByMemberId(memberID);
-		Introduction introduction1 = new Introduction(IntroductionText,Expertise,Blog,Youtube,Facebook,member);
-		introductionService.save(introduction1);
-		
+		if(introduction1 == null) {
+		member member2 = memberService.findByMemberId(memberID);
+		Introduction introduction2 = new Introduction(IntroductionText,Expertise,Blog,Youtube,Facebook,member2);
+		introductionService.save(introduction2);
+		}else {
+			introduction1.setIntroductionText(IntroductionText);
+			introduction1.setExpertise(Expertise);
+			introduction1.setBlog(Blog);
+			introduction1.setFacebook(Facebook);
+			introduction1.setYoutube(Youtube);
+			
+			introductionService.update(introduction1);
+		}
 		
 		
 		return "/TeacherInformation/TeacherInformationIntroduction";

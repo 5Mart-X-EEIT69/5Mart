@@ -83,13 +83,13 @@
 					<textarea class="form-control" id="Expertise" rows="3" name="Expertise">${introduction.expertise}</textarea>
 					
 					<label for="blog" class="form-label mt-3">宣傳你的個人部落格吧(選填)</label>
-					<input type="${introduction.blog}" class="form-control" id="Blog" placeholder="https://..." name="Blog">
+					<input type="text" class="form-control" id="Blog" placeholder="https://..." name="Blog" value="${introduction.blog}">
 					
 					<label for="youtube" class="form-label mt-3">宣傳你的個人Youtube吧(選填)</label>
-					<input type="${introduction.youtube}" class="form-control" id="Youtube" placeholder="https://www.youtube.com/..." name="Youtube">
+					<input type="text" class="form-control" id="Youtube" placeholder="https://www.youtube.com/..." name="Youtube" value="${introduction.youtube}">
 					
 					<label for="facebook" class="form-label mt-3">宣傳你的個人Facebook吧(選填)</label>
-					<input type="${introduction.facebook}" class="form-control" id="Facebook" placeholder="https://www.facebook.com/..." name="Facebook">
+					<input type="text" class="form-control" id="Facebook" placeholder="https://www.facebook.com/..." name="Facebook" value="${introduction.facebook}">
 
 					<input type="hidden" value="${member.id}" name="memberId">
 
