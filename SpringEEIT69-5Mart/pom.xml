@@ -78,6 +78,16 @@
 		<!--		JSP的JAR BOOT沒內建-->
 
 
+   		 <!-- 開發測試用的依賴 -->
+		 <!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
+		<dependency>
+		    <groupId>jakarta.servlet</groupId>
+		    <artifactId>jakarta.servlet-api</artifactId>
+		    <scope>provided</scope>
+		</dependency>
+
+
+
 	</dependencies>
 
 	<build>
