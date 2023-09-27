@@ -61,7 +61,7 @@ public class RegController {
 		} else {
 //			Integer memeberId = result.getId();
 //			System.out.println("會員的id" + memeberId);
-			TeacherPicture result2 = teacherPictureService.findById(3);
+			TeacherPicture result2 = teacherPictureService.findById(2);
 			Blob pic =  result2.getPhoto();
 //			System.out.println(pic);
 			// 將Blob數據轉換為Base64編碼的字符串
