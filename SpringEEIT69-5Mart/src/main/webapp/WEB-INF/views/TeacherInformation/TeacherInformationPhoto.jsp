@@ -69,7 +69,7 @@
 		<div class="col-2">test</div>
 		<div class="col-4 d-flex align-items-center" id="photoContainer">
 		
-			<form action="<c:url value="/teacherpicture" />" method="post" class="w-100 mb-3" onsubmit="return submit()" enctype="multipart/form-data">
+			<form action="<c:url value="/TeacherInformationPhoto" />" method="post" class="w-100 mb-3" onsubmit="return submit()" enctype="multipart/form-data">
 				<div class="d-flex">
 					<h1>自我介紹</h1>	
 					<h2>${member.account}</h2>
@@ -93,7 +93,7 @@
 					</figure>				
 				</div>			
 				<input class="form-control form-control-lg" id="imgbtn" type="file" accept="image/*" name="photo" >
-				<input type="text" value="${member.id}" name="memberId">
+				<input type="hidden" value="${member.id}" name="memberId" >
 				<div class="d-flex justify-content-center">
 					<button type="submit" class="btn btn-secondary mt-3" >儲存照片</button>				
 				</div>

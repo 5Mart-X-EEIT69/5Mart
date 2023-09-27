@@ -26,16 +26,28 @@ public class Introduction {
 	
 	private String Facebook;
 	
+	public member getMember() {
+		return member;
+	}
+
+	public void setMember(member member) {
+		this.member = member;
+	}
+
 	@OneToOne()
     @JoinColumn(name = "member_id")
     private member member;
 
-	public Introduction(String introductionText, String expertise, String blog, String youtube, String facebook) {
+	
+
+	public Introduction(String introductionText, String expertise, String blog, String youtube, String facebook,
+			com.ispan.eeit69.model.member member) {
 		IntroductionText = introductionText;
 		Expertise = expertise;
 		Blog = blog;
 		Youtube = youtube;
 		Facebook = facebook;
+		this.member = member;
 	}
 
 	public Introduction() {
@@ -94,7 +106,9 @@ public class Introduction {
 	public String toString() {
 		return "Introduction [IntroductionId=" + IntroductionId + ", IntroductionText=" + IntroductionText
 				+ ", Expertise=" + Expertise + ", Blog=" + Blog + ", Youtube=" + Youtube + ", Facebook=" + Facebook
-				+ "]";
+				+ ", member=" + member + "]";
 	}
+
+	
 	
 }

@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.ispan.eeit69.dao.TeacherPictureRepository;
 import com.ispan.eeit69.model.Announcement;
 import com.ispan.eeit69.model.Chapter;
 import com.ispan.eeit69.model.Course;
@@ -189,17 +190,16 @@ public class TeacherController {
 	@GetMapping("/TeacherInformationPhoto")
 	public String TeacherInformationPhoto(Model model) {
 		member member = (member) session.getAttribute("member");
-		System.out.println(member);
 		
-		TeacherPicture findpicture = new TeacherPicture();
-		findpicture = member.getTeacherPicture();
 		
-		if (findpicture != null) {
+		TeacherPicture teacherPicture = teacherPictureService.findByMember(member);
+		
+		if (teacherPicture != null) {
 		// 将Blob数据转换为Base64编码的字符串
-			System.out.println("TEST2");
+		
 		byte[] imageBytes;
 		try {
-			imageBytes = findpicture.getPhoto().getBytes(1, (int) findpicture.getPhoto().length());
+			imageBytes = teacherPicture.getPhoto().getBytes(1, (int) teacherPicture.getPhoto().length());
 			String base64Image = Base64.getEncoder().encodeToString(imageBytes);
 			model.addAttribute("base64Image",base64Image);
 		} catch (SQLException e) {
@@ -209,11 +209,35 @@ public class TeacherController {
 		
 		}
 		
-		return "/TeacherInformation/TeacherInformationPhoto";
+		return "TeacherInformation/TeacherInformationPhoto";
 	}// 跳轉至講師資料照片頁面
 
 	@GetMapping("/TeacherInformationIntroduction")
 	public String TeacherInformationIntroduction(Model model) {
+		member member = (member) session.getAttribute("member");
+		Introduction introduction = introductionService.findByMember(member);
+		
+		
+		model.addAttribute("introduction",introduction);
+			
+			
+		if(introduction ==null) {
+			
+			System.out.println("null");
+		
+			
+		}
+		if(introduction !=null) {
+			
+			System.out.println("not null");
+		
+			
+		}
+		
+		
+		
+		
+		
 		return "/TeacherInformation/TeacherInformationIntroduction";
 	}// 跳轉至講師資料自我介紹頁面
 
@@ -354,33 +378,54 @@ public class TeacherController {
 		return course;
 	}
 	
-	@PostMapping("/introduction")
-	public String introduction(@ModelAttribute Introduction introduction) {
-		introductionService.save(introduction);
-		System.out.println("測試");
+	@PostMapping("/TeacherInformationIntroduction")
+	public String introduction(@ModelAttribute Introduction introduction,@RequestParam("memberId") Integer memberID,
+								@RequestParam("IntroductionText") String IntroductionText,
+								@RequestParam("Expertise") String Expertise,@RequestParam("Blog") String Blog,
+								@RequestParam("Youtube") String Youtube,@RequestParam("Facebook") String Facebook) {
+	
+		
+		
+		
+		
+		member member = memberService.findByMemberId(memberID);
+		Introduction introduction1 = new Introduction(IntroductionText,Expertise,Blog,Youtube,Facebook,member);
+		introductionService.save(introduction1);
+		
+		
+		
 		return "/TeacherInformation/TeacherInformationIntroduction";
 	}
 	
-	@PostMapping("/teacherpicture")
+	@PostMapping("/TeacherInformationPhoto")
 	public String teacherpicture(@RequestParam("photo") MultipartFile photo ,Model model,@RequestParam("memberId") Integer memberID) throws IOException, SerialException, SQLException {
+		member member = (member) session.getAttribute("member");
+		TeacherPicture teacherPicture = teacherPictureService.findByMember(member);
 		
-		byte[] photoBytes = photo.getBytes();
-		Blob blob = new SerialBlob(photoBytes);
-		member member = memberService.findByMemberId(memberID);
-		TeacherPicture teacherPicture = new TeacherPicture(blob,member);
-		teacherPictureService.save(teacherPicture);
+		if(teacherPicture == null) {
+			byte[] photoBytes = photo.getBytes();
+			Blob blob = new SerialBlob(photoBytes);
+			member member1 = memberService.findByMemberId(memberID);
+			TeacherPicture teacherPicture1 = new TeacherPicture(blob,member1);
+			teacherPictureService.save(teacherPicture1);			
+		}else {
+			byte[] newPhotoBytes = photo.getBytes();
+		    Blob newBlob = new SerialBlob(newPhotoBytes);
+		    teacherPicture.setPhoto(newBlob);
+		    
+		    teacherPictureService.update(teacherPicture);
+		}
 		
+		TeacherPicture findpicture = new TeacherPicture();
+		findpicture = memberService.findByMemberId(memberID).getTeacherPicture();
 		
-//		TeacherPicture findpicture = new TeacherPicture();
-//		findpicture = memberService.findByMemberId(memberID).getTeacherPicture();
-//		
-//		if (findpicture != null) {
-//		// 将Blob数据转换为Base64编码的字符串
-//		byte[] imageBytes = findpicture.getPhoto().getBytes(1, (int) findpicture.getPhoto().length());
-//		String base64Image = Base64.getEncoder().encodeToString(imageBytes);
-//		
-//		model.addAttribute("base64Image",base64Image);
-//		}
+		if (findpicture != null) {
+		// 将Blob数据转换为Base64编码的字符串
+		byte[] imageBytes = findpicture.getPhoto().getBytes(1, (int) findpicture.getPhoto().length());
+		String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+		
+		model.addAttribute("base64Image",base64Image);
+		}
 		
 		
 		return "/TeacherInformation/TeacherInformationPhoto";
