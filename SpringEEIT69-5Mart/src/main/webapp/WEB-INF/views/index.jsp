@@ -12,7 +12,8 @@
 <body>
     <h1>Welcome to the Index Page</h1>
     <p>Available routes:</p>
-<%
+    
+    <%
     List<String> urls = (List<String>) request.getAttribute("urls");
     for(String url : urls) {
 %>
@@ -20,7 +21,13 @@
 <%
     }
 %>
-
-
+    
+    
+    
+<%--     <ul>
+        <c:forEach var="url" items="${urls}">
+            <li><a href="${url}">${url}</a></li>
+        </c:forEach>
+    </ul> --%>
 </body>
 </html>
