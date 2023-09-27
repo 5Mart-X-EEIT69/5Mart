@@ -6,25 +6,31 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "video_5mart")
 public class Video {
-
+	
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer videoId;//單元唯一碼
-
+	
 	@ManyToOne()
 	@JoinColumn(name = "unitId")
 	private Unit unit;//對應到的課程ID
-
+	
 	private String videoNumber ; //第幾單元的影片
 	private Clob videoValue ;//影片base64
 	private String videoName ; //第幾單元的影片
-
+	
 	public Video() {
 	}
-
+	
 
 	public Video(Unit unit, String videoNumber, Clob videoValue, String videoName) {
 		super();
@@ -34,10 +40,28 @@ public class Video {
 		this.videoName = videoName;
 	}
 
+
+
 	public Integer getVideoId() {
 		return videoId;
 	}
-  public String getVideoNumber() {
+
+	public void setVideoId(Integer videoId) {
+		this.videoId = videoId;
+	}
+
+	public Unit getUnit() {
+		return unit;
+	}
+
+	public void setUnit(Unit unit) {
+		this.unit = unit;
+	}
+
+	public String getVideoNumber() {
+		return videoNumber;
+	}
+
 	public void setVideoNumber(String videoNumber) {
 		this.videoNumber = videoNumber;
 	}
@@ -50,8 +74,11 @@ public class Video {
 		this.videoValue = videoValue;
 	}
 
+	
+	public String getVideoName() {
+		return videoName;
+	}
 
-  public String getVideoName() {
 	public void setVideoName(String videoName) {
 		this.videoName = videoName;
 	}
@@ -61,5 +88,10 @@ public class Video {
 		return "Video [videoId=" + videoId + ", unit=" + unit + ", videoNumber=" + videoNumber + ", videoValue="
 				+ videoValue + ", videoName=" + videoName + "]";
 	}
-  
+
+
+
+
+	
+	
 }
