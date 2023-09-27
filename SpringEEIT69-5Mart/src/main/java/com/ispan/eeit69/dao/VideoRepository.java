@@ -14,5 +14,5 @@ public interface VideoRepository extends JpaRepository<Video, Integer>{
 	//findByUuid 會自動轉成一個 SQL 查詢，用來根據 UUID 字段找到對應的 Video 實體。
 	//返回一個 Optional<Video>，這意味著查詢的結果可能是空。
 	
-	Optional<Video> findByUuid(String uuid);  // 用來找UUID的方法
+	// Optional<Video> findByUuid(String uuid);  // 用來找UUID的方法
 }
