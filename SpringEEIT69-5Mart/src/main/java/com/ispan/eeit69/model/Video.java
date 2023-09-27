@@ -38,7 +38,7 @@ public class Video {
 	private String videoNumber ; //第幾單元的影片
 	private String videoName ; //第幾單元的影片
 	
-	private String videofilePath; // 新增這個欄位用於存放檔案路徑
+	private String videofilePath; // 欄位用於存放檔案路徑
 
 
 	//videoValue 用於儲存影片的二進位數據，數據類型是 Blob。@Column 定義了相關的數據庫列資訊。
