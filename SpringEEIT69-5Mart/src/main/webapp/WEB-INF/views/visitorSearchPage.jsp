@@ -174,156 +174,11 @@
 	<!-- 導覽列 -->
 	<div>帳號 ${member.account}</div>
 
-	<!-- 登入彈跳式視窗 -->
-	<div class="modal fade" id="loginModal" data-bs-backdrop="static"
-		data-bs-keyboard="false" tabindex="-1"
-		aria-labelledby="staticBackdropLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<!-- Header -->
-				<div class="modal-header">
-					<h3 class="modal-title" id="staticBackdropLabel">
-						<strong>登入</strong>
-					</h3>
-					<div class="d-flex align-items-center">
-						<p class="mb-0">尚未註冊？</p>
-						<button type="button" class="btn btn-link me-2"
-							data-bs-toggle="modal" data-bs-target="#signinModal"
-							data-bs-dismiss="modal" style="text-decoration: none">註冊</button>
-
-
-						<button type="button" class="btn-close" data-bs-dismiss="modal"
-							aria-label="Close"></button>
-					</div>
-				</div>
-
-				<!-- Body -->
-				<div class="modal-body">
-
-					<form action="">
-						<!-- email -->
-						<div class="form-group">
-							<input type="email" class="account form-control"
-								placeholder="電子郵件">
-						</div>
-						<!-- 密碼 -->
-						<div class="form-group">
-							<input type="password" class="password form-control"
-								placeholder="密碼">
-						</div>
-						<!-- checkbox -->
-						<div class="form-group">
-							<input type="checkbox" class="remember"> 記住我的密碼
-						</div>
-						<!-- 送出按鈕 -->
-						<a role="button" href="<c:url value='/memberHomePage' />"
-							class="btn btn-secondary">登入</a> <a type="button" href="#"
-							class="d-md-flex justify-content-center">忘記密碼</a>
-
-					</form>
-				</div>
-				<!-- Footer -->
-				<div
-					class="modal-footer d-md-flex justify-content-center flex-column">
-					<div>
-						<p>
-							或使用<strong>社群帳號</strong>繼續
-						</p>
-					</div>
-					<div class="mb-3">
-						<a class="mx-2" type="button" href="#"><i
-							class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i></a>
-						<a class="mx-2" type="button" href="#"><i
-							class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i></a> <a
-							class="mx-2" type="button" href="#"><i
-							class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- 登入彈跳式視窗 -->
-
-	<!-- 註冊彈跳式視窗 -->
-	<div class="modal fade" id="signinModal" data-bs-backdrop="static"
-		data-bs-keyboard="false" tabindex="-1"
-		aria-labelledby="staticBackdropLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<!-- Header -->
-				<div class="modal-header">
-					<h3 class="modal-title" id="staticBackdropLabel">
-						<strong>註冊</strong>
-					</h3>
-					<div class="d-flex align-items-center">
-						<p class="mb-0">已經擁有帳戶？</p>
-						<button type="button" class="btn btn-link me-2"
-							data-bs-toggle="modal" data-bs-target="#loginModal"
-							data-bs-dismiss="modal" style="text-decoration: none">登入</button>
-						<button type="button" class="btn-close" data-bs-dismiss="modal"
-							aria-label="Close"></button>
-					</div>
-				</div>
-				<!-- Body -->
-				<div class="modal-body">
-					<form action="">
-						<!-- 姓名 -->
-						<div class="form-group">
-							<input type="text" class="text form-control" placeholder="全名">
-						</div>
-						<!-- email -->
-						<div class="form-group">
-							<input type="email" class="account form-control"
-								placeholder="電子郵件">
-						</div>
-						<!-- 密碼 -->
-						<div class="form-group">
-							<input type="password" class="password form-control"
-								placeholder="密碼">
-						</div>
-						<!-- 再次輸入密碼 -->
-						<div class="form-group">
-							<input type="password" class="password form-control"
-								placeholder="再次輸入密碼">
-						</div>
-						<!-- 送出按鈕 -->
-						<button type="button" class="btn btn-secondary mt-3"
-							data-bs-dismiss="modal">註冊</button>
-						<div class="d-md-flex justify-content-center mt-2">
-							<p>
-								註冊即同意<a type="button" href="#">隱私權政策</a>和<a type="button"
-									href="#">使用者條款</a>
-							</p>
-						</div>
-					</form>
-				</div>
-				<!-- Footer -->
-				<div
-					class="modal-footer d-md-flex justify-content-center flex-column">
-					<div>
-						<p>
-							或使用<strong>社群帳號</strong>繼續
-						</p>
-					</div>
-					<div class="mb-3">
-						<a class="mx-2" type="button" href="#"><i
-							class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i></a>
-						<a class="mx-2" type="button" href="#"><i
-							class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i></a> <a
-							class="mx-2" type="button" href="#"><i
-							class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- 註冊彈跳式視窗 -->
-
 	<div class="container">
 		<div class="row">
 			<div>
-				<h2 style="font-weight: bolder; margin-top: 40px;">有 9,999 項
-					Java 結果</h2>
+				<h2 style="font-weight: bolder; margin-top: 40px;">有  ${empty keywordResult ? 0 : keywordResult.size()} 項
+					『${keyword}』 結果</h2>
 			</div>
 		</div>
 		<div class="row">
@@ -331,21 +186,22 @@
 				｜ <a href="" class="nav-link">最相關</a>｜最熱門｜依人數｜依評價｜依時間｜
 			</p>
 		</div>
+		<c:forEach items="${keywordResult}" var="result">
 		<div class="row mx-3">
 			<div class="card mb-3 border-light">
 				<div class="row g-0 ">
 					<div class="col-md-3 d-flex align-items-center">
 						<img class="w-100"
-							src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg" alt="...">
+							src="${result.dataUri}" alt="...">
 					</div>
 					<div class="col-md-8">
 						<div class="card-body">
 							<div class="d-flex justify-content-between">
 								<h4 style="font-weight: bolder;">
-									<strong>Java從零開始學習</strong>
+									<strong>${result.title}</strong>
 								</h4>
 								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
-									$2,000</p>
+									$ ${result.price}</p>
 							</div>
 							<div class="d-flex flex-row align-items-end">
 								<p class="card-text  pe-10"
@@ -359,7 +215,7 @@
 									(123)
 								</p>
 							</div>
-							<p class="card-text pt-2">從入門開始學習Java語法，課程包含物件導向程式設計、製作貪吃蛇遊戲、面試題目解題、MySQL資料庫、JSP網頁開發等等內容，讓你一步一步成為Java大師</p>
+							<p class="card-text pt-2">${result.introduction}</p>
 
 							<div class="col"></div>
 							<div class="col text-end">
@@ -372,111 +228,7 @@
 				</div>
 			</div>
 		</div>
-
-		<div class="row mx-3">
-			<div class="card mb-3">
-				<div class="row g-0 ">
-					<div class="col-md-3 d-flex align-items-center">
-						<img class="w-100"
-							src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg" alt="...">
-					</div>
-					<div class="col-md-8">
-						<div class="card-body">
-							<div class="d-flex justify-content-between">
-								<h4 style="font-weight: bolder;">
-									<strong>Java從零開始學習</strong>
-								</h4>
-								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
-									$2,000</p>
-							</div>
-							<div class="d-flex flex-row align-items-end">
-								<p class="card-text  pe-10"
-									style="font-size: small; margin-bottom: 1px; margin-right: 1em;">趙令文</p>
-								<p class="card-text">
-									<strong style="font-size: large;">3.5 </strong> <i
-										class="bi bi-star-fill px-0"></i> <i
-										class="bi bi-star-fill px-0"></i> <i
-										class="bi bi-star-fill px-0"></i> <i
-										class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
-									(123)
-								</p>
-							</div>
-							<p class="card-text pt-2">從入門開始學習Java語法，課程包含物件導向程式設計、製作貪吃蛇遊戲、面試題目解題、MySQL資料庫、JSP網頁開發等等內容，讓你一步一步成為Java大師</p>
-
-							<div class="col"></div>
-							<div class="col text-end">
-								<i class="fa-solid fa-cart-shopping px-2"></i> <i
-									class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="row mx-3">
-			<div class="card mb-3">
-				<div class="row g-0 ">
-					<div class="col-md-3 d-flex align-items-center">
-						<img class="w-100"
-							src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg" alt="...">
-					</div>
-					<div class="col-md-8">
-						<div class="card-body">
-							<div class="d-flex justify-content-between">
-								<h4 style="font-weight: bolder;">
-									<strong>Java從零開始學習</strong>
-								</h4>
-								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
-									$2,000</p>
-							</div>
-							<div class="d-flex flex-row align-items-end">
-								<p class="card-text  pe-10"
-									style="font-size: small; margin-bottom: 1px; margin-right: 1em;">趙令文</p>
-								<p class="card-text">
-									<strong style="font-size: large;">3.5 </strong> <i
-										class="bi bi-star-fill px-0"></i> <i
-										class="bi bi-star-fill px-0"></i> <i
-										class="bi bi-star-fill px-0"></i> <i
-										class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
-									(123)
-								</p>
-							</div>
-							<p class="card-text pt-2">從入門開始學習Java語法，課程包含物件導向程式設計、製作貪吃蛇遊戲、面試題目解題、MySQL資料庫、JSP網頁開發等等內容，讓你一步一步成為Java大師</p>
-
-							<div class="col"></div>
-							<div class="col text-end">
-								<i class="fa-solid fa-cart-shopping px-2"></i> <i
-									class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<nav aria-label="Page navigation example"
-				class="d-flex justify-content-center">
-				<ul class="pagination">
-					<li class="page-item"><a class="page-link" href="#"
-						aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-					</a></li>
-					<li class="page-item"><a class="page-link" href="#">1</a></li>
-					<li class="page-item"><a class="page-link" href="#">2</a></li>
-					<li class="page-item"><a class="page-link" href="#">3</a></li>
-					<li class="page-item"><a class="page-link" href="#"
-						aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-					</a></li>
-				</ul>
-			</nav>
-		</div>
-
-	</div>
-
-
-
+		</c:forEach>
 
 	<div id="return-top" class="top_e shadow-sm">
 		<i class="fa-solid fa-angle-up fa-2xl" style="color: #919191;"></i>

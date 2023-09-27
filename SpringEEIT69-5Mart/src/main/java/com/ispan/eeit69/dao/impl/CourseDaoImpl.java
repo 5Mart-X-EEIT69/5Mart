@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ispan.eeit69.dao.CourseDao;
 import com.ispan.eeit69.model.Course;
+import com.ispan.eeit69.service.impl.CourseServiceImpl;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -74,5 +75,15 @@ public class CourseDaoImpl implements CourseDao{
 		return courses;
 	}
 
+	@Override
+	public List<Course> findByKeyword(String keyword) {
+		
+		String hql = "FROM Course WHERE title LIKE :keyword";
+//		SELECT * FROM course_5mart WHERE title LIKE '%java%'
+		List<Course> courses = entityManager.createQuery(hql, Course.class).setParameter("keyword", "%" + keyword + "%").getResultList();
+		return courses;
+	}
+
+	
 	
 }

@@ -5,13 +5,17 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ispan.eeit69.model.Course;
 import com.ispan.eeit69.model.Introduction;
+import com.ispan.eeit69.model.TeacherPicture;
 import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.ChapterService;
 import com.ispan.eeit69.service.CourseService;
 import com.ispan.eeit69.service.IntroductionService;
+import com.ispan.eeit69.service.TeacherPictureService;
 import com.ispan.eeit69.service.UnitService;
 import com.ispan.eeit69.service.VideoService;
 
@@ -25,16 +29,21 @@ public class HomeController {
 	UnitService unitService;
 	VideoService videoService;
 	IntroductionService introductionService;
+	TeacherPictureService teacherPictureService;
 	HttpSession session;
 
-	public HomeController(CourseService courseService, ChapterService chapterService, UnitService unitService,
-			VideoService videoService, IntroductionService introductionService, HttpSession session) {
 
+
+	public HomeController(CourseService courseService, ChapterService chapterService, UnitService unitService,
+			VideoService videoService, IntroductionService introductionService,
+			TeacherPictureService teacherPictureService, HttpSession session) {
+		super();
 		this.courseService = courseService;
 		this.chapterService = chapterService;
 		this.unitService = unitService;
 		this.videoService = videoService;
 		this.introductionService = introductionService;
+		this.teacherPictureService = teacherPictureService;
 		this.session = session;
 	}
 
@@ -54,7 +63,17 @@ public class HomeController {
 		} else {
 			return "memberHomePage";
 		}
-
+	}
+	
+	@GetMapping("/homepage")
+	public String homepage(Model model) {
+		List<Course> allCourse = courseService.findAll();
+		model.addAttribute("allCourse", allCourse);
+		
+		TeacherPicture result = teacherPictureService.findById(null);
+		
+		
+		return "homePage";
 	}
 
 	@GetMapping("/memberHomePage")
@@ -83,6 +102,16 @@ public class HomeController {
 		return "visitorSearchPage";
 	}
 
+	@PostMapping("/visitorsearchpage")
+	public String searchKeyword(@RequestParam("keyword") String keyword, Model model) {
+		System.out.println("關鍵字" + keyword);
+		model.addAttribute("keyword", keyword);
+		List<Course> result = courseService.findByKeyword(keyword);
+		model.addAttribute("keywordResult", result);
+
+		return "visitorSearchPage";
+	}
+
 	@GetMapping("/courseDetail")
 	public String courseDetail(Model model) {
 		return "courseDetail";
@@ -97,13 +126,29 @@ public class HomeController {
 	public String check(Model model) {
 		return "check";
 	}
-	
+
 	@GetMapping("/blogpage")
 	public String blogpage(Model model) {
-		Introduction introduction= new Introduction();
+		Introduction introduction = new Introduction();
 		introduction = introductionService.findById(4);
-		model.addAttribute("introduction",introduction);
+		model.addAttribute("introduction", introduction);
 		return "blogpage";
 
 	}
+
+	@GetMapping("/teacherNavBar")
+	public String teacherNavBar(Model model) {
+		return "teacherNavBar";
+	}
+	
+	@GetMapping("/searchsort")
+	public String searchsort(@RequestParam("sort") String sort, Model model) {
+		System.out.println(sort);
+		model.addAttribute("keyword",sort);
+		List<Course> result = courseService.findBySort(sort);
+		model.addAttribute("keywordResult",result);
+		
+		return "visitorSearchPage";
+	}
+
 }

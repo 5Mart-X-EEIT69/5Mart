@@ -233,12 +233,13 @@
 </script>
 
 <body>
-
 	<!-- 導覽列 -->
-	<jsp:include page="/WEB-INF/views/visitorNavBar.jsp" />
+	<c:choose>
+		<c:when test="${not empty member.account}"><jsp:include page="/WEB-INF/views/memberNavBar.jsp" /></c:when>
+		<c:otherwise><jsp:include page="/WEB-INF/views/visitorNavBar.jsp" /></c:otherwise>
+	</c:choose>
 	<!-- 導覽列 -->
 	<div>帳號 ${member.account}</div>
-
 
 	<!-- 輪播圖 -->
 	<div class="container mb-5">
@@ -315,15 +316,15 @@
 						<p class="card-text">
 						<div class="container px-0">
 							<div class="row">
-								<h5 style="font-weight: bolder;">
+								<h5 style="font-weight: bolder">
 									<strong>${course.title}</strong>
 								</h5>
 							</div>
 							<div class="row">
-								<p class="mb-2" style="font-size: small;">趙令文</p>
+								<p class="mb-2" style="font-size: small">趙令文</p>
 							</div>
 							<div class="row d-inline ">
-								<strong style="font-size: large;">3.5 </strong> <i
+								<strong style="font-size: large">3.5 </strong> <i
 									class="bi bi-star-fill px-0"></i> <i
 									class="bi bi-star-fill px-0"></i> <i
 									class="bi bi-star-fill px-0"></i> <i
@@ -345,151 +346,8 @@
 					</div>
 				</div>
 			</c:forEach>
-			<!-- 			<div class="card mx-3"> -->
-			<!-- 				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg" -->
-			<!-- 					class="card-img-top" alt="..." /> -->
-			<!-- 				<div class="card-body py-0"> -->
-			<!-- 					<p class="card-text"> -->
-			<!-- 					<div class="container px-0"> -->
-			<!-- 						<div class="row"> -->
-			<!-- 							<h5 style="font-weight: bolder;"> -->
-			<!-- 								<strong>Java從零開始學習</strong> -->
-			<!-- 							</h5> -->
-			<!-- 						</div> -->
-			<!-- 						<div class="row"> -->
-			<!-- 							<p class="mb-2" style="font-size: small;">趙令文</p> -->
-			<!-- 						</div> -->
-			<!-- 						<div class="row d-inline "> -->
-			<!-- 							<strong style="font-size: large;">3.5 </strong> <i -->
-			<!-- 								class="bi bi-star-fill px-0"></i> <i -->
-			<!-- 								class="bi bi-star-fill px-0"></i> <i -->
-			<!-- 								class="bi bi-star-fill px-0"></i> <i -->
-			<!-- 								class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i> -->
-			<!-- 							(123) -->
-			<!-- 						</div> -->
-			<!-- 						<div class="row mt-2"> -->
-			<!-- 							<div class="col"> -->
-			<!-- 								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT -->
-			<!-- 									$2,000</p> -->
-			<!-- 							</div> -->
-			<!-- 							<div class="col text-end"> -->
-			<!-- 								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i> -->
-
-			<!-- 							</div> -->
-			<!-- 						</div> -->
-			<!-- 					</div> -->
-			<!-- 					</p> -->
-			<!-- 				</div> -->
-			<!-- 			</div> -->
-			<!-- 			<div class="card mx-3"> -->
-			<!-- 				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg" -->
-			<!-- 					class="card-img-top" alt="..." /> -->
-			<!-- 				<div class="card-body py-0"> -->
-			<!-- 					<p class="card-text"> -->
-			<!-- 					<div class="container px-0"> -->
-			<!-- 						<div class="row"> -->
-			<!-- 							<h5 style="font-weight: bolder;"> -->
-			<!-- 								<strong>Java從零開始學習</strong> -->
-			<!-- 							</h5> -->
-			<!-- 						</div> -->
-			<!-- 						<div class="row"> -->
-			<!-- 							<p class="mb-2" style="font-size: small;">趙令文</p> -->
-			<!-- 						</div> -->
-			<!-- 						<div class="row d-inline "> -->
-			<!-- 							<strong style="font-size: large;">3.5 </strong> <i -->
-			<!-- 								class="bi bi-star-fill px-0"></i> <i -->
-			<!-- 								class="bi bi-star-fill px-0"></i> <i -->
-			<!-- 								class="bi bi-star-fill px-0"></i> <i -->
-			<!-- 								class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i> -->
-			<!-- 							(123) -->
-			<!-- 						</div> -->
-			<!-- 						<div class="row mt-2"> -->
-			<!-- 							<div class="col"> -->
-			<!-- 								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT -->
-			<!-- 									$2,000</p> -->
-			<!-- 							</div> -->
-			<!-- 							<div class="col text-end"> -->
-			<!-- 								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i> -->
-
-			<!-- 							</div> -->
-			<!-- 						</div> -->
-			<!-- 					</div> -->
-			<!-- 					</p> -->
-			<!-- 				</div> -->
-			<!-- 			</div> -->
-			<!-- 			<div class="card mx-3"> -->
-			<!-- 				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖004.jpeg" -->
-			<!-- 					class="card-img-top" alt="..." /> -->
-			<!-- 				<div class="card-body py-0"> -->
-			<!-- 					<p class="card-text"> -->
-			<!-- 					<div class="container px-0"> -->
-			<!-- 						<div class="row"> -->
-			<!-- 							<h5 style="font-weight: bolder;"> -->
-			<!-- 								<strong>Java從零開始學習</strong> -->
-			<!-- 							</h5> -->
-			<!-- 						</div> -->
-			<!-- 						<div class="row"> -->
-			<!-- 							<p class="mb-2" style="font-size: small;">趙令文</p> -->
-			<!-- 						</div> -->
-			<!-- 						<div class="row d-inline "> -->
-			<!-- 							<strong style="font-size: large;">3.5 </strong> <i -->
-			<!-- 								class="bi bi-star-fill px-0"></i> <i -->
-			<!-- 								class="bi bi-star-fill px-0"></i> <i -->
-			<!-- 								class="bi bi-star-fill px-0"></i> <i -->
-			<!-- 								class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i> -->
-			<!-- 							(123) -->
-			<!-- 						</div> -->
-			<!-- 						<div class="row mt-2"> -->
-			<!-- 							<div class="col"> -->
-			<!-- 								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT -->
-			<!-- 									$2,000</p> -->
-			<!-- 							</div> -->
-			<!-- 							<div class="col text-end"> -->
-			<!-- 								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i> -->
-
-			<!-- 							</div> -->
-			<!-- 						</div> -->
-			<!-- 					</div> -->
-			<!-- 					</p> -->
-			<!-- 				</div> -->
 		</div>
 
-		<!-- 	<div class="card mx-3"> -->
-		<!-- 		<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg" -->
-		<!-- 			class="card-img-top" alt="..." /> -->
-		<!-- 		<div class="card-body"> -->
-		<!-- 			<p class="card-text">Some quick example text to build on the card -->
-		<!-- 				title and make up the bulk of the card's content.</p> -->
-		<!-- 		</div> -->
-		<!-- 	</div> -->
-
-		<!-- 	<div class="card mx-3"> -->
-		<!-- 		<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖011.jpeg" -->
-		<!-- 			class="card-img-top" alt="..." /> -->
-		<!-- 		<div class="card-body"> -->
-		<!-- 			<p class="card-text">Some quick example text to build on the card -->
-		<!-- 				title and make up the bulk of the card's content.</p> -->
-		<!-- 		</div> -->
-		<!-- 	</div> -->
-
-		<!-- 	<div class="card mx-3"> -->
-		<!-- 		<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖012.jpeg" -->
-		<!-- 			class="card-img-top" alt="..." /> -->
-		<!-- 		<div class="card-body"> -->
-		<!-- 			<p class="card-text">Some quick example text to build on the card -->
-		<!-- 				title and make up the bulk of the card's content.</p> -->
-		<!-- 		</div> -->
-		<!-- 	</div> -->
-
-		<!-- 	<div class="card mx-3"> -->
-		<!-- 		<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖007.jpeg" -->
-		<!-- 			class="card-img-top" alt="..." /> -->
-		<!-- 		<div class="card-body"> -->
-		<!-- 			<p class="card-text">Some quick example text to build on the card -->
-		<!-- 				title and make up the bulk of the card's content.</p> -->
-		<!-- 		</div> -->
-		<!-- 	</div> -->
-		<!-- 	</div> -->
 		<div class="arrow-next-hotcourse slick-rightbtn">
 			<span> <i class="fa-solid fa-chevron-right"></i>
 			</span>
