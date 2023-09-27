@@ -24,12 +24,28 @@ public class VideoUploadController {
 
 	//	Spring 自動將路徑映射（mapping）到uploadVideo 方法 Spring MVC 內建功能
 	//	@RequestParam("file") MultipartFile file：從 HTTP 請求中獲取名為 "file" 的上傳檔案
-   	//	Model model：用於將資料傳遞給視圖（view）
+    //	Model model：用於將資料傳遞給視圖（view）
 	
 	@PostMapping("/uploadVideo")
 	public String uploadVideo(@RequestParam("file") MultipartFile file, Model model) {
 		String message = "";
 
+		
+		// 檢查檔案類型
+	    String contentType = file.getContentType();
+	    if (!"video/mp4".equals(contentType)) {
+	        model.addAttribute("message", "檔案類型必須是 MP4");
+	        return "/StudentLearningManagementSystem/upload_video";
+	    }
+	    
+	    // 檢查檔案大小
+	    long size = file.getSize();
+	    if (size > 52428800) {  // 限制為 10MB
+	        model.addAttribute("message", "檔案太大，不能超過 50MB");
+	        return "/StudentLearningManagementSystem/upload_video";
+	    }
+		
+	    
 		//處理邏輯
 		
 		try {
