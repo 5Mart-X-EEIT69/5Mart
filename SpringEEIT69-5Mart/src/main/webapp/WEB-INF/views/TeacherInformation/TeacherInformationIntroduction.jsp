@@ -70,25 +70,28 @@
 		<div class="col-2">test</div>
 		<div class="col-4 d-flex align-items-center">
 		
-			<form action="<c:url value="/introduction" />" method="post" class="w-100 mb-3" onsubmit="return sumbit()">
+			<form action="<c:url value="/TeacherInformationIntroduction" />" method="post" class="w-100 mb-3" onsubmit="return sumbit()">
 					<div class="d-flex">
 						<h1>自我介紹</h1>
 					</div>
-					<hr>			
+					<hr>	
+					<h2>${member.account}</h2>		
 					<label for="introduction" class="form-label mt-3">輸入你的自我介紹吧!(選填)</label>
-					<textarea class="form-control" id="IntroductionText" rows="3" name="IntroductionText"></textarea>
+					<textarea class="form-control" id="IntroductionText" rows="3" name="IntroductionText">${introduction.introductionText}</textarea>
 					
 					<label for="skill" class="form-label mt-3">輸入你的專長吧!(選填)</label>
-					<textarea class="form-control" id="Expertise" rows="3" name="Expertise"></textarea>
+					<textarea class="form-control" id="Expertise" rows="3" name="Expertise">${introduction.expertise}</textarea>
 					
 					<label for="blog" class="form-label mt-3">宣傳你的個人部落格吧(選填)</label>
-					<input type="url" class="form-control" id="Blog" placeholder="https://..." name="Blog">
+					<input type="${introduction.blog}" class="form-control" id="Blog" placeholder="https://..." name="Blog">
 					
 					<label for="youtube" class="form-label mt-3">宣傳你的個人Youtube吧(選填)</label>
-					<input type="url" class="form-control" id="Youtube" placeholder="https://www.youtube.com/..." name="Youtube">
+					<input type="${introduction.youtube}" class="form-control" id="Youtube" placeholder="https://www.youtube.com/..." name="Youtube">
 					
 					<label for="facebook" class="form-label mt-3">宣傳你的個人Facebook吧(選填)</label>
-					<input type="url" class="form-control" id="Facebook" placeholder="https://www.facebook.com/..." name="Facebook">
+					<input type="${introduction.facebook}" class="form-control" id="Facebook" placeholder="https://www.facebook.com/..." name="Facebook">
+
+					<input type="hidden" value="${member.id}" name="memberId">
 
 					<div class="d-flex justify-content-center">
 						<button type="submit" class="btn btn-secondary mt-3">送出</button>

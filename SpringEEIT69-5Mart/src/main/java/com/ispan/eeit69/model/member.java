@@ -13,7 +13,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinColumns;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
@@ -33,10 +32,13 @@ public class member implements Serializable {
 	private String password;
 	private Timestamp registerTime;
 	
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "photo_id")
+    @OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
     private TeacherPicture TeacherPicture;
     
+
+    @OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
+    private Introduction introduction;
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "member_course_5mart" , 
     joinColumns = {
@@ -47,6 +49,7 @@ public class member implements Serializable {
     }
     )
     private Set<Course> course = new LinkedHashSet<Course>();
+
 
 	// 建構式
 	public member() {
@@ -126,14 +129,30 @@ public class member implements Serializable {
 		this.course = course;
 	}
 
+	
+
+	public Introduction getIntroduction() {
+		return introduction;
+	}
+
+	public void setIntroduction(Introduction introduction) {
+		this.introduction = introduction;
+	}
+
+	public MultipartFile getMemberMultipartFile() {
+		return memberMultipartFile;
+	}
+
+	public void setMemberMultipartFile(MultipartFile memberMultipartFile) {
+		this.memberMultipartFile = memberMultipartFile;
+	}
+
 	@Override
 	public String toString() {
 		return "member [id=" + id + ", username=" + username + ", account=" + account + ", password=" + password
-				+ ", registerTime=" + registerTime + ", TeacherPicture=" + TeacherPicture + ", course=" + course + "]";
+				+ ", registerTime=" + registerTime + ", TeacherPicture=" + TeacherPicture + ", introduction="
+				+ introduction + ", memberMultipartFile=" + memberMultipartFile + "]";
 	}
-
-
-
 
 	
 	

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.ispan.eeit69.dao.TeacherPictureRepository;
 import com.ispan.eeit69.model.TeacherPicture;
+import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.TeacherPictureService;
 
 import jakarta.transaction.Transactional;
@@ -63,6 +64,12 @@ public class TeacherPictureServiceImpl implements TeacherPictureService {
 		teacherPictureRepository.deleteById(id);
 
 		
+	}
+
+	@Override
+	public TeacherPicture findByMember(member member) {
+		log.info("=====>TeacherPictureServiceImpl#findByMember()");
+		return teacherPictureRepository.findByMember(member);
 	}
 	
 	

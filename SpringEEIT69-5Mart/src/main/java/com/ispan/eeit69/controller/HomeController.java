@@ -117,6 +117,7 @@ public class HomeController {
 		return "courseDetail";
 	}
 
+
 	@GetMapping("/evaluate")
 	public String evaluate(Model model) {
 		return "evaluate";
@@ -126,6 +127,7 @@ public class HomeController {
 	public String check(Model model) {
 		return "check";
 	}
+
 
 	@GetMapping("/blogpage")
 	public String blogpage(Model model) {
