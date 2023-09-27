@@ -25,23 +25,23 @@ public class DEV_VideoServiceImpl implements DEV_VideoService{
 	}
 
 	@Override
-	public void save(Video video) {
+	public void save(DEV_Video video) {
 		System.out.println("test");
 		log.info("=====>DEV_VideoServiceImpl#save()");
 		DEV_VideoRepository.save(video);		
 	}
 
 	@Override
-	public Video update(Video video) {
+	public DEV_Video update(DEV_Video video) {
 		log.info("=====>DEV_VideoServiceImpl#update()");
 		return DEV_VideoRepository.save(video);
 	}
 
 	@Override
-	public Video findById(Integer id) {
-		Video video = null;
+	public DEV_Video findById(Integer id) {
+		DEV_Video video = null;
 		log.info("=====>DEV_VideoServiceImpl#findById()");
-		Optional<Video> opt = DEV_VideoRepository.findById(id);
+		Optional<DEV_Video> opt = DEV_VideoRepository.findById(id);
 		if (opt.isPresent()) {
 			video = opt.get();
 		} else throw new RuntimeException("單元(鍵值=" + id + ")不存在");
@@ -49,7 +49,7 @@ public class DEV_VideoServiceImpl implements DEV_VideoService{
 	}
 
 	@Override
-	public List<Video> findAll() {
+	public List<DEV_Video> findAll() {
 		log.info("=====>DEV_VideoServiceImpl#findAll()");
 		return DEV_VideoRepository.findAll();
 	}
@@ -60,12 +60,12 @@ public class DEV_VideoServiceImpl implements DEV_VideoService{
 		DEV_VideoRepository.deleteById(id);
 	}
 	
-	DEV_VideoRepository.findByUUID(uuid)方法
+	//	DEV_VideoRepository.findByUUID(uuid)方法
 	
 	@Override
-	public Video findByUuid(String uuid) {
+	public DEV_Video findByUuid(String uuid) {
 	    log.info("=====>DEV_VideoServiceImpl#findByUUID()");
-	    Optional<Video> opt = DEV_VideoRepository.findByUuid(uuid);  // 使用 findByUuid 方法來查找
+	    Optional<DEV_Video> opt = DEV_VideoRepository.findByUuid(uuid);  // 使用 findByUuid 方法來查找
 	    if (opt.isPresent()) {
 	        return opt.get();
 	    } else {
@@ -73,6 +73,6 @@ public class DEV_VideoServiceImpl implements DEV_VideoService{
 	    }
 	}
 
-//	videoService.findByUUID(uuid)方法	
+	//	videoService.findByUUID(uuid)方法	
 	
 }
