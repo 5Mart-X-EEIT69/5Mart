@@ -129,7 +129,7 @@ public class DEV_Video {
 	// toString() 方法，toString() 方法返回一個包含 Video 對象各個屬性值的字串。除錯和日誌記錄用。
 	@Override
 	public String toString() {
-		return "Video [videoId=" + videoId + ", unit=" + unit + ", videoNumber=" + videoNumber + ", uuid=" + uuid + ", videoData="
+		return "DEV_Video [videoId=" + videoId + ", unit=" + unit + ", videoNumber=" + videoNumber + ", uuid=" + uuid + ", videoData="
 				+ videoData + ", videoName=" + videoName + "]";
 	}
 	
