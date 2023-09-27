@@ -22,7 +22,7 @@ public class Chapter {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer chapterId;//章節唯一碼
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne()
 	@JoinColumn(name = "courseId")
 	private Course course;//對應到的課程ID
 	
@@ -38,11 +38,13 @@ public class Chapter {
 	public Chapter() {
 	}
 	
-	public Chapter(Integer chapterId, Course course, String chapterNumber, String chapterName, Set<Unit> unit) {
-		this.chapterId = chapterId;
+	public Chapter(Course course, String chapterNumber, String chapterName) {
+		this.course = course;
 		this.chapterNumber = chapterNumber;
 		this.chapterName = chapterName;
 	}
+
+
 
 
 

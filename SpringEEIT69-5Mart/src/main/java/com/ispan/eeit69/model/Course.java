@@ -9,10 +9,14 @@ import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ispan.eeit69.utils.SystemService;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
@@ -35,9 +39,20 @@ public class Course implements Serializable {
 	private String sort;
 	private Timestamp registerTime;
 	
-	@OneToMany(mappedBy = "course")
+	@OneToMany(mappedBy = "course" ,cascade = CascadeType.ALL)
 	@OrderBy("chapterNumber")
 	private Set<Chapter> chapter = new LinkedHashSet<Chapter>();
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "member_course_5mart",
+    joinColumns = {
+    		@JoinColumn(name = "course_id", referencedColumnName = "id")
+    },
+    inverseJoinColumns = {
+    		@JoinColumn(name = "member_id", referencedColumnName = "id")
+    }
+	)
+	private Set<member> member = new LinkedHashSet<member>();
 		
 	public Course() {
 	}
@@ -118,12 +133,23 @@ public class Course implements Serializable {
 	public String getDataUri() throws Exception {
 		return SystemService.clobToString(photo);
 	}
-	
+
+	public Set<member> getMember() {
+		return member;
+	}
+
+	public void setMember(Set<member> member) {
+		this.member = member;
+	}
+
 	@Override
 	public String toString() {
-		return "course [id=" + id + ", title=" + title + ", introduction=" + introduction + ", photo=" + photo
-				+ ", price=" + price + ", level=" + level + ", sort=" + sort + "]";
+		return "Course [id=" + id + ", title=" + title + ", introduction=" + introduction + ", photo=" + photo
+				+ ", price=" + price + ", level=" + level + ", sort=" + sort + ", registerTime=" + registerTime
+				+ ", chapter=" + chapter + ", member=" + member + "]";
 	}
+	
+
 	
 	
 }

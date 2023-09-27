@@ -2,6 +2,8 @@ package com.ispan.eeit69.model;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,6 +13,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumns;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -31,6 +36,17 @@ public class member implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "photo_id")
     private TeacherPicture TeacherPicture;
+    
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "member_course_5mart" , 
+    joinColumns = {
+    		@JoinColumn(name = "member_id", referencedColumnName = "id")
+    },
+    inverseJoinColumns = {
+    		@JoinColumn(name = "course_id", referencedColumnName = "id")
+    }
+    )
+    private Set<Course> course = new LinkedHashSet<Course>();
 
 	// 建構式
 	public member() {
@@ -91,12 +107,33 @@ public class member implements Serializable {
 	public void setRegisterTime(Timestamp registerTime) {
 		this.registerTime = registerTime;
 	}
+	
+	
+
+	public TeacherPicture getTeacherPicture() {
+		return TeacherPicture;
+	}
+
+	public void setTeacherPicture(TeacherPicture teacherPicture) {
+		TeacherPicture = teacherPicture;
+	}
+
+	public Set<Course> getCourse() {
+		return course;
+	}
+
+	public void setCourse(Set<Course> course) {
+		this.course = course;
+	}
 
 	@Override
 	public String toString() {
 		return "member [id=" + id + ", username=" + username + ", account=" + account + ", password=" + password
-				+ ", registerTime=" + registerTime + "]";
+				+ ", registerTime=" + registerTime + ", TeacherPicture=" + TeacherPicture + ", course=" + course + "]";
 	}
+
+
+
 
 	
 	
