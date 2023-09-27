@@ -2,6 +2,8 @@ package com.ispan.eeit69.model;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,6 +13,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
@@ -31,8 +35,21 @@ public class member implements Serializable {
     @OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
     private TeacherPicture TeacherPicture;
     
+
     @OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
     private Introduction introduction;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "member_course_5mart" , 
+    joinColumns = {
+    		@JoinColumn(name = "member_id", referencedColumnName = "id")
+    },
+    inverseJoinColumns = {
+    		@JoinColumn(name = "course_id", referencedColumnName = "id")
+    }
+    )
+    private Set<Course> course = new LinkedHashSet<Course>();
+
 
 	// 建構式
 	public member() {
@@ -93,9 +110,9 @@ public class member implements Serializable {
 	public void setRegisterTime(Timestamp registerTime) {
 		this.registerTime = registerTime;
 	}
+	
+	
 
-	
-	
 	public TeacherPicture getTeacherPicture() {
 		return TeacherPicture;
 	}
@@ -103,6 +120,16 @@ public class member implements Serializable {
 	public void setTeacherPicture(TeacherPicture teacherPicture) {
 		TeacherPicture = teacherPicture;
 	}
+
+	public Set<Course> getCourse() {
+		return course;
+	}
+
+	public void setCourse(Set<Course> course) {
+		this.course = course;
+	}
+
+	
 
 	public Introduction getIntroduction() {
 		return introduction;
@@ -126,8 +153,6 @@ public class member implements Serializable {
 				+ ", registerTime=" + registerTime + ", TeacherPicture=" + TeacherPicture + ", introduction="
 				+ introduction + ", memberMultipartFile=" + memberMultipartFile + "]";
 	}
-
-
 
 	
 	

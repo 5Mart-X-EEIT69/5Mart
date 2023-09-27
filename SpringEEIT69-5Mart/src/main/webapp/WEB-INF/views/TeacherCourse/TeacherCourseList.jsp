@@ -22,23 +22,25 @@
 </head>
 <script type="text/javascript">
 
-// 	function editCourse(courses) {
-// 		if (confirm('確定要編輯: ' + courses + '  這門課程?')) {
-// 			let url = "<c:url value='/employee/EmployeeDelete.do' />";
-// 			var input = document.createElement("input");
-// 			var container = document.forms[0];
-// 			container.appendChild(input);
-// 			input.type = "text";
-// 			input.name = "id";
-// 			input.value = ids;
-// 			document.forms[0].action = url;
-// 			document.forms[0].method = "POST";
-// 			document.forms[0].submit();
-// 			return true;
-// 		} else {
-// 			exit;
-// 		}
-// 	}
+	function deleteCourse(courses,title) {
+		if (confirm('確定要刪除課程ID: ' + courses + '， ' + title + '  這門課程?')) {
+			let curl  = '<c:url value="/TeacherDelete/' + courses +' "/>' ;
+            $.ajax({
+                url: curl,
+                type: 'DELETE',
+                success: function(response){
+                   	console.log("成功",response);
+                   	alert("刪除成功，將跳轉至已開課內容");
+                   	window.location.href = '<c:url value="/TeacherCourseList" />';
+                },
+                error: function(response){
+                    console.log("失敗",response);
+                }
+            })
+			console.log(curl);
+		} else {
+		}
+	}
 </script>
 <body>
 	<div class="d-flex flex-row min-vh-100">
@@ -130,7 +132,7 @@
                                 
                                     <button class="btn btn-link m-0 ps-2" style="text-align: left;"><a href="<c:url value="/TeacherEdit/${courses.id}"/>">編輯課程</a></button>
                                     <button class="btn btn-link m-0 ps-2" style="text-align: left;">編輯影片</button>
-                                    <button class="btn btn-link m-0 ps-2" style="text-align: left;">刪除課程</button>
+                                    <button class="btn btn-link m-0 ps-2" style="text-align: left;" onclick="deleteCourse('${courses.id}','${courses.title}')">刪除課程</button>
                                 </div>                                
                             </div>
                             <hr>

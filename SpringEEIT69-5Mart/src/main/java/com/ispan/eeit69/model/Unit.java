@@ -22,14 +22,14 @@ public class Unit {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer unitId;//單元唯一碼
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne()
 	@JoinColumn(name = "chapterId")
 	private Chapter chapter;//對應到的課程ID
 	
 	private String unitNumber ; //第幾單元
 	private String unitName ;//單元名稱
 	
-	@OneToMany(mappedBy = "unit")
+	@OneToMany(mappedBy = "unit" ,cascade = CascadeType.ALL)
 	private Set<Video> video = new LinkedHashSet<Video>();
 	
 	public Unit() {
@@ -75,7 +75,17 @@ public class Unit {
 
 	public void setUnitName(String unitName) {
 		this.unitName = unitName;
+	}	
+	
+	public Set<Video> getVideo() {
+		return video;
 	}
+
+	public void setVideo(Set<Video> video) {
+		this.video = video;
+	}
+
+
 
 	@Override
 	public String toString() {

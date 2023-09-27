@@ -66,5 +66,12 @@ public class CourseServiceImpl implements CourseService{
 	public List<Course> findBytitle(String title) {
 		return CourseDao.findBytitle(title);
 	}
+
+	@Override
+	public List<Course> findByKeyword(String keyword) {
+		return CourseDao.findByKeyword(keyword);
+	}
+	
+	
 	
 }

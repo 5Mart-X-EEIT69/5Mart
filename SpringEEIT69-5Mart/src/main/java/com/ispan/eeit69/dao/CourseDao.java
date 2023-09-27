@@ -15,4 +15,6 @@ public interface CourseDao {
 	List<Course> findBySort(String sort);//配合網站需求自定義的Dao
 	List<Course> findBylevel(String level);//配合網站需求自定義的Dao
 	List<Course> findBytitle(String title);//配合網站需求自定義的Dao
+	
+	List<Course> findByKeyword(String keyword); //  搜尋關鍵字
 }

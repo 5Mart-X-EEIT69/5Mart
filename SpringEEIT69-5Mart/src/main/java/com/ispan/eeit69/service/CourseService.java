@@ -15,4 +15,7 @@ public interface CourseService {
 	List<Course> findBylevel(String level);//配合網站需求自定義的Service
 	List<Course> findBytitle(String title);//配合網站需求自定義的Service
 	boolean existsBytitle(String employeeId);//配合網站需求自定義的Service
+	
+	List<Course> findByKeyword(String keyword); //  搜尋關鍵字
+	
 }

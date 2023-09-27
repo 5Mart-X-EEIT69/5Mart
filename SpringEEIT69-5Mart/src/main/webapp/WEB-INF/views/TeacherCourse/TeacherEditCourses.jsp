@@ -234,7 +234,7 @@
  						<c:forEach items="${course.chapter}" var="chapter">
 		                    <div class="form-group chapter my-2">
 		                        <span class="chapterIcon">拖拉</span> <span class="py-1">章節
-		                            1</span><input class="chapterInput chapterName" type="text" value="${chapter.chapterName}">
+		                            1</span><input class="chapterInput chapterName existingChapter" type="text" value="${chapter.chapterName}">
 		                        <span>
 		                            <button class="mx-1 btn iconbtn addChapter">
 		                                <i class="bi bi-plus-circle"></i>
@@ -249,7 +249,7 @@
 	                    <c:forEach items="${chapter.unit}" var="unit">
                                 <div class="form-group unit my-2">
                                     <span class="chapterIcon">拖拉</span> <label class="py-1">單元
-                                        1</label><input class="chapterInput unitName" type="text" value="${unit.unitName}">
+                                        1</label><input class="chapterInput unitName existingUnit" type="text" value="${unit.unitName}">
                                     <span>
                                         <button class="mx-1 btn iconbtn addUnit">
                                             <i class="bi bi-plus-circle"></i>
@@ -258,6 +258,7 @@
                                             <i class="bi bi-trash"></i>
                                         </button>
                                     </span>
+                                    <input type="hidden" name = "unitId" value = "${unit.unitId}">
                                 </div>
 	                    </c:forEach>                    	
                         	</div>
@@ -346,16 +347,17 @@
                 let html = `
             <div class="form-group chapter my-2">
                 <span class="chapterIcon">拖拉</span>
-                <span class="py-1">章節 1</span><input class="chapterInput chapterName" type="text" value="">
+                <span class="py-1">章節 1</span><input class="chapterInput chapterName newChapter" type="text" value="">
                 <span>
                     <button class="mx-1 btn iconbtn addChapter"><i class="bi bi-plus-circle"></i></button>
                     <button class="mx-1 btn iconbtn chapterDelete"><i class="bi bi-trash"></i></button>
                 </span>
+                <input type="hidden" name = "chapterId" value = "0">
             </div>
             <div class="unitGroup">
                 <div class="form-group unit my-2">
                     <span class="chapterIcon">拖拉</span>
-                    <label class="py-1">單元 1</label><input class="chapterInput unitName" type="text" value="">
+                    <label class="py-1">單元 1</label><input class="chapterInput unitName newUnit" type="text" value="">
                     <span>
                         <button class="mx-1 btn iconbtn addUnit"><i class="bi bi-plus-circle"></i></button>
                         <button class="mx-1 btn iconbtn unitDelete"><i class="bi bi-trash"></i></button>
@@ -383,25 +385,37 @@
                 unitRename();
             })//動態增加單元元素
 
-
+            let ChapterdedeteIdgroup = [];
+            let UnitdedeteIdgroup = [];
+            
             $("#chapterContainer").on("click", ".chapterDelete", function () {
-                let iIndex = $(this).parent().parent().index()
-                console.log($(this).parent().parent().index())
-                $(this).parent().parent().parent().children().eq(iIndex + 1).remove()
-                $(this).parent().parent().parent().children().eq(iIndex).remove()
-                chapterRename()
+                let iIndex = $(this).parent().parent().index();
+                console.log(iIndex);
+                let chapterDeleteId = $(this).parent().next().val();
+                ChapterdedeteIdgroup.push(chapterDeleteId);
+                $(this).parent().parent().parent().children().eq(iIndex + 1).children().children("input[name='unitId']").each(function(index,element){
+                	let unitDeleteId = $(this).val();
+                	UnitdedeteIdgroup.push(unitDeleteId);
+                });
+                console.log(ChapterdedeteIdgroup,UnitdedeteIdgroup);
+                $(this).parent().parent().parent().children().eq(iIndex + 1).remove();
+                $(this).parent().parent().parent().children().eq(iIndex).remove();
+                chapterRename();
             })//章節及單元刪除
 
             $("#chapterContainer").on("click", ".unitDelete", function () {
 
-                console.log($(this).parent().parent().parent().children().length)
                 let count = $(this).parent().parent().parent().children().length;
+                console.log(count);
                 if (count != 1) {
-                    let iIndex = $(this).parent().parent().remove()
+                	let deleteId = $(this).parent().next().val();
+                	UnitdedeteIdgroup.push(deleteId)
+                    $(this).parent().parent().remove();
+                	console.log(UnitdedeteIdgroup)
                     unitRename()
                 } else {
                     alert("每個章節至少需要一個單元!")
-                }
+                }//////////////////////做到這裡
 
             })//單元刪除
 
@@ -491,6 +505,49 @@
                 formData.photo = $('#photoValue').val();
                 formData.price = $('#price').val();
 //                 formData.course = chapterAndUnitName;
+
+				// ---修改已存在章節名稱---
+				let existChapter = {};
+				$('.existingChapter').each(function(index , element){
+					let existingChapter = $(this).next().next().val() ;
+					let ChapterName = $(this).val();
+					existChapter[existingChapter] = ChapterName ; 
+				})
+					console.log("--已存在章節--");
+					console.log(existChapter);
+					console.log("--已存在章節--");
+					formData.existingChapter = existChapter;//修改現有章節用
+					console.log(formData.existingChapter);
+				// ---修改已存在章節名稱---
+				
+				// ---修改已存在單元名稱---
+				let existUnit = {};
+				$('.existingUnit').each(function(index , element){
+					let existingUnit = $(this).next().next().val() ;
+					let UnitName = $(this).val();
+					existUnit[existingUnit] = UnitName ; 
+				})
+					console.log("--已存在單元--");
+					console.log(existUnit);
+					console.log("--已存在單元--");
+					formData.existingUnit = existUnit;//修改現有單元用
+					console.log(formData.existingUnit);
+				// ---修改已存在單元名稱---
+				
+				// ---新增章節---
+				let newChapterGroup = {};
+				$('.newChapter').each(function(index , element){
+					let insertChapter = "courseId" + ${course.id} + "chapter" + ($(this).parent().prevAll(".chapter").length+1);//prevAll找出前面有多少個符合條件的元素
+					let ChapterName = $(this).val();
+					newChapterGroup[insertChapter] = ChapterName ; 
+					console.log(insertChapter);
+					console.log(ChapterName);
+				})//存取新增的章節給Controller
+				console.log(newChapterGroup);
+				formData.newChapter = newChapterGroup;//新增章節用
+				// ---新增章節---
+				
+				// ---新增單元---
 				let newUnitGroup = {};
 				$('.newUnit').each(function(index , element){
 					let insertUnit = "chapterId" + $(this).parent().parent().prev().children("input[name='chapterId']").val() + "unit" + ($(this).parent().index()+1);
@@ -501,6 +558,16 @@
 				})//存取新增的單元給Controller
 				console.log(newUnitGroup);
 				formData.newUnit = newUnitGroup;//新增單元用
+                // ---新增單元---
+                
+                // ---刪除章節單元---
+            	formData.chapterdedeteIdgroup = ChapterdedeteIdgroup;
+            	formData.unitdedeteIdgroup = UnitdedeteIdgroup;
+            	console.log("刪除章節ID: " ,formData.ChapterdedeteIdgroup)
+            	console.log("刪除單元ID: " ,formData.UnitdedeteIdgroup)
+                // ---刪除章節單元---
+                
+                
                 $('input[name^="chapter"]').each(function (index, element) {
                     console.log("start--------------");
                     let idValue = $(this).attr('name');
@@ -522,6 +589,7 @@
                     data: JSON.stringify(formData),
                     success: function(response){
                        	console.log("成功",response);
+                       	alert("新增成功，將跳轉至已開課內容")
                        	window.location.href = '<c:url value="/TeacherCourseList" />';
                     },
                     error: function(response){
