@@ -11,6 +11,6 @@ public interface VideoService {
 	List<Video> findAll();
 	void deleteById(Integer id);//大禮包抄來的基本功能
 	
-	Video findByUuid(String uuid);  // 新增的方法，用來找UUID
+	// Video findByUuid(String uuid);  // 新增的方法，用來找UUID
 
 }
