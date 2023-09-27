@@ -69,24 +69,24 @@ public class StudentController {
 		return "/StudentLearningManagementSystem/Player";
 	}
 
-	@GetMapping("/api/videos/{uuid}")
-	public ResponseEntity<byte[]> getVideoByUUID(@PathVariable String uuid) {
-		System.out.println("Received UUID: " + uuid); // 顯示接收到的UUID
-		try {
-			Video video = videoService.findByUuid(uuid); // 從資料庫中獲取影片
-			if (video != null) {
-				byte[] videoData = video.getVideoData(); // 在 Video.java 中定義的方法
-
-				HttpHeaders headers = new HttpHeaders();
-				headers.setContentType(MediaType.valueOf("video/mp4")); // 設置正確的 MIME 類型
-				System.out.println("ok");
-                return new ResponseEntity<>(videoData, headers, HttpStatus.OK);
-			} else {
-				System.out.println("error");
-				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-			}
-		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
+//	@GetMapping("/api/videos/{uuid}")
+//	public ResponseEntity<byte[]> getVideoByUUID(@PathVariable String uuid) {
+//		System.out.println("Received UUID: " + uuid); // 顯示接收到的UUID
+//		try {
+//			Video video = videoService.findByUuid(uuid); // 從資料庫中獲取影片
+//			if (video != null) {
+//				byte[] videoData = video.getVideoData(); // 在 Video.java 中定義的方法
+//
+//				HttpHeaders headers = new HttpHeaders();
+//				headers.setContentType(MediaType.valueOf("video/mp4")); // 設置正確的 MIME 類型
+//				System.out.println("ok");
+//                return new ResponseEntity<>(videoData, headers, HttpStatus.OK);
+//			} else {
+//				System.out.println("error");
+//				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//			}
+//		} catch (Exception e) {
+//			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//		}
+//	}
 }
