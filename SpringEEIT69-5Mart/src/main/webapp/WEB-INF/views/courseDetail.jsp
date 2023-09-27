@@ -69,7 +69,7 @@
 	color: #FFC800;
 }
 
-hr {
+.hrBorder {
 	border: 2px solid #000; /* 設置分隔線的邊框 */
 	margin: 20px 0; /* 設置分隔線的上下間距 */
 }
@@ -168,26 +168,26 @@ hr {
 					<!-- Post content-->
 					<section class="mb-5">
 						<h3 class="fw-bolder mb-4 mt-5">課程介紹</h3>
-						<hr>
+						<hr class="hrBorder">
 						<h4 class="fw-bolder mb-4 mt-5">課程內容</h4>
 						<p class="fs-5 mb-4">Science is an enterprise that should be
 							cherished as an activity of the free human mind. Because it
 							transforms who we are, how we live, and it gives us an
 							understanding of our place in the universe.</p>
-						<hr>
+						<hr class="hrBorder">
 						<h4 class="fw-bolder mb-4 mt-5">此課程您可以學到</h4>
 						<p class="fs-5 mb-4">The universe is large and old, and the
 							ingredients for life as we know it are everywhere, so there's no
 							reason to think that Earth would be unique in that regard.
 							Whether of not the life became intelligent is a different
 							question, and we'll see if we find that.</p>
-						<hr>
+						<hr class="hrBorder">
 						<h4 class="fw-bolder mb-4 mt-5">此課程適合那些人</h4>
 						<p class="fs-5 mb-4">If you get asteroids about a kilometer in
 							size, those are large enough and carry enough energy into our
 							system to disrupt transportation, communication, the food chains,
 							and that can be a really bad day on Earth.</p>
-						<hr>
+						<hr class="hrBorder">
 						<h4 class="fw-bolder mb-4 mt-5">課前準備</h4>
 						<p class="fs-5 mb-4">For me, the most fascinating interface is
 							Twitter. I have odd cosmic thoughts every day and I realized I
@@ -202,42 +202,26 @@ hr {
 					</section>
 
 					<div class="accordion" id="accordionExample">
-						<c:forEach items="${chapter.}" var="chapter">
+						<c:forEach items="${courseData.chapter}" var="chapter">
 							<div class="accordion-item">
 								<h2 class="accordion-header">
-									<button class="accordion-button" type="button"
-										data-bs-toggle="collapse" data-bs-target="#collapse${chapter.chapterId}"
-										aria-expanded="true" aria-controls="collapseOne">${chapter.chapterName}</button>
+									<button class="accordion-button collapsed" type="button"
+										data-bs-toggle="collapse"
+										data-bs-target="#collapse${chapter.chapterId}"
+										aria-expanded="false" aria-controls="collapseOne">${chapter.chapterName}</button>
 								</h2>
-								<div id="collapse${chapter.chapterId}" class="accordion-collapse collapse show"
-									data-bs-parent="#accordionExample">
+								<div id="collapse${chapter.chapterId}"
+									class="accordion-collapse collapse ">
 									<div class="accordion-body">
 										<ul class="list-group list-group-flush">
-											<li class="list-group-item">
-												<div class="d-flex w-100 justify-content-between">
-													<h5 class="mb-1">環境建置</h5>
-													<small>07:20</small>
-												</div>
-											</li>
-											<li class="list-group-item">
-												<div class="d-flex w-100 justify-content-between">
-													<h5 class="mb-1">第一支程式碼</h5>
-													<small>05:22</small>
-												</div>
-											</li>
-											<li class="list-group-item">
-												<div class="d-flex w-100 justify-content-between">
-													<h5 class="mb-1">工具學習</h5>
-													<small>04:02</small>
-												</div>
-											</li>
-											<li class="list-group-item">
-												<div class="d-flex w-100 justify-content-between">
-													<h5 class="mb-1">基本介紹</h5>
-													<small>09:52</small>
-												</div>
-											</li>
-
+											<c:forEach items="${chapter.unit}" var="unit">
+												<li class="list-group-item">
+													<div class="d-flex w-100 justify-content-between">
+														<h5 class="mb-1">${unit.unitName}</h5>
+														<small>07:20</small>
+													</div>
+												</li>
+											</c:forEach>
 										</ul>
 									</div>
 								</div>
@@ -246,110 +230,7 @@ hr {
 
 					</div>
 
-					<div class="accordion" id="accordionExample">
-						<div class="accordion-item">
-							<h2 class="accordion-header">
-								<button class="accordion-button" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapseOne"
-									aria-expanded="true" aria-controls="collapseOne">第一章節</button>
-							</h2>
-							<div id="collapseOne" class="accordion-collapse collapse show"
-								data-bs-parent="#accordionExample">
-								<div class="accordion-body">
-									<ul class="list-group list-group-flush">
-										<li class="list-group-item">
-											<div class="d-flex w-100 justify-content-between">
-												<h5 class="mb-1">環境建置</h5>
-												<small>07:20</small>
-											</div>
-										</li>
-										<li class="list-group-item">
-											<div class="d-flex w-100 justify-content-between">
-												<h5 class="mb-1">第一支程式碼</h5>
-												<small>05:22</small>
-											</div>
-										</li>
-										<li class="list-group-item">
-											<div class="d-flex w-100 justify-content-between">
-												<h5 class="mb-1">工具學習</h5>
-												<small>04:02</small>
-											</div>
-										</li>
-										<li class="list-group-item">
-											<div class="d-flex w-100 justify-content-between">
-												<h5 class="mb-1">基本介紹</h5>
-												<small>09:52</small>
-											</div>
-										</li>
 
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item">
-							<h2 class="accordion-header">
-								<button class="accordion-button collapsed" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-									aria-expanded="false" aria-controls="collapseTwo">第二章節</button>
-							</h2>
-							<div id="collapseTwo" class="accordion-collapse collapse"
-								data-bs-parent="#accordionExample">
-								<div class="accordion-body">
-									<strong>This is the second item's accordion body.</strong> It
-									is hidden by default, until the collapse plugin adds the
-									appropriate classes that we use to style each element. These
-									classes control the overall appearance, as well as the showing
-									and hiding via CSS transitions. You can modify any of this with
-									custom CSS or overriding our default variables. It's also worth
-									noting that just about any HTML can go within the
-									<code>.accordion-body</code>
-									, though the transition does limit overflow.
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item">
-							<h2 class="accordion-header">
-								<button class="accordion-button collapsed" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapseThree"
-									aria-expanded="false" aria-controls="collapseThree">第三堂</button>
-							</h2>
-							<div id="collapseThree" class="accordion-collapse collapse"
-								data-bs-parent="#accordionExample">
-								<div class="accordion-body">
-									<strong>This is the third item's accordion body.</strong> It is
-									hidden by default, until the collapse plugin adds the
-									appropriate classes that we use to style each element. These
-									classes control the overall appearance, as well as the showing
-									and hiding via CSS transitions. You can modify any of this with
-									custom CSS or overriding our default variables. It's also worth
-									noting that just about any HTML can go within the
-									<code>.accordion-body</code>
-									, though the transition does limit overflow.
-								</div>
-							</div>
-						</div>
-						<div class="accordion-item">
-							<h2 class="accordion-header">
-								<button class="accordion-button collapsed" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapseFour"
-									aria-expanded="false" aria-controls="collapseFour">第四堂</button>
-							</h2>
-							<div id="collapseFour" class="accordion-collapse collapse"
-								data-bs-parent="#accordionExample">
-								<div class="accordion-body">
-									<strong>This is the third item's accordion body.</strong> It is
-									hidden by default, until the collapse plugin adds the
-									appropriate classes that we use to style each element. These
-									classes control the overall appearance, as well as the showing
-									and hiding via CSS transitions. You can modify any of this with
-									custom CSS or overriding our default variables. It's also worth
-									noting that just about any HTML can go within the
-									<code>.accordion-body</code>
-									, though the transition does limit overflow.
-								</div>
-							</div>
-						</div>
-					</div>
 
 					<h4 class="fw-bolder mb-4 mt-5">講師介紹</h4>
 					<div class="p-5">
