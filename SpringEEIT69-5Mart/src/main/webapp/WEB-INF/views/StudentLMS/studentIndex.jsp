@@ -69,7 +69,7 @@
 				</button>
 			</div>
 			<ul class="list-unstyled px-2">
-				<li class="active"><a href="#"
+				<li class="active"><a href="<c:url value="/studentIndex"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-chart-line pe-2" style="color: #ffffff"></i>儀錶板</a>
 				</li>
@@ -108,7 +108,7 @@
 			<hr class="h-color mx-2">
 
 			<ul class="list-unstyled px-2">
-				<li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>設定</a></li>
+				<li class=""><a href="<c:url value="/profileSettingPage"></c:url>#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>設定</a></li>
 
 			</ul>
 		</div>
