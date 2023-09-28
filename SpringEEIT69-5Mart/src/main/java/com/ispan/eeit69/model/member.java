@@ -15,7 +15,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
@@ -50,6 +52,10 @@ public class member implements Serializable {
     )
     private Set<Course> course = new LinkedHashSet<Course>();
 
+
+    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
+    @OrderBy("id")
+    private Set<Course> createCourse = new LinkedHashSet<Course>();
 
 	// 建構式
 	public member() {
@@ -127,6 +133,14 @@ public class member implements Serializable {
 
 	public void setCourse(Set<Course> course) {
 		this.course = course;
+	}	
+
+	public Set<Course> getCreateCourse() {
+		return createCourse;
+	}
+
+	public void setCreateCourse(Set<Course> createCourse) {
+		this.createCourse = createCourse;
 	}
 
 	
@@ -150,8 +164,7 @@ public class member implements Serializable {
 	@Override
 	public String toString() {
 		return "member [id=" + id + ", username=" + username + ", account=" + account + ", password=" + password
-				+ ", registerTime=" + registerTime + ", TeacherPicture=" + TeacherPicture + ", introduction="
-				+ introduction + ", memberMultipartFile=" + memberMultipartFile + "]";
+				+ ", registerTime=" + registerTime + ", TeacherPicture=" + TeacherPicture + "]";
 	}
 
 	
