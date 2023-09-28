@@ -5,8 +5,8 @@ body{
 
 #side_nav{
 	background: #123650;
-	min-width: 250px;
-	max-width: 250px;
+	min-width: 300px;
+	max-width: 300px;
 	transition: all 0.3s;
 }
 
@@ -27,7 +27,7 @@ hr.h-color{
 
 .sidebar ul li a{
 	padding: 10px;
-	font-size: 20px;
+	font-size: 27px;
 	display: block;
 }
 

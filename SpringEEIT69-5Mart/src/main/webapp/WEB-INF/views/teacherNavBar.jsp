@@ -58,7 +58,6 @@
 </head>
 
 <body>
-
 	<div class="main-container d-flex">
 		<div class="sidebar" id="side_nav">
 			<div class="header-box ms-2 px-2 pt-3 pb-4 d-flex justify-content-between">
@@ -154,18 +153,14 @@
 			$(this).addClass('active');
 		})
 
-		$(".sidebar ul li").hover(function() {
 
-		})
-
-		
-
-		$(".sidebar ul li").mouseenter(function() {	
-				$(".sidebar ul li.fa-solid").css("color", "#123650");
+		$(".sidebar ul li").mouseenter(function() {
+			$(this).find('.fa-solid').css("color", "#123");
+			
 		})
 
 		$(".sidebar ul li").mouseleave(function() {
-				$(".sidebar ul li.fa-solid").css("color", "#eee");
+			$(this).find('.fa-solid').css("color", "#eee");
 		})
 
 		$(".open-btn").on('click', function() {
