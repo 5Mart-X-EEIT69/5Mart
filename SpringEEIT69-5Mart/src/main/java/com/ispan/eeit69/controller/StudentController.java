@@ -8,9 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.servlet.http.HttpSession;
 
+import com.ispan.eeit69.model.Chapter;
+import com.ispan.eeit69.model.Course;
 import com.ispan.eeit69.model.DEV_Video;
 import com.ispan.eeit69.service.AnnouncementService;
 import com.ispan.eeit69.service.ChapterService;
@@ -98,14 +101,19 @@ public class StudentController {
 	public String student_dashboard(Model model) {
 		return "/StudentLMS/student_dashboard";
 	}
-
+	
 	@GetMapping("/student_course_viewer")
 	public String student_course_viewer(Model model) {
 		return "/StudentLMS/student_course_viewer";
 	}
 
 	@GetMapping("/coursePlayerPage")
-	public String coursePlayerPage(Model model) {
+	public String coursePlayerPage(@RequestParam("id") String id, Model model) {
+		Integer intId = Integer.parseInt(id);
+		Course course = courseService.findById(intId);
+		model.addAttribute("courseData",course);
+		Chapter chapter = chapterService.findById(intId);
+		model.addAttribute("chapter",chapter);
 		return "/StudentLMS/CourseService/coursePlayerPage";
 	}
 	

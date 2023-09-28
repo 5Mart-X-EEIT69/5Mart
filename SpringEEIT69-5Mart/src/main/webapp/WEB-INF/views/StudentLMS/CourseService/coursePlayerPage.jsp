@@ -73,49 +73,7 @@
 					<i class="fa-solid fa-bars-staggered"></i>
 				</button>
 			</div>
-			<ul class="list-unstyled px-2">
-				<li class="active"><a href="<c:url value="/studentIndex"></c:url>#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-chart-line pe-2" style="color: #ffffff"></i>儀錶板</a>
-				</li>
-				<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>課程中心</a></li>
-				<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>進行中課程</a></li>
-										<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>已完成課程</a></li>
-				<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
-							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>通知中心</span><span
-						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-										<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
-							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>系統通知</span><span
-						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-										<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
-							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>課程問與答</span><span
-						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-									<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
-							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>私人訊息</span><span
-						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-user pe-2" style="color: #ffffff"></i>商務中心</a></li>
-						<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-user pe-2" style="color: #ffffff"></i>購物車</a></li>
-			</ul>
 			<hr class="h-color mx-2">
-
-			<ul class="list-unstyled px-2">
-				<li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>設定</a></li>
-
-			</ul>
 		</div>
 		<div class="content">
 			<nav class="navbar navbar-expand-md navbar-light bg-light">
@@ -180,54 +138,36 @@
               >
                 <div class="accordion-body">
                   <!-- 子手風琴：單元 -->
-                  <div class="accordion" id="unitAccordion1">
-                    <!-- 單元1 -->
-                    <div class="accordion-item">
-                      <h3 class="accordion-header">
-                        <button
-                          class="accordion-button"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#unit1-1"
-                        >
-                          單元1
-                        </button>
-                      </h3>
-                      <div
-                        id="unit1-1"
-                        class="accordion-collapse collapse"
-                        data-bs-parent="#unitAccordion1"
-                      >
-                        <div class="accordion-body">
-                          <!-- 課程影片按鈕 -->
-                          <button>影片1-1</button>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- 單元2 -->
-                    <div class="accordion-item">
-                      <h3 class="accordion-header">
-                        <button
-                          class="accordion-button"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#unit1-2"
-                        >
-                          單元2
-                        </button>
-                      </h3>
-                      <div
-                        id="unit1-2"
-                        class="accordion-collapse collapse"
-                        data-bs-parent="#unitAccordion1"
-                      >
-                        <div class="accordion-body">
-                          <!-- 課程影片按鈕 -->
-                          <button>影片1-2</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  123
+                  <div class="accordion" id="accordionExample">
+						<c:forEach items="${courseData.chapter}" var="chapter">
+							<div class="accordion-item">
+								<h2 class="accordion-header">
+									<button class="accordion-button collapsed" type="button"
+										data-bs-toggle="collapse"
+										data-bs-target="#collapse${chapter.chapterId}"
+										aria-expanded="false" aria-controls="collapseOne">${chapter.chapterName}</button>
+								</h2>
+								<div id="collapse${chapter.chapterId}"
+									class="accordion-collapse collapse ">
+									<div class="accordion-body">
+										<ul class="list-group list-group-flush">
+											<c:forEach items="${chapter.unit}" var="unit">
+												<li class="list-group-item">
+													<div class="d-flex w-100 justify-content-between">
+														<h5 class="mb-1">${unit.unitName}</h5>
+														<small>07:20</small>
+													</div>
+												</li>
+											</c:forEach>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+
+					</div>
+					123
                 </div>
               </div>
             </div>
