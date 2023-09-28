@@ -44,30 +44,43 @@ public class StudentController {
 	}
 
 	// Student LMS Mapping
-	@GetMapping("/studentsettings")
-	public String home(Model model) {
+	
+	@GetMapping("/studentIndex")
+	public String studentIndex(Model model) {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
-		return "/StudentLearningManagementSystem/StudentAccountSettings";
+		return "/StudentLMS/studentIndex";
+	}
+	
+	@GetMapping("/cartServicePage")
+	public String cartServicePage(Model model) {
+		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		return "/StudentLMS/BusinessServices/cartServicePage";
+	}
+	
+	@GetMapping("/profileSettingPage")
+	public String profileSettingPage(Model model) {
+		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		return "/StudentLMS/SettingsService/profileSettingPage";
 	}
 
 	@GetMapping("/student_dashboard")
 	public String student_dashboard(Model model) {
-		return "/StudentLearningManagementSystem/student_dashboard";
+		return "/StudentLMS/student_dashboard";
 	}
 
 	@GetMapping("/student_course_viewer")
 	public String student_course_viewer(Model model) {
-		return "/StudentLearningManagementSystem/student_course_viewer";
+		return "/StudentLMS/student_course_viewer";
 	}
 
 	@GetMapping("/Course_Player")
 	public String Course_Player(Model model) {
-		return "/StudentLearningManagementSystem/Course_Player";
+		return "/StudentLMS/Course_Player";
 	}
 	
 	@GetMapping("/Player")
 	public String Player(Model model) {
-		return "/StudentLearningManagementSystem/DevelopmentFolder/Player";
+		return "/StudentLMS/DevelopmentFolder/Player";
 	}
 
 	@GetMapping("/api/videos/{uuid}")
