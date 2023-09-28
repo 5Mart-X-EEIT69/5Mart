@@ -19,6 +19,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
 
@@ -39,6 +40,10 @@ public class Course implements Serializable {
 	private String level;
 	private String sort;
 	private Timestamp registerTime;
+	
+	@OneToOne(mappedBy = "course", cascade = CascadeType.ALL)
+    private Announcement announcement;
+	
 	
 	@OneToMany(mappedBy = "course" ,cascade = CascadeType.ALL)
 	@OrderBy("chapterNumber")
@@ -62,16 +67,25 @@ public class Course implements Serializable {
 	public Course() {
 	}
 
-	public Course(Integer id, String title, String introduction, Clob photo, Integer price, String level, String sort) {
-		this.id = id;
+
+
+	public Course(String title, String introduction, Clob photo, Integer price, String level, String sort,
+			Timestamp registerTime, Announcement announcement, Set<Chapter> chapter,
+			Set<com.ispan.eeit69.model.member> member, com.ispan.eeit69.model.member teacher) {
 		this.title = title;
 		this.introduction = introduction;
 		this.photo = photo;
 		this.price = price;
 		this.level = level;
 		this.sort = sort;
+		this.registerTime = registerTime;
+		this.announcement = announcement;
+		this.chapter = chapter;
+		this.member = member;
+		this.teacher = teacher;
 	}
-	
+
+
 
 	public Integer getId() {
 		return id;
@@ -154,6 +168,18 @@ public class Course implements Serializable {
 	public void setTeacher(member teacher) {
 		this.teacher = teacher;
 	}
+
+	public Announcement getAnnouncement() {
+		return announcement;
+	}
+
+
+
+	public void setAnnouncement(Announcement announcement) {
+		this.announcement = announcement;
+	}
+
+
 
 	@Override
 	public String toString() {

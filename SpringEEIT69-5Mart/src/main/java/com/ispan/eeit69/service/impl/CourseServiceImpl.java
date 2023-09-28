@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ispan.eeit69.dao.CourseDao;
 import com.ispan.eeit69.model.Course;
+import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.CourseService;
 
 @Service
@@ -76,6 +77,12 @@ public class CourseServiceImpl implements CourseService{
 	@Override
 	public List<Course> findByTeacherId(Integer id) {
 		return CourseDao.findByTeacherId(id);
+	}
+
+	@Override
+	public Course findByMember(member member) {
+		return CourseDao.findByMember(member);
+		
 	}
 	
 	

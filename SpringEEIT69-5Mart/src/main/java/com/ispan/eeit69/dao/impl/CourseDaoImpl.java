@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ispan.eeit69.dao.CourseDao;
 import com.ispan.eeit69.model.Course;
+import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.impl.CourseServiceImpl;
 
 import jakarta.persistence.EntityManager;
@@ -91,6 +92,22 @@ public class CourseDaoImpl implements CourseDao{
 		return courses;
 	}
 
+	@Override
+	public Course findByMember(member member) {
+	    if (member == null || member.getId() == null) {
+	        return null;
+	    }
+	    String hql = "FROM Course c WHERE c.teacher.id = :teacherId";
+	    List<Course> courses = entityManager.createQuery(hql, Course.class)
+	                                         .setParameter("teacherId", member.getId())
+	                                         .getResultList();
+
+	    if (courses != null && !courses.isEmpty()) {
+	        return courses.get(0); 
+	    }
+	    return null;
+	}}
+
 	
 	
-}
+

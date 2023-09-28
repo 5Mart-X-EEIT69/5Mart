@@ -30,7 +30,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.ispan.eeit69.dao.TeacherPictureRepository;
 import com.ispan.eeit69.model.Announcement;
 import com.ispan.eeit69.model.Chapter;
 import com.ispan.eeit69.model.Course;
@@ -208,7 +207,9 @@ public class TeacherController {
 		member member = (member) session.getAttribute("member");
 		if(member != null) {
 			List<Course> course = courseService.findByTeacherId(member.getId());
+//			Announcement announcement = announcementService.findByCourse();
 			model.addAttribute("course", course);
+//			model.addAttribute("announcement",announcement);
 			return "/TeacherComminicate/TeacherComminicateAnnouncement";		
 		}else {
 			return "redirect:/visitorhomepage";
@@ -661,11 +662,36 @@ public class TeacherController {
 	}
 	
 	@PostMapping("/newannouncement")
-	public String newannouncement(@ModelAttribute Announcement announcement, Model model) {
-		announcementService.save(announcement);
-		System.out.println("測試");
-		List<Course> course = courseService.findAll();
+	public String newannouncement(@ModelAttribute Announcement announcement, Model model,@RequestParam("memberId") Integer memberID,@RequestParam("content") String content) {
+		
+		member member = (member) session.getAttribute("member");
+		Course course = courseService.findByMember(member);
+		Announcement announcement1 = announcementService.findByCourse(course);		
+		
+		
+		
+		
+		
+		if(announcement1 == null) {
+			member member1 = memberService.findByMemberId(memberID);
+			
+			
+			Timestamp announcementTime = new Timestamp(System.currentTimeMillis());
+			
+			Announcement announcement2 = new Announcement(announcementTime,content,course);
+			
+
+			announcementService.save(announcement2);
+			}else {
+				announcement1.setContent(content);
+				
+				
+				announcementService.update(announcement1);
+			System.out.println("ok");
+			}
+			
 		model.addAttribute("course", course);
+		model.addAttribute("announcement", announcement);
 		return "/TeacherComminicate/TeacherComminicateAnnouncement";
 	}
 }

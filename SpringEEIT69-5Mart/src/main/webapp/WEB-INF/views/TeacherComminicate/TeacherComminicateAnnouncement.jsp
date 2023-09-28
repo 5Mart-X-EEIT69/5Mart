@@ -121,8 +121,8 @@
 								</div>
 								<hr>
 								<div class="d-flex align-items-center flex-wrap">
-									<span class="col-2">----/--/--</span> <span class="col-8 px-3">目前還沒有公告內容哦!</span>
-									<button class="col-2 btn btn-link m-0 ps-2"	style="text-align: left;" data-bs-toggle="modal" data-bs-target="#loginModal">新增</button>
+									<span class="col-2">${annoucement.announcementTime}</span> <span class="col-8 px-3">${annoucement.content}</span>
+									<button class="col-2 btn btn-link m-0 ps-2"	style="text-align: left;" data-bs-toggle="modal" data-bs-target="#loginModal">新增/修改</button>
 								</div>
 								<hr>
 							</div>
@@ -146,16 +146,16 @@
 								</div>
 								<!-- Body -->
 								<div class="modal-body">
-									<form action="<c:url value="/" />" method="post">
+									<form action= "/SpringEEIT69-5Mart/newannouncement"  method="post">
 										<p class="mb-1 account">新增/修改你的公告</p>
 										<!-- 公告內容 -->
 										<div class="form-group">
 											<textarea class="account form-control" placeholder="公告內容..."
-												name="Announcement" style="resize:none ; height: 15rem"></textarea>
+												name="content" style="resize:none ; height: 15rem">${annoucement.content}</textarea>
 										</div>
 										<!-- 送出按鈕 -->
 										<button type="submit" class="btn btn-secondary">送出</button>
-
+										<input type="text" value="${member.id}" name="memberId">
 									</form>
 								</div>
 							</div>

@@ -3,6 +3,7 @@ package com.ispan.eeit69.service;
 import java.util.List;
 
 import com.ispan.eeit69.model.Course;
+import com.ispan.eeit69.model.member;
 
 public interface CourseService {
 	Course save(Course course);
@@ -19,4 +20,5 @@ public interface CourseService {
 	List<Course> findByKeyword(String keyword); //  搜尋關鍵字
 	List<Course> findByTeacherId(Integer id); //  搜尋關鍵字
 	
+	Course findByMember(member member);
 }
