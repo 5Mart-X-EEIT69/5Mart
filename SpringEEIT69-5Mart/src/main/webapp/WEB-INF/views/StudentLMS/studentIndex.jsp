@@ -1,96 +1,74 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <meta name="description" content=""/>
-        <title>Student LMS Dashboard</title>
-        <!-- Bootstrap core CSS -->
-        <link href="bootstrap_theme/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <!-- Custom styles for this template -->
-        <link href="dashboard.css" rel="stylesheet"/>
-        <link href="chartjs.css" rel="stylesheet"/>
-        <link rel="stylesheet" href="/Pingendo/assets/css/teacherNavBar.css" rel="stylesheet" type="text/css"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
-        <!-- <link rel='stylesheet' -->
-        <!-- 	type="text/css" /> -->
-        <!-- bootstrap 公版-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
-        <!-- google fonts的icon庫引入 -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0"/>
-        <!-- google fonts的icon庫引入 -->
-        <!-- font awesome的icon庫引入 -->
-        <script src="https://kit.fontawesome.com/7ae43304d6.js" crossorigin="anonymous"></script>
-        <!-- font awesome的icon庫引入 -->
-<link rel='stylesheet'
-	href="<c:url value='/assets/css/teacherNavBar.css' />" type="text/css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@600&family=Noto+Serif+TC:wght@200;700&display=swap" rel="stylesheet"/>
-        <style type="text/css"></style>
-    </head>
-    <style>
-  @charset "UTF-8";
+<head>
+<meta charset="UTF-8">
+<!-- 響應式的引入 -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- 響應式的引入 -->
 
-  body {
-    background: #eee;
-  }
+<title>學生管理首頁</title>
 
-  #side_nav {
-    background: #000;
-    min-width: 250px;
-    max-width: 250px;
-    transition: all 0.3s;
-  }
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<!-- jquery -->
 
-  .content {
-    min-height: 100vh;
-    width: 100%;
-  }
+<!-- bootstrap 公版-->
+<link rel='stylesheet' href="<c:url value='/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.css' />" type="text/css" />
 
-  hr.h-color {
-    background: #eee;
-    color: #eee;
-  }
+<!-- <link rel='stylesheet' -->
+<%-- 	href="<c:url value=" --%>
+<%-- 				/assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css" />" --%>
+<!-- 	type="text/css" /> -->
+<!-- bootstrap 公版-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-  .sidebar li.active {
-    background: #eee;
-    border-radius: 8px;
-  }
+<!-- google fonts的icon庫引入 -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0" />
+<!-- google fonts的icon庫引入 -->
 
-  .sidebar li.active a,
-  .sidebar li.active a:hover {
-    color: #000;
-  }
+<!-- font awesome的icon庫引入 -->
+<script src="https://kit.fontawesome.com/7ae43304d6.js" crossorigin="anonymous"></script>
+<!-- font awesome的icon庫引入 -->
 
-  .sidebar li a {
-    color: #fff;
-  }
+<!-- <!-- CDN引入 -->
+<!-- <link -->
+<!-- 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" -->
+<!-- 	rel="stylesheet" -->
+<!-- 	integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" -->
+<!-- 	crossorigin="anonymous" /> -->
+<!-- <script -->
+<!-- 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> -->
+<!-- <script -->
+<!-- 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+<!-- <!-- CDN引入 -->
 
-  @media (max-width: 767px) {
-    #side_nav {
-      margin-left: -250px;
-      position: fixed;
-      min-height: 100vh;
-      z-index: 1;
-    }
 
-    #side_nav.active {
-      margin-left: 0;
-    }
-  }
+<link rel='stylesheet' href="<c:url value='/assets/css/teacherNavBar.css' />" type="text/css" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@600&family=Noto+Serif+TC:wght@200;700&display=swap" rel="stylesheet">
+
+
+<style type="text/css">
 </style>
-    <body>
-        <div class="main-container d-flex">
-            <div class="sidebar" id="side_nav">
-                <div class="header-box ms-2 px-2 pt-3 pb-4 d-flex justify-content-between">
-                    <h1 class="fs-4"> <span class="bg-white text-dark rounded shadow px-2 me-2">5</span><span class="text-white me-2">mart</span> </h1>
-                    <button class="btn d-md-none d-block close-btn px-1 py-0 text-white"><i class="fa-solid fa-bars-staggered"></i>
-                    </button>
-                </div>
-                <ul class="list-unstyled px-2">
+
+</head>
+
+<body>
+	<div class="main-container d-flex">
+		<div class="sidebar" id="side_nav">
+			<div class="header-box ms-2 px-2 pt-3 pb-4 d-flex justify-content-between">
+				<h1 class="fs-4">
+					<span class="bg-white text-dark rounded shadow px-2 me-2">S</span><span class="text-white me-2">mart</span>
+				</h1>
+				<button class="btn d-md-none d-block close-btn px-1 py-0 text-white">
+					<i class="fa-solid fa-bars-staggered"></i>
+				</button>
+			</div>
+			<ul class="list-unstyled px-2">
 				<li class="active"><a href="#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-chart-line pe-2" style="color: #ffffff"></i>儀錶板</a>
@@ -127,33 +105,39 @@
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-user pe-2" style="color: #ffffff"></i>購物車</a></li>
 			</ul>
-                <hr class="h-color mx-2"/>
-                <ul class="list-unstyled px-2">
-                    <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-gear pe-2" style="color: #ffffff"></i>設定</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="content">
-                <nav class="navbar navbar-expand-md navbar-light bg-light">
-                    <div class="container-fluid">
-                        <div class="d-flex justify-content-between d-md-none d-block">
-                            <button class="btn px-1 py-0 open-btn me-2"><i class="fa-solid fa-bars-staggered"></i>
-                            </button><a class="navbar-brand fs-4" href="#"><span class="bg-dark text-white rounded shadow px-2 py-0">5</span>mart</a>
-                        </div>
-                        <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">profile</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-                <div>
-                    <!-- < class="dashboard-content px-3 pt-4"> -->
-                    <h2 class="fs-5">dashboard</h2>
-                    <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="2000" height="500" style="display: block; height: 486px; width: 1152px"></canvas>
+			<hr class="h-color mx-2">
+
+			<ul class="list-unstyled px-2">
+				<li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>設定</a></li>
+
+			</ul>
+		</div>
+		<div class="content">
+			<nav class="navbar navbar-expand-md navbar-light bg-light">
+				<div class="container-fluid">
+					<div class="d-flex justify-content-between d-md-none d-block">
+						<button class="btn px-1 py-0 open-btn me-2">
+							<i class="fa-solid fa-bars-staggered"></i>
+						</button>
+						<a class="navbar-brand fs-4" href="#"><span class="bg-dark text-white rounded shadow px-2 py-0">5</span>mart</a>
+
+					</div>
+					<button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<i class="fa-solid fa-bars"></i>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+							<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">profile</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+			<div class="dashboard-content px-3 pt-4">
+				<h2 class="fs-5">dashboard</h2>
+				<p>這裡可以填入內容</p>
+				
+				<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="2000" height="500" style="display: block; height: 486px; width: 1152px"></canvas>
                     <div class="my-3 p-3 bg-white rounded shadow-sm">
                         <h6 class="border-bottom pb-2 mb-0">最新訊息</h6>
                         <div class="d-flex text-muted pt-3">
@@ -240,34 +224,58 @@
                     </div>
                 </div>            
             </c:forEach>
-            </div>
-            
-                    </div>
-                    <p>這裡可以填入內容</p>
-                </div>
-            </div>
-        </div>
-                <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+				  </div>
+				  
+				<p>這裡可以填入內容</p>
+			</div>
+		</div>
+
+	</div>
+
+
+	<!-- CDN引入 -->
+	<!-- 		<script -->
+	<!-- 			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" -->
+	<!-- 			integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" -->
+	<!-- 			crossorigin="anonymous"></script> -->
+	<!-- 	<script -->
+	<!-- 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" -->
+	<!-- 		integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" -->
+	<!-- 		crossorigin="anonymous"></script> -->
+	<!-- CDN引入 -->
+
+	<!-- bootstrap -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+	                <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- bootstrap -->
-        <script type="text/javascript">
-    $(".sidebar ul li").on("click", function () {
-      $(".sidebar ul li.active").removeClass("active");
-      $(this).addClass("active");
-    });
+	<!-- bootstrap -->
+	<script type="text/javascript">
+		$(".sidebar ul li").on('click', function() {
+			$(".sidebar ul li.active").removeClass('active');
+			$(this).addClass('active');
+		})
 
-    $(".open-btn").on("click", function () {
-      $(".sidebar").addClass("active");
-    });
 
-    $(".close-btn").on("click", function () {
-      $(".sidebar").removeClass("active");
-    });
-  </script>
-  <script>
+		$(".sidebar ul li").mouseenter(function() {
+			$(this).find('.fa-solid').css("color", "#123");
+			
+		})
+
+		$(".sidebar ul li").mouseleave(function() {
+			$(this).find('.fa-solid').css("color", "#eee");
+		})
+
+		$(".open-btn").on('click', function() {
+			$(".sidebar").addClass('active');
+		})
+
+		$(".close-btn").on('click', function() {
+			$(".sidebar").removeClass('active');
+		})
+	</script>
+<script>
         /* globals Chart:false, feather:false */
 
         (function () {
@@ -322,5 +330,6 @@
             })
         })()
     </script>
-    </body>
+
+</body>
 </html>
