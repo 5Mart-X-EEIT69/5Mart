@@ -207,7 +207,7 @@ public class TeacherController {
 	public String TeacherComminicateAnnouncement(Model model) {
 		member member = (member) session.getAttribute("member");
 		if(member != null) {
-			List<Course> course = courseService.findAll();
+			List<Course> course = courseService.findByTeacherId(member.getId());
 			model.addAttribute("course", course);
 			return "/TeacherComminicate/TeacherComminicateAnnouncement";		
 		}else {
