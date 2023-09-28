@@ -59,6 +59,20 @@ public class VideoServiceImpl implements VideoService{
 		log.info("=====>VideoServiceImpl#deleteById()");
 		videoRepository.deleteById(id);
 	}
+	
+//	videoService.findByUUID(uuid)方法
+	
+	// @Override
+	// public Video findByUuid(String uuid) {
+	//     log.info("=====>VideoServiceImpl#findByUUID()");
+	//     Optional<Video> opt = videoRepository.findByUuid(uuid);  // 使用 findByUuid 方法來查找
+	//     if (opt.isPresent()) {
+	//         return opt.get();
+	//     } else {
+	//         throw new RuntimeException("Video (UUID=" + uuid + ") does not exist");
+	//     }
+	// }
 
+//	videoService.findByUUID(uuid)方法	
 	
 }

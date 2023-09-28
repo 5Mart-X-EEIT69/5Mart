@@ -5,7 +5,7 @@ import java.util.List;
 import com.ispan.eeit69.model.Course;
 
 public interface CourseService {
-	void save(Course course);
+	Course save(Course course);
 	void update(Course course);
 	Course findById(Integer id);
 	List<Course> findAll();
@@ -17,5 +17,6 @@ public interface CourseService {
 	boolean existsBytitle(String employeeId);//配合網站需求自定義的Service
 	
 	List<Course> findByKeyword(String keyword); //  搜尋關鍵字
+	List<Course> findByTeacherId(Integer id); //  搜尋關鍵字
 	
 }

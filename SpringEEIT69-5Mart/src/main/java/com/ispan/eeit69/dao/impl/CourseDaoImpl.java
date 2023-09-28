@@ -84,6 +84,13 @@ public class CourseDaoImpl implements CourseDao{
 		return courses;
 	}
 
+	@Override
+	public List<Course> findByTeacherId(Integer id) {
+		String hql = "FROM Course c WHERE c.teacher.id= :id";
+		List<Course> courses = entityManager.createQuery(hql,Course.class).setParameter("id", id).getResultList();
+		return courses;
+	}
+
 	
 	
 }

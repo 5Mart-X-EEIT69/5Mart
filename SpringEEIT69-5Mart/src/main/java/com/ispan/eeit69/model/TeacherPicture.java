@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -19,7 +20,8 @@ public class TeacherPicture {
 	
 	private Blob photo;
 	
-    @OneToOne(mappedBy = "TeacherPicture")
+    @OneToOne()
+    @JoinColumn(name = "member_id")
     private member member;
 
 	
@@ -27,9 +29,14 @@ public class TeacherPicture {
 	public TeacherPicture() {
 	}
 
-	public TeacherPicture(Blob photo) {
+
+
+	public TeacherPicture(Blob photo, member member) {
 		this.photo = photo;
+		this.member = member;
 	}
+
+
 
 	public Integer getTeacherPictureId() {
 		return TeacherPictureId;
