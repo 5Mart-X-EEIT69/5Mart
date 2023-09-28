@@ -106,10 +106,53 @@
 						class="fa-solid fa-user pe-2" style="color: #ffffff"></i>購物車</a></li>
 			</ul>
 			<hr class="h-color mx-2">
-
 			<ul class="list-unstyled px-2">
-				<li class="active"><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>設定</a></li>
-
+				<li class="" style="background-color:#d9edfa"><a
+					href="<c:url value="/profileSettingPage"></c:url>#"
+					class="text-decoration-none px-3 py-2 d-block"><i
+						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>設定</a></li>
+			</ul>
+			<ul class="list-unstyled px-2">
+				<li class=""><a
+					href="<c:url value="/profileSettingPage"></c:url>#"
+					class="text-decoration-none px-3 py-2 d-block"><i
+						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>個人資料設定</a></li>
+			</ul>
+			<ul class="list-unstyled px-2">
+				<li class=""><a
+					href="<c:url value="/pictureSettingPage"></c:url>#"
+					class="text-decoration-none px-3 py-2 d-block"><i
+						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>個人照片設定</a></li>
+			</ul>
+						<ul class="list-unstyled px-2">
+				<li class=""><a
+					href="<c:url value="/safetySettingPage"></c:url>#"
+					class="text-decoration-none px-3 py-2 d-block"><i
+						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>安全性</a></li>
+			</ul>
+						<ul class="list-unstyled px-2">
+				<li class="" style="background-color:#405d9c"><a
+					href="<c:url value="#"></c:url>#"
+					class="text-decoration-underline px-3 py-2 d-block"><i
+						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>隱私權</a></li>
+			</ul>
+						<ul class="list-unstyled px-2">
+				<li class=""><a
+					href="<c:url value="/paymentSettingPage"></c:url>#"
+					class="text-decoration-none px-3 py-2 d-block"><i
+						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>付款資訊</a></li>
+			</ul>
+						<ul class="list-unstyled px-2">
+				<li class="" ><a
+					href="<c:url value="/subscriptionSettingPage"></c:url>#"
+					class="text-decoration-none px-3 py-2 d-block"  ><i
+						class="fa-solid fa-gear pe-2" style="color: #ffffff;" ></i>訂閱管理</a></li>
+			</ul>
+			<ul class="list-unstyled px-2">
+				<li class=""><a
+					href="<c:url value="/deactivateSettingPage"></c:url>#"
+					class="text-decoration-none px-3 py-2 d-block"><i
+						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>停用帳號</a></li>
 			</ul>
 		</div>
 		<div class="content">
