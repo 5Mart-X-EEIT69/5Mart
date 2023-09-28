@@ -62,6 +62,37 @@ public class StudentController {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
 		return "/StudentLMS/SettingsService/profileSettingPage";
 	}
+	
+	@GetMapping("/pictureSettingPage")
+	public String pictureSettingPage(Model model) {
+		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		return "/StudentLMS/SettingsService/pictureSettingPage";
+	}
+	@GetMapping("/deactivateSettingPage")
+	public String deactivateSettingPage(Model model) {
+		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		return "/StudentLMS/SettingsService/deactivateSettingPage";
+	}
+	@GetMapping("/paymentSettingPage")
+	public String paymentSettingPage(Model model) {
+		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		return "/StudentLMS/SettingsService/paymentSettingPage";
+	}
+	@GetMapping("/privacySettingPage")
+	public String privacySettingPage(Model model) {
+		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		return "/StudentLMS/SettingsService/privacySettingPage";
+	}
+	@GetMapping("/subscriptionSettingPage")
+	public String subscriptionSettingPage(Model model) {
+		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		return "/StudentLMS/SettingsService/subscriptionSettingPage";
+	}
+	@GetMapping("/safetySettingPage")
+	public String safetySettingPage(Model model) {
+		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		return "/StudentLMS/SettingsService/safetySettingPage";
+	}
 
 	@GetMapping("/student_dashboard")
 	public String student_dashboard(Model model) {

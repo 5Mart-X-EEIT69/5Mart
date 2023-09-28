@@ -134,66 +134,8 @@
 			</nav>
 
 			<div class="dashboard-content px-3 pt-4">
-				<h2 class="fs-5">個人資訊頁面</h2>
-				<!--<p>這裡可以填入內容</p>-->
+				<h2 class="fs-5">隱私權頁面</h2>
 
-                                        <div class="row g-3">
-                                            <div class="col-sm-6">
-                                                <label for="firstName" class="form-label">名稱</label>
-                                                <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-                                                <div class="invalid-feedback">
-                                                    Valid first name is required.
-        </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <label for="lastName" class="form-label">姓氏</label>
-                                                <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-                                                <div class="invalid-feedback">
-                                                    Valid last name is required.
-        </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="username" class="form-label">使用者名稱</label>
-                                                <div class="input-group"><span class="input-group-text">@</span>
-                                                    <input type="text" class="form-control" id="username" placeholder="Username" required="">
-                                                    <div class="invalid-feedback">
-                                                        Your username is required.
-        </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="email" class="form-label">Email <span class="text-muted">(必填)</span>
-                                                </label>
-                                                <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                                                <div class="invalid-feedback">
-                                                    Please enter a valid email address for shipping updates.
-        </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="address" class="form-label">自我介紹</label>
-                                                <div class="invalid-feedback">
-                                                    Please enter your shipping address.
-        </div>
-                                                <div class="mb-3"> 
-                                                    <!-- <label for="formInput15" class="form-label">輸入</label>                                  -->
-                                                    <textarea class="form-control" id="formInput15" rows="3"></textarea> 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <label for="country" class="form-label">預設語言</label>
-                                                <select class="form-select" id="country" required="">
-                                                    <option value="">台灣正體中文</option>
-                                                    <option>日本語</option>
-                                                    <option>English</option>
-                                                </select>
-                                                <div class="invalid-feedback">
-                                                    Please select a valid country.
-        </div>
-                                            </div>
-                                            <button class="w-100 btn btn-primary btn-lg" type="submit">儲存設定</button>
-                                        </div>
-                                    </div>
-				<!--<p>這裡可以填入內容</p>-->
 			</div>
 		</div>
 
