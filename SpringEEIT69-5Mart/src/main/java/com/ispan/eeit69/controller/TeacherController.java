@@ -310,6 +310,7 @@ public class TeacherController {
 	public String TeacherInformationIntroduction(Model model) {
 		member member = (member) session.getAttribute("member");
 		if(member != null) {
+			System.out.println("TESTGETMAPPUNG");
 			Introduction introduction = introductionService.findByMember(member);
 			model.addAttribute("introduction",introduction);
 
@@ -629,24 +630,30 @@ public class TeacherController {
 			Blob blob = new SerialBlob(photoBytes);
 			member member1 = memberService.findByMemberId(memberID);
 			TeacherPicture teacherPicture1 = new TeacherPicture(blob,member1);
-			teacherPictureService.save(teacherPicture1);			
+			teacherPictureService.save(teacherPicture1);		
+			// 将Blob数据转换为Base64编码的字符串
+			byte[] imageBytes = teacherPicture1.getPhoto().getBytes(1, (int) teacherPicture1.getPhoto().length());
+			String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+			
+			model.addAttribute("base64Image",base64Image);
 		}else {
 			byte[] newPhotoBytes = photo.getBytes();
 		    Blob newBlob = new SerialBlob(newPhotoBytes);
 		    teacherPicture.setPhoto(newBlob);
 		    
 		    teacherPictureService.update(teacherPicture);
+		    
+		    TeacherPicture findpicture = new TeacherPicture();
+		    findpicture = memberService.findByMemberId(memberID).getTeacherPicture();
+		    
+		    if (findpicture != null) {
+		    	// 将Blob数据转换为Base64编码的字符串
+		    	byte[] imageBytes = findpicture.getPhoto().getBytes(1, (int) findpicture.getPhoto().length());
+		    	String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+		    	
+		    	model.addAttribute("base64Image",base64Image);
 		}
 		
-		TeacherPicture findpicture = new TeacherPicture();
-		findpicture = memberService.findByMemberId(memberID).getTeacherPicture();
-		
-		if (findpicture != null) {
-		// 将Blob数据转换为Base64编码的字符串
-		byte[] imageBytes = findpicture.getPhoto().getBytes(1, (int) findpicture.getPhoto().length());
-		String base64Image = Base64.getEncoder().encodeToString(imageBytes);
-		
-		model.addAttribute("base64Image",base64Image);
 		}
 		
 		
