@@ -104,9 +104,9 @@ public class StudentController {
 		return "/StudentLMS/student_course_viewer";
 	}
 
-	@GetMapping("/Course_Player")
-	public String Course_Player(Model model) {
-		return "/StudentLMS/Course_Player";
+	@GetMapping("/coursePlayerPage")
+	public String coursePlayerPage(Model model) {
+		return "/StudentLMS/CourseService/coursePlayerPage";
 	}
 	
 	@GetMapping("/Player")
