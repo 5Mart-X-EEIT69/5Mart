@@ -10,6 +10,7 @@ import java.util.Base64;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 import javax.sql.rowset.serial.SerialBlob;
 import javax.sql.rowset.serial.SerialClob;
@@ -398,6 +399,10 @@ public class TeacherController {
 
 			System.out.println("---videoStart---");
 			JsonNode videoArray = formData.get("video");
+			JsonNode videoName = formData.get("videoName");
+			System.out.println("videoArray : " + videoArray.size());
+			System.out.println("videoName : " + videoName.size());
+			Iterator<JsonNode> videoNameIterator = videoName.iterator();				
 			int[] unitCount = { 0 };// 將 unitCount 定義為陣列，陣列是指向記憶體位置。
 			videoArray.fields().forEachRemaining(entry -> {
 				String attributeName = entry.getKey();
@@ -405,17 +410,29 @@ public class TeacherController {
 				System.out.println(attributeName + ": " + attributeValue.asText());
 				Video video = new Video();
 				video.setUnit(unitTemp.get(unitCount[0]++));
-				char[] videoValue = attributeValue.asText().toCharArray();
-				try {
-					Clob videoClob = new SerialClob(videoValue);
-					video.setVideoValue(videoClob);
-				} catch (Exception e) {
-					e.printStackTrace();
+				System.out.println(attributeValue);
+				if(attributeValue.asText()!="") {
+					byte[] videoValue = Base64.getDecoder().decode(attributeValue.asText().split(",")[1]);
+					System.out.println(videoValue);
+					try {
+						Blob videoBlob = new SerialBlob(videoValue);
+						video.setVideoData(videoBlob);
+						System.out.println("TEST");
+					} catch (Exception e) {
+						System.out.println("影片上傳失敗！");
+						e.printStackTrace();
+					}//影片處理					
 				}
-				video.setVideoNumber(attributeName);
-				String name = video.getUnit().getUnitName();
-				video.setVideoName(name + "_" + attributeName.substring(7));
+				
+				video.setVideoNumber(attributeName);//影片章節單元
+				
+				if(videoNameIterator.hasNext()) {
+					video.setVideoName(videoNameIterator.next().asText());//影片名稱					
+				}
+				String uuid = UUID.randomUUID().toString();
+				video.setUuid(uuid);//設置Uuid
 				videoService.save(video);
+				System.out.println("影片上傳成功！，產生的UUID 是：" + uuid);
 			});
 			//單元跟影片做一對多連接(目前@標籤是寫一對多，實際上只有一對一，懶得改@標籤)
 			System.out.println("run");

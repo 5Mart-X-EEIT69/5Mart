@@ -14,7 +14,10 @@
 <link rel='stylesheet'
 	href="<c:url value='/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.css' />"
 	type="text/css" />
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+	crossorigin="anonymous"></script>
 <link rel='stylesheet'
 	href="<c:url value="/assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css"/>"
 	type="text/css" />
@@ -88,7 +91,6 @@
 .nav-link {
 	font-weight: bolder;
 }
-
 </style>
 </head>
 <!-- 
@@ -176,106 +178,116 @@
 			</ul>
 			<hr>
 		</div>
-        <!-- 		選單右邊 -->
-        <div class="col-2"></div>
-        <div class="col-4 bs-stepper" style="margin-top: 72px">
-            <h1>建立你的課程</h1>
-            <hr>
-            <div class="bs-stepper-header" role="tablist">
-                <!-- your steps here -->
-                <div class="step" data-target="#step1">
-                    <button type="button" class="step-trigger" role="tab" aria-controls="logins-part"
-                        id="step1-trigger">
-                        <span class="bs-stepper-circle">1</span> <span class="bs-stepper-label">第一步</span>
-                    </button>
-                </div>
-                <div class="line"></div>
-                <div class="step" data-target="#step2">
-                    <button type="button" class="step-trigger" role="tab" aria-controls="information-part"
-                        id="step2-trigger">
-                        <span class="bs-stepper-circle">2</span> <span class="bs-stepper-label">第二步</span>
-                    </button>
-                </div>
-                <div class="line"></div>
-                <div class="step" data-target="#step3">
-                    <button type="button" class="step-trigger" role="tab" aria-controls="information-part"
-                        id="step3-trigger">
-                        <span class="bs-stepper-circle">3</span> <span class="bs-stepper-label">第三步</span>
-                    </button>
-                </div>
-                <div class="line"></div>
-                <div class="step" data-target="#step4">
-                    <button type="button" class="step-trigger" role="tab" aria-controls="information-part"
-                        id="step4-trigger">
-                        <span class="bs-stepper-circle">4</span> <span class="bs-stepper-label">第四步</span>
-                    </button>
-                </div>
-            </div>
-            <div class="bs-stepper-content">
-                <!-- your steps content here -->
-                <div id="step1" class="content" role="tabpanel" aria-labelledby="step1-trigger">
-                    <div class="form-group">
-                        <label> 課程標題 </label> <input class="form-control" id="title" name="title" />
-                    </div>
-                    <div class="form-group">
-                        <label> 課程簡介 </label> <input class="form-control" style="height: 10rem" id="introduction"
-                            name="introduction" />
-                    </div>
-                    <div id="photoContainer" class="form-group">
-                        <label> 封面照片 </label> <input class="form-control testphoto" type="file" accept="image/*"
-                            id="photoBtn" name="photoBtn" />
-                        <input type="hidden" id="photoValue" name="photoValue">
-                    </div>
-                    <div class="form-group">
-                        <label>售價</label> <input class="form-control" id="price" name="price" />
-                    </div>
-                    <div class="pt-3 d-flex justify-content-center">
-                        <button class="btn btn-secondary" type="button" onclick="stepper.next()">下一步</button>
-                    </div>
-                </div>
-                <div id="step2" class="content" role="tabpanel" aria-labelledby="step2-trigger">
-                    <!-- 章節單元標籤 -->
-                    <div id="chapterContainer">
-                        <div>
-                            <div class="form-group chapter my-2">
-                                <span class="chapterIcon">拖拉</span> <span class="py-1">章節
-                                    1</span><input class="chapterInput chapterName" type="text" value="">
-                                <span>
-                                    <button class="mx-1 btn iconbtn addChapter">
-                                        <i class="bi bi-plus-circle"></i>
-                                    </button>
-                                    <button class="mx-1 btn iconbtn chapterDelete">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </span>
-                            </div>
-                            <div class="unitGroup">
-                                <div class="form-group unit my-2">
-                                    <span class="chapterIcon">拖拉</span> <label class="py-1">單元
-                                        1</label><input class="chapterInput unitName" type="text" value="">
-                                    <span>
-                                        <button class="mx-1 btn iconbtn addUnit">
-                                            <i class="bi bi-plus-circle"></i>
-                                        </button>
-                                        <button class="mx-1 btn iconbtn unitDelete">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pt-2 d-flex justify-content-center">
-                            <button class="mx-1 btn btn-secondary" type="button"
-                                onclick="stepper.previous()">上一步</button>
-                            <button id="step2NextBtn" class="mx-1 btn btn-secondary" type="button"
-                                onclick="stepper.next()">下一步</button>
-                        </div>
-                    </div>
-                </div>
-                <div id="step3" class="content" role="tabpanel" aria-labelledby="step3-trigger">
+		<!-- 		選單右邊 -->
+		<div class="col-2"></div>
+		<div class="col-4 bs-stepper" style="margin-top: 72px">
+			<h1>建立你的課程</h1>
+			<hr>
+			<div class="bs-stepper-header" role="tablist">
+				<!-- your steps here -->
+				<div class="step" data-target="#step1">
+					<button type="button" class="step-trigger" role="tab"
+						aria-controls="logins-part" id="step1-trigger">
+						<span class="bs-stepper-circle">1</span> <span
+							class="bs-stepper-label">第一步</span>
+					</button>
+				</div>
+				<div class="line"></div>
+				<div class="step" data-target="#step2">
+					<button type="button" class="step-trigger" role="tab"
+						aria-controls="information-part" id="step2-trigger">
+						<span class="bs-stepper-circle">2</span> <span
+							class="bs-stepper-label">第二步</span>
+					</button>
+				</div>
+				<div class="line"></div>
+				<div class="step" data-target="#step3">
+					<button type="button" class="step-trigger" role="tab"
+						aria-controls="information-part" id="step3-trigger">
+						<span class="bs-stepper-circle">3</span> <span
+							class="bs-stepper-label">第三步</span>
+					</button>
+				</div>
+				<div class="line"></div>
+				<div class="step" data-target="#step4">
+					<button type="button" class="step-trigger" role="tab"
+						aria-controls="information-part" id="step4-trigger">
+						<span class="bs-stepper-circle">4</span> <span
+							class="bs-stepper-label">第四步</span>
+					</button>
+				</div>
+			</div>
+			<div class="bs-stepper-content">
+				<!-- your steps content here -->
+				<div id="step1" class="content" role="tabpanel"
+					aria-labelledby="step1-trigger">
+					<div class="form-group">
+						<label> 課程標題 </label> <input class="form-control" id="title"
+							name="title" />
+					</div>
+					<div class="form-group">
+						<label> 課程簡介 </label> <input class="form-control"
+							style="height: 10rem" id="introduction" name="introduction" />
+					</div>
+					<div id="photoContainer" class="form-group">
+						<label> 封面照片 </label> <input class="form-control testphoto"
+							type="file" accept="image/*" id="photoBtn" name="photoBtn" /> <input
+							type="hidden" id="photoValue" name="photoValue">
+					</div>
+					<div class="form-group">
+						<label>售價</label> <input class="form-control" id="price"
+							name="price" />
+					</div>
+					<div class="pt-3 d-flex justify-content-center">
+						<button class="btn btn-secondary" type="button"
+							onclick="stepper.next()">下一步</button>
+					</div>
+				</div>
+				<div id="step2" class="content" role="tabpanel"
+					aria-labelledby="step2-trigger">
+					<!-- 章節單元標籤 -->
+					<div id="chapterContainer">
+						<div>
+							<div class="form-group chapter my-2">
+								<span class="chapterIcon">拖拉</span> <span class="py-1">章節
+									1</span><input class="chapterInput chapterName" type="text" value="">
+								<span>
+									<button class="mx-1 btn iconbtn addChapter">
+										<i class="bi bi-plus-circle"></i>
+									</button>
+									<button class="mx-1 btn iconbtn chapterDelete">
+										<i class="bi bi-trash"></i>
+									</button>
+								</span>
+							</div>
+							<div class="unitGroup">
+								<div class="form-group unit my-2">
+									<span class="chapterIcon">拖拉</span> <label class="py-1">單元
+										1</label><input class="chapterInput unitName" type="text" value="">
+									<span>
+										<button class="mx-1 btn iconbtn addUnit">
+											<i class="bi bi-plus-circle"></i>
+										</button>
+										<button class="mx-1 btn iconbtn unitDelete">
+											<i class="bi bi-trash"></i>
+										</button>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="pt-2 d-flex justify-content-center">
+							<button class="mx-1 btn btn-secondary" type="button"
+								onclick="stepper.previous()">上一步</button>
+							<button id="step2NextBtn" class="mx-1 btn btn-secondary"
+								type="button" onclick="stepper.next()">下一步</button>
+						</div>
+					</div>
+				</div>
+				<div id="step3" class="content" role="tabpanel"
+					aria-labelledby="step3-trigger">
 
-                    <div id="chapterVideoContainer">
-                        <!-- <div>
+					<div id="chapterVideoContainer">
+						<!-- <div>
                             <div class="form-group chapterVideo my-2">
 								<span class="chapterIcon">拖拉</span> <span class="py-1">章節
                                     1</span><label class="py-1 chapterInput">字元字元字元字元字元字元字元字元</label>
@@ -288,50 +300,54 @@
                                     </div>
 							</div>
 						</div> -->
-                    </div>
-                    <div class="pt-2 d-flex justify-content-center">
-                        <button id="step3PrevBtn" class="mx-1 btn btn-secondary" type="button"
-                            onclick="stepper.previous()">上一步</button>
-                        <button class="mx-1 btn btn-secondary" type="button" onclick="stepper.next()">下一步</button>
-                    </div>
+					</div>
+					<div class="pt-2 d-flex justify-content-center">
+						<button id="step3PrevBtn" class="mx-1 btn btn-secondary"
+							type="button" onclick="stepper.previous()">上一步</button>
+						<button class="mx-1 btn btn-secondary" type="button"
+							onclick="stepper.next()">下一步</button>
+					</div>
 
-                </div>
-                <div id="step4" class="content" role="tabpanel" aria-labelledby="step4-trigger">
-                    <div class="form-group">
-                        <label>這堂課適合甚麼程度的學生?</label>
-                        <select class="form-select" aria-label="Default select example" id="level" name="level">
-                            <option selected></option>
-                            <option value="初學">初學</option>
-                            <option value="進階">進階</option>
-                            <option value="專業">專業</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>為你的這門課程添加分類吧</label>
-                        <select class="form-select" aria-label="Default select example" id="sort" name="sort">
-                            <option selected></option>
-                            <option value="語言">語言</option>
-                            <option value="開發">開發</option>
-                            <option value="行銷">行銷</option>
-                            <option value="投資理財">投資理財</option>
-                            <option value="音樂">音樂</option>
-                            <option value="攝影">攝影</option>
-                            <option value="設計">設計</option>
-                            <option value="職場技能">職場技能</option>
-                            <option value="其他">其他</option>
-                        </select>
-                    </div>
-                    <div class="pt-2 d-flex justify-content-center">
-                        <button class="mx-1 btn btn-secondary" type="button" onclick="stepper.previous()">上一步</button>
-                        <button id="submitBtn" class="mx-1 btn btn-secondary" type="button">送出</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+				</div>
+				<div id="step4" class="content" role="tabpanel"
+					aria-labelledby="step4-trigger">
+					<div class="form-group">
+						<label>這堂課適合甚麼程度的學生?</label> <select class="form-select"
+							aria-label="Default select example" id="level" name="level">
+							<option selected></option>
+							<option value="初學">初學</option>
+							<option value="進階">進階</option>
+							<option value="專業">專業</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label>為你的這門課程添加分類吧</label> <select class="form-select"
+							aria-label="Default select example" id="sort" name="sort">
+							<option selected></option>
+							<option value="語言">語言</option>
+							<option value="開發">開發</option>
+							<option value="行銷">行銷</option>
+							<option value="投資理財">投資理財</option>
+							<option value="音樂">音樂</option>
+							<option value="攝影">攝影</option>
+							<option value="設計">設計</option>
+							<option value="職場技能">職場技能</option>
+							<option value="其他">其他</option>
+						</select>
+					</div>
+					<div class="pt-2 d-flex justify-content-center">
+						<button class="mx-1 btn btn-secondary" type="button"
+							onclick="stepper.previous()">上一步</button>
+						<button id="submitBtn" class="mx-1 btn btn-secondary"
+							type="button">送出</button>
+					</div>
+				</div>
+			</div>
+		</div>
 
-        <div class="col-4">test</div>
-    </div>
-    <script>
+		<div class="col-4">test</div>
+	</div>
+	<script>
         window.onload = function () {
             let chapterAndUnitName = []
 
@@ -489,18 +505,19 @@
                 // console.log(video)
 
                 alert(this)
+                console.log($(this)[0].files)
                 let input = $(this)[0].files;
                 // console.log(input)
                 // console.log(input.length)
                 if (input.length > 0) {
                     let fileReader = new FileReader();
-
                     let fileToLoad = input[0];
                     console.log("fileToLoad=" + fileToLoad.name);
                     fileReader.onload = function (fileLoadedEvent) {
                         video.value = fileLoadedEvent.target.result;
                         // img.src = fileLoadedEvent.target.result;
-                    };
+                    };//這裡只是寫屬性，還沒執行，底下readAsDataURL執行後觸發onload才會進入onload
+                    console.log("測試進入點")
                     fileReader.readAsDataURL(fileToLoad);
                 }
 
@@ -531,8 +548,9 @@
             })//抓照片編碼
 
             $('#step4').on("click", "#submitBtn", function () {
-                let formData = {};
+                let formData = new FormData();
                 let unitVideo = {};
+                let videoName = {};
 
                 formData.title = $('#title').val();
                 formData.introduction = $('#introduction').val();
@@ -540,32 +558,39 @@
                 formData.price = $('#price').val();
                 formData.course = chapterAndUnitName;
                 $('input[name^="chapter"]').each(function (index, element) {
+                	let fileReader = new FileReader();
                     console.log("start--------------");
                     let idValue = $(this).attr('name');
                     let value = $(this).val();
                     unitVideo[idValue] = value;
+					
+                    console.log($(this).prev().children('input')[0].files)
+					if($(this).prev().children('input')[0].files.length != 0){
+                    videoName[idValue] = $(this).prev().children('input')[0].files[0].name //KEY:章節單元 VALUE:影片名稱						
+					}
                     console.log("end--------------")
                 })
                 formData.video = unitVideo;
+                formData.videoName = videoName;
                 formData.level = $('#level').val();
                 formData.sort = $('#sort').val();
 				formData.userId = ${member.id}
                 console.log(formData);
 
-				let curl = '<c:url value="/submitCourse" />';
-                $.ajax({
-                    url: curl,
-                    type: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify(formData),
-                    success: function(response){
-                       	console.log("成功",response);
-//                        	window.location.href = '<c:url value="/TeacherCourseList" />';
-                    },
-                    error: function(response){
-                        console.log("失敗",response);
-                    }
-                })
+// 				let curl = '<c:url value="/submitCourse" />';
+//                 $.ajax({
+//                     url: curl,
+//                     type: 'POST',
+//                     contentType: 'application/json',
+//                     data: JSON.stringify(formData),
+//                     success: function(response){
+//                        	console.log("成功",response);
+// //                        	window.location.href = '<c:url value="/TeacherCourseList" />';
+//                     },
+//                     error: function(response){
+//                         console.log("失敗",response);
+//                     }
+//                 })
             })
         }
     </script>
