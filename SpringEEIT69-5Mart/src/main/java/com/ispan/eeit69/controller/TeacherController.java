@@ -6,6 +6,7 @@ import java.sql.Clob;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -29,6 +30,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.ispan.eeit69.dao.TeacherPictureRepository;
 import com.ispan.eeit69.model.Announcement;
 import com.ispan.eeit69.model.Chapter;
 import com.ispan.eeit69.model.Course;
@@ -64,7 +66,6 @@ public class TeacherController {
 //	課程
 
 
-	
 	public TeacherController(CourseService courseService, ChapterService chapterService, UnitService unitService,
 			VideoService videoService, IntroductionService introductionService, TeacherPictureService teacherPictureService,
 			AnnouncementService announcementService, HttpSession session,
@@ -282,20 +283,41 @@ public class TeacherController {
 	public String TeacherInformationPhoto(Model model) {
 		member member = (member) session.getAttribute("member");
 		if(member != null) {
+			TeacherPicture teacherPicture = teacherPictureService.findByMember(member);
+			
+			if (teacherPicture != null) {
+			// 将Blob数据转换为Base64编码的字符串
+			
+			byte[] imageBytes;
+			try {
+				imageBytes = teacherPicture.getPhoto().getBytes(1, (int) teacherPicture.getPhoto().length());
+				String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+				model.addAttribute("base64Image",base64Image);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			}
 			return "/TeacherInformation/TeacherInformationPhoto";		
 		}else {
 			return "redirect:/visitorhomepage";
 		}
+
 	}// 跳轉至講師資料照片頁面
 
 	@GetMapping("/TeacherInformationIntroduction")
 	public String TeacherInformationIntroduction(Model model) {
 		member member = (member) session.getAttribute("member");
 		if(member != null) {
+			Introduction introduction = introductionService.findByMember(member);
+			model.addAttribute("introduction",introduction);
+
 			return "/TeacherInformation/TeacherInformationIntroduction";		
 		}else {
 			return "redirect:/visitorhomepage";
 		}
+
 	}// 跳轉至講師資料自我介紹頁面
 
 	@GetMapping("/TeacherInformationAbility")
@@ -569,31 +591,65 @@ public class TeacherController {
 
 	}
 	
-	@PostMapping("/introduction")
-	public String introduction(@ModelAttribute Introduction introduction) {
-		introductionService.save(introduction);
-		System.out.println("測試");
+	@PostMapping("/TeacherInformationIntroduction")
+	public String introduction(@ModelAttribute Introduction introduction,@RequestParam("memberId") Integer memberID,
+								@RequestParam("IntroductionText") String IntroductionText,
+								@RequestParam("Expertise") String Expertise,@RequestParam("Blog") String Blog,
+								@RequestParam("Youtube") String Youtube,@RequestParam("Facebook") String Facebook) {
+	
+		member member = (member) session.getAttribute("member");  //找出會員
+		Introduction introduction1 = introductionService.findByMember(member);  //在Introduction表內，用member去找到自我介紹那行
+		
+		
+		if(introduction1 == null) {
+		member member2 = memberService.findByMemberId(memberID);
+		Introduction introduction2 = new Introduction(IntroductionText,Expertise,Blog,Youtube,Facebook,member2);
+		introductionService.save(introduction2);
+		}else {
+			introduction1.setIntroductionText(IntroductionText);
+			introduction1.setExpertise(Expertise);
+			introduction1.setBlog(Blog);
+			introduction1.setFacebook(Facebook);
+			introduction1.setYoutube(Youtube);
+			
+			introductionService.update(introduction1);
+		}
+		
+		
 		return "/TeacherInformation/TeacherInformationIntroduction";
 	}
 	
-	@PostMapping("/teacherpicture")
-	public String teacherpicture(@RequestParam("photo") MultipartFile photo ,Model model) throws IOException, SerialException, SQLException {
+	@PostMapping("/TeacherInformationPhoto")
+	public String teacherpicture(@RequestParam("photo") MultipartFile photo ,Model model,@RequestParam("memberId") Integer memberID) throws IOException, SerialException, SQLException {
+		member member = (member) session.getAttribute("member");
+		TeacherPicture teacherPicture = teacherPictureService.findByMember(member);
 		
-		byte[] photoBytes = photo.getBytes();
-		Blob blob = new SerialBlob(photoBytes);
-		TeacherPicture teacherPicture = new TeacherPicture(blob);
-		teacherPictureService.save(teacherPicture);
-		System.out.println("測試");
+		if(teacherPicture == null) {
+			byte[] photoBytes = photo.getBytes();
+			Blob blob = new SerialBlob(photoBytes);
+			member member1 = memberService.findByMemberId(memberID);
+			TeacherPicture teacherPicture1 = new TeacherPicture(blob,member1);
+			teacherPictureService.save(teacherPicture1);			
+		}else {
+			byte[] newPhotoBytes = photo.getBytes();
+		    Blob newBlob = new SerialBlob(newPhotoBytes);
+		    teacherPicture.setPhoto(newBlob);
+		    
+		    teacherPictureService.update(teacherPicture);
+		}
 		
-//		TeacherPicture findpicture = new TeacherPicture();
-//		findpicture = teacherPictureService.findById(10);
-//		
-//		// 将Blob数据转换为Base64编码的字符串
-//		byte[] imageBytes = findpicture.getPhoto().getBytes(1, (int) findpicture.getPhoto().length());
-//		String base64Image = Base64.getEncoder().encodeToString(imageBytes);
-//
-//		
-//		model.addAttribute("base64Image",base64Image);
+		TeacherPicture findpicture = new TeacherPicture();
+		findpicture = memberService.findByMemberId(memberID).getTeacherPicture();
+		
+		if (findpicture != null) {
+		// 将Blob数据转换为Base64编码的字符串
+		byte[] imageBytes = findpicture.getPhoto().getBytes(1, (int) findpicture.getPhoto().length());
+		String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+		
+		model.addAttribute("base64Image",base64Image);
+		}
+		
+		
 		return "/TeacherInformation/TeacherInformationPhoto";
 	}
 	

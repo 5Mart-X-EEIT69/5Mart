@@ -12,6 +12,7 @@ import com.ispan.eeit69.dao.IntroductionRepository;
 import com.ispan.eeit69.dao.VideoRepository;
 import com.ispan.eeit69.model.Introduction;
 import com.ispan.eeit69.model.Video;
+import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.IntroductionService;
 
 
@@ -67,6 +68,12 @@ public class IntroductionServiceImpl implements IntroductionService {
 		log.info("=====>IntroductionServiceImpl#deleteById()");
 		introductionRepository.deleteById(id);
 
+	}
+
+	@Override
+	public Introduction findByMember(member member) {
+		log.info("=====>IntroductionServiceImpl#findAll()");
+		return introductionRepository.findByMember(member);
 	}
 
 }
