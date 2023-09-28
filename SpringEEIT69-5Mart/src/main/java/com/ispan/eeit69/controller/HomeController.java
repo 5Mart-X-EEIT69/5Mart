@@ -82,18 +82,6 @@ public class HomeController {
 //		return "memberHomePage";
 //	}
 
-//	@GetMapping("/visitorhomepage2")
-//	public String visitorhomepage2(Model model) {
-//		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
-//		return "visitorHomePage2";
-//	}
-
-//	@GetMapping("/indextest2")
-//	public String indextest2(Model model) {
-//		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
-//		return "indextest2";
-//	}
-
 //	@GetMapping("/visitorsearchpage")
 //	public String visitorsearchpage(Model model) {
 //		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");

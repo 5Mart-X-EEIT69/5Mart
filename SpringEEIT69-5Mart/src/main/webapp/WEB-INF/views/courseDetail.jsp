@@ -155,9 +155,9 @@
 								</div>
 							</div>
 							<p>${courseData.introduction}</p>
-
-							<div col>
-								<a class="btn btn-primary" href="#!">加入購物車</a>
+							
+							<div class="col">
+								<a class="btn btn-primary" href="<c:url value='/addtocart?id=${courseData.id} ' />">加入購物車</a>
 							</div>
 							<div class="col">
 								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
