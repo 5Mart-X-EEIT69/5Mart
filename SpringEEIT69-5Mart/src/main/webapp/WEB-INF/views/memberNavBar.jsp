@@ -344,12 +344,14 @@
 <%-- 					src="<c:if test="${not empty base64Image}"> --%>
 <%-- 					data:image/jpeg;base64,${base64Image} --%>
 <%-- 					</c:if>" /> --%>
-					<img class="circleImg"
+<%-- 					<img class="circleImg"
 					src="<c:choose>
 						<c:when test="${not empty base64Image}">data:image/jpeg;base64,${base64Image}</c:when>
 						<c:otherwise>\SpringEEIT69-5Mart\assets\images\人像頭貼001.jpg</c:otherwise>
-					</c:choose>" />
+					</c:choose>" /> --%>
 
+					<img class="circleImg"
+					src="\SpringEEIT69-5Mart\assets\images\人像頭貼001.jpg" />
 
 				</a>
 				<ul class="dropdown-menu dropdown-menu-end px-1 fs-6">
