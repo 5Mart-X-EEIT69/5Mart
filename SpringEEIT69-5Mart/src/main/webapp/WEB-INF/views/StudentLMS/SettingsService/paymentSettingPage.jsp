@@ -134,66 +134,188 @@
 			</nav>
 
 			<div class="dashboard-content px-3 pt-4">
-				<h2 class="fs-5">個人資訊頁面</h2>
-				<!--<p>這裡可以填入內容</p>-->
+				<h2 class="fs-5">付款資訊頁面</h2>
+					
+						<h2>付款方式</h2>
+						<div class="row g-3">
+							<div class="col-4 d-flex align-items-center" id="photoContainer">
+								<div class="accordion" id="accordionFlushExample"
+									style="width: 350px">
+									<div class="accordion-item">
+										<h2 class="accordion-header" id="headingOne">
+											<button class="accordion-button collapsed" type="button"
+												data-bs-toggle="collapse"
+												data-bs-target="#flush-collapseOne" aria-expanded="false"
+												aria-controls="flush-collapseOne">
+												<div class="form-check">
+													<input class="form-check-input" type="radio"
+														name="flexRadioDefault" id="flexRadioDefault1"> <label
+														class="form-check-label" for="flexRadioDefault1">
+														<i class="bi bi-credit-card-2-back"></i> 信用卡
+													</label>
+												</div>
+											</button>
+										</h2>
+										<div id="flush-collapseOne"
+											class="accordion-collapse collapse"
+											aria-labelledby="flush-headingOne"
+											data-bs-parent="#accordionFlushExample">
+											<div class="accordion-body">
+												<div class="row">
+													<div clas="col">持卡人姓名</div>
+												</div>
+												<div class="row">
+													<div class="col">
+														<div class="input-group mb-3">
+															<input type="text" class="form-control"
+																placeholder="持卡人姓名" aria-label="Username"
+																aria-describedby="basic-addon1">
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col">信用卡卡號</div>
+												</div>
+												<div class="row">
+													<div class="col">
+														<div class="input-group mb-3">
+															<input type="text" id="creditCardInput"
+																class="form-control" placeholder="1234 5678 9123 4567"
+																aria-label="Cardnumber" aria-describedby="basic-addon2"
+																maxlength="19">
+														</div>
+														<script>
+															// 获取输入字段
+															const creditCardInput = document
+																	.getElementById('creditCardInput');
 
-                                        <div class="row g-3">
-                                            <div class="col-sm-6">
-                                                <label for="firstName" class="form-label">名稱</label>
-                                                <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-                                                <div class="invalid-feedback">
-                                                    Valid first name is required.
-        </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <label for="lastName" class="form-label">姓氏</label>
-                                                <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-                                                <div class="invalid-feedback">
-                                                    Valid last name is required.
-        </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="username" class="form-label">使用者名稱</label>
-                                                <div class="input-group"><span class="input-group-text">@</span>
-                                                    <input type="text" class="form-control" id="username" placeholder="Username" required="">
-                                                    <div class="invalid-feedback">
-                                                        Your username is required.
-        </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="email" class="form-label">Email <span class="text-muted">(必填)</span>
-                                                </label>
-                                                <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                                                <div class="invalid-feedback">
-                                                    Please enter a valid email address for shipping updates.
-        </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="address" class="form-label">自我介紹</label>
-                                                <div class="invalid-feedback">
-                                                    Please enter your shipping address.
-        </div>
-                                                <div class="mb-3"> 
-                                                    <!-- <label for="formInput15" class="form-label">輸入</label>                                  -->
-                                                    <textarea class="form-control" id="formInput15" rows="3"></textarea> 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <label for="country" class="form-label">預設語言</label>
-                                                <select class="form-select" id="country" required="">
-                                                    <option value="">台灣正體中文</option>
-                                                    <option>日本語</option>
-                                                    <option>English</option>
-                                                </select>
-                                                <div class="invalid-feedback">
-                                                    Please select a valid country.
-        </div>
-                                            </div>
-                                            <button class="w-100 btn btn-primary btn-lg" type="submit">儲存設定</button>
-                                        </div>
-                                    </div>
-				<!--<p>這裡可以填入內容</p>-->
+															// 添加事件监听器以在输入时添加分隔符
+															creditCardInput
+																	.addEventListener(
+																			'input',
+																			function(
+																					event) {
+																				let inputValue = event.target.value;
+																				inputValue = inputValue
+																						.replace(
+																								/\s/g,
+																								''); // 删除所有空格
+
+																				if (inputValue.length > 19) {
+																					inputValue = inputValue
+																							.slice(
+																									0,
+																									19); // 限制最大长度为19
+																				}
+
+																				let formattedValue = '';
+
+																				for (let i = 0; i < inputValue.length; i++) {
+																					formattedValue += inputValue[i];
+																					if ((i + 1) % 4 === 0
+																							&& (i + 1) < inputValue.length) {
+																						formattedValue += ' ';
+																					}
+																				}
+
+																				event.target.value = formattedValue;
+																			});
+														</script>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-6">到期日</div>
+													<div class="col-6">信用卡安全碼</div>
+												</div>
+												<div class="row">
+													<div class="col-6">
+														<input type="text" class="form-control"
+															placeholder="月月/年年" aria-label="Date"
+															aria-describedby="basic-addon3" id="expiryDate"
+															maxlength="7">
+														<script>
+															const expiryDateInput = document
+																	.getElementById('expiryDate');
+
+															expiryDateInput
+																	.addEventListener(
+																			'input',
+																			function(
+																					event) {
+																				let inputValue = event.target.value;
+																				inputValue = inputValue
+																						.replace(
+																								/\D/g,
+																								''); // 删除非数字字符
+
+																				if (inputValue.length > 4) {
+																					inputValue = inputValue
+																							.slice(
+																									0,
+																									4);
+																				}
+
+																				let formattedValue = '';
+
+																				if (inputValue.length > 2) {
+																					formattedValue += inputValue
+																							.slice(
+																									0,
+																									2)
+																							+ '/';
+																					formattedValue += inputValue
+																							.slice(2);
+																				} else {
+																					formattedValue = inputValue;
+																				}
+
+																				event.target.value = formattedValue;
+																			});
+														</script>
+													</div>
+													<div class="col-6">
+														<input type="text" class="form-control" placeholder="CVC"
+															aria-label="CVC" aria-describedby="basic-addon4"
+															maxlength="3">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="accordion-item">
+										<h2 class="accordion-header" id="flush-headingTwo">
+											<button class="accordion-button collapsed" type="button"
+												data-bs-toggle="collapse"
+												data-bs-target="#flush-collapseTwo" aria-expanded="false"
+												aria-controls="flush-collapseTwo">
+												<div class="form-check">
+													<input class="form-check-input" type="radio"
+														name="flexRadioDefault" id="flexRadioDefault2"> <label
+														class="form-check-label" for="flexRadioDefault2">
+														<i class="bi bi-coin"></i> 轉帳
+													</label>
+												</div>
+											</button>
+										</h2>
+										<div id="flush-collapseTwo"
+											class="accordion-collapse collapse"
+											aria-labelledby="flush-headingTwo"
+											data-bs-parent="#accordionFlushExample">
+											<div class="accordion-body">
+												<div class="row">
+													<div class="rol">轉帳銀行：822</div>
+												</div>
+												<div class="row">
+													<div class="rol">帳號：123456789123</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<button class="w-100 btn btn-primary btn-lg" type="submit">儲存設定</button>
+						</div>
+					</div>
 			</div>
 		</div>
 
