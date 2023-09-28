@@ -35,14 +35,14 @@ public class DEV_VideoUploadController {
 	    String contentType = file.getContentType();
 	    if (!"video/mp4".equals(contentType)) {
 	        model.addAttribute("message", "檔案類型必須是 MP4");
-	        return "/StudentLearningManagementSystem/DevelopmentFolder/upload_video";
+	        return "/StudentLMS/DevelopmentFolder/upload_video";
 	    }
 	    
 	    // 檢查檔案大小
 	    long size = file.getSize();
 	    if (size > 52428800) {  // 限制為 50MB
 	        model.addAttribute("message", "檔案太大，不能超過 50MB");
-	        return "/StudentLearningManagementSystem/DevelopmentFolder/upload_video";
+	        return "/StudentLMS/DevelopmentFolder/upload_video";
 	    }
 		
 	    
@@ -71,13 +71,13 @@ public class DEV_VideoUploadController {
 		
 		model.addAttribute("message", message);
 
-		return "/StudentLearningManagementSystem/DevelopmentFolder/upload_video"; // 返回到 upload_video.jsp 頁面
+		return "/StudentLMS/DevelopmentFolder/upload_video"; // 返回到 upload_video.jsp 頁面
 	}
 	
 	//顯示上傳頁面（GET 方法）
 	
 	@GetMapping("/uploadVideoPage")
 	public String showUploadVideoPage() {
-		return "/StudentLearningManagementSystem/DevelopmentFolder/upload_video"; // 導引到 upload_video.jsp 頁面
+		return "/StudentLMS/DevelopmentFolder/upload_video"; // 導引到 upload_video.jsp 頁面
 	}
 }
