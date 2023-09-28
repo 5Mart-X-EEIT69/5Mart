@@ -19,6 +19,12 @@
 	href="<c:url value="/assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css"/>"
 	type="text/css" />
 <!-- bootstrap -->
+<style type="text/css">
+.nav-link {
+	font-weight: bolder;
+}
+
+</style>
 
 </head>
 <script type="text/javascript">
@@ -30,7 +36,7 @@
 <body>
 	<div class="d-flex flex-row min-vh-100">
 		<div class="col-2 d-flex flex-column p-3 bg-light">
-			<a href="<c:url value="/"></c:url>"
+			<a href="<c:url value="/homepage"></c:url>"
 				class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
 				<span style="font-size: 40px;"><i class="bi bi-5-square "></i>
 					5mart</span>
@@ -83,13 +89,13 @@
 					<textarea class="form-control" id="Expertise" rows="3" name="Expertise">${introduction.expertise}</textarea>
 					
 					<label for="blog" class="form-label mt-3">宣傳你的個人部落格吧(選填)</label>
-					<input type="${introduction.blog}" class="form-control" id="Blog" placeholder="https://..." name="Blog">
+					<input type="text" class="form-control" id="Blog" placeholder="https://..." name="Blog" value="${introduction.blog}">
 					
 					<label for="youtube" class="form-label mt-3">宣傳你的個人Youtube吧(選填)</label>
-					<input type="${introduction.youtube}" class="form-control" id="Youtube" placeholder="https://www.youtube.com/..." name="Youtube">
+					<input type="text" class="form-control" id="Youtube" placeholder="https://www.youtube.com/..." name="Youtube" value="${introduction.youtube}">
 					
 					<label for="facebook" class="form-label mt-3">宣傳你的個人Facebook吧(選填)</label>
-					<input type="${introduction.facebook}" class="form-control" id="Facebook" placeholder="https://www.facebook.com/..." name="Facebook">
+					<input type="text" class="form-control" id="Facebook" placeholder="https://www.facebook.com/..." name="Facebook" value="${introduction.facebook}">
 
 					<input type="hidden" value="${member.id}" name="memberId">
 

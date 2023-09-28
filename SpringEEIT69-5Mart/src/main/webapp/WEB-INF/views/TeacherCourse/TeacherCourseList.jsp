@@ -20,6 +20,12 @@
 	type="text/css" />
 <!-- bootstrap -->
 </head>
+<style type="text/css">
+	.nav-link {
+	font-weight: bolder;
+	}
+
+</style>
 <script type="text/javascript">
 
 	function deleteCourse(courses,title) {
@@ -45,7 +51,7 @@
 <body>
 	<div class="d-flex flex-row min-vh-100">
 		<div class="col-2 d-flex flex-column p-3 bg-light">
-			<a href="<c:url value="/"></c:url>"
+			<a href="<c:url value="/homepage"></c:url>"
 				class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
 				<span style="font-size: 40px;"><i class="bi bi-5-square "></i>
 					5mart</span>
@@ -85,6 +91,10 @@
 					class="nav-link link-dark"> <span style="font-size: 32px;"><i
 							class="bi bi-award-fill"></i> 講師個人資料 </span>
 				</a></li>
+				<li><a href="<c:url value="/TeacherCourseListAll"></c:url>"
+					class="nav-link link-dark"> <span style="font-size: 32px;"><i
+							class="bi bi-award-fill"></i> 測試用(顯示所有課程) </span>
+				</a></li>
 			</ul>
 			<hr>
 		</div>
@@ -123,7 +133,7 @@
                             </div>
                             <hr>
                             <div class="d-flex align-items-center flex-wrap">
-                                <span class="col-2">(還沒做)</span>
+                                <span class="col-2">${courses.teacher.username}</span>
                                 <span class="col-2">${courses.registerTime}</span>
                                 <span class="col-2 px-3">(還沒做)</span>
                                 <span class="col-2 ps-2">(還沒做)</span>

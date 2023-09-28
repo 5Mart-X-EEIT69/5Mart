@@ -22,8 +22,9 @@ public class CourseServiceImpl implements CourseService{
 	}
 
 	@Override
-	public void save(Course course) {
-		CourseDao.save(course);		
+	public Course save(Course course) {
+		CourseDao.save(course);
+		return course;
 	}
 
 	@Override
@@ -70,6 +71,11 @@ public class CourseServiceImpl implements CourseService{
 	@Override
 	public List<Course> findByKeyword(String keyword) {
 		return CourseDao.findByKeyword(keyword);
+	}
+
+	@Override
+	public List<Course> findByTeacherId(Integer id) {
+		return CourseDao.findByTeacherId(id);
 	}
 	
 	

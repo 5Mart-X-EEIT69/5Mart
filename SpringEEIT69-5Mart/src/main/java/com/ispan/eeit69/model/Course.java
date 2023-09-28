@@ -17,6 +17,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
@@ -53,7 +54,11 @@ public class Course implements Serializable {
     }
 	)
 	private Set<member> member = new LinkedHashSet<member>();
-		
+	
+	@ManyToOne()
+	@JoinColumn(name = "teacher_id")
+	private member teacher ;
+	
 	public Course() {
 	}
 
@@ -140,6 +145,14 @@ public class Course implements Serializable {
 
 	public void setMember(Set<member> member) {
 		this.member = member;
+	}	
+
+	public member getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(member teacher) {
+		this.teacher = teacher;
 	}
 
 	@Override

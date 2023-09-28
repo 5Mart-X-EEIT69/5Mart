@@ -84,6 +84,12 @@
 	width: 230px;
 	padding: 0.2rem 0.75rem;
 }
+
+
+.nav-link {
+	font-weight: bolder;
+}
+
 </style>
 </head>
 <!-- 
@@ -123,7 +129,7 @@
 <body>
 	<div class="d-flex flex-row min-vh-100">
 		<div class="col-2 d-flex flex-column p-3 bg-light">
-			<a href="<c:url value="/"></c:url>"
+			<a href="<c:url value="/homepage"></c:url>"
 				class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
 				<span style="font-size: 40px;"><i class="bi bi-5-square "></i>
 					5mart</span>
@@ -594,6 +600,7 @@
                     },
                     error: function(response){
                         console.log("失敗",response);
+                        window.location.href = '<c:url value="/visitorhomepage" />';
                     }
                 })
             })

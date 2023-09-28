@@ -339,8 +339,18 @@
 			<div class="btn-group d-block headImg pe-2">
 				<a class="nav-link dropdown-toggle " href="#" id="navbarDropdown"
 					role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					<!--  <img class="circleImg" src="\SpringEEIT69-5Mart\assets\images\人像頭貼001.jpg" /> -->
+<!-- 					<img class="circleImg" -->
+<%-- 					src="<c:if test="${not empty base64Image}"> --%>
+<%-- 					data:image/jpeg;base64,${base64Image} --%>
+<%-- 					</c:if>" /> --%>
 					<img class="circleImg"
-					src="\SpringEEIT69-5Mart\assets\images\人像頭貼001.jpg" />
+					src="<c:choose>
+						<c:when test="${not empty base64Image}">data:image/jpeg;base64,${base64Image}</c:when>
+						<c:otherwise>\SpringEEIT69-5Mart\assets\images\人像頭貼001.jpg</c:otherwise>
+					</c:choose>" />
+
+
 				</a>
 				<ul class="dropdown-menu dropdown-menu-end px-1 fs-6">
 					<li class=""><a class="dropdown-item" href="#"><span>${member.account}</span></a></li>

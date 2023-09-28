@@ -22,7 +22,12 @@
 	href="<c:url value="/assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css"/>"
 	type="text/css" />
 <!-- bootstrap -->
+<!-- 公告的CSS -->
+<link rel='stylesheet'
+	href="<c:url value='/assets/css/Announcement.css' />"
+	type="text/css" />
 </head>
+<!-- 公告的CSS -->
 <script type="text/javascript">
 	window.onload = function() {
 
@@ -31,7 +36,7 @@
 <body>
 	<div class="d-flex flex-row min-vh-100">
 		<div class="col-2 d-flex flex-column p-3 bg-light">
-			<a href="<c:url value="/"></c:url>"
+			<a href="<c:url value="/homepage"></c:url>"
 				class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
 				<span style="font-size: 40px;"><i class="bi bi-5-square "></i>
 					5mart</span>
@@ -117,10 +122,42 @@
 								<hr>
 								<div class="d-flex align-items-center flex-wrap">
 									<span class="col-2">----/--/--</span> <span class="col-8 px-3">目前還沒有公告內容哦!</span>
-									<button class="col-2 btn btn-link m-0 ps-2"
-										style="text-align: left;">新增</button>
+									<button class="col-2 btn btn-link m-0 ps-2"	style="text-align: left;" data-bs-toggle="modal" data-bs-target="#loginModal">新增</button>
 								</div>
 								<hr>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal fade" id="loginModal" data-bs-backdrop="static"
+						data-bs-keyboard="false" tabindex="-1"
+						aria-labelledby="staticBackdropLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered">
+							<div class="modal-content">
+								<!-- Header -->
+								<div class="modal-header">
+									<h3 class="modal-title" id="staticBackdropLabel">
+										<strong>${courses.title}</strong>
+									</h3>
+									<div class="d-flex align-items-center">
+										<button type="button" class="btn-close"
+											data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+								</div>
+								<!-- Body -->
+								<div class="modal-body">
+									<form action="<c:url value="/" />" method="post">
+										<p class="mb-1 account">新增/修改你的公告</p>
+										<!-- 公告內容 -->
+										<div class="form-group">
+											<textarea class="account form-control" placeholder="公告內容..."
+												name="Announcement" style="resize:none ; height: 15rem"></textarea>
+										</div>
+										<!-- 送出按鈕 -->
+										<button type="submit" class="btn btn-secondary">送出</button>
+
+									</form>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -198,6 +235,7 @@
 				<input type="text" name="content">
 				<input type="submit" value="提交">
 			</form>
+			
 		</div>
 
 	</div>
