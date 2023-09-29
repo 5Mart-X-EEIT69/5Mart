@@ -1,5 +1,8 @@
 package com.ispan.eeit69.controller;
 
+import java.sql.SQLException;
+import java.util.Base64;
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -15,10 +18,14 @@ import jakarta.servlet.http.HttpSession;
 import com.ispan.eeit69.model.Chapter;
 import com.ispan.eeit69.model.Course;
 import com.ispan.eeit69.model.DEV_Video;
+import com.ispan.eeit69.model.StudentPicture;
+import com.ispan.eeit69.model.TeacherPicture;
+import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.AnnouncementService;
 import com.ispan.eeit69.service.ChapterService;
 import com.ispan.eeit69.service.CourseService;
 import com.ispan.eeit69.service.IntroductionService;
+import com.ispan.eeit69.service.StudentPictureService;
 import com.ispan.eeit69.service.TeacherPictureService;
 import com.ispan.eeit69.service.UnitService;
 import com.ispan.eeit69.service.DEV_VideoService;
@@ -32,7 +39,7 @@ public class StudentController {
 	UnitService unitService;
 	DEV_VideoService devvideoService;
 	IntroductionService introductionService;
-	TeacherPictureService teacherPictureService;
+	TeacherPictureService teaPictureService;
 	AnnouncementService announcementService;
 	HttpSession session;
 
@@ -69,8 +76,34 @@ public class StudentController {
 	@GetMapping("/pictureSettingPage")
 	public String pictureSettingPage(Model model) {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
-		return "/StudentLMS/SettingsService/pictureSettingPage";
+		return "pictureSettingPage";
 	}
+//	@GetMapping("/pictureSettingPage")
+//	public String pictureSettingPage(Model model) {
+//		member member = (member) session.getAttribute("member");
+//		if(member != null) {
+//			TeacherPicture studentPicture = TeacherPictureService.findByMember(member);
+//			
+//			if (studentPicture != null) {
+//			// 将Blob数据转换为Base64编码的字符串
+//			
+//			byte[] imageBytes;
+//			try {
+//				imageBytes = studentPicture.getPhoto().getBytes(1, (int) studentPicture.getPhoto().length());
+//				String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+//				model.addAttribute("base64Image",base64Image);
+//			} catch (SQLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			
+//			}
+//			return "/pictureSettingPage";		
+//		}else {
+//			return "redirect:/visitorhomepage";
+//		}
+//
+//	}// 跳轉至講師資料照片頁面
 	@GetMapping("/deactivateSettingPage")
 	public String deactivateSettingPage(Model model) {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");

@@ -61,19 +61,19 @@ public class RegController {
 		} else {
 //			Integer memeberId = result.getId();
 //			System.out.println("會員的id" + memeberId);
-			TeacherPicture result2 = teacherPictureService.findById(2);
-			Blob pic =  result2.getPhoto();
-//			System.out.println(pic);
-			// 將Blob數據轉換為Base64編碼的字符串
-			byte[] imageBytes = null;
-			try {
-				imageBytes = pic.getBytes(1, (int) pic.length());
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			String base64Image = Base64.getEncoder().encodeToString(imageBytes);
-			model.addAttribute("base64Image", base64Image);
-			session.setAttribute("base64Image", base64Image);
+//			TeacherPicture result2 = teacherPictureService.findById(2);
+//			Blob pic =  result2.getPhoto();
+////			System.out.println(pic);
+//			// 將Blob數據轉換為Base64編碼的字符串
+//			byte[] imageBytes = null;
+//			try {
+//				imageBytes = pic.getBytes(1, (int) pic.length());
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			}
+//			String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+//			model.addAttribute("base64Image", base64Image);
+//			session.setAttribute("base64Image", base64Image);
 			
 			System.out.println("ok");
 			model.addAttribute("memberdata", result);
