@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,24 +16,46 @@ public class Announcement {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer announcementid;
+	private Integer announcementId;
 	
 	private Timestamp announcementTime;
 	
 	private String content;
+	
+	@OneToOne()
+    @JoinColumn(name = "course_id")
+    private Course course;
 
-	public Announcement(Timestamp announcementTime, String content) {
+	public Announcement() {
+		
+	}
+
+	public Announcement(Timestamp announcementTime, String content, Course course) {
+
 		this.announcementTime = announcementTime;
 		this.content = content;
+		this.course = course;
 	}
 
-	public Integer getAnnouncementid() {
-		return announcementid;
+
+
+
+
+	public Integer getAnnouncementId() {
+		return announcementId;
 	}
 
-	public void setAnnouncementid(Integer announcementid) {
-		this.announcementid = announcementid;
+
+
+
+
+	public void setAnnouncementId(Integer announcementId) {
+		this.announcementId = announcementId;
 	}
+
+
+
+
 
 	public Timestamp getAnnouncementTime() {
 		return announcementTime;
@@ -49,12 +73,28 @@ public class Announcement {
 		this.content = content;
 	}
 
+	public Course getCourse() {
+		return course;
+	}
+
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+
+
+
+
 	@Override
 	public String toString() {
-		return "Announcement [announcementid=" + announcementid + ", announcementTime=" + announcementTime
+		return "Announcement [announcementId=" + announcementId + ", announcementTime=" + announcementTime
 				+ ", content=" + content + "]";
 	}
+
 	
-	
+
+
+
+
 	
 }

@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.ispan.eeit69.dao.AnnouncementRepository;
 import com.ispan.eeit69.model.Announcement;
+import com.ispan.eeit69.model.Course;
+import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.AnnouncementService;
 
 import jakarta.transaction.Transactional;
@@ -61,6 +63,13 @@ public class AnnouncementServiceImpl implements AnnouncementService{
 		log.info("=====>AnnouncementServiceImpl#deleteById()");
 		announcementRepository.deleteById(id);
 		
+	}
+
+
+	@Override
+	public Announcement findByCourse(Course course) {
+		log.info("=====>AnnouncementServiceImpl#findByCourse()");
+		return announcementRepository.findByCourse(course);
 	}
 	
 	

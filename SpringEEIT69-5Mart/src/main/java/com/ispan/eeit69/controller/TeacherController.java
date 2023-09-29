@@ -30,7 +30,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.ispan.eeit69.dao.TeacherPictureRepository;
 import com.ispan.eeit69.model.Announcement;
 import com.ispan.eeit69.model.Chapter;
 import com.ispan.eeit69.model.Course;
@@ -207,7 +206,7 @@ public class TeacherController {
 	public String TeacherComminicateAnnouncement(Model model) {
 		member member = (member) session.getAttribute("member");
 		if(member != null) {
-			List<Course> course = courseService.findByTeacherId(member.getId());
+			List<Course> course = courseService.getCoursesByTeacher(member);
 			model.addAttribute("course", course);
 			return "/TeacherComminicate/TeacherComminicateAnnouncement";		
 		}else {
@@ -663,12 +662,11 @@ public class TeacherController {
 		return "/TeacherInformation/TeacherInformationPhoto";
 	}
 	
-	@PostMapping("/newannouncement")
-	public String newannouncement(@ModelAttribute Announcement announcement, Model model) {
-		announcementService.save(announcement);
-		System.out.println("測試");
-		List<Course> course = courseService.findAll();
-		model.addAttribute("course", course);
-		return "/TeacherComminicate/TeacherComminicateAnnouncement";
+	@PostMapping("/updateAnnouncement")
+	public String updateAnnouncement(@RequestParam Integer courseId, @RequestParam String announcementContent,Timestamp announcementTime) {
+	    member teacher = (member) session.getAttribute("member");
+	    courseService.updateAnnouncementForTeacher(courseId, announcementContent,announcementTime,teacher);
+	    return "redirect:/TeacherComminicateAnnouncement";  // redirect back to the announcements page
 	}
+	
 }
