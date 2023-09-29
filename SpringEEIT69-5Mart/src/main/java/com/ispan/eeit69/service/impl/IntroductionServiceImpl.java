@@ -9,9 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ispan.eeit69.dao.IntroductionRepository;
-import com.ispan.eeit69.dao.VideoRepository;
 import com.ispan.eeit69.model.Introduction;
-import com.ispan.eeit69.model.Video;
 import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.IntroductionService;
 

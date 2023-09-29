@@ -94,19 +94,10 @@ public class CourseDaoImpl implements CourseDao{
 
 	@Override
 	public Course findByMember(member member) {
-	    if (member == null || member.getId() == null) {
-	        return null;
-	    }
-	    String hql = "FROM Course c WHERE c.teacher.id = :teacherId";
-	    List<Course> courses = entityManager.createQuery(hql, Course.class)
-	                                         .setParameter("teacherId", member.getId())
-	                                         .getResultList();
-
-	    if (courses != null && !courses.isEmpty()) {
-	        return courses.get(0); 
-	    }
-	    return null;
-	}}
+		Course result = entityManager.find(Course.class, member);
+		return result;
+	}
+	}
 
 	
 	

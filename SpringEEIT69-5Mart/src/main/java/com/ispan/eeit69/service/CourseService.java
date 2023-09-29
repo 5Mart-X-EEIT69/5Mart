@@ -1,5 +1,6 @@
 package com.ispan.eeit69.service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import com.ispan.eeit69.model.Course;
@@ -19,6 +20,10 @@ public interface CourseService {
 	
 	List<Course> findByKeyword(String keyword); //  搜尋關鍵字
 	List<Course> findByTeacherId(Integer id); //  搜尋關鍵字
-	
+	List<Course> findByTeacher(member teacher);
 	Course findByMember(member member);
+	 List<Course> getCoursesByTeacher(member teacher);
+	 List<Course> getCoursesWithAnnouncementsByTeacher(member teacher);
+	 void updateAnnouncementForTeacher(Integer courseId, String content,Timestamp announcementTime,member teacher);
+	
 }

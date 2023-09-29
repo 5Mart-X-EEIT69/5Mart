@@ -206,10 +206,8 @@ public class TeacherController {
 	public String TeacherComminicateAnnouncement(Model model) {
 		member member = (member) session.getAttribute("member");
 		if(member != null) {
-			List<Course> course = courseService.findByTeacherId(member.getId());
-//			Announcement announcement = announcementService.findByCourse();
+			List<Course> course = courseService.getCoursesByTeacher(member);
 			model.addAttribute("course", course);
-//			model.addAttribute("announcement",announcement);
 			return "/TeacherComminicate/TeacherComminicateAnnouncement";		
 		}else {
 			return "redirect:/visitorhomepage";
@@ -661,37 +659,11 @@ public class TeacherController {
 		return "/TeacherInformation/TeacherInformationPhoto";
 	}
 	
-	@PostMapping("/newannouncement")
-	public String newannouncement(@ModelAttribute Announcement announcement, Model model,@RequestParam("memberId") Integer memberID,@RequestParam("content") String content) {
-		
-		member member = (member) session.getAttribute("member");
-		Course course = courseService.findByMember(member);
-		Announcement announcement1 = announcementService.findByCourse(course);		
-		
-		
-		
-		
-		
-		if(announcement1 == null) {
-			member member1 = memberService.findByMemberId(memberID);
-			
-			
-			Timestamp announcementTime = new Timestamp(System.currentTimeMillis());
-			
-			Announcement announcement2 = new Announcement(announcementTime,content,course);
-			
-
-			announcementService.save(announcement2);
-			}else {
-				announcement1.setContent(content);
-				
-				
-				announcementService.update(announcement1);
-			System.out.println("ok");
-			}
-			
-		model.addAttribute("course", course);
-		model.addAttribute("announcement", announcement);
-		return "/TeacherComminicate/TeacherComminicateAnnouncement";
+	@PostMapping("/updateAnnouncement")
+	public String updateAnnouncement(@RequestParam Integer courseId, @RequestParam String announcementContent,Timestamp announcementTime) {
+	    member teacher = (member) session.getAttribute("member");
+	    courseService.updateAnnouncementForTeacher(courseId, announcementContent,announcementTime,teacher);
+	    return "redirect:/TeacherComminicateAnnouncement";  // redirect back to the announcements page
 	}
+	
 }

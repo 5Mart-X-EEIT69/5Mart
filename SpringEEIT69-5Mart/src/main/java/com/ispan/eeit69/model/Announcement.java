@@ -73,6 +73,14 @@ public class Announcement {
 		this.content = content;
 	}
 
+	public Course getCourse() {
+		return course;
+	}
+
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
 
 
 
@@ -82,6 +90,8 @@ public class Announcement {
 		return "Announcement [announcementId=" + announcementId + ", announcementTime=" + announcementTime
 				+ ", content=" + content + "]";
 	}
+
+	
 
 
 
