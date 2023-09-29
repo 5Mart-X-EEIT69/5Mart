@@ -39,7 +39,7 @@ public class StudentController {
 	UnitService unitService;
 	DEV_VideoService devvideoService;
 	IntroductionService introductionService;
-	TeacherPictureService teaPictureService;
+	TeacherPictureService teacherPictureService;
 	AnnouncementService announcementService;
 	HttpSession session;
 
