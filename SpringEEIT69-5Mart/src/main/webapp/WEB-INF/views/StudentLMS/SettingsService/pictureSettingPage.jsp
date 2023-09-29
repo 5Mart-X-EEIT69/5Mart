@@ -132,7 +132,7 @@
 			</ul>
 			<ul class="list-unstyled px-2">
 				<li class="" style="background-color: #405d9c"><a
-					href="<c:url value="#"></c:url>#"
+					href="<c:url value="/pictureSettingPage"></c:url>#"
 					class="text-decoration-underline px-3 py-2 d-block"><i
 						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>個人照片設定</a></li>
 			</ul>

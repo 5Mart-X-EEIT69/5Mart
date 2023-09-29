@@ -145,7 +145,7 @@
 			</ul>
 			<ul class="list-unstyled px-2">
 				<li class="" style="background-color:#405d9c"><a
-					href="<c:url value="#"></c:url>#"
+					href="<c:url value="/deactivateSettingPage"></c:url>#"
 					class="text-decoration-underline px-3 py-2 d-block"><i
 						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>停用帳號</a></li>
 			</ul>
