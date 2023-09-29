@@ -46,7 +46,7 @@ public class HomeController {
 		this.session = session;
 	}
 
-	@GetMapping("/")
+	@GetMapping("/test1")
 	public String home(Model model) {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
 		return "test1";
@@ -68,9 +68,7 @@ public class HomeController {
 	public String homepage(Model model) {
 		List<Course> allCourse = courseService.findAll();
 		model.addAttribute("allCourse", allCourse);
-
 		session.setAttribute("allCourse", allCourse);
-		
 		return "homePage";
 	}
 

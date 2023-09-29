@@ -3,6 +3,7 @@ package com.ispan.eeit69.dao;
 import java.util.List;
 
 import com.ispan.eeit69.model.Course;
+import com.ispan.eeit69.model.member;
 
 public interface CourseDao {
 
@@ -19,4 +20,6 @@ public interface CourseDao {
 	List<Course> findByKeyword(String keyword); //  搜尋關鍵字
 	
 	List<Course> findByTeacherId(Integer id); //  搜尋關鍵字
+	
+	Course findByMember(member member);
 }
