@@ -75,7 +75,7 @@
 		<div class="col-2">test</div>
 		<div class="col-4 d-flex align-items-center" id="photoContainer">
 		
-			<form action="<c:url value="/TeacherInformationPhoto" />" method="post" class="w-100 mb-3" onsubmit="return submit()" enctype="multipart/formdata">
+			<form action="<c:url value="/TeacherInformationPhoto" />" method="post" class="w-100 mb-3" onsubmit="return submit()" enctype="multipart/form-data">
 				<div class="d-flex">
 					<h1>自我介紹</h1>	
 					<h2>${member.account}</h2>
