@@ -149,7 +149,7 @@
 						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>隱私權</a></li>
 			</ul>
 			<ul class="list-unstyled px-2">
-				<li class=""><a href="<c:url value="#"></c:url>#"
+				<li class=""><a href="<c:url value="/paymentSettingPage"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>付款資訊</a></li>
 			</ul>
@@ -204,10 +204,10 @@
 							<div class="col-4 d-flex float-xxl-end mt-5"  id="photoContainer">
 								<form action="<c:url value="/pictureSettingPage"/>"
 									method="post" class="w-100 mb-3" onsubmit="return submit()"
-									enctype="multipart/formdata">
-									<div class="w-100 mb-3 border rounded" style="height: 357px">
+									enctype="multipart/form-data">
+									<div class="w-100 mb-3 border rounded" <c:if test="${empty base64Image}">style="height: 357px"</c:if>>
 										<figure class="figure m-0 d-flex justify-content-center">
-											<img
+											<img	
 												src="<c:if test="${not empty base64Image}">
 					data:image/jpeg;base64,${base64Image}
 					</c:if>"
@@ -218,7 +218,7 @@
 										type="file" accept="image/*" name="photo"> <input
 										type="hidden" value="${member.id}" name="memberId">
 									<div class="ms-2">
-										<label for="formFile" class="form-label">新增/變更圖片</label>
+										<label  class="form-label">新增/變更圖片</label>
 									</div>
 									<div class="d-flex justify-content-center">
 										<button type="submit" class="btn btn-primary mt-3">儲存照片</button>
