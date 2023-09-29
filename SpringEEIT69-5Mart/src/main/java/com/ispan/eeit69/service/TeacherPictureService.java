@@ -12,4 +12,6 @@ public interface TeacherPictureService {
 	List<TeacherPicture> findAll();
 	void deleteById(Integer id);
 	TeacherPicture findByMember(member member);
+	
+	
 }

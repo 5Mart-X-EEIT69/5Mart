@@ -57,29 +57,22 @@ public class RegController {
 			model.addAttribute("login", "fail");
 			return "/homePage";
 		} else {
-
-			TeacherPicture result2 = teacherPictureService.findByMember(result);
-			System.out.println("搜尋會員的照片=" + result2);
-			if (result2 == null) {
-				System.out.println("資料庫抓不到照片");
-				
-			} else {
-
-				Blob pic = result2.getPhoto();
-				System.out.println(pic);
-				// 將Blob數據轉換為Base64編碼的字符串
-				byte[] imageBytes = null;
-				try {
-					imageBytes = pic.getBytes(1, (int) pic.length());
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-				String base64Image = Base64.getEncoder().encodeToString(imageBytes);
-				model.addAttribute("base64Image", base64Image);
-				session.setAttribute("base64Image", base64Image);
-			}
-
-
+//			Integer memeberId = result.getId();
+//			System.out.println("會員的id" + memeberId);
+//			TeacherPicture result2 = teacherPictureService.findById(2);
+//			Blob pic =  result2.getPhoto();
+////			System.out.println(pic);
+//			// 將Blob數據轉換為Base64編碼的字符串
+//			byte[] imageBytes = null;
+//			try {
+//				imageBytes = pic.getBytes(1, (int) pic.length());
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			}
+//			String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+//			model.addAttribute("base64Image", base64Image);
+//			session.setAttribute("base64Image", base64Image);
+			
 			System.out.println("ok");
 			model.addAttribute("memberdata", result);
 			model.addAttribute("login", "success");
