@@ -1,5 +1,7 @@
 package com.ispan.eeit69.controller;
 
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -44,21 +46,29 @@ public class ShoppingCartController {
 			System.out.println("id值 " + id);
 			return "homePage";
 		}
+//		Map<Integer, Course> cart = (Map<Integer, Course>)httpSession.getAttribute("ShoppingCart");
 		ShoppingCart cart = (ShoppingCart)httpSession.getAttribute("ShoppingCart");
-//		ShoppingCart cart = (ShoppingCart)model.getAttribute("ShoppingCart");
 		if(cart == null) {
 			log.info("session裡沒有ShoppingCart物件，新建了ShoppingCart物件");
-			cart = new ShoppingCart();
+			ShoppingCart ShoppingCart = new ShoppingCart();
+			Integer intId = Integer.parseInt(id);
+			Course cource = courseService.findById(intId);
+			ShoppingCart.addToCart(intId,cource);
+			Map<Integer, Course> mycart = ShoppingCart.getContent();
 //			model.addAttribute("ShoppingCart", cart);
-			httpSession.setAttribute("ShoppingCart", cart);
+			httpSession.setAttribute("mycart", mycart);
+			httpSession.setAttribute("ShoppingCart", ShoppingCart);
+			
+		}else {
+			Integer intId = Integer.parseInt(id);
+			Course cource = courseService.findById(intId);
+			cart.addToCart(intId,cource);
+			Map<Integer, Course> mycart = cart.getContent();
+//			model.addAttribute("ShoppingCart", cart);
+			httpSession.setAttribute("mycart", mycart);
 			
 		}
 		
-		Integer intId = Integer.parseInt(id);
-		Course cource = courseService.findById(intId);
-		cart.addToCart(intId,cource);
-		
-		
-		return "courseDetail";
+		return "redirect:/courseDetail?id=" + id;
 	}
 }

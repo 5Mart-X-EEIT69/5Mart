@@ -183,16 +183,16 @@
 				<li class="nav-item dropdown px-2"><a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="fa-solid fa-cart-shopping fa-xl"></i>
 				</a>
 				
-				${ShoppingCart}
+<%-- 				${ShoppingCart} --%>
 					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-						<c:forEach items="${ShoppingCart}" var="cart">
+						<c:forEach items="${mycart}" var="cart">
 							<li class="dropdown-item px-2  pb-2">
 								<div class="card myCourseCard ">
-																		<figure class="figure" style="margin: 0;">
-									<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg" class="card-img-top " alt="...">
-																		</figure> figure-img img-fluid rounded
+<!-- 																		<figure class="figure" style="margin: 0;"> -->
+									<img src="${cart.value.dataUri }" class="card-img-top " alt="...">
+<!-- 																		</figure> figure-img img-fluid rounded -->
 									<div class="card-body myCourseCardBody p-2 pe-0 w-100">
-										<div class="text-section">
+										<div class="text-section col-10">
 											<h6 class="card-title">${cart.value.title}</h6>
 											<p class="card-text" style="font-size: small;">趙令文</p>
 											<div>$ ${cart.value.price}</div>
