@@ -57,9 +57,7 @@ public class RegController {
 			model.addAttribute("login", "fail");
 			return "/homePage";
 		} else {
-//			Integer memeberId = result.getId();
-//			System.out.println("會員的id" + memeberId);
-//			TeacherPicture result2 = teacherPictureService.findById(memeberId);
+
 			TeacherPicture result2 = teacherPictureService.findByMember(result);
 			System.out.println("搜尋會員的照片=" + result2);
 			if (result2 == null) {
@@ -80,6 +78,7 @@ public class RegController {
 				model.addAttribute("base64Image", base64Image);
 				session.setAttribute("base64Image", base64Image);
 			}
+
 
 			System.out.println("ok");
 			model.addAttribute("memberdata", result);
