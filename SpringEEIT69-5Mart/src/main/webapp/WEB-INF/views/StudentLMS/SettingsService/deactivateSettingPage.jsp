@@ -174,6 +174,10 @@
 
 			<div class="dashboard-content px-3 pt-4">
 				<h2 class="fs-5">停用帳號頁面</h2>
+				                   <div class="d-flex justify-content-center">
+                                            <button class="btn btn-danger btn-lg" type="submit">刪除帳號</button>
+                                            
+                                            </div>
 
 			</div>
 		</div>

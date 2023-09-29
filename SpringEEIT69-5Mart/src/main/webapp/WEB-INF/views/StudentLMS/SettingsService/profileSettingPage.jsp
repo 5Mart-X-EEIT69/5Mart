@@ -228,7 +228,10 @@
                                                     Please select a valid country.
         </div>
                                             </div>
-                                            <button class="w-100 btn btn-primary btn-lg" type="submit">儲存設定</button>
+                                            <div class="d-flex justify-content-center">
+                                            <button class="btn btn-primary btn-lg" type="submit">儲存設定</button>
+                                            
+                                            </div>
                                         </div>
                                     </div>
 				<!--<p>這裡可以填入內容</p>-->
