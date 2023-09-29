@@ -27,8 +27,6 @@ public class RegController {
 
 	HttpSession session; // 注入 HttpSession
 
-	
-
 	public RegController(com.ispan.eeit69.service.memberService memberService,
 			TeacherPictureService teacherPictureService, HttpSession session) {
 		super();
@@ -40,8 +38,8 @@ public class RegController {
 	@PostMapping("/regMember")
 	public String regMember(@ModelAttribute("preMember") member member, Model model) {
 		System.out.println("註冊資料傳入會員");
-		
-		if(memberService.existsById(member.getAccount())) {
+
+		if (memberService.existsById(member.getAccount())) {
 			return "/visitorHomePage";
 		}
 		memberService.save(member);
@@ -53,9 +51,9 @@ public class RegController {
 			Model model) {
 		System.out.println("帳號 = " + account + "，密碼 = " + password);
 		member result = memberService.findByAccountAndPassword(account, password);
-		
+
 		if (result == null) {
-			System.out.println("null");
+			System.out.println("資料庫找不到會員資料，登入失敗");
 			model.addAttribute("login", "fail");
 			return "/homePage";
 		} else {
@@ -84,9 +82,9 @@ public class RegController {
 		}
 
 	}
-	
+
 	@GetMapping("/logout")
-	public String logout(Model model) {	
+	public String logout(Model model) {
 		session.invalidate();
 //		return "/homePage";
 		return "redirect:/homepage";

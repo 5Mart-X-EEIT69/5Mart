@@ -1,12 +1,18 @@
 package com.ispan.eeit69.service.impl;
 
+import java.sql.Timestamp;
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ispan.eeit69.dao.CourseDao;
+import com.ispan.eeit69.dao.CourseRepository;
+import com.ispan.eeit69.model.Announcement;
 import com.ispan.eeit69.model.Course;
+import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.CourseService;
 
 @Service
@@ -14,7 +20,8 @@ import com.ispan.eeit69.service.CourseService;
 public class CourseServiceImpl implements CourseService{
 
 	CourseDao CourseDao ;
-	
+	@Autowired 
+	CourseRepository courseRepository;
 	
 //	@Autowired
 	public CourseServiceImpl(CourseDao courseDao) {
@@ -77,7 +84,57 @@ public class CourseServiceImpl implements CourseService{
 	public List<Course> findByTeacherId(Integer id) {
 		return CourseDao.findByTeacherId(id);
 	}
+
+	@Override
+	public Course findByMember(member member) {
+		return CourseDao.findByMember(member);
+		
+	}
+
+	@Override
+	public List<Course> findByTeacher(member teacher) {
+        return courseRepository.findByTeacher(teacher);
+	}
+
+	@Override
+	public List<Course> getCoursesByTeacher(member teacher) {
+		return courseRepository.findByTeacher(teacher);
+	}
+
+	@Override
+	public List<Course> getCoursesWithAnnouncementsByTeacher(member teacher) {
+		
+		return courseRepository.findByTeacher(teacher);
+	}
 	
+	@Override
+    public void updateAnnouncementForTeacher(Integer courseId, String announcementContent,Timestamp announcementTime,member teacher) {
+        Optional<Course> optionalCourse = courseRepository.findByIdAndTeacher(courseId, teacher);
+        
+        if (optionalCourse.isPresent()) {
+            Course course = optionalCourse.get();
+            Announcement announcement = course.getAnnouncement();
+
+            
+            if (announcement == null) {
+                announcement = new Announcement();
+                
+                
+                announcement.setCourse(course);
+                course.setAnnouncement(announcement);
+
+                announcement.setAnnouncementTime(new Timestamp(System.currentTimeMillis()));
+                
+               
+                
+            }
+            announcement.setAnnouncementTime(new Timestamp(System.currentTimeMillis()));
+            announcement.setContent(announcementContent);
+            courseRepository.save(course);
+        } else {
+            // Handle error case
+        }
+    }
 	
 	
 }

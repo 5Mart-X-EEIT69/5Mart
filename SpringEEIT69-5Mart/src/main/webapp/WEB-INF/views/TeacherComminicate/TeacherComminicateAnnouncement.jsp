@@ -64,9 +64,6 @@
 					class="nav-link link-dark"> <span style="font-size: 24px;">-
 							私人訊息</span>
 				</a></li>
-				<%-- 				<li><a href="<c:url value="/TeacherComminicateTask"></c:url>" class="nav-link link-dark"> <span --%>
-				<!-- 						style="font-size: 24px;">-  作業</span> -->
-				<!-- 				</a></li> -->
 				<li class="pe-5"><a
 					href="<c:url value="/TeacherComminicateAnnouncement"></c:url>"
 					class="nav-link active"> <span style="font-size: 24px;">-
@@ -87,149 +84,71 @@
 		<!-- 		選單右邊 -->
 		<div class="col-1">test</div>
 		<div class="col-7 pb-3" style="padding: 72px 0 0;">
-			<h1>公告</h1>
-			<hr />
-			<h4>課程總覽</h4>
-			<div class="accordion" id="accordionPanelsStayOpenExample">
-
-				<c:forEach var="courses" items="${course}">
-					<div class="accordion-item">
-						<h2 class="accordion-header" id="heading-${courses.id}">
-							<button class="accordion-button collapsed" type="button"
-								data-bs-toggle="collapse"
-								data-bs-target="#collapse-${courses.id}" aria-expanded="false"
-								aria-controls="#collapse-${courses.id}">
-
-								<img src="${courses.dataUri}" alt="godtone" width="48"
-									height="48" class="rounded flex-shrink-0">
-								<div
-									class="d-flex gap-2 w-100 justify-content-between align-items-center ps-3">
-									<div>
-										<h6 class="mb-0 fs-4 fw-bolder">${courses.title}</h6>
-										<p class="mb-0 opacity-50 fw-bolder" style="color: red;">目前尚未設置公告</p>
-									</div>
-								</div>
-							</button>
-						</h2>
-						<div id="collapse-${courses.id}"
-							class="accordion-collapse collapse"
-							aria-labelledby="heading-${courses.id}">
-							<div class="accordion-body">
-								<div class="d-flex align-items-center flex-wrap">
-									<label class="col-2">公告時間</label> <label class="col-8 px-3">內容</label>
-									<label class="col-2 ps-2">功能</label>
-								</div>
-								<hr>
-								<div class="d-flex align-items-center flex-wrap">
-									<span class="col-2">----/--/--</span> <span class="col-8 px-3">目前還沒有公告內容哦!</span>
-									<button class="col-2 btn btn-link m-0 ps-2"	style="text-align: left;" data-bs-toggle="modal" data-bs-target="#loginModal">新增</button>
-								</div>
-								<hr>
-							</div>
-						</div>
-					</div>
-
-					<div class="modal fade" id="loginModal" data-bs-backdrop="static"
-						data-bs-keyboard="false" tabindex="-1"
-						aria-labelledby="staticBackdropLabel" aria-hidden="true">
-						<div class="modal-dialog modal-dialog-centered">
-							<div class="modal-content">
-								<!-- Header -->
-								<div class="modal-header">
-									<h3 class="modal-title" id="staticBackdropLabel">
-										<strong>${courses.title}</strong>
-									</h3>
-									<div class="d-flex align-items-center">
-										<button type="button" class="btn-close"
-											data-bs-dismiss="modal" aria-label="Close"></button>
-									</div>
-								</div>
-								<!-- Body -->
-								<div class="modal-body">
-									<form action="<c:url value="/" />" method="post">
-										<p class="mb-1 account">新增/修改你的公告</p>
-										<!-- 公告內容 -->
-										<div class="form-group">
-											<textarea class="account form-control" placeholder="公告內容..."
-												name="Announcement" style="resize:none ; height: 15rem"></textarea>
-										</div>
-										<!-- 送出按鈕 -->
-										<button type="submit" class="btn btn-secondary">送出</button>
-
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
-				</c:forEach>
-
-
-				<!--                 <div class="accordion-item"> -->
-				<!--                     <h2 class="accordion-header" id="panelsStayOpen-headingTwo"> -->
-				<!--                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" -->
-				<!--                             data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" -->
-				<!--                             aria-controls="panelsStayOpen-collapseTwo"> -->
-				<%--                             <img src="<c:url value="/assets/images/godtone.jpg" />" alt="godtone" width="48" height="48" class="rounded flex-shrink-0"> --%>
-				<!--                             <div class="d-flex gap-2 w-100 justify-content-between align-items-center ps-3"> -->
-				<!--                                 <div> -->
-				<!--                                     <h6 class="mb-0 fs-4 fw-bolder">JAVA從入門到放棄</h6> -->
-				<!--                                     <p class="mb-0 opacity-75 fw-bolder">上次公告更新時間 : 2023/9/15</p> -->
-				<!--                                 </div> -->
-				<!--                             </div> -->
-				<!--                         </button> -->
-				<!--                     </h2> -->
-				<!--                     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" -->
-				<!--                         aria-labelledby="panelsStayOpen-headingTwo"> -->
-				<!--                         <div class="accordion-body"> -->
-				<!--                             <div class="d-flex align-items-center flex-wrap"> -->
-				<!--                                 <label class="col-2">公告時間</label> -->
-				<!--                                 <label class="col-8 px-3">內容</label> -->
-				<!--                                 <label class="col-2 ps-2">功能</label> -->
-				<!--                             </div> -->
-				<!--                             <hr> -->
-				<!--                             <div class="d-flex align-items-center flex-wrap"> -->
-				<!--                                 <span class="col-2">2023/9/15</span> -->
-				<!--                                 <span class="col-8 px-3">你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句</span> -->
-				<!--                                 <button class="col-2 btn btn-link m-0 ps-2" style="text-align: left;">修改</button> -->
-				<!--                             </div> -->
-				<!--                             <hr> -->
-				<!--                         </div> -->
-				<!--                     </div> -->
-				<!--                 </div> -->
-				<!--                 <div class="accordion-item"> -->
-				<!--                     <h2 class="accordion-header" id="panelsStayOpen-headingThree"> -->
-				<!--                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" -->
-				<!--                             data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" -->
-				<!--                             aria-controls="panelsStayOpen-collapseThree"> -->
-				<%--                             <img src="<c:url value="/assets/images/godtone.jpg" />" alt="godtone" width="48" height="48" class="rounded flex-shrink-0"> --%>
-				<!--                             <div class="d-flex gap-2 w-100 justify-content-between align-items-center ps-3"> -->
-				<!--                                 <div> -->
-				<!--                                     <h6 class="mb-0 fs-4 fw-bolder">JAVA從入門到放棄</h6> -->
-				<!--                                     <p class="mb-0 opacity-75 fw-bolder">上次公告更新時間 : 2023/9/15</p> -->
-				<!--                                 </div> -->
-				<!--                             </div> -->
-				<!--                         </button> -->
-				<!--                     </h2> -->
-				<!--                     <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" -->
-				<!--                         aria-labelledby="panelsStayOpen-headingThree"> -->
-				<!--                         <div class="accordion-body"> -->
-				<!--                             <div class="d-flex align-items-center flex-wrap"> -->
-				<!--                                 <label class="col-2">公告時間</label> -->
-				<!--                                 <label class="col-8 px-3">內容</label> -->
-				<!--                                 <label class="col-2 ps-2">功能</label> -->
-				<!--                             </div> -->
-				<!--                             <hr> -->
-				<!--                             <div class="d-flex align-items-center flex-wrap"> -->
-				<!--                                 <span class="col-2">2023/9/15</span> -->
-				<!--                                 <span class="col-8 px-3">你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句</span> -->
-				<!--                                 <button class="col-2 btn btn-link m-0 ps-2" style="text-align: left;">修改</button> -->
-				<!--                             </div> -->
-				<!--                             <hr> -->
-				<!--                         </div> -->
-				<!--                     </div> -->
-				<!--                 </div> -->
-			</div>
-		</div>
+			    
+        <h1>公告</h1>
+        <hr />
+        <h4>課程總覽</h4>
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+		<c:forEach var="courses" items="${course}">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="heading-${courses.id}">
+            <button class="accordion-button collapsed" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapse-${courses.id}" aria-expanded="false"
+                    aria-controls="collapse-${courses.id}">
+                <img src="${courses.dataUri}" alt="course image" width="48"
+                     height="48" class="rounded flex-shrink-0">
+                <div class="d-flex gap-2 w-100 justify-content-between align-items-center ps-3">
+                    <div>
+                        <h6 class="mb-0 fs-4 fw-bolder">${courses.title}</h6>
+                        <p class="mb-0 opacity-50 fw-bolder" style="color: red;"> ${empty courses.announcement ? "目前尚未設置公告" : ""}</p>
+                    </div>
+                </div>
+            </button>
+        </h2>
+        <div id="collapse-${courses.id}" class="accordion-collapse collapse"
+             aria-labelledby="heading-${courses.id}">
+            <div class="accordion-body">
+                <div class="d-flex align-items-center flex-wrap">
+                    <label class="col-2">公告時間</label>
+                    <label class="col-8 px-3">內容</label>
+                    <label class="col-2 ps-2">功能</label>
+                </div>
+                <hr>
+                <div class="d-flex align-items-center flex-wrap">
+                    <span class="col-2 " >${courses.announcement.announcementTime}</span>
+                    <span class="col-8 px-3">${courses.announcement.content}</span>
+                    <button class="col-2 btn btn-link m-0 ps-2" style="text-align: left;" data-bs-toggle="modal" data-bs-target="#announcementModal-${courses.id}">新增/修改</button>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 模態框，用於新增或修改公告 -->
+    <div class="modal fade" id="announcementModal-${courses.id}" tabindex="-1" aria-labelledby="announcementModalLabel-${courses.id}" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="announcementModalLabel-${courses.id}">${empty courses.announcement.content ? "新增" : "修改"} 公告</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="<c:url value='/updateAnnouncement'/>" method="post">
+                    <div class="modal-body">
+                        <textarea class="form-control" name="announcementContent" rows="4">${courses.announcement.content}</textarea>
+                        <input type="hidden" name="courseId" value="${courses.id}">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                        <input type="submit" class="btn btn-primary" value="保存修改">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</c:forEach>
+        </div>
+    </div>
 		<div class="col-2">
 			<form action="<c:url value="/newannouncement" />" method="post">
 				<input type="text" name="content">
@@ -239,6 +158,20 @@
 		</div>
 
 	</div>
+
+
+<script>
+    function formatDate(timestamp) {
+        var date = new Date(timestamp);
+        var year = date.getFullYear();
+        var month = String(date.getMonth() + 1).padStart(2, '0');
+        var day = String(date.getDate()).padStart(2, '0');
+        var hours = String(date.getHours()).padStart(2, '0');
+        var minutes = String(date.getMinutes()).padStart(2, '0');
+        var seconds = String(date.getSeconds()).padStart(2, '0');
+        return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
+    }
+</script>
 
 
 </body>

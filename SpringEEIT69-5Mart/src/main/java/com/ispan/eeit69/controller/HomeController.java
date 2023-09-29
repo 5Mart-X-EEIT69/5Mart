@@ -68,9 +68,7 @@ public class HomeController {
 	public String homepage(Model model) {
 		List<Course> allCourse = courseService.findAll();
 		model.addAttribute("allCourse", allCourse);
-
 		session.setAttribute("allCourse", allCourse);
-		
 		return "homePage";
 	}
 
@@ -80,18 +78,6 @@ public class HomeController {
 //		member member = (member) session.getAttribute("member");
 //
 //		return "memberHomePage";
-//	}
-
-//	@GetMapping("/visitorhomepage2")
-//	public String visitorhomepage2(Model model) {
-//		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
-//		return "visitorHomePage2";
-//	}
-
-//	@GetMapping("/indextest2")
-//	public String indextest2(Model model) {
-//		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
-//		return "indextest2";
 //	}
 
 //	@GetMapping("/visitorsearchpage")
