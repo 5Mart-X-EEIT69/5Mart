@@ -68,9 +68,7 @@ public class HomeController {
 	public String homepage(Model model) {
 		List<Course> allCourse = courseService.findAll();
 		model.addAttribute("allCourse", allCourse);
-
 		session.setAttribute("allCourse", allCourse);
-		
 		return "homePage";
 	}
 
