@@ -547,8 +547,8 @@
 
             })//抓照片編碼
 
-            $('#step4').on("click", "#submitBtn", function () {
-                let formData = new FormData();
+            $('#step4').on("click", "#submitBtn", async function () {
+                let formData = {};
                 let unitVideo = {};
                 let videoName = {};
 
@@ -557,34 +557,55 @@
                 formData.photo = $('#photoValue').val();
                 formData.price = $('#price').val();
                 formData.course = chapterAndUnitName;
-                $('input[name^="chapter"]').each(function (index, element) {
-                	let fileReader = new FileReader();
-                    console.log("start--------------");
-                    let idValue = $(this).attr('name');
-                    let value = $(this).val();
-                    unitVideo[idValue] = value;
-					
-                    console.log($(this).prev().children('input')[0].files)
-					if($(this).prev().children('input')[0].files.length != 0){
-                    videoName[idValue] = $(this).prev().children('input')[0].files[0].name //KEY:章節單元 VALUE:影片名稱						
-					}
-                    console.log("end--------------")
-                })
-                formData.video = unitVideo;
-                formData.videoName = videoName;
                 formData.level = $('#level').val();
                 formData.sort = $('#sort').val();
 				formData.userId = ${member.id}
                 console.log(formData);
 
-// 				let curl = '<c:url value="/submitCourse" />';
+                let courseId ;
+				let curl = '<c:url value="/submitCourse" />';
+				await $.ajax({
+                    url: curl,
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(formData),
+                    success: function(response){
+                       	console.log("成功",response);
+                       	courseId = response;
+//                        	window.location.href = '<c:url value="/TeacherCourseList" />';
+                    },
+                    error: function(response){
+                        console.log("失敗",response);
+                    }
+                })
+                alert("課程ID:"+courseId)
+                let videoData = new FormData();
+				videoData.append("courseId",courseId)
+//                 $('input[name^="chapter"]').each(function (index, element) {
+//                 	let fileReader = new FileReader();
+//                     console.log("start--------------");
+//                     let idValue = $(this).attr('name');
+//                     let value = $(this).val();
+//                     unitVideo[idValue] = value;
+					
+//                     console.log($(this).prev().children('input')[0].files)
+// 					if($(this).prev().children('input')[0].files.length != 0){
+//                     videoName[idValue] = $(this).prev().children('input')[0].files[0].name //KEY:章節單元 VALUE:影片名稱						
+// 					}
+//                     console.log("end--------------")
+//                 })
+//                 formData.video = unitVideo;
+//                 formData.videoName = videoName;
+                
+//                 let curl = '<c:url value="/createCourseVideo" />';
 //                 $.ajax({
 //                     url: curl,
 //                     type: 'POST',
-//                     contentType: 'application/json',
-//                     data: JSON.stringify(formData),
+//                     contentType: false,
+//                     processData: false,
+//                     data: videoData,
 //                     success: function(response){
-//                        	console.log("成功",response);
+//                        	console.log("成功上傳影片",response);
 // //                        	window.location.href = '<c:url value="/TeacherCourseList" />';
 //                     },
 //                     error: function(response){
