@@ -596,7 +596,7 @@
                     success: function(response){
                        	console.log("成功",response);
                        	alert("新增成功，將跳轉至已開課內容")
-//                        	window.location.href = '<c:url value="/TeacherCourseList" />';
+                       	window.location.href = '<c:url value="/TeacherCourseList" />';
                     },
                     error: function(response){
                         console.log("失敗",response);
