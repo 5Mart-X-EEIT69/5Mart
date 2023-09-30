@@ -7,7 +7,7 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta name="description" content=""/>
-        <title>Student LMS Dashboard</title>
+        <title>Student LMS cartService</title>
         <!-- Bootstrap core CSS -->
         <link href="bootstrap_theme/bootstrap.css" rel="stylesheet" type="text/css"/>
         <!-- Custom styles for this template -->
@@ -31,55 +31,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@600&family=Noto+Serif+TC:wght@200;700&display=swap" rel="stylesheet"/>
         <style type="text/css"></style>
     </head>
-    <style>
-@charset "UTF-8";
-
-body {
-	background: #eee;
-}
-
-#side_nav {
-	background: #000;
-	min-width: 250px;
-	max-width: 250px;
-	transition: all 0.3s;
-}
-
-.content {
-	min-height: 100vh;
-	width: 100%;
-}
-
-hr.h-color {
-	background: #eee;
-	color: #eee;
-}
-
-.sidebar li.active {
-	background: #eee;
-	border-radius: 8px;
-}
-
-.sidebar li.active a, .sidebar li.active a:hover {
-	color: #000;
-}
-
-.sidebar li a {
-	color: #fff;
-}
-
-@media ( max-width : 767px) {
-	#side_nav {
-		margin-left: -250px;
-		position: fixed;
-		min-height: 100vh;
-		z-index: 1;
-	}
-	#side_nav.active {
-		margin-left: 0;
-	}
-}
-</style>
     <body>
         <div class="main-container d-flex">
             <div class="sidebar" id="side_nav">
@@ -89,43 +40,86 @@ hr.h-color {
                     </button>
                 </div>
                 <ul class="list-unstyled px-2">
-                    <li class="active">
-                        <a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-chart-line pe-2" style="color: #ffffff"></i>儀錶板</a>
-                    </li>
-                    <li class="">
-                        <a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>課程中心</a>
-                    </li>
-                    <li class="">
-                        <a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>進行中課程</a>
-                    </li>
-                    <li class="">
-                        <a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>已完成課程</a>
-                    </li>
-                    <li class="">
-                        <a href="#" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>通知中心</span><span class="bg-dark rounded-pill text-white py-0 px-2">02</span></a>
-                    </li>
-                    <li class="">
-                        <a href="#" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>系統通知</span><span class="bg-dark rounded-pill text-white py-0 px-2">02</span></a>
-                    </li>
-                    <li class="">
-                        <a href="#" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>課程問與答</span><span class="bg-dark rounded-pill text-white py-0 px-2">02</span></a>
-                    </li>
-                    <li class="">
-                        <a href="#" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>私人訊息</span><span class="bg-dark rounded-pill text-white py-0 px-2">02</span></a>
-                    </li>
-                    <li class="">
-                        <a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-user pe-2" style="color: #ffffff"></i>商務中心</a>
-                    </li>
-                    <li class="">
-                        <a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-user pe-2" style="color: #ffffff"></i>購物車</a>
-                    </li>
-                </ul>
-                <hr class="h-color mx-2"/>
-                <ul class="list-unstyled px-2">
-                    <li class="">
-                        <a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-gear pe-2" style="color: #ffffff"></i>設定</a>
-                    </li>
-                </ul>
+				<li class=""><a href="#"
+					class="text-decoration-none px-3 py-2 d-block"><i
+						class="fa-solid fa-chart-line pe-2" style="color: #ffffff"></i>儀錶板</a>
+				</li>
+				<li class=""><a href="#"
+					class="text-decoration-none px-3 py-2 d-block"><i
+						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>課程中心</a></li>
+				<li class=""><a href="#"
+					class="text-decoration-none px-3 py-2 d-block"><i
+						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>進行中課程</a></li>
+										<li class=""><a href="#"
+					class="text-decoration-none px-3 py-2 d-block"><i
+						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>已完成課程</a></li>
+				<li class=""><a href="#"
+					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
+							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>通知中心</span><span
+						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
+										<li class=""><a href="#"
+					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
+							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>系統通知</span><span
+						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
+										<li class=""><a href="#"
+					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
+							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>課程問與答</span><span
+						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
+									<li class=""><a href="#"
+					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
+							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>私人訊息</span><span
+						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
+				<li class=""><a href="#"
+					class="text-decoration-none px-3 py-2 d-block"><i
+						class="fa-solid fa-user pe-2" style="color: #ffffff"></i>商務中心</a></li>
+						<li class=""><a href="#"
+					class="text-decoration-none px-3 py-2 d-block"><i
+						class="fa-solid fa-user pe-2" style="color: #ffffff"></i>購物車</a></li>
+			</ul>
+			<hr class="h-color mx-2">
+			<ul class="list-unstyled px-2">
+				<li class="" style="background-color:#d9edfa"><a
+					href="<c:url value="/profileSettingPage"></c:url>#"
+					class="text-decoration-underline px-3 py-2 d-block"><i
+						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>設定</a></li>
+			</ul>
+			<ul class="list-unstyled px-2">
+				<li class="" style="background-color:#405d9c"><a
+					href="<c:url value="/profileSettingPage"></c:url>#"
+					class="text-decoration-underline px-3 py-2 d-block"><i
+						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>個人資料設定</a></li>
+			</ul>
+			<ul class="list-unstyled px-2">
+				<li class=""><a
+					href="<c:url value="/pictureSettingPage"></c:url>#"
+					class="text-decoration-none px-3 py-2 d-block"><i
+						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>個人照片設定</a></li>
+			</ul>
+						<ul class="list-unstyled px-2">
+				<li class=""><a
+					href="<c:url value="/safetySettingPage"></c:url>#"
+					class="text-decoration-none px-3 py-2 d-block"><i
+						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>安全性</a></li>
+			</ul>
+						<ul class="list-unstyled px-2">
+				<li class=""><a
+					href="<c:url value="/privacySettingPage"></c:url>#"
+					class="text-decoration-none px-3 py-2 d-block"><i
+						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>隱私權</a></li>
+			</ul>
+						<ul class="list-unstyled px-2">
+				<li class=""><a
+					href="<c:url value="/paymentSettingPage"></c:url>#"
+					class="text-decoration-none px-3 py-2 d-block"><i
+						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>付款資訊</a></li>
+			</ul>
+
+			<ul class="list-unstyled px-2">
+				<li class=""><a
+					href="<c:url value="/deactivateSettingPage"></c:url>#"
+					class="text-decoration-none px-3 py-2 d-block"><i
+						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>停用帳號</a></li>
+			</ul>
             </div>
             <div class="content">
                 <nav class="navbar navbar-expand-md navbar-light bg-light">
@@ -171,7 +165,7 @@ hr.h-color {
                             </div>
                         </div>
                         <h2>我的購物車</h2>
-                        <div class="col-md-5 col-lg-4 order-md-last">
+                        <div class="col-lg-auto me-5 ms-5 p-2">
                             <h4 class="d-flex justify-content-between align-items-center mb-3"> <span class="text-muted">購物車清單</span> <span class="badge bg-secondary rounded-pill">3</span> </h4>
                             <ul class="list-group mb-3">
                                 <li class="list-group-item d-flex justify-content-between lh-sm">
