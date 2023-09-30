@@ -1,8 +1,5 @@
 package com.ispan.eeit69.controller;
 
-import java.sql.SQLException;
-import java.util.Base64;
-
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,22 +10,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import jakarta.servlet.http.HttpSession;
-
 import com.ispan.eeit69.model.Chapter;
 import com.ispan.eeit69.model.Course;
 import com.ispan.eeit69.model.DEV_Video;
-import com.ispan.eeit69.model.StudentPicture;
-import com.ispan.eeit69.model.TeacherPicture;
-import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.AnnouncementService;
 import com.ispan.eeit69.service.ChapterService;
 import com.ispan.eeit69.service.CourseService;
+import com.ispan.eeit69.service.DEV_VideoService;
 import com.ispan.eeit69.service.IntroductionService;
-import com.ispan.eeit69.service.StudentPictureService;
 import com.ispan.eeit69.service.TeacherPictureService;
 import com.ispan.eeit69.service.UnitService;
-import com.ispan.eeit69.service.DEV_VideoService;
+
+import jakarta.servlet.http.HttpSession;
 
 
 @Controller

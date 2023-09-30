@@ -516,7 +516,7 @@
 						</a>
 					</li>
 					<li>
-						<a class="dropdown-item" href="#">
+						<a class="dropdown-item" href="<c:url value='/profileSettingPage' />">
 							<i class="bi bi-gear" style="padding: 0 7px"></i>帳戶設定
 						</a>
 					</li>
