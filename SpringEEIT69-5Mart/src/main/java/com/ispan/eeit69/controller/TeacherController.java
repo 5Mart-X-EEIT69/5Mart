@@ -90,7 +90,7 @@ public class TeacherController {
 		if(member != null) {
 			return "TeacherMain";			
 		}else {
-			return "redirect:/visitorhomepage";
+			return "redirect:/homepage";
 		}
 	}// 跳轉至講師主頁面
 
@@ -101,7 +101,7 @@ public class TeacherController {
 		if(member != null) {
 			return "/TeacherCourse/TeacherCreateCourses";			
 		}else {
-			return "redirect:/visitorhomepage";
+			return "redirect:/homepage";
 		}
 	}// 跳轉至建立課程頁面
 
@@ -112,7 +112,7 @@ public class TeacherController {
 			model.addAttribute("course", courseService.findById(id));
 			return "/TeacherCourse/TeacherEditCourses";		
 		}else {
-			return "redirect:/visitorhomepage";
+			return "redirect:/homepage";
 		}
 
 	}// 跳轉至編輯課程頁面
@@ -123,7 +123,7 @@ public class TeacherController {
 		if(member != null) {
 			return "/TeacherCourse/TeacherCreateFundraisingCourses";		
 		}else {
-			return "redirect:/visitorhomepage";
+			return "redirect:/homepage";
 		}
 
 	}// 跳轉至建立募資課程頁面
@@ -134,7 +134,7 @@ public class TeacherController {
 		if(member != null) {
 			return "/TeacherCourse/TeacherCreateArticle";		
 		}else {
-			return "redirect:/visitorhomepage";
+			return "redirect:/homepage";
 		}
 	}// 跳轉至建立文章頁面
 
@@ -146,7 +146,7 @@ public class TeacherController {
 			model.addAttribute("course", course);
 			return "/TeacherCourse/TeacherCourseList";		
 		}else {
-			return "redirect:/visitorhomepage";
+			return "redirect:/homepage";
 		}		
 		
 	}// 跳轉至課程清單頁面
@@ -159,7 +159,7 @@ public class TeacherController {
 			model.addAttribute("course", course);
 			return "/TeacherCourse/TeacherCourseList";		
 		}else {
-			return "redirect:/visitorhomepage";
+			return "redirect:/homepage";
 		}		
 		
 	}// 跳轉至課程清單頁面
@@ -171,7 +171,7 @@ public class TeacherController {
 		if(member != null) {
 			return "/TeacherComminicate/TeacherComminicate";		
 		}else {
-			return "redirect:/visitorhomepage";
+			return "redirect:/homepage";
 		}
 	}// 跳轉至講師交流頁面
 
@@ -181,7 +181,7 @@ public class TeacherController {
 		if(member != null) {
 			return "/TeacherComminicate/TeacherComminicateQA";		
 		}else {
-			return "redirect:/visitorhomepage";
+			return "redirect:/homepage";
 		}
 	}// 跳轉至講師交流問與答頁面
 
@@ -191,7 +191,7 @@ public class TeacherController {
 		if(member != null) {
 			return "/TeacherComminicate/TeacherComminicateMessage";
 		}else {
-			return "redirect:/visitorhomepage";
+			return "redirect:/homepage";
 		}
 	}// 跳轉至講師交流私人訊息頁面
 
@@ -201,7 +201,7 @@ public class TeacherController {
 		if(member != null) {
 			return "/TeacherComminicate/TeacherComminicateTask";		
 		}else {
-			return "redirect:/visitorhomepage";
+			return "redirect:/homepage";
 		}
 	}// 跳轉至講師交流作業頁面
 
@@ -209,11 +209,11 @@ public class TeacherController {
 	public String TeacherComminicateAnnouncement(Model model) {
 		member member = (member) session.getAttribute("member");
 		if(member != null) {
-			List<Course> course = courseService.findAll();
+			List<Course> course = courseService.getCoursesByTeacher(member);
 			model.addAttribute("course", course);
 			return "/TeacherComminicate/TeacherComminicateAnnouncement";		
 		}else {
-			return "redirect:/visitorhomepage";
+			return "redirect:/homepage";
 		}
 	}// 跳轉至講師交流公告頁面
 
@@ -225,7 +225,7 @@ public class TeacherController {
 		if(member != null) {		
 			return "/TeacherDashboard/TeacherDashboard";
 		}else {
-			return "redirect:/visitorhomepage";
+			return "redirect:/homepage";
 		}
 	}// 跳轉至儀錶板頁面
 
@@ -235,7 +235,7 @@ public class TeacherController {
 		if(member != null) {		
 			return "/TeacherDashboard/TeacherDashboardRevenue";
 		}else {
-			return "redirect:/visitorhomepage";
+			return "redirect:/homepage";
 		}
 	}// 跳轉至儀錶板營收頁面
 
@@ -245,7 +245,7 @@ public class TeacherController {
 		if(member != null) {
 			return "/TeacherDashboard/TeacherDashboardTraffic";		
 		}else {
-			return "redirect:/visitorhomepage";
+			return "redirect:/homepage";
 		}
 	}// 跳轉至儀表板流量頁面
 
@@ -255,7 +255,7 @@ public class TeacherController {
 		if(member != null) {
 			return "/TeacherDashboard/TeacherDashboardWatched";		
 		}else {
-			return "redirect:/visitorhomepage";
+			return "redirect:/homepage";
 		}
 	}// 跳轉至儀表板觀看時數頁面
 
@@ -265,7 +265,7 @@ public class TeacherController {
 		if(member != null) {
 			return "/TeacherDashboard/TeacherDashboardStudent";		
 		}else {
-			return "redirect:/visitorhomepage";
+			return "redirect:/homepage";
 		}
 	}// 跳轉至儀表板學生頁面
 
@@ -277,7 +277,7 @@ public class TeacherController {
 		if(member != null) {
 			return "/TeacherInformation/TeacherInformation";		
 		}else {
-			return "redirect:/visitorhomepage";
+			return "redirect:/homepage";
 		}
 	}// 跳轉至講師資料頁面
 
@@ -295,15 +295,16 @@ public class TeacherController {
 				imageBytes = teacherPicture.getPhoto().getBytes(1, (int) teacherPicture.getPhoto().length());
 				String base64Image = Base64.getEncoder().encodeToString(imageBytes);
 				model.addAttribute("base64Image",base64Image);
+				session.setAttribute("base64Image", base64Image);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				System.out.println(e);
 				e.printStackTrace();
 			}
 			
 			}
 			return "/TeacherInformation/TeacherInformationPhoto";		
 		}else {
-			return "redirect:/visitorhomepage";
+			return "redirect:/homepage";
 		}
 
 	}// 跳轉至講師資料照片頁面
@@ -312,12 +313,13 @@ public class TeacherController {
 	public String TeacherInformationIntroduction(Model model) {
 		member member = (member) session.getAttribute("member");
 		if(member != null) {
+			System.out.println("TESTGETMAPPUNG");
 			Introduction introduction = introductionService.findByMember(member);
 			model.addAttribute("introduction",introduction);
 
 			return "/TeacherInformation/TeacherInformationIntroduction";		
 		}else {
-			return "redirect:/visitorhomepage";
+			return "redirect:/homepage";
 		}
 
 	}// 跳轉至講師資料自我介紹頁面
@@ -328,7 +330,7 @@ public class TeacherController {
 		if(member != null) {
 			return "/TeacherInformation/TeacherInformationAbility";		
 		}else {
-			return "redirect:/visitorhomepage";
+			return "redirect:/homepage";
 		}
 	}// 跳轉至講師資料能力證明頁面
 
@@ -338,7 +340,7 @@ public class TeacherController {
 		if(member != null) {
 			return "/TeacherInformation/TeacherInformationAccount";		
 		}else {
-			return "redirect:/visitorhomepage";
+			return "redirect:/homepage";
 		}
 	}// 跳轉至講師資料帳戶頁面
 
@@ -441,6 +443,7 @@ public class TeacherController {
 			return new ResponseEntity<Integer>(course.getId(),HttpStatus.OK);		
 		}else {
 			return new ResponseEntity<Integer>(0,HttpStatus.NOT_FOUND) ;
+
 		}
 	}
 	
@@ -691,36 +694,43 @@ public class TeacherController {
 			Blob blob = new SerialBlob(photoBytes);
 			member member1 = memberService.findByMemberId(memberID);
 			TeacherPicture teacherPicture1 = new TeacherPicture(blob,member1);
-			teacherPictureService.save(teacherPicture1);			
+			teacherPictureService.save(teacherPicture1);		
+			// 将Blob数据转换为Base64编码的字符串
+			byte[] imageBytes = teacherPicture1.getPhoto().getBytes(1, (int) teacherPicture1.getPhoto().length());
+			String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+			
+			model.addAttribute("base64Image",base64Image);
+			session.setAttribute("base64Image", base64Image);
 		}else {
 			byte[] newPhotoBytes = photo.getBytes();
 		    Blob newBlob = new SerialBlob(newPhotoBytes);
 		    teacherPicture.setPhoto(newBlob);
 		    
 		    teacherPictureService.update(teacherPicture);
+		    
+		    TeacherPicture findpicture = new TeacherPicture();
+		    findpicture = memberService.findByMemberId(memberID).getTeacherPicture();
+		    
+		    if (findpicture != null) {
+		    	// 将Blob数据转换为Base64编码的字符串
+		    	byte[] imageBytes = findpicture.getPhoto().getBytes(1, (int) findpicture.getPhoto().length());
+		    	String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+		    	
+		    	model.addAttribute("base64Image",base64Image);
+		    	session.setAttribute("base64Image", base64Image);
 		}
 		
-		TeacherPicture findpicture = new TeacherPicture();
-		findpicture = memberService.findByMemberId(memberID).getTeacherPicture();
-		
-		if (findpicture != null) {
-		// 将Blob数据转换为Base64编码的字符串
-		byte[] imageBytes = findpicture.getPhoto().getBytes(1, (int) findpicture.getPhoto().length());
-		String base64Image = Base64.getEncoder().encodeToString(imageBytes);
-		
-		model.addAttribute("base64Image",base64Image);
 		}
 		
 		
 		return "/TeacherInformation/TeacherInformationPhoto";
 	}
 	
-	@PostMapping("/newannouncement")
-	public String newannouncement(@ModelAttribute Announcement announcement, Model model) {
-		announcementService.save(announcement);
-		System.out.println("測試");
-		List<Course> course = courseService.findAll();
-		model.addAttribute("course", course);
-		return "/TeacherComminicate/TeacherComminicateAnnouncement";
+	@PostMapping("/updateAnnouncement")
+	public String updateAnnouncement(@RequestParam Integer courseId, @RequestParam String announcementContent,Timestamp announcementTime) {
+	    member teacher = (member) session.getAttribute("member");
+	    courseService.updateAnnouncementForTeacher(courseId, announcementContent,announcementTime,teacher);
+	    return "redirect:/TeacherComminicateAnnouncement";  // redirect back to the announcements page
 	}
+	
 }
