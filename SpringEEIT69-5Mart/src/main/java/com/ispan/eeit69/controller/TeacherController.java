@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
@@ -17,6 +18,7 @@ import javax.sql.rowset.serial.SerialClob;
 import javax.sql.rowset.serial.SerialException;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +30,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -445,10 +448,12 @@ public class TeacherController {
 	}
 	
 	@PostMapping("/createCourseVideo")
-	public ResponseEntity<String> createCourseVideo(){
+	public ResponseEntity<String> createCourseVideo(
+	        @RequestPart("video[]") Map<String, MultipartFile> videos){
 		member member = (member) session.getAttribute("member");
 		if(member != null) {
-			
+//			System.out.println(courseId);
+			System.out.println(videos);
 			return new ResponseEntity<>("完成",HttpStatus.OK); 
 		}else {
 			return new ResponseEntity<>("會員尚未登入",HttpStatus.NOT_FOUND);

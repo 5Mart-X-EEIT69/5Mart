@@ -285,8 +285,9 @@
 				</div>
 				<div id="step3" class="content" role="tabpanel"
 					aria-labelledby="step3-trigger">
-
+					<form id="videoFrom" action="<c:url value="/createCourseVideo" />" method="post" enctype="multipart/form-data">
 					<div id="chapterVideoContainer">
+
 						<!-- <div>
                             <div class="form-group chapterVideo my-2">
 								<span class="chapterIcon">拖拉</span> <span class="py-1">章節
@@ -307,7 +308,7 @@
 						<button class="mx-1 btn btn-secondary" type="button"
 							onclick="stepper.next()">下一步</button>
 					</div>
-
+					</form>
 				</div>
 				<div id="step4" class="content" role="tabpanel"
 					aria-labelledby="step4-trigger">
@@ -580,38 +581,37 @@
                 })
                 alert("課程ID:"+courseId)
                 let videoData = new FormData();
-				videoData.append("courseId",courseId)
-//                 $('input[name^="chapter"]').each(function (index, element) {
-//                 	let fileReader = new FileReader();
-//                     console.log("start--------------");
-//                     let idValue = $(this).attr('name');
-//                     let value = $(this).val();
-//                     unitVideo[idValue] = value;
+// 				videoData.append("courseId",courseId)
+
+                $('input[name^="chapter"]').each(function (index, element) {
+                    console.log("start--------------");
+                    let chapterAndUnitNumber = $(this).attr('name');//章節單元名稱
+                    let text = "video[" + chapterAndUnitNumber + "]"
+                    console.log(text)
+                    let value = $(this).prev().children('input')[0].files[0]
+                    
+                    videoData.append(text,value);
 					
-//                     console.log($(this).prev().children('input')[0].files)
-// 					if($(this).prev().children('input')[0].files.length != 0){
-//                     videoName[idValue] = $(this).prev().children('input')[0].files[0].name //KEY:章節單元 VALUE:影片名稱						
-// 					}
-//                     console.log("end--------------")
-//                 })
-//                 formData.video = unitVideo;
-//                 formData.videoName = videoName;
-                
-//                 let curl = '<c:url value="/createCourseVideo" />';
-//                 $.ajax({
-//                     url: curl,
-//                     type: 'POST',
-//                     contentType: false,
-//                     processData: false,
-//                     data: videoData,
-//                     success: function(response){
-//                        	console.log("成功上傳影片",response);
-// //                        	window.location.href = '<c:url value="/TeacherCourseList" />';
-//                     },
-//                     error: function(response){
-//                         console.log("失敗",response);
-//                     }
-//                 })
+                    console.log("end--------------")
+                })
+
+                console.log(videoData);                   
+                let cvurl = '<c:url value="/createCourseVideo" />';
+                $.ajax({
+                    url: cvurl,
+                    type: 'POST',
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: videoData,
+                    success: function(response){
+                       	console.log("成功上傳影片",response);
+//                        	window.location.href = '<c:url value="/TeacherCourseList" />';
+                    },
+                    error: function(response){
+                        console.log("失敗",response);
+                    }
+                })
             })
         }
     </script>
