@@ -41,6 +41,9 @@ public class Course implements Serializable {
 	private String sort;
 	private Timestamp registerTime;
 	
+	@OneToMany(mappedBy = "course" ,cascade = CascadeType.ALL)
+	private Set<StudentQuestion> studentQuestion = new LinkedHashSet<StudentQuestion>();
+	
 	@OneToOne(mappedBy = "course", cascade = CascadeType.ALL)
     private Announcement announcement;
 	

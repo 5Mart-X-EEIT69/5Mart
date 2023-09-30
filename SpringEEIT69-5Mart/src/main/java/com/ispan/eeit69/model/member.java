@@ -40,6 +40,9 @@ public class member implements Serializable {
 
     @OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
     private Introduction introduction;
+    
+    @OneToMany(mappedBy = "member")
+    private Set<StudentQuestion> studentQuestion;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "member_course_5mart" , 
@@ -62,11 +65,26 @@ public class member implements Serializable {
 		super();
 	}
 
-	public member(Integer id, String username, String account, String password) {
+	
+
+
+	public member(String username, String account, String password, Timestamp registerTime,
+			com.ispan.eeit69.model.TeacherPicture teacherPicture, Introduction introduction,
+			Set<StudentQuestion> studentQuestion, Set<Course> course, Set<Course> createCourse,
+			MultipartFile memberMultipartFile) {
 		this.username = username;
 		this.account = account;
 		this.password = password;
+		this.registerTime = registerTime;
+		this.TeacherPicture = teacherPicture;
+		this.introduction = introduction;
+		this.studentQuestion = studentQuestion;
+		this.course = course;
+		this.createCourse = createCourse;
+		this.memberMultipartFile = memberMultipartFile;
 	}
+
+
 
 
 	@Transient // 不會映射到資料庫中，但仍然可以在 Java 程式碼中使用。這可以用於存儲某個計算結果或臨時數據，而不需要將其持久化。
@@ -161,14 +179,22 @@ public class member implements Serializable {
 		this.memberMultipartFile = memberMultipartFile;
 	}
 
+	
+	
+	public Set<StudentQuestion> getStudentQuestion() {
+		return studentQuestion;
+	}
+
+	public void setStudentQuestion(Set<StudentQuestion> studentQuestion) {
+		this.studentQuestion = studentQuestion;
+	}
+
 	@Override
 	public String toString() {
 		return "member [id=" + id + ", username=" + username + ", account=" + account + ", password=" + password
-				+ ", registerTime=" + registerTime + ", TeacherPicture=" + TeacherPicture + "]";
+				+ ", registerTime=" + registerTime + ", TeacherPicture=" + TeacherPicture + ", introduction="
+				+ introduction + ", studentQuestion=" + studentQuestion + ", course=" + course + ", createCourse="
+				+ createCourse + ", memberMultipartFile=" + memberMultipartFile + "]";
 	}
-
-	
-	
-	
 
 }
