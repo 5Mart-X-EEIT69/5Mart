@@ -16,11 +16,24 @@ public class ShoppingCart {
 		return cart;
 	}
 	
+	// 增加課程到購物車
 	public void addToCart(int id, Course course) {
 		if( cart.get(id) == null ) {
 		    cart.put(id, course);
 		}
 	}
+	
+	// 刪除購物車的某個課程
+	public boolean removeToCart(int id) {
+		if(cart.get(id) != null) {
+			cart.remove(id);
+			return true;
+		}
+		return false;
+	}
+
+
+	
 	
 	
 
