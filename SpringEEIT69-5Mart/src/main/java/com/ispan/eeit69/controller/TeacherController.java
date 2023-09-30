@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
@@ -18,7 +17,6 @@ import javax.sql.rowset.serial.SerialClob;
 import javax.sql.rowset.serial.SerialException;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,7 +33,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.ispan.eeit69.dao.TeacherPictureRepository;
 import com.ispan.eeit69.model.Announcement;
 import com.ispan.eeit69.model.Chapter;
 import com.ispan.eeit69.model.Course;
@@ -447,13 +444,43 @@ public class TeacherController {
 		}
 	}
 	
-	@PostMapping("/createCourseVideo")
+	@PostMapping(value =  "/createCourseVideo" , consumes = {"multipart/form-data"})
 	public ResponseEntity<String> createCourseVideo(
-	        @RequestPart("video[]") Map<String, MultipartFile> videos){
+			@RequestPart("videos") List<MultipartFile> videos,
+			@RequestParam("courseId") Integer courseId,
+			@RequestParam("chapterAndUnitNumber") List<String> chapterAndUnitNumber) throws SerialException, SQLException, IOException {
 		member member = (member) session.getAttribute("member");
 		if(member != null) {
-//			System.out.println(courseId);
-			System.out.println(videos);
+			System.out.println(courseId);
+			System.out.println("接收到的字串數量：" + chapterAndUnitNumber.size());
+			System.out.println("接收到的檔案數量：" + videos.size());
+			Course course =courseService.findById(courseId);
+			Set<Chapter> chapters = course.getChapter();
+			List<Chapter> chapterList = new ArrayList<Chapter>(chapters);
+			Iterator<MultipartFile> videoDataIterator = videos.iterator();
+			for(String cuNumber :chapterAndUnitNumber) {
+				System.out.println("---videoStart---");
+				Integer cnumber =Integer.valueOf(cuNumber.substring(7, cuNumber.indexOf("-")));
+				Integer unumber =Integer.valueOf(cuNumber.substring(cuNumber.indexOf("-")+1));
+				System.out.println("cnumber: " + cnumber + "unumber: " + unumber);
+				Set<Unit> units =chapterList.get(cnumber-1).getUnit();
+				List<Unit> unitList = new ArrayList<Unit>(units);
+				MultipartFile videofile = videoDataIterator.next();
+				Blob videoDataBlob = new SerialBlob(videofile.getBytes());
+				Unit unit = unitList.get(unumber-1);
+				Video video = new Video();
+				video.setUnit(unit);
+				video.setVideoData(videoDataBlob);
+				String uuid = UUID.randomUUID().toString();
+				video.setUuid(uuid);
+				video.setVideoName(videofile.getOriginalFilename());
+				video.setVideoNumber(cuNumber);
+				videoService.save(video);
+				System.out.println("影片上傳成功！，產生的UUID 是：" + uuid);
+				System.out.println("---videoEnd---");
+			}
+			
+
 			return new ResponseEntity<>("完成",HttpStatus.OK); 
 		}else {
 			return new ResponseEntity<>("會員尚未登入",HttpStatus.NOT_FOUND);

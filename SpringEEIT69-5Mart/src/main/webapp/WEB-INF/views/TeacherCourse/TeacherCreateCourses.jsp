@@ -581,20 +581,23 @@
                 })
                 alert("課程ID:"+courseId)
                 let videoData = new FormData();
-// 				videoData.append("courseId",courseId)
+				videoData.append("courseId",courseId)
 
                 $('input[name^="chapter"]').each(function (index, element) {
+                	if($(this).val()){
                     console.log("start--------------");
                     let chapterAndUnitNumber = $(this).attr('name');//章節單元名稱
-                    let text = "video[" + chapterAndUnitNumber + "]"
-                    console.log(text)
                     let value = $(this).prev().children('input')[0].files[0]
-                    
-                    videoData.append(text,value);
+                    console.log(value);
+                    videoData.append("chapterAndUnitNumber",chapterAndUnitNumber);
+                    videoData.append("videos",value);
 					
-                    console.log("end--------------")
+                    console.log("end--------------")                		
+                	}
                 })
-
+				for (let pair of videoData.entries()) {
+				    console.log(pair[0] + ', ' + pair[1]);
+				}
                 console.log(videoData);                   
                 let cvurl = '<c:url value="/createCourseVideo" />';
                 $.ajax({

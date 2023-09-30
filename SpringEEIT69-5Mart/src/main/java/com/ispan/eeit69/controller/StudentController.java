@@ -12,12 +12,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import jakarta.servlet.http.HttpSession;
 
 import com.ispan.eeit69.model.DEV_Video;
+import com.ispan.eeit69.model.Video;
 import com.ispan.eeit69.service.AnnouncementService;
 import com.ispan.eeit69.service.ChapterService;
 import com.ispan.eeit69.service.CourseService;
 import com.ispan.eeit69.service.IntroductionService;
 import com.ispan.eeit69.service.TeacherPictureService;
 import com.ispan.eeit69.service.UnitService;
+import com.ispan.eeit69.service.VideoService;
 import com.ispan.eeit69.service.DEV_VideoService;
 
 
@@ -32,15 +34,23 @@ public class StudentController {
 	TeacherPictureService teacherPictureService;
 	AnnouncementService announcementService;
 	HttpSession session;
+	VideoService videoService;
+
 
 	public StudentController(CourseService courseService, ChapterService chapterService, UnitService unitService,
-			DEV_VideoService devvideoService, IntroductionService introductionService) {
+			DEV_VideoService devvideoService, IntroductionService introductionService,
+			TeacherPictureService teacherPictureService, AnnouncementService announcementService, HttpSession session,
+			VideoService videoService) {
 		super();
 		this.courseService = courseService;
 		this.chapterService = chapterService;
 		this.unitService = unitService;
 		this.devvideoService = devvideoService;
 		this.introductionService = introductionService;
+		this.teacherPictureService = teacherPictureService;
+		this.announcementService = announcementService;
+		this.session = session;
+		this.videoService = videoService;
 	}
 
 	// Student LMS Mapping
@@ -74,9 +84,9 @@ public class StudentController {
 	public ResponseEntity<byte[]> getVideoByUUID(@PathVariable String uuid) {
 		System.out.println("Received UUID: " + uuid); // 顯示接收到的UUID
 		try {
-			DEV_Video video = devvideoService.findByUuid(uuid); // 從資料庫中獲取影片
+			Video video = videoService.findByUuid(uuid); // 從資料庫中獲取影片
 			if (video != null) {
-				byte[] videoData = video.getVideoData(); // 在 Video.java 中定義的方法
+				byte[] videoData = video.getVideoData().getBytes(1, (int)video.getVideoData().length()); // 在 Video.java 中定義的方法
 
 				HttpHeaders headers = new HttpHeaders();
 				headers.setContentType(MediaType.valueOf("video/mp4")); // 設置正確的 MIME 類型

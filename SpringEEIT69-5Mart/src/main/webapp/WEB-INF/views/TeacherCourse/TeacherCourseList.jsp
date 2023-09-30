@@ -235,13 +235,53 @@
             </div>
         </div>
         <div class="col-2">
-			<form action="#" method='POST'>
-<!-- 			編輯課程用 -->
-				<!--        <input id='id' name='id' value=''> -->
-			</form>
+			<video id="videoPlayer" width="800" controls>
+			  <source id="videoSource" type="video/mp4">
+			</video>
+			<button onclick="loadVideo('f6a83b44-1022-488d-92d1-9bc3bfd5e65a')">Load Video 1</button>
 		</div>
     </div>
+<script>
 
+let contextPath = '<%= request.getContextPath() %>';
+
+function loadVideo(uuid) {
+    console.log("UUID:", uuid);  // 顯示UUID以確認它是否正確
+
+    let curl = contextPath + '/api/videos/' + uuid;  // 直接用 JavaScript 來拼接 URL
+    $.ajax({
+        url: curl,
+        type: 'GET',
+        xhrFields: {
+            responseType: 'blob'
+        },
+        success: function(response){
+            // 使用 Blob 來處理影片資料
+            var blob = new Blob([response], { type: 'video/mp4' });
+            console.log("成功");
+            var url = window.URL.createObjectURL(blob);
+            var videoPlayer = document.getElementById('videoPlayer'); // 更新為您指定的 video 標籤的 id
+            videoPlayer.src = url;
+        },
+        error: function(response){
+            console.log("失敗", response);
+        }
+    });
+} 
+
+
+  /* function loadVideo(uuid) {
+    // 發送 AJAX 請求到後端
+    fetch(`/getVideo?uuid=${uuid}`)
+      .then(response => response.blob())
+      .then(blob => {
+        const videoUrl = URL.createObjectURL(blob);
+        document.getElementById('videoSource').src = videoUrl;
+        document.getElementById('videoPlayer').load();
+      });
+  } */
+  
+</script>
 
 </body>
 </html>
