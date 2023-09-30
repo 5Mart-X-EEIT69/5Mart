@@ -67,24 +67,21 @@ public class StudentController {
 	
 	@GetMapping("/studentIndex")
 	public String studentIndex(Model model) {
-		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		model.addAttribute("welcome", "歡迎來到5Mart的學生INDEX");
 		return "/StudentLMS/studentIndex";
 	}
+	
+	@GetMapping("/studentcourselist")
+	public String studentcourselist(Model model) {
+		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		return "/StudentLMS/studentcourselist";
+	}
+	
 	
 	@GetMapping("/cartServicePage")
 	public String cartServicePage(Model model) {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
 		return "/StudentLMS/BusinessServices/cartServicePage";
-	}
-
-	@GetMapping("/student_dashboard")
-	public String student_dashboard(Model model) {
-		return "/StudentLMS/student_dashboard";
-	}
-	
-	@GetMapping("/student_course_viewer")
-	public String student_course_viewer(Model model) {
-		return "/StudentLMS/student_course_viewer";
 	}
 
 	@GetMapping("/coursePlayerPage")
@@ -97,11 +94,6 @@ public class StudentController {
 		return "/StudentLMS/CourseService/coursePlayerPage";
 	}
 	
-	@GetMapping("/Player")
-	public String Player(Model model) {
-		return "/StudentLMS/DevelopmentFolder/Player";
-	}
-
 	@GetMapping("/api/videos/{uuid}")
 	public ResponseEntity<byte[]> getVideoByUUID(@PathVariable String uuid) {
 		System.out.println("Received UUID: " + uuid); // 顯示接收到的UUID
@@ -123,6 +115,13 @@ public class StudentController {
 		}
 	}
 
+	// 開發測試用區域
+	
+	@GetMapping("/Player")
+	public String Player(Model model) {
+		return "/StudentLMS/DevelopmentFolder/Player";
+	}
+	
 
 	// 翔哥處理中的部分
 	

@@ -85,35 +85,35 @@
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-chart-line pe-2" style="color: #ffffff"></i>儀錶板</a>
 				</li>
-				<li class=""><a href="#"
+				<li class=""><a href="<c:url value="/studentIndex"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>課程中心</a></li>
-				<li class=""><a href="#"
+				<li class=""><a href="<c:url value="/studentIndex"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>進行中課程</a></li>
-				<li class=""><a href="#"
+				<li class=""><a href="<c:url value="/studentIndex"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>已完成課程</a></li>
-				<li class=""><a href="#"
+				<li class=""><a href="<c:url value="/studentIndex"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
 							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>通知中心</span><span
 						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a href="#"
+				<li class=""><a href="<c:url value="/studentIndex"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
 							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>系統通知</span><span
 						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a href="#"
+				<li class=""><a href="<c:url value="/studentIndex"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
 							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>課程問與答</span><span
 						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a href="#"
+				<li class=""><a href="<c:url value="/studentIndex"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
 							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>私人訊息</span><span
 						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a href="#"
+				<li class=""><a href="<c:url value="/studentIndex"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-user pe-2" style="color: #ffffff"></i>商務中心</a></li>
-				<li class=""><a href="#"
+				<li class=""><a href="<c:url value="/studentIndex"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-user pe-2" style="color: #ffffff"></i>購物車</a></li>
 			</ul>
