@@ -124,7 +124,7 @@ public class StudentController {
 	}
 
 
-	## 翔哥處理中的部分
+	// 翔哥處理中的部分
 	
 	@PostMapping("/pictureSettingPage")
 	public String pictureUpdateSettingPage(@RequestParam("photo") MultipartFile photo ,Model model,@RequestParam("memberId") Integer memberID) throws IOException, SerialException, SQLException {
