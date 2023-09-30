@@ -132,14 +132,5 @@ public class HomeController {
 		return "teacherNavBar";
 	}
 	
-	@GetMapping("/searchsort")
-	public String searchsort(@RequestParam("sort") String sort, Model model) {
-		System.out.println(sort);
-		model.addAttribute("keyword",sort);
-		List<Course> result = courseService.findBySort(sort);
-		model.addAttribute("keywordResult",result);
-		
-		return "visitorSearchPage";
-	}
 
 }
