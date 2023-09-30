@@ -155,16 +155,6 @@
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>付款資訊</a></li>
 			</ul>
-<<<<<<< HEAD
-						<ul class="list-unstyled px-2">
-				<li class="" ><a
-					href="<c:url value="/subscriptionSettingPage"></c:url>#"
-					class="text-decoration-none px-3 py-2 d-block"  ><i
-						class="fa-solid fa-gear pe-2" style="color: #ffffff;" ></i>訂閱管理</a></li>
-			</ul>
-=======
-
->>>>>>> refs/remotes/origin/feat/studentlms/settings
 			<ul class="list-unstyled px-2">
 				<li class=""><a
 					href="<c:url value="/deactivateSettingPage"></c:url>#"
@@ -254,8 +244,6 @@
                                 <text x="50%" y="50%" fill="#6f42c1"
 								dy=".3em">32x32</text>
                             </svg>
-<<<<<<< HEAD
-<<<<<<< HEAD
                             <p class="pb-3 mb-0 small lh-sm border-bottom"> <strong class="d-block text-gray-dark">@username</strong> Donec id
               elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac
               cursus commodo, tortor mauris condimentum nibh, ut fermentum massa
@@ -350,152 +338,7 @@
 			</c:forEach>
 		</div>
 				  111
-				<p>這裡可以填入內容</p>
-=======
-						<p class="pb-3 mb-0 small lh-sm border-bottom">
-							<strong class="d-block text-gray-dark">@username</strong> Donec
-							id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
-							ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-							massa justo sit amet risus.
-						</p>
-					</div>
-					<small class="d-block text-end mt-3"> <a href="#">全部資訊</a>
-					</small>
-				</div>
-				<div class="col-lg-auto pb-3" style="padding: 72px 0 0;">
-					<h1>課程總覽</h1>
-					<hr />
-					<h4>已購買的課程</h4>
-					<div class="accordion" id="accordionPanelsStayOpenExample">
-						<c:forEach var="courses" items="${course}">
-							<div class="accordion-item">
-								<h2 class="accordion-header" id="heading-${courses.id}">
-									<button class="accordion-button collapsed" type="button"
-										data-bs-toggle="collapse"
-										data-bs-target="#collapse-${courses.id}" aria-expanded="false"
-										aria-controls="#collapse-${courses.id}">
-										<img src="${courses.dataUri}" alt="twbs" width="48"
-											height="48" class="rounded flex-shrink-0">
-										<div
-											class="d-flex gap-2 w-100 justify-content-between align-items-center ps-3">
-											<div>
-												<h6 class="mb-0 fs-4 fw-bolder">${courses.title}</h6>
-												<p class="mb-0 opacity-50 fw-bolder" style="color: red;">目前已有"還沒做"位學生購買課程</p>
-											</div>
-										</div>
-									</button>
-								</h2>
-								<div id="collapse-${courses.id}"
-									class="accordion-collapse collapse"
-									aria-labelledby="heading-${courses.id}">
-									<div class="accordion-body">
-										<div class="d-flex align-items-center flex-wrap">
-											<label class="col-2">導師</label> <label class="col-2">開課時間</label>
-											<label class="col-2 px-3">瀏覽課程人次</label> <label class="col-2">購買課程人次</label>
-											<label class="col-2">平均評價</label> <label class="col-2 ps-2">功能</label>
-										</div>
-										<hr>
-										<div class="d-flex align-items-center flex-wrap">
-											<span class="col-2">(還沒做)</span> <span class="col-2">${courses.registerTime}</span>
-											<span class="col-2 px-3">(還沒做)</span> <span
-												class="col-2 ps-2">(還沒做)</span> <span class="col-2">(還沒做)</span>
-											<div class="col-2 d-flex flex-column">
-
-												<button class="btn btn-link m-0 ps-2"
-													style="text-align: left;">
-													<a href="<c:url value="/TeacherEdit/${courses.id}"/>">編輯課程</a>
-												</button>
-												<button class="btn btn-link m-0 ps-2"
-													style="text-align: left;">編輯影片</button>
-												<button class="btn btn-link m-0 ps-2"
-													style="text-align: left;"
-													onclick="deleteCourse('${courses.id}','${courses.title}')">刪除課程</button>
-											</div>
-										</div>
-										<hr>
-									</div>
-								</div>
-							</div>
-						</c:forEach>
-					</div>
-
-					<p>這裡可以填入內容</p>
-				</div>
->>>>>>> 6ebf0d14ac83043bded00b34ade7e7c80b993e75
-=======
-						<p class="pb-3 mb-0 small lh-sm border-bottom">
-							<strong class="d-block text-gray-dark">@username</strong> Donec
-							id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
-							ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-							massa justo sit amet risus.
-						</p>
-					</div>
-					<small class="d-block text-end mt-3"> <a href="#">全部資訊</a>
-					</small>
-				</div>
-				<div class="col-lg-auto pb-3" style="padding: 72px 0 0;">
-					<h1>課程總覽</h1>
-					<hr />
-					<h4>已購買的課程</h4>
-					<div class="accordion" id="accordionPanelsStayOpenExample">
-						<c:forEach var="courses" items="${course}">
-							<div class="accordion-item">
-								<h2 class="accordion-header" id="heading-${courses.id}">
-									<button class="accordion-button collapsed" type="button"
-										data-bs-toggle="collapse"
-										data-bs-target="#collapse-${courses.id}" aria-expanded="false"
-										aria-controls="#collapse-${courses.id}">
-										<img src="${courses.dataUri}" alt="twbs" width="48"
-											height="48" class="rounded flex-shrink-0">
-										<div
-											class="d-flex gap-2 w-100 justify-content-between align-items-center ps-3">
-											<div>
-												<h6 class="mb-0 fs-4 fw-bolder">${courses.title}</h6>
-												<p class="mb-0 opacity-50 fw-bolder" style="color: red;">目前已有"還沒做"位學生購買課程</p>
-											</div>
-										</div>
-									</button>
-								</h2>
-								<div id="collapse-${courses.id}"
-									class="accordion-collapse collapse"
-									aria-labelledby="heading-${courses.id}">
-									<div class="accordion-body">
-										<div class="d-flex align-items-center flex-wrap">
-											<label class="col-2">導師</label> <label class="col-2">開課時間</label>
-											<label class="col-2 px-3">瀏覽課程人次</label> <label class="col-2">購買課程人次</label>
-											<label class="col-2">平均評價</label> <label class="col-2 ps-2">功能</label>
-										</div>
-										<hr>
-										<div class="d-flex align-items-center flex-wrap">
-											<span class="col-2">(還沒做)</span> <span class="col-2">${courses.registerTime}</span>
-											<span class="col-2 px-3">(還沒做)</span> <span
-												class="col-2 ps-2">(還沒做)</span> <span class="col-2">(還沒做)</span>
-											<div class="col-2 d-flex flex-column">
-
-												<button class="btn btn-link m-0 ps-2"
-													style="text-align: left;">
-													<a href="<c:url value="/TeacherEdit/${courses.id}"/>">編輯課程</a>
-												</button>
-												<button class="btn btn-link m-0 ps-2"
-													style="text-align: left;">編輯影片</button>
-												<button class="btn btn-link m-0 ps-2"
-													style="text-align: left;"
-													onclick="deleteCourse('${courses.id}','${courses.title}')">刪除課程</button>
-											</div>
-										</div>
-										<hr>
-									</div>
-								</div>
-							</div>
-						</c:forEach>
-					</div>
-
-					<p>這裡可以填入內容</p>
-				</div>
->>>>>>> refs/remotes/origin/feat/studentlms/settings
-			</div>
-
-		</div>
+	</div>
 
 
 		<!-- CDN引入 -->
