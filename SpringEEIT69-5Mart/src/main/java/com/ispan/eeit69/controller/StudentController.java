@@ -83,11 +83,6 @@ public class StudentController {
 		return "/StudentLMS/SettingsService/profileSettingPage";
 	}
 	
-//	@GetMapping("/pictureSettingPage")
-//	public String pictureSettingPage(Model model) {
-//		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
-//		return "/StudentLMS/SettingsService/pictureSettingPage";
-//	}
 	@GetMapping("/pictureSettingPage")
 	public String pictureSettingPage(Model model) {
 		member member = (member) session.getAttribute("member");
