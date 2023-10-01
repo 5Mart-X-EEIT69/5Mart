@@ -20,7 +20,7 @@ public class AccountSetting implements Serializable {
     private Integer settingId;
 
     private String preferredLanguage; // 希望的網頁語言
-    private Boolean showRealName;     // 是否對外顯示真實姓名
+    private Boolean showRealName;     // 是否公開顯示真實姓名
     private Boolean receiveMarketingInfo;  // 是否願意接收行銷資訊
 
     @OneToOne()
