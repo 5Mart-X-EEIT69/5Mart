@@ -198,7 +198,9 @@ public class StudentController {
 			return "redirect:/homepage";
 		}
 
-	}// 跳轉至講師資料照片頁面
+	}
+	
+	// 跳轉至講師資料照片頁面
 	
 	@GetMapping("/deactivateSettingPage")
 	public String deactivateSettingPage(Model model) {
@@ -225,5 +227,7 @@ public class StudentController {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
 		return "/StudentLMS/SettingsService/safetySettingPage";
 	}
+	
+	//開發用的方法
 }
 
