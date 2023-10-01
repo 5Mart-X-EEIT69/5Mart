@@ -12,6 +12,7 @@ import com.ispan.eeit69.dao.CourseDao;
 import com.ispan.eeit69.dao.CourseRepository;
 import com.ispan.eeit69.model.Announcement;
 import com.ispan.eeit69.model.Course;
+import com.ispan.eeit69.model.TeacherReply;
 import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.CourseService;
 
@@ -114,19 +115,13 @@ public class CourseServiceImpl implements CourseService{
         if (optionalCourse.isPresent()) {
             Course course = optionalCourse.get();
             Announcement announcement = course.getAnnouncement();
-
             
             if (announcement == null) {
-                announcement = new Announcement();
-                
-                
+                announcement = new Announcement();        
                 announcement.setCourse(course);
                 course.setAnnouncement(announcement);
-
                 announcement.setAnnouncementTime(new Timestamp(System.currentTimeMillis()));
-                
-               
-                
+
             }
             announcement.setAnnouncementTime(new Timestamp(System.currentTimeMillis()));
             announcement.setContent(announcementContent);
@@ -135,6 +130,16 @@ public class CourseServiceImpl implements CourseService{
             // Handle error case
         }
     }
-	
+
+//	@Override
+//	public void updateReplyForTeacher(Integer courseId, String TeacherReply, member teacher) {
+//		Optional<Course> optionalCourse = courseRepository.findByIdAndTeacher(courseId, teacher);
+		
+//		if (optionalCourse.isPresent()) {
+//            Course course = optionalCourse.get();
+//            TeacherReply teacherReply = course.getTeacherReply();
+//		
+//	}
+
 	
 }

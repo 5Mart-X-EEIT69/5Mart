@@ -13,6 +13,7 @@ import com.ispan.eeit69.utils.SystemService;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -44,6 +45,10 @@ public class member implements Serializable {
 
     @OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
     private Introduction introduction;
+    
+    //學生可以有很多問題
+    @OneToMany(mappedBy = "member", fetch = FetchType.EAGER) 
+    private Set<StudentQuestion> studentQuestion;//OK
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "member_course_5mart" , 
@@ -66,11 +71,19 @@ public class member implements Serializable {
 		super();
 	}
 
-	public member(Integer id, String username, String account, String password) {
+	public member(String username, String account, String password, Timestamp registerTime) {
 		this.username = username;
 		this.account = account;
 		this.password = password;
+		this.registerTime = registerTime;
 	}
+
+
+
+
+
+
+
 
 
 	@Transient // 不會映射到資料庫中，但仍然可以在 Java 程式碼中使用。這可以用於存儲某個計算結果或臨時數據，而不需要將其持久化。
@@ -166,6 +179,16 @@ public class member implements Serializable {
 	public void setMemberMultipartFile(MultipartFile memberMultipartFile) {
 		this.memberMultipartFile = memberMultipartFile;
 	}
+	
+	
+	public Set<StudentQuestion> getStudentQuestion() {
+		return studentQuestion;
+	}
+
+	public void setStudentQuestion(Set<StudentQuestion> studentQuestion) {
+		this.studentQuestion = studentQuestion;
+	}
+
 
 	public String getDataUri() throws Exception {
 		if(TeacherPicture!=null) {
@@ -182,11 +205,9 @@ public class member implements Serializable {
 	@Override
 	public String toString() {
 		return "member [id=" + id + ", username=" + username + ", account=" + account + ", password=" + password
-				+ ", registerTime=" + registerTime + ", TeacherPicture=" + TeacherPicture + "]";
+				+ ", registerTime=" + registerTime + "]";
 	}
 
-	
-	
-	
+
 
 }
