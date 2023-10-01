@@ -80,39 +80,49 @@
 				</button>
 			</div>
 			<ul class="list-unstyled px-2">
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentIndex"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-chart-line pe-2" style="color: #ffffff"></i>儀錶板</a>
 				</li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentCourseList"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>課程中心</a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentCourseList"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>進行中課程</a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentCourseList"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>已完成課程</a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentNotification"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
 							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>通知中心</span><span
 						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentNotification"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
 							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>系統通知</span><span
 						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentNotificationQA"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
 							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>課程問與答</span><span
 						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentNotificationMessage"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
 							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>私人訊息</span><span
 						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/cartServicePage"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-user pe-2" style="color: #ffffff"></i>商務中心</a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/cartServicePage"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-user pe-2" style="color: #ffffff"></i>購物車</a></li>
 			</ul>
@@ -149,18 +159,17 @@
 						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>隱私權</a></li>
 			</ul>
 			<ul class="list-unstyled px-2">
-				<li class=""><a href="<c:url value="/paymentSettingPage"></c:url>#"
+				<li class=""><a
+					href="<c:url value="/paymentSettingPage"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>付款資訊</a></li>
 			</ul>
-
 			<ul class="list-unstyled px-2">
 				<li class=""><a
 					href="<c:url value="/deactivateSettingPage"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>停用帳號</a></li>
 			</ul>
-
 		</div>
 		<div class="content">
 			<nav class="navbar navbar-expand-md navbar-light bg-light">
@@ -189,47 +198,51 @@
 			</nav>
 
 			<div class="row">
-			<div class="col-6"></div>
+				<div class="col-6"></div>
 			</div>
-			
+			<div class="text-align:center; px-3 my-3">
+				${member.account}
+				<h2>個人照片頁面</h2>
+			</div>
+			<hr>
 			<div class="row">
 				<div class="col-1"></div>
 				<div class="col-10 ">
-				${member.account}
-						<h1 class="mb-5" >個人照片頁面</h1>
-						
 
-						<div class="row g-3">
+
+
+					<div class="row g-3">
 						<div class="col-4 "></div>
-							<div class="col-4 d-flex float-xxl-end mt-5"  id="photoContainer">
-								<form action="<c:url value="/pictureSettingPage"/>"
-									method="post" class="w-100 mb-3" onsubmit="return submit()"
-									enctype="multipart/form-data">
-									<div class="w-100 mb-3 border rounded" <c:if test="${empty base64Image}">style="height: 357px"</c:if>>
-										<figure class="figure m-0 d-flex justify-content-center">
-											<img	
-												src="<c:if test="${not empty base64Image}">
+						<div class="col-4 d-flex float-xxl-end mt-5" id="photoContainer">
+							<form action="<c:url value="/pictureSettingPage"/>" method="post"
+								class="w-100 mb-3" onsubmit="return submit()"
+								enctype="multipart/form-data">
+								<div class="w-100 mb-3 border rounded"
+									<c:if test="${empty base64Image}">style="height: 357px"</c:if>>
+									<figure class="figure m-0 d-flex justify-content-center">
+										<img
+											src="<c:if test="${not empty base64Image}">
 					data:image/jpeg;base64,${base64Image}
 					</c:if>"
-												class="ifigure-img img-fluid rounded">
-										</figure>
-									</div>
-									<input class="form-control form-control-lg" id="imgbtn"
-										type="file" accept="image/*" name="photo"> <input
-										type="hidden" value="${member.id}" name="memberId">
-									<div class="ms-2">
-										<label  class="form-label">新增/變更圖片</label>
-									</div>
-									<div class="d-flex justify-content-center">
-										<button type="submit" class="btn btn-primary mt-3">儲存照片</button>
-									</div>
-								</form>
-							</div>
+											class="ifigure-img img-fluid rounded">
+									</figure>
+								</div>
+								<input class="form-control form-control-lg" id="imgbtn"
+									type="file" accept="image/*" name="photo"> <input
+									type="hidden" value="${member.id}" name="memberId">
+								<div class="ms-2">
+									<label class="form-label">新增/變更圖片</label>
+								</div>
+								<div class="d-flex justify-content-center">
+									<button type="submit" class="btn btn-primary btn-sm mt-3">儲存設定</button>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 
 	<script type="text/javascript">

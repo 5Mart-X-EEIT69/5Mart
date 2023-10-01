@@ -80,46 +80,56 @@
 				</button>
 			</div>
 			<ul class="list-unstyled px-2">
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentIndex"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-chart-line pe-2" style="color: #ffffff"></i>儀錶板</a>
 				</li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentCourseList"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>課程中心</a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentCourseList"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>進行中課程</a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentCourseList"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>已完成課程</a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentNotification"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
 							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>通知中心</span><span
 						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentNotification"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
 							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>系統通知</span><span
 						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentNotificationQA"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
 							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>課程問與答</span><span
 						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentNotificationMessage"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
 							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>私人訊息</span><span
 						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/cartServicePage"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-user pe-2" style="color: #ffffff"></i>商務中心</a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/cartServicePage"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-user pe-2" style="color: #ffffff"></i>購物車</a></li>
 			</ul>
 			<hr class="h-color mx-2">
 
 			<ul class="list-unstyled px-2">
-				<li class="" style="background-color: #d9edfa"><a
+				<li class="active" style="background-color: #d9edfa"><a
 					href="<c:url value="/profileSettingPage"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>設定</a></li>
@@ -154,14 +164,12 @@
 					class="text-decoration-underline px-3 py-2 d-block"><i
 						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>付款資訊</a></li>
 			</ul>
-
 			<ul class="list-unstyled px-2">
 				<li class=""><a
 					href="<c:url value="/deactivateSettingPage"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>停用帳號</a></li>
 			</ul>
-
 		</div>
 		<div class="content">
 			<nav class="navbar navbar-expand-md navbar-light bg-light">
@@ -188,12 +196,17 @@
 					</div>
 				</div>
 			</nav>
+			<div class="text-align: center; px-3 my-3">
+				${member.account}
+				<h2>付款資訊頁面</h2>
+			</div>
+			<hr>
 			<div class="d-flex justify-content-center">
-				<div class="dashboard-content px-3 pt-4">
+				<div class="dashboard-content px-3 mt-4">
 
-					<h2 class="fs-5">付款資訊頁面</h2>
 
-					<h2>付款方式</h2>
+
+					<h4 class="mb-4">付款方式</h4>
 					<div class="row g-3">
 						<div class="col-2"></div>
 						<div class="col-8 d-flex align-items-center" id="photoContainer">
@@ -367,7 +380,7 @@
 							</div>
 						</div>
 						<div class="d-flex justify-content-center">
-							<button class="btn btn-primary btn-lg" type="submit">儲存設定</button>
+							<button class="btn btn-primary btn-sm" type="submit">儲存設定</button>
 						</div>
 					</div>
 				</div>

@@ -81,39 +81,49 @@
 				</button>
 			</div>
 			<ul class="list-unstyled px-2">
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentIndex"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-chart-line pe-2" style="color: #ffffff"></i>儀錶板</a>
 				</li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentCourseList"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>課程中心</a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentCourseList"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>進行中課程</a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentCourseList"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>已完成課程</a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentNotification"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
 							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>通知中心</span><span
 						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentNotification"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
 							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>系統通知</span><span
 						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentNotificationQA"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
 							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>課程問與答</span><span
 						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/studentNotificationMessage"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
 							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>私人訊息</span><span
 						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/cartServicePage"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-user pe-2" style="color: #ffffff"></i>商務中心</a></li>
-				<li class=""><a href="#"
+				<li class=""><a
+					href="<c:url value="/cartServicePage"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-user pe-2" style="color: #ffffff"></i>購物車</a></li>
 			</ul>
@@ -156,12 +166,12 @@
 						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>付款資訊</a></li>
 			</ul>
 			<ul class="list-unstyled px-2">
-				<li class="" style="background-color: #405d9c"><a
+				<li class="" style="background-color: #405d9c"
+				><a
 					href="<c:url value="/deactivateSettingPage"></c:url>#"
 					class="text-decoration-underline px-3 py-2 d-block"><i
 						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>停用帳號</a></li>
 			</ul>
-
 		</div>
 		<div class="content">
 			<nav class="navbar navbar-expand-md navbar-light bg-light">
@@ -189,12 +199,11 @@
 				</div>
 			</nav>
 
-			<div class="dashboard-content px-3 pt-4">
-				<h2 class="fs-5">停用帳號頁面</h2>
+			<div class="dashboard-content px-3 my-3">
+				${member.account}
+				<h2>停用帳號頁面</h2>
+				<hr>
 				<div class="d-flex justify-content-center mt-5">
-
-
-
 					<button type="button" class="btn btn-danger btn-lg"
 						data-toggle="modal" data-target="#myModal">停用帳號</button>
 				</div>
@@ -205,9 +214,18 @@
 					<div class="modal-content">
 						<!-- 模态框内容 -->
 						<div class="modal-body">
-							<h4>警告</h4>
+							<div class="row">
+								<div class="col-11">
+									<h4>警告</h4>
+								</div>
+								<div class="col-1">
+									<button type="button" class="btn-close" aria-label="Close"></button>
+								</div>
+							</div>
 							<p>停用帳號會無法保留已購買的課程</p>
 						</div>
+
+
 
 						<!-- 模态框底部的关闭按钮 -->
 						<div class="modal-footer">
@@ -218,7 +236,6 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 
 

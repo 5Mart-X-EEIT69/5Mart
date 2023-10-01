@@ -54,57 +54,64 @@
 
 <style type="text/css">
 </style>
-
+    <style>
+        .center-button {
+            text-align: center; /* 设置按钮文本水平居中 */
+        }
+    </style>
 </head>
 
 <body>
 	<div class="main-container d-flex">
-		<div class="sidebar" id="side_nav">
-			<div class="header-box ms-2 px-2 pt-3 pb-4 d-flex justify-content-between">
-				<h1 class="fs-4">
-					<span class="bg-white text-dark rounded shadow px-2 me-2">S</span><span class="text-white me-2">mart</span>
-				</h1>
-				<button class="btn d-md-none d-block close-btn px-1 py-0 text-white">
-					<i class="fa-solid fa-bars-staggered"></i>
-				</button>
-			</div>
-			<ul class="list-unstyled px-2">
-				<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-chart-line pe-2" style="color: #ffffff"></i>儀錶板</a>
-				</li>
-				<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>課程中心</a></li>
-				<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>進行中課程</a></li>
-										<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>已完成課程</a></li>
-				<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
-							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>通知中心</span><span
-						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-										<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
-							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>系統通知</span><span
-						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-										<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
-							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>課程問與答</span><span
-						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-									<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
-							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>私人訊息</span><span
-						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-user pe-2" style="color: #ffffff"></i>商務中心</a></li>
-						<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-user pe-2" style="color: #ffffff"></i>購物車</a></li>
-			</ul>
+		  <div class="sidebar" id="side_nav">
+   <div
+    class="header-box ms-2 px-2 pt-3 pb-4 d-flex justify-content-between">
+    <h1 class="fs-4">
+     <span class="bg-white text-dark rounded shadow px-2 me-2">S</span><span
+      class="text-white me-2">mart</span>
+    </h1>
+    <button class="btn d-md-none d-block close-btn px-1 py-0 text-white">
+     <i class="fa-solid fa-bars-staggered"></i>
+    </button>
+   </div>
+   <ul class="list-unstyled px-2">
+    <li class=""><a
+     href="<c:url value="/studentIndex"></c:url>#"
+     class="text-decoration-none px-3 py-2 d-block"><i
+      class="fa-solid fa-chart-line pe-2" style="color: #ffffff"></i>儀錶板</a>
+    </li>
+    <li class=""><a href="<c:url value="/studentCourseList"></c:url>#"
+     class="text-decoration-none px-3 py-2 d-block"><i
+      class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>課程中心</a></li>
+    <li class=""><a href="<c:url value="/studentCourseList"></c:url>#"
+     class="text-decoration-none px-3 py-2 d-block"><i
+      class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>進行中課程</a></li>
+    <li class=""><a href="<c:url value="/studentCourseList"></c:url>#"
+     class="text-decoration-none px-3 py-2 d-block"><i
+      class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>已完成課程</a></li>
+    <li class=""><a href="<c:url value="/studentNotification"></c:url>#"
+     class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
+       class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>通知中心</span><span
+      class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
+    <li class=""><a href="<c:url value="/studentNotification"></c:url>#"
+     class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
+       class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>系統通知</span><span
+      class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
+    <li class=""><a href="<c:url value="/studentNotificationQA"></c:url>#"
+     class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
+       class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>課程問與答</span><span
+      class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
+    <li class=""><a href="<c:url value="/studentNotificationMessage"></c:url>#"
+     class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
+       class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>私人訊息</span><span
+      class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
+    <li class=""><a href="<c:url value="/cartServicePage"></c:url>#"
+     class="text-decoration-none px-3 py-2 d-block"><i
+      class="fa-solid fa-user pe-2" style="color: #ffffff"></i>商務中心</a></li>
+    <li class=""><a href="<c:url value="/cartServicePage"></c:url>#"
+     class="text-decoration-none px-3 py-2 d-block"><i
+      class="fa-solid fa-user pe-2" style="color: #ffffff"></i>購物車</a></li>
+   </ul>
 			<hr class="h-color mx-2">
 			<ul class="list-unstyled px-2">
 				<li class="" style="background-color:#d9edfa"><a
@@ -171,36 +178,40 @@
 				</div>
 			</nav>
 
-			<div class="dashboard-content px-3 pt-4">
-				<h2 class="fs-5">安全性頁面</h2>
-						
+			<div class="dashboard-content px-3 my-3">
+				${member.account}
+				<h2>安全性頁面</h2>
+						<hr>
 							<div>
 								<form>
-									<div class="mb-3">
-										<label for="exampleInputEmail1" class="form-label">電子郵件：</label>
-										<input type="email" class="form-control"
-											id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="您的電子郵件地址是XXX@gmail.com">
-										<div id="emailHelp" class="form-text">We'll never share
-											your email with anyone else.</div>
-									</div>
-							</div>
-							<div class="mb-3">
+						<div class="row">
+						<div class="col-4"></div>
+							<div class="col-4 mb-3">
 								<label for="exampleInputPassword1" class="form-label"></label> <input
 									type="password" class="form-control" id="exampleInputPassword1"
 									placeholder="輸入目前密碼">
+							
 							</div>
-							<div class="mb-3">
+							</div>
+							<div class="row">
+						<div class="col-4"></div>
+							<div class="col-4 mb-3">
 								<label for="exampleInputPassword1" class="form-label"></label> <input
 									type="password" class="form-control" id="exampleInputPassword1"
 									placeholder="輸入新的密碼">
 							</div>
-
-							<div class="mb-3">
+							</div>
+							<div class="row">
+						<div class="col-4"></div>
+							<div class="col-4 mb-3">
 								<label for="exampleInputPassword1" class="form-label"></label> <input
 									type="password" class="form-control" id="exampleInputPassword1"
 									placeholder="確認新的密碼">
 							</div>
-							<button type="submit" class="btn btn-primary">儲存</button>
+							</div>
+                              <div class="d-flex justify-content-center">
+                                   <button class="btn btn-primary btn-sm" type="submit">儲存設定</button> 
+                              </div>
 							</form>
 						</div>
 					</div>
