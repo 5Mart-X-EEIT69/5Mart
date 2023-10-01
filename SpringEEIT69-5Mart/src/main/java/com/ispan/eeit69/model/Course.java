@@ -58,7 +58,7 @@ public class Course implements Serializable {
     		@JoinColumn(name = "member_id", referencedColumnName = "id")
     }
 	)
-	private Set<member> member = new LinkedHashSet<member>();
+	private Set<member> buyByMember = new LinkedHashSet<member>();
 	
 	@ManyToOne()
 	@JoinColumn(name = "teacher_id")
@@ -69,21 +69,7 @@ public class Course implements Serializable {
 
 
 
-	public Course(String title, String introduction, Clob photo, Integer price, String level, String sort,
-			Timestamp registerTime, Announcement announcement, Set<Chapter> chapter,
-			Set<com.ispan.eeit69.model.member> member, com.ispan.eeit69.model.member teacher) {
-		this.title = title;
-		this.introduction = introduction;
-		this.photo = photo;
-		this.price = price;
-		this.level = level;
-		this.sort = sort;
-		this.registerTime = registerTime;
-		this.announcement = announcement;
-		this.chapter = chapter;
-		this.member = member;
-		this.teacher = teacher;
-	}
+
 
 
 
@@ -153,13 +139,13 @@ public class Course implements Serializable {
 		return SystemService.clobToString(photo);
 	}
 
-	public Set<member> getMember() {
-		return member;
+	public Set<member> getBuyByMember() {
+		return buyByMember;
 	}
 
-	public void setMember(Set<member> member) {
-		this.member = member;
-	}	
+	public void setBuyByMember(Set<member> buyByMember) {
+		this.buyByMember = buyByMember;
+	}
 
 	public member getTeacher() {
 		return teacher;
@@ -181,12 +167,21 @@ public class Course implements Serializable {
 
 
 
+
+
+
+
 	@Override
 	public String toString() {
 		return "Course [id=" + id + ", title=" + title + ", introduction=" + introduction + ", photo=" + photo
 				+ ", price=" + price + ", level=" + level + ", sort=" + sort + ", registerTime=" + registerTime
-				+ ", chapter=" + chapter + ", member=" + member + "]";
+				+ ", announcement=" + announcement + ", chapter=" + chapter + ", buyByMember=" + buyByMember
+				+ ", teacher=" + teacher + "]";
 	}
+
+
+
+
 	
 
 	

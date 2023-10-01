@@ -1,11 +1,15 @@
 package com.ispan.eeit69.model;
 
 import java.io.Serializable;
+import java.sql.Blob;
 import java.sql.Timestamp;
+import java.util.Base64;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 import org.springframework.web.multipart.MultipartFile;
+
+import com.ispan.eeit69.utils.SystemService;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -50,7 +54,7 @@ public class member implements Serializable {
     		@JoinColumn(name = "course_id", referencedColumnName = "id")
     }
     )
-    private Set<Course> course = new LinkedHashSet<Course>();
+    private Set<Course> buyCourses = new LinkedHashSet<Course>();
 
 
     @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
@@ -127,13 +131,15 @@ public class member implements Serializable {
 		TeacherPicture = teacherPicture;
 	}
 
-	public Set<Course> getCourse() {
-		return course;
+
+
+	public Set<Course> getBuyCourses() {
+		return buyCourses;
 	}
 
-	public void setCourse(Set<Course> course) {
-		this.course = course;
-	}	
+	public void setBuyCourses(Set<Course> buyCourses) {
+		this.buyCourses = buyCourses;
+	}
 
 	public Set<Course> getCreateCourse() {
 		return createCourse;
@@ -161,6 +167,18 @@ public class member implements Serializable {
 		this.memberMultipartFile = memberMultipartFile;
 	}
 
+	public String getDataUri() throws Exception {
+		if(TeacherPicture!=null) {
+			Blob photo = TeacherPicture.getPhoto();
+			byte[] photoByte = photo.getBytes(1, (int)photo.length());
+			String base64Photo = Base64.getEncoder().encodeToString(photoByte);			
+			return base64Photo;
+		}else {
+			return null;
+		}
+		
+	}
+	
 	@Override
 	public String toString() {
 		return "member [id=" + id + ", username=" + username + ", account=" + account + ", password=" + password

@@ -103,6 +103,7 @@ public class HomeController {
 		model.addAttribute("courseData",course);
 		Chapter chapter = chapterService.findById(intId);
 		model.addAttribute("chapter",chapter);
+		System.out.println("重新整理");
 		return "courseDetail";
 	}
 
