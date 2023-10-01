@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -11,18 +10,9 @@
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <!-- jquery -->
 <!-- bootstrap -->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-	crossorigin="anonymous">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-	crossorigin="anonymous"></script>
-<link rel='stylesheet'
-	href="<c:url value="/assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css"/>"
-	type="text/css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<link rel='stylesheet' href="<c:url value="/assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css"/>" type="text/css" />
 <!-- bootstrap -->
 <style>
 .navbar-nav .nav-link {
@@ -85,12 +75,13 @@
 
 
 <body>
-	<nav class="navbar"
-		style="background-color: #ffffff; box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);">
+	<nav class="navbar" style="background-color: #ffffff; box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#">5MART</a>
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item"><a class="nav-link" href="#">取消</a></li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">取消</a>
+				</li>
 			</ul>
 		</div>
 	</nav>
@@ -111,25 +102,17 @@
 
 
 
-					<div class="accordion" id="accordionFlushExample"
-						style="width: 350px">
+					<div class="accordion" id="accordionFlushExample" style="width: 350px">
 						<div class="accordion-item">
 							<h2 class="accordion-header" id="headingOne">
-								<button class="accordion-button collapsed" type="button"
-									data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
-									aria-expanded="false" aria-controls="flush-collapseOne">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
 									<div class="form-check">
-										<input class="form-check-input" type="radio"
-											name="flexRadioDefault" id="flexRadioDefault1"> <label
-											class="form-check-label" for="flexRadioDefault1"> <i
-											class="bi bi-credit-card-2-back"></i> 信用卡
+										<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"> <label class="form-check-label" for="flexRadioDefault1"> <i class="bi bi-credit-card-2-back"></i> 信用卡
 										</label>
 									</div>
 								</button>
 							</h2>
-							<div id="flush-collapseOne" class="accordion-collapse collapse"
-								aria-labelledby="flush-headingOne"
-								data-bs-parent="#accordionFlushExample">
+							<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
 									<div class="row">
 										<div clas="col">持卡人姓名</div>
@@ -138,8 +121,7 @@
 									<div class="row">
 										<div class="col">
 											<div class="input-group mb-3">
-												<input type="text" class="form-control" placeholder="持卡人姓名"
-													aria-label="Username" aria-describedby="basic-addon1">
+												<input type="text" class="form-control" placeholder="持卡人姓名" aria-label="Username" aria-describedby="basic-addon1">
 											</div>
 										</div>
 									</div>
@@ -151,9 +133,7 @@
 									<div class="row">
 										<div class="col">
 											<div class="input-group mb-3">
-												<input type="text" id="creditCardInput" class="form-control"
-													placeholder="1234 5678 9123 4567" aria-label="Cardnumber"
-													aria-describedby="basic-addon2" maxlength="19">
+												<input type="text" id="creditCardInput" class="form-control" placeholder="1234 5678 9123 4567" aria-label="Cardnumber" aria-describedby="basic-addon2" maxlength="19">
 											</div>
 											<script>
 												// 获取输入字段
@@ -202,9 +182,7 @@
 
 									<div class="row">
 										<div class="col-6">
-											<input type="text" class="form-control" placeholder="月月/年年"
-												aria-label="Date" aria-describedby="basic-addon3"
-												id="expiryDate" maxlength="7">
+											<input type="text" class="form-control" placeholder="月月/年年" aria-label="Date" aria-describedby="basic-addon3" id="expiryDate" maxlength="7">
 
 											<script>
 												const expiryDateInput = document
@@ -247,9 +225,7 @@
 
 										</div>
 										<div class="col-6">
-											<input type="text" class="form-control" placeholder="CVC"
-												aria-label="CVC" aria-describedby="basic-addon4"
-												maxlength="3">
+											<input type="text" class="form-control" placeholder="CVC" aria-label="CVC" aria-describedby="basic-addon4" maxlength="3">
 										</div>
 									</div>
 
@@ -258,21 +234,14 @@
 						</div>
 						<div class="accordion-item">
 							<h2 class="accordion-header" id="flush-headingTwo">
-								<button class="accordion-button collapsed" type="button"
-									data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
-									aria-expanded="false" aria-controls="flush-collapseTwo">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
 									<div class="form-check">
-										<input class="form-check-input" type="radio"
-											name="flexRadioDefault" id="flexRadioDefault2"> <label
-											class="form-check-label" for="flexRadioDefault2"> <i
-											class="bi bi-coin"></i> 轉帳
+										<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"> <label class="form-check-label" for="flexRadioDefault2"> <i class="bi bi-coin"></i> 轉帳
 										</label>
 									</div>
 								</button>
 							</h2>
-							<div id="flush-collapseTwo" class="accordion-collapse collapse"
-								aria-labelledby="flush-headingTwo"
-								data-bs-parent="#accordionFlushExample">
+							<div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
 								<div class="accordion-body">
 									<div class="row">
 										<div class="rol">轉帳銀行：822</div>
@@ -292,15 +261,17 @@
 
 
 					<br>
-					<h4 style="font-weight: bold;">訂單詳細資料</h4>
+					<h4 style="font-weight: bold">訂單詳細資料</h4>
 					<br>
 					<div class="row">
-						<div class="col-1">
-							<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖002.jpg"
-								width="50" height="50" />
+						<div class="col-2">
+							<img src="${course.dataUri}" width="50" height="50" />
 						</div>
-						<div class="col-6">JSP, Servlets and JDBC for Beginners</div>
-						<div class="col-1">$330</div>
+						<div class="col-7">
+							<div>${course.title}</div>
+							<div>${course.teacher.username}</div>
+						</div>
+						<div class="col-3">$ ${course.price}</div>
 
 					</div>
 
@@ -313,7 +284,7 @@
 
 					<div class="row">
 						<div class="col-4">金額：</div>
-						<div class="col-4">$330</div>
+						<div class="col-4">$ ${course.price}</div>
 					</div>
 
 					<br>
@@ -331,7 +302,7 @@
 
 					<div class="row" style="font-weight: bold;">
 						<div class="col-4">總計：</div>
-						<div class="col-4">$330</div>
+						<div class="col-4">$ ${course.price}</div>
 					</div>
 
 					<br>

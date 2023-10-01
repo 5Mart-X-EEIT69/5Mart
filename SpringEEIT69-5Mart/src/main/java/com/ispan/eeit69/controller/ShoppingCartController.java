@@ -68,7 +68,7 @@ public class ShoppingCartController {
 	
 
 	@GetMapping("/removefromcart")
-	public ResponseEntity<Map<String, Object>> removeFromCart(@RequestParam("id") String id, Model model) {
+	public ResponseEntity<Map<String, Object>> removeFromCart(@RequestParam("id") String id) {
 		System.out.println("刪除的id值= " + id);
 		ShoppingCart cart = (ShoppingCart) httpSession.getAttribute("ShoppingCart");
 		Integer intId = Integer.parseInt(id);
@@ -88,7 +88,13 @@ public class ShoppingCartController {
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 	
-	
+	@GetMapping("/buyone")
+	public String buyOne(@RequestParam("id") String id, Model model) {
+		Integer intId = Integer.parseInt(id);
+		Course course = courseService.findById(intId);
+		model.addAttribute("course", course);
+		return "check";
+	}
 	
 	
 }
