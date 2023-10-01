@@ -33,60 +33,67 @@
     </head>
     <body>
         <div class="main-container d-flex">
-            <div class="sidebar" id="side_nav">
-                <div class="header-box ms-2 px-2 pt-3 pb-4 d-flex justify-content-between">
-                    <h1 class="fs-4"> <span class="bg-white text-dark rounded shadow px-2 me-2">5</span><span class="text-white me-2">mart</span> </h1>
-                    <button class="btn d-md-none d-block close-btn px-1 py-0 text-white"><i class="fa-solid fa-bars-staggered"></i>
-                    </button>
-                </div>
-                <ul class="list-unstyled px-2">
-				<li class=""><a href="#"
+		<div class="sidebar" id="side_nav">
+			<div
+				class="header-box ms-2 px-2 pt-3 pb-4 d-flex justify-content-between">
+				<h1 class="fs-4">
+					<span class="bg-white text-dark rounded shadow px-2 me-2">S</span><span
+						class="text-white me-2">mart</span>
+				</h1>
+				<button class="btn d-md-none d-block close-btn px-1 py-0 text-white">
+					<i class="fa-solid fa-bars-staggered"></i>
+				</button>
+			</div>
+			<ul class="list-unstyled px-2">
+				<li class=""><a
+					href="<c:url value="/studentIndex"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-chart-line pe-2" style="color: #ffffff"></i>儀錶板</a>
 				</li>
-				<li class=""><a href="#"
+				<li class=""><a href="<c:url value="/studentCourseList"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>課程中心</a></li>
-				<li class=""><a href="#"
+				<li class=""><a href="<c:url value="/studentCourseList"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>進行中課程</a></li>
-										<li class=""><a href="#"
+				<li class=""><a href="<c:url value="/studentCourseList"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>已完成課程</a></li>
-				<li class=""><a href="#"
+				<li class=""><a href="<c:url value="/studentNotification"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
 							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>通知中心</span><span
 						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-										<li class=""><a href="#"
+				<li class=""><a href="<c:url value="/studentNotification"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
 							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>系統通知</span><span
 						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-										<li class=""><a href="#"
+				<li class=""><a href="<c:url value="/studentNotificationQA"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
 							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>課程問與答</span><span
 						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-									<li class=""><a href="#"
+				<li class=""><a href="<c:url value="/studentNotificationMessage"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
 							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>私人訊息</span><span
 						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a href="#"
+				<li class="active"><a href="<c:url value="/cartServicePage"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-user pe-2" style="color: #ffffff"></i>商務中心</a></li>
-						<li class=""><a href="#"
+				<li class="active"><a href="<c:url value="/cartServicePage"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-user pe-2" style="color: #ffffff"></i>購物車</a></li>
 			</ul>
 			<hr class="h-color mx-2">
+
 			<ul class="list-unstyled px-2">
-				<li class="" style="background-color:#d9edfa"><a
+				<li class="" ><a
 					href="<c:url value="/profileSettingPage"></c:url>#"
-					class="text-decoration-underline px-3 py-2 d-block"><i
+					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>設定</a></li>
 			</ul>
 			<ul class="list-unstyled px-2">
-				<li class="" style="background-color:#405d9c"><a
+				<li class="" ><a
 					href="<c:url value="/profileSettingPage"></c:url>#"
-					class="text-decoration-underline px-3 py-2 d-block"><i
+					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>個人資料設定</a></li>
 			</ul>
 			<ul class="list-unstyled px-2">
@@ -113,14 +120,13 @@
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>付款資訊</a></li>
 			</ul>
-
 			<ul class="list-unstyled px-2">
 				<li class=""><a
 					href="<c:url value="/deactivateSettingPage"></c:url>#"
 					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>停用帳號</a></li>
 			</ul>
-            </div>
+		</div>
             <div class="content">
                 <nav class="navbar navbar-expand-md navbar-light bg-light">
                     <div class="container-fluid">
