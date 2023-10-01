@@ -80,18 +80,6 @@ public class HomeController {
 //		return "memberHomePage";
 //	}
 
-//	@GetMapping("/visitorhomepage2")
-//	public String visitorhomepage2(Model model) {
-//		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
-//		return "visitorHomePage2";
-//	}
-
-//	@GetMapping("/indextest2")
-//	public String indextest2(Model model) {
-//		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
-//		return "indextest2";
-//	}
-
 //	@GetMapping("/visitorsearchpage")
 //	public String visitorsearchpage(Model model) {
 //		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
@@ -115,6 +103,7 @@ public class HomeController {
 		model.addAttribute("courseData",course);
 		Chapter chapter = chapterService.findById(intId);
 		model.addAttribute("chapter",chapter);
+		System.out.println("重新整理");
 		return "courseDetail";
 	}
 
@@ -144,14 +133,5 @@ public class HomeController {
 		return "teacherNavBar";
 	}
 	
-	@GetMapping("/searchsort")
-	public String searchsort(@RequestParam("sort") String sort, Model model) {
-		System.out.println(sort);
-		model.addAttribute("keyword",sort);
-		List<Course> result = courseService.findBySort(sort);
-		model.addAttribute("keywordResult",result);
-		
-		return "visitorSearchPage";
-	}
 
 }

@@ -10,12 +10,14 @@ import java.util.Base64;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 import javax.sql.rowset.serial.SerialBlob;
 import javax.sql.rowset.serial.SerialClob;
 import javax.sql.rowset.serial.SerialException;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,6 +28,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -355,7 +358,7 @@ public class TeacherController {
 	}// 跳轉至講師資料帳戶頁面
 
 	@PostMapping("/submitCourse")
-	public String createCourses(@RequestBody JsonNode formData, Model model, @ModelAttribute("preCourse") Course course)
+	public ResponseEntity<Integer> createCourses(@RequestBody JsonNode formData, Model model, @ModelAttribute("preCourse") Course course)
 			throws SerialException, SQLException {
 		member member = (member) session.getAttribute("member");
 		if (member != null) {
@@ -405,35 +408,98 @@ public class TeacherController {
 			}
 			// 課程跟章節單元做一對多連接
 
-			System.out.println("---videoStart---");
-			JsonNode videoArray = formData.get("video");
-			int[] unitCount = { 0 };// 將 unitCount 定義為陣列，陣列是指向記憶體位置。
-			videoArray.fields().forEachRemaining(entry -> {
-				String attributeName = entry.getKey();
-				JsonNode attributeValue = entry.getValue();
-				System.out.println(attributeName + ": " + attributeValue.asText());
-				Video video = new Video();
-				video.setUnit(unitTemp.get(unitCount[0]++));
-				char[] videoValue = attributeValue.asText().toCharArray();
-				try {
-					Clob videoClob = new SerialClob(videoValue);
-					video.setVideoValue(videoClob);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				video.setVideoNumber(attributeName);
-				String name = video.getUnit().getUnitName();
-				video.setVideoName(name + "_" + attributeName.substring(7));
-				videoService.save(video);
-			});
-			// 單元跟影片做一對多連接(目前@標籤是寫一對多，實際上只有一對一，懶得改@標籤)
-			System.out.println("run");
-			System.out.println("---videoEnd---");// 目前影片上傳資料庫很慢是個隱憂，有機會要解決
-			return "/TeacherCourse/TeacherCourseList";
-		} else {
-			return "redirect:/homepage";
+
+//			System.out.println("---videoStart---");
+//			JsonNode videoArray = formData.get("video");
+//			JsonNode videoName = formData.get("videoName");
+//			System.out.println("videoArray : " + videoArray.size());
+//			System.out.println("videoName : " + videoName.size());
+//			Iterator<JsonNode> videoNameIterator = videoName.iterator();				
+//			int[] unitCount = { 0 };// 將 unitCount 定義為陣列，陣列是指向記憶體位置。
+//			videoArray.fields().forEachRemaining(entry -> {
+//				String attributeName = entry.getKey();
+//				JsonNode attributeValue = entry.getValue();
+//				System.out.println(attributeName + ": " + attributeValue.asText());
+//				Video video = new Video();
+//				video.setUnit(unitTemp.get(unitCount[0]++));
+//				System.out.println(attributeValue);
+//				if(attributeValue.asText()!="") {
+//					byte[] videoValue = Base64.getDecoder().decode(attributeValue.asText().split(",")[1]);
+//					System.out.println(videoValue);
+//					try {
+//						Blob videoBlob = new SerialBlob(videoValue);
+//						video.setVideoData(videoBlob);
+//						System.out.println("TEST");
+//					} catch (Exception e) {
+//						System.out.println("影片上傳失敗！");
+//						e.printStackTrace();
+//					}//影片處理					
+//				}
+//				
+//				video.setVideoNumber(attributeName);//影片章節單元
+//				
+//				if(videoNameIterator.hasNext()) {
+//					video.setVideoName(videoNameIterator.next().asText());//影片名稱					
+//				}
+//				String uuid = UUID.randomUUID().toString();
+//				video.setUuid(uuid);//設置Uuid
+//				videoService.save(video);
+//				System.out.println("影片上傳成功！，產生的UUID 是：" + uuid);
+//			});
+//			//單元跟影片做一對多連接(目前@標籤是寫一對多，實際上只有一對一，懶得改@標籤)
+//			System.out.println("run");
+//			System.out.println("---videoEnd---");// 目前影片上傳資料庫很慢是個隱憂，有機會要解決
+			return new ResponseEntity<Integer>(course.getId(),HttpStatus.OK);		
+		}else {
+			return new ResponseEntity<Integer>(0,HttpStatus.NOT_FOUND) ;
+
+
 		}
 	}
+	
+	@PostMapping(value =  "/createCourseVideo" , consumes = {"multipart/form-data"})
+	public ResponseEntity<String> createCourseVideo(
+			@RequestPart("videos") List<MultipartFile> videos,
+			@RequestParam("courseId") Integer courseId,
+			@RequestParam("chapterAndUnitNumber") List<String> chapterAndUnitNumber) throws SerialException, SQLException, IOException {
+		member member = (member) session.getAttribute("member");
+		if(member != null) {
+			System.out.println(courseId);
+			System.out.println("接收到的字串數量：" + chapterAndUnitNumber.size());
+			System.out.println("接收到的檔案數量：" + videos.size());
+			Course course =courseService.findById(courseId);
+			Set<Chapter> chapters = course.getChapter();
+			List<Chapter> chapterList = new ArrayList<Chapter>(chapters);
+			Iterator<MultipartFile> videoDataIterator = videos.iterator();
+			for(String cuNumber :chapterAndUnitNumber) {
+				System.out.println("---videoStart---");
+				Integer cnumber =Integer.valueOf(cuNumber.substring(7, cuNumber.indexOf("-")));
+				Integer unumber =Integer.valueOf(cuNumber.substring(cuNumber.indexOf("-")+1));
+				System.out.println("cnumber: " + cnumber + "unumber: " + unumber);
+				Set<Unit> units =chapterList.get(cnumber-1).getUnit();
+				List<Unit> unitList = new ArrayList<Unit>(units);
+				MultipartFile videofile = videoDataIterator.next();
+				Blob videoDataBlob = new SerialBlob(videofile.getBytes());
+				Unit unit = unitList.get(unumber-1);
+				Video video = new Video();
+				video.setUnit(unit);
+				video.setVideoData(videoDataBlob);
+				String uuid = UUID.randomUUID().toString();
+				video.setUuid(uuid);
+				video.setVideoName(videofile.getOriginalFilename());
+				video.setVideoNumber(cuNumber);
+				videoService.save(video);
+				System.out.println("影片上傳成功！，產生的UUID 是：" + uuid);
+				System.out.println("---videoEnd---");
+			}
+			
+
+			return new ResponseEntity<>("完成",HttpStatus.OK); 
+		}else {
+			return new ResponseEntity<>("會員尚未登入",HttpStatus.NOT_FOUND);
+		}
+	}
+	
 
 	@PutMapping("/TeacherUpdateCourse")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)

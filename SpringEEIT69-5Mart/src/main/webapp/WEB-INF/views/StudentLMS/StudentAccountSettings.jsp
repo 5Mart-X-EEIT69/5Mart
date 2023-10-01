@@ -461,7 +461,7 @@
 											data-bs-parent="#accordionFlushExample">
 											<div class="accordion-body">
 												<div class="row">
-													<div clas="col">持卡人姓名</div>
+													<div class="col">持卡人姓名</div>
 												</div>
 												<div class="row">
 													<div class="col">

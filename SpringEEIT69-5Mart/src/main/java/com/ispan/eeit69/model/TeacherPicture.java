@@ -2,6 +2,8 @@ package com.ispan.eeit69.model;
 
 import java.sql.Blob;
 
+import com.ispan.eeit69.utils.SystemService;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -53,6 +55,10 @@ public class TeacherPicture {
 	public void setPhoto(Blob photo) {
 		this.photo = photo;
 	}
+	
+//	public String getDataUri() throws Exception {
+//		return photo.;
+//	}
 
 	@Override
 	public String toString() {
