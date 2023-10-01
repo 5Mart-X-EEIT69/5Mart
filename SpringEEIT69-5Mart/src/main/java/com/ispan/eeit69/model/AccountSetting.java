@@ -1,43 +1,28 @@
-package com.ispan.eeit69.model;
-
 import java.io.Serializable;
-import java.sql.Timestamp;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
-import org.springframework.web.multipart.MultipartFile;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
-import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
-
 
 @Entity
-public class AccountSetting {
+@Table(name="AccountSetting_5Mart")
+public class AccountSetting implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     @Id
-    private Long id;
-    private Integer uid;
-    private boolean isInfoPublic; // 是否對外公開資訊
-    // ... 其他設定
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer settingId;
 
-    @OneToOne(mappedBy = "setting")
-    private member member;
+    private String preferredLanguage; // 希望的網頁語言
+    private Boolean showRealName;     // 是否對外顯示真實姓名
+
+    @OneToOne()
+    @JoinColumn(name = "member_id")
+    private member member; // 對應的 member
+
+    // getters and setters
 }
-
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "setting_id", referencedColumnName = "id")
-//    private AccountSetting setting;
-//}
-
-
-
