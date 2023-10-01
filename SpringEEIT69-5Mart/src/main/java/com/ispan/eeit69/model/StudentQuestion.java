@@ -24,16 +24,19 @@ public class StudentQuestion {
 
 	private String QuestionText;
 	
+	//一個問題只會有一個學生提問
 	@ManyToOne
     @JoinColumn(name = "questionMember_id") 
-    private member member;
+    private member member;//OK
 	
+	//一個問題只會對應一個課程
 	@ManyToOne
     @JoinColumn(name = "course_id")
-    private Course course;
+    private Course course;//OK
 	
+	//一個問題只會有一個回復
 	@OneToOne(mappedBy = "studentQuestion", cascade = CascadeType.ALL)
-    private TeacherReply teacherReply;
+    private TeacherReply teacherReply;//OK
 
 	public StudentQuestion(Integer studentQuestionId, Timestamp studentQuestionTime, String questionText,
 			com.ispan.eeit69.model.member member, Course course, TeacherReply teacherReply) {

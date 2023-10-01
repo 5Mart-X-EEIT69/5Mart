@@ -678,7 +678,7 @@ public class TeacherController {
 
 	@PostMapping("/newTeacherReply")
 	public String newTeacherReply(Model model, @RequestParam("announcementQA") String teacherReply) {
-		member teacher = (member) session.getAttribute("member");	
+		member member = (member) session.getAttribute("member");	
 		
 		TeacherReply teacherReply1 = new TeacherReply(teacherReply);
 		

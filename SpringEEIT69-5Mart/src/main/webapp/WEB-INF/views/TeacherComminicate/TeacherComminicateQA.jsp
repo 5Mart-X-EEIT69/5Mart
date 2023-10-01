@@ -91,6 +91,7 @@
 			<hr />
 			<h4>課程總覽</h4>
 			<div class="accordion" id="accordionPanelsStayOpenExample">
+			<c:forEach var="courses" items="${course}">
 				<div class="accordion-item">
 					<h2 class="accordion-header" id="heading-${courses.id}">
 						<button class="accordion-button collapsed" type="button"
@@ -109,9 +110,9 @@
 							</div>
 						</button>
 					</h2>
-					<div id="panelsStayOpen-collapseTwo"
+					<div id="collapse-${courses.id}"
 						class="accordion-collapse collapse"
-						aria-labelledby="panelsStayOpen-headingTwo">
+						aria-labelledby="heading-${courses.id}">
 						<div class="accordion-body">
 							<div class="d-flex align-items-center flex-wrap">
 								<label class="col-1">問題</label> <label class="col-1">發問人</label>
@@ -160,6 +161,7 @@
 						</div>
 					</div>
 				</div>
+				</c:forEach>
 			</div>
 
 		</div>

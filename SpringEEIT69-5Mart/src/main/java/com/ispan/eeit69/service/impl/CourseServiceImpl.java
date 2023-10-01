@@ -131,15 +131,15 @@ public class CourseServiceImpl implements CourseService{
         }
     }
 
-	@Override
-	public void updateReplyForTeacher(Integer courseId, String TeacherReply, member teacher) {
-		Optional<Course> optionalCourse = courseRepository.findByIdAndTeacher(courseId, teacher);
+//	@Override
+//	public void updateReplyForTeacher(Integer courseId, String TeacherReply, member teacher) {
+//		Optional<Course> optionalCourse = courseRepository.findByIdAndTeacher(courseId, teacher);
 		
 //		if (optionalCourse.isPresent()) {
 //            Course course = optionalCourse.get();
 //            TeacherReply teacherReply = course.getTeacherReply();
 //		
-	}
+//	}
 
 	
 }

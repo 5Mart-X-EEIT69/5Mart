@@ -41,8 +41,9 @@ public class member implements Serializable {
     @OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
     private Introduction introduction;
     
-    @OneToMany(mappedBy = "member")
-    private Set<StudentQuestion> studentQuestion;
+    //學生可以有很多問題
+    @OneToMany(mappedBy = "member") 
+    private Set<StudentQuestion> studentQuestion;//OK
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "member_course_5mart" , 

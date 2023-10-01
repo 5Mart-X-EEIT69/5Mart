@@ -27,7 +27,7 @@ public interface CourseService {
 	 void updateAnnouncementForTeacher(Integer courseId, String content,Timestamp announcementTime,member teacher);
 	
 	 
-	 void updateReplyForTeacher(Integer courseId, String TeacherReply,member teacher);
+//	 void updateReplyForTeacher(Integer courseId, String TeacherReply,member teacher);
 	 
 	
 }
