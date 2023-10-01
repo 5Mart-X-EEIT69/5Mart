@@ -169,7 +169,7 @@ public class member implements Serializable {
 	}
 
 	public void setAccountSetting(AccountSetting accountSetting) {
-		this.accountSetting = accountSetting;
+		this.accountSetting = accountSetting; 
 	}
 
 	@Override

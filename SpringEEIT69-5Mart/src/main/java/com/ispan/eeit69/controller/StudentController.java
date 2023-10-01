@@ -71,12 +71,29 @@ public class StudentController {
 		return "/StudentLMS/studentIndex";
 	}
 	
-	@GetMapping("/studentcourselist")
+	@GetMapping("/studentCourseList")
 	public String studentcourselist(Model model) {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
-		return "/StudentLMS/studentcourselist";
+		return "/StudentLMS/CourseService/studentCourseList";
 	}
 	
+	@GetMapping("/studentNotification")
+	public String studentNotification(Model model) {
+		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		return "/StudentLMS/NotificationService/studentNotification";
+	}
+	
+	@GetMapping("/studentNotificationQA")
+	public String studentNotificationQA(Model model) {
+		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		return "/StudentLMS/NotificationService/studentNotificationQA";
+	}
+	
+	@GetMapping("/studentNotificationMessage")
+	public String studentNotificationMessage(Model model) {
+		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		return "/StudentLMS/NotificationService/studentNotificationMessage";
+	}
 	
 	@GetMapping("/cartServicePage")
 	public String cartServicePage(Model model) {
