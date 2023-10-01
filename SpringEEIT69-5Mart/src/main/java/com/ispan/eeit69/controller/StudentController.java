@@ -101,44 +101,6 @@ public class StudentController {
 		return "/StudentLMS/BusinessServices/cartServicePage";
 	}
 
-	@GetMapping("/coursePlayerPage")
-	public String coursePlayerPage(@RequestParam("id") String id, Model model) {
-		Integer intId = Integer.parseInt(id);
-		Course course = courseService.findById(intId);
-		model.addAttribute("courseData",course);
-		Chapter chapter = chapterService.findById(intId);
-		model.addAttribute("chapter",chapter);
-		return "/StudentLMS/CourseService/coursePlayerPage";
-	}
-	
-	@GetMapping("/api/videos/{uuid}")
-	public ResponseEntity<byte[]> getVideoByUUID(@PathVariable String uuid) {
-		System.out.println("Received UUID: " + uuid); // 顯示接收到的UUID
-		try {
-			DEV_Video video = devvideoService.findByUuid(uuid); // 從資料庫中獲取影片
-			if (video != null) {
-				byte[] videoData = video.getVideoData(); // 在 Video.java 中定義的方法
-
-				HttpHeaders headers = new HttpHeaders();
-				headers.setContentType(MediaType.valueOf("video/mp4")); // 設置正確的 MIME 類型
-				System.out.println("ok");
-                return new ResponseEntity<>(videoData, headers, HttpStatus.OK);
-			} else {
-				System.out.println("error");
-				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-			}
-		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
-
-	// 開發測試用區域
-	
-	@GetMapping("/Player")
-	public String Player(Model model) {
-		return "/StudentLMS/DevelopmentFolder/Player";
-	}
-	
 
 	// 翔哥處理中的部分
 	
@@ -214,7 +176,9 @@ public class StudentController {
 			return "redirect:/homepage";
 		}
 
-	}// 跳轉至講師資料照片頁面
+	}
+	
+	// 跳轉至講師資料照片頁面
 	
 	@GetMapping("/deactivateSettingPage")
 	public String deactivateSettingPage(Model model) {
@@ -241,5 +205,47 @@ public class StudentController {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
 		return "/StudentLMS/SettingsService/safetySettingPage";
 	}
+	
+	//開發用的方法
+
+	@GetMapping("/coursePlayerPage")
+	public String coursePlayerPage(@RequestParam("id") String id, Model model) {
+		Integer intId = Integer.parseInt(id);
+		Course course = courseService.findById(intId);
+		model.addAttribute("courseData",course);
+		Chapter chapter = chapterService.findById(intId);
+		model.addAttribute("chapter",chapter);
+		return "/StudentLMS/CourseService/coursePlayerPage";
+	}
+	
+	@GetMapping("/api/videos/{uuid}")
+	public ResponseEntity<byte[]> getVideoByUUID(@PathVariable String uuid) {
+		System.out.println("Received UUID: " + uuid); // 顯示接收到的UUID
+		try {
+			DEV_Video video = devvideoService.findByUuid(uuid); // 從資料庫中獲取影片
+			if (video != null) {
+				byte[] videoData = video.getVideoData(); // 在 Video.java 中定義的方法
+
+				HttpHeaders headers = new HttpHeaders();
+				headers.setContentType(MediaType.valueOf("video/mp4")); // 設置正確的 MIME 類型
+				System.out.println("ok");
+                return new ResponseEntity<>(videoData, headers, HttpStatus.OK);
+			} else {
+				System.out.println("error");
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			}
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	// 開發測試用區域
+	
+	@GetMapping("/Player")
+	public String Player(Model model) {
+		return "/StudentLMS/DevelopmentFolder/Player";
+	}
+
+
 }
 

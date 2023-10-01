@@ -1,3 +1,10 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -59,52 +66,55 @@
 
 <body>
 	<div class="main-container d-flex">
-		<div class="sidebar" id="side_nav">
-			<div class="header-box ms-2 px-2 pt-3 pb-4 d-flex justify-content-between">
-				<h1 class="fs-4">
-					<span class="bg-white text-dark rounded shadow px-2 me-2">S</span><span class="text-white me-2">mart</span>
-				</h1>
-				<button class="btn d-md-none d-block close-btn px-1 py-0 text-white">
-					<i class="fa-solid fa-bars-staggered"></i>
-				</button>
-			</div>
-			<ul class="list-unstyled px-2">
-				<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-chart-line pe-2" style="color: #ffffff"></i>儀錶板</a>
-				</li>
-				<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>課程中心</a></li>
-				<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>進行中課程</a></li>
-										<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>已完成課程</a></li>
-				<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
-							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>通知中心</span><span
-						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-										<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
-							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>系統通知</span><span
-						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-										<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
-							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>課程問與答</span><span
-						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-									<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
-							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>私人訊息</span><span
-						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-user pe-2" style="color: #ffffff"></i>商務中心</a></li>
-						<li class=""><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-user pe-2" style="color: #ffffff"></i>購物車</a></li>
-			</ul>
+  <div class="sidebar" id="side_nav">
+   <div
+    class="header-box ms-2 px-2 pt-3 pb-4 d-flex justify-content-between">
+    <h1 class="fs-4">
+     <span class="bg-white text-dark rounded shadow px-2 me-2">S</span><span
+      class="text-white me-2">mart</span>
+    </h1>
+    <button class="btn d-md-none d-block close-btn px-1 py-0 text-white">
+     <i class="fa-solid fa-bars-staggered"></i>
+    </button>
+   </div>
+   <ul class="list-unstyled px-2">
+    <li class=""><a
+     href="<c:url value="/studentIndex"></c:url>#"
+     class="text-decoration-none px-3 py-2 d-block"><i
+      class="fa-solid fa-chart-line pe-2" style="color: #ffffff"></i>儀錶板</a>
+    </li>
+    <li class=""><a href="<c:url value="/studentCourseList"></c:url>#"
+     class="text-decoration-none px-3 py-2 d-block"><i
+      class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>課程中心</a></li>
+    <li class=""><a href="<c:url value="/studentCourseList"></c:url>#"
+     class="text-decoration-none px-3 py-2 d-block"><i
+      class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>進行中課程</a></li>
+    <li class=""><a href="<c:url value="/studentCourseList"></c:url>#"
+     class="text-decoration-none px-3 py-2 d-block"><i
+      class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>已完成課程</a></li>
+    <li class=""><a href="<c:url value="/studentNotification"></c:url>#"
+     class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
+       class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>通知中心</span><span
+      class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
+    <li class=""><a href="<c:url value="/studentNotification"></c:url>#"
+     class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
+       class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>系統通知</span><span
+      class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
+    <li class=""><a href="<c:url value="/studentNotificationQA"></c:url>#"
+     class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
+       class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>課程問與答</span><span
+      class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
+    <li class=""><a href="<c:url value="/studentNotificationMessage"></c:url>#"
+     class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
+       class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>私人訊息</span><span
+      class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
+    <li class=""><a href="<c:url value="/cartServicePage"></c:url>#"
+     class="text-decoration-none px-3 py-2 d-block"><i
+      class="fa-solid fa-user pe-2" style="color: #ffffff"></i>商務中心</a></li>
+    <li class=""><a href="<c:url value="/cartServicePage"></c:url>#"
+     class="text-decoration-none px-3 py-2 d-block"><i
+      class="fa-solid fa-user pe-2" style="color: #ffffff"></i>購物車</a></li>
+   </ul>
 			<hr class="h-color mx-2">
 			<ul class="list-unstyled px-2">
 				<li class="" style="background-color:#d9edfa"><a
@@ -171,43 +181,51 @@
 				</div>
 			</nav>
 
-			<div class="dashboard-content px-3 pt-4">
-				<h2 class="fs-5">個人資訊頁面</h2>
-				<!--<p>這裡可以填入內容</p>-->
-
-                                        <div class="row g-3">
-                                            <div class="col-sm-6">
-                                                <label for="firstName" class="form-label">名稱</label>
-                                                <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-                                                <div class="invalid-feedback">
-                                                    Valid first name is required.
-        </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <label for="lastName" class="form-label">姓氏</label>
-                                                <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-                                                <div class="invalid-feedback">
-                                                    Valid last name is required.
-        </div>
-                                            </div>
-                                            <div class="col-12">
+			<div class="text-align: center; px-3 my-3">
+				${member.account}
+				<h2>個人資訊頁面</h2>
+      						<hr>
+				
+										<div class="row">
+											<div class="col-4"></div>
+                                            <div class="col-4">
                                                 <label for="username" class="form-label">使用者名稱</label>
                                                 <div class="input-group"><span class="input-group-text">@</span>
-                                                    <input type="text" class="form-control" id="username" placeholder="Username" required="">
+                                                	<c:forEach var="email" items="${member.account}">
+                                                    <input type="text" class="form-control" id="username" placeholder="${email.split('@')[0]}" required="">
+													</c:forEach>
                                                     <div class="invalid-feedback">
                                                         Your username is required.
         </div>
                                                 </div>
                                             </div>
-                                            <div class="col-12">
+
+                                            </div>
+                                            <div class="row">
+											<div class="col-4"></div>
+
+                                            <div class="col-4 mt-3">
                                                 <label for="email" class="form-label">Email <span class="text-muted">(必填)</span>
                                                 </label>
-                                                <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                                                <input type="email" class="form-control" id="email" placeholder="${member.account}">
                                                 <div class="invalid-feedback">
                                                     Please enter a valid email address for shipping updates.
         </div>
                                             </div>
-                                            <div class="col-12">
+                                            </div>
+                                            <div class="row">
+											<div class="col-4"></div>
+                                             <div class="col-4 mt-3">
+                                                <label for="firstName" class="form-label">真實姓名</label>
+                                                <input type="text" class="form-control" id="firstName" placeholder="${member.username}" value="" required="">
+                                                <div class="invalid-feedback">
+                                                    Valid first name is required.
+        </div>
+                                            </div>
+                                            </div>
+     										<div class="row">
+											<div class="col-4"></div>                                       
+                                            <div class="col-4 mt-3">
                                                 <label for="address" class="form-label">自我介紹</label>
                                                 <div class="invalid-feedback">
                                                     Please enter your shipping address.
@@ -217,7 +235,10 @@
                                                     <textarea class="form-control" id="formInput15" rows="3"></textarea> 
                                                 </div>
                                             </div>
-                                            <div class="col-md-5">
+                                            </div>
+                                            <div class="row">
+											<div class="col-4"></div>
+                                            <div class="col-4 mb-5">
                                                 <label for="country" class="form-label">預設語言</label>
                                                 <select class="form-select" id="country" required="">
                                                     <option value="">台灣正體中文</option>
@@ -228,10 +249,12 @@
                                                     Please select a valid country.
         </div>
                                             </div>
+                                            </div>
                                             <div class="d-flex justify-content-center">
-                                            <button class="btn btn-primary btn-lg" type="submit">儲存設定</button>
+                                            <button class="btn btn-primary btn-sm" type="submit">儲存設定</button>
                                             
                                             </div>
+                                           
                                         </div>
                                     </div>
 				<!--<p>這裡可以填入內容</p>-->
@@ -278,7 +301,17 @@
 		$(".close-btn").on('click', function() {
 			$(".sidebar").removeClass('active');
 		})
+		$(document).ready(function() {
+        // 使用 jQuery 选择器找到所有包含用户名的单元格，并将 "@" 之前的部分显示出来
+        $(".member-cell").each(function() {
+            var account = $(this).text();
+            var username1 = email.split("@")[0];
+            $(this).text(username);
+        });
+    });
 	</script>
+
+
 
 
 </body>
