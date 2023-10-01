@@ -2,6 +2,7 @@ package com.ispan.eeit69.controller;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -17,19 +19,26 @@ import com.ispan.eeit69.model.Course;
 import com.ispan.eeit69.model.ShoppingCart;
 import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.CourseService;
+import com.ispan.eeit69.service.memberService;
 
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-@SessionAttributes({ "memberdata" ,"ShoppingCart"})
+@SessionAttributes({ "memberdata", "ShoppingCart" })
 public class ShoppingCartController {
 	private static Logger log = LoggerFactory.getLogger(ShoppingCartController.class);
 
 	CourseService courseService;
+	memberService memberService;
 	HttpSession httpSession;
 
-	public ShoppingCartController(CourseService courseService, HttpSession httpSession) {
+	
+
+	public ShoppingCartController(CourseService courseService, com.ispan.eeit69.service.memberService memberService,
+			HttpSession httpSession) {
+		super();
 		this.courseService = courseService;
+		this.memberService = memberService;
 		this.httpSession = httpSession;
 	}
 
@@ -64,8 +73,6 @@ public class ShoppingCartController {
 		}
 		return "redirect:/courseDetail?id=" + id;
 	}
-	
-	
 
 	@GetMapping("/removefromcart")
 	public ResponseEntity<Map<String, Object>> removeFromCart(@RequestParam("id") String id) {
@@ -77,17 +84,17 @@ public class ShoppingCartController {
 		log.info("有沒有刪除: " + isRemove);
 		Map<Integer, Course> mycart = cart.getContent();
 		httpSession.setAttribute("mycart", mycart);
-		
-		  Map<String, Object> response = new HashMap<>();
-		    if (isRemove) {
-		        response.put("status", 200);
-		    } else {
-		        response.put("status", 500);  // 或其他適當的狀態碼
-		    }
-		
+
+		Map<String, Object> response = new HashMap<>();
+		if (isRemove) {
+			response.put("status", 200);
+		} else {
+			response.put("status", 500); // 或其他適當的狀態碼
+		}
+		System.out.println("刪除購物車");
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/buyone")
 	public String buyOne(@RequestParam("id") String id, Model model) {
 		Integer intId = Integer.parseInt(id);
@@ -95,6 +102,24 @@ public class ShoppingCartController {
 		model.addAttribute("course", course);
 		return "check";
 	}
-	
-	
+
+	// 訂單確認送出
+	@PostMapping("/ordercompleted")
+	public ResponseEntity<Map<String, Object>> orderCompleted(@RequestParam("courseId") String courseId,
+			@RequestParam("memberId") String memberId) {
+		System.out.println("課程ID= " + courseId);
+		System.out.println("會員ID= " + memberId);
+		Integer intMemberId = Integer.parseInt(memberId);
+		Integer intCourseId = Integer.parseInt(courseId);
+		member member = memberService.findByMemberId(intMemberId);
+		Course newCourse = courseService.findById(intCourseId);
+		Set<Course> memberBuyCourseSet =  member.getBuyCourses();
+		memberBuyCourseSet.add(newCourse);
+		member.setBuyCourses(memberBuyCourseSet);
+		memberService.save(member);
+		Map<String, Object> response = new HashMap<>();
+		response.put("status", 200);
+
+		return new ResponseEntity<>(response, HttpStatus.OK);
+	}
 }

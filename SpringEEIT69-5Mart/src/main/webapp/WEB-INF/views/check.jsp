@@ -72,6 +72,39 @@
 </style>
 
 </head>
+<script type="text/javascript">
+var orderCompletedUrl = "<c:url value='/ordercompleted' />"
+	$(document).ready(function() {
+		$(".checkOutBtn").click(function() {
+			var buyCourseId = $(this).data("course-id");
+			var buyMemberId = $(this).data("member-id");
+			console.log(buyCourseId);
+			
+			$.ajax({
+				url : orderCompletedUrl,
+				method : "POST",
+				data : {
+					courseId : buyCourseId,
+					memberId : buyMemberId
+				},
+				success : function(response) {
+					console.log(response);
+					if (response.status === 200) {
+
+						alert("成功購買課程");
+						location.reload(); // 或者其他更新頁面的方法
+					} else {
+						alert("購買課程失敗");
+					}
+				},
+				error : function() {
+					alert("發生錯誤，請重試");
+				}
+			});
+		});
+	});
+
+</script>
 
 
 <body>
@@ -256,10 +289,6 @@
 						</div>
 					</div>
 
-
-
-
-
 					<br>
 					<h4 style="font-weight: bold">訂單詳細資料</h4>
 					<br>
@@ -306,7 +335,8 @@
 					</div>
 
 					<br>
-					<button type="button" class="btn btn-custom">完成結帳</button>
+					<a class="btn btn-custom checkOutBtn" data-course-id="${course.id}" data-member-id="${member.id}"  >完成結帳</a>
+					<!-- <button type="button" class="btn btn-custom">完成結帳</button> -->
 				</div>
 			</div>
 		</div>

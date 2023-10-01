@@ -64,6 +64,13 @@
 	border: 2px solid #000; /* 設置分隔線的邊框 */
 	margin: 20px 0; /* 設置分隔線的上下間距 */
 }
+
+.teacherImg {
+	border-radius: 30px;
+	width: 150px;
+	height: 150px;
+	object-fit: cover;
+}
 </style>
 <body>
 	<!-- 導覽列 -->
@@ -127,7 +134,7 @@
 									</h1>
 								</div>
 								<div class="row">
-									<p class="mb-2" style="font-size: small;">趙令文</p>
+									<p class="mb-2" style="font-size: small;">${courseData.teacher.username}</p>
 								</div>
 								<div class="row d-inline ">
 									<strong style="font-size: large;">3.5 </strong>
@@ -204,18 +211,18 @@
 								</div>
 							</div>
 						</c:forEach>
-
 					</div>
 
-
-
 					<h4 class="fw-bolder mb-4 mt-5">講師介紹</h4>
-					<div class="p-5">
-						<img class="img-fluid rounded-circle" src="https://picsum.photos/150/150?random=10" alt="...">
+					<div class="m-2">
+						<img class="teacherImg img-fluid rounded-circle" src="<c:choose>
+						<c:when test="${not empty courseData.teacher.dataUri}">data:image/jpeg;base64,${courseData.teacher.dataUri}</c:when>
+						<c:otherwise>\SpringEEIT69-5Mart\assets\images\人像頭貼001.jpg</c:otherwise>
+					</c:choose>" alt="...">
 					</div>
 
 					<div class="col">
-						<p class="mb-2" style="font-size: lg;">趙令文</p>
+						<p class="mb-2" style="font-size: lg;">${courseData.teacher.username}</p>
 						<div class="container px-0">
 							<div class="row"></div>
 							<div class="row"></div>

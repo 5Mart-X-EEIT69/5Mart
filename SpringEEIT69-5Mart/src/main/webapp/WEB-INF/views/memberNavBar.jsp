@@ -379,7 +379,7 @@
 									<div class="card-body myCourseCardBody p-2 pe-0 w-100">
 										<div class="text-section col-10">
 											<h6 class="card-title">${cart.value.title}</h6>
-											<p class="card-text" style="font-size: small;">趙令文</p>
+											<p class="card-text" style="font-size: small;">${cart.value.teacher.username}</p>
 											<div>$ ${cart.value.price}</div>
 										</div>
 										<div class="cta-section w-100 d-flex justify-content-center align-items-center ps-3">

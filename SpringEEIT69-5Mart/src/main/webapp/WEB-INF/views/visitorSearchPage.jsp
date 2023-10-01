@@ -205,7 +205,7 @@
 							</div>
 							<div class="d-flex flex-row align-items-end">
 								<p class="card-text  pe-10"
-									style="font-size: small; margin-bottom: 1px; margin-right: 1em;">趙令文</p>
+									style="font-size: small; margin-bottom: 1px; margin-right: 1em;">${result.teacher.username}</p>
 								<p class="card-text">
 									<strong style="font-size: large;">3.5 </strong> <i
 										class="bi bi-star-fill px-0"></i> <i
