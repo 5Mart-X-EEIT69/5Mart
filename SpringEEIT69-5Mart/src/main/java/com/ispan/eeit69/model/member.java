@@ -56,6 +56,9 @@ public class member implements Serializable {
     @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
     @OrderBy("id")
     private Set<Course> createCourse = new LinkedHashSet<Course>();
+    
+    @OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
+    private AccountSetting accountSetting;
 
 	// 建構式
 	public member() {
@@ -159,6 +162,14 @@ public class member implements Serializable {
 
 	public void setMemberMultipartFile(MultipartFile memberMultipartFile) {
 		this.memberMultipartFile = memberMultipartFile;
+	}
+	
+	public AccountSetting getAccountSetting() {
+		return accountSetting;
+	}
+
+	public void setAccountSetting(AccountSetting accountSetting) {
+		this.accountSetting = accountSetting; 
 	}
 
 	@Override

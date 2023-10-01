@@ -67,60 +67,38 @@ public class StudentController {
 	
 	@GetMapping("/studentIndex")
 	public String studentIndex(Model model) {
-		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		model.addAttribute("welcome", "歡迎來到5Mart的學生INDEX");
 		return "/StudentLMS/studentIndex";
+	}
+	
+	@GetMapping("/studentCourseList")
+	public String studentcourselist(Model model) {
+		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		return "/StudentLMS/CourseService/studentCourseList";
+	}
+	
+	@GetMapping("/studentNotification")
+	public String studentNotification(Model model) {
+		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		return "/StudentLMS/NotificationService/studentNotification";
+	}
+	
+	@GetMapping("/studentNotificationQA")
+	public String studentNotificationQA(Model model) {
+		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		return "/StudentLMS/NotificationService/studentNotificationQA";
+	}
+	
+	@GetMapping("/studentNotificationMessage")
+	public String studentNotificationMessage(Model model) {
+		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		return "/StudentLMS/NotificationService/studentNotificationMessage";
 	}
 	
 	@GetMapping("/cartServicePage")
 	public String cartServicePage(Model model) {
 		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
 		return "/StudentLMS/BusinessServices/cartServicePage";
-	}
-
-	@GetMapping("/student_dashboard")
-	public String student_dashboard(Model model) {
-		return "/StudentLMS/student_dashboard";
-	}
-	
-	@GetMapping("/student_course_viewer")
-	public String student_course_viewer(Model model) {
-		return "/StudentLMS/student_course_viewer";
-	}
-
-	@GetMapping("/coursePlayerPage")
-	public String coursePlayerPage(@RequestParam("id") String id, Model model) {
-		Integer intId = Integer.parseInt(id);
-		Course course = courseService.findById(intId);
-		model.addAttribute("courseData",course);
-		Chapter chapter = chapterService.findById(intId);
-		model.addAttribute("chapter",chapter);
-		return "/StudentLMS/CourseService/coursePlayerPage";
-	}
-	
-	@GetMapping("/Player")
-	public String Player(Model model) {
-		return "/StudentLMS/DevelopmentFolder/Player";
-	}
-
-	@GetMapping("/api/videos/{uuid}")
-	public ResponseEntity<byte[]> getVideoByUUID(@PathVariable String uuid) {
-		System.out.println("Received UUID: " + uuid); // 顯示接收到的UUID
-		try {
-			DEV_Video video = devvideoService.findByUuid(uuid); // 從資料庫中獲取影片
-			if (video != null) {
-				byte[] videoData = video.getVideoData(); // 在 Video.java 中定義的方法
-
-				HttpHeaders headers = new HttpHeaders();
-				headers.setContentType(MediaType.valueOf("video/mp4")); // 設置正確的 MIME 類型
-				System.out.println("ok");
-                return new ResponseEntity<>(videoData, headers, HttpStatus.OK);
-			} else {
-				System.out.println("error");
-				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-			}
-		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
 	}
 
 
@@ -229,5 +207,45 @@ public class StudentController {
 	}
 	
 	//開發用的方法
+
+	@GetMapping("/coursePlayerPage")
+	public String coursePlayerPage(@RequestParam("id") String id, Model model) {
+		Integer intId = Integer.parseInt(id);
+		Course course = courseService.findById(intId);
+		model.addAttribute("courseData",course);
+		Chapter chapter = chapterService.findById(intId);
+		model.addAttribute("chapter",chapter);
+		return "/StudentLMS/CourseService/coursePlayerPage";
+	}
+	
+	@GetMapping("/api/videos/{uuid}")
+	public ResponseEntity<byte[]> getVideoByUUID(@PathVariable String uuid) {
+		System.out.println("Received UUID: " + uuid); // 顯示接收到的UUID
+		try {
+			DEV_Video video = devvideoService.findByUuid(uuid); // 從資料庫中獲取影片
+			if (video != null) {
+				byte[] videoData = video.getVideoData(); // 在 Video.java 中定義的方法
+
+				HttpHeaders headers = new HttpHeaders();
+				headers.setContentType(MediaType.valueOf("video/mp4")); // 設置正確的 MIME 類型
+				System.out.println("ok");
+                return new ResponseEntity<>(videoData, headers, HttpStatus.OK);
+			} else {
+				System.out.println("error");
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			}
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	// 開發測試用區域
+	
+	@GetMapping("/Player")
+	public String Player(Model model) {
+		return "/StudentLMS/DevelopmentFolder/Player";
+	}
+
+
 }
 
