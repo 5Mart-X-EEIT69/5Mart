@@ -8,37 +8,36 @@ import org.slf4j.LoggerFactory;
 
 import com.ispan.eeit69.dao.StudentQuestionRepository;
 import com.ispan.eeit69.model.StudentQuestion;
-import com.ispan.eeit69.model.TeacherPicture;
 import com.ispan.eeit69.service.StudentQuestionService;
 
 public class StudentQuestionServiceImpl implements StudentQuestionService {
 
 	final static Logger log = LoggerFactory.getLogger(StudentQuestionServiceImpl.class);
 
-	StudentQuestionRepository studentAskRepository;
+	StudentQuestionRepository studentQuestionRepository;
 
 	public StudentQuestionServiceImpl(StudentQuestionRepository studentAskRepository) {
-		this.studentAskRepository = studentAskRepository;
+		this.studentQuestionRepository = studentQuestionRepository;
 	}
 
 	@Override
 	public void save(StudentQuestion studentAsk) {
 		log.info("=====>StudentAskServiceImpl#save()");
-		studentAskRepository.save(studentAsk);
+		studentQuestionRepository.save(studentAsk);
 
 	}
 
 	@Override
 	public StudentQuestion update(StudentQuestion studentAsk) {
 		log.info("=====>StudentAskServiceImpl#update()");
-		return studentAskRepository.save(studentAsk);
+		return studentQuestionRepository.save(studentAsk);
 	}
 
 	@Override
 	public StudentQuestion findById(Integer id) {
 		StudentQuestion studentAsk = null;
 		log.info("=====>StudentAskServiceImpl#findById()");
-		Optional<StudentQuestion> opt = studentAskRepository.findById(id);
+		Optional<StudentQuestion> opt = studentQuestionRepository.findById(id);
 		if (opt.isPresent()) {
 			studentAsk = opt.get();
 		} else throw new RuntimeException("圖片(鍵值=" + id + ")不存在");
@@ -48,14 +47,16 @@ public class StudentQuestionServiceImpl implements StudentQuestionService {
 	@Override
 	public List<StudentQuestion> findAll() {
 		log.info("=====>StudentAskServiceImpl#findAll()");
-		return studentAskRepository.findAll();
+		return studentQuestionRepository.findAll();
 	}
 
 	@Override
 	public void deleteById(Integer id) {
 		log.info("=====>StudentAskServiceImpl#deleteById()");
-		studentAskRepository.deleteById(id);
+		studentQuestionRepository.deleteById(id);
 
 	}
+
+
 
 }

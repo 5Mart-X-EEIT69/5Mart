@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -42,7 +43,7 @@ public class member implements Serializable {
     private Introduction introduction;
     
     //學生可以有很多問題
-    @OneToMany(mappedBy = "member") 
+    @OneToMany(mappedBy = "member", fetch = FetchType.EAGER) 
     private Set<StudentQuestion> studentQuestion;//OK
 
     @ManyToMany(cascade = CascadeType.ALL)
@@ -190,12 +191,15 @@ public class member implements Serializable {
 		this.studentQuestion = studentQuestion;
 	}
 
+
+
+
 	@Override
 	public String toString() {
 		return "member [id=" + id + ", username=" + username + ", account=" + account + ", password=" + password
-				+ ", registerTime=" + registerTime + ", TeacherPicture=" + TeacherPicture + ", introduction="
-				+ introduction + ", studentQuestion=" + studentQuestion + ", course=" + course + ", createCourse="
-				+ createCourse + ", memberMultipartFile=" + memberMultipartFile + "]";
+				+ ", registerTime=" + registerTime + "]";
 	}
+
+
 
 }

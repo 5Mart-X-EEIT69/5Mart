@@ -34,6 +34,7 @@ import com.ispan.eeit69.model.Announcement;
 import com.ispan.eeit69.model.Chapter;
 import com.ispan.eeit69.model.Course;
 import com.ispan.eeit69.model.Introduction;
+import com.ispan.eeit69.model.StudentQuestion;
 import com.ispan.eeit69.model.TeacherPicture;
 import com.ispan.eeit69.model.TeacherReply;
 import com.ispan.eeit69.model.Unit;
@@ -43,6 +44,7 @@ import com.ispan.eeit69.service.AnnouncementService;
 import com.ispan.eeit69.service.ChapterService;
 import com.ispan.eeit69.service.CourseService;
 import com.ispan.eeit69.service.IntroductionService;
+import com.ispan.eeit69.service.StudentQuestionService;
 import com.ispan.eeit69.service.TeacherPictureService;
 import com.ispan.eeit69.service.TeacherReplyService;
 import com.ispan.eeit69.service.UnitService;
@@ -179,10 +181,8 @@ public class TeacherController {
 		member member = (member) session.getAttribute("member");
 		if (member != null) {
 			List<Course> course = courseService.getCoursesByTeacher(member);
+
 			model.addAttribute("course", course);
-			
-//			TeacherReply teacherReply = teacherReplyService.getTeacherReplyById(id);
-//			model.addAttribute("teacherReply", teacherReply);
 			return "/TeacherComminicate/TeacherComminicateQA";
 		} else {
 			return "redirect:/homepage";
@@ -686,7 +686,7 @@ public class TeacherController {
 
 		model.addAttribute("teacherReply",teacherReply1);
 
-		return "/TeacherComminicate/TeacherComminicateQA";
+		return "redirect:/TeacherComminicateQA";
 
 	}
 

@@ -96,8 +96,8 @@
 					<h2 class="accordion-header" id="heading-${courses.id}">
 						<button class="accordion-button collapsed" type="button"
 							data-bs-toggle="collapse"
-							data-bs-target="#panelsStayOpen-collapseTwo"
-							aria-expanded="false" aria-controls="#collapse-${courses.id}">
+							data-bs-target="#collapse-${courses.id}"
+							aria-expanded="false" aria-controls="collapse-${courses.id}">
 							<img src="${courses.dataUri}" 
 								alt="godtone" width="48" height="48"
 								class="rounded flex-shrink-0">

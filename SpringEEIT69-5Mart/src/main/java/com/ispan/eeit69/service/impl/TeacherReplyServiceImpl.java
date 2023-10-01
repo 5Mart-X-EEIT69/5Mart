@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 import com.ispan.eeit69.dao.IntroductionRepository;
 import com.ispan.eeit69.dao.TeacherReplyRepository;
 import com.ispan.eeit69.model.Introduction;
+import com.ispan.eeit69.model.StudentQuestion;
 import com.ispan.eeit69.model.TeacherReply;
+import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.TeacherReplyService;
 
 import jakarta.transaction.Transactional;
@@ -69,5 +71,22 @@ public class TeacherReplyServiceImpl implements TeacherReplyService {
 		Optional<TeacherReply> optionalTeacherReply = teacherReplyRepository.findById(id);
         return optionalTeacherReply.orElse(null);
 	}
+
+//	@Override
+//	public TeacherReply findByStudentQuestion(StudentQuestion studentQuestion) {
+//		log.info("=====>IntroductionServiceImpl#findAll()");
+//		return teacherReplyRepository.findByStudentQuestion(studentQuestion);
+//	}
+
+//	@Override
+//    public List<TeacherReply> getTeacherRepliesByStudentQuestionId(Long studentQuestionId) {
+//        return teacherReplyRepository.findByStudentQuestionId(studentQuestionId);
+//    }
+//
+//    @Override
+//    public void saveTeacherReply(TeacherReply teacherReply) {
+//        teacherReplyRepository.save(teacherReply);
+//    }
+
 
 }
