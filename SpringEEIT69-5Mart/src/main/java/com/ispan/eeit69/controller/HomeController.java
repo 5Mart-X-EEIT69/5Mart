@@ -86,15 +86,7 @@ public class HomeController {
 //		return "visitorSearchPage";
 //	}
 
-	@PostMapping("/visitorsearchpage")
-	public String searchKeyword(@RequestParam("keyword") String keyword, Model model) {
-		System.out.println("關鍵字" + keyword);
-		model.addAttribute("keyword", keyword);
-		List<Course> result = courseService.findByKeyword(keyword);
-		model.addAttribute("keywordResult", result);
-
-		return "visitorSearchPage";
-	}
+	
 
 	@GetMapping("/courseDetail")
 	public String courseDetail(@RequestParam("id") String id, Model model) {

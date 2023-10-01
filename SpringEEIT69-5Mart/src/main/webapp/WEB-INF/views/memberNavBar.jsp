@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <link rel='stylesheet' href="<c:url value='/assets/css/visitorHomePage.css' />" type="text/css" />
 <script>
@@ -19,7 +20,7 @@
 					console.log(response);
 					if (response.status === 200) {
 
-						alert("成功移除課程");
+						alert("課程已從購物車移除");
 						location.reload(); // 或者其他更新頁面的方法
 					} else {
 						alert("移除課程失敗");
@@ -267,6 +268,8 @@
 				<li class="nav-item ps-5">
 					<a class="nav-link" href="<c:url value='/TeacherMain' />">教師</a>
 				</li>
+
+				<!-- 我的學習 -->
 				<li class="nav-item dropdown px-2">
 					<a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 我的學習 </a>
 					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -323,8 +326,6 @@
 						<li class="dropdown-item px-2 py-0">
 							<a href="<c:url value='/student_course_viewer' />" class="btn btn-success w-100">前往我的學習</a>
 						</li>
-
-
 					</ul>
 				</li>
 
@@ -366,16 +367,20 @@
 
 				<li class="nav-item dropdown px-2">
 					<a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						<i class="fa-solid fa-cart-shopping fa-xl"></i>
+						<i class="fa-solid fa-cart-shopping fa-xl position-relative"></i>
+						<c:if test="${fn:length(mycart) != 0}">
+							<span class="position-absolute top-8 start-90 translate-middle badge rounded-pill bg-danger">
+								${fn:length(mycart)}
+								<span class="visually-hidden">unread messages</span>
+							</span>
+						</c:if>
 					</a>
 					<%-- 				${ShoppingCart} --%>
 					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 						<c:forEach items="${mycart}" var="cart">
 							<li class="dropdown-item px-2  pb-2">
 								<div class="card myCourseCard ">
-									<!-- 																		<figure class="figure" style="margin: 0;"> -->
 									<img src="${cart.value.dataUri }" class="card-img-top " alt="...">
-									<!-- 																		</figure> figure-img img-fluid rounded -->
 									<div class="card-body myCourseCardBody p-2 pe-0 w-100">
 										<div class="text-section col-10">
 											<h6 class="card-title">${cart.value.title}</h6>
@@ -383,37 +388,14 @@
 											<div>$ ${cart.value.price}</div>
 										</div>
 										<div class="cta-section w-100 d-flex justify-content-center align-items-center ps-3">
-											<%-- 											<a href="<c:url value="/removefromcart?id=${cart.value.id} " />" class="btn btn-light px-2"> --%>
-											<!-- 												<i class="fa-solid fa-trash fa-xl"></i> -->
-											<!-- 											</a> -->
-											<a class="remove-button btn btn-light px-2" data-course-id="${cart.value.id}">
-												<i class="fa-solid fa-trash fa-xl"></i>
+											<a class="remove-button btn btn-light px-2 " data-course-id="${cart.value.id}">
+												<i class="fa-solid fa-trash fa-xl "></i>
 											</a>
 										</div>
 									</div>
 								</div>
 							</li>
 						</c:forEach>
-						<!-- 						<li class="dropdown-item px-2  pb-2"> -->
-						<!-- 							<div class="card myCourseCard "> -->
-						<!-- 																	<figure class="figure" style="margin: 0;"> -->
-						<!-- 								<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg" -->
-						<!-- 									class="card-img-top " alt="..."> -->
-						<!-- 																	</figure> figure-img img-fluid rounded -->
-						<!-- 								<div class="card-body myCourseCardBody p-2 pe-0 w-100"> -->
-						<!-- 									<div class="text-section"> -->
-						<!-- 										<h6 class="card-title">Java從零開始學習</h6> -->
-						<!-- 										<p class="card-text" style="font-size: small;">趙令文</p> -->
-						<!-- 										<div>$2,000</div> -->
-						<!-- 									</div> -->
-						<!-- 									<div -->
-						<!-- 										class="cta-section w-100 d-flex justify-content-center align-items-center ps-3"> -->
-						<!-- 										<a href="#" class="btn btn-light px-2"><i -->
-						<!-- 											class="fa-solid fa-trash fa-xl"></i></a> -->
-						<!-- 									</div> -->
-						<!-- 								</div> -->
-						<!-- 							</div> -->
-						<!-- 						</li> -->
 						<li>
 							<hr class="dropdown-divider">
 						</li>
@@ -520,22 +502,26 @@
 					</li>
 					<li class="">
 						<a class="dropdown-item" href="#">
-							<i class="fa-regular fa-user " style="padding: 0 8px"></i>個人檔案
+							<i class="fa-regular fa-user " style="padding: 0 8px"></i>
+							個人檔案
 						</a>
 					</li>
 					<li>
 						<a class="dropdown-item" href="#">
-							<i class="fa-solid fa-chalkboard" style="padding: 0 6px"></i>我的學習
+							<i class="fa-solid fa-chalkboard" style="padding: 0 6px"></i>
+							我的學習
 						</a>
 					</li>
 					<li>
 						<a class="dropdown-item" href="#">
-							<i class="fa-regular fa-heart " style="padding: 0 7px"></i>願望清單
+							<i class="fa-regular fa-heart " style="padding: 0 7px"></i>
+							願望清單
 						</a>
 					</li>
 					<li>
 						<a class="dropdown-item" href="#">
-							<i class="bi bi-cart3" style="padding: 0 7px"></i>購物車
+							<i class="bi bi-cart3" style="padding: 0 7px"></i>
+							購物車
 						</a>
 					</li>
 
@@ -545,17 +531,20 @@
 
 					<li>
 						<a class="dropdown-item" href="#">
-							<i class="fa-regular fa-file" style="padding: 0 9px"></i>訂單紀錄
+							<i class="fa-regular fa-file" style="padding: 0 9px"></i>
+							訂單紀錄
 						</a>
 					</li>
 					<li>
 						<a class="dropdown-item" href="<c:url value='/profileSettingPage' />">
-							<i class="bi bi-gear" style="padding: 0 7px"></i>帳戶設定
+							<i class="bi bi-gear" style="padding: 0 7px"></i>
+							帳戶設定
 						</a>
 					</li>
 					<li>
 						<a class="dropdown-item" href="#">
-							<i class="fa-regular fa-credit-card" style="padding: 0 6px"></i>付款方式
+							<i class="fa-regular fa-credit-card" style="padding: 0 6px"></i>
+							付款方式
 						</a>
 					</li>
 					<li>
@@ -563,7 +552,8 @@
 					</li>
 					<li>
 						<a class="dropdown-item" href="<c:url value='/logout' />">
-							<i class="fa-solid fa-arrow-right-from-bracket" style="padding: 0 7px"></i>登出
+							<i class="fa-solid fa-arrow-right-from-bracket" style="padding: 0 7px"></i>
+							登出
 						</a>
 					</li>
 				</ul>
