@@ -110,19 +110,24 @@
 							</div>
 						</button>
 					</h2>
+					
 					<div id="collapse-${courses.id}"
 						class="accordion-collapse collapse"
 						aria-labelledby="heading-${courses.id}">
+			
 						<div class="accordion-body">
+						
 							<div class="d-flex align-items-center flex-wrap">
 								<label class="col-1">問題</label> <label class="col-1">發問人</label>
 								<label class="col-1">發問時間</label> <label class="col-5 px-3">內容</label>
 								<label class="col-3">回覆內容</label> <label class="col-1 ps-2">功能</label>
 							</div>
 							<hr>
+							
+					
 							<div class="d-flex align-items-center flex-wrap">
 								<span class="col-1 ps-2">1</span> <span class="col-1">張嘉航</span>
-								<span class="col-1">2023/9/15</span> <span class="col-5 px-3">你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句你先聽我講一句</span>
+								<span class="col-1">2023/9/15</span> <span class="col-5 px-3">${courses.id}</span>
 								<span class="col-3">${teacherReply.teacherReply}</span>
 								<button class="col-1 btn btn-link m-0 ps-2"
 									style="text-align: left;" data-bs-toggle="modal"
@@ -132,8 +137,10 @@
 
 
 
+
 						</div>
 					</div>
+					
 				</div>
 				<div class="modal fade" id="announcementModal-${courses.id}"
 					tabindex="-1"

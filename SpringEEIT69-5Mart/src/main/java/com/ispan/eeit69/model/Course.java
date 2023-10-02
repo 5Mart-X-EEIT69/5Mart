@@ -175,6 +175,26 @@ public class Course implements Serializable {
 
 
 
+	public Set<StudentQuestion> getStudentQuestion() {
+		return studentQuestion;
+	}
+
+
+
+
+
+
+
+	public void setStudentQuestion(Set<StudentQuestion> studentQuestion) {
+		this.studentQuestion = studentQuestion;
+	}
+
+
+
+
+
+
+
 	@Override
 	public String toString() {
 		return "Course [id=" + id + ", title=" + title + ", introduction=" + introduction + ", photo=" + photo

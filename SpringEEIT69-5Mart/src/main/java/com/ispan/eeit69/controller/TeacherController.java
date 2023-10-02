@@ -7,8 +7,10 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
@@ -16,6 +18,7 @@ import javax.sql.rowset.serial.SerialBlob;
 import javax.sql.rowset.serial.SerialClob;
 import javax.sql.rowset.serial.SerialException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -68,7 +71,10 @@ public class TeacherController {
 	AnnouncementService announcementService;
 	HttpSession session;
 	memberService memberService;
+	@Autowired
 	TeacherReplyService teacherReplyService;
+	@Autowired
+	StudentQuestionService studentQuestionService;
 
 //	課程
 
@@ -182,10 +188,20 @@ public class TeacherController {
 	@GetMapping("/TeacherComminicateQA")
 	public String TeacherComminicateQA(Model model) {
 		member member = (member) session.getAttribute("member");
+		
 		if (member != null) {
 			List<Course> course = courseService.getCoursesByTeacher(member);
-
 			model.addAttribute("course", course);
+		
+		
+//		if (member != null) {
+//	        List<Course> courses = courseService.getCoursesByTeacher(member);
+//	        Map<Course, List<StudentQuestion>> courseQuestionsMap = new HashMap<>();
+//	        for (Course course : courses) {
+//	            List<StudentQuestion> studentQuestions = studentQuestionService.findByCourse(course);
+//	            courseQuestionsMap.put(course, studentQuestions);
+//	        }
+//	        model.addAttribute("course", courseQuestionsMap);
 			return "/TeacherComminicate/TeacherComminicateQA";
 		} else {
 			return "redirect:/homepage";
