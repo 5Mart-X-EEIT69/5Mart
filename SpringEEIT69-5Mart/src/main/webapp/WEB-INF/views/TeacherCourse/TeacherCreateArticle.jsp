@@ -25,10 +25,8 @@
 <!-- ckeditor -->
 <!-- <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script> -->
 <script src="//cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
-
 <%-- <script src="<c:url value='/assets/js/ckeditor5-build-classic/ckeditor.js' />"></script> --%>
-<!-- 
- -->
+<!-- ckeditor -->
 <style type="text/css">
 	.nav-link {
 	font-weight: bolder;

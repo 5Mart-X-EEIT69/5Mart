@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,6 +45,26 @@
                 }
             })
 			console.log(curl);
+		} else {
+		}		
+	}
+	
+	function deleteArticle(articles,title) {
+		if (confirm('確定要刪除文章ID: ' + articles + '， ' + title + '  這篇文章?')) {
+			let deleteurl  = '<c:url value="/TeacherDeleteArticle/' + articles +' "/>' ;
+            $.ajax({
+                url: deleteurl,
+                type: 'DELETE',
+                success: function(response){
+                   	console.log("成功",response);
+                   	alert("刪除成功，將跳轉至已開課內容");
+                   	window.location.href = '<c:url value="/TeacherCourseList" />';
+                },
+                error: function(response){
+                    console.log("失敗",response);
+                }
+            })
+			console.log(deleteurl);
 		} else {
 		}
 	}
@@ -150,7 +171,8 @@
                     </div>
                 </div>            
             </c:forEach>
-<!--                 <div class="accordion-item"> -->
+	            
+				<!--                 <div class="accordion-item"> -->
 <!--                     <h2 class="accordion-header" id="panelsStayOpen-headingTwo"> -->
 <!--                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" -->
 <!--                             data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" -->
@@ -233,12 +255,58 @@
 <!--                     </div> -->
 <!--                 </div> -->
             </div>
+            
+            
+            <hr />
+            <h4>已發表文章</h4>
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+            <c:forEach var="articles" items="${article}">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading-${articles.id}">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse-${articles.id}" aria-expanded="false"
+                            aria-controls="#collapse-${articles.id}">
+                            
+                            <img src="<c:if test="${not empty articles.dataUri}">data:image/jpeg;base64,${articles.dataUri}</c:if>" alt="twbs" width="48" height="48" class="rounded flex-shrink-0">
+                            <div class="d-flex gap-2 w-100 justify-content-between align-items-center ps-3">
+                                <div>
+                                    <h6 class="mb-0 fs-4 fw-bolder">${articles.articleTitle}</h6>
+                                    <p class="mb-0 opacity-50 fw-bolder" style="color:red;">目前已有"還沒做"位人瀏覽過</p>
+                                </div>
+                            </div>
+                        </button>
+                    </h2>
+                    <div id="collapse-${articles.id}" class="accordion-collapse collapse"
+                        aria-labelledby="heading-${articles.id}">
+                        <div class="accordion-body">
+                            <div class="d-flex align-items-center flex-wrap">
+                                <label class="col-3">導師</label>
+                                <label class="col-3">發表時間</label>
+                                <label class="col-3 px-3">瀏覽文章人次</label>
+                                <label class="col-3 ps-2">功能</label>
+                            </div>
+                            <hr>
+                            <div class="d-flex align-items-center flex-wrap">
+                            	<fmt:formatDate value="${articles.postTime}" pattern="yyyy-MM-dd HH:mm:ss" var="postTime"/>
+                                <span class="col-3">${articles.teacher.username}</span>
+                                <span class="col-3">${postTime}</span>
+                                <span class="col-3 px-3">(還沒做)</span>
+                                <div class="col-3 d-flex flex-column">
+                                
+                                    <button class="btn btn-link m-0 ps-2" style="text-align: left;"><a href="<c:url value="/TeacherEdit/${articles.id}"/>">編輯文章</a></button>
+                                    <button class="btn btn-link m-0 ps-2" style="text-align: left;" onclick="deleteArticle('${articles.id}','${articles.articleTitle}')">刪除文章</button>
+                                </div>                                
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>            
+            </c:forEach>
+            </div>
+            
+            
         </div>
         <div class="col-2">
-			<video id="videoPlayer" width="800" controls>
-			  <source id="videoSource" type="video/mp4">
-			</video>
-			<button onclick="loadVideo('f6a83b44-1022-488d-92d1-9bc3bfd5e65a')">Load Video 1</button>
 		</div>
     </div>
 <script>

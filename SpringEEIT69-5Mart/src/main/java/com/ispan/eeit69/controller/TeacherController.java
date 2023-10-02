@@ -33,21 +33,20 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.ispan.eeit69.model.Announcement;
+import com.ispan.eeit69.model.Article;
 import com.ispan.eeit69.model.Chapter;
 import com.ispan.eeit69.model.Course;
 import com.ispan.eeit69.model.Introduction;
-import com.ispan.eeit69.model.StudentQuestion;
 import com.ispan.eeit69.model.TeacherPicture;
 import com.ispan.eeit69.model.TeacherReply;
 import com.ispan.eeit69.model.Unit;
 import com.ispan.eeit69.model.Video;
 import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.AnnouncementService;
+import com.ispan.eeit69.service.ArticleService;
 import com.ispan.eeit69.service.ChapterService;
 import com.ispan.eeit69.service.CourseService;
 import com.ispan.eeit69.service.IntroductionService;
-import com.ispan.eeit69.service.StudentQuestionService;
 import com.ispan.eeit69.service.TeacherPictureService;
 import com.ispan.eeit69.service.TeacherReplyService;
 import com.ispan.eeit69.service.UnitService;
@@ -69,14 +68,16 @@ public class TeacherController {
 	HttpSession session;
 	memberService memberService;
 	TeacherReplyService teacherReplyService;
+	ArticleService articleService; 
 
 //	課程
 
 	public TeacherController(CourseService courseService, ChapterService chapterService, UnitService unitService,
 			VideoService videoService, IntroductionService introductionService,
 			TeacherPictureService teacherPictureService, AnnouncementService announcementService, HttpSession session,
-			com.ispan.eeit69.service.memberService memberService,
-			com.ispan.eeit69.service.TeacherReplyService teacherReplyService) {
+			memberService memberService, TeacherReplyService teacherReplyService,
+			ArticleService articleService) {
+		super();
 		this.courseService = courseService;
 		this.chapterService = chapterService;
 		this.unitService = unitService;
@@ -87,6 +88,7 @@ public class TeacherController {
 		this.session = session;
 		this.memberService = memberService;
 		this.teacherReplyService = teacherReplyService;
+		this.articleService = articleService;
 	}
 
 	@GetMapping("/TeacherMain")
@@ -98,6 +100,7 @@ public class TeacherController {
 			return "redirect:/homepage";
 		}
 	}// 跳轉至講師主頁面
+
 
 	@GetMapping("/TeacherCreate")
 	public String teacherCreate(Model model) {
@@ -148,6 +151,10 @@ public class TeacherController {
 		if (member != null) {
 			List<Course> course = courseService.findByTeacherId(member.getId());
 			model.addAttribute("course", course);
+			
+			List<Article> article = articleService.findByTeacher_Id(member.getId());
+			System.out.println(article.isEmpty());
+			model.addAttribute("article", article);
 			return "/TeacherCourse/TeacherCourseList";
 		} else {
 			return "redirect:/homepage";
@@ -362,6 +369,8 @@ public class TeacherController {
 			throws SerialException, SQLException {
 		member member = (member) session.getAttribute("member");
 		if (member != null) {
+			course.setDetailSort(formData.get("detailSort").asText());
+			course.setCourseContent(formData.get("courseContent").asText());
 			course.setTitle(formData.get("title").asText());
 			course.setIntroduction(formData.get("introduction").asText());
 			char[] c = formData.get("photo").asText().toCharArray();
@@ -650,6 +659,21 @@ public class TeacherController {
 		}
 
 	}
+	
+	@DeleteMapping("/TeacherDeleteArticle/{id}")
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+	public void TeacherDeleteArticle(@PathVariable Integer id) {
+		member member = (member) session.getAttribute("member");
+		if (member != null) {
+			if (articleService.findById(id) != null) {
+				System.out.println("測試刪除" + id);
+				articleService.deleteById(id);
+			}
+		} else {
+			System.out.println("帳號未登入!");
+		}
+
+	}
 
 	@ModelAttribute("preCourse")
 	public Course beforeSave() {
@@ -757,11 +781,33 @@ public class TeacherController {
 	}
 	
 	@PostMapping("/TeacherArticle")
-	public String newTeacherArticle(Model model ,@RequestParam("title") String title,@RequestParam("content") String content ,@RequestParam("photo") MultipartFile photo ,@RequestParam("memberId") Integer memberId) {
-		System.out.println(photo.getSize());
-		System.out.println(title);
-		System.out.println(content);
-		System.out.println(memberId);
-		return "redirect:/TeacherCourseListAll";
+	public String newTeacherArticle(Model model ,@RequestParam("title") String title,@RequestParam("content") String content ,@RequestParam("photo") MultipartFile photo ,@RequestParam("memberId") Integer memberId) throws IOException, SerialException, SQLException {
+		
+		member member = (member) session.getAttribute("member");
+		if (member != null) {
+			System.out.println(photo.getSize());
+			System.out.println(title);
+			System.out.println(content);
+			System.out.println(memberId);
+			
+			Article article = new Article();
+			article.setArticleTitle(title);
+			article.setArticleContent(content);
+			Integer intMemberId = Integer.valueOf(memberId);
+			member teacher = memberService.findByMemberId(intMemberId);
+			article.setTeacher(teacher);
+			
+			Timestamp ts = new Timestamp(System.currentTimeMillis());
+			article.setPostTime(ts);
+			
+			byte[] newPhotoBytes = photo.getBytes();
+			Blob newBlob = new SerialBlob(newPhotoBytes);
+			article.setPhoto(newBlob);
+			
+			articleService.save(article);
+			return "redirect:/TeacherCourseList";
+		} else {
+			return "redirect:/homepage";
+		}
 	}
 }
