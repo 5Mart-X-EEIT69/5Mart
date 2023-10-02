@@ -5,15 +5,21 @@ import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ispan.eeit69.dao.StudentQuestionRepository;
+import com.ispan.eeit69.model.Course;
 import com.ispan.eeit69.model.StudentQuestion;
 import com.ispan.eeit69.service.StudentQuestionService;
 
+import jakarta.transaction.Transactional;
+@Service
+@Transactional
 public class StudentQuestionServiceImpl implements StudentQuestionService {
 
 	final static Logger log = LoggerFactory.getLogger(StudentQuestionServiceImpl.class);
-
+	@Autowired
 	StudentQuestionRepository studentQuestionRepository;
 
 	public StudentQuestionServiceImpl(StudentQuestionRepository studentAskRepository) {
@@ -56,6 +62,13 @@ public class StudentQuestionServiceImpl implements StudentQuestionService {
 		studentQuestionRepository.deleteById(id);
 
 	}
+
+	@Override
+	public List<StudentQuestion> findByCourse(Course course) {
+		log.info("=====>StudentAskServiceImpl#findByCourse()");
+		return studentQuestionRepository.findByCourse(course);
+	}
+
 
 
 

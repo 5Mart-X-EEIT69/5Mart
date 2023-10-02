@@ -1,19 +1,27 @@
 package com.ispan.eeit69.controller;
 
+import java.sql.Timestamp;
 import java.util.List;
 
+
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ispan.eeit69.model.Chapter;
 import com.ispan.eeit69.model.Course;
 import com.ispan.eeit69.model.Introduction;
+import com.ispan.eeit69.model.StudentQuestion;
+import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.ChapterService;
 import com.ispan.eeit69.service.CourseService;
 import com.ispan.eeit69.service.IntroductionService;
+import com.ispan.eeit69.service.StudentQuestionService;
 import com.ispan.eeit69.service.TeacherPictureService;
 import com.ispan.eeit69.service.UnitService;
 import com.ispan.eeit69.service.VideoService;
@@ -30,6 +38,8 @@ public class HomeController {
 	IntroductionService introductionService;
 	TeacherPictureService teacherPictureService;
 	HttpSession session;
+	@Autowired
+	StudentQuestionService studentQuestionService;
 
 
 
@@ -98,11 +108,18 @@ public class HomeController {
 
 	@GetMapping("/courseDetail")
 	public String courseDetail(@RequestParam("id") String id, Model model) {
+		member member = (member) session.getAttribute("member");	
 		Integer intId = Integer.parseInt(id);
 		Course course = courseService.findById(intId);
 		model.addAttribute("courseData",course);
 		Chapter chapter = chapterService.findById(intId);
 		model.addAttribute("chapter",chapter);
+//		StudentQuestion studentQuestion = studentQuestionService.findById(Id).orElse(null);;
+//		model.addAttribute("studentQuestion",studentQuestion);
+		
+		List<StudentQuestion> studentQuestions = studentQuestionService.findByCourse(course);
+	    model.addAttribute("studentQuestions", studentQuestions);
+		
 		System.out.println("重新整理");
 		return "courseDetail";
 	}
@@ -132,6 +149,34 @@ public class HomeController {
 	public String teacherNavBar(Model model) {
 		return "teacherNavBar";
 	}
+	@PostMapping("/newQuestion")
+	public String newQuestion(@RequestParam("id") String id, Model model) {
+		Integer intId = Integer.parseInt(id);
+		Course course = courseService.findById(intId);
+		model.addAttribute("courseData",course);
+		Chapter chapter = chapterService.findById(intId);
+		model.addAttribute("chapter",chapter);
+		
+		
+		
+		return "courseDetail";
+	}
 	
+	@PostMapping("/courseDetail")
+	public String postCourseDetail(@RequestParam("id") Course courseId, Model model,@RequestParam("QuestionText") String QuestionText,RedirectAttributes attributes) {
+	    
+		member member = (member) session.getAttribute("member");
+		
+		StudentQuestion studentQuestion = new StudentQuestion();
+		studentQuestion.setCourse(courseId);
+		studentQuestion.setMember(member);
+		studentQuestion.setStudentQuestionTime(new Timestamp(System.currentTimeMillis()));
+		studentQuestion.setQuestionText(QuestionText);
+		
+		studentQuestionService.save(studentQuestion);
+		 attributes.addAttribute("id", courseId.getId());
+
+	    return "redirect:/courseDetail?id={id}";
+	}
 
 }
