@@ -257,7 +257,7 @@
 									</h5>
 								</div>
 								<div class="row">
-									<p class="mb-2" style="font-size: small">趙令文</p>
+									<p class="mb-2" style="font-size: small">${course.teacher.username}</p>
 								</div>
 								<div class="row d-inline ">
 									<strong style="font-size: large">3.5 </strong> <i class="bi bi-star-fill px-0"></i> <i class="bi bi-star-fill px-0"></i> <i class="bi bi-star-fill px-0"></i> <i class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i> (123)

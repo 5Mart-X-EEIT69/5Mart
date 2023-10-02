@@ -1,14 +1,19 @@
 package com.ispan.eeit69.model;
 
 import java.io.Serializable;
+import java.sql.Blob;
 import java.sql.Timestamp;
+import java.util.Base64;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.ispan.eeit69.utils.SystemService;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -40,6 +45,10 @@ public class member implements Serializable {
 
     @OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
     private Introduction introduction;
+    
+    //學生可以有很多問題
+    @OneToMany(mappedBy = "member", fetch = FetchType.EAGER) 
+    private Set<StudentQuestion> studentQuestion;//OK
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "member_course_5mart" , 
@@ -50,7 +59,7 @@ public class member implements Serializable {
     		@JoinColumn(name = "course_id", referencedColumnName = "id")
     }
     )
-    private Set<Course> course = new LinkedHashSet<Course>();
+    private Set<Course> buyCourses = new LinkedHashSet<Course>();
 
 
     @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
@@ -65,11 +74,19 @@ public class member implements Serializable {
 		super();
 	}
 
-	public member(Integer id, String username, String account, String password) {
+	public member(String username, String account, String password, Timestamp registerTime) {
 		this.username = username;
 		this.account = account;
 		this.password = password;
+		this.registerTime = registerTime;
 	}
+
+
+
+
+
+
+
 
 
 	@Transient // 不會映射到資料庫中，但仍然可以在 Java 程式碼中使用。這可以用於存儲某個計算結果或臨時數據，而不需要將其持久化。
@@ -130,13 +147,15 @@ public class member implements Serializable {
 		TeacherPicture = teacherPicture;
 	}
 
-	public Set<Course> getCourse() {
-		return course;
+
+
+	public Set<Course> getBuyCourses() {
+		return buyCourses;
 	}
 
-	public void setCourse(Set<Course> course) {
-		this.course = course;
-	}	
+	public void setBuyCourses(Set<Course> buyCourses) {
+		this.buyCourses = buyCourses;
+	}
 
 	public Set<Course> getCreateCourse() {
 		return createCourse;
@@ -164,6 +183,27 @@ public class member implements Serializable {
 		this.memberMultipartFile = memberMultipartFile;
 	}
 	
+	public Set<StudentQuestion> getStudentQuestion() {
+		return studentQuestion;
+	}
+	
+	public void setStudentQuestion(Set<StudentQuestion> studentQuestion) {
+		this.studentQuestion = studentQuestion;
+	}
+
+
+	public String getDataUri() throws Exception {
+		if(TeacherPicture!=null) {
+			Blob photo = TeacherPicture.getPhoto();
+			byte[] photoByte = photo.getBytes(1, (int)photo.length());
+			String base64Photo = Base64.getEncoder().encodeToString(photoByte);			
+			return base64Photo;
+		}else {
+			return null;
+		}
+		
+	}
+	
 //	public AccountSetting getAccountSetting() {
 //		return accountSetting;
 //	}
@@ -172,14 +212,29 @@ public class member implements Serializable {
 //		this.accountSetting = accountSetting; 
 //	}
 
+	public void setStudentQuestion(Set<StudentQuestion> studentQuestion) {
+		this.studentQuestion = studentQuestion;
+	}
+
+
+	public String getDataUri() throws Exception {
+		if(TeacherPicture!=null) {
+			Blob photo = TeacherPicture.getPhoto();
+			byte[] photoByte = photo.getBytes(1, (int)photo.length());
+			String base64Photo = Base64.getEncoder().encodeToString(photoByte);			
+			return base64Photo;
+		}else {
+			return null;
+		}
+		
+	}
+	
 	@Override
 	public String toString() {
 		return "member [id=" + id + ", username=" + username + ", account=" + account + ", password=" + password
-				+ ", registerTime=" + registerTime + ", TeacherPicture=" + TeacherPicture + "]";
+				+ ", registerTime=" + registerTime + "]";
 	}
 
-	
-	
-	
+
 
 }

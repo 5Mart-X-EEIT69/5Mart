@@ -20,21 +20,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import jakarta.servlet.http.HttpSession;
-
 import com.ispan.eeit69.model.Chapter;
 import com.ispan.eeit69.model.Course;
-import com.ispan.eeit69.model.DEV_Video;
 import com.ispan.eeit69.model.TeacherPicture;
 import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.AnnouncementService;
 import com.ispan.eeit69.service.ChapterService;
 import com.ispan.eeit69.service.CourseService;
+import com.ispan.eeit69.service.DEV_VideoService;
 import com.ispan.eeit69.service.IntroductionService;
 import com.ispan.eeit69.service.TeacherPictureService;
 import com.ispan.eeit69.service.UnitService;
 import com.ispan.eeit69.service.memberService;
-import com.ispan.eeit69.service.DEV_VideoService;
+import com.ispan.eeit69.service.VideoService;
 
 
 @Controller
@@ -49,9 +47,12 @@ public class StudentController {
 	AnnouncementService announcementService;
 	HttpSession session;
 	memberService memberService;
+	VideoService videoService;
 
-	public StudentController(CourseService courseService, ChapterService chapterService, UnitService unitService,
-			DEV_VideoService devvideoService, IntroductionService introductionService, HttpSession session, TeacherPictureService teacherPictureService, com.ispan.eeit69.service.memberService memberService) {
+	public  StudentController(CourseService courseService, ChapterService chapterService, UnitService unitService,
+			DEV_VideoService devvideoService, IntroductionService introductionService,
+			TeacherPictureService teacherPictureService, AnnouncementService announcementService, HttpSession session,
+			VideoService videoService) {
 		super();
 		this.courseService = courseService;
 		this.chapterService = chapterService;
@@ -59,6 +60,7 @@ public class StudentController {
 		this.devvideoService = devvideoService;
 		this.introductionService = introductionService;
 		this.teacherPictureService = teacherPictureService;
+		this.announcementService = announcementService;
 		this.session = session;
 		this.memberService = memberService;
 	}
@@ -222,9 +224,9 @@ public class StudentController {
 	public ResponseEntity<byte[]> getVideoByUUID(@PathVariable String uuid) {
 		System.out.println("Received UUID: " + uuid); // 顯示接收到的UUID
 		try {
-			DEV_Video video = devvideoService.findByUuid(uuid); // 從資料庫中獲取影片
+			Video video = videoService.findByUuid(uuid); // 從資料庫中獲取影片
 			if (video != null) {
-				byte[] videoData = video.getVideoData(); // 在 Video.java 中定義的方法
+				byte[] videoData = video.getVideoData().getBytes(1, (int)video.getVideoData().length()); // 在 Video.java 中定義的方法
 
 				HttpHeaders headers = new HttpHeaders();
 				headers.setContentType(MediaType.valueOf("video/mp4")); // 設置正確的 MIME 類型

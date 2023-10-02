@@ -2,6 +2,36 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <link rel='stylesheet' href="<c:url value='/assets/css/visitorHomePage.css' />" type="text/css" />
+<script>
+	var removeUrl = "<c:url value='/removefromcart' />"
+	$(document).ready(function() {
+		$(".remove-button").click(function() {
+			var courseId = $(this).data("course-id");
+			console.log(courseId);
+			$.ajax({
+				url : removeUrl,
+				method : "GET",
+				contentType : 'application/json',
+				data : {
+					id : courseId
+				},
+				success : function(response) {
+					console.log(response);
+					if (response.status === 200) {
+
+						alert("成功移除課程");
+						location.reload(); // 或者其他更新頁面的方法
+					} else {
+						alert("移除課程失敗");
+					}
+				},
+				error : function() {
+					alert("發生錯誤，請重試");
+				}
+			});
+		});
+	});
+</script>
 <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top shadow-lg">
 	<div class="container-fluid ">
 		<!-- 品牌logo -->
@@ -315,7 +345,7 @@
 										<p class="card-text" style="font-size: small;">趙令文</p>
 										<div>$2,000</div>
 									</div>
-									<div class="cta-section w-100 d-flex justify-content-center align-items-center ps-3">										
+									<div class="cta-section w-100 d-flex justify-content-center align-items-center ps-3">
 										<a href="#" class="btn btn-light px-2">
 											<i class="fa-solid fa-cart-shopping fa-xl"></i>
 										</a>
@@ -349,11 +379,14 @@
 									<div class="card-body myCourseCardBody p-2 pe-0 w-100">
 										<div class="text-section col-10">
 											<h6 class="card-title">${cart.value.title}</h6>
-											<p class="card-text" style="font-size: small;">趙令文</p>
+											<p class="card-text" style="font-size: small;">${cart.value.teacher.username}</p>
 											<div>$ ${cart.value.price}</div>
 										</div>
 										<div class="cta-section w-100 d-flex justify-content-center align-items-center ps-3">
-											<a href="#" class="btn btn-light px-2">
+											<%-- 											<a href="<c:url value="/removefromcart?id=${cart.value.id} " />" class="btn btn-light px-2"> --%>
+											<!-- 												<i class="fa-solid fa-trash fa-xl"></i> -->
+											<!-- 											</a> -->
+											<a class="remove-button btn btn-light px-2" data-course-id="${cart.value.id}">
 												<i class="fa-solid fa-trash fa-xl"></i>
 											</a>
 										</div>
@@ -516,7 +549,7 @@
 						</a>
 					</li>
 					<li>
-						<a class="dropdown-item" href="#">
+						<a class="dropdown-item" href="<c:url value='/profileSettingPage' />">
 							<i class="bi bi-gear" style="padding: 0 7px"></i>帳戶設定
 						</a>
 					</li>

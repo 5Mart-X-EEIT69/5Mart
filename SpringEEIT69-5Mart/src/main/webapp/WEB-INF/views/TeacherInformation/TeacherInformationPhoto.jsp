@@ -82,7 +82,8 @@
 				</div>
 				<hr>
 				<label class="form-label">更新您的個人照片</label>
-				<div class="w-100 mb-3 border rounded" style="height: 357px">
+				
+				<div class="w-100 mb-3 border rounded" <c:if test="${empty base64Image}">style="height: 357px"</c:if>>
 					<figure class="figure m-0 d-flex justify-content-center">
 					<img src="<c:if test="${not empty base64Image}">
 					data:image/jpeg;base64,${base64Image}
