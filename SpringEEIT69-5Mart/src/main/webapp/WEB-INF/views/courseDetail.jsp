@@ -172,6 +172,10 @@
 					</div>
 					<!-- Post content-->
 					<section class="mb-5">
+					<hr>
+					<c:choose>
+					<c:when test="${not empty courseData.courseContent}">${courseData.courseContent}</c:when>
+					<c:otherwise>
 						<h3 class="fw-bolder mb-4 mt-5">課程介紹</h3>
 						<hr class="hrBorder">
 						<h4 class="fw-bolder mb-4 mt-5">課程內容</h4>
@@ -185,8 +189,10 @@
 						<hr class="hrBorder">
 						<h4 class="fw-bolder mb-4 mt-5">課前準備</h4>
 						<p class="fs-5 mb-4">For me, the most fascinating interface is Twitter. I have odd cosmic thoughts every day and I realized I could hold them to myself or share them with people who might be interested.</p>
-						<p class="fs-5 mb-4">Venus has a runaway greenhouse effect. I kind of want to know what happened there because we're twirling knobs here on Earth without knowing the consequences of it. Mars once had running water. It's bone dry today. Something bad happened there as well.</p>
-
+						<p class="fs-5 mb-4">Venus has a runaway greenhouse effect. I kind of want to know what happened there because we're twirling knobs here on Earth without knowing the consequences of it. Mars once had running water. It's bone dry today. Something bad happened there as well.</p>					
+					</c:otherwise>					
+					</c:choose>
+						
 					</section>
 
 					<div class="accordion" id="accordionExample">

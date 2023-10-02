@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.ispan.eeit69.utils.SystemService;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -19,6 +20,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
@@ -38,6 +40,7 @@ public class member implements Serializable {
 	private String account;
 	private String password;
 	private Timestamp registerTime;
+	
 	
     @OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
     private TeacherPicture TeacherPicture;
@@ -65,6 +68,11 @@ public class member implements Serializable {
     @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
     @OrderBy("id")
     private Set<Course> createCourse = new LinkedHashSet<Course>();
+    
+    
+    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
+    @OrderBy("postTime")
+    private Set<Article> createArticle = new LinkedHashSet<Article>();
 
 	// 建構式
 	public member() {
@@ -200,8 +208,17 @@ public class member implements Serializable {
 			return null;
 		}
 		
-	}
+	}	
 	
+	
+	public Set<Article> getCreateArticle() {
+		return createArticle;
+	}
+
+	public void setCreateArticle(Set<Article> createArticle) {
+		this.createArticle = createArticle;
+	}
+
 	@Override
 	public String toString() {
 		return "member [id=" + id + ", username=" + username + ", account=" + account + ", password=" + password

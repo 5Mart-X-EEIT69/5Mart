@@ -28,6 +28,9 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bs-stepper/dist/js/bs-stepper.min.js"></script>
 <!-- stepper -->
+<!-- ckeditor -->
+<script src="//cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+<!-- ckeditor -->
 <style>
 .chapter {
 	border: 1px solid rgba(0, 0, 0, 0.12);
@@ -180,7 +183,7 @@
 		</div>
 		<!-- 		選單右邊 -->
 		<div class="col-2"></div>
-		<div class="col-4 bs-stepper" style="margin-top: 72px">
+		<div class="col-4 bs-stepper" style="margin-top: 32px">
 			<h1>建立你的課程</h1>
 			<hr>
 			<div class="bs-stepper-header" role="tablist">
@@ -216,34 +219,87 @@
 							class="bs-stepper-label">第四步</span>
 					</button>
 				</div>
+				<div class="line"></div>
+				<div class="step" data-target="#step5">
+					<button type="button" class="step-trigger" role="tab"
+						aria-controls="information-part" id="step4-trigger">
+						<span class="bs-stepper-circle">5</span> <span
+							class="bs-stepper-label">第五步</span>
+					</button>
+				</div>
+				
 			</div>
 			<div class="bs-stepper-content">
 				<!-- your steps content here -->
 				<div id="step1" class="content" role="tabpanel"
 					aria-labelledby="step1-trigger">
 					<div class="form-group">
-						<label> 課程標題 </label> <input class="form-control" id="title"
-							name="title" />
+						<label class="fs-2"> 課程標題 </label> <input class="form-control" id="title"
+							name="title" placeholder="輸入你的課程標題..."/>
 					</div>
 					<div class="form-group">
-						<label> 課程簡介 </label> <input class="form-control"
-							style="height: 10rem" id="introduction" name="introduction" />
+						<label class="fs-2"> 課程簡介 </label> <input class="form-control"
+							style="height: 7rem" id="introduction" name="introduction" placeholder="輸入你的課程簡介..." />
+					</div>
+					<div class="form-group">
+						<label class="fs-2" >售價</label> <input class="form-control" id="price"
+							name="price" placeholder="輸入你的售價..." />
 					</div>
 					<div id="photoContainer" class="form-group">
-						<label> 封面照片 </label> <input class="form-control testphoto"
-							type="file" accept="image/*" id="photoBtn" name="photoBtn" /> <input
-							type="hidden" id="photoValue" name="photoValue">
+						<label class="fs-2"> 封面照片 </label>
+						<div class="w-100 mb-3 border rounded" style="height: 200px">
+							<figure class="figure m-0 d-flex justify-content-center">
+								<img src="" class="ifigure-img img-fluid rounded">
+							</figure>
+						</div>
+						<input class="form-control testphoto" type="file" accept="image/*" id="photoBtn" name="photoBtn" />
+						<input type="hidden" id="photoValue" name="photoValue">
 					</div>
-					<div class="form-group">
-						<label>售價</label> <input class="form-control" id="price"
-							name="price" />
-					</div>
+
 					<div class="pt-3 d-flex justify-content-center">
 						<button class="btn btn-secondary" type="button"
 							onclick="stepper.next()">下一步</button>
 					</div>
 				</div>
 				<div id="step2" class="content" role="tabpanel"
+					aria-labelledby="step1-trigger">
+					<label class="fs-2"> 課程內容 </label>
+					<textarea name="content" id="editor" placeholder="文章內容...">
+							<p>
+								<strong></strong>以下為建議填寫的課程資訊，可以依使用者需求客製化內容<strong></strong><br>
+							</p>
+							<h1>
+								<strong>課程介紹</strong>
+							</h1>
+							<hr>
+							<h2>
+								<strong>課程內容</strong>
+							</h2>
+							<p>在這裡介紹你的課程內容</p>
+							<hr>
+							<h2>
+								<strong>此課程您可以學到</strong>
+							</h2>
+							<p>在這裡介紹你此課程可以學到甚麼</p>
+							<hr>
+							<h2>
+								<strong>此課程適合那些人</strong>
+							</h2>
+							<p>在這裡介紹你的課程適合哪些族群</p>
+							<hr>
+							<h2>
+								<strong>課前準備</strong>
+							</h2>
+							<p>在這裡介紹你的課程需要甚麼課前準備</p>
+					</textarea>
+					<div class="pt-2 d-flex justify-content-center">
+							<button class="mx-1 btn btn-secondary" type="button"
+								onclick="stepper.previous()">上一步</button>
+							<button id="step2NextBtn" class="mx-1 btn btn-secondary"
+								type="button" onclick="stepper.next()">下一步</button>
+						</div>
+				</div>
+				<div id="step3" class="content" role="tabpanel"
 					aria-labelledby="step2-trigger">
 					<!-- 章節單元標籤 -->
 					<div id="chapterContainer">
@@ -278,12 +334,12 @@
 						<div class="pt-2 d-flex justify-content-center">
 							<button class="mx-1 btn btn-secondary" type="button"
 								onclick="stepper.previous()">上一步</button>
-							<button id="step2NextBtn" class="mx-1 btn btn-secondary"
+							<button id="step3NextBtn" class="mx-1 btn btn-secondary"
 								type="button" onclick="stepper.next()">下一步</button>
 						</div>
 					</div>
 				</div>
-				<div id="step3" class="content" role="tabpanel"
+				<div id="step4" class="content" role="tabpanel"
 					aria-labelledby="step3-trigger">
 					<form id="videoFrom" action="<c:url value="/createCourseVideo" />" method="post" enctype="multipart/form-data">
 					<div id="chapterVideoContainer">
@@ -303,14 +359,14 @@
 						</div> -->
 					</div>
 					<div class="pt-2 d-flex justify-content-center">
-						<button id="step3PrevBtn" class="mx-1 btn btn-secondary"
+						<button id="step4PrevBtn" class="mx-1 btn btn-secondary"
 							type="button" onclick="stepper.previous()">上一步</button>
 						<button class="mx-1 btn btn-secondary" type="button"
 							onclick="stepper.next()">下一步</button>
 					</div>
 					</form>
 				</div>
-				<div id="step4" class="content" role="tabpanel"
+				<div id="step5" class="content" role="tabpanel"
 					aria-labelledby="step4-trigger">
 					<div class="form-group">
 						<label>這堂課適合甚麼程度的學生?</label> <select class="form-select"
@@ -322,7 +378,8 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<label>為你的這門課程添加分類吧</label> <select class="form-select"
+						<label>為你的這門課程添加分類吧</label> 
+						<select class="form-select"
 							aria-label="Default select example" id="sort" name="sort">
 							<option selected></option>
 							<option value="語言">語言</option>
@@ -334,6 +391,13 @@
 							<option value="設計">設計</option>
 							<option value="職場技能">職場技能</option>
 							<option value="其他">其他</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label>填寫更詳細的分類!</label>
+						<select class="form-select"
+							aria-label="Default select example" id="detailSort" name="detailSort">
+							<option selected></option>
 						</select>
 					</div>
 					<div class="pt-2 d-flex justify-content-center">
@@ -351,7 +415,12 @@
 	<script>
         window.onload = function () {
             let chapterAndUnitName = []
-
+        	CKEDITOR.replace( 'editor' ,{
+        		contentsCss: ['<c:url value='/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.css' />'],
+        	});
+        	CKEDITOR.config.height = 450;
+        	
+        	
             $("#chapterContainer").on("click", ".addChapter", function () {
                 let iIndex = $(this).parent().parent().parent().index();
                 let html = `
@@ -429,7 +498,7 @@
                 })
             }//單元重新命名
 
-            $('#chapterContainer').on("click", "#step2NextBtn", function () {
+            $('#chapterContainer').on("click", "#step3NextBtn", function () {
                 let allNameValue = [];
                 $(".chapterName").each(function (index, element) {
                     let chapterAndUnitNameVlaue = {};
@@ -493,7 +562,7 @@
                 })//更新放置影片編碼的id跟name
             })
 
-            $('#step3').on("click", "#step3PrevBtn", function () {
+            $('#step4').on("click", "#step4PrevBtn", function () {
                 console.log("empty")
                 $('#chapterVideoContainer').empty()
             })
@@ -527,6 +596,7 @@
             $('#photoContainer').on("change", "#photoBtn", function () {
 
                 photo = $(this).next()[0]
+                image = $(this).prev().children().children()[0]
                 // console.log("test"+photo)
                 // console.log(photo)
 
@@ -541,18 +611,41 @@
                     console.log("fileToLoad=" + fileToLoad.name);
                     fileReader.onload = function (fileLoadedEvent) {
                         photo.value = fileLoadedEvent.target.result;
-                        // img.src = fileLoadedEvent.target.result;
+                        image.src = fileLoadedEvent.target.result;
                     };
                     fileReader.readAsDataURL(fileToLoad);
                 }
-
+                $('#photoContainer').children('div').eq(0).removeAttr('style')
             })//抓照片編碼
+            
+            let detailSortData =new Array();
+            detailSortData[0] = ["英文","日文","韓文","西班牙文",]
+            detailSortData[1] = ["網頁開發","程式語言","遊戲開發","資料庫設計與開發","軟體測試"]
+            detailSortData[2] = ["數位行銷","社群行銷","數據分析","行銷策略","文案撰寫","創業"]
+            detailSortData[3] = ["個人理財","投資觀念","財務分析","量化交易","財務管理","股票分析"]
+            detailSortData[4] = ["商業攝影","影像創作","後製剪輯","攝影理論",]
+            detailSortData[5] = ["平面設計","室內設計","建築設計","網頁設計","遊戲設計","設計理論"]
+            detailSortData[6] = ["樂器","音樂軟體","音樂基礎","音樂創作","聲樂"]
+            detailSortData[7] = ["生產力工具","求職技巧","創業","職場溝通","獨立接案"]
+            detailSortData[8] = ["其他"]
+            $('#sort').on("change", function () {
+            	console.log($(this)[0].selectedIndex)
+            	let index = ($(this)[0].selectedIndex-1);
+            	alert(detailSortData[index]);
+            	$('#detailSort').empty();
+            	$('#detailSort').append('<option selected></option>')
+            	for(var i=0;i<detailSortData[index].length;i++){
+            		$('#detailSort').append('<option value="' + detailSortData[index][i] + '">' + detailSortData[index][i] + '</option>')            		
+            	}
+            })
+            
 
-            $('#step4').on("click", "#submitBtn", async function () {
+            $('#step5').on("click", "#submitBtn", async function () {
                 let formData = {};
                 let unitVideo = {};
                 let videoName = {};
-
+                console.log($('#detailSort').val());
+                formData.courseContent = CKEDITOR.instances.editor.getData();
                 formData.title = $('#title').val();
                 formData.introduction = $('#introduction').val();
                 formData.photo = $('#photoValue').val();
@@ -560,6 +653,7 @@
                 formData.course = chapterAndUnitName;
                 formData.level = $('#level').val();
                 formData.sort = $('#sort').val();
+                formData.detailSort = $('#detailSort').val();
 				formData.userId = ${member.id}
                 console.log(formData);
 
@@ -615,12 +709,15 @@
                         console.log("失敗",response);
                     }
                 })
+                
+                
             })
         }
     </script>
 
 </body>
 <script type="text/javascript">
+	
     var stepper;
     var stepperElem = document.querySelector('.bs-stepper')
     document.addEventListener('DOMContentLoaded', function () {
