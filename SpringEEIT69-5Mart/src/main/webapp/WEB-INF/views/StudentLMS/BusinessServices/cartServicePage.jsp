@@ -30,6 +30,9 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@600&family=Noto+Serif+TC:wght@200;700&display=swap" rel="stylesheet"/>
         <style type="text/css"></style>
+        <!-- jquery -->
+		<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+		<!-- jquery -->
     </head>
     <body>
         <div class="main-container d-flex">
@@ -147,7 +150,7 @@
                 </nav>
                 <div>
                     <!-- < class="dashboard-content px-3 pt-4"> -->
-                    <main class="col-lg-auto ms-sm-0 px-md-4">
+                    <main class="col-lg-auto ms-sm-0 px-md-4 w-100">
                         <div class="chartjs-size-monitor">
                             <div class="chartjs-size-monitor-expand">
                                 <div class=""></div>
@@ -171,39 +174,116 @@
                             </div>
                         </div>
                         <h2>我的購物車</h2>
-                        <div class="col-lg-auto me-5 ms-5 p-2">
-                            <h4 class="d-flex justify-content-between align-items-center mb-3"> <span class="text-muted">購物車清單</span> <span class="badge bg-secondary rounded-pill">3</span> </h4>
-                            <ul class="list-group mb-3">
-                                <li class="list-group-item d-flex justify-content-between lh-sm">
-                                    <div>
-                                        <h6 class="my-0">Product name</h6><small class="text-muted">description</small>
-                                    </div>                                     <span class="text-muted">$12</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between lh-sm">
-                                    <div>
-                                        <h6 class="my-0">Second product</h6><small class="text-muted">description</small>
-                                    </div>                                     <span class="text-muted">$8</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between lh-sm">
-                                    <div>
-                                        <h6 class="my-0">Third item</h6><small class="text-muted">description</small>
-                                    </div>                                     <span class="text-muted">$5</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between bg-light">
-                                    <div class="text-success">
-                                        <h6 class="my-0">Promo code</h6><small>折扣代碼</small>
-                                    </div>                                     <span class="text-success">−$5</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between"><span>Total (USD)</span> <strong>$20</strong>
-                                </li>
-                            </ul>
-                            <form class="card p-2">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Promo code">
-                                    <button type="submit" class="btn btn-secondary">折扣代碼</button>
-                                </div>
-                            </form>
-                        </div>
+                      <!-- 購物車code   -->
+        <div class="container">
+		<c:forEach items="${mycart}" var="cart">
+		<div class="row mx-3">
+			<div class="card mb-3 border-light"  style="height: 200px">
+				<div class="row g-0 ">
+					<div class="col-md-3 d-flex align-items-center">
+						<img class="w-100" style="max-height: 200px"
+							src="${cart.value.dataUri }" alt="...">
+					</div>
+					<div class="col-md-8">
+						<div class="card-body">
+							<div class="d-flex justify-content-between">
+								<h4 style="font-weight: bolder;">
+									<strong>${cart.value.title}</strong>
+								</h4>
+								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
+									$ ${cart.value.price}</p>
+							</div>
+							<div class="d-flex flex-row align-items-end">
+								<p class="card-text  pe-10"
+									style="font-size: small; margin-bottom: 1px; margin-right: 1em;">${result.teacher.username}</p>
+								<p class="card-text">
+									<strong style="font-size: large;">3.5 </strong> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-fill px-0"></i> <i
+										class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
+									(123)
+								</p>
+							</div>
+							<p class="card-text pt-2"></p>
+
+							<div class="col"></div>
+							<div class="col text-end">
+								<a class="remove-button btn btn-light px-2" data-course-id="${cart.value.id}">
+ 									<i class="fa-solid fa-trash fa-xl"></i>
+ 								</a>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</c:forEach>
+		</div>
+                        
+<!--                         <div class="container"> -->
+<!--                         <ul class="d-flex row list-unstyled"> -->
+<%--                         <c:forEach items="${mycart}" var="cart"> --%>
+<!-- 							<li class=" px-2  pb-2 col-12"> -->
+<!-- 								<div class="card myCourseCard "> -->
+<!-- 																											<figure class="figure" style="margin: 0;"> -->
+<%-- 									<img src="${cart.value.dataUri }" class="card-img-top " alt="..."> --%>
+<!-- 																											</figure> figure-img img-fluid rounded -->
+<!-- 									<div class="card-body myCourseCardBody p-2 pe-0 w-100"> -->
+<!-- 										<div class="text-section col-10"> -->
+<%-- 											<h6 class="card-title">${cart.value.title}</h6> --%>
+<%-- 											<p class="card-text" style="font-size: small;">${cart.value.teacher.username}</p> --%>
+<%-- 											<div>$ ${cart.value.price}</div> --%>
+<!-- 										</div> -->
+<!-- 										<div class="cta-section w-100 d-flex justify-content-center align-items-center ps-3"> -->
+<%-- 																						<a href="<c:url value="/removefromcart?id=${cart.value.id} " />" class="btn btn-light px-2"> --%>
+<!-- 																							<i class="fa-solid fa-trash fa-xl"></i> -->
+<!-- 																						</a> -->
+<%-- 											<a class="remove-button btn btn-light px-2" data-course-id="${cart.value.id}"> --%>
+<!-- 												<i class="fa-solid fa-trash fa-xl"></i> -->
+<!-- 											</a> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</li> -->
+<%-- 						</c:forEach> --%>
+<!--                         </ul> -->
+<!--                         </div> -->
+                        
+<!--                         <div class="col-lg-auto me-5 ms-5 p-2"> -->
+<!--                             <h4 class="d-flex justify-content-between align-items-center mb-3"> <span class="text-muted">購物車清單</span> <span class="badge bg-secondary rounded-pill">3</span> </h4> -->
+<!--                             <ul class="list-group mb-3"> -->
+<!--                                 <li class="list-group-item d-flex justify-content-between lh-sm"> -->
+<!--                                     <div> -->
+<!--                                         <h6 class="my-0">Product name</h6><small class="text-muted">description</small> -->
+<!--                                     </div>                                     <span class="text-muted">$12</span> -->
+<!--                                 </li> -->
+<!--                                 <li class="list-group-item d-flex justify-content-between lh-sm"> -->
+<!--                                     <div> -->
+<!--                                         <h6 class="my-0">Second product</h6><small class="text-muted">description</small> -->
+<!--                                     </div>                                     <span class="text-muted">$8</span> -->
+<!--                                 </li> -->
+<!--                                 <li class="list-group-item d-flex justify-content-between lh-sm"> -->
+<!--                                     <div> -->
+<!--                                         <h6 class="my-0">Third item</h6><small class="text-muted">description</small> -->
+<!--                                     </div>                                     <span class="text-muted">$5</span> -->
+<!--                                 </li> -->
+<!--                                 <li class="list-group-item d-flex justify-content-between bg-light"> -->
+<!--                                     <div class="text-success"> -->
+<!--                                         <h6 class="my-0">Promo code</h6><small>折扣代碼</small> -->
+<!--                                     </div>                                     <span class="text-success">−$5</span> -->
+<!--                                 </li> -->
+<!--                                 <li class="list-group-item d-flex justify-content-between"><span>Total (USD)</span> <strong>$20</strong> -->
+<!--                                 </li> -->
+<!--                             </ul> -->
+<!--                             <form class="card p-2"> -->
+<!--                                 <div class="input-group"> -->
+<!--                                     <input type="text" class="form-control" placeholder="Promo code"> -->
+<!--                                     <button type="submit" class="btn btn-secondary">折扣代碼</button> -->
+<!--                                 </div> -->
+<!--                             </form> -->
+<!--                         </div> -->
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
@@ -240,5 +320,36 @@
     $(".close-btn").on("click", function () {
       $(".sidebar").removeClass("active");
     });
+    
+    /* cart-remove function */
+    	var removeUrl = "<c:url value='/removefromcart' />"
+	$(document).ready(function() {
+		$(".remove-button").click(function() {
+			var courseId = $(this).data("course-id");
+			console.log(courseId);
+			$.ajax({
+				url : removeUrl,
+				method : "GET",
+				contentType : 'application/json',
+				data : {
+					id : courseId
+				},
+				success : function(response) {
+					console.log(response);
+					if (response.status === 200) {
+
+						alert("成功移除課程");
+						location.reload(); // 或者其他更新頁面的方法
+					} else {
+						alert("移除課程失敗");
+					}
+				},
+				error : function() {
+					alert("發生錯誤，請重試");
+				}
+			});
+		});
+	});
+    
   </script>
 </body>
