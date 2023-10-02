@@ -50,7 +50,7 @@ public class member implements Serializable {
     @OneToMany(mappedBy = "member", fetch = FetchType.EAGER) 
     private Set<StudentQuestion> studentQuestion;//OK
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(name = "member_course_5mart" , 
     joinColumns = {
     		@JoinColumn(name = "member_id", referencedColumnName = "id")
@@ -212,22 +212,6 @@ public class member implements Serializable {
 //		this.accountSetting = accountSetting; 
 //	}
 
-	public void setStudentQuestion(Set<StudentQuestion> studentQuestion) {
-		this.studentQuestion = studentQuestion;
-	}
-
-
-	public String getDataUri() throws Exception {
-		if(TeacherPicture!=null) {
-			Blob photo = TeacherPicture.getPhoto();
-			byte[] photoByte = photo.getBytes(1, (int)photo.length());
-			String base64Photo = Base64.getEncoder().encodeToString(photoByte);			
-			return base64Photo;
-		}else {
-			return null;
-		}
-		
-	}
 	
 	@Override
 	public String toString() {
