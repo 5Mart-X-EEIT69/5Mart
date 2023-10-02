@@ -53,6 +53,28 @@ public class memberDaoImpl implements memberDao {
 	}
 
 	@Override
+	public boolean existsByUsername(String name) {
+		log.info("會員註冊功能之Dao: 檢查會員輸入的名字是否已被使用");
+		Boolean isExist = false;
+		String hql = "FROM member m WHERE username = :username ";
+		
+		try {
+			member result = (member) entityManager.createQuery(hql).setParameter("username", name).getSingleResult();
+			if (result != null) {
+				isExist = true;
+			}
+		} catch (NoResultException e) {
+			isExist = false;
+		} catch (NonUniqueResultException e) {
+			isExist = true;
+		}
+		log.info("會員註冊功能之Dao: 檢查會員輸入的名字是否已被使用, exist=" + isExist);
+
+		return isExist;
+		
+	}
+
+	@Override
 	public member findByMemberId(Integer id) {
 		member result = entityManager.find(member.class, id);
 		return result;

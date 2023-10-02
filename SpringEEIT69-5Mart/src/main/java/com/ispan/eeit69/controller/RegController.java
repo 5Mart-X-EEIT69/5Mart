@@ -4,6 +4,8 @@ import java.sql.Blob;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ispan.eeit69.model.TeacherPicture;
 import com.ispan.eeit69.model.member;
@@ -94,6 +97,22 @@ public class RegController {
 //		return "/homePage";
 		return "redirect:/homepage";
 	}
+	
+	
+	@PostMapping("/checkname")
+	@ResponseBody
+	public Map<String, Boolean> checkName(@RequestParam("name")String name){
+		System.out.println("驗證姓名有沒有人使用");
+		boolean isExist = memberService.existsByUsername(name);
+		
+		Map<String, Boolean> response = new HashMap<>();
+		response.put("isExist", isExist);
+		System.out.println(response.toString()); 
+//		response.put("isExist", true);
+		return response;
+	}
+	
+	
 
 	@ModelAttribute("preMember")
 	public member beforeSave() {

@@ -3,115 +3,258 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <link rel='stylesheet' href="<c:url value='/assets/css/visitorHomePage.css' />" type="text/css" />
 <script type="text/javascript">
-	//當用戶焦點離開全名輸入框時觸發
-	$("#usernameInput").blur(function() {
-		var name = $(this).val(); // 獲取輸入框的值
-		var checkNameUrl = "<c:url value='/checkname' />"
-		// 發送 Ajax 請求到後端
-		$.ajax({
-			url : checkNameUrl, // 替換成您後端的 API URL
-			type : 'POST',
-			data : {
-				name : name
-			},
-			success : function(response) {
-				if (response.exists) {
-					$(".duplicateName").text("已有人使用此名稱"); // 更新警告訊息
-				} else {
-					$(".duplicateName").text(""); // 清空警告訊息
+	var checkNameUrl = "<c:url value='/checkname' />";
+	$(document).ready(function() {
+		//當用戶焦點離開全名輸入框時觸發
+		$("#usernameInput").blur(function() {
+			var userName = $(this).val(); // 獲取輸入框的值
+			console.log("離開輸入框");
+			// 發送 Ajax 請求到後端
+			$.ajax({
+				url : checkNameUrl, // 替換成您後端的 API URL
+				type : 'POST',
+				data : {
+					name : userName
+				},
+				success : function(response) {
+					if (response.isExist) {
+						$(".duplicateName").text("已有人使用此名稱"); // 更新警告訊息
+					} else {
+						$(".duplicateName").text(""); // 清空警告訊息
+					}
+				},
+				error : function(response) {
+					alert("發生錯誤，請重試");
+					console.log(response)
 				}
-			}
+			});
 		});
 	});
 </script>
 <nav class="navbar navbar-expand-lg bg-body-tertiary  sticky-top shadow">
 	<div class="container-fluid">
 		<!-- 品牌logo -->
-		<a class="navbar-brand" href="<c:url value='/homepage' />"><i class="fa-solid fa-graduation-cap fa-xl px-2"></i></a>
+		<a class="navbar-brand" href="<c:url value='/homepage' />">
+			<i class="fa-solid fa-graduation-cap fa-xl px-2"></i>
+		</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item dropdown px-2"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 課程類別 </a>
+				<li class="nav-item dropdown px-2">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 課程類別 </a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">語言</a>
+						<li class="dropdown-submenu">
+							<a class="dropdown-item dropdown-toggle" href="#">語言</a>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#"><strong>所有語言</strong></a></li>
-								<li><a class="dropdown-item" href="#">英文</a></li>
-								<li><a class="dropdown-item" href="#">日文</a></li>
-								<li><a class="dropdown-item" href="#">韓文</a></li>
-								<li><a class="dropdown-item" href="#">西班牙文</a></li>
-							</ul></li>
-						<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">開發</a>
+								<li>
+									<a class="dropdown-item" href="#">
+										<strong>所有語言</strong>
+									</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">英文</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">日文</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">韓文</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">西班牙文</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown-submenu">
+							<a class="dropdown-item dropdown-toggle" href="#">開發</a>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#"><strong>所有開發</strong></a></li>
-								<li><a class="dropdown-item" href="#">網頁開發</a></li>
-								<li><a class="dropdown-item" href="#">程式語言</a></li>
-								<li><a class="dropdown-item" href="#">遊戲開發</a></li>
-								<li><a class="dropdown-item" href="#">資料庫設計與開發</a></li>
-								<li><a class="dropdown-item" href="#">軟體測試</a></li>
-							</ul></li>
-						<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">行銷</a>
+								<li>
+									<a class="dropdown-item" href="#">
+										<strong>所有開發</strong>
+									</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">網頁開發</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">程式語言</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">遊戲開發</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">資料庫設計與開發</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">軟體測試</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown-submenu">
+							<a class="dropdown-item dropdown-toggle" href="#">行銷</a>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#"><strong>所有行銷</strong></a></li>
-								<li><a class="dropdown-item" href="#">數位行銷</a></li>
-								<li><a class="dropdown-item" href="#">社群行銷</a></li>
-								<li><a class="dropdown-item" href="#">數據分析</a></li>
-								<li><a class="dropdown-item" href="#">行銷策略</a></li>
-								<li><a class="dropdown-item" href="#">文案撰寫</a></li>
-								<li><a class="dropdown-item" href="#">創業</a></li>
-							</ul></li>
-						<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">投資理財</a>
+								<li>
+									<a class="dropdown-item" href="#">
+										<strong>所有行銷</strong>
+									</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">數位行銷</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">社群行銷</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">數據分析</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">行銷策略</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">文案撰寫</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">創業</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown-submenu">
+							<a class="dropdown-item dropdown-toggle" href="#">投資理財</a>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#"><strong>所有投資理財</strong></a></li>
-								<li><a class="dropdown-item" href="#">個人理財</a></li>
-								<li><a class="dropdown-item" href="#">投資觀念</a></li>
-								<li><a class="dropdown-item" href="#">財務分析</a></li>
-								<li><a class="dropdown-item" href="#">量化交易</a></li>
-								<li><a class="dropdown-item" href="#">財務管理</a></li>
-								<li><a class="dropdown-item" href="#">股票分析</a></li>
-							</ul></li>
-						<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">攝影</a>
+								<li>
+									<a class="dropdown-item" href="#">
+										<strong>所有投資理財</strong>
+									</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">個人理財</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">投資觀念</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">財務分析</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">量化交易</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">財務管理</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">股票分析</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown-submenu">
+							<a class="dropdown-item dropdown-toggle" href="#">攝影</a>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#"><strong>所有攝影</strong></a></li>
-								<li><a class="dropdown-item" href="#">商業攝影</a></li>
-								<li><a class="dropdown-item" href="#">影像創作</a></li>
-								<li><a class="dropdown-item" href="#">後製剪輯</a></li>
-								<li><a class="dropdown-item" href="#">攝影理論</a></li>
-							</ul></li>
-						<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">設計</a>
+								<li>
+									<a class="dropdown-item" href="#">
+										<strong>所有攝影</strong>
+									</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">商業攝影</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">影像創作</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">後製剪輯</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">攝影理論</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown-submenu">
+							<a class="dropdown-item dropdown-toggle" href="#">設計</a>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#"><strong>所有設計</strong></a></li>
-								<li><a class="dropdown-item" href="#">平面設計</a></li>
-								<li><a class="dropdown-item" href="#">室內設計</a></li>
-								<li><a class="dropdown-item" href="#">建築設計</a></li>
-								<li><a class="dropdown-item" href="#">網頁設計</a></li>
-								<li><a class="dropdown-item" href="#">遊戲設計</a></li>
-								<li><a class="dropdown-item" href="#">設計理論</a></li>
-							</ul></li>
-						<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">音樂</a>
+								<li>
+									<a class="dropdown-item" href="#">
+										<strong>所有設計</strong>
+									</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">平面設計</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">室內設計</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">建築設計</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">網頁設計</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">遊戲設計</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">設計理論</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown-submenu">
+							<a class="dropdown-item dropdown-toggle" href="#">音樂</a>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#"><strong>所有音樂</strong></a></li>
-								<li><a class="dropdown-item" href="#">樂器</a></li>
-								<li><a class="dropdown-item" href="#">音樂軟體</a></li>
-								<li><a class="dropdown-item" href="#">音樂基礎</a></li>
-								<li><a class="dropdown-item" href="#">音樂創作</a></li>
-								<li><a class="dropdown-item" href="#">聲樂</a></li>
-							</ul></li>
-						<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">職場技能</a>
+								<li>
+									<a class="dropdown-item" href="#">
+										<strong>所有音樂</strong>
+									</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">樂器</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">音樂軟體</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">音樂基礎</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">音樂創作</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">聲樂</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown-submenu">
+							<a class="dropdown-item dropdown-toggle" href="#">職場技能</a>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#"><strong>所有職場技能</strong></a></li>
-								<li><a class="dropdown-item" href="#">生產力工具</a></li>
-								<li><a class="dropdown-item" href="#">求職技巧</a></li>
-								<li><a class="dropdown-item" href="#">創業</a></li>
-								<li><a class="dropdown-item" href="#">職場溝通</a></li>
-								<li><a class="dropdown-item" href="#">獨立接案</a></li>
-							</ul></li>
+								<li>
+									<a class="dropdown-item" href="#">
+										<strong>所有職場技能</strong>
+									</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">生產力工具</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">求職技巧</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">創業</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">職場溝通</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">獨立接案</a>
+								</li>
+							</ul>
+						</li>
 
-					</ul></li>
+					</ul>
+				</li>
 
-				<li class="nav-item px-4"><a class="nav-link" href="#">文章</a></li>
+				<li class="nav-item px-4">
+					<a class="nav-link" href="#">文章</a>
+				</li>
 
 				<li class="nav-item px-10">
 					<form class="d-lg-flex d-none nav-item input-group" action="<c:url value="/visitorsearchpage" />" method="post">
@@ -131,11 +274,21 @@
 					<i class="fa-solid fa-earth-americas fa-lg"></i>
 				</button>
 				<ul class="dropdown-menu dropdown-menu-end">
-					<li><a class="dropdown-item" href="#">英文</a></li>
-					<li><a class="dropdown-item" href="#">日文</a></li>
-					<li><a class="dropdown-item" href="#">韓文</a></li>
-					<li><a class="dropdown-item" href="#">西班牙文</a></li>
-					<li><a class="dropdown-item" href="#">簡體中文</a></li>
+					<li>
+						<a class="dropdown-item" href="#">英文</a>
+					</li>
+					<li>
+						<a class="dropdown-item" href="#">日文</a>
+					</li>
+					<li>
+						<a class="dropdown-item" href="#">韓文</a>
+					</li>
+					<li>
+						<a class="dropdown-item" href="#">西班牙文</a>
+					</li>
+					<li>
+						<a class="dropdown-item" href="#">簡體中文</a>
+					</li>
 				</ul>
 			</div>
 
@@ -198,7 +351,15 @@
 					</p>
 				</div>
 				<div class="mb-3">
-					<a class="mx-2" type="button" href="#"><i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i></a> <a class="mx-2" type="button" href="#"><i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i></a> <a class="mx-2" type="button" href="#"><i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i></a>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i>
+					</a>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i>
+					</a>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i>
+					</a>
 				</div>
 
 				<div style="align-content: center">
@@ -232,7 +393,7 @@
 					<!-- 姓名 -->
 					<div class="form-group">
 						<input type="text" class="text form-control" placeholder="全名" name="username" id="usernameInput">
-						<div class="duplicateName"></div>
+						<div class="duplicateName mb-2 ms-4" style="font-size: small;color:red"></div>
 					</div>
 					<!-- email -->
 					<div class="form-group">
@@ -244,13 +405,16 @@
 					</div>
 					<!-- 再次輸入密碼 -->
 					<div class="form-group">
-						<input type="password" class="password form-control" placeholder="再次輸入密碼">
+						<input type="password" class="password form-control mb-2" placeholder="再次輸入密碼">
 					</div>
 					<!-- 送出按鈕 -->
 					<button type="submit" class="btn btn-secondary mt-3" data-bs-dismiss="modal">註冊</button>
 					<div class="d-md-flex justify-content-center mt-2">
 						<p>
-							註冊即同意<a type="button" href="#">隱私權政策</a>和<a type="button" href="#">使用者條款</a>
+							註冊即同意
+							<a type="button" href="#">隱私權政策</a>
+							和
+							<a type="button" href="#">使用者條款</a>
 						</p>
 					</div>
 				</form>
@@ -263,7 +427,15 @@
 					</p>
 				</div>
 				<div class="mb-3">
-					<a class="mx-2" type="button" href="#"><i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i></a> <a class="mx-2" type="button" href="#"><i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i></a> <a class="mx-2" type="button" href="#"><i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i></a>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i>
+					</a>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i>
+					</a>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i>
+					</a>
 				</div>
 			</div>
 		</div>
