@@ -364,7 +364,6 @@
 				</li>
 
 				<!-- 購物車 fontawesome -->
-
 				<li class="nav-item dropdown px-2">
 					<a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						<i class="fa-solid fa-cart-shopping fa-xl position-relative"></i>
@@ -404,6 +403,7 @@
 						</li>
 					</ul>
 				</li>
+				
 				<!-- 通知 -->
 				<li class="nav-item dropdown px-2">
 					<a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
