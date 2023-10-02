@@ -755,5 +755,13 @@ public class TeacherController {
 		return "redirect:/TeacherComminicateQA";
 
 	}
-
+	
+	@PostMapping("/TeacherArticle")
+	public String newTeacherArticle(Model model ,@RequestParam("title") String title,@RequestParam("content") String content ,@RequestParam("photo") MultipartFile photo ,@RequestParam("memberId") Integer memberId) {
+		System.out.println(photo.getSize());
+		System.out.println(title);
+		System.out.println(content);
+		System.out.println(memberId);
+		return "redirect:/TeacherCourseListAll";
+	}
 }

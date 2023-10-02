@@ -23,13 +23,20 @@
 	type="text/css" />
 <!-- bootstrap -->
 <!-- ckeditor -->
-<script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
-<!-- ckeditor -->
+<!-- <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script> -->
+<script src="//cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+
+<%-- <script src="<c:url value='/assets/js/ckeditor5-build-classic/ckeditor.js' />"></script> --%>
+<!-- 
+ -->
 <style type="text/css">
 	.nav-link {
 	font-weight: bolder;
 	}
 
+
+}
+	
 </style>
 </head>
 
@@ -91,21 +98,117 @@
 		</div>
 		<!-- 		選單右邊 -->
 		<div class="col-2">test</div>
-		<div class="col-4 d-flex flex-column justify-content-center">
+		<div class="col-4 d-flex flex-column mt-5">
 			<h1>建立文章</h1>
-			<hr>
-			<div id="editor">什麼都還沒做，之後再研究。</div>
+			<hr>			
+			<form action="<c:url value="/TeacherArticle"/>" method="post" enctype="multipart/form-data">
+				<div id="photoContainer">
+					<div id="step1" style="">
+						<label class="form-label fs-2">上傳文章封面照片</label>				
+						<div class="w-100 mb-3 border rounded" style="height: 357px">
+							<figure class="figure m-0 d-flex justify-content-center">
+							<img src="" class="ifigure-img img-fluid rounded">
+							</figure>				
+						</div>			
+						<input class="form-control form-control-lg" id="imgbtn" type="file" accept="image/*" name="photo" >
+						<input type="hidden" value="${member.id}" name="memberId" >
+						<div class="pt-2 d-flex justify-content-center">
+							<button id="step1NextBtn" class="mx-1 btn btn-secondary" type="button" onclick="next(1)">下一步</button>
+						</div>				
+					</div>				
+				</div>
+			
+				<div id="step2" style="display:none">
+					<label class="form-label fs-2" for="title" >文章標題</label>
+					<input class="form-control my-2" type="text" name="title" placeholder="文章標題...">
+					<label class="form-label fs-2" for="content" >文章內容</label>
+					<textarea name="content" id="editor" placeholder="文章內容...">
+						<h1>
+							<strong>文章內容</strong>
+						</h1>
+						<hr>
+						<h2>
+							<strong>文章大標1</strong>
+						</h2>
+						<p>你的文章內容，你的文章內容，你的文章內容，你的文章內容。</p>
+						<hr>
+						<h2>
+							<strong>文章大標2</strong>
+						</h2>
+						<p>你的文章內容，你的文章內容，你的文章內容，你的文章內容。你的文章內容，你的文章內容，你的文章內容，你的文章內容。你的文章內容，你的文章內容，你的文章內容，你的文章內容。</p>
+						<hr>		
+					</textarea >
+					<div class="d-flex justify-content-center">
+						<button id="step2PrevBtn" class="mt-3 btn btn-secondary me-2" type="button" onclick="prev(2)">上一步</button>
+						<input class="btn btn-secondary mt-3" type="submit" value="建立文章">				
+					</div>
+				</div>
+			</form>
+			
+<!-- 			<button onclick="getData()">getData</button> -->
 			<script>
-				ClassicEditor
-				        .create( document.querySelector( '#editor' ) )
-				        .then( editor => {
-				                console.log( editor );
-				        } )
-				        .catch( error => {
-				                console.error( error );
-				        } );
-			</script>
+// 				let editor;
+				
+// 				ClassicEditor
+// 				        .create( document.querySelector( '#editor' ))
+// 				        .then( newEditor => {
+// 				        		editor = newEditor;
+// 				        		newEditor.execute( 'horizontalLine' )
+// 				                console.log( editor );
+// 				        } )
+// 				        .catch( error => {
+// 				                console.error( error );
+// 				        } );
 
+                CKEDITOR.replace( 'editor' ,{
+					contentsCss: ['<c:url value='/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.css' />'],
+                });
+                CKEDITOR.config.height = 400;
+// 				function getData(){
+// 					const data = editor.getData();
+// 					alert(data)
+// 				}
+				
+				function next(step){
+					let nowStep = "step" + step ;
+					let nextStep = "step" + (step+1) ;
+					$('#'+nowStep).css({ display: "none" });
+					$('#'+nextStep).attr('style', '');
+					
+				}
+				
+				function prev(step){
+					let nowStep = "step" + step ;
+					let prevStep = "step" + (step-1) ;
+					$('#'+nowStep).css({ display: "none" });
+					$('#'+prevStep).attr('style', '');
+					
+				}
+				
+			    $('#photoContainer').on("change", "#imgbtn", function () {
+			    	
+			        image = $(this).prev().children().children()[0]
+			        // console.log("test"+video)
+			        console.log(image)
+			
+		            let input = $(this)[0].files;
+		            // console.log(input)
+		            // console.log(input.length)
+		            if (input.length > 0) {
+		                let fileReader = new FileReader();
+
+		                let fileToLoad = input[0];
+		                console.log("fileToLoad=" + fileToLoad.name);
+		                fileReader.onload = function (fileLoadedEvent) {
+		                	image.src = fileLoadedEvent.target.result;
+		                };
+		                fileReader.readAsDataURL(fileToLoad);
+		            }
+					
+		            $('#photoContainer').children().children('div').eq(0).removeAttr('style')
+			    })
+			</script>
+			
 		</div>
 		<div class="col-4">test</div>
 	</div>
