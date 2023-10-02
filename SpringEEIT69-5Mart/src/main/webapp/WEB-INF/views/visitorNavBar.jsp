@@ -18,9 +18,11 @@
 				},
 				success : function(response) {
 					if (response.isExist) {
-						$(".duplicateName").text("已有人使用此名稱"); // 更新警告訊息
+						$(".duplicateName").text("此名稱已有人使用"); // 更新警告訊息
+						$("#usernameInput").css("border","2px solid red");
 					} else {
 						$(".duplicateName").text(""); // 清空警告訊息
+						$("#usernameInput").css("border","2px solid green");
 					}
 				},
 				error : function(response) {
@@ -29,6 +31,34 @@
 				}
 			});
 		});
+		
+		var checkEmailUrl = "<c:url value='/checkemail'/>";
+		$("#emailInput").blur(function() {
+			var userEmail = $(this).val(); // 獲取輸入框的值
+			console.log("離開輸入框");
+			// 發送 Ajax 請求到後端
+			$.ajax({
+				url : checkEmailUrl, // 替換成您後端的 API URL
+				type : 'POST',
+				data : {
+					email : userEmail
+				},
+				success : function(response) {
+					if (response.isExist) {
+						$(".duplicateEmail").text("此信箱已有人註冊"); // 更新警告訊息
+						$("#emailInput").css("border","2px solid red");
+					} else {
+						$(".duplicateEmail").text(""); // 清空警告訊息
+						$("#emailInput").css("border","2px solid green");
+					}
+				},
+				error : function(response) {
+					alert("發生錯誤，請重試");
+					console.log(response)
+				}
+			});
+		});
+		
 	});
 </script>
 <nav class="navbar navbar-expand-lg bg-body-tertiary  sticky-top shadow">
@@ -44,212 +74,8 @@
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item dropdown px-2">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 課程類別 </a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li class="dropdown-submenu">
-							<a class="dropdown-item dropdown-toggle" href="#">語言</a>
-							<ul class="dropdown-menu">
-								<li>
-									<a class="dropdown-item" href="#">
-										<strong>所有語言</strong>
-									</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">英文</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">日文</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">韓文</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">西班牙文</a>
-								</li>
-							</ul>
-						</li>
-						<li class="dropdown-submenu">
-							<a class="dropdown-item dropdown-toggle" href="#">開發</a>
-							<ul class="dropdown-menu">
-								<li>
-									<a class="dropdown-item" href="#">
-										<strong>所有開發</strong>
-									</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">網頁開發</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">程式語言</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">遊戲開發</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">資料庫設計與開發</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">軟體測試</a>
-								</li>
-							</ul>
-						</li>
-						<li class="dropdown-submenu">
-							<a class="dropdown-item dropdown-toggle" href="#">行銷</a>
-							<ul class="dropdown-menu">
-								<li>
-									<a class="dropdown-item" href="#">
-										<strong>所有行銷</strong>
-									</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">數位行銷</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">社群行銷</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">數據分析</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">行銷策略</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">文案撰寫</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">創業</a>
-								</li>
-							</ul>
-						</li>
-						<li class="dropdown-submenu">
-							<a class="dropdown-item dropdown-toggle" href="#">投資理財</a>
-							<ul class="dropdown-menu">
-								<li>
-									<a class="dropdown-item" href="#">
-										<strong>所有投資理財</strong>
-									</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">個人理財</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">投資觀念</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">財務分析</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">量化交易</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">財務管理</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">股票分析</a>
-								</li>
-							</ul>
-						</li>
-						<li class="dropdown-submenu">
-							<a class="dropdown-item dropdown-toggle" href="#">攝影</a>
-							<ul class="dropdown-menu">
-								<li>
-									<a class="dropdown-item" href="#">
-										<strong>所有攝影</strong>
-									</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">商業攝影</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">影像創作</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">後製剪輯</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">攝影理論</a>
-								</li>
-							</ul>
-						</li>
-						<li class="dropdown-submenu">
-							<a class="dropdown-item dropdown-toggle" href="#">設計</a>
-							<ul class="dropdown-menu">
-								<li>
-									<a class="dropdown-item" href="#">
-										<strong>所有設計</strong>
-									</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">平面設計</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">室內設計</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">建築設計</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">網頁設計</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">遊戲設計</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">設計理論</a>
-								</li>
-							</ul>
-						</li>
-						<li class="dropdown-submenu">
-							<a class="dropdown-item dropdown-toggle" href="#">音樂</a>
-							<ul class="dropdown-menu">
-								<li>
-									<a class="dropdown-item" href="#">
-										<strong>所有音樂</strong>
-									</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">樂器</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">音樂軟體</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">音樂基礎</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">音樂創作</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">聲樂</a>
-								</li>
-							</ul>
-						</li>
-						<li class="dropdown-submenu">
-							<a class="dropdown-item dropdown-toggle" href="#">職場技能</a>
-							<ul class="dropdown-menu">
-								<li>
-									<a class="dropdown-item" href="#">
-										<strong>所有職場技能</strong>
-									</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">生產力工具</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">求職技巧</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">創業</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">職場溝通</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">獨立接案</a>
-								</li>
-							</ul>
-						</li>
+					<jsp:include page="/WEB-INF/views/sortNavbar.jsp" />
 
-					</ul>
 				</li>
 
 				<li class="nav-item px-4">
@@ -397,7 +223,8 @@
 					</div>
 					<!-- email -->
 					<div class="form-group">
-						<input type="email" class="account form-control" placeholder="電子郵件" name="account">
+						<input type="email" class="account form-control" placeholder="電子郵件" name="account" id="emailInput">
+						<div class="duplicateEmail mb-2 ms-4" style="font-size: small;color:red"></div>
 					</div>
 					<!-- 密碼 -->
 					<div class="form-group">

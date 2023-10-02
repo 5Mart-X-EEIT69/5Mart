@@ -112,6 +112,19 @@ public class RegController {
 		return response;
 	}
 	
+	@PostMapping("/checkemail")
+	@ResponseBody
+	public Map<String, Boolean> checkEmail(@RequestParam("email")String email){
+		System.out.println("驗證信箱有沒有人使用");
+		boolean isExist = memberService.existsById(email);
+		
+		Map<String, Boolean> response = new HashMap<>();
+		response.put("isExist", isExist);
+		System.out.println(response.toString()); 
+//		response.put("isExist", true);
+		return response;
+	}
+	
 	
 
 	@ModelAttribute("preMember")

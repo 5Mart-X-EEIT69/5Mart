@@ -174,45 +174,47 @@
 			</p>
 		</div>
 		<c:forEach items="${keywordResult}" var="result">
-			<div class="row mx-3">
-				<div class="card mb-3 border-light">
-					<div class="row g-0 ">
-						<div class="col-md-3 d-flex align-items-center">
-							<img class="w-100" src="${result.dataUri}" alt="...">
-						</div>
-						<div class="col-md-8">
-							<div class="card-body">
-								<div class="d-flex justify-content-between">
-									<h4 style="font-weight: bolder;">
-										<strong>${result.title}</strong>
-									</h4>
-									<p class="mb-0" style="font-weight: bolder; font-size: large;">NT $ ${result.price}</p>
-								</div>
-								<div class="d-flex flex-row align-items-end">
-									<p class="card-text  pe-10" style="font-size: small; margin-bottom: 1px; margin-right: 1em;">${result.teacher.username}</p>
-									<p class="card-text">
-										<strong style="font-size: large;">3.5 </strong>
-										<i class="bi bi-star-fill px-0"></i>
-										<i class="bi bi-star-fill px-0"></i>
-										<i class="bi bi-star-fill px-0"></i>
-										<i class="bi bi-star-half px-0"></i>
-										<i class="bi bi-star px-0"></i>
-										(123)
-									</p>
-								</div>
-								<p class="card-text pt-2">${result.introduction}</p>
+			<a href="<c:url value='/courseDetail?id=${result.id} ' />" class="text-reset text-decoration-none">
+				<div class="row mx-3">
+					<div class="card mb-3 border-light">
+						<div class="row g-0 ">
+							<div class="col-md-3 d-flex align-items-center">
+								<img class="w-100" src="${result.dataUri}" alt="...">
+							</div>
+							<div class="col-md-8">
+								<div class="card-body">
+									<div class="d-flex justify-content-between">
+										<h4 style="font-weight: bolder;">
+											<strong>${result.title}</strong>
+										</h4>
+										<p class="mb-0" style="font-weight: bolder; font-size: large;">NT $ ${result.price}</p>
+									</div>
+									<div class="d-flex flex-row align-items-end">
+										<p class="card-text  pe-10" style="font-size: small; margin-bottom: 1px; margin-right: 1em;">${result.teacher.username}</p>
+										<p class="card-text">
+											<strong style="font-size: large;">3.5 </strong>
+											<i class="bi bi-star-fill px-0"></i>
+											<i class="bi bi-star-fill px-0"></i>
+											<i class="bi bi-star-fill px-0"></i>
+											<i class="bi bi-star-half px-0"></i>
+											<i class="bi bi-star px-0"></i>
+											(123)
+										</p>
+									</div>
+									<p class="card-text pt-2">${result.introduction}</p>
 
-								<div class="col"></div>
-								<div class="col text-end">
-									<i class="fa-solid fa-cart-shopping px-2"></i>
-									<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+									<div class="col"></div>
+									<div class="col text-end">
+										<i class="fa-solid fa-cart-shopping px-2"></i>
+										<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
 
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</a>
 		</c:forEach>
 	</div>
 
