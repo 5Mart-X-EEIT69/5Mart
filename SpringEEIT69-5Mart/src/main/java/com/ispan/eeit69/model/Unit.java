@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -29,8 +30,8 @@ public class Unit {
 	private String unitNumber ; //第幾單元
 	private String unitName ;//單元名稱
 	
-	@OneToMany(mappedBy = "unit" ,cascade = CascadeType.ALL)
-	private Set<Video> video = new LinkedHashSet<Video>();
+	@OneToOne(mappedBy = "unit" ,cascade = CascadeType.ALL)
+	private Video video = new Video();
 	
 	public Unit() {
 	}
@@ -77,11 +78,17 @@ public class Unit {
 		this.unitName = unitName;
 	}	
 	
-	public Set<Video> getVideo() {
+
+
+
+
+	public Video getVideo() {
 		return video;
 	}
 
-	public void setVideo(Set<Video> video) {
+
+
+	public void setVideo(Video video) {
 		this.video = video;
 	}
 

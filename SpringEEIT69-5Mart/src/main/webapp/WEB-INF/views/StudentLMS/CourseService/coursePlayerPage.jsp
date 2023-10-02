@@ -104,145 +104,37 @@
       <!-- 使用 Bootstrap Grid System 進行布局 -->
       <div class="row">
         <!-- 影片播放器 -->
-        <div class="col-md-8">
-          <iframe
-            id="Youtube_GodKnows"
-            src="https://www.youtube.com/embed/WWB01IuMvzA?si=WCmvsCL27PkLCdWk"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
-        </div>
+      <div class="col-md-8">
+        <video id="videoPlayer" width="800" controls>
+		  <source id="videoSource" type="video/mp4">
+		</video>
+      </div>
         <!-- 章節和單元的選單（手風琴） -->
-        <div class="col-md-4">
-          <!-- 主手風琴：章節 -->
-          <!-- 主手風琴：章節 -->
-          <div class="accordion" id="mainAccordion">
-            <!-- 章節1 -->
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button
-                  class="accordion-button"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#chapter1"
-                >
-                  章節1
-                </button>
-              </h2>
-              <div
-                id="chapter1"
-                class="accordion-collapse collapse"
-                data-bs-parent="#mainAccordion"
-              >
-                <div class="accordion-body">
-                  <!-- 子手風琴：單元 -->
-                  123
-                  <div class="accordion" id="accordionExample">
+					<div class="accordion" id="accordionExample">
 						<c:forEach items="${courseData.chapter}" var="chapter">
 							<div class="accordion-item">
-								<h2 class="accordion-header">
-									<button class="accordion-button collapsed" type="button"
-										data-bs-toggle="collapse"
-										data-bs-target="#collapse${chapter.chapterId}"
-										aria-expanded="false" aria-controls="collapseOne">${chapter.chapterName}</button>
-								</h2>
-								<div id="collapse${chapter.chapterId}"
-									class="accordion-collapse collapse ">
-									<div class="accordion-body">
-										<ul class="list-group list-group-flush">
+								<h1 class="accordion-header">
+									<button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${chapter.chapterId}" aria-expanded="false" aria-controls="collapseOne">${chapter.chapterName}</button>
+								</h1>
+								<div id="collapse${chapter.chapterId}" class="accordion-collapse collapse ">
+									<div class="">
+										<ul class="list-group list-group-flush list-unstyled">
 											<c:forEach items="${chapter.unit}" var="unit">
-												<li class="list-group-item">
-													<div class="d-flex w-100 justify-content-between">
-														<h5 class="mb-1">${unit.unitName}</h5>
-														<small>07:20</small>
-													</div>
-												</li>
+													<li class="ms-3">
+														<button class="btn btn-light d-flex w-100 justify-content-between" onclick="loadVideo('${unit.video.uuid}')">
+															<div class="d-flex w-100 justify-content-between">
+																<p class="mb-1">${unit.unitName}</p>
+																<small>07:20</small>
+															</div>
+														</button>
+													</li>
 											</c:forEach>
 										</ul>
 									</div>
 								</div>
 							</div>
 						</c:forEach>
-
 					</div>
-					123
-                </div>
-              </div>
-            </div>
-            <!-- 章節2 -->
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button
-                  class="accordion-button"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#chapter2"
-                >
-                  章節2
-                </button>
-              </h2>
-              <div
-                id="chapter2"
-                class="accordion-collapse collapse"
-                data-bs-parent="#mainAccordion"
-              >
-                <div class="accordion-body">
-                  <!-- 子手風琴：單元 -->
-                  <div class="accordion" id="unitAccordion2">
-                    <!-- 單元1 -->
-                    <div class="accordion-item">
-                      <h3 class="accordion-header">
-                        <button
-                          class="accordion-button"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#unit2-1"
-                        >
-                          單元1
-                        </button>
-                      </h3>
-                      <div
-                        id="unit2-1"
-                        class="accordion-collapse collapse"
-                        data-bs-parent="#unitAccordion2"
-                      >
-                        <div class="accordion-body">
-                          <!-- 課程影片按鈕 -->
-                          <button>影片2-1</button>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- 單元2 -->
-                    <div class="accordion-item">
-                      <h3 class="accordion-header">
-                        <button
-                          class="accordion-button"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#unit2-2"
-                        >
-                          單元2
-                        </button>
-                      </h3>
-                      <div
-                        id="unit2-2"
-                        class="accordion-collapse collapse"
-                        data-bs-parent="#unitAccordion2"
-                      >
-                        <div class="accordion-body">
-                          <!-- 課程影片按鈕 -->
-                          <button>影片2-2</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- Tab分頁 -->
@@ -262,7 +154,6 @@
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="overview">
-            這裡是課程總覽。
             <!-- course overview code START -->
             <div class="container">
               <div class="row">
@@ -282,13 +173,11 @@
               <div class="row">
                 <div class="col-4">依編號</div>
                 <div class="col-4">
-                  <div>技能等級: 所有級別</div>
+                  <div>技能等級: ${courseData.level}</div>
                   <div>學生: 333617</div>
                   <div>語言: 英語</div>
-                  <div>字幕: 是</div>
                 </div>
                 <div class="col-4">
-                  <div>講座: 366</div>
                   <div>影片: 總計 31 小時</div>
                 </div>
               </div>
@@ -320,16 +209,7 @@
                 <div class="col-4">說明</div>
                 <div class="col-4">
                   <div>
-                    NEW FOR SPRING BOOT 3 AND SPRING 6 POPULAR IDE - IntelliJ
-                    (free version) #1 BEST SELLING SPRING BOOT & HIBERNATE
-                    COURSE ON UDEMY - 320,000+ STUDENTS ENROLLED OVER 70,000
-                    REVIEWS - 5 STARS! THIS COURSE COVERS SPRING BOOT 3 AND
-                    SPRING 6 LEARN these HOT TOPICS in Spring Boot 3 and Spring
-                    6: Spring Boot 3 Spring Framework 6 Spring Boot 3 Core
-                    Spring Boot 3 Annotations Spring Boot 3 Java Configuration
-                    (all Java, no xml) Spring Boot 3 and Spring MVC Spring Boot
-                    3 Hibernate/JPA CRUD Spring Boot 3 Security Spring Boot 3
-                    REST API Maven
+					${courseData.introduction}
                   </div>
                 </div>
               </div>
@@ -343,41 +223,31 @@
                 <div class="col-4">
                   <div class="row">
                     <div class="col-3">
-                      <img
-                        src="/SpringEEIT69-5Mart/assets/images/評論人頭照.jpeg"
-                        alt="xxxx"
-                        style="max-width: 80px; max-height: 80px"
-                      />
-                    </div>
-                    <div class="col-8">講師名稱</div>
+						<div class="w-100 mb-3 border rounded"
+							<c:if test="${empty base64Image}">style="height: 357px"</c:if>>
+								<figure class="figure m-0 d-flex justify-content-center">
+									<img src="<c:if test="${not empty base64Image}">
+									data:image/jpeg;base64,${base64Image}</c:if>"
+									class="ifigure-img img-fluid rounded">
+								</figure>
+						</div>
+                    <div class="col-8">講師名稱 ${courseData.teacher.username}</div>
                   </div>
                   <br />
                   <div class="row">
-                    講師簡介 Chád (shod) Darby is an author, instructor and
-                    speaker in the Java development world. Chád is a
-                    contributing author to several Java books, including
-                    Professional Java E-Commerce (Wrox Press), Beginning Java
-                    Networking (Wrox Press), and XML and Web Services Unleashed
-                    (Sams Publishing). Chád has Java certifications from Oracle
-                    and IBM. He holds a B.S. in Computer Science from Carnegie
-                    Mellon University.
+                    講師簡介 ${courseData.teacher.introduction.introductionText}
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          </div>
           <!-- course overview code END -->
           <div class="tab-pane" id="qa">這裡是問與答。</div>
           <div class="tab-pane" id="reviews">這裡是評論。</div>
-        </div>
+
       </div>
     </div>
-				<p>這裡可以填入內容</p>
-			</div>
-		</div>
-
-	</div>
-
 
 	<!-- CDN引入 -->
 	<!-- 		<script -->
@@ -416,6 +286,56 @@
 		$(".close-btn").on('click', function() {
 			$(".sidebar").removeClass('active');
 		})
+		
+		let contextPath = '<%= request.getContextPath() %>';
+
+function loadVideo(uuid) {
+	alert("TEST")
+
+    console.log("UUID:", uuid);  // 顯示UUID以確認它是否正確
+
+     let curl = contextPath + '/api/videos/' + uuid;  // 直接用 JavaScript 來拼接 URL
+     $.ajax({
+        url: curl,
+        type: 'GET',
+        xhrFields: {
+            responseType: 'blob'
+        },
+        success: function(response){
+            // 使用 Blob 來處理影片資料
+            var blob = new Blob([response], { type: 'video/mp4' });
+            console.log("成功");
+            var url = window.URL.createObjectURL(blob);
+            var videoPlayer = document.getElementById('videoPlayer'); // 更新為您指定的 video 標籤的 id
+            videoPlayer.src = url;
+        },
+        error: function(response){
+            console.log("失敗", response);
+        }
+    });
+} 
+$('#photoContainer').on("change", "#imgbtn", function () {
+	
+    image = $(this).prev().children().children()[0]
+    // console.log("test"+video)
+    console.log(image)
+
+    let input = $(this)[0].files;
+    // console.log(input)
+    // console.log(input.length)
+    if (input.length > 0) {
+        let fileReader = new FileReader();
+
+        let fileToLoad = input[0];
+        console.log("fileToLoad=" + fileToLoad.name);
+        fileReader.onload = function (fileLoadedEvent) {
+        	image.src = fileLoadedEvent.target.result;
+        };
+        fileReader.readAsDataURL(fileToLoad);
+    }
+	
+    $('#photoContainer').children().children('div').eq(1).removeAttr('style')
+})
 	</script>
 
 
