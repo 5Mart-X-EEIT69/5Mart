@@ -187,11 +187,12 @@
 					</div>
 				</div>
 			</nav>
+			
                     <div class="col-lg-auto pb-3" style="padding: 72px 0 0;">
                         <h1>課程總覽</h1>
                         <hr/>
                         <h4>已購買的課程</h4>
-                        <div class="accordion" id="accordionPanelsStayOpenExample">
+                        <div class="row row-cols-1 row-cols-md-4 g-4" id="accordionPanelsStayOpenExample">
             <c:forEach var="courses" items="${course}">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="heading-${courses.id}">
@@ -238,11 +239,13 @@
                 </div>            
             </c:forEach>
 				  </div>
+				  </div>
 				  111
-				  <div class="row slick-card-hotcourse">
+				  <div class="container" style="position: relative;">
+				  <div class="row row-cols-1 row-cols-md-4 g-4">
 			<c:forEach items="${allCourse}" var="course">
 				<a href="<c:url value='/coursePlayerPage?id=${course.id} ' />" class="text-reset text-decoration-none">
-					<div class="card mx-3">
+					<div class="card mx-3" style="width: 18rem;">
 						<img src="${course.dataUri}" class="card-img-top" alt="..." />
 						<div class="card-body py-0">
 							<p class="card-text">
@@ -268,15 +271,16 @@
 									</div>
 								</div>
 							</div>
-							</p>
+							
 						</div>
 					</div>
 				</a>
 			</c:forEach>
+			</div>
 		</div>
-				  111
 	</div>
-
+				  111
+</div>
 
 		<!-- CDN引入 -->
 		<!-- 		<script -->
