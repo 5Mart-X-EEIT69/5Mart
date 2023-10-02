@@ -13,4 +13,6 @@ import com.ispan.eeit69.model.member;
 public interface CourseRepository extends JpaRepository<Course, Integer> {
 	List<Course> findByTeacher(member teacher);
     Optional<Course> findByIdAndTeacher(Integer id, member teacher);
+    
+  
 }

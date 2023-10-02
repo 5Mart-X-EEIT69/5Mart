@@ -48,6 +48,26 @@ public class StudentQuestion {
 		this.course = course;
 		this.teacherReply = teacherReply;
 	}
+	
+	
+
+	public StudentQuestion(Integer studentQuestionId, Timestamp studentQuestionTime, String questionText,
+			com.ispan.eeit69.model.member member, Course course) {
+		super();
+		StudentQuestionId = studentQuestionId;
+		StudentQuestionTime = studentQuestionTime;
+		QuestionText = questionText;
+		this.member = member;
+		this.course = course;
+	}
+
+
+
+	public StudentQuestion() {
+		super();
+	}
+
+
 
 	public Integer getStudentQuestionId() {
 		return StudentQuestionId;
