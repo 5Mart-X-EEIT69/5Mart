@@ -303,7 +303,7 @@
 				  </div>
 				  111
 				  <div class="row slick-card-hotcourse">
-			<c:forEach items="${allCourse}" var="course">
+			<c:forEach items="${CourseList}" var="course">
 				<a href="<c:url value='/coursePlayerPage?id=${course.id} ' />" class="text-reset text-decoration-none">
 					<div class="card mx-3">
 						<img src="${course.dataUri}" class="card-img-top" alt="..." />

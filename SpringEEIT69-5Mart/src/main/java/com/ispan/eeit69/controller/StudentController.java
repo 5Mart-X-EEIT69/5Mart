@@ -3,7 +3,10 @@ package com.ispan.eeit69.controller;
 import java.io.IOException;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
+import java.util.Set;
 
 import javax.sql.rowset.serial.SerialBlob;
 import javax.sql.rowset.serial.SerialException;
@@ -23,6 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.ispan.eeit69.model.Chapter;
 import com.ispan.eeit69.model.Course;
 import com.ispan.eeit69.model.TeacherPicture;
+import com.ispan.eeit69.model.Video;
 import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.AnnouncementService;
 import com.ispan.eeit69.service.ChapterService;
@@ -31,8 +35,10 @@ import com.ispan.eeit69.service.DEV_VideoService;
 import com.ispan.eeit69.service.IntroductionService;
 import com.ispan.eeit69.service.TeacherPictureService;
 import com.ispan.eeit69.service.UnitService;
-import com.ispan.eeit69.service.memberService;
 import com.ispan.eeit69.service.VideoService;
+import com.ispan.eeit69.service.memberService;
+
+import jakarta.servlet.http.HttpSession;
 
 
 @Controller
@@ -49,10 +55,12 @@ public class StudentController {
 	memberService memberService;
 	VideoService videoService;
 
-	public  StudentController(CourseService courseService, ChapterService chapterService, UnitService unitService,
+
+
+	public StudentController(CourseService courseService, ChapterService chapterService, UnitService unitService,
 			DEV_VideoService devvideoService, IntroductionService introductionService,
 			TeacherPictureService teacherPictureService, AnnouncementService announcementService, HttpSession session,
-			VideoService videoService) {
+			com.ispan.eeit69.service.memberService memberService, VideoService videoService) {
 		super();
 		this.courseService = courseService;
 		this.chapterService = chapterService;
@@ -63,14 +71,24 @@ public class StudentController {
 		this.announcementService = announcementService;
 		this.session = session;
 		this.memberService = memberService;
+		this.videoService = videoService;
 	}
 
 	// Student LMS Mapping
 	
 	@GetMapping("/studentIndex")
 	public String studentIndex(Model model) {
-		model.addAttribute("welcome", "歡迎來到5Mart的學生INDEX");
-		return "/StudentLMS/studentIndex";
+		member member = (member) session.getAttribute("member");
+		if (member != null) {
+			member newMember = memberService.findByMemberId(member.getId());
+			System.out.println(newMember.getId());
+			Set<Course> buyCourses = newMember.getBuyCourses();
+			List<Course> CourseList = new ArrayList<Course>(buyCourses);
+			model.addAttribute("CourseList", CourseList);
+			return "/StudentLMS/studentIndex";
+		} else {
+			return "redirect:/homepage";
+		}
 	}
 	
 	@GetMapping("/studentCourseList")
@@ -214,9 +232,23 @@ public class StudentController {
 	public String coursePlayerPage(@RequestParam("id") String id, Model model) {
 		Integer intId = Integer.parseInt(id);
 		Course course = courseService.findById(intId);
+		TeacherPicture teacherPicture =course.getTeacher().getTeacherPicture();
+		if (teacherPicture != null) {
+		// 将Blob数据转换为Base64编码的字符串
+		
+		byte[] imageBytes;
+		try {
+			imageBytes = teacherPicture.getPhoto().getBytes(1, (int) teacherPicture.getPhoto().length());
+			String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+			model.addAttribute("base64Image",base64Image);
+			session.setAttribute("base64Image", base64Image);
+		} catch (SQLException e) {
+			System.out.println(e);
+			e.printStackTrace();
+		}
+		
+		}
 		model.addAttribute("courseData",course);
-		Chapter chapter = chapterService.findById(intId);
-		model.addAttribute("chapter",chapter);
 		return "/StudentLMS/CourseService/coursePlayerPage";
 	}
 	
