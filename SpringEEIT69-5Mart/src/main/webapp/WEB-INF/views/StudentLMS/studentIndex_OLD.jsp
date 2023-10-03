@@ -80,8 +80,8 @@
     </button>
    </div>
    <ul class="list-unstyled px-2">
-    <li class="active"><a
-     href="<c:url value="/studentIndex"></c:url>#"
+    <li class="active">
+    <ahref="<c:url value="/studentIndex"></c:url>#"
      class="text-decoration-none px-3 py-2 d-block"><i
       class="fa-solid fa-chart-line pe-2" style="color: #ffffff"></i>儀錶板</a>
     </li>
