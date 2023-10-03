@@ -15,5 +15,4 @@ public interface StudentQuestionService {
 
 	List<StudentQuestion> findByCourse(Course course);	
 	
-	
 }

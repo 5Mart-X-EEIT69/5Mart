@@ -91,84 +91,83 @@
 			<hr />
 			<h4>課程總覽</h4>
 			<div class="accordion" id="accordionPanelsStayOpenExample">
-			<c:forEach var="courses" items="${course}">
-				<div class="accordion-item">
-					<h2 class="accordion-header" id="heading-${courses.id}">
-						<button class="accordion-button collapsed" type="button"
-							data-bs-toggle="collapse"
-							data-bs-target="#collapse-${courses.id}"
-							aria-expanded="false" aria-controls="collapse-${courses.id}">
-							<img src="${courses.dataUri}" 
-								alt="godtone" width="48" height="48"
-								class="rounded flex-shrink-0">
-							<div
-								class="d-flex gap-2 w-100 justify-content-between align-items-center ps-3">
-								<div>
-									<h6 class="mb-0 fs-4 fw-bolder">${courses.title}</h6>
-									<p class="mb-0 opacity-50 fw-bolder" style="color: red;">目前有兩個問與答尚未回覆</p>
-								</div>
-							</div>
-						</button>
-					</h2>
-					
-					<div id="collapse-${courses.id}"
-						class="accordion-collapse collapse"
-						aria-labelledby="heading-${courses.id}">
-			
-						<div class="accordion-body">
-						
-							<div class="d-flex align-items-center flex-wrap">
-								<label class="col-1">問題</label> <label class="col-1">發問人</label>
-								<label class="col-1">發問時間</label> <label class="col-5 px-3">內容</label>
-								<label class="col-3">回覆內容</label> <label class="col-1 ps-2">功能</label>
-							</div>
-							<hr>
-							
-					
-							<div class="d-flex align-items-center flex-wrap">
-								<span class="col-1 ps-2">1</span> <span class="col-1">張嘉航</span>
-								<span class="col-1">2023/9/15</span> <span class="col-5 px-3">${courses.id}</span>
-								<span class="col-3">${teacherReply.teacherReply}</span>
-								<button class="col-1 btn btn-link m-0 ps-2"
-									style="text-align: left;" data-bs-toggle="modal"
-									data-bs-target="#announcementModal-${courses.id}">回覆</button>
-							</div>
-							<hr>
-
-
-
-
-						</div>
-					</div>
-					
-				</div>
-				<div class="modal fade" id="announcementModal-${courses.id}"
-					tabindex="-1"
-					aria-labelledby="announcementModalLabel-${courses.id}"
-					aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title"
-									id="announcementModalLabel-${courses.id}">回覆</h5>
-								<button type="button" class="btn-close" data-bs-dismiss="modal"
-									aria-label="Close"></button>
-							</div>
-							<form action="<c:url value='newTeacherReply'/>" method="post">
-								<div class="modal-body">
-									<textarea class="form-control" name="announcementQA" rows="4">${teacherReply.teacherReply}</textarea>
-									<input type="hidden" name="courseId" value="${courses.id}">
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-										data-bs-dismiss="modal">關閉</button>
-									<input type="submit" class="btn btn-primary" value="保存修改">
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-				</c:forEach>
+			<c:forEach var="course" items="${course}">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="heading-${course.id}">
+            <button class="accordion-button collapsed" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapse-${course.id}"
+                    aria-expanded="false" aria-controls="collapse-${course.id}">
+                <img src="${course.dataUri}" 
+                     alt="godtone" width="48" height="48"
+                     class="rounded flex-shrink-0">
+                <div class="d-flex gap-2 w-100 justify-content-between align-items-center ps-3">
+                    <div>
+                        <h6 class="mb-0 fs-4 fw-bolder">${course.title}</h6>
+                        <p class="mb-0 opacity-50 fw-bolder" style="color: red;">目前有兩個問與答尚未回覆</p>
+                    </div>
+                </div>
+            </button>
+        </h2>
+        
+        <div id="collapse-${course.id}"
+             class="accordion-collapse collapse"
+             aria-labelledby="heading-${course.id}">
+    
+            <div class="accordion-body">
+                <div class="d-flex align-items-center flex-wrap">
+                    <label class="col-1">問題</label> 
+                    <label class="col-1">發問人</label>
+                    <label class="col-1">發問時間</label> 
+                    <label class="col-5 px-3">內容</label>
+                    <label class="col-3">回覆內容</label> 
+                    <label class="col-1 ps-2">功能</label>
+                </div>
+                <hr>
+                <c:forEach var="studentQuestion" items="${courseToQuestionsMap[course]}" varStatus="status">
+                    <div class="d-flex align-items-center flex-wrap">
+                        <span class="col-1 ps-2">${status.index +1}</span> 
+                        <span class="col-1">${studentQuestion.member.username}</span>
+                        <span class="col-1">${studentQuestion.studentQuestionTime}</span> 
+                        <span class="col-5 px-3">${studentQuestion.questionText}</span>
+                        <span class="col-3">${studentQuestion.teacherReply.teacherReply}</span>
+                        <button class="col-1 btn btn-link m-0 ps-2"
+                                style="text-align: left;" data-bs-toggle="modal"
+                                data-bs-target="#announcementModal-${course.id}">回覆</button>
+                    </div>
+                    <hr>
+                </c:forEach>
+            </div>
+        </div>
+        
+    </div>
+    <div class="modal fade" id="announcementModal-${course.id}"
+         tabindex="-1"
+         aria-labelledby="announcementModalLabel-${course.id}"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"
+                        id="announcementModalLabel-${course.id}">回覆</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <form action="<c:url value='newTeacherReply'/>" method="post">
+                    <div class="modal-body">
+                        <textarea class="form-control" name="announcementQA" rows="4">${studentQuestion.teacherReply.teacherReply}</textarea>
+                        <input type="hidden" name="courseId" value="${course.id}">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                                data-bs-dismiss="modal">關閉</button>
+                        <input type="submit" class="btn btn-primary" value="保存修改">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</c:forEach>
 			</div>
 
 		</div>

@@ -6,6 +6,7 @@ import java.sql.Clob;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -36,7 +37,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.ispan.eeit69.model.Announcement;
 import com.ispan.eeit69.model.Chapter;
 import com.ispan.eeit69.model.Course;
 import com.ispan.eeit69.model.Introduction;
@@ -187,26 +187,28 @@ public class TeacherController {
 
 	@GetMapping("/TeacherComminicateQA")
 	public String TeacherComminicateQA(Model model) {
-		member member = (member) session.getAttribute("member");
-		
-		if (member != null) {
-			List<Course> course = courseService.getCoursesByTeacher(member);
-			model.addAttribute("course", course);
-		
-		
-//		if (member != null) {
-//	        List<Course> courses = courseService.getCoursesByTeacher(member);
-//	        Map<Course, List<StudentQuestion>> courseQuestionsMap = new HashMap<>();
-//	        for (Course course : courses) {
-//	            List<StudentQuestion> studentQuestions = studentQuestionService.findByCourse(course);
-//	            courseQuestionsMap.put(course, studentQuestions);
-//	        }
-//	        model.addAttribute("course", courseQuestionsMap);
-			return "/TeacherComminicate/TeacherComminicateQA";
-		} else {
-			return "redirect:/homepage";
-		}
+	    member member = (member) session.getAttribute("member");
 
+	    if (member != null) {
+	        // 获取特定老师的所有课程
+	        List<Course> courses = courseService.getCoursesByTeacher(member);
+	        
+	        // 使用Map存储每个课程及其对应的学生问题列表
+	        Map<Course, List<StudentQuestion>> courseToQuestionsMap = new HashMap<>();
+
+	        // 迭代每个课程，获取该课程下的学生问题
+	        for (Course course : courses) {
+	            List<StudentQuestion> studentQuestions = studentQuestionService.findByCourse(course);
+	            courseToQuestionsMap.put(course, studentQuestions);
+	        }
+
+	        // 将课程和学生问题的Map添加到模型中
+	        model.addAttribute("courseToQuestionsMap", courseToQuestionsMap);
+	        model.addAttribute("course", courses);
+	        return "/TeacherComminicate/TeacherComminicateQA";
+	    } else {
+	        return "redirect:/homepage";
+	    }
 	}// 跳轉至講師交流問與答頁面
 
 	@GetMapping("/TeacherComminicateMessage")

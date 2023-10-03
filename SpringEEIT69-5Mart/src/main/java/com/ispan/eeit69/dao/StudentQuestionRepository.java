@@ -10,4 +10,6 @@ import com.ispan.eeit69.model.StudentQuestion;
 @Repository
 public interface StudentQuestionRepository extends JpaRepository<StudentQuestion, Integer>{
 	List<StudentQuestion> findByCourse(Course course);
+	
+
 }
