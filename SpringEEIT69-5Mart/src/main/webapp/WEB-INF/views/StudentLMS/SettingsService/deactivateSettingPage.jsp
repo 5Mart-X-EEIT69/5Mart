@@ -79,7 +79,7 @@
 				</button>
 			</div>
 			<ul class="list-unstyled px-2">
-				<li class="active my-1">
+				<li class=" my-1">
 					<a href="<c:url value="/studentIndex"></c:url>#sublist" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block ">
 						<i class="fa-solid fa-tv pe-3" style="color: #ffffff;"></i>Dashboard
 					</a>
@@ -167,7 +167,7 @@
 			<hr class="h-color mx-2">
 
 			<ul class="list-unstyled px-2">
-				<li class="">
+				<li class="active">
 					<a href="<c:url value="/profileSettingPage"></c:url>#sublist4" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block">
 						<i class="fa-solid fa-gear pe-3" style="color: #ffffff;"></i>設定
 					</a>

@@ -76,7 +76,7 @@
 				</button>
 			</div>
 			<ul class="list-unstyled px-2">
-				<li class="active my-1">
+				<li class="my-1">
 					<a href="<c:url value="/studentIndex"></c:url>#sublist" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block ">
 						<i class="fa-solid fa-tv pe-3" style="color: #ffffff;"></i>Dashboard
 					</a>
@@ -164,9 +164,9 @@
 			<hr class="h-color mx-2">
 
 			<ul class="list-unstyled px-2">
-				<li class="">
+				<li class="active">
 					<a href="<c:url value="/profileSettingPage"></c:url>#sublist4" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block">
-						<i class="fa-solid fa-gear pe-3" style="color: #ffffff;"></i>設定
+						<i class="fa-solid fa-gear pe-3 " style="color: #ffffff;"></i>設定
 					</a>
 					<ul id="sublist4" class="list-unstyled collapse">
 						<li>
@@ -291,7 +291,7 @@
                                                 <label for="username" class="form-label">使用者名稱</label>
                                                 <div class="input-group"><span class="input-group-text">@</span>
                                                 	<c:forEach var="email" items="${member.account}">
-                                                    <input type="text" class="form-control" id="username" placeholder="${email.split('@')[0]}" required="">
+                                                   <input type="text" disabled class="form-control" id="username" placeholder="${email.split('@')[0]}" required="">
 													</c:forEach>
                                                     <div class="invalid-feedback">
                                                         Your username is required.
@@ -306,7 +306,7 @@
                                             <div class="col-4 mt-3">
                                                 <label for="email" class="form-label">Email <span class="text-muted">(必填)</span>
                                                 </label>
-                                                <input type="email" class="form-control" id="email" placeholder="${member.account}">
+                                                <input type="email" disabled class="form-control" id="email" placeholder="${member.account}">
                                                 <div class="invalid-feedback">
                                                     Please enter a valid email address for shipping updates.
         </div>
@@ -325,14 +325,16 @@
      										<div class="row">
 											<div class="col-4"></div>                                       
                                             <div class="col-4 mt-3">
-                                                <label for="address" class="form-label">自我介紹</label>
+                                                <label for="introduction" class="form-label">自我介紹</label>
                                                 <div class="invalid-feedback">
                                                     Please enter your shipping address.
         </div>
                                                 <div class="mb-3"> 
                                                     <!-- <label for="formInput15" class="form-label">輸入</label>                                  -->
-                                                    <textarea class="form-control" id="formInput15" rows="3"></textarea> 
+                                                    <textarea class="form-control" id="formInput15" placeholder="${introduction.introductionText}" rows="3"></textarea> 
                                                 </div>
+                
+													<textarea class="form-control" id="IntroductionText" rows="3" name="IntroductionText">${introduction.introductionText}</textarea>
                                             </div>
                                             </div>
                                             <div class="row">
@@ -408,6 +410,13 @@
             $(this).text(username);
         });
     });
+		function sumbit() {
+			if (confirm("確定要更新個人資訊嗎?") == true) {
+					return true;
+				} else {
+					return false;
+				}
+			}
 	</script>
 
 
