@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- 響應式的引入 -->
 
-<title>教師導覽列</title>
+<title>學生中心-商務中心</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -302,15 +302,18 @@
 											</div>
 											<div class="d-flex flex-row align-items-end">
 												<p class="card-text  pe-10"
-													style="font-size: small; margin-bottom: 1px; margin-right: 1em;">${result.teacher.username}</p>
-												<p class="card-text">
-													<strong style="font-size: large;">3.5 </strong> <i
-														class="bi bi-star-fill px-0"></i> <i
-														class="bi bi-star-fill px-0"></i> <i
-														class="bi bi-star-fill px-0"></i> <i
-														class="bi bi-star-half px-0"></i> <i
-														class="bi bi-star px-0"></i> (123)
-												</p>
+													style="font-size: small; margin-bottom: 1px; margin-right: 1em;">${cart.value.teacher.username}</p>
+<!-- 												<p class="card-text"> -->
+<!-- 													<strong style="font-size: large;">3.5 </strong> <i -->
+<!-- 														class="bi bi-star-fill px-0"></i> <i -->
+<!-- 														class="bi bi-star-fill px-0"></i> <i -->
+<!-- 														class="bi bi-star-fill px-0"></i> <i -->
+<!-- 														class="bi bi-star-half px-0"></i> <i -->
+<!-- 														class="bi bi-star px-0"></i> (123) -->
+<!-- 												</p> -->
+											</div>
+											<div class="row text-ellipsis-multi ps-2 pe-3">
+											${result.teacher.username}
 											</div>
 											<p class="card-text pt-2"></p>
 
@@ -328,6 +331,7 @@
 							</div>
 						</div>
 					</c:forEach>
+					<p id="totalAmount">總金額：NT $ 0</p>
 				</div>
 
 
@@ -435,6 +439,25 @@
 		});
 	});
     
+    	$(document).ready(function() {
+            // 初始化總金額為 0
+            let totalAmount = 0;
+
+            // 遍歷每一個價格元素並加到總金額
+            $("p[style='font-weight: bolder; font-size: large;']").each(function() {
+                let priceText = $(this).text().replace("NT $ ", "");
+                let price = parseFloat(priceText);
+                if (!isNaN(price)) {  // 確保解析成功
+                    totalAmount += price;
+                }
+            });
+
+            // 更新總金額顯示
+            $("#totalAmount").text("總金額：NT $ " + totalAmount.toFixed(2));
+        });
+
+
+    	
   </script>
 	
 
