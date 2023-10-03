@@ -62,6 +62,15 @@
 }
 /* END */
 
+/* 處理課程卡片中的課程字數大小 */
+.text-ellipsis-multi {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* 顯示3行 */
+  overflow: hidden;
+}
+/* END */
+
 </style>
 
 </head>
@@ -288,12 +297,14 @@
 				<!-- 				<p>這裡可以填入內容</p> -->
 
 				<h2>課程中心</h2>
+				<!-- 課程列表START -->
+               <h4>課程總覽</h4>
 				<div class="container" style="position: relative;">
 					<div class="row row-cols-1 row-cols-md-4 g-4">
 						<c:forEach items="${allCourse}" var="course">
 							<a href="<c:url value='/coursePlayerPage?id=${course.id} ' />"
 								class="text-reset text-decoration-none">
-								<div class="card mx-3" style="width: 18rem; height: 400px;">
+								<div class="card mx-3" style="width: 18rem; height: 360px;">
 									<img src="${course.dataUri}" class="card-img-top" alt="..." />
 									<div class="card-body py-0">
 										<p class="card-text">
@@ -306,15 +317,18 @@
 											<div class="row">
 												<p class="mb-2" style="font-size: small">趙令文</p>
 											</div>
-											<div class="row d-inline ">
-												<strong style="font-size: large">3.5 </strong> <i
-													class="bi bi-star-fill px-0"></i> <i
-													class="bi bi-star-fill px-0"></i> <i
-													class="bi bi-star-fill px-0"></i> <i
-													class="bi bi-star-half px-0"></i> <i
-													class="bi bi-star px-0"></i> (123)
+											<div class="row text-ellipsis-multi ps-2 pe-3">
+											${course.introduction}
 											</div>
-											<div class="row mt-2">
+<!-- 											<div class="row d-inline "> -->
+<!-- 												<strong style="font-size: large">3.5 </strong> <i -->
+<!-- 													class="bi bi-star-fill px-0"></i> <i -->
+<!-- 													class="bi bi-star-fill px-0"></i> <i -->
+<!-- 													class="bi bi-star-fill px-0"></i> <i -->
+<!-- 													class="bi bi-star-half px-0"></i> <i -->
+<!-- 													class="bi bi-star px-0"></i> (123) -->
+<!-- 											</div> -->
+											<%-- <div class="row mt-2">
 												<div class="col">
 													<p class="mb-0"
 														style="font-weight: bolder; font-size: large;">NT $
@@ -325,7 +339,7 @@
 														style="color: #f70000;"></i>
 
 												</div>
-											</div>
+											</div> --%>
 										</div>
 
 									</div>
@@ -334,6 +348,9 @@
 						</c:forEach>
 					</div>
 				</div>
+			<!-- 課程列表END -->
+			<p></p>
+			<p></p]>
 				<!-- 				<p>這裡可以填入內容</p> -->
 			</div>
 		</div>
