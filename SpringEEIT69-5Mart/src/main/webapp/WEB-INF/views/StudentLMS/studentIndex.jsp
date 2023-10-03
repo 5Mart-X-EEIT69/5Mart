@@ -163,7 +163,10 @@
 					</a>
 					<ul id="sublist4" class="list-unstyled collapse">
 						<li>
-							<a href="<c:url value="/pictureSettingPage"></c:url>" class="text-decoration-none ps-4">個人資料設定</a>
+							<a href="<c:url value="/profileSettingPage"></c:url>" class="text-decoration-none ps-4">帳號資料</a>
+						</li>
+						<li>
+							<a href="<c:url value="/pictureSettingPage"></c:url>" class="text-decoration-none ps-4">帳號照片</a>
 						</li>
 						<li>
 							<a href="<c:url value="/safetySettingPage"></c:url>" class="text-decoration-none ps-4">安全性</a>
@@ -271,15 +274,122 @@
 			</nav>
 
 			<div class="dashboard-content px-3 pt-4">
-				<h2 class="fs-5">dashboard</h2>
-				<p>這裡可以填入內容</p>
+				<h1 class="fs-5">Dashboard</h1>
+<!-- 				<p>這裡可以填入內容</p> -->
 				
 				<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart"
 					width="2000" height="500"
 					style="display: block; height: 486px; width: 1152px">
 				</canvas>
-				
-				<p>這裡可以填入內容</p>
+			<!-- 最新消息START -->
+				<div class="my-3 p-3 bg-white rounded shadow-sm">
+					<h6 class="border-bottom pb-2 mb-0">最新訊息</h6>
+					<div class="d-flex text-muted pt-3">
+						<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded"
+							width="32" height="32" xmlns="http://www.w3.org/2000/svg"
+							role="img" aria-label="Placeholder: 32x32"
+							preserveAspectRatio="xMidYMid slice" focusable="false">
+                                <title>Placeholder</title>
+                                <rect width="100%" height="100%"
+								fill="#007bff"></rect>
+                                <text x="50%" y="50%" fill="#007bff"
+								dy=".3em">32x32</text>
+                            </svg>
+						<p class="pb-3 mb-0 small lh-sm border-bottom">
+							<strong class="d-block text-gray-dark">@username</strong> Donec
+							id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+							ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
+							massa justo sit amet risus.
+						</p>
+					</div>
+					<div class="d-flex text-muted pt-3">
+						<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded"
+							width="32" height="32" xmlns="http://www.w3.org/2000/svg"
+							role="img" aria-label="Placeholder: 32x32"
+							preserveAspectRatio="xMidYMid slice" focusable="false">
+                                <title>Placeholder</title>
+                                <rect width="100%" height="100%"
+								fill="#e83e8c"></rect>
+                                <text x="50%" y="50%" fill="#e83e8c"
+								dy=".3em">32x32</text>
+                            </svg>
+						<p class="pb-3 mb-0 small lh-sm border-bottom">
+							<strong class="d-block text-gray-dark">@username</strong> Donec
+							id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+							ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
+							massa justo sit amet risus.
+						</p>
+					</div>
+					<div class="d-flex text-muted pt-3">
+						<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded"
+							width="32" height="32" xmlns="http://www.w3.org/2000/svg"
+							role="img" aria-label="Placeholder: 32x32"
+							preserveAspectRatio="xMidYMid slice" focusable="false">
+                                <title>Placeholder</title>
+                                <rect width="100%" height="100%"
+								fill="#6f42c1"></rect>
+                                <text x="50%" y="50%" fill="#6f42c1"
+								dy=".3em">32x32</text>
+                            </svg>
+						<p class="pb-3 mb-0 small lh-sm border-bottom">
+							<strong class="d-block text-gray-dark">@username</strong> Donec
+							id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+							ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
+							massa justo sit amet risus.
+						</p>
+					</div>
+					<small class="d-block text-end mt-3"> <a href="#">全部資訊</a>
+					</small>
+				</div>
+			<!-- 最新消息END -->
+			
+			<!-- 課程列表START -->
+               <h4>課程總覽</h4>
+				<div class="row slick-card-hotcourse">
+					<c:forEach items="${CourseList}" var="course">
+						<a href="<c:url value='/coursePlayerPage?id=${course.id} ' />"
+							class="text-reset text-decoration-none">
+							<div class="card mx-3">
+								<img src="${course.dataUri}" class="card-img-top" alt="..." />
+								<div class="card-body py-0">
+									<p class="card-text">
+									<div class="container px-0">
+										<div class="row">
+											<h5 style="font-weight: bolder">
+												<strong>${course.title}</strong>
+											</h5>
+										</div>
+										<div class="row">
+											<p class="mb-2" style="font-size: small">趙令文</p>
+										</div>
+										<div class="row d-inline ">
+											<strong style="font-size: large">3.5 </strong> <i
+												class="bi bi-star-fill px-0"></i> <i
+												class="bi bi-star-fill px-0"></i> <i
+												class="bi bi-star-fill px-0"></i> <i
+												class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
+											(123)
+										</div>
+										<div class="row mt-2">
+											<div class="col">
+												<p class="mb-0"
+													style="font-weight: bolder; font-size: large;">NT $
+													${course.price}</p>
+											</div>
+											<div class="col text-end">
+												<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+
+											</div>
+										</div>
+									</div>
+									</p>
+								</div>
+							</div>
+						</a>
+					</c:forEach>
+				</div>
+			<!-- 課程列表END -->
+<!-- 				<p>這裡可以填入內容</p> -->
 			</div>
 		</div>
 
@@ -299,6 +409,22 @@
 
 	<!-- bootstrap -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+		integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+		integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+		integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+		integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+		crossorigin="anonymous"></script>
 	<!-- bootstrap -->
 	<script type="text/javascript">
 		$(".sidebar ul li").on('click', function() {
@@ -323,7 +449,49 @@
 			$(".sidebar").removeClass('active');
 		})
 	</script>
+	<script>
+		/* globals Chart:false, feather:false */
 
+		(
+				function() {
+					'use strict'
+
+					feather.replace()
+
+					// Graphs
+					var ctx = document.getElementById('myChart')
+					// eslint-disable-next-line no-unused-vars
+					var myChart = new Chart(ctx, {
+						type : 'line',
+						data : {
+							labels : [ 'Sunday', 'Monday', 'Tuesday',
+									'Wednesday', 'Thursday', 'Friday',
+									'Saturday' ],
+							datasets : [ {
+								data : [ 15339, 21345, 18483, 24003, 23489,
+										24092, 12034 ],
+								lineTension : 0,
+								backgroundColor : 'transparent',
+								borderColor : '#007bff',
+								borderWidth : 4,
+								pointBackgroundColor : '#007bff'
+							} ]
+						},
+						options : {
+							scales : {
+								yAxes : [ {
+									ticks : {
+										beginAtZero : false
+									}
+								} ]
+							},
+							legend : {
+								display : false
+							}
+						}
+					})
+				})()
+	</script>
 
 </body>
 </html>
