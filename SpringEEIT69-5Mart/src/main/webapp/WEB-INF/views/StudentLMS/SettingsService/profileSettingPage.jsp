@@ -67,20 +67,23 @@
 <body>
 	<div class="main-container d-flex">
 		<div class="sidebar" id="side_nav">
-			<div class="header-box ms-2 px-2 pt-3 pb-4 d-flex justify-content-between">
+			<div
+				class="header-box ms-2 px-2 pt-3 pb-4 d-flex justify-content-between">
 				<h1 class="fs-4">
-					<span class="bg-white text-dark rounded shadow px-2 me-2">S</span><span class="text-white me-2">mart</span>
+					<span class="bg-white text-dark rounded shadow px-2 me-2">S</span><span
+						class="text-white me-2">mart</span>
 				</h1>
 				<button class="btn d-md-none d-block close-btn px-1 py-0 text-white">
 					<i class="fa-solid fa-bars-staggered"></i>
 				</button>
 			</div>
 			<ul class="list-unstyled px-2">
-				<li class="my-1">
-					<a href="<c:url value="/studentIndex"></c:url>#sublist" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block ">
-						<i class="fa-solid fa-tv pe-3" style="color: #ffffff;"></i>Dashboard
-					</a>
-					<%-- <ul id="sublist" class="list-unstyled collapse">
+				<li class="my-1"><a
+					href="<c:url value="/studentIndex"></c:url>#sublist"
+					data-bs-toggle="collapse" id="dropdown"
+					class="text-decoration-none px-3 py-2 d-block "> <i
+						class="fa-solid fa-tv pe-3" style="color: #ffffff;"></i>Dashboard
+				</a> <%-- <ul id="sublist" class="list-unstyled collapse">
 						<li>
 							<a href="<c:url value="/studentCourseList"></c:url>" class="text-decoration-none ps-4">課程中心</a>
 						</li>
@@ -99,13 +102,15 @@
 						<li>
 							<a href="<c:url value="/cartServicePage"></c:url>" class="text-decoration-none ps-4">商務中心</a>
 						</li>
-					</ul> --%>
-				</li>
-				<li class="my-1">
-					<a href="<c:url value="/studentCourseList"></c:url>#sublist1" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between ">
-						<span><i class="fa-solid fa-pencil pe-3" style="color: #ffffff;"></i>課程中心</span><span class="bg-dark rounded-pill text-white py-0 px-2">01</span>
-					</a>
-					<!-- <ul id="sublist1" class="list-unstyled collapse">
+					</ul> --%></li>
+				<li class="my-1"><a
+					href="<c:url value="/studentCourseList"></c:url>#sublist1"
+					data-bs-toggle="collapse" id="dropdown"
+					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between ">
+						<span><i class="fa-solid fa-pencil pe-3"
+							style="color: #ffffff;"></i>課程中心</span><span
+						class="bg-dark rounded-pill text-white py-0 px-2">01</span>
+				</a> <!-- <ul id="sublist1" class="list-unstyled collapse">
 						<li>
 							<a href="" class="text-decoration-none ps-4">問與答</a>
 						</li>
@@ -115,35 +120,33 @@
 						<li>
 							<a href="" class="text-decoration-none ps-4">公告</a>
 						</li>
-					</ul> -->
-				</li>
-				<li class="my-1">
-					<a href="<c:url value="/studentNotification"></c:url>#sublist2" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between ">
-						<span><i class="fa-solid fa-comment pe-3" style="color: #ffffff;"></i>通知中心</span><span class="bg-dark rounded-pill text-white py-0 px-2">02</span>
-					</a>				
+					</ul> --></li>
+				<li class="my-1"><a
+					href="<c:url value="/studentNotification"></c:url>#sublist2"
+					data-bs-toggle="collapse" id="dropdown"
+					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between ">
+						<span><i class="fa-solid fa-comment pe-3"
+							style="color: #ffffff;"></i>通知中心</span><span
+						class="bg-dark rounded-pill text-white py-0 px-2">02</span>
+				</a>
 					<ul id="sublist2" class="list-unstyled collapse">
-						<li>
-							<a href="<c:url value="/studentNotification"></c:url>" class="text-decoration-none ps-4">系統通知</a>
-						</li>
-						<li>
-							<a href="<c:url value="/studentNotificationQA"></c:url>" class="text-decoration-none ps-4">課程問與答</a>
-						</li>
-						<li>
-							<a href="<c:url value="/studentNotificationMessage"></c:url>" class="text-decoration-none ps-4">私人訊息</a>
-						</li>
-					</ul>
-				</li>
-				<li class="my-1">
-					<a href="#sublist3" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block">
-						<i class="fa-solid fa-truck-fast pe-2" style="color: #ffffff;"></i>商務中心
-					</a>
+						<li><a href="<c:url value="/studentNotification"></c:url>"
+							class="text-decoration-none ps-4">系統通知</a></li>
+						<li><a href="<c:url value="/studentNotificationQA"></c:url>"
+							class="text-decoration-none ps-4">課程問與答</a></li>
+						<li><a
+							href="<c:url value="/studentNotificationMessage"></c:url>"
+							class="text-decoration-none ps-4">私人訊息</a></li>
+					</ul></li>
+				<li class="my-1"><a href="#sublist3" data-bs-toggle="collapse"
+					id="dropdown" class="text-decoration-none px-3 py-2 d-block"> <i
+						class="fa-solid fa-truck-fast pe-2" style="color: #ffffff;"></i>商務中心
+				</a>
 					<ul id="sublist3" class="list-unstyled collapse">
-						<li>
-							<a href="<c:url value="/cartServicePage"></c:url>" class="text-decoration-none ps-4">購物車</a>
-						</li>
-					</ul>
-				</li>
-				
+						<li><a href="<c:url value="/cartServicePage"></c:url>"
+							class="text-decoration-none ps-4">購物車</a></li>
+					</ul></li>
+
 				<!-- <li class="my-1">
 					<a href="#sublist4" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block">
 						<i class="fa-solid fa-user pe-2" style="color: #ffffff;"></i>講師個人資料
@@ -164,31 +167,26 @@
 			<hr class="h-color mx-2">
 
 			<ul class="list-unstyled px-2">
-				<li class="active">
-					<a href="<c:url value="/profileSettingPage"></c:url>#sublist4" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block">
-						<i class="fa-solid fa-gear pe-3 " style="color: #ffffff;"></i>設定
-					</a>
+				<li class="active"><a
+					href="<c:url value="/profileSettingPage"></c:url>#sublist4"
+					data-bs-toggle="collapse" id="dropdown"
+					class="text-decoration-none px-3 py-2 d-block"> <i
+						class="fa-solid fa-gear pe-3 " style="color: #ffffff;"></i>設定
+				</a>
 					<ul id="sublist4" class="list-unstyled collapse">
-						<li>
-							<a href="<c:url value="/profileSettingPage"></c:url>" class="text-decoration-none ps-4">帳號資料</a>
-						</li>
-						<li>
-							<a href="<c:url value="/pictureSettingPage"></c:url>" class="text-decoration-none ps-4">帳號照片</a>
-						</li>
-						<li>
-							<a href="<c:url value="/safetySettingPage"></c:url>" class="text-decoration-none ps-4">安全性</a>
-						</li>
-						<li>
-							<a href="<c:url value="/privacySettingPage"></c:url>" class="text-decoration-none ps-4">隱私權</a>
-						</li>
-												<li>
-							<a href="<c:url value="/paymentSettingPage"></c:url>" class="text-decoration-none ps-4">付款資訊</a>
-						</li>
-												<li>
-							<a href="<c:url value="/deactivateSettingPage"></c:url>" class="text-decoration-none ps-4">停用帳號</a>
-						</li>
-					</ul>
-				</li>
+						<li><a href="<c:url value="/profileSettingPage"></c:url>"
+							class="text-decoration-none ps-4">帳號資料</a></li>
+						<li><a href="<c:url value="/pictureSettingPage"></c:url>"
+							class="text-decoration-none ps-4">帳號照片</a></li>
+						<li><a href="<c:url value="/safetySettingPage"></c:url>"
+							class="text-decoration-none ps-4">安全性</a></li>
+						<li><a href="<c:url value="/privacySettingPage"></c:url>"
+							class="text-decoration-none ps-4">隱私權</a></li>
+						<li><a href="<c:url value="/paymentSettingPage"></c:url>"
+							class="text-decoration-none ps-4">付款資訊</a></li>
+						<li><a href="<c:url value="/deactivateSettingPage"></c:url>"
+							class="text-decoration-none ps-4">停用帳號</a></li>
+					</ul></li>
 
 			</ul>
 		</div>
@@ -199,82 +197,70 @@
 						<button class="btn px-1 py-0 open-btn me-2">
 							<i class="fa-solid fa-bars-staggered"></i>
 						</button>
-						<a class="navbar-brand fs-4" href="#">
-							<span class="bg-dark text-white rounded shadow px-2 py-0">5</span>mart
+						<a class="navbar-brand fs-4" href="#"> <span
+							class="bg-dark text-white rounded shadow px-2 py-0">5</span>mart
 						</a>
 
 					</div>
-					<button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<button class="navbar-toggler p-0 border-0" type="button"
+						data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false"
+						aria-label="Toggle navigation">
 						<i class="fa-solid fa-bars"></i>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-							<li class="nav-item">
-								<a class="nav-link active dropdown-toggle" aria-current="page" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-									<img class="circleImg" src="<c:choose>
+							<li class="nav-item"><a
+								class="nav-link active dropdown-toggle" aria-current="page"
+								href="#" id="navbarDropdown" role="button"
+								data-bs-toggle="dropdown" aria-expanded="false"> <img
+									class="circleImg"
+									src="<c:choose>
 						<c:when test="${not empty base64Image}">data:image/jpeg;base64,${base64Image}</c:when>
 						<c:otherwise>\SpringEEIT69-5Mart\assets\images\人像頭貼001.jpg</c:otherwise>
 					</c:choose>" />
-								</a>
+							</a>
 								<ul class="dropdown-menu dropdown-menu-end px-1 fs-6">
-									<li class="">
-										<a class="dropdown-item" href="#">
-											<span>${member.account}</span>
-										</a>
-									</li>
+									<li class=""><a class="dropdown-item" href="#"> <span>${member.account}</span>
+									</a></li>
 									<li>
 										<hr class="dropdown-divider">
 									</li>
-									<li class="">
-										<a class="dropdown-item" href="#">
-											<i class="fa-regular fa-user " style="padding: 0 8px"></i>個人檔案
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item" href="#">
-											<i class="fa-solid fa-chalkboard" style="padding: 0 6px"></i>我的學習
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item" href="#">
-											<i class="fa-regular fa-heart " style="padding: 0 7px"></i>願望清單
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item" href="#">
-											<i class="bi bi-cart3" style="padding: 0 7px"></i>購物車
-										</a>
-									</li>
+									<li class=""><a class="dropdown-item" href="#"> <i
+											class="fa-regular fa-user " style="padding: 0 8px"></i>個人檔案
+									</a></li>
+									<li><a class="dropdown-item" href="#"> <i
+											class="fa-solid fa-chalkboard" style="padding: 0 6px"></i>我的學習
+									</a></li>
+									<li><a class="dropdown-item" href="#"> <i
+											class="fa-regular fa-heart " style="padding: 0 7px"></i>願望清單
+									</a></li>
+									<li><a class="dropdown-item" href="#"> <i
+											class="bi bi-cart3" style="padding: 0 7px"></i>購物車
+									</a></li>
 
 									<li>
 										<hr class="dropdown-divider">
 									</li>
 
-									<li>
-										<a class="dropdown-item" href="#">
-											<i class="fa-regular fa-file" style="padding: 0 9px"></i>訂單紀錄
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item" href="#">
-											<i class="bi bi-gear" style="padding: 0 7px"></i>帳戶設定
-										</a>
-									</li>
-									<li>
-										<a class="dropdown-item" href="#">
-											<i class="fa-regular fa-credit-card" style="padding: 0 6px"></i>付款方式
-										</a>
-									</li>
+									<li><a class="dropdown-item" href="#"> <i
+											class="fa-regular fa-file" style="padding: 0 9px"></i>訂單紀錄
+									</a></li>
+									<li><a class="dropdown-item" href="#"> <i
+											class="bi bi-gear" style="padding: 0 7px"></i>帳戶設定
+									</a></li>
+									<li><a class="dropdown-item" href="#"> <i
+											class="fa-regular fa-credit-card" style="padding: 0 6px"></i>付款方式
+									</a></li>
 									<li>
 										<hr class="dropdown-divider">
 									</li>
-									<li>
-										<a class="dropdown-item" href="<c:url value='/logout' />">
-											<i class="fa-solid fa-arrow-right-from-bracket" style="padding: 0 7px"></i>登出
-										</a>
-									</li>
-								</ul>
-							</li>
+									<li><a class="dropdown-item"
+										href="<c:url value='/logout' />"> <i
+											class="fa-solid fa-arrow-right-from-bracket"
+											style="padding: 0 7px"></i>登出
+									</a></li>
+								</ul></li>
 						</ul>
 					</div>
 				</div>
@@ -283,86 +269,79 @@
 			<div class="text-align: center; px-3 my-3">
 				${member.account}
 				<h2>個人資訊頁面</h2>
-      						<hr>
-				
-										<div class="row">
-											<div class="col-4"></div>
-                                            <div class="col-4">
-                                                <label for="username" class="form-label">使用者名稱</label>
-                                                <div class="input-group"><span class="input-group-text">@</span>
-                                                	<c:forEach var="email" items="${member.account}">
-                                                   <input type="text" disabled class="form-control" id="username" placeholder="${email.split('@')[0]}" required="">
-													</c:forEach>
-                                                    <div class="invalid-feedback">
-                                                        Your username is required.
-        </div>
-                                                </div>
-                                            </div>
+				<hr>
+				<form action="profileSettingPage" method="post">
+					<div class="row">
+						<div class="col-4"></div>
+						<div class="col-4">
+							<label for="username" class="form-label">使用者名稱</label>
+							<div class="input-group">
+								<span class="input-group-text">@</span>
+									<input type="text"  class="form-control" id="userName" name="userName"
+										value="${member.username}" required="">
+								<div class="invalid-feedback">Your username is required.</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-4"></div>
 
-                                            </div>
-                                            <div class="row">
-											<div class="col-4"></div>
-
-                                            <div class="col-4 mt-3">
-                                                <label for="email" class="form-label">Email <span class="text-muted">(必填)</span>
-                                                </label>
-                                                <input type="email" disabled class="form-control" id="email" placeholder="${member.account}">
-                                                <div class="invalid-feedback">
-                                                    Please enter a valid email address for shipping updates.
-        </div>
-                                            </div>
-                                            </div>
-                                            <div class="row">
-											<div class="col-4"></div>
-                                             <div class="col-4 mt-3">
-                                                <label for="firstName" class="form-label">真實姓名</label>
-                                                <input type="text" class="form-control" id="firstName" placeholder="${member.username}" value="" required="">
-                                                <div class="invalid-feedback">
-                                                    Valid first name is required.
-        </div>
-                                            </div>
-                                            </div>
-     										<div class="row">
-											<div class="col-4"></div>                                       
-                                            <div class="col-4 mt-3">
-                                                <label for="introduction" class="form-label">自我介紹</label>
-                                                <div class="invalid-feedback">
-                                                    Please enter your shipping address.
-        </div>
-                                                <div class="mb-3"> 
-                                                    <!-- <label for="formInput15" class="form-label">輸入</label>                                  -->
-                                                    <textarea class="form-control" id="formInput15" placeholder="${introduction.introductionText}" rows="3"></textarea> 
-                                                </div>
-                
-													<textarea class="form-control" id="IntroductionText" rows="3" name="IntroductionText">${introduction.introductionText}</textarea>
-                                            </div>
-                                            </div>
-                                            <div class="row">
-											<div class="col-4"></div>
-                                            <div class="col-4 mb-5">
-                                                <label for="country" class="form-label">預設語言</label>
-                                                <select class="form-select" id="country" required="">
-                                                    <option value="">台灣正體中文</option>
-                                                    <option>日本語</option>
-                                                    <option>English</option>
-                                                </select>
-                                                <div class="invalid-feedback">
-                                                    Please select a valid country.
-        </div>
-                                            </div>
-                                            </div>
-                                            <div class="d-flex justify-content-center">
-                                            <button class="btn btn-primary btn-sm" type="submit">儲存設定</button>
-                                            
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
-				<!--<p>這裡可以填入內容</p>-->
+						<div class="col-4 mt-3">
+							<label for="email" class="form-label">Email <span
+								class="text-muted">(必填)</span>
+							</label> <input type="email" disabled class="form-control" id="email"
+								placeholder="${member.account}">
+							<div class="invalid-feedback">Please enter a valid email
+								address for shipping updates.</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-4"></div>
+						<div class="col-4 mt-3">
+							<label for="firstName" class="form-label">真實姓名</label> <input
+								type="text" class="form-control" id="realName" name="realName"
+								 value="" required="">
+							<div class="invalid-feedback">Valid first name is required.
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-4"></div>
+						<div class="col-4 mt-3">
+							<label for="introduction" class="form-label">自我介紹</label>
+							<div class="invalid-feedback">Please enter your shipping
+								address.</div>
+							<div class="mb-3">
+								<!-- <label for="formInput15" class="form-label">輸入</label>                                  -->
+								<textarea class="form-control" id="introductionText" rows="3"
+									name="introductionText">${introduction.introductionText}</textarea>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-4"></div>
+						<div class="col-4 mb-5">
+							<label for="country" class="form-label">預設語言</label> <select
+								class="form-select" id="language" name="language" required="">
+								<option value="" selected="selected"></option>
+								<option value="台灣正體中文">台灣正體中文</option>
+								<option value="日本語">日本語</option>
+								<option value="English">English</option>
+							</select>
+							<div class="invalid-feedback">Please select a valid
+								country.</div>
+						</div>
+					</div>
+					<input type="hidden" name="memberId"  id="memberId" value="${member.id}">
+					<div class="d-flex justify-content-center">
+						<button class="btn btn-primary btn-sm" type="submit">儲存設定</button>
+					</div>
+				</form>
 			</div>
 		</div>
-
+		<!--<p>這裡可以填入內容</p>-->
 	</div>
+
 
 
 	<!-- CDN引入 -->

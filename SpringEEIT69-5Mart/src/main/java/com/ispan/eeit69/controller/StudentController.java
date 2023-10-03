@@ -3,6 +3,7 @@ package com.ispan.eeit69.controller;
 import java.io.IOException;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
@@ -29,6 +30,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.ispan.eeit69.model.Chapter;
 import com.ispan.eeit69.model.Course;
+import com.ispan.eeit69.model.Introduction;
 import com.ispan.eeit69.model.TeacherPicture;
 import com.ispan.eeit69.model.Video;
 import com.ispan.eeit69.model.member;
@@ -170,8 +172,16 @@ public class StudentController {
 		
 	@GetMapping("/profileSettingPage")
 	public String profileSettingPage(Model model) {
-		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
-		return "/StudentLMS/SettingsService/profileSettingPage";
+		member member = (member) session.getAttribute("member");
+		if (member != null) {
+			System.out.println("profileSettingPage");
+			Introduction introduction = member.getIntroduction();
+			model.addAttribute(introduction);
+			return "/StudentLMS/SettingsService/profileSettingPage";
+		} else {
+			System.out.println("HOMEPAGE");
+			return "redirect:/homepage";
+		}
 	}
 //	 @PutMapping("/profileSettingPage")
 //	    public String profileUpdate(@PathVariable Model model, @ModelAttribute ProfileUpdate profileUpdate) {
@@ -304,23 +314,71 @@ public class StudentController {
 	
 	// 10.03 Test
 	
-//	 @PutMapping("/profileSettingPage")
-//	 public String updateUser(@PathVariable Long id, @ModelAttribute member updatedUser) {
-//		 member member = (member) session.getAttribute("member");
-//	        
-//	        if (member != null) {
-//	            // 更新用户信息
-//	        	member.setUsername(updatedUser.get("username").asInt());
-//	        	member.setAccount(updatedUser.getEmail());
-//	            // 其他需要更新的字段
+	 @PostMapping("/profileSettingPage")
+	 public String introduction(@RequestParam("memberId") Integer memberID,@RequestParam("realName") String realName, 
+			 @RequestParam("language") String language, @RequestParam("introductionText") String introductionText, @RequestParam("userName") String userName) {
+		 System.out.println("TESTSETTING");
+		 member member = memberService.findByMemberId(memberID); //找出當前登入會員資料
+		 if(userName == member.getUsername()) {
+			 System.out.println("沒有任何修改");
+		 }else if(userName != member.getUsername()) {
+			 member.setUsername(userName);
+		 }
+		 if(member.getLanguage()== null) {
+			 member.setLanguage(language);
+		 }else if(member.getLanguage()!= language) {
+			 member.setLanguage(language);
+		 }else if(member.getLanguage()== language) {
+			 System.out.println("沒有任何修改");
+		 }
+		 
+		 if(member.getRealName()== null) {
+			 member.setRealName(realName);
+		 }else if(member.getRealName()!= realName) {
+			 member.setRealName(realName);
+		 }else if(member.getRealName()== realName) {
+			 System.out.println("沒有任何修改");
+		 }
+		 
+		 Introduction introduction = member.getIntroduction();
+		 if(member.getRealName()== null) {
+			 member.setRealName(realName);
+		 }else if(member.getRealName()!= realName) {
+			 member.setRealName(realName);
+		 }else if(member.getRealName()== realName) {
+			 System.out.println("沒有任何修改");
+		 }
+		 
+		 memberService.save(member);
+		 
+		 
+		 System.out.println(memberID);//ok
+		 System.out.println(realName);
+		 System.out.println(language);
+		 System.out.println(introductionText);
+		 System.out.println(userName);//ok
+		 
+//		 member member = (member) session.getAttribute("member"); // 找出會員
+//	     Introduction introduction1 = introductionService.findByMember(member); // 在Introduction表內，用member去找到自我介紹那行
+//	    		 
+//	        if (introduction1 != null) {
+//	        	member member2 = memberService.findByMemberId(memberID);
+//				Introduction introduction2 = new Introduction(Username, IntroductionText,member2);
+//				introductionService.save(introduction2);
+//	        } else {
+//	        	introduction1.setIntroductionText(IntroductionText);
+//
 //	            
-//	            memberService.save(member); // 將更新後的用戶保存到資料庫中
+//				introductionService.update(introduction1);
 //	        }
-//        
-//        return "/StudentLMS/SettingsService/profileSettingPage" + id; // 重定向到用戶資料顯示頁面
-//    }
-//}
+        
+        return "redirect:profileSettingPage" ; // 重定向到用戶資料顯示頁面
+    }
+	
 	
 	
 }
+	
+	
+
 

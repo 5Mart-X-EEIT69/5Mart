@@ -38,6 +38,8 @@ public class member implements Serializable {
 	private String account;
 	private String password;
 	private Timestamp registerTime;
+	private String language;
+	private String realName;
 	
     @OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
     private TeacherPicture TeacherPicture;
@@ -204,6 +206,26 @@ public class member implements Serializable {
 		
 	}
 	
+	
+	
+
+	
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+
+	public String getRealName() {
+		return realName;
+	}
+
+	public void setRealName(String realName) {
+		this.realName = realName;
+	}
+	
 //	public AccountSetting getAccountSetting() {
 //		return accountSetting;
 //	}
@@ -212,7 +234,6 @@ public class member implements Serializable {
 //		this.accountSetting = accountSetting; 
 //	}
 
-	
 	@Override
 	public String toString() {
 		return "member [id=" + id + ", username=" + username + ", account=" + account + ", password=" + password
