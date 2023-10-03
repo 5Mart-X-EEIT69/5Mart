@@ -126,31 +126,6 @@ public class ShoppingCartController {
 	// 訂單確認送出
 	
 	
-//	@PostMapping("/ordercompleted")
-//	public ResponseEntity<Map<String, Object>> orderCompleted(@RequestParam("memberId") String memberId,
-//	                                                          @RequestParam("courseIds") List<String> courseIds) {
-//	    System.out.println("會員ID= " + memberId);
-//	    Integer intMemberId = Integer.parseInt(memberId);
-//	    member member = memberService.findByMemberId(intMemberId);
-//	    Set<Course> memberBuyCourseSet = member.getBuyCourses();
-//
-//	    for (String courseId : courseIds) {
-//	        System.out.println("課程ID= " + courseId);
-//	        Integer intCourseId = Integer.parseInt(courseId);
-//	        Course newCourse = courseService.findById(intCourseId);
-//	        memberBuyCourseSet.add(newCourse);
-//	    }
-//
-//	    member.setBuyCourses(memberBuyCourseSet);
-//	    memberService.save(member);
-//
-//	    Map<String, Object> response = new HashMap<>();
-//	    response.put("status", 200);
-//
-//	    return new ResponseEntity<>(response, HttpStatus.OK);
-//	}
-	
-	
 	@PostMapping("/ordercompleted")
 	public ResponseEntity<Map<String, Object>> orderCompleted(@RequestParam("courseId") String courseId,
 			@RequestParam("memberId") String memberId) {
