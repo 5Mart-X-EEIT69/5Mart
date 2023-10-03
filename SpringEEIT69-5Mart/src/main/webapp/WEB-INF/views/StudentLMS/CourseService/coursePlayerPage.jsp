@@ -271,11 +271,10 @@
 			$(".sidebar").removeClass('active');
 		})
 
-		let contextPath = '
-	<%=request.getContextPath()%>';
+		let contextPath = '<%=request.getContextPath()%>';
 
 function loadVideo(uuid) {
-	alert("TEST")
+/* 	alert("TEST") */
 
     console.log("UUID:", uuid);  // 顯示UUID以確認它是否正確
 
