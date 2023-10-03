@@ -79,6 +79,9 @@ public class HomeController {
 		List<Course> allCourse = courseService.findAll();
 		model.addAttribute("allCourse", allCourse);
 		session.setAttribute("allCourse", allCourse);
+		List<Course> LatestCourses = courseService.getTop5LatestCourses();
+		session.setAttribute("LatestCourses", LatestCourses);
+		
 		return "homePage";
 	}
 

@@ -18,12 +18,12 @@ import com.ispan.eeit69.service.CourseService;
 
 @Service
 @Transactional
-public class CourseServiceImpl implements CourseService{
+public class CourseServiceImpl implements CourseService {
 
-	CourseDao CourseDao ;
-	@Autowired 
+	CourseDao CourseDao;
+	@Autowired
 	CourseRepository courseRepository;
-	
+
 //	@Autowired
 	public CourseServiceImpl(CourseDao courseDao) {
 		CourseDao = courseDao;
@@ -38,11 +38,11 @@ public class CourseServiceImpl implements CourseService{
 	@Override
 	public void update(Course course) {
 		CourseDao.update(course);
-		
+
 	}
 
 	@Override
-	public Course findById(Integer id) {		
+	public Course findById(Integer id) {
 		return CourseDao.findById(id);
 	}
 
@@ -67,7 +67,7 @@ public class CourseServiceImpl implements CourseService{
 	}
 
 	@Override
-	public boolean existsBytitle(String title) {		
+	public boolean existsBytitle(String title) {
 		return CourseDao.findBytitle(title) != null ? true : false;
 	}
 
@@ -86,10 +86,9 @@ public class CourseServiceImpl implements CourseService{
 		return CourseDao.findByTeacherId(id);
 	}
 
-
 	@Override
 	public List<Course> findByTeacher(member teacher) {
-        return courseRepository.findByTeacher(teacher);
+		return courseRepository.findByTeacher(teacher);
 	}
 
 	@Override
@@ -99,35 +98,39 @@ public class CourseServiceImpl implements CourseService{
 
 	@Override
 	public List<Course> getCoursesWithAnnouncementsByTeacher(member teacher) {
-		
+
 		return courseRepository.findByTeacher(teacher);
 	}
-	
+
 	@Override
-    public void updateAnnouncementForTeacher(Integer courseId, String announcementContent,Timestamp announcementTime,member teacher) {
-        Optional<Course> optionalCourse = courseRepository.findByIdAndTeacher(courseId, teacher);
-        
-        if (optionalCourse.isPresent()) {
-            Course course = optionalCourse.get();
-            Announcement announcement = course.getAnnouncement();
-            
-            if (announcement == null) {
-                announcement = new Announcement();        
-                announcement.setCourse(course);
-                course.setAnnouncement(announcement);
-                announcement.setAnnouncementTime(new Timestamp(System.currentTimeMillis()));
+	public void updateAnnouncementForTeacher(Integer courseId, String announcementContent, Timestamp announcementTime,
+			member teacher) {
+		Optional<Course> optionalCourse = courseRepository.findByIdAndTeacher(courseId, teacher);
 
-            }
-            announcement.setAnnouncementTime(new Timestamp(System.currentTimeMillis()));
-            announcement.setContent(announcementContent);
-            courseRepository.save(course);
-        } else {
-            // Handle error case
-        }
-    }
+		if (optionalCourse.isPresent()) {
+			Course course = optionalCourse.get();
+			Announcement announcement = course.getAnnouncement();
 
+			if (announcement == null) {
+				announcement = new Announcement();
+				announcement.setCourse(course);
+				course.setAnnouncement(announcement);
+				announcement.setAnnouncementTime(new Timestamp(System.currentTimeMillis()));
+
+			}
+			announcement.setAnnouncementTime(new Timestamp(System.currentTimeMillis()));
+			announcement.setContent(announcementContent);
+			courseRepository.save(course);
+		} else {
+			// Handle error case
+		}
+	}
+
+	@Override
+	public List<Course> getTop5LatestCourses() {
+		return CourseDao.getTop5LatestCourses();
+	}
 	
-    }
-
 	
 
+}

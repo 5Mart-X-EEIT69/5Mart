@@ -21,5 +21,7 @@ public interface CourseDao {
 	
 	List<Course> findByTeacherId(Integer id); //  搜尋關鍵字
 	
+	List<Course> getTop5LatestCourses(); //  搜尋最後新增的五筆課程
+	
 	Course findByMember(member member);
 }
