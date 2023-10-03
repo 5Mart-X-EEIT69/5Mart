@@ -35,6 +35,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.ispan.eeit69.model.Chapter;
@@ -761,30 +762,35 @@ public class TeacherController {
 	}
 
 	@PostMapping("/newTeacherReply")
-	public String newTeacherReply(Model model, @RequestParam("announcementQA") String teacherReply,@RequestParam("StudentQuestionId") Integer StudentQuestionId) {
+	public String newTeacherReply(Model model, @RequestParam("announcementQA") String teacherReply,@RequestParam("id") Integer StudentQuestionId,RedirectAttributes attributes) {
 		member member = (member) session.getAttribute("member");	
-
-		
-		
+	
+//		//這是可以存的
 //		TeacherReply teacherReply1 = new TeacherReply(teacherReply);
-//		
 //		teacherReplyService.save(teacherReply1);
-//
 //		model.addAttribute("teacherReply",teacherReply1);
+		
+		
+//		teacherReply1.setStudentQuestion(StudentQuestionId);
+//		teacherReply1.setTeacherReply(teacherReply);
+		
+
 		
 		// 根据问题的标识符获取学生问题对象
 	    StudentQuestion studentQuestion = studentQuestionService.findById(StudentQuestionId);
 
 	    // 创建老师的回答
-	    TeacherReply teacherReply1 = new TeacherReply(teacherReply);
+	    TeacherReply teacherReply1 = new TeacherReply();
 	    
 	    // 建立關聯
-	    teacherReply1.setStudentQuestion(studentQuestion);
+	    teacherReply1.setTeacherReply(teacherReply);
+	    
 
 	    // 保存老師回答
 	    teacherReplyService.save(teacherReply1);
 
 	    model.addAttribute("teacherReply", teacherReply1);
+//	    attributes.addAttribute("id", StudentQuestionId.getStudentQuestionId());
 
 		return "redirect:/TeacherComminicateQA";
 

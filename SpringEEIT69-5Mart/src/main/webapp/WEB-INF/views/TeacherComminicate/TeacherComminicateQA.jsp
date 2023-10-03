@@ -133,7 +133,8 @@
                         <span class="col-3">${teacherReply}</span>
                         <button class="col-1 btn btn-link m-0 ps-2"
                                 style="text-align: left;" data-bs-toggle="modal"
-                                data-bs-target="#announcementModal-${course.id}">回覆</button>
+                                data-bs-target="#announcementModal-${course.id}"
+                                >回覆</button>
                     </div>
                     <hr>
                 </c:forEach>
@@ -153,10 +154,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                 </div>
+
                 <form action="<c:url value='newTeacherReply'/>" method="post">
                     <div class="modal-body">
                         <textarea class="form-control" name="announcementQA" rows="4"></textarea>
-                        <input type="hidden" name="courseId" value="${course.id}">
+                        <input type="text" name="id" value="${studentQuestion.questionText}">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary"
@@ -164,6 +166,7 @@
                         <input type="submit" class="btn btn-primary"  value="保存修改">
                     </div>
                 </form>
+    
             </div>
         </div>
     </div>
