@@ -53,7 +53,7 @@ public class member implements Serializable {
     @OneToMany(mappedBy = "member", fetch = FetchType.EAGER) 
     private Set<StudentQuestion> studentQuestion;//OK
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(name = "member_course_5mart" , 
     joinColumns = {
     		@JoinColumn(name = "member_id", referencedColumnName = "id")
@@ -69,10 +69,12 @@ public class member implements Serializable {
     @OrderBy("id")
     private Set<Course> createCourse = new LinkedHashSet<Course>();
     
-    
     @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
     @OrderBy("postTime")
     private Set<Article> createArticle = new LinkedHashSet<Article>();
+
+//    @OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
+//    private AccountSetting accountSetting;
 
 	// 建構式
 	public member() {
@@ -188,11 +190,10 @@ public class member implements Serializable {
 		this.memberMultipartFile = memberMultipartFile;
 	}
 	
-	
 	public Set<StudentQuestion> getStudentQuestion() {
 		return studentQuestion;
 	}
-
+	
 	public void setStudentQuestion(Set<StudentQuestion> studentQuestion) {
 		this.studentQuestion = studentQuestion;
 	}
@@ -213,7 +214,16 @@ public class member implements Serializable {
 	
 	public Set<Article> getCreateArticle() {
 		return createArticle;
-	}
+	}	
+	
+//	public AccountSetting getAccountSetting() {
+//		return accountSetting;
+//	}
+//
+//	public void setAccountSetting(AccountSetting accountSetting) {
+//		this.accountSetting = accountSetting; 
+//	}
+
 
 	public void setCreateArticle(Set<Article> createArticle) {
 		this.createArticle = createArticle;

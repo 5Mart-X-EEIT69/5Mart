@@ -294,6 +294,21 @@ var homepageUrl = "<c:url value='/homepage' />"
 					<br>
 					<h4 style="font-weight: bold">訂單詳細資料</h4>
 					<br>
+					
+<!-- 					迭代購物車中的課程 -->
+<%-- <c:forEach var="entry" items="${cart.content}"> --%>
+<!--     <div class="row"> -->
+<!--         <div class="col-2"> -->
+<%--             <img src="${entry.value.dataUri}" width="50" height="50" /> --%>
+<!--         </div> -->
+<!--         <div class="col-7"> -->
+<%--             <div>${entry.value.title}</div> --%>
+<%--             <div>${entry.value.teacher.username}</div> --%>
+<!--         </div> -->
+<%--         <div class="col-3">$ ${entry.value.price}</div> --%>
+<!--     </div> -->
+<%-- </c:forEach> --%>
+
 					<div class="row">
 						<div class="col-2">
 							<img src="${course.dataUri}" width="50" height="50" />
@@ -308,6 +323,42 @@ var homepageUrl = "<c:url value='/homepage' />"
 
 				</div>
 			</div>
+			
+			<div class="col-md-5 right-background">
+<!--     <div class="content p-3 "> -->
+<!--         <h4 style="font-weight: bold;">摘要</h4> -->
+        
+<%--         <c:set var="totalPrice" value="0"/> --%>
+        
+<%--         <c:forEach var="item" items="${mycart}"> --%>
+<%--             <c:set var="totalPrice" value="${totalPrice + item.value.price}"/> --%>
+<%--         </c:forEach> --%>
+
+<!--         <div class="row"> -->
+<!--             <div class="col-4">金額：</div> -->
+<%--             <div class="col-4">$ ${totalPrice}</div> --%>
+<!--         </div> -->
+        
+<!--         <br> -->
+
+<!--         <div class="row"> -->
+<!--             <div class="col-4">折扣：</div> -->
+<!--             <div class="col-4">$0</div>  -->
+<!--         </div> -->
+        
+<!--         <div class="row"> -->
+<!--             <div class="col-6"> -->
+<!--                 <hr> -->
+<!--             </div> -->
+<!--         </div> -->
+
+<!--         <div class="row" style="font-weight: bold;"> -->
+<!--             <div class="col-4">總計：</div> -->
+<%--             <div class="col-4">$ ${totalPrice}  --%>
+<!--             </div> -->
+<!--         </div> -->
+    
+
 			<div class="col-md-5 right-background">
 				<div class="content p-3 ">
 

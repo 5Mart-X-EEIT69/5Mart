@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- 響應式的引入 -->
 
-<title>5Mart線上教學平台</title>
+<title>教師導覽列</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -53,28 +53,84 @@
 
 
 <style type="text/css">
+
+.bubbleWrapper {
+	padding: 10px 10px;
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: column;
+	align-self: flex-end;
+	color: #fff;
+}
+
+.inlineContainer {
+	display: inline-flex;
+}
+
+.inlineContainer.own {
+	flex-direction: row-reverse;
+}
+
+.inlineIcon {
+	width: 20px;
+	object-fit: contain;
+}
+
+.ownBubble {
+	min-width: 60px;
+	max-width: 700px;
+	padding: 14px 18px;
+	margin: 6px 8px;
+	background-color: #5b5377;
+	border-radius: 16px 16px 0 16px;
+	border: 1px solid #443f56;
+}
+
+.otherBubble {
+	min-width: 60px;
+	max-width: 700px;
+	padding: 14px 18px;
+	margin: 6px 8px;
+	background-color: #6C8EA4;
+	border-radius: 16px 16px 16px 0;
+	border: 1px solid #54788e;
+}
+
+.own {
+	align-self: flex-end;
+}
+
+.other {
+	align-self: flex-start;
+}
+
+span.own, span.other {
+	font-size: 14px;
+	color: grey;
+}
+
+.nav-link {
+font-weight: bolder;
+}
 </style>
-    <style>
-        .center-button {
-            text-align: center; /* 设置按钮文本水平居中 */
-        }
-    </style>
 </head>
 
 <body>
 	<div class="main-container d-flex">
 		<div class="sidebar" id="side_nav">
 			<div class="header-box ms-2 px-2 pt-3 pb-4 d-flex justify-content-between">
+			<a href="<c:url value="/homepage"></c:url>" class="text-decoration-none">
 				<h1 class="fs-4">
 					<span class="bg-white text-dark rounded shadow px-2 me-2">S</span><span class="text-white me-2">mart</span>
 				</h1>
+				</a>
 				<button class="btn d-md-none d-block close-btn px-1 py-0 text-white">
 					<i class="fa-solid fa-bars-staggered"></i>
 				</button>
 			</div>
 			<ul class="list-unstyled px-2">
-				<li class=" my-1">
-					<a href="<c:url value="/studentIndex"></c:url>#sublist" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block ">
+				<li class="my-1">
+					<a href="<c:url value="/studentIndex"></c:url>#sublist" class="text-decoration-none px-3 py-2 d-block ">
 						<i class="fa-solid fa-tv pe-3" style="color: #ffffff;"></i>Dashboard
 					</a>
 					<%-- <ul id="sublist" class="list-unstyled collapse">
@@ -99,7 +155,7 @@
 					</ul> --%>
 				</li>
 				<li class="my-1">
-					<a href="<c:url value="/studentCourseList"></c:url>#sublist1" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between ">
+					<a href="<c:url value="/studentCourseList"></c:url>#sublist1" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between ">
 						<span><i class="fa-solid fa-pencil pe-3" style="color: #ffffff;"></i>課程中心</span><span class="bg-dark rounded-pill text-white py-0 px-2">01</span>
 					</a>
 					<!-- <ul id="sublist1" class="list-unstyled collapse">
@@ -114,9 +170,9 @@
 						</li>
 					</ul> -->
 				</li>
-				<li class="my-1">
+				<li class="active my-1">
 					<a href="<c:url value="/studentNotification"></c:url>#sublist2" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between ">
-						<span><i class="fa-solid fa-comment pe-3" style="color: #ffffff;"></i>通知中心</span><span class="bg-dark rounded-pill text-white py-0 px-2">02</span>
+						<span><i class="fa-solid fa-comment pe-3" style="color: #ffffff;"></i>通知中心</span><span class="bg-dark rounded-pill text-white py-0 px-2">06</span>
 					</a>				
 					<ul id="sublist2" class="list-unstyled collapse">
 						<li>
@@ -161,7 +217,7 @@
 			<hr class="h-color mx-2">
 
 			<ul class="list-unstyled px-2">
-				<li class="active">
+				<li class="">
 					<a href="<c:url value="/profileSettingPage"></c:url>#sublist4" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block">
 						<i class="fa-solid fa-gear pe-3" style="color: #ffffff;"></i>設定
 					</a>
@@ -277,43 +333,162 @@
 				</div>
 			</nav>
 
-			<div class="dashboard-content px-3 my-3">
-				${member.account}
-				<h2>安全性頁面</h2>
-						<hr>
-							<div>
-								<form>
-						<div class="row">
-						<div class="col-4"></div>
-							<div class="col-4 mb-3">
-								<label for="exampleInputPassword1" class="form-label"></label> <input
-									type="password" class="form-control" id="exampleInputPassword1"
-									placeholder="輸入目前密碼">
-							
-							</div>
-							</div>
-							<div class="row">
-						<div class="col-4"></div>
-							<div class="col-4 mb-3">
-								<label for="exampleInputPassword1" class="form-label"></label> <input
-									type="password" class="form-control" id="exampleInputPassword1"
-									placeholder="輸入新的密碼">
-							</div>
-							</div>
-							<div class="row">
-						<div class="col-4"></div>
-							<div class="col-4 mb-3">
-								<label for="exampleInputPassword1" class="form-label"></label> <input
-									type="password" class="form-control" id="exampleInputPassword1"
-									placeholder="確認新的密碼">
-							</div>
-							</div>
-                              <div class="d-flex justify-content-center">
-                                   <button class="btn btn-primary btn-sm" type="submit">儲存設定</button> 
-                              </div>
-							</form>
+			<div class="dashboard-content px-3 pt-4">
+				<h1 class="fs-5">Dashboard</h1>
+				<!-- 				<p>這裡可以填入內容</p> -->
+
+				<h2>訊息中心</h2>
+				
+		<div class="col-6 border rounded max-vh-100 " style="overflow-y: scroll;">
+			<div class="my-2">
+				<h4 class="ps-3">私人訊息</h4>
+				<div class="list-group">
+					<a href="#"	class="list-group-item list-group-item-action active d-flex" aria-current="true">
+						<div class="col-2">
+							<i class="bi bi-person-circle fs-1 me-1"></i>
 						</div>
+						<div class="col-10 pt-1">
+							<div class="d-flex justify-content-between">
+								<h5 class="mb-1">用戶名稱</h5>
+								<small>2023/9/16 12:12</small>
+							</div>
+							<p class="mb-1 text-truncate">你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，</p>
+						</div>
+					</a>
+					<a href="#"	class="list-group-item list-group-item-action d-flex" aria-current="true">
+						<div class="col-2">
+							<i class="bi bi-person-circle fs-1 me-1"></i>
+						</div>
+						<div class="col-10 pt-1">
+							<div class="d-flex justify-content-between">
+								<h5 class="mb-1">用戶名稱</h5>
+								<small>2023/9/16 12:12</small>
+							</div>
+							<p class="mb-1 text-truncate">你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，</p>
+						</div>
+					</a>
+					<a href="#"	class="list-group-item list-group-item-action d-flex" aria-current="true">
+						<div class="col-2">
+							<i class="bi bi-person-circle fs-1 me-1"></i>
+						</div>
+						<div class="col-10 pt-1">
+							<div class="d-flex justify-content-between">
+								<h5 class="mb-1">用戶名稱</h5>
+								<small>2023/9/16 12:12</small>
+							</div>
+							<p class="mb-1 text-truncate">你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，</p>
+						</div>
+					</a>
+					<a href="#"	class="list-group-item list-group-item-action d-flex" aria-current="true">
+						<div class="col-2">
+							<i class="bi bi-person-circle fs-1 me-1"></i>
+						</div>
+						<div class="col-10 pt-1">
+							<div class="d-flex justify-content-between">
+								<h5 class="mb-1">用戶名稱</h5>
+								<small>2023/9/16 12:12</small>
+							</div>
+							<p class="mb-1 text-truncate">你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，</p>
+						</div>
+					</a>
+					<a href="#"	class="list-group-item list-group-item-action d-flex" aria-current="true">
+						<div class="col-2">
+							<i class="bi bi-person-circle fs-1 me-1"></i>
+						</div>
+						<div class="col-10 pt-1">
+							<div class="d-flex justify-content-between">
+								<h5 class="mb-1">用戶名稱</h5>
+								<small>2023/9/16 12:12</small>
+							</div>
+							<p class="mb-1 text-truncate">你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，</p>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-6">
+			<div style="overflow-y: scroll; max-height: 95vh;">
+				<div class="bubbleWrapper">
+					<div class="inlineContainer">
+						<img class="inlineIcon"
+							src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+						<div class="otherBubble other">抄來的</div>
 					</div>
+					<span class="other">08:41</span>
+				</div>
+				<div class="bubbleWrapper">
+					<div class="inlineContainer own">
+						<img class="inlineIcon"
+							src="https://www.pinclipart.com/picdir/middle/205-2059398_blinkk-en-mac-app-store-ninja-icon-transparent.png">
+						<div class="ownBubble own">都是抄來的</div>
+					</div>
+					<span class="own">08:55</span>
+				</div>
+				<div class="bubbleWrapper">
+					<div class="inlineContainer">
+						<img class="inlineIcon"
+							src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+						<div class="otherBubble other">全部都是抄來的</div>
+					</div>
+					<span class="other">10:13</span>
+				</div>
+				<div class="bubbleWrapper">
+					<div class="inlineContainer own">
+						<img class="inlineIcon"
+							src="https://www.pinclipart.com/picdir/middle/205-2059398_blinkk-en-mac-app-store-ninja-icon-transparent.png">
+						<div class="ownBubble own">抄來的</div>
+					</div>
+					<span class="own">11:07</span>
+				</div>
+				<div class="bubbleWrapper">
+					<div class="inlineContainer">
+						<img class="inlineIcon"
+							src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+						<div class="otherBubble other">抄來的</div>
+					</div>
+					<span class="other">11:11</span>
+				</div>
+				<div class="bubbleWrapper">
+					<div class="inlineContainer">
+						<img class="inlineIcon"
+							src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+						<div class="otherBubble other">抄來的</div>
+					</div>
+					<span class="other">11:11</span>
+				</div>
+				<div class="bubbleWrapper">
+					<div class="inlineContainer">
+						<img class="inlineIcon"
+							src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+						<div class="otherBubble other">抄來的</div>
+					</div>
+					<span class="other">11:11</span>
+				</div>
+				<div class="bubbleWrapper">
+					<div class="inlineContainer">
+						<img class="inlineIcon"
+							src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+						<div class="otherBubble other">抄來的</div>
+					</div>
+					<span class="other">11:11</span>
+				</div>
+				<div class="bubbleWrapper">
+					<div class="inlineContainer own">
+						<img class="inlineIcon"
+							src="https://www.pinclipart.com/picdir/middle/205-2059398_blinkk-en-mac-app-store-ninja-icon-transparent.png">
+						<div class="ownBubble own">都是抄來的</div>
+					</div>
+					<span class="own">12:12</span>
+				</div>
+			</div>
+			<div class="input-group" style="min-height: 5vh">
+				<input type="text" class="form-control" aria-describedby="send">
+				<button class="btn btn-outline-secondary" type="button"	id="send">送出</button>
+			</div>
+		</div>
+
+				<!-- 				<p>這裡可以填入內容</p> -->
 			</div>
 		</div>
 
@@ -333,6 +508,22 @@
 
 	<!-- bootstrap -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+		integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+		integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+		integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+		integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+		crossorigin="anonymous"></script>
 	<!-- bootstrap -->
 	<script type="text/javascript">
 		$(".sidebar ul li").on('click', function() {
@@ -340,10 +531,9 @@
 			$(this).addClass('active');
 		})
 
-
 		$(".sidebar ul li").mouseenter(function() {
 			$(this).find('.fa-solid').css("color", "#123");
-			
+
 		})
 
 		$(".sidebar ul li").mouseleave(function() {
@@ -358,7 +548,49 @@
 			$(".sidebar").removeClass('active');
 		})
 	</script>
+	<script>
+		/* globals Chart:false, feather:false */
 
+		(
+				function() {
+					'use strict'
+
+					feather.replace()
+
+					// Graphs
+					var ctx = document.getElementById('myChart')
+					// eslint-disable-next-line no-unused-vars
+					var myChart = new Chart(ctx, {
+						type : 'line',
+						data : {
+							labels : [ 'Sunday', 'Monday', 'Tuesday',
+									'Wednesday', 'Thursday', 'Friday',
+									'Saturday' ],
+							datasets : [ {
+								data : [ 15339, 21345, 18483, 24003, 23489,
+										24092, 12034 ],
+								lineTension : 0,
+								backgroundColor : 'transparent',
+								borderColor : '#007bff',
+								borderWidth : 4,
+								pointBackgroundColor : '#007bff'
+							} ]
+						},
+						options : {
+							scales : {
+								yAxes : [ {
+									ticks : {
+										beginAtZero : false
+									}
+								} ]
+							},
+							legend : {
+								display : false
+							}
+						}
+					})
+				})()
+	</script>
 
 </body>
 </html>
