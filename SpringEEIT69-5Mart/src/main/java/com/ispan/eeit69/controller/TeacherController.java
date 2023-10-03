@@ -761,14 +761,30 @@ public class TeacherController {
 	}
 
 	@PostMapping("/newTeacherReply")
-	public String newTeacherReply(Model model, @RequestParam("announcementQA") String teacherReply) {
+	public String newTeacherReply(Model model, @RequestParam("announcementQA") String teacherReply,@RequestParam("StudentQuestionId") Integer StudentQuestionId) {
 		member member = (member) session.getAttribute("member");	
-		
-		TeacherReply teacherReply1 = new TeacherReply(teacherReply);
-		
-		teacherReplyService.save(teacherReply1);
 
-		model.addAttribute("teacherReply",teacherReply1);
+		
+		
+//		TeacherReply teacherReply1 = new TeacherReply(teacherReply);
+//		
+//		teacherReplyService.save(teacherReply1);
+//
+//		model.addAttribute("teacherReply",teacherReply1);
+		
+		// 根据问题的标识符获取学生问题对象
+	    StudentQuestion studentQuestion = studentQuestionService.findById(StudentQuestionId);
+
+	    // 创建老师的回答
+	    TeacherReply teacherReply1 = new TeacherReply(teacherReply);
+	    
+	    // 建立關聯
+	    teacherReply1.setStudentQuestion(studentQuestion);
+
+	    // 保存老師回答
+	    teacherReplyService.save(teacherReply1);
+
+	    model.addAttribute("teacherReply", teacherReply1);
 
 		return "redirect:/TeacherComminicateQA";
 

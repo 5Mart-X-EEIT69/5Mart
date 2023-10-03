@@ -130,7 +130,7 @@
                         <span class="col-1">${studentQuestion.member.username}</span>
                         <span class="col-1">${studentQuestion.studentQuestionTime}</span> 
                         <span class="col-5 px-3">${studentQuestion.questionText}</span>
-                        <span class="col-3">${studentQuestion.teacherReply.teacherReply}</span>
+                        <span class="col-3">${teacherReply}</span>
                         <button class="col-1 btn btn-link m-0 ps-2"
                                 style="text-align: left;" data-bs-toggle="modal"
                                 data-bs-target="#announcementModal-${course.id}">回覆</button>
@@ -155,13 +155,13 @@
                 </div>
                 <form action="<c:url value='newTeacherReply'/>" method="post">
                     <div class="modal-body">
-                        <textarea class="form-control" name="announcementQA" rows="4">${studentQuestion.teacherReply.teacherReply}</textarea>
+                        <textarea class="form-control" name="announcementQA" rows="4"></textarea>
                         <input type="hidden" name="courseId" value="${course.id}">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary"
                                 data-bs-dismiss="modal">關閉</button>
-                        <input type="submit" class="btn btn-primary" value="保存修改">
+                        <input type="submit" class="btn btn-primary"  value="保存修改">
                     </div>
                 </form>
             </div>
