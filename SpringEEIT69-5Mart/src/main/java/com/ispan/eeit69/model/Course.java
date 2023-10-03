@@ -10,12 +10,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ispan.eeit69.utils.SystemService;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -39,7 +41,12 @@ public class Course implements Serializable {
 	private Integer price;
 	private String level;
 	private String sort;
+	private String detailSort;
 	private Timestamp registerTime;
+	
+	@Lob
+	@Column(columnDefinition = "TEXT")
+	private String courseContent;
 	
 	//一個課程有很多問題
 	@OneToMany(mappedBy = "course" ,cascade = CascadeType.ALL)
@@ -71,55 +78,61 @@ public class Course implements Serializable {
 	public Course() {
 	}
 
-
-
-
-
-
-
 	public Integer getId() {
 		return id;
 	}
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
 	public String getTitle() {
 		return title;
 	}
+	
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	
 	public String getIntroduction() {
 		return introduction;
 	}
+	
 	public void setIntroduction(String introduction) {
 		this.introduction = introduction;
 	}
+	
 	public Clob getPhoto() {
 		return photo;
 	}
+	
 	public void setPhoto(Clob photo) {
 		this.photo = photo;
 	}
+	
 	public Integer getPrice() {
 		return price;
 	}
+	
 	public void setPrice(Integer price) {
 		this.price = price;
 	}
+	
 	public String getLevel() {
 		return level;
 	}
+	
 	public void setLevel(String level) {
 		this.level = level;
 	}
+	
 	public String getSort() {
 		return sort;
 	}
+	
 	public void setSort(String sort) {
 		this.sort = sort;
-	}
-	
+	}	
 	
 	public Timestamp getRegisterTime() {
 		return registerTime;
@@ -127,9 +140,7 @@ public class Course implements Serializable {
 
 	public void setRegisterTime(Timestamp registerTime) {
 		this.registerTime = registerTime;
-	}
-	
-	
+	}	
 
 	public Set<Chapter> getChapter() {
 		return chapter;
@@ -163,17 +174,25 @@ public class Course implements Serializable {
 		return announcement;
 	}
 
-
-
 	public void setAnnouncement(Announcement announcement) {
 		this.announcement = announcement;
 	}
 
+	public String getCourseContent() {
+		return courseContent;
+	}
 
+	public void setCourseContent(String courseContent) {
+		this.courseContent = courseContent;
+	}
 
+	public String getDetailSort() {
+		return detailSort;
+	}
 
-
-
+	public void setDetailSort(String detailSort) {
+		this.detailSort = detailSort;
+	}
 
 	@Override
 	public String toString() {

@@ -12,7 +12,7 @@ import com.ispan.eeit69.dao.CourseDao;
 import com.ispan.eeit69.dao.CourseRepository;
 import com.ispan.eeit69.model.Announcement;
 import com.ispan.eeit69.model.Course;
-import com.ispan.eeit69.model.TeacherReply;
+import com.ispan.eeit69.model.StudentQuestion;
 import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.CourseService;
 
@@ -86,11 +86,6 @@ public class CourseServiceImpl implements CourseService{
 		return CourseDao.findByTeacherId(id);
 	}
 
-	@Override
-	public Course findByMember(member member) {
-		return CourseDao.findByMember(member);
-		
-	}
 
 	@Override
 	public List<Course> findByTeacher(member teacher) {
@@ -131,15 +126,8 @@ public class CourseServiceImpl implements CourseService{
         }
     }
 
-//	@Override
-//	public void updateReplyForTeacher(Integer courseId, String TeacherReply, member teacher) {
-//		Optional<Course> optionalCourse = courseRepository.findByIdAndTeacher(courseId, teacher);
-		
-//		if (optionalCourse.isPresent()) {
-//            Course course = optionalCourse.get();
-//            TeacherReply teacherReply = course.getTeacherReply();
-//		
-//	}
+	
+    }
 
 	
-}
+

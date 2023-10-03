@@ -2,6 +2,7 @@ package com.ispan.eeit69.service;
 
 import java.util.List;
 
+import com.ispan.eeit69.model.Course;
 import com.ispan.eeit69.model.StudentQuestion;
 
 public interface StudentQuestionService {
@@ -12,7 +13,7 @@ public interface StudentQuestionService {
 	List<StudentQuestion> findAll();
 	void deleteById(Integer id);
 
-		
+	List<StudentQuestion> findByCourse(Course course);	
 	
 	
 }

@@ -172,6 +172,10 @@
 					</div>
 					<!-- Post content-->
 					<section class="mb-5">
+					<hr>
+					<c:choose>
+					<c:when test="${not empty courseData.courseContent}">${courseData.courseContent}</c:when>
+					<c:otherwise>
 						<h3 class="fw-bolder mb-4 mt-5">課程介紹</h3>
 						<hr class="hrBorder">
 						<h4 class="fw-bolder mb-4 mt-5">課程內容</h4>
@@ -185,8 +189,10 @@
 						<hr class="hrBorder">
 						<h4 class="fw-bolder mb-4 mt-5">課前準備</h4>
 						<p class="fs-5 mb-4">For me, the most fascinating interface is Twitter. I have odd cosmic thoughts every day and I realized I could hold them to myself or share them with people who might be interested.</p>
-						<p class="fs-5 mb-4">Venus has a runaway greenhouse effect. I kind of want to know what happened there because we're twirling knobs here on Earth without knowing the consequences of it. Mars once had running water. It's bone dry today. Something bad happened there as well.</p>
-
+						<p class="fs-5 mb-4">Venus has a runaway greenhouse effect. I kind of want to know what happened there because we're twirling knobs here on Earth without knowing the consequences of it. Mars once had running water. It's bone dry today. Something bad happened there as well.</p>					
+					</c:otherwise>					
+					</c:choose>
+						
 					</section>
 
 					<div class="accordion" id="accordionExample">
@@ -247,18 +253,27 @@
 			<div class="card Lg">
 				<div class="card-body">
 					<!-- Comment form-->
-					<form class="mb-4">
-						<textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea>
+					<form class="mb-4" action="<c:url value='/courseDetail'/>" method="post">
+						<textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!" name="QuestionText"></textarea>
+					<input type="hidden" name="id" value="${param.id}">
+					<button type="submit" class="btn btn-outline-secondary" >送出評論</button>
+					
 					</form>
+					<p></p>
 					<!-- Comment with nested comments-->
+					<c:forEach var="studentQuestions" items="${studentQuestions}">
 					<div class="d-flex mb-4">
 						<!-- Parent comment-->
 						<div class="flex-shrink-0">
 							<img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
 						</div>
+						
 						<div class="ms-3">
-							<div class="fw-bold">Hank Lee</div>
-							If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
+							<div class="fw-bold">${studentQuestions.member.username}</div>
+							
+							<div>
+ 							${studentQuestions.questionText}
+							</div>
 							<!-- Child comment 1-->
 							<div class="d-flex mt-4">
 								<div class="flex-shrink-0">
@@ -269,18 +284,11 @@
 									And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.
 								</div>
 							</div>
-							<!-- Child comment 2-->
-							<div class="d-flex mt-4">
-								<div class="flex-shrink-0">
-									<img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
-								</div>
-								<div class="ms-3">
-									<div class="fw-bold">趙令文</div>
-									沒問題，已上傳Github。
-								</div>
-							</div>
+							
 						</div>
+						
 					</div>
+					</c:forEach>
 					<!-- Single comment-->
 					<div class="d-flex">
 						<div class="flex-shrink-0">
@@ -291,12 +299,13 @@
 							When I look at the universe and all the ways the universe wants to kill us, I find it hard to reconcile that with statements of beneficence.
 						</div>
 					</div>
+					
 				</div>
 			</div>
 		</section>
 	</div>
-	</div>
-	</div>
+
+
 	<!-- Side widgets-->
 	<div class="col-lg-4"></div>
 </body>
