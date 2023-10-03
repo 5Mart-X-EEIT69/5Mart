@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ispan.eeit69.model.Course;
@@ -25,8 +26,7 @@ public class SearchController {
 	}
 
 
-
-	// 用'類別'搜尋課程
+	// 用'類別'搜尋相關課程
 	@GetMapping("/searchsort")
 	public String searchsort(@RequestParam("sort") String sort, Model model) {
 		System.out.println(sort);
@@ -36,4 +36,16 @@ public class SearchController {
 
 		return "visitorSearchPage";
 	}
+	
+	// 用'關鍵字'搜尋課程標題
+	@PostMapping("/visitorsearchpage")
+	public String searchKeyword(@RequestParam("keyword") String keyword, Model model) {
+		System.out.println("關鍵字" + keyword);
+		model.addAttribute("keyword", keyword);
+		List<Course> result = courseService.findByKeyword(keyword);
+		model.addAttribute("keywordResult", result);
+
+		return "visitorSearchPage";
+	}
+	
 }

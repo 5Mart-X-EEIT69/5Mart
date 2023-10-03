@@ -15,7 +15,11 @@ public interface memberService {
 	
 	boolean existsById(String account);
 	
+<<<<<<< HEAD
 //	//新增用來處理自動新增帳號設定關聯
 //	void registerNewMember(member newMember);
+=======
+	boolean existsByUsername(String name);
+>>>>>>> refs/remotes/origin/development
 }
 

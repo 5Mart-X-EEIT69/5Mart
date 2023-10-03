@@ -4,6 +4,8 @@ import java.sql.Blob;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ispan.eeit69.model.TeacherPicture;
 import com.ispan.eeit69.model.member;
@@ -57,25 +60,6 @@ public class RegController {
 			model.addAttribute("login", "fail");
 			return "/homePage";
 		} else {
-//			Integer memeberId = result.getId();
-//			System.out.println("會員的id" + memeberId);
-//			TeacherPicture result2 = teacherPictureService.findById(2);
-//			TeacherPicture result2 = teacherPictureService.findByMember(result);
-//			if(result2!=null) {
-//			Blob pic =  result2.getPhoto();
-////			System.out.println(pic);
-//			// 將Blob數據轉換為Base64編碼的字符串
-//			byte[] imageBytes = null;
-//			try {
-//				imageBytes = pic.getBytes(1, (int) pic.length());
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			}
-//			String base64Image = Base64.getEncoder().encodeToString(imageBytes);
-//			model.addAttribute("base64Image", base64Image);
-//			session.setAttribute("base64Image", base64Image);
-//			}
-			
 			TeacherPicture result2 = teacherPictureService.findByMember(result);
 			System.out.println("搜尋會員的照片=" + result2);
 			if (result2 == null) {
@@ -113,6 +97,35 @@ public class RegController {
 //		return "/homePage";
 		return "redirect:/homepage";
 	}
+	
+	
+	@PostMapping("/checkname")
+	@ResponseBody
+	public Map<String, Boolean> checkName(@RequestParam("name")String name){
+		System.out.println("驗證姓名有沒有人使用");
+		boolean isExist = memberService.existsByUsername(name);
+		
+		Map<String, Boolean> response = new HashMap<>();
+		response.put("isExist", isExist);
+		System.out.println(response.toString()); 
+//		response.put("isExist", true);
+		return response;
+	}
+	
+	@PostMapping("/checkemail")
+	@ResponseBody
+	public Map<String, Boolean> checkEmail(@RequestParam("email")String email){
+		System.out.println("驗證信箱有沒有人使用");
+		boolean isExist = memberService.existsById(email);
+		
+		Map<String, Boolean> response = new HashMap<>();
+		response.put("isExist", isExist);
+		System.out.println(response.toString()); 
+//		response.put("isExist", true);
+		return response;
+	}
+	
+	
 
 	@ModelAttribute("preMember")
 	public member beforeSave() {

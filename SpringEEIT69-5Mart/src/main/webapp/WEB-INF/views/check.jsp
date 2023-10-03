@@ -74,6 +74,7 @@
 </head>
 <script type="text/javascript">
 var orderCompletedUrl = "<c:url value='/ordercompleted' />"
+var homepageUrl = "<c:url value='/homepage' />"
 	$(document).ready(function() {
 		$(".checkOutBtn").click(function() {
 			var buyCourseId = $(this).data("course-id");
@@ -92,7 +93,8 @@ var orderCompletedUrl = "<c:url value='/ordercompleted' />"
 					if (response.status === 200) {
 
 						alert("成功購買課程");
-						location.reload(); // 或者其他更新頁面的方法
+// 						location.reload(); // 或者其他更新頁面的方法
+						window.location.href = homepageUrl;
 					} else {
 						alert("購買課程失敗");
 					}
