@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- 響應式的引入 -->
 
-<title>學生中心</title>
+<title>教師導覽列</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -54,17 +54,65 @@
 
 <style type="text/css">
 
-/* 處理課程卡片中的課程導覽圖大小 */
-.card-img-top {
-  height: 200px;  /* 設定您想要的高度 */
-  object-fit: cover;
-  width: 100%;  /* 使圖像寬度適應容器寬度 */
+.bubbleWrapper {
+	padding: 10px 10px;
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: column;
+	align-self: flex-end;
+	color: #fff;
 }
-/* END */
 
+.inlineContainer {
+	display: inline-flex;
+}
+
+.inlineContainer.own {
+	flex-direction: row-reverse;
+}
+
+.inlineIcon {
+	width: 20px;
+	object-fit: contain;
+}
+
+.ownBubble {
+	min-width: 60px;
+	max-width: 700px;
+	padding: 14px 18px;
+	margin: 6px 8px;
+	background-color: #5b5377;
+	border-radius: 16px 16px 0 16px;
+	border: 1px solid #443f56;
+}
+
+.otherBubble {
+	min-width: 60px;
+	max-width: 700px;
+	padding: 14px 18px;
+	margin: 6px 8px;
+	background-color: #6C8EA4;
+	border-radius: 16px 16px 16px 0;
+	border: 1px solid #54788e;
+}
+
+.own {
+	align-self: flex-end;
+}
+
+.other {
+	align-self: flex-start;
+}
+
+span.own, span.other {
+	font-size: 14px;
+	color: grey;
+}
+
+.nav-link {
+font-weight: bolder;
+}
 </style>
-
-
 </head>
 
 <body>
@@ -81,8 +129,8 @@
 				</button>
 			</div>
 			<ul class="list-unstyled px-2">
-				<li class="active my-1">
-					<a href="<c:url value="/studentIndex"></c:url>" class="text-decoration-none px-3 py-2 d-block ">
+				<li class="my-1">
+					<a href="<c:url value="/studentIndex"></c:url>#sublist" class="text-decoration-none px-3 py-2 d-block ">
 						<i class="fa-solid fa-tv pe-3" style="color: #ffffff;"></i>Dashboard
 					</a>
 					<%-- <ul id="sublist" class="list-unstyled collapse">
@@ -122,7 +170,7 @@
 						</li>
 					</ul> -->
 				</li>
-				<li class="my-1">
+				<li class="active my-1">
 					<a href="<c:url value="/studentNotification"></c:url>#sublist2" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between ">
 						<span><i class="fa-solid fa-comment pe-3" style="color: #ffffff;"></i>通知中心</span><span class="bg-dark rounded-pill text-white py-0 px-2">06</span>
 					</a>				
@@ -287,125 +335,160 @@
 
 			<div class="dashboard-content px-3 pt-4">
 				<h1 class="fs-5">Dashboard</h1>
-<!-- 				<p>這裡可以填入內容</p> -->
+				<!-- 				<p>這裡可以填入內容</p> -->
+
+				<h2>訊息中心</h2>
 				
-				<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart"
-					width="2000" height="500"
-					style="display: block; height: 486px; width: 1152px">
-				</canvas>
-			<!-- 最新消息START -->
-				<div class="my-3 p-3 bg-white rounded shadow-sm">
-					<h6 class="border-bottom pb-2 mb-0">最新訊息</h6>
-					<div class="d-flex text-muted pt-3">
-						<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded"
-							width="32" height="32" xmlns="http://www.w3.org/2000/svg"
-							role="img" aria-label="Placeholder: 32x32"
-							preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%"
-								fill="#007bff"></rect>
-                                <text x="50%" y="50%" fill="#007bff"
-								dy=".3em">32x32</text>
-                            </svg>
-						<p class="pb-3 mb-0 small lh-sm border-bottom">
-							<strong class="d-block text-gray-dark">@username</strong> Donec
-							id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
-							ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-							massa justo sit amet risus.
-						</p>
-					</div>
-					<div class="d-flex text-muted pt-3">
-						<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded"
-							width="32" height="32" xmlns="http://www.w3.org/2000/svg"
-							role="img" aria-label="Placeholder: 32x32"
-							preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%"
-								fill="#e83e8c"></rect>
-                                <text x="50%" y="50%" fill="#e83e8c"
-								dy=".3em">32x32</text>
-                            </svg>
-						<p class="pb-3 mb-0 small lh-sm border-bottom">
-							<strong class="d-block text-gray-dark">@username</strong> Donec
-							id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
-							ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-							massa justo sit amet risus.
-						</p>
-					</div>
-					<div class="d-flex text-muted pt-3">
-						<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded"
-							width="32" height="32" xmlns="http://www.w3.org/2000/svg"
-							role="img" aria-label="Placeholder: 32x32"
-							preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%"
-								fill="#6f42c1"></rect>
-                                <text x="50%" y="50%" fill="#6f42c1"
-								dy=".3em">32x32</text>
-                            </svg>
-						<p class="pb-3 mb-0 small lh-sm border-bottom">
-							<strong class="d-block text-gray-dark">@username</strong> Donec
-							id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
-							ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-							massa justo sit amet risus.
-						</p>
-					</div>
-					<small class="d-block text-end mt-3"> <a href="#">全部資訊</a>
-					</small>
+		<div class="col-6 border rounded max-vh-100 " style="overflow-y: scroll;">
+			<div class="my-2">
+				<h4 class="ps-3">私人訊息</h4>
+				<div class="list-group">
+					<a href="#"	class="list-group-item list-group-item-action active d-flex" aria-current="true">
+						<div class="col-2">
+							<i class="bi bi-person-circle fs-1 me-1"></i>
+						</div>
+						<div class="col-10 pt-1">
+							<div class="d-flex justify-content-between">
+								<h5 class="mb-1">用戶名稱</h5>
+								<small>2023/9/16 12:12</small>
+							</div>
+							<p class="mb-1 text-truncate">你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，</p>
+						</div>
+					</a>
+					<a href="#"	class="list-group-item list-group-item-action d-flex" aria-current="true">
+						<div class="col-2">
+							<i class="bi bi-person-circle fs-1 me-1"></i>
+						</div>
+						<div class="col-10 pt-1">
+							<div class="d-flex justify-content-between">
+								<h5 class="mb-1">用戶名稱</h5>
+								<small>2023/9/16 12:12</small>
+							</div>
+							<p class="mb-1 text-truncate">你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，</p>
+						</div>
+					</a>
+					<a href="#"	class="list-group-item list-group-item-action d-flex" aria-current="true">
+						<div class="col-2">
+							<i class="bi bi-person-circle fs-1 me-1"></i>
+						</div>
+						<div class="col-10 pt-1">
+							<div class="d-flex justify-content-between">
+								<h5 class="mb-1">用戶名稱</h5>
+								<small>2023/9/16 12:12</small>
+							</div>
+							<p class="mb-1 text-truncate">你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，</p>
+						</div>
+					</a>
+					<a href="#"	class="list-group-item list-group-item-action d-flex" aria-current="true">
+						<div class="col-2">
+							<i class="bi bi-person-circle fs-1 me-1"></i>
+						</div>
+						<div class="col-10 pt-1">
+							<div class="d-flex justify-content-between">
+								<h5 class="mb-1">用戶名稱</h5>
+								<small>2023/9/16 12:12</small>
+							</div>
+							<p class="mb-1 text-truncate">你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，</p>
+						</div>
+					</a>
+					<a href="#"	class="list-group-item list-group-item-action d-flex" aria-current="true">
+						<div class="col-2">
+							<i class="bi bi-person-circle fs-1 me-1"></i>
+						</div>
+						<div class="col-10 pt-1">
+							<div class="d-flex justify-content-between">
+								<h5 class="mb-1">用戶名稱</h5>
+								<small>2023/9/16 12:12</small>
+							</div>
+							<p class="mb-1 text-truncate">你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，你好，</p>
+						</div>
+					</a>
 				</div>
-			<!-- 最新消息END -->
-			
-			<!-- 課程列表START -->
-               <h4>課程總覽</h4>
-				<div class="container" style="position: relative;">
-					<div class="row row-cols-1 row-cols-md-4 g-4">
-						<c:forEach items="${allCourse}" var="course">
-							<a href="<c:url value='/coursePlayerPage?id=${course.id} ' />"
-								class="text-reset text-decoration-none">
-								<div class="card mx-3" style="width: 18rem; height: 400px;">
-									<img src="${course.dataUri}" class="card-img-top" alt="..." />
-									<div class="card-body py-0">
-										<p class="card-text">
-										<div class="container px-0">
-											<div class="row">
-												<h5 style="font-weight: bolder">
-													<strong>${course.title}</strong>
-												</h5>
-											</div>
-											<div class="row">
-												<p class="mb-2" style="font-size: small">趙令文</p>
-											</div>
-											<div class="row d-inline ">
-												<strong style="font-size: large">3.5 </strong> <i
-													class="bi bi-star-fill px-0"></i> <i
-													class="bi bi-star-fill px-0"></i> <i
-													class="bi bi-star-fill px-0"></i> <i
-													class="bi bi-star-half px-0"></i> <i
-													class="bi bi-star px-0"></i> (123)
-											</div>
-											<div class="row mt-2">
-												<div class="col">
-													<p class="mb-0"
-														style="font-weight: bolder; font-size: large;">NT $
-														${course.price}</p>
-												</div>
-												<div class="col text-end">
-													<i class="fa-regular fa-heart fa-lg"
-														style="color: #f70000;"></i>
-
-												</div>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</a>
-						</c:forEach>
+			</div>
+		</div>
+		
+		<div class="col-6">
+			<div style="overflow-y: scroll; max-height: 95vh;">
+				<div class="bubbleWrapper">
+					<div class="inlineContainer">
+						<img class="inlineIcon"
+							src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+						<div class="otherBubble other">抄來的</div>
 					</div>
+					<span class="other">08:41</span>
 				</div>
-			<!-- 課程列表END -->
-<!-- 				<p>這裡可以填入內容</p> -->
-				<p></p>
+				<div class="bubbleWrapper">
+					<div class="inlineContainer own">
+						<img class="inlineIcon"
+							src="https://www.pinclipart.com/picdir/middle/205-2059398_blinkk-en-mac-app-store-ninja-icon-transparent.png">
+						<div class="ownBubble own">都是抄來的</div>
+					</div>
+					<span class="own">08:55</span>
+				</div>
+				<div class="bubbleWrapper">
+					<div class="inlineContainer">
+						<img class="inlineIcon"
+							src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+						<div class="otherBubble other">全部都是抄來的</div>
+					</div>
+					<span class="other">10:13</span>
+				</div>
+				<div class="bubbleWrapper">
+					<div class="inlineContainer own">
+						<img class="inlineIcon"
+							src="https://www.pinclipart.com/picdir/middle/205-2059398_blinkk-en-mac-app-store-ninja-icon-transparent.png">
+						<div class="ownBubble own">抄來的</div>
+					</div>
+					<span class="own">11:07</span>
+				</div>
+				<div class="bubbleWrapper">
+					<div class="inlineContainer">
+						<img class="inlineIcon"
+							src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+						<div class="otherBubble other">抄來的</div>
+					</div>
+					<span class="other">11:11</span>
+				</div>
+				<div class="bubbleWrapper">
+					<div class="inlineContainer">
+						<img class="inlineIcon"
+							src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+						<div class="otherBubble other">抄來的</div>
+					</div>
+					<span class="other">11:11</span>
+				</div>
+				<div class="bubbleWrapper">
+					<div class="inlineContainer">
+						<img class="inlineIcon"
+							src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+						<div class="otherBubble other">抄來的</div>
+					</div>
+					<span class="other">11:11</span>
+				</div>
+				<div class="bubbleWrapper">
+					<div class="inlineContainer">
+						<img class="inlineIcon"
+							src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+						<div class="otherBubble other">抄來的</div>
+					</div>
+					<span class="other">11:11</span>
+				</div>
+				<div class="bubbleWrapper">
+					<div class="inlineContainer own">
+						<img class="inlineIcon"
+							src="https://www.pinclipart.com/picdir/middle/205-2059398_blinkk-en-mac-app-store-ninja-icon-transparent.png">
+						<div class="ownBubble own">都是抄來的</div>
+					</div>
+					<span class="own">12:12</span>
+				</div>
+			</div>
+			<div class="input-group" style="min-height: 5vh">
+				<input type="text" class="form-control" aria-describedby="send">
+				<button class="btn btn-outline-secondary" type="button"	id="send">送出</button>
+			</div>
+		</div>
+
+				<!-- 				<p>這裡可以填入內容</p> -->
 			</div>
 		</div>
 

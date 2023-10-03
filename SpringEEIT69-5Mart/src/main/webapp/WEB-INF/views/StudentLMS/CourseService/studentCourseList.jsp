@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- 響應式的引入 -->
 
-<title>學生中心</title>
+<title>課程中心</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -64,7 +64,6 @@
 
 </style>
 
-
 </head>
 
 <body>
@@ -81,7 +80,7 @@
 				</button>
 			</div>
 			<ul class="list-unstyled px-2">
-				<li class="active my-1">
+				<li class="my-1">
 					<a href="<c:url value="/studentIndex"></c:url>" class="text-decoration-none px-3 py-2 d-block ">
 						<i class="fa-solid fa-tv pe-3" style="color: #ffffff;"></i>Dashboard
 					</a>
@@ -106,7 +105,7 @@
 						</li>
 					</ul> --%>
 				</li>
-				<li class="my-1">
+				<li class="active my-1">
 					<a href="<c:url value="/studentCourseList"></c:url>#sublist1" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between ">
 						<span><i class="fa-solid fa-pencil pe-3" style="color: #ffffff;"></i>課程中心</span><span class="bg-dark rounded-pill text-white py-0 px-2">01</span>
 					</a>
@@ -286,77 +285,9 @@
 			</nav>
 
 			<div class="dashboard-content px-3 pt-4">
-				<h1 class="fs-5">Dashboard</h1>
-<!-- 				<p>這裡可以填入內容</p> -->
-				
-				<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart"
-					width="2000" height="500"
-					style="display: block; height: 486px; width: 1152px">
-				</canvas>
-			<!-- 最新消息START -->
-				<div class="my-3 p-3 bg-white rounded shadow-sm">
-					<h6 class="border-bottom pb-2 mb-0">最新訊息</h6>
-					<div class="d-flex text-muted pt-3">
-						<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded"
-							width="32" height="32" xmlns="http://www.w3.org/2000/svg"
-							role="img" aria-label="Placeholder: 32x32"
-							preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%"
-								fill="#007bff"></rect>
-                                <text x="50%" y="50%" fill="#007bff"
-								dy=".3em">32x32</text>
-                            </svg>
-						<p class="pb-3 mb-0 small lh-sm border-bottom">
-							<strong class="d-block text-gray-dark">@username</strong> Donec
-							id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
-							ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-							massa justo sit amet risus.
-						</p>
-					</div>
-					<div class="d-flex text-muted pt-3">
-						<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded"
-							width="32" height="32" xmlns="http://www.w3.org/2000/svg"
-							role="img" aria-label="Placeholder: 32x32"
-							preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%"
-								fill="#e83e8c"></rect>
-                                <text x="50%" y="50%" fill="#e83e8c"
-								dy=".3em">32x32</text>
-                            </svg>
-						<p class="pb-3 mb-0 small lh-sm border-bottom">
-							<strong class="d-block text-gray-dark">@username</strong> Donec
-							id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
-							ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-							massa justo sit amet risus.
-						</p>
-					</div>
-					<div class="d-flex text-muted pt-3">
-						<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded"
-							width="32" height="32" xmlns="http://www.w3.org/2000/svg"
-							role="img" aria-label="Placeholder: 32x32"
-							preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%"
-								fill="#6f42c1"></rect>
-                                <text x="50%" y="50%" fill="#6f42c1"
-								dy=".3em">32x32</text>
-                            </svg>
-						<p class="pb-3 mb-0 small lh-sm border-bottom">
-							<strong class="d-block text-gray-dark">@username</strong> Donec
-							id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
-							ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-							massa justo sit amet risus.
-						</p>
-					</div>
-					<small class="d-block text-end mt-3"> <a href="#">全部資訊</a>
-					</small>
-				</div>
-			<!-- 最新消息END -->
-			
-			<!-- 課程列表START -->
-               <h4>課程總覽</h4>
+				<!-- 				<p>這裡可以填入內容</p> -->
+
+				<h2>課程中心</h2>
 				<div class="container" style="position: relative;">
 					<div class="row row-cols-1 row-cols-md-4 g-4">
 						<c:forEach items="${allCourse}" var="course">
@@ -403,9 +334,7 @@
 						</c:forEach>
 					</div>
 				</div>
-			<!-- 課程列表END -->
-<!-- 				<p>這裡可以填入內容</p> -->
-				<p></p>
+				<!-- 				<p>這裡可以填入內容</p> -->
 			</div>
 		</div>
 
@@ -464,49 +393,6 @@
 		$(".close-btn").on('click', function() {
 			$(".sidebar").removeClass('active');
 		})
-	</script>
-	<script>
-		/* globals Chart:false, feather:false */
-
-		(
-				function() {
-					'use strict'
-
-					feather.replace()
-
-					// Graphs
-					var ctx = document.getElementById('myChart')
-					// eslint-disable-next-line no-unused-vars
-					var myChart = new Chart(ctx, {
-						type : 'line',
-						data : {
-							labels : [ 'Sunday', 'Monday', 'Tuesday',
-									'Wednesday', 'Thursday', 'Friday',
-									'Saturday' ],
-							datasets : [ {
-								data : [ 15339, 21345, 18483, 24003, 23489,
-										24092, 12034 ],
-								lineTension : 0,
-								backgroundColor : 'transparent',
-								borderColor : '#007bff',
-								borderWidth : 4,
-								pointBackgroundColor : '#007bff'
-							} ]
-						},
-						options : {
-							scales : {
-								yAxes : [ {
-									ticks : {
-										beginAtZero : false
-									}
-								} ]
-							},
-							legend : {
-								display : false
-							}
-						}
-					})
-				})()
 	</script>
 
 </body>
