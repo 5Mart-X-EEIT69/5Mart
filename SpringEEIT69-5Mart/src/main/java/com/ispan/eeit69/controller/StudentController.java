@@ -1,6 +1,7 @@
 package com.ispan.eeit69.controller;
 
 import java.io.IOException;
+import java.lang.reflect.Member;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -181,6 +182,7 @@ public class StudentController {
 			member newMember = memberService.findByMemberId(member.getId()); //先抓到ID
 			Introduction introduction = newMember.getIntroduction();
 			model.addAttribute("introduction",introduction);
+			
 			
 			
 			return "/StudentLMS/SettingsService/profileSettingPage";   

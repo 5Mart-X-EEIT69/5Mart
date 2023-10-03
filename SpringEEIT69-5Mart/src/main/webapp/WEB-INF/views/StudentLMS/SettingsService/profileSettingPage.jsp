@@ -300,8 +300,8 @@
 						<div class="col-4 mt-3">
 							<label for="firstName" class="form-label">真實姓名</label> <input
 								type="text" class="form-control" id="realName" name="realName"
-								 value="" required="">${member.realName}</input>
-							<div class="invalid-feedback">Valid first name is required.
+								 value="${member.realName}" placeholder="${member.realName}" required="">
+								 	<div class="invalid-feedback">Valid first name is required.
 							</div>
 						</div>
 					</div>
@@ -321,9 +321,10 @@
 					<div class="row">
 						<div class="col-4"></div>
 						<div class="col-4 mb-5">
-							<label for="country" class="form-label">預設語言</label> <select
-								class="form-select" id="language" name="language" required="">
-								<option value="${member.language}" selected="selected">${member.language}</option>
+							<label for="country" class="form-label">預設語言</label> 
+							 <select
+								class="form-select" id="language" name="language" placeholder="${member.language}" required="">
+								<option value="" selected="selected">${member.language}</option>
 								<option value="台灣正體中文">台灣正體中文</option>
 								<option value="日本語">日本語</option>
 								<option value="English">English</option>
