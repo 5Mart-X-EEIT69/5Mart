@@ -190,7 +190,7 @@
 		<c:otherwise><jsp:include page="/WEB-INF/views/visitorNavBar.jsp" /></c:otherwise>
 	</c:choose>
 	<!-- 導覽列 -->
-	<div>帳號 ${member.account}</div>
+<%-- 	<div>帳號 ${member.account}</div> --%>
 
 	<!-- 輪播圖 -->
 	<div class="container mb-5">
