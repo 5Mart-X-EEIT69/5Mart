@@ -85,6 +85,7 @@
 							var passwordInputAgain = $(this).val();
 							var passwordInput = $("#passwordInput").val();
 							if (passwordInputAgain == passwordInput) {
+								$(".confirmPassword").text("");
 								$("#passwordInputAgain").css("border",
 										"2px solid green");
 								$("#passwordInput").css("border",
