@@ -304,22 +304,22 @@ public class StudentController {
 	
 	// 10.03 Test
 	
-	 @PutMapping("/profileSettingPage")
-	 public String updateUser(@PathVariable Long id, @ModelAttribute member updatedUser) {
-		 member member = (member) session.getAttribute("member");
-	        
-	        if (member != null) {
-	            // 更新用户信息
-	        	member.setUsername(updatedUser.get("username").asInt());
-	        	member.setAccount(updatedUser.getEmail());
-	            // 其他需要更新的字段
-	            
-	            memberService.save(member); // 將更新後的用戶保存到資料庫中
-	        }
-        
-        return "/StudentLMS/SettingsService/profileSettingPage" + id; // 重定向到用戶資料顯示頁面
-    }
-}
+//	 @PutMapping("/profileSettingPage")
+//	 public String updateUser(@PathVariable Long id, @ModelAttribute member updatedUser) {
+//		 member member = (member) session.getAttribute("member");
+//	        
+//	        if (member != null) {
+//	            // 更新用户信息
+//	        	member.setUsername(updatedUser.get("username").asInt());
+//	        	member.setAccount(updatedUser.getEmail());
+//	            // 其他需要更新的字段
+//	            
+//	            memberService.save(member); // 將更新後的用戶保存到資料庫中
+//	        }
+//        
+//        return "/StudentLMS/SettingsService/profileSettingPage" + id; // 重定向到用戶資料顯示頁面
+//    }
+//}
 	
 	
 }
