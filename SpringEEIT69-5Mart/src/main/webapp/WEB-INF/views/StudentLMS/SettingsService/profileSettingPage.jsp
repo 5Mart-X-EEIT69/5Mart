@@ -276,7 +276,7 @@
 						<div class="col-4">
 							<label for="username" class="form-label">使用者名稱</label>
 							<div class="input-group">
-								<span class="input-group-text">@</span>
+	
 									<input type="text"  class="form-control" id="userName" name="userName"
 										value="${member.username}" required="">
 								<div class="invalid-feedback">Your username is required.</div>
@@ -300,7 +300,7 @@
 						<div class="col-4 mt-3">
 							<label for="firstName" class="form-label">真實姓名</label> <input
 								type="text" class="form-control" id="realName" name="realName"
-								 value="" required="">
+								 value="" required="">${member.realName}</input>
 							<div class="invalid-feedback">Valid first name is required.
 							</div>
 						</div>
@@ -323,7 +323,7 @@
 						<div class="col-4 mb-5">
 							<label for="country" class="form-label">預設語言</label> <select
 								class="form-select" id="language" name="language" required="">
-								<option value="" selected="selected"></option>
+								<option value="${member.language}" selected="selected">${member.language}</option>
 								<option value="台灣正體中文">台灣正體中文</option>
 								<option value="日本語">日本語</option>
 								<option value="English">English</option>

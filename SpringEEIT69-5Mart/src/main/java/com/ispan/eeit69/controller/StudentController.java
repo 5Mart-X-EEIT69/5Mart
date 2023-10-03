@@ -171,34 +171,26 @@ public class StudentController {
 
 		
 	@GetMapping("/profileSettingPage")
-	public String profileSettingPage(Model model) {
+ 	public String profileSettingPage(Model model) {
 		member member = (member) session.getAttribute("member");
+		
+		
 		if (member != null) {
 			System.out.println("profileSettingPage");
-			Introduction introduction = member.getIntroduction();
-			model.addAttribute(introduction);
-			return "/StudentLMS/SettingsService/profileSettingPage";
+		
+			member newMember = memberService.findByMemberId(member.getId()); //先抓到ID
+			Introduction introduction = newMember.getIntroduction();
+			model.addAttribute("introduction",introduction);
+			
+			
+			return "/StudentLMS/SettingsService/profileSettingPage";   
 		} else {
 			System.out.println("HOMEPAGE");
 			return "redirect:/homepage";
 		}
+//		return null;
 	}
-//	 @PutMapping("/profileSettingPage")
-//	    public String profileUpdate(@PathVariable Model model, @ModelAttribute ProfileUpdate profileUpdate) {
-//	        User user = userRepository.findById(id).orElse(null);
-//	        
-//	        if (user != null) {
-//	            // 更新用户信息
-//	            user.setName(updatedUser.getName());
-//	            user.setEmail(updatedUser.getEmail());
-//	            // 其他需要更新的字段
-//	            
-//	            userRepository.save(user); // 將更新後的用戶保存到資料庫中
-//	        }
-//	        
-//	        return "redirect:/users/" + id; // 重定向到用戶資料顯示頁面
-//	    }
-//	}
+
 
 	@GetMapping("/pictureSettingPage")
 	public String pictureSettingPage(Model model) {
@@ -252,8 +244,14 @@ public class StudentController {
 	}
 	@GetMapping("/safetySettingPage")
 	public String safetySettingPage(Model model) {
-		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
+		member member = (member) session.getAttribute("member");
+		if (member != null) {
+			System.out.println("profileSettingPage");
 		return "/StudentLMS/SettingsService/safetySettingPage";
+		} else {
+			System.out.println("HOMEPAGE");
+			return "redirect:/homepage";
+	}
 	}
 	
 	//開發用的方法
@@ -319,6 +317,7 @@ public class StudentController {
 			 @RequestParam("language") String language, @RequestParam("introductionText") String introductionText, @RequestParam("userName") String userName) {
 		 System.out.println("TESTSETTING");
 		 member member = memberService.findByMemberId(memberID); //找出當前登入會員資料
+		 
 		 if(userName == member.getUsername()) {
 			 System.out.println("沒有任何修改");
 		 }else if(userName != member.getUsername()) {
@@ -340,7 +339,23 @@ public class StudentController {
 			 System.out.println("沒有任何修改");
 		 }
 		 
-		 Introduction introduction = member.getIntroduction();
+		 Introduction introduction = member.getIntroduction(); //為null
+		 System.out.println("introduction:"+introduction);
+		 if(introduction == null) {
+			 Introduction newIntroduction = new Introduction();
+			 newIntroduction.setMember(member);
+
+			 newIntroduction.setIntroductionText(introductionText);
+			 introductionService.save(newIntroduction);
+			 
+		 }else if(introduction.getIntroductionText()!=introductionText) {
+			 introduction.setIntroductionText(introductionText);
+			 introductionService.update(introduction);
+			 
+		 }else if(introduction.getIntroductionText()== introductionText) {
+		 
+		 }
+		 
 
 		 
 		 memberService.save(member); //未完成introduction
@@ -352,19 +367,7 @@ public class StudentController {
 		 System.out.println(introductionText);
 		 System.out.println(userName);//ok
 		 
-//		 member member = (member) session.getAttribute("member"); // 找出會員
-//	     Introduction introduction1 = introductionService.findByMember(member); // 在Introduction表內，用member去找到自我介紹那行
-//	    		 
-//	        if (introduction1 != null) {
-//	        	member member2 = memberService.findByMemberId(memberID);
-//				Introduction introduction2 = new Introduction(Username, IntroductionText,member2);
-//				introductionService.save(introduction2);
-//	        } else {
-//	        	introduction1.setIntroductionText(IntroductionText);
-//
-//	            
-//				introductionService.update(introduction1);
-//	        }
+
         
         return "redirect:profileSettingPage" ; // 重定向到用戶資料顯示頁面
     }
