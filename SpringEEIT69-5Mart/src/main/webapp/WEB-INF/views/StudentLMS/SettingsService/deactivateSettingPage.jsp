@@ -173,7 +173,10 @@
 					</a>
 					<ul id="sublist4" class="list-unstyled collapse">
 						<li>
-							<a href="<c:url value="/pictureSettingPage"></c:url>" class="text-decoration-none ps-4">個人資料設定</a>
+							<a href="<c:url value="/profileSettingPage"></c:url>" class="text-decoration-none ps-4">帳號資料</a>
+						</li>
+						<li>
+							<a href="<c:url value="/pictureSettingPage"></c:url>" class="text-decoration-none ps-4">帳號照片</a>
 						</li>
 						<li>
 							<a href="<c:url value="/safetySettingPage"></c:url>" class="text-decoration-none ps-4">安全性</a>
