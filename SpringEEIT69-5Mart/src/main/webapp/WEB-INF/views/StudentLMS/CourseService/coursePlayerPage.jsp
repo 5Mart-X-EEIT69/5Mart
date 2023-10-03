@@ -175,12 +175,12 @@
 						<div class="row">
 							<div class="col-4">證書</div>
 							<div class="col-4">
-								<div>完成整門課程，取得 Udemy 證書</div>
+								<div>完成整門課程，取得 5Mart 證書</div>
 								<br />
 								<div>
 									<div class="d-grid gap-2 col-6">
 										<button type="button" class="btn btn-outline-dark">
-											Udemy 證書</button>
+											5Mart 證書</button>
 									</div>
 								</div>
 							</div>
