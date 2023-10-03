@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -647,25 +648,31 @@
 		</div>
 
 		<div class="row slick-card-hotarticle">
+			<c:forEach items="${allArticle}" var="article">
+			<a href="<c:url value='/articleDetail?id=${article.id} ' />" class="text-reset text-decoration-none">
 			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg" class="card-img-top" alt="..." />
+				<img class="card-img-top" src="<c:choose>
+						<c:when test="${not empty article.dataUri}">data:image/jpeg;base64,${article.dataUri}</c:when>
+						<c:otherwise>\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg</c:otherwise>
+					</c:choose>" alt="...">
 				<div class="card-body py-0">
 					<p class="card-text">
 					<div class="container px-0">
 						<div class="row">
 							<h5 style="font-weight: bolder;">
-								<strong>給Java初學者的建議，這樣學一定會變成大師！</strong>
+								<strong>${article.articleTitle }</strong>
 							</h5>
 						</div>
 						<div class="row">
-							<p class="mb-2" style="font-size: small;">在一開始學習Java時，有幾點需要特別注意...</p>
+							<p class="mb-2" style="font-size: small;">點我觀看所有內容...</p>
 						</div>
+						<fmt:formatDate value="${article.postTime}" pattern="yyyy-MM-dd" var="postTime"/>
 						<div class="row">
 							<p class="d-flex justify-content-between align-items-cente">
-								<strong style="font-size: small;">趙令文 </strong>
+								<strong style="font-size: small;">${article.teacher.username }</strong>
 								<span style="font-size: small;">
 									<i class="fa-regular fa-calendar-days"></i>
-									2023/08/20
+									${postTime}
 								</span>
 								<span style="font-size: small;">
 									<i class="fa-solid fa-eye"></i>
@@ -678,152 +685,8 @@
 					</p>
 				</div>
 			</div>
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body py-0">
-					<p class="card-text">
-					<div class="container px-0">
-						<div class="row">
-							<h5 style="font-weight: bolder;">
-								<strong>給Java初學者的建議，這樣學一定會變成大師！</strong>
-							</h5>
-						</div>
-						<div class="row">
-							<p class="mb-2" style="font-size: small;">在一開始學習Java時，有幾點需要特別注意...</p>
-						</div>
-						<div class="row">
-							<p class="d-flex justify-content-between align-items-cente">
-								<strong style="font-size: small;">趙令文 </strong>
-								<span style="font-size: small;">
-									<i class="fa-regular fa-calendar-days"></i>
-									2023/08/20
-								</span>
-								<span style="font-size: small;">
-									<i class="fa-solid fa-eye"></i>
-									4678
-								</span>
-								<i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
-							</p>
-						</div>
-					</div>
-					</p>
-				</div>
-			</div>
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body py-0">
-					<p class="card-text">
-					<div class="container px-0">
-						<div class="row">
-							<h5 style="font-weight: bolder;">
-								<strong>給Java初學者的建議，這樣學一定會變成大師！</strong>
-							</h5>
-						</div>
-						<div class="row">
-							<p class="mb-2" style="font-size: small;">在一開始學習Java時，有幾點需要特別注意...</p>
-						</div>
-						<div class="row">
-							<p class="d-flex justify-content-between align-items-cente">
-								<strong style="font-size: small;">趙令文 </strong>
-								<span style="font-size: small;">
-									<i class="fa-regular fa-calendar-days"></i>
-									2023/08/20
-								</span>
-								<span style="font-size: small;">
-									<i class="fa-solid fa-eye"></i>
-									4678
-								</span>
-								<i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
-							</p>
-						</div>
-					</div>
-					</p>
-				</div>
-			</div>
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖004.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body py-0">
-					<p class="card-text">
-					<div class="container px-0">
-						<div class="row">
-							<h5 style="font-weight: bolder;">
-								<strong>給Java初學者的建議，這樣學一定會變成大師！</strong>
-							</h5>
-						</div>
-						<div class="row">
-							<p class="mb-2" style="font-size: small;">在一開始學習Java時，有幾點需要特別注意...</p>
-						</div>
-						<div class="row">
-							<p class="d-flex justify-content-between align-items-cente">
-								<strong style="font-size: small;">趙令文 </strong>
-								<span style="font-size: small;">
-									<i class="fa-regular fa-calendar-days"></i>
-									2023/08/20
-								</span>
-								<span style="font-size: small;">
-									<i class="fa-solid fa-eye"></i>
-									4678
-								</span>
-								<i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
-							</p>
-						</div>
-					</div>
-					</p>
-				</div>
-			</div>
-
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body py-0">
-					<p class="card-text">
-					<div class="container px-0">
-						<div class="row">
-							<h5 style="font-weight: bolder;">
-								<strong>給Java初學者的建議，這樣學一定會變成大師！</strong>
-							</h5>
-						</div>
-						<div class="row">
-							<p class="mb-2" style="font-size: small;">在一開始學習Java時，有幾點需要特別注意...</p>
-						</div>
-						<div class="row">
-							<p class="d-flex justify-content-between align-items-cente">
-								<strong style="font-size: small;">趙令文 </strong>
-								<span style="font-size: small;">
-									<i class="fa-regular fa-calendar-days"></i>
-									2023/08/20
-								</span>
-								<span style="font-size: small;">
-									<i class="fa-solid fa-eye"></i>
-									4678
-								</span>
-								<i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
-							</p>
-						</div>
-					</div>
-					</p>
-				</div>
-			</div>
-
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖011.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body">
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				</div>
-			</div>
-
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖012.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body">
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				</div>
-			</div>
-
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖007.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body">
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				</div>
-			</div>
+			</a>
+			</c:forEach>
 		</div>
 		<div class="arrow-next-hotarticle slick-rightbtn">
 			<span>
