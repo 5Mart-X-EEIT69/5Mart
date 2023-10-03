@@ -4,82 +4,134 @@
 <link rel='stylesheet' href="<c:url value='/assets/css/visitorHomePage.css' />" type="text/css" />
 <script type="text/javascript">
 	var checkNameUrl = "<c:url value='/checkname' />";
-	$(document).ready(function() {
-		//當用戶焦點離開全名輸入框時觸發
-		$("#usernameInput").blur(function() {
-			var userName = $(this).val(); // 獲取輸入框的值
-			console.log("離開輸入框");
-			// 發送 Ajax 請求到後端
-			$.ajax({
-				url : checkNameUrl, // 替換成您後端的 API URL
-				type : 'POST',
-				data : {
-					name : userName
-				},
-				success : function(response) {
-					if ($("#usernameInput").val() == "") {
-						$("#usernameInput").css("border", "1px solid lightgray");
-						$(".duplicateName").text("");
-					} else if (response.isExist) {
-						$(".duplicateName").text("此名稱已有人使用"); // 更新警告訊息
-						$("#usernameInput").css("border", "2px solid red");
-					} else {
-						$(".duplicateName").text(""); // 清空警告訊息
-						$("#usernameInput").css("border", "2px solid green");
-					}
-				},
-				error : function(response) {
-					alert("發生錯誤，請重試");
-					console.log(response)
-				}
-			});
-		});
+	$(document).ready(
+			function() {
+				//當用戶焦點離開全名輸入框時觸發
+				$("#usernameInput").blur(
+						function() {
+							var userName = $(this).val(); // 獲取輸入框的值
+							console.log("離開輸入框");
+							// 發送 Ajax 請求到後端
+							$.ajax({
+								url : checkNameUrl, // 替換成您後端的 API URL
+								type : 'POST',
+								data : {
+									name : userName
+								},
+								success : function(response) {
+									if ($("#usernameInput").val() == "") {
+										$("#usernameInput").css("border",
+												"1px solid lightgray");
+										$(".duplicateName").text("");
+										
+									} else if (response.isExist) {
+										$(".duplicateName").text("此名稱已有人使用"); // 更新警告訊息
+										$("#usernameInput").css("border",
+												"2px solid red");
+										
+									} else {
+										$(".duplicateName").text(""); // 清空警告訊息
+										$("#usernameInput").css("border",
+												"2px solid green");
+										
+									}
+								},
+								error : function(response) {
+									alert("發生錯誤，請重試");
+									console.log(response)
+								}
+							});
+						});
 
-		var checkEmailUrl = "<c:url value='/checkemail'/>";
-		$("#emailInput").blur(function() {
-			var userEmail = $(this).val(); // 獲取輸入框的值
-			console.log("離開輸入框");
-			// 發送 Ajax 請求到後端
-			$.ajax({
-				url : checkEmailUrl, // 替換成您後端的 API URL
-				type : 'POST',
-				data : {
-					email : userEmail
-				},
-				success : function(response) {
-					if ($("#emailInput").val() == "") {
-						$("#emailInput").css("border", "1px solid lightgray");
-						$(".duplicateEmail").text("");
-					} else if (response.isExist) {
-						$(".duplicateEmail").text("此信箱已有人註冊"); // 更新警告訊息
-						$("#emailInput").css("border", "2px solid red");
-					} else {
-						$(".duplicateEmail").text(""); // 清空警告訊息
-						$("#emailInput").css("border", "2px solid green");
+				var checkEmailUrl = "<c:url value='/checkemail'/>";
+				$("#emailInput").blur(
+						function() {
+							var userEmail = $(this).val(); // 獲取輸入框的值
+							console.log("離開輸入框");
+							// 發送 Ajax 請求到後端
+							$.ajax({
+								url : checkEmailUrl, // 替換成您後端的 API URL
+								type : 'POST',
+								data : {
+									email : userEmail
+								},
+								success : function(response) {
+									if ($("#emailInput").val() == "") {
+										$("#emailInput").css("border",
+												"1px solid lightgray");
+										$(".duplicateEmail").text("");
+										
+									} else if (response.isExist) {
+										$(".duplicateEmail").text("此信箱已有人註冊"); // 更新警告訊息
+										$("#emailInput").css("border",
+												"2px solid red");
+										
+									} else {
+										$(".duplicateEmail").text(""); // 清空警告訊息
+										$("#emailInput").css("border",
+												"2px solid green");
+										
+									}
+								},
+								error : function(response) {
+									alert("發生錯誤，請重試");
+									console.log(response)
+								}
+							});
+						});
+
+				$("#passwordInputAgain").blur(
+						function() {
+							var passwordInputAgain = $(this).val();
+							var passwordInput = $("#passwordInput").val();
+							if (passwordInputAgain == passwordInput) {
+								$("#passwordInputAgain").css("border",
+										"2px solid green");
+								$("#passwordInput").css("border",
+										"2px solid green");
+								
+							} else {
+								$(".confirmPassword").text("輸入的密碼不一致");
+								$("#passwordInputAgain").css("border",
+										"2px solid red");
+								$("#passwordInput").css("border",
+										"2px solid red");
+								
+							}
+						});
+				
+				
+				var sameName = $(".duplicateName").val();
+				var sameEmail = $(".duplicateEmail").val();
+				var samePassword = $(".confirmPassword").val();
+				
+				function register(){					
+					if(sameName == "" && sameEmail == "" && samePassword ==""){
+					alert("可以註冊");
 					}
-				},
-				error : function(response) {
-					alert("發生錯誤，請重試");
-					console.log(response)
 				}
-			});
-		});
+				
 
 	});
 </script>
 <nav class="navbar navbar-expand-lg bg-body-tertiary  sticky-top shadow">
 	<div class="container-fluid">
 		<!-- 品牌logo -->
-		<a class="navbar-brand" href="<c:url value='/homepage' />"> <i class="fa-solid fa-graduation-cap fa-xl px-2"></i>
+		<a class="navbar-brand" href="<c:url value='/homepage' />">
+			<i class="fa-solid fa-graduation-cap fa-xl px-2"></i>
 		</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item dropdown px-2"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 課程類別 </a> <jsp:include page="/WEB-INF/views/sortNavbar.jsp" /></li>
+				<li class="nav-item dropdown px-2">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 課程類別 </a>
+					<jsp:include page="/WEB-INF/views/sortNavbar.jsp" /></li>
 
-				<li class="nav-item px-4"><a class="nav-link" href="#">文章</a></li>
+				<li class="nav-item px-4">
+					<a class="nav-link" href="#">文章</a>
+				</li>
 
 				<li class="nav-item px-10">
 					<form class="d-lg-flex d-none nav-item input-group" action="<c:url value="/visitorsearchpage" />" method="post">
@@ -99,11 +151,21 @@
 					<i class="fa-solid fa-earth-americas fa-lg"></i>
 				</button>
 				<ul class="dropdown-menu dropdown-menu-end">
-					<li><a class="dropdown-item" href="#">英文</a></li>
-					<li><a class="dropdown-item" href="#">日文</a></li>
-					<li><a class="dropdown-item" href="#">韓文</a></li>
-					<li><a class="dropdown-item" href="#">西班牙文</a></li>
-					<li><a class="dropdown-item" href="#">簡體中文</a></li>
+					<li>
+						<a class="dropdown-item" href="#">英文</a>
+					</li>
+					<li>
+						<a class="dropdown-item" href="#">日文</a>
+					</li>
+					<li>
+						<a class="dropdown-item" href="#">韓文</a>
+					</li>
+					<li>
+						<a class="dropdown-item" href="#">西班牙文</a>
+					</li>
+					<li>
+						<a class="dropdown-item" href="#">簡體中文</a>
+					</li>
 				</ul>
 			</div>
 
@@ -166,9 +228,14 @@
 					</p>
 				</div>
 				<div class="mb-3">
-					<a class="mx-2" type="button" href="#"> <i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i>
-					</a> <a class="mx-2" type="button" href="#"> <i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i>
-					</a> <a class="mx-2" type="button" href="#"> <i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i>
+					</a>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i>
+					</a>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i>
 					</a>
 				</div>
 
@@ -212,17 +279,21 @@
 					</div>
 					<!-- 密碼 -->
 					<div class="form-group">
-						<input type="password" class="password form-control" placeholder="密碼" name="password">
+						<input type="password" class="password form-control" placeholder="密碼" name="password" id="passwordInput">
 					</div>
 					<!-- 再次輸入密碼 -->
 					<div class="form-group">
-						<input type="password" class="password form-control mb-2" placeholder="再次輸入密碼">
+						<input type="password" class="password form-control mb-2" placeholder="再次輸入密碼" id="passwordInputAgain">
+						<div class="confirmPassword mb-2 ms-4" style="font-size: small; color: red"></div>
 					</div>
 					<!-- 送出按鈕 -->
-					<button type="submit" class="btn btn-secondary mt-3" data-bs-dismiss="modal">註冊</button>
+					<button type="submit" class="btn btn-secondary mt-3" data-bs-dismiss="modal" >註冊</button>
 					<div class="d-md-flex justify-content-center mt-2">
 						<p>
-							註冊即同意 <a type="button" href="#">隱私權政策</a> 和 <a type="button" href="#">使用者條款</a>
+							註冊即同意
+							<a type="button" href="#">隱私權政策</a>
+							和
+							<a type="button" href="#">使用者條款</a>
 						</p>
 					</div>
 				</form>
@@ -235,9 +306,14 @@
 					</p>
 				</div>
 				<div class="mb-3">
-					<a class="mx-2" type="button" href="#"> <i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i>
-					</a> <a class="mx-2" type="button" href="#"> <i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i>
-					</a> <a class="mx-2" type="button" href="#"> <i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i>
+					</a>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i>
+					</a>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i>
 					</a>
 				</div>
 			</div>
