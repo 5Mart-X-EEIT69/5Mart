@@ -146,29 +146,29 @@
 			<button type="button" class="btn btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#loginModal">登入/註冊</button>
 
 
-			<div class="btn-group d-block">
-				<button type="button" class="btn btn-outline-success dropdown-toggle globe py-1" data-bs-toggle="dropdown" aria-expanded="false">
-					<!-- 					<span class="material-symbols-outlined pt-1"> globe </span> -->
-					<i class="fa-solid fa-earth-americas fa-lg"></i>
-				</button>
-				<ul class="dropdown-menu dropdown-menu-end">
-					<li>
-						<a class="dropdown-item" href="#">英文</a>
-					</li>
-					<li>
-						<a class="dropdown-item" href="#">日文</a>
-					</li>
-					<li>
-						<a class="dropdown-item" href="#">韓文</a>
-					</li>
-					<li>
-						<a class="dropdown-item" href="#">西班牙文</a>
-					</li>
-					<li>
-						<a class="dropdown-item" href="#">簡體中文</a>
-					</li>
-				</ul>
-			</div>
+<!-- 			<div class="btn-group d-block"> -->
+<!-- 				<button type="button" class="btn btn-outline-success dropdown-toggle globe py-1" data-bs-toggle="dropdown" aria-expanded="false"> -->
+<!-- 										<span class="material-symbols-outlined pt-1"> globe </span> -->
+<!-- 					<i class="fa-solid fa-earth-americas fa-lg"></i> -->
+<!-- 				</button> -->
+<!-- 				<ul class="dropdown-menu dropdown-menu-end"> -->
+<!-- 					<li> -->
+<!-- 						<a class="dropdown-item" href="#">英文</a> -->
+<!-- 					</li> -->
+<!-- 					<li> -->
+<!-- 						<a class="dropdown-item" href="#">日文</a> -->
+<!-- 					</li> -->
+<!-- 					<li> -->
+<!-- 						<a class="dropdown-item" href="#">韓文</a> -->
+<!-- 					</li> -->
+<!-- 					<li> -->
+<!-- 						<a class="dropdown-item" href="#">西班牙文</a> -->
+<!-- 					</li> -->
+<!-- 					<li> -->
+<!-- 						<a class="dropdown-item" href="#">簡體中文</a> -->
+<!-- 					</li> -->
+<!-- 				</ul> -->
+<!-- 			</div> -->
 
 
 			<form class="d-flex d-lg-none nav-item input-group">
