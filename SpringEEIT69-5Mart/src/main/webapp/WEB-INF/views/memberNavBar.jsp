@@ -321,7 +321,7 @@
 							<hr class="dropdown-divider">
 						</li>
 						<li class="dropdown-item px-2 py-0">
-							<a href="<c:url value='/student_course_viewer' />" class="btn btn-success w-100">前往我的學習</a>
+							<a href="<c:url value='/studentCourseList' />" class="btn btn-success w-100">前往我的學習</a>
 						</li>
 
 
@@ -418,7 +418,7 @@
 							<hr class="dropdown-divider">
 						</li>
 						<li class="dropdown-item px-2 py-0">
-							<a href="#" class="btn btn-success w-100">前往購物車</a>
+							<a href="<c:url value='/cartServicePage' />#" class="btn btn-success w-100">前往購物車</a>
 						</li>
 					</ul>
 				</li>
@@ -495,7 +495,7 @@
 						</li>
 						<!-- 							<li><hr class="dropdown-divider"></li> -->
 						<li class="dropdown-item px-2 pb-0 pt-2">
-							<a href="#" class="btn btn-success w-100">前往通知</a>
+							<a href="<c:url value='/studentNotification' />#" class="btn btn-success w-100">前往通知</a>
 						</li>
 					</ul>
 				</li>
@@ -519,8 +519,8 @@
 						<hr class="dropdown-divider">
 					</li>
 					<li class="">
-						<a class="dropdown-item" href="#">
-							<i class="fa-regular fa-user " style="padding: 0 8px"></i>個人檔案
+						<a class="dropdown-item" href="<c:url value='/studentIndex' />#">
+							<i class="fa-regular fa-user " style="padding: 0 8px"></i>學生中心
 						</a>
 					</li>
 					<li>

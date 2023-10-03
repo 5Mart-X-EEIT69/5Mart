@@ -97,8 +97,17 @@ public class StudentController {
 	
 	@GetMapping("/studentCourseList")
 	public String studentcourselist(Model model) {
-		model.addAttribute("welcome", "歡迎來到Spring Boot的世界");
-		return "/StudentLMS/CourseService/studentCourseList";
+		member member = (member) session.getAttribute("member");
+		if (member != null) {
+			member newMember = memberService.findByMemberId(member.getId());
+			System.out.println(newMember.getId());
+			Set<Course> buyCourses = newMember.getBuyCourses();
+			List<Course> CourseList = new ArrayList<Course>(buyCourses);
+			model.addAttribute("CourseList", CourseList);
+			return "/StudentLMS/CourseService/studentCourseList";
+		} else {
+			return "redirect:/homepage";
+		}
 	}
 	
 	@GetMapping("/studentNotification")
@@ -125,6 +134,15 @@ public class StudentController {
 		return "/StudentLMS/BusinessServices/cartServicePage";
 	}
 
+//	@GetMapping("/checkout")
+//	public String checkout(Model model) {
+//	    ShoppingCart cart = (ShoppingCart) httpSession.getAttribute("ShoppingCart");
+//	    if (cart != null) {
+//	        model.addAttribute("cart", cart);
+//	    }
+//	    return "check";
+//	}
+	
 
 	// 翔哥處理中的部分
 	

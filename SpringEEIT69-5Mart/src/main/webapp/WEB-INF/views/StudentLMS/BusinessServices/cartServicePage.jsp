@@ -331,7 +331,11 @@
 							</div>
 						</div>
 					</c:forEach>
-					<p id="totalAmount">總金額：NT $ 0</p>
+					       <c:forEach var="item" items="${mycart}">
+            <c:set var="totalPrice" value="${totalPrice + item.value.price}"/>
+        </c:forEach>
+					<p id="totalAmount">總金額：NT $ ${totalPrice} </p>
+					<button id="checkoutButton">前往結帳</button>
 				</div>
 
 
@@ -439,23 +443,29 @@
 		});
 	});
     
+//     	$(document).ready(function() {
+//             // 初始化總金額為 0
+//             let totalAmount = 0;
+
+//             // 遍歷每一個價格元素並加到總金額
+//             $("p[style='font-weight: bolder; font-size: large;']").each(function() {
+//                 let priceText = $(this).text().replace("NT $ ", "");
+//                 let price = parseFloat(priceText);
+//                 if (!isNaN(price)) {  // 確保解析成功
+//                     totalAmount += price;
+//                 }
+//             });
+
+//             // 更新總金額顯示
+//             $("#totalAmount").text("總金額：NT $ " + totalAmount.toFixed(2));
+//         });
+    	
+// 結帳處理
     	$(document).ready(function() {
-            // 初始化總金額為 0
-            let totalAmount = 0;
-
-            // 遍歷每一個價格元素並加到總金額
-            $("p[style='font-weight: bolder; font-size: large;']").each(function() {
-                let priceText = $(this).text().replace("NT $ ", "");
-                let price = parseFloat(priceText);
-                if (!isNaN(price)) {  // 確保解析成功
-                    totalAmount += price;
-                }
-            });
-
-            // 更新總金額顯示
-            $("#totalAmount").text("總金額：NT $ " + totalAmount.toFixed(2));
-        });
-
+    	    $("#checkoutButton").click(function() {
+    	        window.location.href = "/SpringEEIT69-5Mart/checkout";  // 假設您的結帳路由是 "/checkout"
+    	    });
+    	});
 
     	
   </script>

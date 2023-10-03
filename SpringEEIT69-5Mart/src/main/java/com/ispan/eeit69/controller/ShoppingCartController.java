@@ -1,6 +1,7 @@
 package com.ispan.eeit69.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -102,8 +103,54 @@ public class ShoppingCartController {
 		model.addAttribute("course", course);
 		return "check";
 	}
+	
+	@GetMapping("/checkout") // 購物車結帳路由
+	public String checkout(Model model) {
+	    ShoppingCart cart = (ShoppingCart) httpSession.getAttribute("ShoppingCart");
+	    if (cart != null) {
+	        // 計算購物車總價
+	        double totalPrice = 0.0;
+	        for (Course course : cart.getContent().values()) {
+	            totalPrice += course.getPrice();
+	        }
+	        
+	        // 將總價添加到模型
+	        model.addAttribute("totalPrice", totalPrice);
+	        model.addAttribute("cart", cart);
+	    }
+	    
+	    return "check";  // 返回結帳頁面
+	}
+
 
 	// 訂單確認送出
+	
+	
+//	@PostMapping("/ordercompleted")
+//	public ResponseEntity<Map<String, Object>> orderCompleted(@RequestParam("memberId") String memberId,
+//	                                                          @RequestParam("courseIds") List<String> courseIds) {
+//	    System.out.println("會員ID= " + memberId);
+//	    Integer intMemberId = Integer.parseInt(memberId);
+//	    member member = memberService.findByMemberId(intMemberId);
+//	    Set<Course> memberBuyCourseSet = member.getBuyCourses();
+//
+//	    for (String courseId : courseIds) {
+//	        System.out.println("課程ID= " + courseId);
+//	        Integer intCourseId = Integer.parseInt(courseId);
+//	        Course newCourse = courseService.findById(intCourseId);
+//	        memberBuyCourseSet.add(newCourse);
+//	    }
+//
+//	    member.setBuyCourses(memberBuyCourseSet);
+//	    memberService.save(member);
+//
+//	    Map<String, Object> response = new HashMap<>();
+//	    response.put("status", 200);
+//
+//	    return new ResponseEntity<>(response, HttpStatus.OK);
+//	}
+	
+	
 	@PostMapping("/ordercompleted")
 	public ResponseEntity<Map<String, Object>> orderCompleted(@RequestParam("courseId") String courseId,
 			@RequestParam("memberId") String memberId) {

@@ -301,7 +301,7 @@
                <h4>課程總覽</h4>
 				<div class="container" style="position: relative;">
 					<div class="row row-cols-1 row-cols-md-4 g-4">
-						<c:forEach items="${allCourse}" var="course">
+						<c:forEach items="${CourseList}" var="course">
 							<a href="<c:url value='/coursePlayerPage?id=${course.id} ' />"
 								class="text-reset text-decoration-none">
 								<div class="card mx-3" style="width: 18rem; height: 360px;">
