@@ -341,15 +341,9 @@ public class StudentController {
 		 }
 		 
 		 Introduction introduction = member.getIntroduction();
-		 if(member.getRealName()== null) {
-			 member.setRealName(realName);
-		 }else if(member.getRealName()!= realName) {
-			 member.setRealName(realName);
-		 }else if(member.getRealName()== realName) {
-			 System.out.println("沒有任何修改");
-		 }
+
 		 
-		 memberService.save(member);
+		 memberService.save(member); //未完成introduction
 		 
 		 
 		 System.out.println(memberID);//ok
