@@ -69,106 +69,129 @@
 <body>
 	<div class="main-container d-flex">
 		<div class="sidebar" id="side_nav">
-			<div
-				class="header-box ms-2 px-2 pt-3 pb-4 d-flex justify-content-between">
+			<div class="header-box ms-2 px-2 pt-3 pb-4 d-flex justify-content-between">
 				<h1 class="fs-4">
-					<span class="bg-white text-dark rounded shadow px-2 me-2">S</span><span
-						class="text-white me-2">mart</span>
+					<span class="bg-white text-dark rounded shadow px-2 me-2">S</span><span class="text-white me-2">mart</span>
 				</h1>
 				<button class="btn d-md-none d-block close-btn px-1 py-0 text-white">
 					<i class="fa-solid fa-bars-staggered"></i>
 				</button>
 			</div>
 			<ul class="list-unstyled px-2">
-				<li class=""><a
-					href="<c:url value="/studentIndex"></c:url>#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-chart-line pe-2" style="color: #ffffff"></i>儀錶板</a>
+				<li class="active my-1">
+					<a href="<c:url value="/studentIndex"></c:url>#sublist" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block ">
+						<i class="fa-solid fa-tv pe-3" style="color: #ffffff;"></i>Dashboard
+					</a>
+					<%-- <ul id="sublist" class="list-unstyled collapse">
+						<li>
+							<a href="<c:url value="/studentCourseList"></c:url>" class="text-decoration-none ps-4">課程中心</a>
+						</li>
+						<li>
+							<a href="<c:url value="/studentNotification"></c:url>" class="text-decoration-none ps-4">通知中心</a>
+						</li>
+						<li>
+							<a href="<c:url value="/studentNotification"></c:url>" class="text-decoration-none ps-4">系統通知</a>
+						</li>
+						<li>
+							<a href="<c:url value="/studentNotificationQA"></c:url>" class="text-decoration-none ps-4">課程問與答</a>
+						</li>
+						<li>
+							<a href="<c:url value="/studentNotificationMessage"></c:url>" class="text-decoration-none ps-4">私人訊息</a>
+						</li>
+						<li>
+							<a href="<c:url value="/cartServicePage"></c:url>" class="text-decoration-none ps-4">商務中心</a>
+						</li>
+					</ul> --%>
 				</li>
-				<li class=""><a
-					href="<c:url value="/studentCourseList"></c:url>#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>課程中心</a></li>
-				<li class=""><a
-					href="<c:url value="/studentCourseList"></c:url>#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>進行中課程</a></li>
-				<li class=""><a
-					href="<c:url value="/studentCourseList"></c:url>#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-tv pe-2" style="color: #ffffff"></i>已完成課程</a></li>
-				<li class=""><a
-					href="<c:url value="/studentNotification"></c:url>#"
-					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
-							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>通知中心</span><span
-						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a
-					href="<c:url value="/studentNotification"></c:url>#"
-					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
-							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>系統通知</span><span
-						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a
-					href="<c:url value="/studentNotificationQA"></c:url>#"
-					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
-							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>課程問與答</span><span
-						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a
-					href="<c:url value="/studentNotificationMessage"></c:url>#"
-					class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between"><span><i
-							class="fa-solid fa-comment pe-2" style="color: #ffffff"></i>私人訊息</span><span
-						class="bg-dark rounded-pill text-white py-0 px-2">02</span></a></li>
-				<li class=""><a
-					href="<c:url value="/cartServicePage"></c:url>#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-user pe-2" style="color: #ffffff"></i>商務中心</a></li>
-				<li class=""><a
-					href="<c:url value="/cartServicePage"></c:url>#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-user pe-2" style="color: #ffffff"></i>購物車</a></li>
+				<li class="my-1">
+					<a href="<c:url value="/studentCourseList"></c:url>#sublist1" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between ">
+						<span><i class="fa-solid fa-pencil pe-3" style="color: #ffffff;"></i>課程中心</span><span class="bg-dark rounded-pill text-white py-0 px-2">01</span>
+					</a>
+					<!-- <ul id="sublist1" class="list-unstyled collapse">
+						<li>
+							<a href="" class="text-decoration-none ps-4">問與答</a>
+						</li>
+						<li>
+							<a href="" class="text-decoration-none ps-4">訊息</a>
+						</li>
+						<li>
+							<a href="" class="text-decoration-none ps-4">公告</a>
+						</li>
+					</ul> -->
+				</li>
+				<li class="my-1">
+					<a href="<c:url value="/studentNotification"></c:url>#sublist2" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between ">
+						<span><i class="fa-solid fa-comment pe-3" style="color: #ffffff;"></i>通知中心</span><span class="bg-dark rounded-pill text-white py-0 px-2">02</span>
+					</a>				
+					<ul id="sublist2" class="list-unstyled collapse">
+						<li>
+							<a href="<c:url value="/studentNotification"></c:url>" class="text-decoration-none ps-4">系統通知</a>
+						</li>
+						<li>
+							<a href="<c:url value="/studentNotificationQA"></c:url>" class="text-decoration-none ps-4">課程問與答</a>
+						</li>
+						<li>
+							<a href="<c:url value="/studentNotificationMessage"></c:url>" class="text-decoration-none ps-4">私人訊息</a>
+						</li>
+					</ul>
+				</li>
+				<li class="my-1">
+					<a href="#sublist3" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block">
+						<i class="fa-solid fa-truck-fast pe-2" style="color: #ffffff;"></i>商務中心
+					</a>
+					<ul id="sublist3" class="list-unstyled collapse">
+						<li>
+							<a href="<c:url value="/cartServicePage"></c:url>" class="text-decoration-none ps-4">購物車</a>
+						</li>
+					</ul>
+				</li>
+				
+				<!-- <li class="my-1">
+					<a href="#sublist4" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block">
+						<i class="fa-solid fa-user pe-2" style="color: #ffffff;"></i>講師個人資料
+					</a>
+					<ul id="sublist3" class="list-unstyled collapse">
+						<li>
+							<a href="" class="text-decoration-none ps-4">講師照片</a>
+						</li>
+						<li>
+							<a href="" class="text-decoration-none ps-4">自我介紹</a>
+						</li>
+						<li>
+							<a href="" class="text-decoration-none ps-4">收款帳戶</a>
+						</li>
+					</ul>
+				</li> -->
 			</ul>
 			<hr class="h-color mx-2">
 
 			<ul class="list-unstyled px-2">
-				<li class="" style="background-color: #d9edfa"><a
-					href="<c:url value="/profileSettingPage"></c:url>#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>設定</a></li>
-			</ul>
-			<ul class="list-unstyled px-2">
-				<li class=""><a
-					href="<c:url value="/profileSettingPage"></c:url>#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>個人資料設定</a></li>
-			</ul>
-			<ul class="list-unstyled px-2">
-				<li class="" style="background-color: #405d9c"><a
-					href="<c:url value="/pictureSettingPage"></c:url>#"
-					class="text-decoration-underline px-3 py-2 d-block"><i
-						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>個人照片設定</a></li>
-			</ul>
-			<ul class="list-unstyled px-2">
-				<li class=""><a
-					href="<c:url value="/safetySettingPage"></c:url>#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>安全性</a></li>
-			</ul>
-			<ul class="list-unstyled px-2">
-				<li class=""><a
-					href="<c:url value="/privacySettingPage"></c:url>#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>隱私權</a></li>
-			</ul>
-			<ul class="list-unstyled px-2">
-				<li class=""><a
-					href="<c:url value="/paymentSettingPage"></c:url>#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>付款資訊</a></li>
-			</ul>
-			<ul class="list-unstyled px-2">
-				<li class=""><a
-					href="<c:url value="/deactivateSettingPage"></c:url>#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fa-solid fa-gear pe-2" style="color: #ffffff;"></i>停用帳號</a></li>
+				<li class="">
+					<a href="<c:url value="/profileSettingPage"></c:url>#sublist4" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block">
+						<i class="fa-solid fa-gear pe-3" style="color: #ffffff;"></i>設定
+					</a>
+					<ul id="sublist4" class="list-unstyled collapse">
+						<li>
+							<a href="<c:url value="/profileSettingPage"></c:url>" class="text-decoration-none ps-4">帳號資料</a>
+						</li>
+						<li>
+							<a href="<c:url value="/pictureSettingPage"></c:url>" class="text-decoration-none ps-4">帳號照片</a>
+						</li>
+						<li>
+							<a href="<c:url value="/safetySettingPage"></c:url>" class="text-decoration-none ps-4">安全性</a>
+						</li>
+						<li>
+							<a href="<c:url value="/privacySettingPage"></c:url>" class="text-decoration-none ps-4">隱私權</a>
+						</li>
+												<li>
+							<a href="<c:url value="/paymentSettingPage"></c:url>" class="text-decoration-none ps-4">付款資訊</a>
+						</li>
+												<li>
+							<a href="<c:url value="/deactivateSettingPage"></c:url>" class="text-decoration-none ps-4">停用帳號</a>
+						</li>
+					</ul>
+				</li>
+
 			</ul>
 		</div>
 		<div class="content">
@@ -178,20 +201,82 @@
 						<button class="btn px-1 py-0 open-btn me-2">
 							<i class="fa-solid fa-bars-staggered"></i>
 						</button>
-						<a class="navbar-brand fs-4" href="#"><span
-							class="bg-dark text-white rounded shadow px-2 py-0">5</span>mart</a>
+						<a class="navbar-brand fs-4" href="#">
+							<span class="bg-dark text-white rounded shadow px-2 py-0">5</span>mart
+						</a>
 
 					</div>
-					<button class="navbar-toggler p-0 border-0" type="button"
-						data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-						aria-controls="navbarSupportedContent" aria-expanded="false"
-						aria-label="Toggle navigation">
+					<button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<i class="fa-solid fa-bars"></i>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-							<li class="nav-item"><a class="nav-link active"
-								aria-current="page" href="#">profile</a></li>
+							<li class="nav-item">
+								<a class="nav-link active dropdown-toggle" aria-current="page" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									<img class="circleImg" src="<c:choose>
+						<c:when test="${not empty base64Image}">data:image/jpeg;base64,${base64Image}</c:when>
+						<c:otherwise>\SpringEEIT69-5Mart\assets\images\人像頭貼001.jpg</c:otherwise>
+					</c:choose>" />
+								</a>
+								<ul class="dropdown-menu dropdown-menu-end px-1 fs-6">
+									<li class="">
+										<a class="dropdown-item" href="#">
+											<span>${member.account}</span>
+										</a>
+									</li>
+									<li>
+										<hr class="dropdown-divider">
+									</li>
+									<li class="">
+										<a class="dropdown-item" href="#">
+											<i class="fa-regular fa-user " style="padding: 0 8px"></i>個人檔案
+										</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="#">
+											<i class="fa-solid fa-chalkboard" style="padding: 0 6px"></i>我的學習
+										</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="#">
+											<i class="fa-regular fa-heart " style="padding: 0 7px"></i>願望清單
+										</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="#">
+											<i class="bi bi-cart3" style="padding: 0 7px"></i>購物車
+										</a>
+									</li>
+
+									<li>
+										<hr class="dropdown-divider">
+									</li>
+
+									<li>
+										<a class="dropdown-item" href="#">
+											<i class="fa-regular fa-file" style="padding: 0 9px"></i>訂單紀錄
+										</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="#">
+											<i class="bi bi-gear" style="padding: 0 7px"></i>帳戶設定
+										</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="#">
+											<i class="fa-regular fa-credit-card" style="padding: 0 6px"></i>付款方式
+										</a>
+									</li>
+									<li>
+										<hr class="dropdown-divider">
+									</li>
+									<li>
+										<a class="dropdown-item" href="<c:url value='/logout' />">
+											<i class="fa-solid fa-arrow-right-from-bracket" style="padding: 0 7px"></i>登出
+										</a>
+									</li>
+								</ul>
+							</li>
 						</ul>
 					</div>
 				</div>
