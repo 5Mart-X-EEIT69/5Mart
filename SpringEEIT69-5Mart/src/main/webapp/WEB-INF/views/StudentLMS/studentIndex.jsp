@@ -295,7 +295,7 @@
 			</nav>
 
 			<div class="dashboard-content px-3 pt-4">
-				<h1 class="fs-5">Dashboard</h1>
+<!-- 				<h1 class="fs-5">Dashboard</h1> -->
 <!-- 				<p>這裡可以填入內容</p> -->
 				
 				<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart"
@@ -317,10 +317,7 @@
 								dy=".3em">32x32</text>
                             </svg>
 						<p class="pb-3 mb-0 small lh-sm border-bottom">
-							<strong class="d-block text-gray-dark">@username</strong> Donec
-							id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
-							ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-							massa justo sit amet risus.
+							<strong class="d-block text-gray-dark">@asdasd7</strong> 後端技術指導這部分與專案進度管理互相呼應所以你們...
 						</p>
 					</div>
 					<div class="d-flex text-muted pt-3">
@@ -335,10 +332,8 @@
 								dy=".3em">32x32</text>
                             </svg>
 						<p class="pb-3 mb-0 small lh-sm border-bottom">
-							<strong class="d-block text-gray-dark">@username</strong> Donec
-							id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
-							ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-							massa justo sit amet risus.
+							<strong class="d-block text-gray-dark">@pingping</strong> 課程資訊、結帳網頁的前後端技術，
+							這邊的話我們設計跟問與答功能設計結合是採用...
 						</p>
 					</div>
 					<div class="d-flex text-muted pt-3">
@@ -353,10 +348,7 @@
 								dy=".3em">32x32</text>
                             </svg>
 						<p class="pb-3 mb-0 small lh-sm border-bottom">
-							<strong class="d-block text-gray-dark">@username</strong> Donec
-							id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
-							ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-							massa justo sit amet risus.
+							<strong class="d-block text-gray-dark">@karta0977</strong> 關於這格問題我這邊的解決辦法是透過Session來去取得...
 						</p>
 					</div>
 					<small class="d-block text-end mt-3"> <a href="#">全部資訊</a>
@@ -382,7 +374,7 @@
 												</h5>
 											</div>
 											<div class="row">
-												<p class="mb-2" style="font-size: small">趙令文</p>
+												<p class="mb-2" style="font-size: small">${course.teacher.username}</p>
 											</div>
 											<div class="row text-ellipsis-multi ps-2 pe-3">
 											${course.introduction}

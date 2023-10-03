@@ -315,7 +315,7 @@
 												</h5>
 											</div>
 											<div class="row">
-												<p class="mb-2" style="font-size: small">趙令文</p>
+												<p class="mb-2" style="font-size: small">${course.teacher.username}</p>
 											</div>
 											<div class="row text-ellipsis-multi ps-2 pe-3">
 											${course.introduction}
