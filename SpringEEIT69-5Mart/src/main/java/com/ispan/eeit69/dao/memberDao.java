@@ -9,7 +9,7 @@ public interface memberDao {
     member findByMemberId(Integer id);
     member findByAccountAndPassword(String account, String password);
     boolean existsById(String account);
-    
+    boolean existsByUsername(String name);
     
 
 }

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -16,26 +15,19 @@
 <!-- jquery -->
 
 <!-- bootstrap 公版-->
-<link rel='stylesheet'
-	href="<c:url value='/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.css' />"
-	type="text/css" />
+<link rel='stylesheet' href="<c:url value='/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.css' />" type="text/css" />
 
-<!-- <link rel='stylesheet' -->
-<%-- 	href="<c:url value=" --%>
-<%-- 				/assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css" />" --%>
-<!-- 	type="text/css" /> -->
+<%-- <link rel='stylesheet' href="<c:url value=" --%>
+<%-- 				/assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css" />" type="text/css" /> --%>
 <!-- bootstrap 公版-->
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 <!-- google fonts的icon庫引入 -->
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0" />
 <!-- google fonts的icon庫引入 -->
 
 <!-- font awesome的icon庫引入 -->
-<script src="https://kit.fontawesome.com/7ae43304d6.js"
-	crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/7ae43304d6.js" crossorigin="anonymous"></script>
 <!-- font awesome的icon庫引入 -->
 
 <!-- <!-- CDN引入 -->
@@ -51,21 +43,15 @@
 <!-- <!-- CDN引入 -->
 
 <!-- slick -->
-<link rel="stylesheet" type="text/css"
-	href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-<link rel="stylesheet" type="text/css"
-	href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+<link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 <!-- slick -->
 
-<link rel='stylesheet'
-	href="<c:url value='/assets/css/visitorHomePage.css' />"
-	type="text/css" />
+<link rel='stylesheet' href="<c:url value='/assets/css/visitorHomePage.css' />" type="text/css" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@600&family=Noto+Serif+TC:wght@200;700&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@600&family=Noto+Serif+TC:wght@200;700&display=swap" rel="stylesheet">
 
 
 <style type="text/css">
@@ -177,58 +163,60 @@
 	<div class="container">
 		<div class="row">
 			<div>
-				<h2 style="font-weight: bolder; margin-top: 40px;">有  ${empty keywordResult ? 0 : keywordResult.size()} 項
-					『${keyword}』 結果</h2>
+				<h2 style="font-weight: bolder; margin-top: 40px;">有 ${empty keywordResult ? 0 : keywordResult.size()} 項 『${keyword}』 結果</h2>
 			</div>
 		</div>
 		<div class="row">
 			<p class="d-flex justify-content-end py-2">
-				｜ <a href="" class="nav-link">最相關</a>｜最熱門｜依人數｜依評價｜依時間｜
+				｜
+				<a href="" class="nav-link">最相關</a>
+				｜最熱門｜依人數｜依評價｜依時間｜
 			</p>
 		</div>
 		<c:forEach items="${keywordResult}" var="result">
-		<div class="row mx-3">
-			<div class="card mb-3 border-light">
-				<div class="row g-0 ">
-					<div class="col-md-3 d-flex align-items-center">
-						<img class="w-100"
-							src="${result.dataUri}" alt="...">
-					</div>
-					<div class="col-md-8">
-						<div class="card-body">
-							<div class="d-flex justify-content-between">
-								<h4 style="font-weight: bolder;">
-									<strong>${result.title}</strong>
-								</h4>
-								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT
-									$ ${result.price}</p>
+			<a href="<c:url value='/courseDetail?id=${result.id} ' />" class="text-reset text-decoration-none">
+				<div class="row mx-3">
+					<div class="card mb-3 border-light">
+						<div class="row g-0 ">
+							<div class="col-md-3 d-flex align-items-center">
+								<img class="w-100" src="${result.dataUri}" alt="...">
 							</div>
-							<div class="d-flex flex-row align-items-end">
-								<p class="card-text  pe-10"
-									style="font-size: small; margin-bottom: 1px; margin-right: 1em;">${result.teacher.username}</p>
-								<p class="card-text">
-									<strong style="font-size: large;">3.5 </strong> <i
-										class="bi bi-star-fill px-0"></i> <i
-										class="bi bi-star-fill px-0"></i> <i
-										class="bi bi-star-fill px-0"></i> <i
-										class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i>
-									(123)
-								</p>
-							</div>
-							<p class="card-text pt-2">${result.introduction}</p>
+							<div class="col-md-8">
+								<div class="card-body">
+									<div class="d-flex justify-content-between">
+										<h4 style="font-weight: bolder;">
+											<strong>${result.title}</strong>
+										</h4>
+										<p class="mb-0" style="font-weight: bolder; font-size: large;">NT $ ${result.price}</p>
+									</div>
+									<div class="d-flex flex-row align-items-end">
+										<p class="card-text  pe-10" style="font-size: small; margin-bottom: 1px; margin-right: 1em;">${result.teacher.username}</p>
+										<p class="card-text">
+											<strong style="font-size: large;">3.5 </strong>
+											<i class="bi bi-star-fill px-0"></i>
+											<i class="bi bi-star-fill px-0"></i>
+											<i class="bi bi-star-fill px-0"></i>
+											<i class="bi bi-star-half px-0"></i>
+											<i class="bi bi-star px-0"></i>
+											(123)
+										</p>
+									</div>
+									<p class="card-text pt-2">${result.introduction}</p>
 
-							<div class="col"></div>
-							<div class="col text-end">
-								<i class="fa-solid fa-cart-shopping px-2"></i> <i
-									class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+									<div class="col"></div>
+									<div class="col text-end">
+										<i class="fa-solid fa-cart-shopping px-2"></i>
+										<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
 
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+			</a>
 		</c:forEach>
+	</div>
 
 	<div id="return-top" class="top_e shadow-sm">
 		<i class="fa-solid fa-angle-up fa-2xl" style="color: #919191;"></i>
@@ -249,16 +237,13 @@
 			</div>
 			<hr>
 			<div class="row">
-				<div
-					class="col-12 d-flex justify-content-center align-items-center mt-2">
+				<div class="col-12 d-flex justify-content-center align-items-center mt-2">
 					<div>
 						<i class="fa-brands fa-java fa-2xl px-2" style="color: #0b6cb0;"></i>
 						<i class="fa-brands fa-html5 fa-2xl px-2" style="color: #de4b25;"></i>
-						<i class="fa-brands fa-css3-alt fa-2xl px-2"
-							style="color: #254bdd;"></i> <i
-							class="fa-brands fa-js fa-2xl px-2" style="color: #e8d44d;"></i>
-						<i class="fa-brands fa-bootstrap fa-2xl px-2"
-							style="color: #6d10f3;"></i>
+						<i class="fa-brands fa-css3-alt fa-2xl px-2" style="color: #254bdd;"></i>
+						<i class="fa-brands fa-js fa-2xl px-2" style="color: #e8d44d;"></i>
+						<i class="fa-brands fa-bootstrap fa-2xl px-2" style="color: #6d10f3;"></i>
 					</div>
 				</div>
 			</div>
@@ -279,12 +264,10 @@
 	<!-- CDN引入 -->
 
 	<!-- bootstrap -->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- bootstrap -->
 	<!-- slick -->
-	<script type="text/javascript"
-		src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 	<!-- slick -->
 
 

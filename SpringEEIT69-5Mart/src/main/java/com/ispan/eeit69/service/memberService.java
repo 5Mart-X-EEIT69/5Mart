@@ -14,5 +14,7 @@ public interface memberService {
 	void deleteById(Integer id);
 	
 	boolean existsById(String account);
+	
+	boolean existsByUsername(String name);
 }
 
