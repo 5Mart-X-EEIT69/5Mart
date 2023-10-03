@@ -501,14 +501,8 @@
 						<hr class="dropdown-divider">
 					</li>
 					<li class="">
-<<<<<<< HEAD
 						<a class="dropdown-item" href="<c:url value='/studentIndex' />#">
 							<i class="fa-regular fa-user " style="padding: 0 8px"></i>學生中心
-=======
-						<a class="dropdown-item" href="#">
-							<i class="fa-regular fa-user " style="padding: 0 8px"></i>
-							個人檔案
->>>>>>> refs/remotes/origin/development
 						</a>
 					</li>
 					<li>
