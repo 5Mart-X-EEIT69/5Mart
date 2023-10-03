@@ -178,6 +178,8 @@
 					scrollTo(0, 0);
 				});
 
+				$('.carousel-inner').children().first().addClass('active');
+
 			});
 </script>
 
@@ -200,27 +202,34 @@
 					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
 					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
 					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
 				</div>
 				<div class="carousel-inner">
 					<!-- 輪播圖片的部分 -->
-					<div class="carousel-item active">
-						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖002.jpg" class="d-block w-100 " alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg" class="d-block w-100 " alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖010.jpeg" class="d-block w-100 " alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg" class="d-block w-100 " alt="...">
-					</div>
+					<c:forEach items="${LatestCourses}" var="course">
+						<div class="carousel-item">
+							<a href="<c:url value='/courseDetail?id=${course.id} ' />" class="text-reset text-decoration-none">
+								<img src="${course.dataUri}" class="d-block w-100 " alt="...">
+							</a>
+						</div>
+						<!-- 					<div class="carousel-item"> -->
+						<!-- 						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg" class="d-block w-100 " alt="..."> -->
+						<!-- 					</div> -->
+						<!-- 					<div class="carousel-item"> -->
+						<!-- 						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖010.jpeg" class="d-block w-100 " alt="..."> -->
+						<!-- 					</div> -->
+						<!-- 					<div class="carousel-item"> -->
+						<!-- 						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg" class="d-block w-100 " alt="..."> -->
+						<!-- 					</div> -->
+					</c:forEach>
 				</div>
 				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="visually-hidden">Previous</span>
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
 				</button>
 				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="visually-hidden">Next</span>
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
 				</button>
 			</div>
 		</div>
@@ -260,7 +269,13 @@
 									<p class="mb-2" style="font-size: small">${course.teacher.username}</p>
 								</div>
 								<div class="row d-inline ">
-									<strong style="font-size: large">3.5 </strong> <i class="bi bi-star-fill px-0"></i> <i class="bi bi-star-fill px-0"></i> <i class="bi bi-star-fill px-0"></i> <i class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i> (123)
+									<strong style="font-size: large">3.5 </strong>
+									<i class="bi bi-star-fill px-0"></i>
+									<i class="bi bi-star-fill px-0"></i>
+									<i class="bi bi-star-fill px-0"></i>
+									<i class="bi bi-star-half px-0"></i>
+									<i class="bi bi-star px-0"></i>
+									(123)
 								</div>
 								<div class="row mt-2">
 									<div class="col">
@@ -280,11 +295,13 @@
 		</div>
 
 		<div class="arrow-next-hotcourse slick-rightbtn">
-			<span> <i class="fa-solid fa-chevron-right"></i>
+			<span>
+				<i class="fa-solid fa-chevron-right"></i>
 			</span>
 		</div>
 		<div class="arrow-prev-hotcourse slick-leftbtn">
-			<span> <i class="fa-solid fa-chevron-left"></i>
+			<span>
+				<i class="fa-solid fa-chevron-left"></i>
 			</span>
 		</div>
 	</div>
@@ -549,11 +566,13 @@
 			</div>
 		</div>
 		<div class="arrow-next-crowdfundingcourse slick-rightbtn">
-			<span> <i class="fa-solid fa-chevron-right"></i>
+			<span>
+				<i class="fa-solid fa-chevron-right"></i>
 			</span>
 		</div>
 		<div class="arrow-prev-crowdfundingcourse slick-leftbtn">
-			<span> <i class="fa-solid fa-chevron-left"></i>
+			<span>
+				<i class="fa-solid fa-chevron-left"></i>
 			</span>
 		</div>
 	</div>
@@ -643,7 +662,16 @@
 						</div>
 						<div class="row">
 							<p class="d-flex justify-content-between align-items-cente">
-								<strong style="font-size: small;">趙令文 </strong> <span style="font-size: small;"><i class="fa-regular fa-calendar-days"></i> 2023/08/20</span><span style="font-size: small;"><i class="fa-solid fa-eye"></i> 4678</span> <i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
+								<strong style="font-size: small;">趙令文 </strong>
+								<span style="font-size: small;">
+									<i class="fa-regular fa-calendar-days"></i>
+									2023/08/20
+								</span>
+								<span style="font-size: small;">
+									<i class="fa-solid fa-eye"></i>
+									4678
+								</span>
+								<i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
 							</p>
 						</div>
 					</div>
@@ -665,7 +693,16 @@
 						</div>
 						<div class="row">
 							<p class="d-flex justify-content-between align-items-cente">
-								<strong style="font-size: small;">趙令文 </strong> <span style="font-size: small;"><i class="fa-regular fa-calendar-days"></i> 2023/08/20</span><span style="font-size: small;"><i class="fa-solid fa-eye"></i> 4678</span> <i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
+								<strong style="font-size: small;">趙令文 </strong>
+								<span style="font-size: small;">
+									<i class="fa-regular fa-calendar-days"></i>
+									2023/08/20
+								</span>
+								<span style="font-size: small;">
+									<i class="fa-solid fa-eye"></i>
+									4678
+								</span>
+								<i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
 							</p>
 						</div>
 					</div>
@@ -687,7 +724,16 @@
 						</div>
 						<div class="row">
 							<p class="d-flex justify-content-between align-items-cente">
-								<strong style="font-size: small;">趙令文 </strong> <span style="font-size: small;"><i class="fa-regular fa-calendar-days"></i> 2023/08/20</span><span style="font-size: small;"><i class="fa-solid fa-eye"></i> 4678</span> <i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
+								<strong style="font-size: small;">趙令文 </strong>
+								<span style="font-size: small;">
+									<i class="fa-regular fa-calendar-days"></i>
+									2023/08/20
+								</span>
+								<span style="font-size: small;">
+									<i class="fa-solid fa-eye"></i>
+									4678
+								</span>
+								<i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
 							</p>
 						</div>
 					</div>
@@ -709,7 +755,16 @@
 						</div>
 						<div class="row">
 							<p class="d-flex justify-content-between align-items-cente">
-								<strong style="font-size: small;">趙令文 </strong> <span style="font-size: small;"><i class="fa-regular fa-calendar-days"></i> 2023/08/20</span><span style="font-size: small;"><i class="fa-solid fa-eye"></i> 4678</span> <i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
+								<strong style="font-size: small;">趙令文 </strong>
+								<span style="font-size: small;">
+									<i class="fa-regular fa-calendar-days"></i>
+									2023/08/20
+								</span>
+								<span style="font-size: small;">
+									<i class="fa-solid fa-eye"></i>
+									4678
+								</span>
+								<i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
 							</p>
 						</div>
 					</div>
@@ -732,7 +787,16 @@
 						</div>
 						<div class="row">
 							<p class="d-flex justify-content-between align-items-cente">
-								<strong style="font-size: small;">趙令文 </strong> <span style="font-size: small;"><i class="fa-regular fa-calendar-days"></i> 2023/08/20</span><span style="font-size: small;"><i class="fa-solid fa-eye"></i> 4678</span> <i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
+								<strong style="font-size: small;">趙令文 </strong>
+								<span style="font-size: small;">
+									<i class="fa-regular fa-calendar-days"></i>
+									2023/08/20
+								</span>
+								<span style="font-size: small;">
+									<i class="fa-solid fa-eye"></i>
+									4678
+								</span>
+								<i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
 							</p>
 						</div>
 					</div>
@@ -762,11 +826,13 @@
 			</div>
 		</div>
 		<div class="arrow-next-hotarticle slick-rightbtn">
-			<span> <i class="fa-solid fa-chevron-right"></i>
+			<span>
+				<i class="fa-solid fa-chevron-right"></i>
 			</span>
 		</div>
 		<div class="arrow-prev-hotarticle slick-leftbtn">
-			<span> <i class="fa-solid fa-chevron-left"></i>
+			<span>
+				<i class="fa-solid fa-chevron-left"></i>
 			</span>
 		</div>
 	</div>
@@ -793,7 +859,11 @@
 			<div class="row">
 				<div class="col-12 d-flex justify-content-center align-items-center mt-2">
 					<div>
-						<i class="fa-brands fa-java fa-2xl px-2" style="color: #0b6cb0;"></i> <i class="fa-brands fa-html5 fa-2xl px-2" style="color: #de4b25;"></i> <i class="fa-brands fa-css3-alt fa-2xl px-2" style="color: #254bdd;"></i> <i class="fa-brands fa-js fa-2xl px-2" style="color: #e8d44d;"></i> <i class="fa-brands fa-bootstrap fa-2xl px-2" style="color: #6d10f3;"></i>
+						<i class="fa-brands fa-java fa-2xl px-2" style="color: #0b6cb0;"></i>
+						<i class="fa-brands fa-html5 fa-2xl px-2" style="color: #de4b25;"></i>
+						<i class="fa-brands fa-css3-alt fa-2xl px-2" style="color: #254bdd;"></i>
+						<i class="fa-brands fa-js fa-2xl px-2" style="color: #e8d44d;"></i>
+						<i class="fa-brands fa-bootstrap fa-2xl px-2" style="color: #6d10f3;"></i>
 					</div>
 				</div>
 			</div>

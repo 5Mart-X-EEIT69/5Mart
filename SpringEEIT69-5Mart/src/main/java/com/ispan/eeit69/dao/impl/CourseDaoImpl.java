@@ -13,17 +13,15 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 
 @Repository
-public class CourseDaoImpl implements CourseDao{
+public class CourseDaoImpl implements CourseDao {
 
-	@PersistenceContext //類似Autowired
+	@PersistenceContext // 類似Autowired
 	EntityManager entityManager; // session
-	
-
 
 	@Override
 	public void save(Course course) {
 		entityManager.persist(course);
-		
+
 	}
 
 	@Override
@@ -41,10 +39,10 @@ public class CourseDaoImpl implements CourseDao{
 
 	@Override
 	public List<Course> findAll() {
-		
+
 		String hql = "FROM Course";
-		List<Course> courses = entityManager.createQuery(hql,Course.class).getResultList(); 
-		
+		List<Course> courses = entityManager.createQuery(hql, Course.class).getResultList();
+
 		return courses;
 	}
 
@@ -52,43 +50,46 @@ public class CourseDaoImpl implements CourseDao{
 	public void deleteById(Integer id) {
 		String hql = "DELETE FROM Course c WHERE c.id = :id";
 		entityManager.createQuery(hql).setParameter("id", id).executeUpdate();
-		
+
 	}
 
 	@Override
 	public List<Course> findBySort(String sort) {
 		String hql = "FROM Course c WHERE c.sort = :sort ";
-		List<Course> courses = entityManager.createQuery(hql,Course.class).setParameter("sort", sort).getResultList();
+		List<Course> courses = entityManager.createQuery(hql, Course.class).setParameter("sort", sort).getResultList();
 		return courses;
 	}
 
 	@Override
 	public List<Course> findBylevel(String level) {
 		String hql = "FROM Course c WHERE c.level = :level ";
-		List<Course> courses = entityManager.createQuery(hql,Course.class).setParameter("level", level).getResultList();
+		List<Course> courses = entityManager.createQuery(hql, Course.class).setParameter("level", level)
+				.getResultList();
 		return courses;
 	}
 
 	@Override
 	public List<Course> findBytitle(String title) {
 		String hql = "FROM Course c WHERE c.title = :title ";
-		List<Course> courses = entityManager.createQuery(hql,Course.class).setParameter("title", title).getResultList();
+		List<Course> courses = entityManager.createQuery(hql, Course.class).setParameter("title", title)
+				.getResultList();
 		return courses;
 	}
 
 	@Override
 	public List<Course> findByKeyword(String keyword) {
-		
+
 		String hql = "FROM Course WHERE title LIKE :keyword";
 //		SELECT * FROM course_5mart WHERE title LIKE '%java%'
-		List<Course> courses = entityManager.createQuery(hql, Course.class).setParameter("keyword", "%" + keyword + "%").getResultList();
+		List<Course> courses = entityManager.createQuery(hql, Course.class).setParameter("keyword", "%" + keyword + "%")
+				.getResultList();
 		return courses;
 	}
 
 	@Override
 	public List<Course> findByTeacherId(Integer id) {
 		String hql = "FROM Course c WHERE c.teacher.id= :id";
-		List<Course> courses = entityManager.createQuery(hql,Course.class).setParameter("id", id).getResultList();
+		List<Course> courses = entityManager.createQuery(hql, Course.class).setParameter("id", id).getResultList();
 		return courses;
 	}
 
@@ -97,8 +98,15 @@ public class CourseDaoImpl implements CourseDao{
 		Course result = entityManager.find(Course.class, member);
 		return result;
 	}
+
+	@Override
+	public List<Course> getTop5LatestCourses() {
+		String hql = "FROM Course ORDER BY registerTime DESC LIMIT 5";
+		List<Course> courses = entityManager.createQuery(hql, Course.class).getResultList();
+		return courses;
 	}
-
 	
 	
-
+	
+	
+}
