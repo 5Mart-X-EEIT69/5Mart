@@ -48,211 +48,211 @@
 				<li class="nav-item dropdown px-2">
 					<a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 課程類別 </a>
 					<jsp:include page="/WEB-INF/views/sortNavbar.jsp" />
-<!-- 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown"> -->
-<!-- 						<li class="dropdown-submenu"> -->
-<!-- 							<a class="dropdown-item dropdown-toggle" href="#">語言</a> -->
-<!-- 							<ul class="dropdown-menu"> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#"> -->
-<!-- 										<strong>所有語言</strong> -->
-<!-- 									</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">英文</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">日文</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">韓文</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">西班牙文</a> -->
-<!-- 								</li> -->
-<!-- 							</ul> -->
-<!-- 						</li> -->
-<!-- 						<li class="dropdown-submenu"> -->
-<!-- 							<a class="dropdown-item dropdown-toggle" href="#">開發</a> -->
-<!-- 							<ul class="dropdown-menu"> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#"> -->
-<!-- 										<strong>所有開發</strong> -->
-<!-- 									</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">網頁開發</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">程式語言</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">遊戲開發</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">資料庫設計與開發</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">軟體測試</a> -->
-<!-- 								</li> -->
-<!-- 							</ul> -->
-<!-- 						</li> -->
-<!-- 						<li class="dropdown-submenu"> -->
-<!-- 							<a class="dropdown-item dropdown-toggle" href="#">行銷</a> -->
-<!-- 							<ul class="dropdown-menu"> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#"> -->
-<!-- 										<strong>所有行銷</strong> -->
-<!-- 									</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">數位行銷</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">社群行銷</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">數據分析</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">行銷策略</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">文案撰寫</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">創業</a> -->
-<!-- 								</li> -->
-<!-- 							</ul> -->
-<!-- 						</li> -->
-<!-- 						<li class="dropdown-submenu"> -->
-<!-- 							<a class="dropdown-item dropdown-toggle" href="#">投資理財</a> -->
-<!-- 							<ul class="dropdown-menu"> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#"> -->
-<!-- 										<strong>所有投資理財</strong> -->
-<!-- 									</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">個人理財</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">投資觀念</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">財務分析</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">量化交易</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">財務管理</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">股票分析</a> -->
-<!-- 								</li> -->
-<!-- 							</ul> -->
-<!-- 						</li> -->
-<!-- 						<li class="dropdown-submenu"> -->
-<!-- 							<a class="dropdown-item dropdown-toggle" href="#">攝影</a> -->
-<!-- 							<ul class="dropdown-menu"> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#"> -->
-<!-- 										<strong>所有攝影</strong> -->
-<!-- 									</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">商業攝影</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">影像創作</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">後製剪輯</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">攝影理論</a> -->
-<!-- 								</li> -->
-<!-- 							</ul> -->
-<!-- 						</li> -->
-<!-- 						<li class="dropdown-submenu"> -->
-<!-- 							<a class="dropdown-item dropdown-toggle" href="#">設計</a> -->
-<!-- 							<ul class="dropdown-menu"> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#"> -->
-<!-- 										<strong>所有設計</strong> -->
-<!-- 									</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">平面設計</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">室內設計</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">建築設計</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">網頁設計</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">遊戲設計</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">設計理論</a> -->
-<!-- 								</li> -->
-<!-- 							</ul> -->
-<!-- 						</li> -->
-<!-- 						<li class="dropdown-submenu"> -->
-<!-- 							<a class="dropdown-item dropdown-toggle" href="#">音樂</a> -->
-<!-- 							<ul class="dropdown-menu"> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#"> -->
-<!-- 										<strong>所有音樂</strong> -->
-<!-- 									</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">樂器</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">音樂軟體</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">音樂基礎</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">音樂創作</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">聲樂</a> -->
-<!-- 								</li> -->
-<!-- 							</ul> -->
-<!-- 						</li> -->
-<!-- 						<li class="dropdown-submenu"> -->
-<!-- 							<a class="dropdown-item dropdown-toggle" href="#">職場技能</a> -->
-<!-- 							<ul class="dropdown-menu"> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#"> -->
-<!-- 										<strong>所有職場技能</strong> -->
-<!-- 									</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">生產力工具</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">求職技巧</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">創業</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">職場溝通</a> -->
-<!-- 								</li> -->
-<!-- 								<li> -->
-<!-- 									<a class="dropdown-item" href="#">獨立接案</a> -->
-<!-- 								</li> -->
-<!-- 							</ul> -->
-<!-- 						</li> -->
-<!-- 					</ul> -->
+					<!-- 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown"> -->
+					<!-- 						<li class="dropdown-submenu"> -->
+					<!-- 							<a class="dropdown-item dropdown-toggle" href="#">語言</a> -->
+					<!-- 							<ul class="dropdown-menu"> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#"> -->
+					<!-- 										<strong>所有語言</strong> -->
+					<!-- 									</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">英文</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">日文</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">韓文</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">西班牙文</a> -->
+					<!-- 								</li> -->
+					<!-- 							</ul> -->
+					<!-- 						</li> -->
+					<!-- 						<li class="dropdown-submenu"> -->
+					<!-- 							<a class="dropdown-item dropdown-toggle" href="#">開發</a> -->
+					<!-- 							<ul class="dropdown-menu"> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#"> -->
+					<!-- 										<strong>所有開發</strong> -->
+					<!-- 									</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">網頁開發</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">程式語言</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">遊戲開發</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">資料庫設計與開發</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">軟體測試</a> -->
+					<!-- 								</li> -->
+					<!-- 							</ul> -->
+					<!-- 						</li> -->
+					<!-- 						<li class="dropdown-submenu"> -->
+					<!-- 							<a class="dropdown-item dropdown-toggle" href="#">行銷</a> -->
+					<!-- 							<ul class="dropdown-menu"> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#"> -->
+					<!-- 										<strong>所有行銷</strong> -->
+					<!-- 									</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">數位行銷</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">社群行銷</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">數據分析</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">行銷策略</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">文案撰寫</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">創業</a> -->
+					<!-- 								</li> -->
+					<!-- 							</ul> -->
+					<!-- 						</li> -->
+					<!-- 						<li class="dropdown-submenu"> -->
+					<!-- 							<a class="dropdown-item dropdown-toggle" href="#">投資理財</a> -->
+					<!-- 							<ul class="dropdown-menu"> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#"> -->
+					<!-- 										<strong>所有投資理財</strong> -->
+					<!-- 									</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">個人理財</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">投資觀念</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">財務分析</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">量化交易</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">財務管理</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">股票分析</a> -->
+					<!-- 								</li> -->
+					<!-- 							</ul> -->
+					<!-- 						</li> -->
+					<!-- 						<li class="dropdown-submenu"> -->
+					<!-- 							<a class="dropdown-item dropdown-toggle" href="#">攝影</a> -->
+					<!-- 							<ul class="dropdown-menu"> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#"> -->
+					<!-- 										<strong>所有攝影</strong> -->
+					<!-- 									</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">商業攝影</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">影像創作</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">後製剪輯</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">攝影理論</a> -->
+					<!-- 								</li> -->
+					<!-- 							</ul> -->
+					<!-- 						</li> -->
+					<!-- 						<li class="dropdown-submenu"> -->
+					<!-- 							<a class="dropdown-item dropdown-toggle" href="#">設計</a> -->
+					<!-- 							<ul class="dropdown-menu"> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#"> -->
+					<!-- 										<strong>所有設計</strong> -->
+					<!-- 									</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">平面設計</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">室內設計</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">建築設計</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">網頁設計</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">遊戲設計</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">設計理論</a> -->
+					<!-- 								</li> -->
+					<!-- 							</ul> -->
+					<!-- 						</li> -->
+					<!-- 						<li class="dropdown-submenu"> -->
+					<!-- 							<a class="dropdown-item dropdown-toggle" href="#">音樂</a> -->
+					<!-- 							<ul class="dropdown-menu"> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#"> -->
+					<!-- 										<strong>所有音樂</strong> -->
+					<!-- 									</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">樂器</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">音樂軟體</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">音樂基礎</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">音樂創作</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">聲樂</a> -->
+					<!-- 								</li> -->
+					<!-- 							</ul> -->
+					<!-- 						</li> -->
+					<!-- 						<li class="dropdown-submenu"> -->
+					<!-- 							<a class="dropdown-item dropdown-toggle" href="#">職場技能</a> -->
+					<!-- 							<ul class="dropdown-menu"> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#"> -->
+					<!-- 										<strong>所有職場技能</strong> -->
+					<!-- 									</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">生產力工具</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">求職技巧</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">創業</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">職場溝通</a> -->
+					<!-- 								</li> -->
+					<!-- 								<li> -->
+					<!-- 									<a class="dropdown-item" href="#">獨立接案</a> -->
+					<!-- 								</li> -->
+					<!-- 							</ul> -->
+					<!-- 						</li> -->
+					<!-- 					</ul> -->
 				</li>
 
 				<li class="nav-item px-4">
@@ -376,25 +376,33 @@
 					</a>
 					<%-- 				${ShoppingCart} --%>
 					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-						<c:forEach items="${mycart}" var="cart">
-							<li class="dropdown-item px-2  pb-2">
-								<div class="card myCourseCard ">
-									<img src="${cart.value.dataUri }" class="card-img-top " alt="...">
-									<div class="card-body myCourseCardBody p-2 pe-0 w-100">
-										<div class="text-section col-10">
-											<h6 class="card-title">${cart.value.title}</h6>
-											<p class="card-text" style="font-size: small;">${cart.value.teacher.username}</p>
-											<div>$ ${cart.value.price}</div>
+						<c:choose>
+							<c:when test="${fn:length(mycart) != 0}">
+								<c:forEach items="${mycart}" var="cart">
+									<li class="dropdown-item px-2  pb-2">
+										<div class="card myCourseCard ">
+											<img src="${cart.value.dataUri }" class="card-img-top " alt="...">
+											<div class="card-body myCourseCardBody p-2 pe-0 w-100">
+												<div class="text-section col-10">
+													<h6 class="card-title">${cart.value.title}</h6>
+													<p class="card-text" style="font-size: small;">${cart.value.teacher.username}</p>
+													<div>$ ${cart.value.price}</div>
+												</div>
+												<div class="cta-section w-100 d-flex justify-content-center align-items-center ps-3">
+													<a class="remove-button btn btn-light px-2 " data-course-id="${cart.value.id}">
+														<i class="fa-solid fa-trash fa-xl "></i>
+													</a>
+												</div>
+											</div>
 										</div>
-										<div class="cta-section w-100 d-flex justify-content-center align-items-center ps-3">
-											<a class="remove-button btn btn-light px-2 " data-course-id="${cart.value.id}">
-												<i class="fa-solid fa-trash fa-xl "></i>
-											</a>
-										</div>
-									</div>
-								</div>
-							</li>
-						</c:forEach>
+									</li>
+								</c:forEach>
+							</c:when>
+							<c:otherwise>
+								<div class="text-center py-5">購物車還沒有課程！</div>	
+							</c:otherwise>
+						</c:choose>
+
 						<li>
 							<hr class="dropdown-divider">
 						</li>
@@ -403,7 +411,7 @@
 						</li>
 					</ul>
 				</li>
-				
+
 				<!-- 通知 -->
 				<li class="nav-item dropdown px-2">
 					<a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -502,7 +510,8 @@
 					</li>
 					<li class="">
 						<a class="dropdown-item" href="<c:url value='/studentIndex' />#">
-							<i class="fa-regular fa-user " style="padding: 0 8px"></i>學生中心
+							<i class="fa-regular fa-user " style="padding: 0 8px"></i>
+							學生中心
 						</a>
 					</li>
 					<li>
