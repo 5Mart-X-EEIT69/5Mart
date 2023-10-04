@@ -72,21 +72,12 @@ public class TeacherReplyServiceImpl implements TeacherReplyService {
         return optionalTeacherReply.orElse(null);
 	}
 
-//	@Override
-//	public TeacherReply findByStudentQuestion(StudentQuestion studentQuestion) {
-//		log.info("=====>IntroductionServiceImpl#findAll()");
-//		return teacherReplyRepository.findByStudentQuestion(studentQuestion);
-//	}
+	@Override
+	public TeacherReply findByStudentQuestion(StudentQuestion studentQuestion) {
+		log.info("=====>AnnouncementServiceImpl#findByStudentQuestion()");
+		return teacherReplyRepository.findByStudentQuestion(studentQuestion);
+	}
 
-//	@Override
-//    public List<TeacherReply> getTeacherRepliesByStudentQuestionId(Long studentQuestionId) {
-//        return teacherReplyRepository.findByStudentQuestionId(studentQuestionId);
-//    }
-//
-//    @Override
-//    public void saveTeacherReply(TeacherReply teacherReply) {
-//        teacherReplyRepository.save(teacherReply);
-//    }
 
 
 }

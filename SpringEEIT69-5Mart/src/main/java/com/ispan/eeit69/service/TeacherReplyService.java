@@ -14,10 +14,7 @@ public interface TeacherReplyService {
 	List<TeacherReply> findAll();
 	void deleteById(Integer id);
 	TeacherReply getTeacherReplyById(Integer id);
-	
-//	TeacherReply findByStudentQuestion(StudentQuestion studentQuestion);
-	
-//	List<TeacherReply> getTeacherRepliesByStudentQuestionId(Long studentQuestionId);
-//    void saveTeacherReply(TeacherReply teacherReply);
+
+	TeacherReply findByStudentQuestion(StudentQuestion studentQuestion);
 
 }

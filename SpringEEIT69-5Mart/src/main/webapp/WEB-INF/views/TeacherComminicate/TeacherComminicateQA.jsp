@@ -123,6 +123,7 @@
                     <label class="col-3">回覆內容</label> 
                     <label class="col-1 ps-2">功能</label>
                 </div>
+                </div>
                 <hr>
                 <c:forEach var="studentQuestion" items="${courseToQuestionsMap[course]}" varStatus="status">
                     <div class="d-flex align-items-center flex-wrap">
@@ -130,27 +131,27 @@
                         <span class="col-1">${studentQuestion.member.username}</span>
                         <span class="col-1">${studentQuestion.studentQuestionTime}</span> 
                         <span class="col-5 px-3">${studentQuestion.questionText}</span>
-                        <span class="col-3">${teacherReply}</span>
+                        <span class="col-3">${studentQuestion.teacherReply.teacherReply}</span>
                         <button class="col-1 btn btn-link m-0 ps-2"
                                 style="text-align: left;" data-bs-toggle="modal"
-                                data-bs-target="#announcementModal-${course.id}"
+                                data-bs-target="#announcementModal-${studentQuestion.studentQuestionId}"
                                 >回覆</button>
                     </div>
                     <hr>
-                </c:forEach>
-            </div>
-        </div>
+                
+            
+       
         
-    </div>
-    <div class="modal fade" id="announcementModal-${course.id}"
+    
+    <div class="modal fade" id="announcementModal-${studentQuestion.studentQuestionId}"
          tabindex="-1"
-         aria-labelledby="announcementModalLabel-${course.id}"
+         aria-labelledby="announcementModalLabel-${studentQuestion.studentQuestionId}"
          aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title"
-                        id="announcementModalLabel-${course.id}">回覆</h5>
+                        id="announcementModalLabel-${studentQuestion.studentQuestionId}">回覆</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                 </div>
@@ -158,7 +159,7 @@
                 <form action="<c:url value='newTeacherReply'/>" method="post">
                     <div class="modal-body">
                         <textarea class="form-control" name="announcementQA" rows="4"></textarea>
-                        <input type="text" name="id" value="${studentQuestion.questionText}">
+                        <input type="text" name="id" value="${studentQuestion.studentQuestionId}">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary"
@@ -170,6 +171,11 @@
             </div>
         </div>
     </div>
+    </c:forEach>
+    
+    </div>
+
+</div>
 </c:forEach>
 			</div>
 

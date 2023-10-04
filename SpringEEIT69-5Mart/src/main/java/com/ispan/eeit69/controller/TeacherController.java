@@ -763,35 +763,29 @@ public class TeacherController {
 
 	@PostMapping("/newTeacherReply")
 	public String newTeacherReply(Model model, @RequestParam("announcementQA") String teacherReply,@RequestParam("id") Integer StudentQuestionId,RedirectAttributes attributes) {
-		member member = (member) session.getAttribute("member");	
-	
-//		//這是可以存的
-//		TeacherReply teacherReply1 = new TeacherReply(teacherReply);
-//		teacherReplyService.save(teacherReply1);
-//		model.addAttribute("teacherReply",teacherReply1);
-		
-		
-//		teacherReply1.setStudentQuestion(StudentQuestionId);
-//		teacherReply1.setTeacherReply(teacherReply);
+
+		StudentQuestion StudentQuestionId1 = studentQuestionService.findById(StudentQuestionId);
+		TeacherReply teacherReply2 = teacherReplyService.findByStudentQuestion(StudentQuestionId1);
 		
 
+		if(teacherReply2==null) {
+			TeacherReply teacherReply1 = new TeacherReply();
+			teacherReply1.setTeacherReply(teacherReply);
+			teacherReply1.setStudentQuestion(StudentQuestionId1);
+			teacherReplyService.save(teacherReply1);
+		}else {
+			
+			teacherReply2.setTeacherReply(teacherReply);
+			
+			teacherReplyService.update(teacherReply2);
+		}
 		
-		// 根据问题的标识符获取学生问题对象
-	    StudentQuestion studentQuestion = studentQuestionService.findById(StudentQuestionId);
-
-	    // 创建老师的回答
-	    TeacherReply teacherReply1 = new TeacherReply();
-	    
-	    // 建立關聯
-	    teacherReply1.setTeacherReply(teacherReply);
-	    
-
-	    // 保存老師回答
-	    teacherReplyService.save(teacherReply1);
-
-	    model.addAttribute("teacherReply", teacherReply1);
-//	    attributes.addAttribute("id", StudentQuestionId.getStudentQuestionId());
-
+		
+		
+		
+				
+				
+		
 		return "redirect:/TeacherComminicateQA";
 
 	}
