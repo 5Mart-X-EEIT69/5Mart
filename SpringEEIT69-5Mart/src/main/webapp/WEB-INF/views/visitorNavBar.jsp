@@ -112,6 +112,28 @@
 					}
 				}
 				
+				var loginUrl = "<c:url value='/login'/>";
+				var homepageUrl = "<c:url value='/homepage'/>";
+		        $("#loginForm").on("submit", function(event) {
+		            event.preventDefault();  // 防止表單自動提交
+		            console.log("送出表單");
+		            $.ajax({
+		                url: loginUrl,  // 請確保這是正確的 URL
+		                type: 'POST',
+		                data: $(this).serialize(),
+		                success: function(response) {
+		                    if (response.status === "fail") {
+		                    	console.log("登入失敗");
+		                        alert(response.message);  // 顯示錯誤訊息
+		                    } else {
+		                    	console.log("登入成功");
+// 		                    	alert(response.status);
+		                        window.location.href = homepageUrl;  // 登入成功，轉向其他頁面
+		                    }
+		                }
+		            });
+		        });
+				    
 
 	});
 </script>
@@ -202,7 +224,7 @@
 
 			<!-- Body -->
 			<div class="modal-body">
-				<form action="<c:url value="/login" />" method="post">
+				<form action="<c:url value="/login" />" method="post" id="loginForm">
 					<!-- email -->
 					<div class="form-group">
 						<input type="email" class="account form-control" placeholder="電子郵件" name="account">
