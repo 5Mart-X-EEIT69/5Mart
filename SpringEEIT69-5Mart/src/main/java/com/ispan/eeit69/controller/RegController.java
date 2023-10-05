@@ -38,16 +38,16 @@ public class RegController {
 		this.session = session;
 	}
 
-	@PostMapping("/regMember")
-	public String regMember(@ModelAttribute("preMember") member member, Model model) {
-		System.out.println("註冊資料傳入會員");
-
-		if (memberService.existsById(member.getAccount())) {
-			return "/visitorHomePage";
-		}
-		memberService.save(member);
-		return "/visitorHomePage";
-	}
+//	@PostMapping("/regMember")
+//	public String regMember(@ModelAttribute("preMember") member member, Model model) {
+//		System.out.println("註冊資料傳入會員");
+//
+//		if (memberService.existsById(member.getAccount())) {
+//			return "/visitorHomePage";
+//		}
+//		memberService.save(member);
+//		return "/visitorHomePage";
+//	}
 
 //	@PostMapping("/login")
 //	public String loginMember(@RequestParam("account") String account, @RequestParam("password") String password,
@@ -92,12 +92,30 @@ public class RegController {
 //
 //	}
 
+	@PostMapping("/regMember")
+	@ResponseBody
+	public Map<String, String> regMember(@ModelAttribute("preMember") member member,
+			@RequestParam("username") String username, @RequestParam("account") String account,
+			@RequestParam("password") String password, Model model) {
+		System.out.println("註冊資料傳入會員");
+		System.out.println(member.getId());
+		member.setUsername(username);
+		member.setAccount(account);
+		member.setPassword(password);
+		memberService.save(member);
+		System.out.println(member);
+		Map<String, String> response = new HashMap<>();
+		System.out.println("資料新增成功");
+		response.put("status", "success");
+		return response;
+	}
+
 	@PostMapping("/login")
 	@ResponseBody
 	public Map<String, String> loginMember(@RequestParam("account") String account,
 			@RequestParam("password") String password, Model model) {
 		Map<String, String> response = new HashMap<>();
-		System.out.println("進入login的controller，帳號 = " + account + " 密碼 = " + password);	
+		System.out.println("進入login的controller，帳號 = " + account + " 密碼 = " + password);
 		member result = memberService.findByAccountAndPassword(account, password);
 		if (result == null) {
 			System.out.println("帳號密碼錯誤");
@@ -126,7 +144,7 @@ public class RegController {
 			}
 			response.put("status", "success");
 		}
-		
+
 		System.out.println("要回傳到前端的資料" + response.toString());
 		model.addAttribute("memberdata", result);
 		model.addAttribute("login", "success");

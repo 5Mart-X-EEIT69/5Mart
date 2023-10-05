@@ -163,6 +163,25 @@
 		            });
 		        });
 		        
+				var registerUrl = "<c:url value='/regMember'/>";
+		        $("#registerForm").on("submit", function(event) {
+		            event.preventDefault();  // 防止表單自動提交
+		            console.log("送出註冊表單");
+		            $.ajax({
+		                url: registerUrl,  // 請確保這是正確的 URL
+		                type: 'POST',
+		                data: $(this).serialize(),
+		                success: function(response) {
+		                    if (response.status === "success") {
+		                    	console.log("註冊成功");
+		                        // 轉向登入彈跳視窗
+		                        $('#registerModal').modal('hide');
+		                        $('#loginModal').modal('show');
+		                    }
+		                }
+		            });
+		        });
+		        
 		        $('#loginModal').on('hidden.bs.modal', function () {
 // 		            $(".loginFail").text("");  // 清空錯誤消息
 		            $(".loginFail").addClass("d-none");  
@@ -337,7 +356,7 @@
 			<!-- Body -->
 			<div class="modal-body">
 
-				<form action="<c:url value="/regMember" />" method="post">
+				<form action="<c:url value="/regMember" />" method="post" id="registerForm">
 					<!-- 姓名 -->
 					<div class="form-group">
 						<input type="text" class="text form-control" placeholder="全名" name="username" id="usernameInput">
