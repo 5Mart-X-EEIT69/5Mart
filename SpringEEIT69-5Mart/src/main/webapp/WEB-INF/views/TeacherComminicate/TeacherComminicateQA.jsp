@@ -104,7 +104,7 @@
                 <div class="d-flex gap-2 w-100 justify-content-between align-items-center ps-3">
                     <div>
                         <h6 class="mb-0 fs-4 fw-bolder">${course.title}</h6>
-                        <p class="mb-0 opacity-50 fw-bolder" style="color: red;">目前有兩個問與答尚未回覆</p>
+                        <p class="mb-0 opacity-50 fw-bolder" style="color: red;">目前有兩個未回答的學生問題</p>
                     </div>
                 </div>
             </button>
@@ -113,7 +113,7 @@
         <div id="collapse-${course.id}"
              class="accordion-collapse collapse"
              aria-labelledby="heading-${course.id}">
-    
+    <div class="row">
             <div class="accordion-body">
                 <div class="d-flex align-items-center flex-wrap">
                     <label class="col-1">問題</label> 
@@ -124,10 +124,12 @@
                     <label class="col-1 ps-2">功能</label>
                 </div>
                 </div>
+                </div>
                 <hr>
+                <div class="row">
                 <c:forEach var="studentQuestion" items="${courseToQuestionsMap[course]}" varStatus="status">
                     <div class="d-flex align-items-center flex-wrap">
-                        <span class="col-1 ps-2">${status.index +1}</span> 
+                        <span class="col-1 ps-3">${status.index +1}</span> 
                         <span class="col-1">${studentQuestion.member.username}</span>
                         <span class="col-1">${studentQuestion.studentQuestionTime}</span> 
                         <span class="col-5 px-3">${studentQuestion.questionText}</span>
@@ -172,7 +174,7 @@
         </div>
     </div>
     </c:forEach>
-    
+    </div>
     </div>
 
 </div>

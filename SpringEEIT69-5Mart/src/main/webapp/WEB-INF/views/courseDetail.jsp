@@ -239,7 +239,7 @@
 						</div>
 
 					</div>
-					<h4 class="fw-bolder mb-4 mt-5">課程評價</h4>
+					<h4 class="fw-bolder mb-4 mt-5">課程問與答</h4>
 			</div>
 		</div>
 		<!-- Comments section-->
@@ -250,6 +250,7 @@
 					<form class="mb-4" action="<c:url value='/courseDetail'/>" method="post">
 						<textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!" name="QuestionText"></textarea>
 					<input type="hidden" name="id" value="${param.id}">
+					<br>
 					<button type="submit" class="btn btn-outline-secondary" >送出評論</button>
 					
 					</form>
