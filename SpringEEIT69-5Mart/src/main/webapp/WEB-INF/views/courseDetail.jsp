@@ -274,8 +274,8 @@
 									<img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
 								</div>
 								<div class="ms-3">
-									<div class="fw-bold">Zhang Sam</div>
-									And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.
+									<div class="fw-bold">${courseData.teacher.username}</div>
+									${studentQuestions.teacherReply.teacherReply}
 								</div>
 							</div>
 							
@@ -283,16 +283,8 @@
 						
 					</div>
 					</c:forEach>
-					<!-- Single comment-->
-					<div class="d-flex">
-						<div class="flex-shrink-0">
-							<img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
-						</div>
-						<div class="ms-3">
-							<div class="fw-bold">Commenter Name</div>
-							When I look at the universe and all the ways the universe wants to kill us, I find it hard to reconcile that with statements of beneficence.
-						</div>
-					</div>
+					
+					
 					
 				</div>
 			</div>
