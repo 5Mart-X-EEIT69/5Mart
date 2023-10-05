@@ -97,10 +97,8 @@ public class RegController {
 	public Map<String, String> loginMember(@RequestParam("account") String account,
 			@RequestParam("password") String password, Model model) {
 		Map<String, String> response = new HashMap<>();
-		System.out.println("進入login的controller，帳號 = " + account + " 密碼 = " + password);
-		
+		System.out.println("進入login的controller，帳號 = " + account + " 密碼 = " + password);	
 		member result = memberService.findByAccountAndPassword(account, password);
-
 		if (result == null) {
 			System.out.println("帳號密碼錯誤");
 			model.addAttribute("login", "fail");
@@ -112,7 +110,6 @@ public class RegController {
 			System.out.println("搜尋會員的照片=" + result2);
 			if (result2 == null) {
 				System.out.println("資料庫抓不到照片");
-
 			} else {
 				Blob pic = result2.getPhoto();
 				System.out.println("有抓到照片" + pic);

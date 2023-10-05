@@ -23,16 +23,21 @@
 										$("#usernameInput").css("border",
 												"1px solid lightgray");
 										$(".duplicateName").text("");
+										register();
 										
 									} else if (response.isExist) {
 										$(".duplicateName").text("此名稱已有人使用"); // 更新警告訊息
 										$("#usernameInput").css("border",
 												"2px solid red");
+										register();
 										
 									} else {
 										$(".duplicateName").text(""); // 清空警告訊息
 										$("#usernameInput").css("border",
 												"2px solid green");
+										console.log($("#usernameInput").css("border-color"));
+										
+										register();
 										
 									}
 								},
@@ -60,17 +65,19 @@
 										$("#emailInput").css("border",
 												"1px solid lightgray");
 										$(".duplicateEmail").text("");
+										register();
 										
 									} else if (response.isExist) {
 										$(".duplicateEmail").text("此信箱已有人註冊"); // 更新警告訊息
 										$("#emailInput").css("border",
 												"2px solid red");
+										register();
 										
 									} else {
 										$(".duplicateEmail").text(""); // 清空警告訊息
 										$("#emailInput").css("border",
 												"2px solid green");
-										
+										register();
 									}
 								},
 								error : function(response) {
@@ -90,6 +97,7 @@
 										"2px solid green");
 								$("#passwordInput").css("border",
 										"2px solid green");
+								register();
 								
 							} else {
 								$(".confirmPassword").text("輸入的密碼不一致");
@@ -97,19 +105,38 @@
 										"2px solid red");
 								$("#passwordInput").css("border",
 										"2px solid red");
-								
+								register();
+
 							}
 						});
 				
 				
-				var sameName = $(".duplicateName").val();
-				var sameEmail = $(".duplicateEmail").val();
-				var samePassword = $(".confirmPassword").val();
 				
-				function register(){					
-					if(sameName == "" && sameEmail == "" && samePassword ==""){
-					alert("可以註冊");
-					}
+				function register(){													    
+				    var userName = $("#usernameInput").val();
+				    var userEmail = $("#emailInput").val();
+				    var password = $("#passwordInput").val();
+				    var passwordAgain = $("#passwordInputAgain").val();
+				    
+				    // 檢查是否所有輸入框都有值
+				    if (userName && userEmail && password && passwordAgain) {
+				        // 檢查其他條件，例如是否有警告訊息（duplicateName, duplicateEmail, confirmPassword）
+				        var duplicateName = $(".duplicateName").text();
+				        var duplicateEmail = $(".duplicateEmail").text();
+				        var confirmPassword = $(".confirmPassword").text();
+
+				        if (!duplicateName && !duplicateEmail && !confirmPassword) {
+				            console.log("進入可以註冊的if判斷式");
+				            console.log("啟用註冊按鈕");
+				            $(".registerBtn").removeAttr('disabled'); // 啟用註冊按鈕
+				        } else {
+				            console.log("禁用註冊按鈕");
+				            $(".registerBtn").attr('disabled', 'disabled');  // 禁用註冊按鈕
+				        }
+				    } else {
+				            console.log("禁用註冊按鈕");
+				        $(".registerBtn").attr('disabled', 'disabled'); // 禁用註冊按鈕
+				    }
 				}
 				
 				var loginUrl = "<c:url value='/login'/>";
@@ -124,7 +151,9 @@
 		                success: function(response) {
 		                    if (response.status === "fail") {
 		                    	console.log("登入失敗");
-		                        alert(response.message);  // 顯示錯誤訊息
+// 		                        alert(response.message);  // 顯示錯誤訊息
+								$(".loginFail").removeClass("d-none");							
+// 		                        $(".loginFail").text("帳號或密碼錯誤，請重新輸入");
 		                    } else {
 		                    	console.log("登入成功");
 // 		                    	alert(response.status);
@@ -133,6 +162,20 @@
 		                }
 		            });
 		        });
+		        
+		        $('#loginModal').on('hidden.bs.modal', function () {
+// 		            $(".loginFail").text("");  // 清空錯誤消息
+		            $(".loginFail").addClass("d-none");  
+		            $(".account, .password").val("");
+		        });
+		        
+		        $('#registerModal').on('hidden.bs.modal', function () {	
+		        	$(".account, .password, .text").val("");
+		            $("#emailInput, #usernameInput, #passwordInputAgain, #passwordInput").css("border","1px solid lightgray");
+					$(".duplicateName, .duplicateEmail, .confirmPassword").text("");
+		        });
+		        
+		        
 				    
 
 	});
@@ -215,7 +258,7 @@
 				</h3>
 				<div class="d-flex align-items-center">
 					<p class="mb-0">尚未註冊？</p>
-					<button type="button" class="btn btn-link me-2" data-bs-toggle="modal" data-bs-target="#signinModal" data-bs-dismiss="modal" style="text-decoration: none">註冊</button>
+					<button type="button" class="btn btn-link me-2" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-dismiss="modal" style="text-decoration: none">註冊</button>
 
 
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -225,6 +268,11 @@
 			<!-- Body -->
 			<div class="modal-body">
 				<form action="<c:url value="/login" />" method="post" id="loginForm">
+					<div class="alert alert-danger d-flex align-items-center mx-4 loginFail d-none" role="alert">
+  						<i class="bi-exclamation-triangle-fill"></i>
+  						<div class="ms-2">帳號或密碼錯誤，請重新輸入</div>
+					</div>
+					
 					<!-- email -->
 					<div class="form-group">
 						<input type="email" class="account form-control" placeholder="電子郵件" name="account">
@@ -272,7 +320,7 @@
 <!-- 登入彈跳式視窗 -->
 
 <!-- 註冊彈跳式視窗 -->
-<div class="modal fade" id="signinModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
 			<!-- Header -->
@@ -310,7 +358,7 @@
 						<div class="confirmPassword mb-2 ms-4" style="font-size: small; color: red"></div>
 					</div>
 					<!-- 送出按鈕 -->
-					<button type="submit" class="btn btn-secondary mt-3" data-bs-dismiss="modal" >註冊</button>
+					<button type="submit" class="btn btn-secondary mt-3 registerBtn" data-bs-dismiss="modal" disabled>註冊</button>
 					<div class="d-md-flex justify-content-center mt-2">
 						<p>
 							註冊即同意
