@@ -61,127 +61,122 @@
 </head>
 
 <script type="text/javascript">
-	$(document).ready(
-			function() {
-				// 輪播圖相關設定
-				var myCarousel = document
-						.querySelector("#carouselExampleIndicators");
-				var carousel = new bootstrap.Carousel(myCarousel, {
-					interval : 4000, // 自動輪播的延遲時間
-					pause : false,
-				// 滑鼠碰到圖片時，輪播不會停止;改成"hover"時，輪播會停止
-				});
+	$(document).ready(function() {
+		// 輪播圖相關設定
+		var myCarousel = document.querySelector("#carouselExampleIndicators");
+		var carousel = new bootstrap.Carousel(myCarousel, {
+			interval : 4000, // 自動輪播的延遲時間
+			pause : false,
+		// 滑鼠碰到圖片時，輪播不會停止;改成"hover"時，輪播會停止
+		});
 
-				$(".slick-card-hotcourse").slick({
-					dots : true, // 顯示圓點指示器
-					infinite : false, // 無限循環滑動
-					prevArrow : '.arrow-prev-hotcourse',
-					nextArrow : '.arrow-next-hotcourse',
-					speed : 300,
-					slidesToShow : 4,
-					responsive : [ {
-						breakpoint : 768,
-						settings : {
-							slidesToShow : 1,
-						},
-					}, {
-						breakpoint : 500,
-						settings : {
-							slidesToShow : 2,
-						},
-					}, ],
-				});
+		$(".slick-card-hotcourse").slick({
+			dots : true, // 顯示圓點指示器
+			infinite : false, // 無限循環滑動
+			prevArrow : '.arrow-prev-hotcourse',
+			nextArrow : '.arrow-next-hotcourse',
+			speed : 300,
+			slidesToShow : 4,
+			responsive : [ {
+				breakpoint : 768,
+				settings : {
+					slidesToShow : 1,
+				},
+			}, {
+				breakpoint : 500,
+				settings : {
+					slidesToShow : 2,
+				},
+			}, ],
+		});
 
-				$(".slick-card-crowdfundingcourse").slick({
-					dots : true, // 顯示圓點指示器
-					infinite : false, // 無限循環滑動
-					prevArrow : '.arrow-prev-crowdfundingcourse',
-					nextArrow : '.arrow-next-crowdfundingcourse',
-					speed : 300,
-					slidesToShow : 4,
-					responsive : [ {
-						breakpoint : 768,
-						settings : {
-							slidesToShow : 1,
-						},
-					}, {
-						breakpoint : 500,
-						settings : {
-							slidesToShow : 2,
-						},
-					}, ],
-				});
+		$(".slick-card-crowdfundingcourse").slick({
+			dots : true, // 顯示圓點指示器
+			infinite : false, // 無限循環滑動
+			prevArrow : '.arrow-prev-crowdfundingcourse',
+			nextArrow : '.arrow-next-crowdfundingcourse',
+			speed : 300,
+			slidesToShow : 4,
+			responsive : [ {
+				breakpoint : 768,
+				settings : {
+					slidesToShow : 1,
+				},
+			}, {
+				breakpoint : 500,
+				settings : {
+					slidesToShow : 2,
+				},
+			}, ],
+		});
 
-				$(".slick-card-hotarticle").slick({
-					dots : true, // 顯示圓點指示器
-					infinite : false, // 無限循環滑動
-					prevArrow : '.arrow-prev-hotarticle',
-					nextArrow : '.arrow-next-hotarticle',
-					speed : 300,
-					slidesToShow : 3,
-					responsive : [ {
-						breakpoint : 768,
-						settings : {
-							slidesToShow : 1,
-						},
-					}, {
-						breakpoint : 500,
-						settings : {
-							slidesToShow : 2,
-						},
-					}, ],
-				});
+		$(".slick-card-hotarticle").slick({
+			dots : true, // 顯示圓點指示器
+			infinite : false, // 無限循環滑動
+			prevArrow : '.arrow-prev-hotarticle',
+			nextArrow : '.arrow-next-hotarticle',
+			speed : 300,
+			slidesToShow : 3,
+			responsive : [ {
+				breakpoint : 768,
+				settings : {
+					slidesToShow : 1,
+				},
+			}, {
+				breakpoint : 500,
+				settings : {
+					slidesToShow : 2,
+				},
+			}, ],
+		});
 
-				$(".card").mouseenter(function() {
-					$(this).addClass("shadow");
-				}).mouseleave(function() {
-					$(this).removeClass("shadow")
-				});
+		$(".card").mouseenter(function() {
+			$(this).addClass("shadow");
+		}).mouseleave(function() {
+			$(this).removeClass("shadow")
+		});
 
-				// 愛心滑鼠經過點擊變化
-				var heartcount = false;
-				$(".fa-heart").click(
-						function() {
-							if (!heartcount) {
-								$(this).addClass("fa-solid").removeClass(
-										"fa-regular").css("color", "#D10A0A");
-								heartcount = true;
-							} else {
-								heartcount = false;
-								$(this).addClass("fa-regular").removeClass(
-										"fa-solid").css("color", "#f70000");
-							}
-						})
+		// 愛心滑鼠經過點擊變化
+		var heartcount = false;
+		$(".fa-heart").click(function() {
+			if (!heartcount) {
+				$(this).addClass("fa-solid").removeClass("fa-regular").css("color", "#D10A0A");
+				heartcount = true;
+			} else {
+				heartcount = false;
+				$(this).addClass("fa-regular").removeClass("fa-solid").css("color", "#f70000");
+			}
+		})
 
-				$(".fa-heart").mouseenter(function() {
-					if (!heartcount) {
-						$(this).addClass("fa-solid").removeClass("fa-regular");
-					}
-				})
+		$(".fa-heart").mouseenter(function() {
+			if (!heartcount) {
+				$(this).addClass("fa-solid").removeClass("fa-regular");
+			}
+		})
 
-				$(".fa-heart").mouseleave(function() {
-					if (!heartcount) {
-						$(this).addClass("fa-regular").removeClass("fa-solid");
-					}
-				})
+		$(".fa-heart").mouseleave(function() {
+			if (!heartcount) {
+				$(this).addClass("fa-regular").removeClass("fa-solid");
+			}
+		})
 
-				// 回到頂部的按鈕顯示和消失
-				$(window).scroll(function() {
-					if ($(window).scrollTop() > 300) {
-						$('#return-top').fadeIn(300);
-					} else {
-						$('#return-top').fadeOut(200);
-					}
-				})
+		// 回到頂部的按鈕顯示和消失
+		$(window).scroll(function() {
+			if ($(window).scrollTop() > 300) {
+				$('#return-top').fadeIn(300);
+			} else {
+				$('#return-top').fadeOut(200);
+			}
+		})
 
-				// 點擊回到頂部按鈕，回到頁面頂部
-				$("#return-top").click(function() {
-					scrollTo(0, 0);
-				});
+		// 點擊回到頂部按鈕，回到頁面頂部
+		$("#return-top").click(function() {
+			scrollTo(0, 0);
+		});
 
-				$('.carousel-inner').children().first().addClass('active');
+		$('.carousel-inner').children().first().addClass('active');
 
-			});
+	});
 </script>
 
 <body>
@@ -191,7 +186,7 @@
 		<c:otherwise><jsp:include page="/WEB-INF/views/visitorNavBar.jsp" /></c:otherwise>
 	</c:choose>
 	<!-- 導覽列 -->
-<%-- 	<div>帳號 ${member.account}</div> --%>
+	<%-- 	<div>帳號 ${member.account}</div> --%>
 
 	<!-- 輪播圖 -->
 	<div class="container mb-5">
@@ -209,8 +204,7 @@
 					<!-- 輪播圖片的部分 -->
 					<c:forEach items="${LatestCourses}" var="course">
 						<div class="carousel-item">
-							<a href="<c:url value='/courseDetail?id=${course.id} ' />" class="text-reset text-decoration-none">
-								<img src="${course.dataUri}" class="d-block w-100 " alt="...">
+							<a href="<c:url value='/courseDetail?id=${course.id} ' />" class="text-reset text-decoration-none"> <img src="${course.dataUri}" class="d-block w-100 " alt="...">
 							</a>
 						</div>
 						<!-- 					<div class="carousel-item"> -->
@@ -225,12 +219,10 @@
 					</c:forEach>
 				</div>
 				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Previous</span>
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="visually-hidden">Previous</span>
 				</button>
 				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Next</span>
+					<span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="visually-hidden">Next</span>
 				</button>
 			</div>
 		</div>
@@ -270,13 +262,7 @@
 									<p class="mb-2" style="font-size: small">${course.teacher.username}</p>
 								</div>
 								<div class="row d-inline ">
-									<strong style="font-size: large">3.5 </strong>
-									<i class="bi bi-star-fill px-0"></i>
-									<i class="bi bi-star-fill px-0"></i>
-									<i class="bi bi-star-fill px-0"></i>
-									<i class="bi bi-star-half px-0"></i>
-									<i class="bi bi-star px-0"></i>
-									(123)
+									<strong style="font-size: large">3.5 </strong> <i class="bi bi-star-fill px-0"></i> <i class="bi bi-star-fill px-0"></i> <i class="bi bi-star-fill px-0"></i> <i class="bi bi-star-half px-0"></i> <i class="bi bi-star px-0"></i> (123)
 								</div>
 								<div class="row mt-2">
 									<div class="col">
@@ -296,13 +282,11 @@
 		</div>
 
 		<div class="arrow-next-hotcourse slick-rightbtn">
-			<span>
-				<i class="fa-solid fa-chevron-right"></i>
+			<span> <i class="fa-solid fa-chevron-right"></i>
 			</span>
 		</div>
 		<div class="arrow-prev-hotcourse slick-leftbtn">
-			<span>
-				<i class="fa-solid fa-chevron-left"></i>
+			<span> <i class="fa-solid fa-chevron-left"></i>
 			</span>
 		</div>
 	</div>
@@ -567,13 +551,11 @@
 			</div>
 		</div>
 		<div class="arrow-next-crowdfundingcourse slick-rightbtn">
-			<span>
-				<i class="fa-solid fa-chevron-right"></i>
+			<span> <i class="fa-solid fa-chevron-right"></i>
 			</span>
 		</div>
 		<div class="arrow-prev-crowdfundingcourse slick-leftbtn">
-			<span>
-				<i class="fa-solid fa-chevron-left"></i>
+			<span> <i class="fa-solid fa-chevron-left"></i>
 			</span>
 		</div>
 	</div>
@@ -649,53 +631,44 @@
 
 		<div class="row slick-card-hotarticle">
 			<c:forEach items="${allArticle}" var="article">
-			<a href="<c:url value='/articleDetail?id=${article.id} ' />" class="text-reset text-decoration-none">
-			<div class="card mx-3">
-				<img class="card-img-top" src="<c:choose>
+				<a href="<c:url value='/articleDetail?id=${article.id} ' />" class="text-reset text-decoration-none">
+					<div class="card mx-3">
+						<img class="card-img-top" src="<c:choose>
 						<c:when test="${not empty article.dataUri}">data:image/jpeg;base64,${article.dataUri}</c:when>
 						<c:otherwise>\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg</c:otherwise>
 					</c:choose>" alt="...">
-				<div class="card-body py-0">
-					<p class="card-text">
-					<div class="container px-0">
-						<div class="row">
-							<h5 style="font-weight: bolder;">
-								<strong>${article.articleTitle }</strong>
-							</h5>
-						</div>
-						<div class="row">
-							<p class="mb-2" style="font-size: small;">點我觀看所有內容...</p>
-						</div>
-						<fmt:formatDate value="${article.postTime}" pattern="yyyy-MM-dd" var="postTime"/>
-						<div class="row">
-							<p class="d-flex justify-content-between align-items-cente">
-								<strong style="font-size: small;">${article.teacher.username }</strong>
-								<span style="font-size: small;">
-									<i class="fa-regular fa-calendar-days"></i>
-									${postTime}
-								</span>
-								<span style="font-size: small;">
-									<i class="fa-solid fa-eye"></i>
-									4678
-								</span>
-								<i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
+						<div class="card-body py-0">
+							<p class="card-text">
+							<div class="container px-0">
+								<div class="row">
+									<h5 style="font-weight: bolder;">
+										<strong>${article.articleTitle }</strong>
+									</h5>
+								</div>
+								<div class="row">
+									<p class="mb-2" style="font-size: small;">點我觀看所有內容...</p>
+								</div>
+								<fmt:formatDate value="${article.postTime}" pattern="yyyy-MM-dd" var="postTime" />
+								<div class="row">
+									<p class="d-flex justify-content-between align-items-cente">
+										<strong style="font-size: small;">${article.teacher.username }</strong> <span style="font-size: small;"> <i class="fa-regular fa-calendar-days"></i> ${postTime}
+										</span> <span style="font-size: small;"> <i class="fa-solid fa-eye"></i> 4678
+										</span> <i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
+									</p>
+								</div>
+							</div>
 							</p>
 						</div>
 					</div>
-					</p>
-				</div>
-			</div>
-			</a>
+				</a>
 			</c:forEach>
 		</div>
 		<div class="arrow-next-hotarticle slick-rightbtn">
-			<span>
-				<i class="fa-solid fa-chevron-right"></i>
+			<span> <i class="fa-solid fa-chevron-right"></i>
 			</span>
 		</div>
 		<div class="arrow-prev-hotarticle slick-leftbtn">
-			<span>
-				<i class="fa-solid fa-chevron-left"></i>
+			<span> <i class="fa-solid fa-chevron-left"></i>
 			</span>
 		</div>
 	</div>
@@ -705,7 +678,6 @@
 		<i class="fa-solid fa-angle-up fa-2xl" style="color: #919191;"></i>
 		<!-- 				<i class="fa-solid fa-angle-up fa-xl "></i> -->
 	</div>
-
 
 	<!-- 最底部 -->
 	<footer class="bd-footer py-5 mt-5 bg-light">
@@ -722,11 +694,7 @@
 			<div class="row">
 				<div class="col-12 d-flex justify-content-center align-items-center mt-2">
 					<div>
-						<i class="fa-brands fa-java fa-2xl px-2" style="color: #0b6cb0;"></i>
-						<i class="fa-brands fa-html5 fa-2xl px-2" style="color: #de4b25;"></i>
-						<i class="fa-brands fa-css3-alt fa-2xl px-2" style="color: #254bdd;"></i>
-						<i class="fa-brands fa-js fa-2xl px-2" style="color: #e8d44d;"></i>
-						<i class="fa-brands fa-bootstrap fa-2xl px-2" style="color: #6d10f3;"></i>
+						<i class="fa-brands fa-java fa-2xl px-2" style="color: #0b6cb0;"></i> <i class="fa-brands fa-html5 fa-2xl px-2" style="color: #de4b25;"></i> <i class="fa-brands fa-css3-alt fa-2xl px-2" style="color: #254bdd;"></i> <i class="fa-brands fa-js fa-2xl px-2" style="color: #e8d44d;"></i> <i class="fa-brands fa-bootstrap fa-2xl px-2" style="color: #6d10f3;"></i>
 					</div>
 				</div>
 			</div>
