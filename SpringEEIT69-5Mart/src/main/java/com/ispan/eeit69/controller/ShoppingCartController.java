@@ -1,7 +1,8 @@
 package com.ispan.eeit69.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -22,6 +23,8 @@ import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.CourseService;
 import com.ispan.eeit69.service.memberService;
 
+import ecpay.payment.integration.AllInOne;
+import ecpay.payment.integration.domain.AioCheckOutALL;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -100,6 +103,7 @@ public class ShoppingCartController {
 	public String buyOne(@RequestParam("id") String id, Model model) {
 		Integer intId = Integer.parseInt(id);
 		Course course = courseService.findById(intId);
+		
 		model.addAttribute("course", course);
 		return "check";
 	}
@@ -128,7 +132,7 @@ public class ShoppingCartController {
 	
 	@PostMapping("/ordercompleted")
 	public ResponseEntity<Map<String, Object>> orderCompleted(@RequestParam("courseId") String courseId,
-			@RequestParam("memberId") String memberId) {
+			@RequestParam("memberId") String memberId) {		
 		System.out.println("課程ID= " + courseId);
 		System.out.println("會員ID= " + memberId);
 		Integer intMemberId = Integer.parseInt(memberId);
@@ -143,5 +147,46 @@ public class ShoppingCartController {
 		response.put("status", 200);
 
 		return new ResponseEntity<>(response, HttpStatus.OK);
+	}
+	
+	@GetMapping("/ECpay")
+	public String ECpay(@RequestParam("courseId") String courseId,
+			@RequestParam("memberId") String memberId , Model model) {		
+		AllInOne aio = new AllInOne("");
+		AioCheckOutALL obj = new AioCheckOutALL();
+		Date date = new Date();
+		SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		obj.setMerchantTradeDate(dateFormat.format(date));//交易時間
+		
+		SimpleDateFormat tradeFormat= new SimpleDateFormat("MMddHHmmss");
+		System.out.println("tradeFormat : "+ tradeFormat);
+		String TradeNo = "5mart" + tradeFormat.format(date);
+		obj.setMerchantTradeNo(TradeNo);
+		Course course = courseService.findById(Integer.valueOf(courseId));
+		Integer price = course.getPrice();		
+		obj.setTotalAmount(String.valueOf(price));//價格
+		obj.setTradeDesc("課程名稱: " + course.getTitle() + "分類: "  + course.getSort() + "適合程度: " + course.getLevel());
+		obj.setItemName(course.getTitle());//商品名稱
+		obj.setReturnURL("http://localhost:8080/SpringEEIT69-5Mart/homepage");//網站沒對外，所以沒辦法獲得付款完成訊息
+		obj.setNeedExtraPaidInfo("N");
+		String form = aio.aioCheckOut(obj, null);
+		System.out.println(form);
+		model.addAttribute("form", form);
+//		處理綠界表單
+		
+		System.out.println("課程ID= " + courseId);
+		System.out.println("會員ID= " + memberId);
+		Integer intMemberId = Integer.parseInt(memberId);
+		Integer intCourseId = Integer.parseInt(courseId);
+		member member = memberService.findByMemberId(intMemberId);
+		Course newCourse = courseService.findById(intCourseId);
+		Set<Course> memberBuyCourseSet =  member.getBuyCourses();
+		memberBuyCourseSet.add(newCourse);
+		member.setBuyCourses(memberBuyCourseSet);
+		memberService.save(member);
+//		會員增加課程，其實還要新增訂單表，沒時間弄
+		
+		
+		return "ECpay";
 	}
 }
