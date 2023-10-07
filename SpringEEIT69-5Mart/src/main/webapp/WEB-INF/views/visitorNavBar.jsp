@@ -4,222 +4,362 @@
 <link rel='stylesheet' href="<c:url value='/assets/css/visitorHomePage.css' />" type="text/css" />
 <script type="text/javascript">
 	var checkNameUrl = "<c:url value='/checkname' />";
-	$(document).ready(function() {
-		var debounceTimer; // 用於存儲 setTimeout 返回的 ID
-		$("#usernameInput").keyup(function() {
-			clearTimeout(debounceTimer); // 清除前一個 setTimeout
+	$(document)
+			.ready(
+					function() {
+						var debounceTimer; // 用於存儲 setTimeout 返回的 ID
+						$("#usernameInput")
+								.keyup(
+										function() {
+											clearTimeout(debounceTimer); // 清除前一個 setTimeout
 
-			debounceTimer = setTimeout(function() {
-				var userName = $("#usernameInput").val(); // 獲取輸入框的值
+											debounceTimer = setTimeout(
+													function() {
+														var userName = $(
+																"#usernameInput")
+																.val(); // 獲取輸入框的值
 
-				// 發送 Ajax 請求到後端
-				$.ajax({
-					url : checkNameUrl, // 替換成您後端的 API URL
-					type : 'POST',
-					data : {
-						name : userName
-					},
-					success : function(response) {
-						if ($("#usernameInput").val() == "") {
-							$("#usernameInput").css("border", "1px solid lightgray");
-							$(".duplicateName").text("");
-							register();
-						} else if (response.isExist) {
-							$(".duplicateName").text("此名稱已有人使用"); // 更新警告訊息
-							$("#usernameInput").css("border", "2px solid red");
-							register();
-						} else {
-							$(".duplicateName").text(""); // 清空警告訊息
-							$("#usernameInput").css("border", "2px solid green");
-							console.log($("#usernameInput").css("border-color"));
-							register();
+														// 發送 Ajax 請求到後端
+														$
+																.ajax({
+																	url : checkNameUrl, // 替換成您後端的 API URL
+																	type : 'POST',
+																	data : {
+																		name : userName
+																	},
+																	success : function(
+																			response) {
+																		if ($(
+																				"#usernameInput")
+																				.val() == "") {
+																			$(
+																					"#usernameInput")
+																					.css(
+																							"border",
+																							"1px solid lightgray");
+																			$(
+																					".duplicateName")
+																					.text(
+																							"");
+																			register();
+																		} else if (response.isExist) {
+																			$(
+																					".duplicateName")
+																					.text(
+																							"此名稱已有人使用"); // 更新警告訊息
+																			$(
+																					"#usernameInput")
+																					.css(
+																							"border",
+																							"2px solid red");
+																			register();
+																		} else {
+																			$(
+																					".duplicateName")
+																					.text(
+																							""); // 清空警告訊息
+																			$(
+																					"#usernameInput")
+																					.css(
+																							"border",
+																							"2px solid green");
+																			console
+																					.log($(
+																							"#usernameInput")
+																							.css(
+																									"border-color"));
+																			register();
+																		}
+																	},
+																	error : function(
+																			response) {
+																		alert("發生錯誤，請重試");
+																		console
+																				.log(response)
+																	}
+																});
+													}, 300); // 300 毫秒後執行，您可以根據需要調整這個值
+										});
+
+						var checkEmailUrl = "<c:url value='/checkemail'/>";
+						var debounceTimer; // 用於存儲 setTimeout 的 ID
+
+						$("#emailInput")
+								.keyup(
+										function() {
+											clearTimeout(debounceTimer); // 清除前一個 setTimeout
+
+											debounceTimer = setTimeout(
+													function() {
+														console
+																.log("檢查信箱格式和唯一性");
+														var userEmail = $(
+																"#emailInput")
+																.val(); // 獲取輸入框的值
+
+														// 使用正則表達式來驗證電子郵件格式
+														var regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+														if (!regex
+																.test(userEmail)) {
+															$(".duplicateEmail")
+																	.text(
+																			"信箱的格式格式"); // 更新警告訊息
+															$("#emailInput")
+																	.css(
+																			"border",
+																			"2px solid red");
+															register();
+															return;
+														}
+
+														// 發送 Ajax 請求到後端
+														$
+																.ajax({
+																	url : checkEmailUrl, // 替換成您後端的 API URL
+																	type : 'POST',
+																	data : {
+																		email : userEmail
+																	},
+																	success : function(
+																			response) {
+																		if ($(
+																				"#emailInput")
+																				.val() == "") {
+																			$(
+																					"#emailInput")
+																					.css(
+																							"border",
+																							"1px solid lightgray");
+																			$(
+																					".duplicateEmail")
+																					.text(
+																							"");
+																			register();
+																		} else if (response.isExist) {
+																			$(
+																					".duplicateEmail")
+																					.text(
+																							"此信箱已有人註冊"); // 更新警告訊息
+																			$(
+																					"#emailInput")
+																					.css(
+																							"border",
+																							"2px solid red");
+																			register();
+																		} else {
+																			$(
+																					".duplicateEmail")
+																					.text(
+																							""); // 清空警告訊息
+																			$(
+																					"#emailInput")
+																					.css(
+																							"border",
+																							"2px solid green");
+																			register();
+																		}
+																	},
+																	error : function(
+																			response) {
+																		alert("發生錯誤，請重試");
+																		console
+																				.log(response);
+																	}
+																});
+													}, 300); // 設定 300 毫秒的延遲
+										});
+
+						var debounceTimer; // 用於存儲 setTimeout 的 ID
+						$("#passwordInputAgain")
+								.keyup(
+										function() {
+											clearTimeout(debounceTimer); // 清除前一個 setTimeout
+
+											debounceTimer = setTimeout(
+													function() {
+														console.log("檢查密碼一致");
+														var passwordInputAgain = $(
+																"#passwordInputAgain")
+																.val();
+														var passwordInput = $(
+																"#passwordInput")
+																.val();
+														if (passwordInputAgain === passwordInput) {
+															$(
+																	".confirmPassword")
+																	.text("");
+															$(
+																	"#passwordInputAgain")
+																	.css(
+																			"border",
+																			"2px solid green");
+															$("#passwordInput")
+																	.css(
+																			"border",
+																			"2px solid green");
+															register(); // 延遲執行
+														} else {
+															$(
+																	".confirmPassword")
+																	.text(
+																			"輸入的密碼不一致");
+															$(
+																	"#passwordInputAgain")
+																	.css(
+																			"border",
+																			"2px solid red");
+															$("#passwordInput")
+																	.css(
+																			"border",
+																			"2px solid red");
+															register(); // 延遲執行
+														}
+													}, 300); // 設定 300 毫秒的延遲
+										});
+
+						function register() {
+							var userName = $("#usernameInput").val();
+							var userEmail = $("#emailInput").val();
+							var password = $("#passwordInput").val();
+							var passwordAgain = $("#passwordInputAgain").val();
+
+							// 檢查是否所有輸入框都有值
+							if (userName && userEmail && password
+									&& passwordAgain) {
+								// 檢查其他條件，例如是否有警告訊息（duplicateName, duplicateEmail, confirmPassword）
+								var duplicateName = $(".duplicateName").text();
+								var duplicateEmail = $(".duplicateEmail")
+										.text();
+								var confirmPassword = $(".confirmPassword")
+										.text();
+
+								if (!duplicateName && !duplicateEmail
+										&& !confirmPassword) {
+									console.log("進入可以註冊的if判斷式");
+									console.log("啟用註冊按鈕");
+									$(".registerBtn").removeAttr('disabled'); // 啟用註冊按鈕
+								} else {
+									console.log("禁用註冊按鈕");
+									$(".registerBtn").attr('disabled',
+											'disabled'); // 禁用註冊按鈕
+								}
+							} else {
+								console.log("禁用註冊按鈕");
+								$(".registerBtn").attr('disabled', 'disabled'); // 禁用註冊按鈕
+							}
 						}
-					},
-					error : function(response) {
-						alert("發生錯誤，請重試");
-						console.log(response)
-					}
-				});
-			}, 300); // 300 毫秒後執行，您可以根據需要調整這個值
-		});
 
-		var checkEmailUrl = "<c:url value='/checkemail'/>";
-		var debounceTimer; // 用於存儲 setTimeout 的 ID
+						var loginUrl = "<c:url value='/login'/>";
+						var homepageUrl = "<c:url value='/homepage'/>";
+						$("#loginForm").on("submit", function(event) {
+							event.preventDefault(); // 防止表單自動提交
+							console.log("送出表單");
+							$.ajax({
+								url : loginUrl, // 請確保這是正確的 URL
+								type : 'POST',
+								data : $(this).serialize(),
+								success : function(response) {
+									if (response.status === "fail") {
+										console.log("登入失敗");
+										// alert(response.message);  // 顯示錯誤訊息
+										$(".loginFail").removeClass("d-none");
+										// $(".loginFail").text("帳號或密碼錯誤，請重新輸入");
+									} else {
+										console.log("登入成功");
+										// alert(response.status);
+										window.location.href = homepageUrl; // 登入成功，轉向其他頁面
+									}
+								}
+							});
+						});
 
-		$("#emailInput").keyup(function() {
-			clearTimeout(debounceTimer); // 清除前一個 setTimeout
+						var registerUrl = "<c:url value='/regMember'/>";
+						$("#registerForm")
+								.on(
+										"submit",
+										function(event) {
+											event.preventDefault(); // 防止表單自動提交
+											console.log("送出註冊表單");
+											$
+													.ajax({
+														url : registerUrl, // 請確保這是正確的 URL
+														type : 'POST',
+														data : $(this)
+																.serialize(),
+														success : function(
+																response) {
+															if (response.status === "success") {
+																console
+																		.log("註冊成功");
+																// 初始化和顯示 Toast
+																var registrationToastEl = document
+																		.getElementById("regToast");
+																var registrationToast = new bootstrap.Toast(
+																		registrationToastEl);
+																registrationToast
+																		.show();
 
-			debounceTimer = setTimeout(function() {
-				console.log("檢查信箱格式和唯一性");
-				var userEmail = $("#emailInput").val(); // 獲取輸入框的值
+																$(
+																		'#registerModal')
+																		.modal(
+																				'hide');
+																$('#loginModal')
+																		.modal(
+																				'show');
 
-				// 使用正則表達式來驗證電子郵件格式
-				var regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-				if (!regex.test(userEmail)) {
-					$(".duplicateEmail").text("信箱的格式格式"); // 更新警告訊息
-					$("#emailInput").css("border", "2px solid red");
-					register();
-					return;
-				}
+																// 設定 1 秒後轉到登入視窗
+																setTimeout(
+																		function() {
+																			registrationToast
+																					.hide();
+																		}, 1800);
+															}
+														}
+													});
+										});
 
-				// 發送 Ajax 請求到後端
-				$.ajax({
-					url : checkEmailUrl, // 替換成您後端的 API URL
-					type : 'POST',
-					data : {
-						email : userEmail
-					},
-					success : function(response) {
-						if ($("#emailInput").val() == "") {
-							$("#emailInput").css("border", "1px solid lightgray");
-							$(".duplicateEmail").text("");
-							register();
-						} else if (response.isExist) {
-							$(".duplicateEmail").text("此信箱已有人註冊"); // 更新警告訊息
-							$("#emailInput").css("border", "2px solid red");
-							register();
-						} else {
-							$(".duplicateEmail").text(""); // 清空警告訊息
-							$("#emailInput").css("border", "2px solid green");
-							register();
-						}
-					},
-					error : function(response) {
-						alert("發生錯誤，請重試");
-						console.log(response);
-					}
-				});
-			}, 300); // 設定 300 毫秒的延遲
-		});
+						$('#loginModal').on('hidden.bs.modal', function() {
+							// $(".loginFail").text("");  // 清空錯誤消息
+							$(".loginFail").addClass("d-none");
+							$(".account, .password").val("");
+						});
 
-		var debounceTimer; // 用於存儲 setTimeout 的 ID
-		$("#passwordInputAgain").keyup(function() {
-			clearTimeout(debounceTimer); // 清除前一個 setTimeout
+						$('#registerModal')
+								.on(
+										'hidden.bs.modal',
+										function() {
+											$(".account, .password, .text")
+													.val("");
+											$(
+													"#emailInput, #usernameInput, #passwordInputAgain, #passwordInput")
+													.css("border",
+															"1px solid lightgray");
+											$(
+													".duplicateName, .duplicateEmail, .confirmPassword")
+													.text("");
+										});
 
-			debounceTimer = setTimeout(function() {
-				console.log("檢查密碼一致");
-				var passwordInputAgain = $("#passwordInputAgain").val();
-				var passwordInput = $("#passwordInput").val();
-				if (passwordInputAgain === passwordInput) {
-					$(".confirmPassword").text("");
-					$("#passwordInputAgain").css("border", "2px solid green");
-					$("#passwordInput").css("border", "2px solid green");
-					register(); // 延遲執行
-				} else {
-					$(".confirmPassword").text("輸入的密碼不一致");
-					$("#passwordInputAgain").css("border", "2px solid red");
-					$("#passwordInput").css("border", "2px solid red");
-					register(); // 延遲執行
-				}
-			}, 300); // 設定 300 毫秒的延遲
-		});
-
-		function register() {
-			var userName = $("#usernameInput").val();
-			var userEmail = $("#emailInput").val();
-			var password = $("#passwordInput").val();
-			var passwordAgain = $("#passwordInputAgain").val();
-
-			// 檢查是否所有輸入框都有值
-			if (userName && userEmail && password && passwordAgain) {
-				// 檢查其他條件，例如是否有警告訊息（duplicateName, duplicateEmail, confirmPassword）
-				var duplicateName = $(".duplicateName").text();
-				var duplicateEmail = $(".duplicateEmail").text();
-				var confirmPassword = $(".confirmPassword").text();
-
-				if (!duplicateName && !duplicateEmail && !confirmPassword) {
-					console.log("進入可以註冊的if判斷式");
-					console.log("啟用註冊按鈕");
-					$(".registerBtn").removeAttr('disabled'); // 啟用註冊按鈕
-				} else {
-					console.log("禁用註冊按鈕");
-					$(".registerBtn").attr('disabled', 'disabled'); // 禁用註冊按鈕
-				}
-			} else {
-				console.log("禁用註冊按鈕");
-				$(".registerBtn").attr('disabled', 'disabled'); // 禁用註冊按鈕
-			}
-		}
-
-		var loginUrl = "<c:url value='/login'/>";
-		var homepageUrl = "<c:url value='/homepage'/>";
-		$("#loginForm").on("submit", function(event) {
-			event.preventDefault(); // 防止表單自動提交
-			console.log("送出表單");
-			$.ajax({
-				url : loginUrl, // 請確保這是正確的 URL
-				type : 'POST',
-				data : $(this).serialize(),
-				success : function(response) {
-					if (response.status === "fail") {
-						console.log("登入失敗");
-						// alert(response.message);  // 顯示錯誤訊息
-						$(".loginFail").removeClass("d-none");
-						// $(".loginFail").text("帳號或密碼錯誤，請重新輸入");
-					} else {
-						console.log("登入成功");
-						// alert(response.status);
-						window.location.href = homepageUrl; // 登入成功，轉向其他頁面
-					}
-				}
-			});
-		});
-
-		var registerUrl = "<c:url value='/regMember'/>";
-		$("#registerForm").on("submit", function(event) {
-			event.preventDefault(); // 防止表單自動提交
-			console.log("送出註冊表單");
-			$.ajax({
-				url : registerUrl, // 請確保這是正確的 URL
-				type : 'POST',
-				data : $(this).serialize(),
-				success : function(response) {
-					if (response.status === "success") {
-						console.log("註冊成功");
-						// 初始化和顯示 Toast
-						var registrationToastEl = document.getElementById("regToast");
-						var registrationToast = new bootstrap.Toast(registrationToastEl);
-						registrationToast.show();
-
-						$('#registerModal').modal('hide');
-						$('#loginModal').modal('show');
-
-						// 設定 1 秒後轉到登入視窗
-						setTimeout(function() {
-							registrationToast.hide();
-						}, 1800); 
-					}
-				}
-			});
-		});
-
-		$('#loginModal').on('hidden.bs.modal', function() {
-			// $(".loginFail").text("");  // 清空錯誤消息
-			$(".loginFail").addClass("d-none");
-			$(".account, .password").val("");
-		});
-
-		$('#registerModal').on('hidden.bs.modal', function() {
-			$(".account, .password, .text").val("");
-			$("#emailInput, #usernameInput, #passwordInputAgain, #passwordInput").css("border", "1px solid lightgray");
-			$(".duplicateName, .duplicateEmail, .confirmPassword").text("");
-		});
-
-	});
+					});
 </script>
 <nav class="navbar navbar-expand-lg bg-body-tertiary  sticky-top shadow">
 	<div class="container-fluid">
 		<!-- 品牌logo -->
-		<a class="navbar-brand" href="<c:url value='/homepage' />"> <i class="fa-solid fa-graduation-cap fa-xl px-2"></i>
+		<a class="navbar-brand ms-3" href="<c:url value='/homepage' />">
+			<img class="" src="\SpringEEIT69-5Mart\assets\images\5Mart_logo.png" style="width: 46px; height: 46px; object-fit: cover;" />
+<!-- 			<i class="fa-solid fa-graduation-cap fa-xl px-2"></i> -->
 		</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item dropdown px-2"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 課程類別 </a> <jsp:include page="/WEB-INF/views/sortNavbar.jsp" /></li>
+				<li class="nav-item dropdown px-2">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 課程類別 </a>
+					<jsp:include page="/WEB-INF/views/sortNavbar.jsp" /></li>
 
-				<li class="nav-item px-4"><a class="nav-link" href="#">文章</a></li>
+				<li class="nav-item px-4">
+					<a class="nav-link" href="#">文章</a>
+				</li>
 
 				<li class="nav-item px-10">
 					<form class="d-lg-flex d-none nav-item input-group" action="<c:url value="/visitorsearchpage" />" method="post">
@@ -321,9 +461,14 @@
 					</p>
 				</div>
 				<div class="mb-3">
-					<a class="mx-2" type="button" href="#"> <i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i>
-					</a> <a class="mx-2" type="button" href="#"> <i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i>
-					</a> <a class="mx-2" type="button" href="#"> <i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i>
+					</a>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i>
+					</a>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i>
 					</a>
 				</div>
 
@@ -378,7 +523,10 @@
 					<button type="submit" class="btn btn-secondary mt-3 registerBtn" data-bs-dismiss="modal" disabled>註冊</button>
 					<div class="d-md-flex justify-content-center mt-2">
 						<p>
-							註冊即同意 <a type="button" href="#">隱私權政策</a> 和 <a type="button" href="#">使用者條款</a>
+							註冊即同意
+							<a type="button" href="#">隱私權政策</a>
+							和
+							<a type="button" href="#">使用者條款</a>
 						</p>
 					</div>
 				</form>
@@ -391,9 +539,14 @@
 					</p>
 				</div>
 				<div class="mb-3">
-					<a class="mx-2" type="button" href="#"> <i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i>
-					</a> <a class="mx-2" type="button" href="#"> <i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i>
-					</a> <a class="mx-2" type="button" href="#"> <i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i>
+					</a>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i>
+					</a>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i>
 					</a>
 				</div>
 			</div>
@@ -405,7 +558,8 @@
 <div id="regToast" class="toast align-items-center text-white bg-success border-0 position-fixed top-75 start-50 m-3 translate-middle" style="z-index: 9999" role="alert" aria-live="assertive" aria-atomic="true">
 	<div class="d-flex">
 		<div class="toast-body fs-5">
-			<i class="bi bi-check-circle-fill me-2"></i>註冊成功
+			<i class="bi bi-check-circle-fill me-2"></i>
+			註冊成功
 		</div>
 		<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
 	</div>
