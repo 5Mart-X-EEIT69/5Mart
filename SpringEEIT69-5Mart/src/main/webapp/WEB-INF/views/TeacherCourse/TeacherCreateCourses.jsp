@@ -305,7 +305,7 @@
 					<div id="chapterContainer">
 						<div>
 							<div class="form-group chapter my-2">
-								<span class="chapterIcon">拖拉</span> <span class="py-1">章節
+								<span class="chapterIcon"></span> <span class="py-1">章節
 									1</span><input class="chapterInput chapterName" type="text" value="">
 								<span>
 									<button class="mx-1 btn iconbtn addChapter">
@@ -318,7 +318,7 @@
 							</div>
 							<div class="unitGroup">
 								<div class="form-group unit my-2">
-									<span class="chapterIcon">拖拉</span> <label class="py-1">單元
+									<span class="chapterIcon"></span> <label class="py-1">單元
 										1</label><input class="chapterInput unitName" type="text" value="">
 									<span>
 										<button class="mx-1 btn iconbtn addUnit">
@@ -425,7 +425,7 @@
                 let iIndex = $(this).parent().parent().parent().index();
                 let html = `
             <div class="form-group chapter my-2">
-                <span class="chapterIcon">拖拉</span>
+                <span class="chapterIcon"></span>
                 <span class="py-1">章節 1</span><input class="chapterInput chapterName" type="text" value="">
                 <span>
                     <button class="mx-1 btn iconbtn addChapter"><i class="bi bi-plus-circle"></i></button>
@@ -434,7 +434,7 @@
             </div>
             <div class="unitGroup">
                 <div class="form-group unit my-2">
-                    <span class="chapterIcon">拖拉</span>
+                    <span class="chapterIcon"></span>
                     <label class="py-1">單元 1</label><input class="chapterInput unitName" type="text" value="">
                     <span>
                         <button class="mx-1 btn iconbtn addUnit"><i class="bi bi-plus-circle"></i></button>
@@ -451,7 +451,7 @@
                 let iIndex = $(this).parent().parent().index();
                 let html = `
             <div class="form-group unit my-2">
-                <span class="chapterIcon">拖拉</span>
+                <span class="chapterIcon"></span>
                 <label class="py-1">單元 ${iIndex + 2}</label><input class="chapterInput unitName" type="text" value="">
                 <span>
                     <button class="mx-1 btn iconbtn addUnit"><i class="bi bi-plus-circle"></i></button>
@@ -527,7 +527,7 @@
                             // <div class="unitGroup">
                             // </div>
                             // `
-                            let html = '<div><div class="form-group chapterVideo my-2"><span class="chapterIcon">拖拉</span><span class="py-1">章節 ' +
+                            let html = '<div><div class="form-group chapterVideo my-2"><span class="chapterIcon"></span><span class="py-1">章節 ' +
                                 (index + 1) +
                                 '</span><label class="py-1 chapterInput">' +
                                 value +
@@ -543,7 +543,7 @@
                             //         <input class="form-control videobtn" type="file" />
                             //     </div>
                             // `
-                            let html = '<div class="form-group unitVideo my-2"><span class="chapterIcon">拖拉</span><label class="py-1">單元 '
+                            let html = '<div class="form-group unitVideo my-2"><span class="chapterIcon"></span><label class="py-1">單元 '
                                 + (i - 1) + '</label><label class="pe-3 py-1 chapterInput">' + value + '</label><input id="inputFileToLoad" class="form-control videobtn" type="file" accept="video/*" /></div><input type="hidden" id="video" name="video">'
                             $('#chapterVideoContainer').children('.unitGroup').eq(index).append(html)
                             i++;
@@ -623,9 +623,9 @@
             detailSortData[1] = ["網頁開發","程式語言","遊戲開發","資料庫設計與開發","軟體測試"]
             detailSortData[2] = ["數位行銷","社群行銷","數據分析","行銷策略","文案撰寫","創業"]
             detailSortData[3] = ["個人理財","投資觀念","財務分析","量化交易","財務管理","股票分析"]
-            detailSortData[4] = ["商業攝影","影像創作","後製剪輯","攝影理論",]
-            detailSortData[5] = ["平面設計","室內設計","建築設計","網頁設計","遊戲設計","設計理論"]
-            detailSortData[6] = ["樂器","音樂軟體","音樂基礎","音樂創作","聲樂"]
+            detailSortData[4] = ["樂器","音樂軟體","音樂基礎","音樂創作","聲樂"]
+            detailSortData[5] = ["商業攝影","影像創作","後製剪輯","攝影理論",]
+            detailSortData[6] = ["平面設計","室內設計","建築設計","網頁設計","遊戲設計","設計理論"]
             detailSortData[7] = ["生產力工具","求職技巧","創業","職場溝通","獨立接案"]
             detailSortData[8] = ["其他"]
             $('#sort').on("change", function () {

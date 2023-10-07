@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ispan.eeit69.model.Article;
 import com.ispan.eeit69.model.Chapter;
 import com.ispan.eeit69.model.Course;
 import com.ispan.eeit69.model.Introduction;
 import com.ispan.eeit69.model.StudentQuestion;
 import com.ispan.eeit69.model.member;
+import com.ispan.eeit69.service.ArticleService;
 import com.ispan.eeit69.service.ChapterService;
 import com.ispan.eeit69.service.CourseService;
 import com.ispan.eeit69.service.IntroductionService;
@@ -25,6 +27,7 @@ import com.ispan.eeit69.service.StudentQuestionService;
 import com.ispan.eeit69.service.TeacherPictureService;
 import com.ispan.eeit69.service.UnitService;
 import com.ispan.eeit69.service.VideoService;
+import com.ispan.eeit69.service.memberService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -40,12 +43,19 @@ public class HomeController {
 	HttpSession session;
 	@Autowired
 	StudentQuestionService studentQuestionService;
+	ArticleService articleService;
+	memberService memberService;
+
+
+
 
 
 
 	public HomeController(CourseService courseService, ChapterService chapterService, UnitService unitService,
 			VideoService videoService, IntroductionService introductionService,
-			TeacherPictureService teacherPictureService, HttpSession session) {
+			TeacherPictureService teacherPictureService, HttpSession session,
+			StudentQuestionService studentQuestionService, ArticleService articleService,
+			com.ispan.eeit69.service.memberService memberService) {
 		super();
 		this.courseService = courseService;
 		this.chapterService = chapterService;
@@ -54,6 +64,9 @@ public class HomeController {
 		this.introductionService = introductionService;
 		this.teacherPictureService = teacherPictureService;
 		this.session = session;
+		this.studentQuestionService = studentQuestionService;
+		this.articleService = articleService;
+		this.memberService = memberService;
 	}
 
 	@GetMapping("/test1")
@@ -79,6 +92,10 @@ public class HomeController {
 		List<Course> allCourse = courseService.findAll();
 		model.addAttribute("allCourse", allCourse);
 		session.setAttribute("allCourse", allCourse);
+		List<Course> LatestCourses = courseService.getTop5LatestCourses();
+		session.setAttribute("LatestCourses", LatestCourses);
+		List<Article> allArticle = articleService.findAll();
+		model.addAttribute("allArticle", allArticle);
 		return "homePage";
 	}
 
@@ -96,15 +113,7 @@ public class HomeController {
 //		return "visitorSearchPage";
 //	}
 
-	@PostMapping("/visitorsearchpage")
-	public String searchKeyword(@RequestParam("keyword") String keyword, Model model) {
-		System.out.println("關鍵字" + keyword);
-		model.addAttribute("keyword", keyword);
-		List<Course> result = courseService.findByKeyword(keyword);
-		model.addAttribute("keywordResult", result);
-
-		return "visitorSearchPage";
-	}
+	
 
 	@GetMapping("/courseDetail")
 	public String courseDetail(@RequestParam("id") String id, Model model) {
@@ -137,10 +146,12 @@ public class HomeController {
 
 
 	@GetMapping("/blogpage")
-	public String blogpage(Model model) {
-		Introduction introduction = new Introduction();
-		introduction = introductionService.findById(4);
-		model.addAttribute("introduction", introduction);
+	public String blogpage(@RequestParam("id") String id,Model model) {
+		Integer intId = Integer.parseInt(id);
+		member teacher = memberService.findByMemberId(intId);
+		Introduction introduction = teacher.getIntroduction();
+		model.addAttribute("introduction",introduction);
+		model.addAttribute("teacher",teacher);
 		return "blogpage";
 
 	}

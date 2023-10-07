@@ -14,5 +14,12 @@ public interface memberService {
 	void deleteById(Integer id);
 	
 	boolean existsById(String account);
+	
+
+//	//新增用來處理自動新增帳號設定關聯
+//	void registerNewMember(member newMember);
+
+	boolean existsByUsername(String name);
+
 }
 

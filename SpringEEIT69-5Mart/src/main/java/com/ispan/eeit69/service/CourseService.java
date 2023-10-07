@@ -21,6 +21,7 @@ public interface CourseService {
 	List<Course> findByKeyword(String keyword); //  搜尋關鍵字
 	List<Course> findByTeacherId(Integer id); //  搜尋關鍵字
 	List<Course> findByTeacher(member teacher);
+	List<Course> getTop5LatestCourses(); //  搜尋最後新增的五筆課程
 
 	 List<Course> getCoursesByTeacher(member teacher);
 	 List<Course> getCoursesWithAnnouncementsByTeacher(member teacher);

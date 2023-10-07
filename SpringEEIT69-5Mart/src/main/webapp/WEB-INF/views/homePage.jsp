@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,125 +61,122 @@
 </head>
 
 <script type="text/javascript">
-	$(document).ready(
-			function() {
-				// 輪播圖相關設定
-				var myCarousel = document
-						.querySelector("#carouselExampleIndicators");
-				var carousel = new bootstrap.Carousel(myCarousel, {
-					interval : 4000, // 自動輪播的延遲時間
-					pause : false,
-				// 滑鼠碰到圖片時，輪播不會停止;改成"hover"時，輪播會停止
-				});
+	$(document).ready(function() {
+		// 輪播圖相關設定
+		var myCarousel = document.querySelector("#carouselExampleIndicators");
+		var carousel = new bootstrap.Carousel(myCarousel, {
+			interval : 4000, // 自動輪播的延遲時間
+			pause : false,
+		// 滑鼠碰到圖片時，輪播不會停止;改成"hover"時，輪播會停止
+		});
 
-				$(".slick-card-hotcourse").slick({
-					dots : true, // 顯示圓點指示器
-					infinite : false, // 無限循環滑動
-					prevArrow : '.arrow-prev-hotcourse',
-					nextArrow : '.arrow-next-hotcourse',
-					speed : 300,
-					slidesToShow : 4,
-					responsive : [ {
-						breakpoint : 768,
-						settings : {
-							slidesToShow : 1,
-						},
-					}, {
-						breakpoint : 500,
-						settings : {
-							slidesToShow : 2,
-						},
-					}, ],
-				});
+		$(".slick-card-hotcourse").slick({
+			dots : true, // 顯示圓點指示器
+			infinite : false, // 無限循環滑動
+			prevArrow : '.arrow-prev-hotcourse',
+			nextArrow : '.arrow-next-hotcourse',
+			speed : 300,
+			slidesToShow : 4,
+			responsive : [ {
+				breakpoint : 768,
+				settings : {
+					slidesToShow : 1,
+				},
+			}, {
+				breakpoint : 500,
+				settings : {
+					slidesToShow : 2,
+				},
+			}, ],
+		});
 
-				$(".slick-card-crowdfundingcourse").slick({
-					dots : true, // 顯示圓點指示器
-					infinite : false, // 無限循環滑動
-					prevArrow : '.arrow-prev-crowdfundingcourse',
-					nextArrow : '.arrow-next-crowdfundingcourse',
-					speed : 300,
-					slidesToShow : 4,
-					responsive : [ {
-						breakpoint : 768,
-						settings : {
-							slidesToShow : 1,
-						},
-					}, {
-						breakpoint : 500,
-						settings : {
-							slidesToShow : 2,
-						},
-					}, ],
-				});
+		$(".slick-card-crowdfundingcourse").slick({
+			dots : true, // 顯示圓點指示器
+			infinite : false, // 無限循環滑動
+			prevArrow : '.arrow-prev-crowdfundingcourse',
+			nextArrow : '.arrow-next-crowdfundingcourse',
+			speed : 300,
+			slidesToShow : 4,
+			responsive : [ {
+				breakpoint : 768,
+				settings : {
+					slidesToShow : 1,
+				},
+			}, {
+				breakpoint : 500,
+				settings : {
+					slidesToShow : 2,
+				},
+			}, ],
+		});
 
-				$(".slick-card-hotarticle").slick({
-					dots : true, // 顯示圓點指示器
-					infinite : false, // 無限循環滑動
-					prevArrow : '.arrow-prev-hotarticle',
-					nextArrow : '.arrow-next-hotarticle',
-					speed : 300,
-					slidesToShow : 3,
-					responsive : [ {
-						breakpoint : 768,
-						settings : {
-							slidesToShow : 1,
-						},
-					}, {
-						breakpoint : 500,
-						settings : {
-							slidesToShow : 2,
-						},
-					}, ],
-				});
+		$(".slick-card-hotarticle").slick({
+			dots : true, // 顯示圓點指示器
+			infinite : false, // 無限循環滑動
+			prevArrow : '.arrow-prev-hotarticle',
+			nextArrow : '.arrow-next-hotarticle',
+			speed : 300,
+			slidesToShow : 3,
+			responsive : [ {
+				breakpoint : 768,
+				settings : {
+					slidesToShow : 1,
+				},
+			}, {
+				breakpoint : 500,
+				settings : {
+					slidesToShow : 2,
+				},
+			}, ],
+		});
 
-				$(".card").mouseenter(function() {
-					$(this).addClass("shadow");
-				}).mouseleave(function() {
-					$(this).removeClass("shadow")
-				});
+		$(".card").mouseenter(function() {
+			$(this).addClass("shadow");
+		}).mouseleave(function() {
+			$(this).removeClass("shadow")
+		});
 
-				// 愛心滑鼠經過點擊變化
-				var heartcount = false;
-				$(".fa-heart").click(
-						function() {
-							if (!heartcount) {
-								$(this).addClass("fa-solid").removeClass(
-										"fa-regular").css("color", "#D10A0A");
-								heartcount = true;
-							} else {
-								heartcount = false;
-								$(this).addClass("fa-regular").removeClass(
-										"fa-solid").css("color", "#f70000");
-							}
-						})
+		// 愛心滑鼠經過點擊變化
+		var heartcount = false;
+		$(".fa-heart").click(function() {
+			if (!heartcount) {
+				$(this).addClass("fa-solid").removeClass("fa-regular").css("color", "#D10A0A");
+				heartcount = true;
+			} else {
+				heartcount = false;
+				$(this).addClass("fa-regular").removeClass("fa-solid").css("color", "#f70000");
+			}
+		})
 
-				$(".fa-heart").mouseenter(function() {
-					if (!heartcount) {
-						$(this).addClass("fa-solid").removeClass("fa-regular");
-					}
-				})
+		$(".fa-heart").mouseenter(function() {
+			if (!heartcount) {
+				$(this).addClass("fa-solid").removeClass("fa-regular");
+			}
+		})
 
-				$(".fa-heart").mouseleave(function() {
-					if (!heartcount) {
-						$(this).addClass("fa-regular").removeClass("fa-solid");
-					}
-				})
+		$(".fa-heart").mouseleave(function() {
+			if (!heartcount) {
+				$(this).addClass("fa-regular").removeClass("fa-solid");
+			}
+		})
 
-				// 回到頂部的按鈕顯示和消失
-				$(window).scroll(function() {
-					if ($(window).scrollTop() > 300) {
-						$('#return-top').fadeIn(300);
-					} else {
-						$('#return-top').fadeOut(200);
-					}
-				})
+		// 回到頂部的按鈕顯示和消失
+		$(window).scroll(function() {
+			if ($(window).scrollTop() > 300) {
+				$('#return-top').fadeIn(300);
+			} else {
+				$('#return-top').fadeOut(200);
+			}
+		})
 
-				// 點擊回到頂部按鈕，回到頁面頂部
-				$("#return-top").click(function() {
-					scrollTo(0, 0);
-				});
+		// 點擊回到頂部按鈕，回到頁面頂部
+		$("#return-top").click(function() {
+			scrollTo(0, 0);
+		});
 
-			});
+		$('.carousel-inner').children().first().addClass('active');
+
+	});
 </script>
 
 <body>
@@ -188,7 +186,7 @@
 		<c:otherwise><jsp:include page="/WEB-INF/views/visitorNavBar.jsp" /></c:otherwise>
 	</c:choose>
 	<!-- 導覽列 -->
-	<div>帳號 ${member.account}</div>
+	<%-- 	<div>帳號 ${member.account}</div> --%>
 
 	<!-- 輪播圖 -->
 	<div class="container mb-5">
@@ -200,21 +198,25 @@
 					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
 					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
 					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
 				</div>
 				<div class="carousel-inner">
 					<!-- 輪播圖片的部分 -->
-					<div class="carousel-item active">
-						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖002.jpg" class="d-block w-100 " alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg" class="d-block w-100 " alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖010.jpeg" class="d-block w-100 " alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg" class="d-block w-100 " alt="...">
-					</div>
+					<c:forEach items="${LatestCourses}" var="course">
+						<div class="carousel-item">
+							<a href="<c:url value='/courseDetail?id=${course.id} ' />" class="text-reset text-decoration-none"> <img src="${course.dataUri}" class="d-block w-100 " alt="...">
+							</a>
+						</div>
+						<!-- 					<div class="carousel-item"> -->
+						<!-- 						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖009.jpeg" class="d-block w-100 " alt="..."> -->
+						<!-- 					</div> -->
+						<!-- 					<div class="carousel-item"> -->
+						<!-- 						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖010.jpeg" class="d-block w-100 " alt="..."> -->
+						<!-- 					</div> -->
+						<!-- 					<div class="carousel-item"> -->
+						<!-- 						<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg" class="d-block w-100 " alt="..."> -->
+						<!-- 					</div> -->
+					</c:forEach>
 				</div>
 				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="visually-hidden">Previous</span>
@@ -628,138 +630,38 @@
 		</div>
 
 		<div class="row slick-card-hotarticle">
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body py-0">
-					<p class="card-text">
-					<div class="container px-0">
-						<div class="row">
-							<h5 style="font-weight: bolder;">
-								<strong>給Java初學者的建議，這樣學一定會變成大師！</strong>
-							</h5>
-						</div>
-						<div class="row">
-							<p class="mb-2" style="font-size: small;">在一開始學習Java時，有幾點需要特別注意...</p>
-						</div>
-						<div class="row">
-							<p class="d-flex justify-content-between align-items-cente">
-								<strong style="font-size: small;">趙令文 </strong> <span style="font-size: small;"><i class="fa-regular fa-calendar-days"></i> 2023/08/20</span><span style="font-size: small;"><i class="fa-solid fa-eye"></i> 4678</span> <i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
+			<c:forEach items="${allArticle}" var="article">
+				<a href="<c:url value='/articleDetail?id=${article.id} ' />" class="text-reset text-decoration-none">
+					<div class="card mx-3">
+						<img class="card-img-top" src="<c:choose>
+						<c:when test="${not empty article.dataUri}">data:image/jpeg;base64,${article.dataUri}</c:when>
+						<c:otherwise>\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg</c:otherwise>
+					</c:choose>" alt="...">
+						<div class="card-body py-0">
+							<p class="card-text">
+							<div class="container px-0">
+								<div class="row">
+									<h5 style="font-weight: bolder;">
+										<strong>${article.articleTitle }</strong>
+									</h5>
+								</div>
+								<div class="row">
+									<p class="mb-2" style="font-size: small;">點我觀看所有內容...</p>
+								</div>
+								<fmt:formatDate value="${article.postTime}" pattern="yyyy-MM-dd" var="postTime" />
+								<div class="row">
+									<p class="d-flex justify-content-between align-items-cente">
+										<strong style="font-size: small;">${article.teacher.username }</strong> <span style="font-size: small;"> <i class="fa-regular fa-calendar-days"></i> ${postTime}
+										</span> <span style="font-size: small;"> <i class="fa-solid fa-eye"></i> 4678
+										</span> <i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
+									</p>
+								</div>
+							</div>
 							</p>
 						</div>
 					</div>
-					</p>
-				</div>
-			</div>
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body py-0">
-					<p class="card-text">
-					<div class="container px-0">
-						<div class="row">
-							<h5 style="font-weight: bolder;">
-								<strong>給Java初學者的建議，這樣學一定會變成大師！</strong>
-							</h5>
-						</div>
-						<div class="row">
-							<p class="mb-2" style="font-size: small;">在一開始學習Java時，有幾點需要特別注意...</p>
-						</div>
-						<div class="row">
-							<p class="d-flex justify-content-between align-items-cente">
-								<strong style="font-size: small;">趙令文 </strong> <span style="font-size: small;"><i class="fa-regular fa-calendar-days"></i> 2023/08/20</span><span style="font-size: small;"><i class="fa-solid fa-eye"></i> 4678</span> <i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
-							</p>
-						</div>
-					</div>
-					</p>
-				</div>
-			</div>
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body py-0">
-					<p class="card-text">
-					<div class="container px-0">
-						<div class="row">
-							<h5 style="font-weight: bolder;">
-								<strong>給Java初學者的建議，這樣學一定會變成大師！</strong>
-							</h5>
-						</div>
-						<div class="row">
-							<p class="mb-2" style="font-size: small;">在一開始學習Java時，有幾點需要特別注意...</p>
-						</div>
-						<div class="row">
-							<p class="d-flex justify-content-between align-items-cente">
-								<strong style="font-size: small;">趙令文 </strong> <span style="font-size: small;"><i class="fa-regular fa-calendar-days"></i> 2023/08/20</span><span style="font-size: small;"><i class="fa-solid fa-eye"></i> 4678</span> <i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
-							</p>
-						</div>
-					</div>
-					</p>
-				</div>
-			</div>
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖004.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body py-0">
-					<p class="card-text">
-					<div class="container px-0">
-						<div class="row">
-							<h5 style="font-weight: bolder;">
-								<strong>給Java初學者的建議，這樣學一定會變成大師！</strong>
-							</h5>
-						</div>
-						<div class="row">
-							<p class="mb-2" style="font-size: small;">在一開始學習Java時，有幾點需要特別注意...</p>
-						</div>
-						<div class="row">
-							<p class="d-flex justify-content-between align-items-cente">
-								<strong style="font-size: small;">趙令文 </strong> <span style="font-size: small;"><i class="fa-regular fa-calendar-days"></i> 2023/08/20</span><span style="font-size: small;"><i class="fa-solid fa-eye"></i> 4678</span> <i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
-							</p>
-						</div>
-					</div>
-					</p>
-				</div>
-			</div>
-
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body py-0">
-					<p class="card-text">
-					<div class="container px-0">
-						<div class="row">
-							<h5 style="font-weight: bolder;">
-								<strong>給Java初學者的建議，這樣學一定會變成大師！</strong>
-							</h5>
-						</div>
-						<div class="row">
-							<p class="mb-2" style="font-size: small;">在一開始學習Java時，有幾點需要特別注意...</p>
-						</div>
-						<div class="row">
-							<p class="d-flex justify-content-between align-items-cente">
-								<strong style="font-size: small;">趙令文 </strong> <span style="font-size: small;"><i class="fa-regular fa-calendar-days"></i> 2023/08/20</span><span style="font-size: small;"><i class="fa-solid fa-eye"></i> 4678</span> <i class="fa-regular fa-heart fa-lg mt-2" style="color: #f70000;"></i>
-							</p>
-						</div>
-					</div>
-					</p>
-				</div>
-			</div>
-
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖011.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body">
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				</div>
-			</div>
-
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖012.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body">
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				</div>
-			</div>
-
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖007.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body">
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				</div>
-			</div>
+				</a>
+			</c:forEach>
 		</div>
 		<div class="arrow-next-hotarticle slick-rightbtn">
 			<span> <i class="fa-solid fa-chevron-right"></i>
@@ -776,7 +678,6 @@
 		<i class="fa-solid fa-angle-up fa-2xl" style="color: #919191;"></i>
 		<!-- 				<i class="fa-solid fa-angle-up fa-xl "></i> -->
 	</div>
-
 
 	<!-- 最底部 -->
 	<footer class="bd-footer py-5 mt-5 bg-light">

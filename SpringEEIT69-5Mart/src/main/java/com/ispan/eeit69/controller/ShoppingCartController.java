@@ -1,6 +1,7 @@
 package com.ispan.eeit69.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -102,8 +103,29 @@ public class ShoppingCartController {
 		model.addAttribute("course", course);
 		return "check";
 	}
+	
+	@GetMapping("/checkout") // 購物車結帳路由
+	public String checkout(Model model) {
+	    ShoppingCart cart = (ShoppingCart) httpSession.getAttribute("ShoppingCart");
+	    if (cart != null) {
+	        // 計算購物車總價
+	        double totalPrice = 0.0;
+	        for (Course course : cart.getContent().values()) {
+	            totalPrice += course.getPrice();
+	        }
+	        
+	        // 將總價添加到模型
+	        model.addAttribute("totalPrice", totalPrice);
+	        model.addAttribute("cart", cart);
+	    }
+	    
+	    return "check";  // 返回結帳頁面
+	}
+
 
 	// 訂單確認送出
+	
+	
 	@PostMapping("/ordercompleted")
 	public ResponseEntity<Map<String, Object>> orderCompleted(@RequestParam("courseId") String courseId,
 			@RequestParam("memberId") String memberId) {

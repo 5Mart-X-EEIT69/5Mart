@@ -54,6 +54,13 @@ public class memberServiceImpl implements memberService {
 		isExist = MemberDao.existsById(account);
 		return isExist;
 	}
+
+	@Override
+	public boolean existsByUsername(String name) {
+		log.info("會員註冊功能之Service: 檢查會員輸入的名字是否已被使用");
+		boolean isExist = MemberDao.existsByUsername(name);
+		return isExist;
+	}
 	
 	
 	

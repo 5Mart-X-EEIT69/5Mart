@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- 響應式的引入 -->
 
-<title>5Mart線上教學平台</title>
+<title>課程中心</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -53,28 +53,44 @@
 
 
 <style type="text/css">
+
+/* 處理課程卡片中的課程導覽圖大小 */
+.card-img-top {
+  height: 200px;  /* 設定您想要的高度 */
+  object-fit: cover;
+  width: 100%;  /* 使圖像寬度適應容器寬度 */
+}
+/* END */
+
+/* 處理課程卡片中的課程字數大小 */
+.text-ellipsis-multi {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* 顯示3行 */
+  overflow: hidden;
+}
+/* END */
+
 </style>
-    <style>
-        .center-button {
-            text-align: center; /* 设置按钮文本水平居中 */
-        }
-    </style>
+
 </head>
 
 <body>
 	<div class="main-container d-flex">
 		<div class="sidebar" id="side_nav">
 			<div class="header-box ms-2 px-2 pt-3 pb-4 d-flex justify-content-between">
+			<a href="<c:url value="/homepage"></c:url>" class="text-decoration-none">
 				<h1 class="fs-4">
 					<span class="bg-white text-dark rounded shadow px-2 me-2">S</span><span class="text-white me-2">mart</span>
 				</h1>
+				</a>
 				<button class="btn d-md-none d-block close-btn px-1 py-0 text-white">
 					<i class="fa-solid fa-bars-staggered"></i>
 				</button>
 			</div>
 			<ul class="list-unstyled px-2">
-				<li class=" my-1">
-					<a href="<c:url value="/studentIndex"></c:url>#sublist" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block ">
+				<li class="my-1">
+					<a href="<c:url value="/studentIndex"></c:url>" class="text-decoration-none px-3 py-2 d-block ">
 						<i class="fa-solid fa-tv pe-3" style="color: #ffffff;"></i>Dashboard
 					</a>
 					<%-- <ul id="sublist" class="list-unstyled collapse">
@@ -98,8 +114,8 @@
 						</li>
 					</ul> --%>
 				</li>
-				<li class="my-1">
-					<a href="<c:url value="/studentCourseList"></c:url>#sublist1" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between ">
+				<li class="active my-1">
+					<a href="<c:url value="/studentCourseList"></c:url>#sublist1" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between ">
 						<span><i class="fa-solid fa-pencil pe-3" style="color: #ffffff;"></i>課程中心</span><span class="bg-dark rounded-pill text-white py-0 px-2">01</span>
 					</a>
 					<!-- <ul id="sublist1" class="list-unstyled collapse">
@@ -116,7 +132,7 @@
 				</li>
 				<li class="my-1">
 					<a href="<c:url value="/studentNotification"></c:url>#sublist2" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between ">
-						<span><i class="fa-solid fa-comment pe-3" style="color: #ffffff;"></i>通知中心</span><span class="bg-dark rounded-pill text-white py-0 px-2">02</span>
+						<span><i class="fa-solid fa-comment pe-3" style="color: #ffffff;"></i>通知中心</span><span class="bg-dark rounded-pill text-white py-0 px-2">06</span>
 					</a>				
 					<ul id="sublist2" class="list-unstyled collapse">
 						<li>
@@ -161,7 +177,7 @@
 			<hr class="h-color mx-2">
 
 			<ul class="list-unstyled px-2">
-				<li class="active">
+				<li class="">
 					<a href="<c:url value="/profileSettingPage"></c:url>#sublist4" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block">
 						<i class="fa-solid fa-gear pe-3" style="color: #ffffff;"></i>設定
 					</a>
@@ -277,43 +293,65 @@
 				</div>
 			</nav>
 
-			<div class="dashboard-content px-3 my-3">
-				${member.account}
-				<h2>安全性頁面</h2>
-						<hr>
-							<div>
-								<form>
-						<div class="row">
-						<div class="col-4"></div>
-							<div class="col-4 mb-3">
-								<label for="exampleInputPassword1" class="form-label"></label> <input
-									type="password" class="form-control" id="exampleInputPassword1"
-									placeholder="輸入目前密碼">
-							
-							</div>
-							</div>
-							<div class="row">
-						<div class="col-4"></div>
-							<div class="col-4 mb-3">
-								<label for="exampleInputPassword1" class="form-label"></label> <input
-									type="password" class="form-control" id="exampleInputPassword1"
-									placeholder="輸入新的密碼">
-							</div>
-							</div>
-							<div class="row">
-						<div class="col-4"></div>
-							<div class="col-4 mb-3">
-								<label for="exampleInputPassword1" class="form-label"></label> <input
-									type="password" class="form-control" id="exampleInputPassword1"
-									placeholder="確認新的密碼">
-							</div>
-							</div>
-                              <div class="d-flex justify-content-center">
-                                   <button class="btn btn-primary btn-sm" type="submit">儲存設定</button> 
-                              </div>
-							</form>
-						</div>
+			<div class="dashboard-content px-3 pt-4">
+				<!-- 				<p>這裡可以填入內容</p> -->
+
+				<h2>課程中心</h2>
+				<!-- 課程列表START -->
+               <h4>課程總覽</h4>
+				<div class="container" style="position: relative;">
+					<div class="row row-cols-1 row-cols-md-4 g-4">
+						<c:forEach items="${CourseList}" var="course">
+							<a href="<c:url value='/coursePlayerPage?id=${course.id} ' />"
+								class="text-reset text-decoration-none">
+								<div class="card mx-3" style="width: 18rem; height: 360px;">
+									<img src="${course.dataUri}" class="card-img-top" alt="..." />
+									<div class="card-body py-0">
+										<p class="card-text">
+										<div class="container px-0">
+											<div class="row">
+												<h5 style="font-weight: bolder">
+													<strong>${course.title}</strong>
+												</h5>
+											</div>
+											<div class="row">
+												<p class="mb-2" style="font-size: small">${course.teacher.username}</p>
+											</div>
+											<div class="row text-ellipsis-multi ps-2 pe-3">
+											${course.introduction}
+											</div>
+<!-- 											<div class="row d-inline "> -->
+<!-- 												<strong style="font-size: large">3.5 </strong> <i -->
+<!-- 													class="bi bi-star-fill px-0"></i> <i -->
+<!-- 													class="bi bi-star-fill px-0"></i> <i -->
+<!-- 													class="bi bi-star-fill px-0"></i> <i -->
+<!-- 													class="bi bi-star-half px-0"></i> <i -->
+<!-- 													class="bi bi-star px-0"></i> (123) -->
+<!-- 											</div> -->
+											<%-- <div class="row mt-2">
+												<div class="col">
+													<p class="mb-0"
+														style="font-weight: bolder; font-size: large;">NT $
+														${course.price}</p>
+												</div>
+												<div class="col text-end">
+													<i class="fa-regular fa-heart fa-lg"
+														style="color: #f70000;"></i>
+
+												</div>
+											</div> --%>
+										</div>
+
+									</div>
+								</div>
+							</a>
+						</c:forEach>
 					</div>
+				</div>
+			<!-- 課程列表END -->
+			<p></p>
+			<p></p]>
+				<!-- 				<p>這裡可以填入內容</p> -->
 			</div>
 		</div>
 
@@ -333,6 +371,22 @@
 
 	<!-- bootstrap -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+		integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+		integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+		integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+		integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+		crossorigin="anonymous"></script>
 	<!-- bootstrap -->
 	<script type="text/javascript">
 		$(".sidebar ul li").on('click', function() {
@@ -340,10 +394,9 @@
 			$(this).addClass('active');
 		})
 
-
 		$(".sidebar ul li").mouseenter(function() {
 			$(this).find('.fa-solid').css("color", "#123");
-			
+
 		})
 
 		$(".sidebar ul li").mouseleave(function() {
@@ -358,7 +411,6 @@
 			$(".sidebar").removeClass('active');
 		})
 	</script>
-
 
 </body>
 </html>

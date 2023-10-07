@@ -37,6 +37,7 @@ import com.ispan.eeit69.model.Article;
 import com.ispan.eeit69.model.Chapter;
 import com.ispan.eeit69.model.Course;
 import com.ispan.eeit69.model.Introduction;
+import com.ispan.eeit69.model.StudentQuestion;
 import com.ispan.eeit69.model.TeacherPicture;
 import com.ispan.eeit69.model.TeacherReply;
 import com.ispan.eeit69.model.Unit;
@@ -810,4 +811,16 @@ public class TeacherController {
 			return "redirect:/homepage";
 		}
 	}
+	
+	@GetMapping("/articleDetail")
+	public String courseDetail(@RequestParam("id") String id, Model model) {	
+		Integer intId = Integer.parseInt(id);
+		Article article = articleService.findById(intId);
+		model.addAttribute("articleData",article);
+
+		
+		System.out.println("重新整理");
+		return "articleDetail";
+	}
+
 }

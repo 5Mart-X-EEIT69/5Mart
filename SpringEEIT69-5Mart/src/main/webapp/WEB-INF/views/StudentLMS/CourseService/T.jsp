@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- 響應式的引入 -->
 
-<title>5Mart線上教學平台</title>
+<title>課程學習播放器頁面</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -54,16 +54,18 @@
 
 <style type="text/css">
 </style>
-    <style>
-        .center-button {
-            text-align: center; /* 设置按钮文本水平居中 */
-        }
-    </style>
+ <style>
+      /* 自定義CSS，讓tab分頁佔滿寬度 */
+      .tab-pane {
+        width: 100%;
+      }
+ </style>
 </head>
 
 <body>
 	<div class="main-container d-flex">
-		<div class="sidebar" id="side_nav">
+ <div class="sidebar" id="side_nav">
+ 		<div class="sidebar" id="side_nav">
 			<div class="header-box ms-2 px-2 pt-3 pb-4 d-flex justify-content-between">
 				<h1 class="fs-4">
 					<span class="bg-white text-dark rounded shadow px-2 me-2">S</span><span class="text-white me-2">mart</span>
@@ -73,7 +75,7 @@
 				</button>
 			</div>
 			<ul class="list-unstyled px-2">
-				<li class=" my-1">
+				<li class="my-1">
 					<a href="<c:url value="/studentIndex"></c:url>#sublist" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block ">
 						<i class="fa-solid fa-tv pe-3" style="color: #ffffff;"></i>Dashboard
 					</a>
@@ -98,7 +100,7 @@
 						</li>
 					</ul> --%>
 				</li>
-				<li class="my-1">
+				<li class="my-1 active">
 					<a href="<c:url value="/studentCourseList"></c:url>#sublist1" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between ">
 						<span><i class="fa-solid fa-pencil pe-3" style="color: #ffffff;"></i>課程中心</span><span class="bg-dark rounded-pill text-white py-0 px-2">01</span>
 					</a>
@@ -161,9 +163,9 @@
 			<hr class="h-color mx-2">
 
 			<ul class="list-unstyled px-2">
-				<li class="active">
+				<li class="">
 					<a href="<c:url value="/profileSettingPage"></c:url>#sublist4" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block">
-						<i class="fa-solid fa-gear pe-3" style="color: #ffffff;"></i>設定
+						<i class="fa-solid fa-gear pe-3 " style="color: #ffffff;"></i>設定
 					</a>
 					<ul id="sublist4" class="list-unstyled collapse">
 						<li>
@@ -277,48 +279,158 @@
 				</div>
 			</nav>
 
-			<div class="dashboard-content px-3 my-3">
-				${member.account}
-				<h2>安全性頁面</h2>
-						<hr>
-							<div>
-								<form>
-						<div class="row">
-						<div class="col-4"></div>
-							<div class="col-4 mb-3">
-								<label for="exampleInputPassword1" class="form-label"></label> <input
-									type="password" class="form-control" id="exampleInputPassword1"
-									placeholder="輸入目前密碼">
-							
+			<div class="dashboard-content px-3 pt-4">
+				<h2 class="fs-5">dashboard</h2>
+				<p>這裡可以填入內容</p>
+				 <div class="container mt-5">
+      <h1>課程名稱</h1>
+      <!-- 使用 Bootstrap Grid System 進行布局 -->
+      <div class="row">
+        <!-- 影片播放器 -->
+      <div class="col-md-8">
+        <video id="videoPlayer" width="800" controls>
+		  <source id="videoSource" type="video/mp4">
+		</video>
+      </div>
+        <!-- 章節和單元的選單（手風琴） -->
+					<div class="accordion" id="accordionExample">
+						<c:forEach items="${courseData.chapter}" var="chapter">
+							<div class="accordion-item">
+								<h1 class="accordion-header">
+									<button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${chapter.chapterId}" aria-expanded="false" aria-controls="collapseOne">${chapter.chapterName}</button>
+								</h1>
+								<div id="collapse${chapter.chapterId}" class="accordion-collapse collapse ">
+									<div class="">
+										<ul class="list-group list-group-flush list-unstyled">
+											<c:forEach items="${chapter.unit}" var="unit">
+													<li class="ms-3">
+														<button class="btn btn-light d-flex w-100 justify-content-between" onclick="loadVideo('${unit.video.uuid}')">
+															<div class="d-flex w-100 justify-content-between">
+																<p class="mb-1">${unit.unitName}</p>
+																<small>07:20</small>
+															</div>
+														</button>
+													</li>
+											</c:forEach>
+										</ul>
+									</div>
+								</div>
 							</div>
-							</div>
-							<div class="row">
-						<div class="col-4"></div>
-							<div class="col-4 mb-3">
-								<label for="exampleInputPassword1" class="form-label"></label> <input
-									type="password" class="form-control" id="exampleInputPassword1"
-									placeholder="輸入新的密碼">
-							</div>
-							</div>
-							<div class="row">
-						<div class="col-4"></div>
-							<div class="col-4 mb-3">
-								<label for="exampleInputPassword1" class="form-label"></label> <input
-									type="password" class="form-control" id="exampleInputPassword1"
-									placeholder="確認新的密碼">
-							</div>
-							</div>
-                              <div class="d-flex justify-content-center">
-                                   <button class="btn btn-primary btn-sm" type="submit">儲存設定</button> 
-                              </div>
-							</form>
-						</div>
+						</c:forEach>
 					</div>
-			</div>
-		</div>
+      </div>
 
-	</div>
+      <!-- Tab分頁 -->
+      <div class="mt-5">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="#overview" data-bs-toggle="tab"
+              >課程總覽</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#qa" data-bs-toggle="tab">問與答</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#reviews" data-bs-toggle="tab">評論</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="overview">
+            <!-- course overview code START -->
+            <div class="container">
+              <div class="row">
+                <div>
+                  <h3 style="font-weight: bold">關於此課程</h3>
+                </div>
+                <div>
+                  Spring Boot 3: Learn Spring 6, Spring Core, Spring REST,
+                  Spring MVC, Spring Security, Thymeleaf, JPA, Hibernate, MySQL
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <hr />
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-4">依編號</div>
+                <div class="col-4">
+                  <div>技能等級: ${courseData.level}</div>
+                  <div>學生: 333617</div>
+                  <div>語言: 英語</div>
+                </div>
+                <div class="col-4">
+                  <div>影片: 總計 31 小時</div>
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <hr />
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-4">證書</div>
+                <div class="col-4">
+                  <div>完成整門課程，取得 Udemy 證書</div>
+                  <br />
+                  <div>
+                    <div class="d-grid gap-2 col-6">
+                      <button type="button" class="btn btn-outline-dark">
+                        Udemy 證書
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <hr />
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-4">說明</div>
+                <div class="col-4">
+                  <div>
+					${courseData.introduction}
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <hr />
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-4">講師</div>
+                <div class="col-4">
+                  <div class="row">
+                    <div class="col-3">
+						<div class="w-100 mb-3 border rounded"
+							<c:if test="${empty base64Image}">style="height: 357px"</c:if>>
+								<figure class="figure m-0 d-flex justify-content-center">
+									<img src="<c:if test="${not empty base64Image}">
+									data:image/jpeg;base64,${base64Image}</c:if>"
+									class="ifigure-img img-fluid rounded">
+								</figure>
+						</div>
+                    <div class="col-8">講師名稱 ${courseData.teacher.username}</div>
+                  </div>
+                  <br />
+                  <div class="row">
+                    講師簡介 ${courseData.teacher.introduction.introductionText}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <!-- course overview code END -->
+          <div class="tab-pane" id="qa">這裡是問與答。</div>
+          <div class="tab-pane" id="reviews">這裡是評論。</div>
 
+      </div>
+    </div>
 
 	<!-- CDN引入 -->
 	<!-- 		<script -->
@@ -357,6 +469,56 @@
 		$(".close-btn").on('click', function() {
 			$(".sidebar").removeClass('active');
 		})
+		
+		let contextPath = '<%= request.getContextPath() %>';
+
+function loadVideo(uuid) {
+	alert("TEST")
+
+    console.log("UUID:", uuid);  // 顯示UUID以確認它是否正確
+
+     let curl = contextPath + '/api/videos/' + uuid;  // 直接用 JavaScript 來拼接 URL
+     $.ajax({
+        url: curl,
+        type: 'GET',
+        xhrFields: {
+            responseType: 'blob'
+        },
+        success: function(response){
+            // 使用 Blob 來處理影片資料
+            var blob = new Blob([response], { type: 'video/mp4' });
+            console.log("成功");
+            var url = window.URL.createObjectURL(blob);
+            var videoPlayer = document.getElementById('videoPlayer'); // 更新為您指定的 video 標籤的 id
+            videoPlayer.src = url;
+        },
+        error: function(response){
+            console.log("失敗", response);
+        }
+    });
+} 
+$('#photoContainer').on("change", "#imgbtn", function () {
+	
+    image = $(this).prev().children().children()[0]
+    // console.log("test"+video)
+    console.log(image)
+
+    let input = $(this)[0].files;
+    // console.log(input)
+    // console.log(input.length)
+    if (input.length > 0) {
+        let fileReader = new FileReader();
+
+        let fileToLoad = input[0];
+        console.log("fileToLoad=" + fileToLoad.name);
+        fileReader.onload = function (fileLoadedEvent) {
+        	image.src = fileLoadedEvent.target.result;
+        };
+        fileReader.readAsDataURL(fileToLoad);
+    }
+	
+    $('#photoContainer').children().children('div').eq(1).removeAttr('style')
+})
 	</script>
 
 

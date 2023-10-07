@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -117,56 +118,32 @@
 								<a href="<c:url value='/homepage' />">首頁</a>
 							</li>
 							<li class="breadcrumb-item">
-								<a href="<c:url value='/searchsort?sort=${courseData.sort}' />">${courseData.sort}</a>
+<%-- 								<a href="<c:url value='/searchsort?sort=${courseData.sort}' />">${courseData.sort}</a> --%>
+<!-- 之後做成動態 -->
+									<a href="<c:url value='/homepage' />">行銷</a>
 							</li>
-							<li class="breadcrumb-item active" aria-current="page">${courseData.title}</li>
+							<li class="breadcrumb-item active" aria-current="page">${articleData.articleTitle}</li>
 						</ol>
 					</nav>
 					<div class="row gx-4 gx-lg-5 align-items-center my-5">
 						<div class="col-lg-7">
-							<img class="img-fluid rounded mb-4 mb-lg-0" src="${courseData.dataUri}" alt="...">
+							<img class="img-fluid rounded mb-4 mb-lg-0" src="data:image/jpeg;base64,${articleData.dataUri}" alt="...">
 						</div>
 						<div class="col-lg-5">
 							<div class="container px-0">
 								<div class="row">
 									<h1 style="font-weight: bolder;">
-										<strong>${courseData.title}</strong>
+										<strong>${articleData.articleTitle}</strong>
 									</h1>
 								</div>
 								<div class="row">
-									<p class="mb-2" style="font-size: small;">${courseData.teacher.username}</p>
+									<p class="mb-2" style="font-size: x-large ;">${articleData.teacher.username}</p>
 								</div>
-								<div class="row d-inline ">
-									<strong style="font-size: large;">3.5 </strong>
-									<i class="bi bi-star-fill px-0"></i>
-									<i class="bi bi-star-fill px-0"></i>
-									<i class="bi bi-star-fill px-0"></i>
-									<i class="bi bi-star-half px-0"></i>
-									<i class="bi bi-star px-0"></i>
-									(120)
+								<fmt:formatDate value="${articleData.postTime}" pattern="yyyy-MM-dd" var="postTime"/>
+								<div class="row">
+									<p class="mb-2" style="font-size: large;">${postTime}</p>
 								</div>
-								<div class="row mt-2">
-									<div class="col">
-										<p class="mb-0" style="font-weight: bolder; font-size: large;">NT $ ${courseData.price}</p>
-									</div>
-								</div>
-								<div class="row mt-2">
-									<p>${courseData.introduction}</p>
-								</div>
-								<div class="row align-items-center">
-									<div class="col-2 ">
-										<i class="fa-regular fa-heart fa-lg align-items-center" style="color: #f70000;"></i>
-									</div>
-									<div class="col-5">
-										<a class="btn btn-primary" href="<c:url value='/addtocart?id=${courseData.id} ' />">加入購物車</a>
-									</div>
-									<div class="col-5">
-										<a class="btn btn-primary" href="<c:url value='/buyone?id=${courseData.id} ' />">立即購買</a>
-									</div>
-								</div>
-
 							</div>
-
 						</div>
 
 					</div>
@@ -174,7 +151,7 @@
 					<section class="mb-5">
 					<hr>
 					<c:choose>
-					<c:when test="${not empty courseData.courseContent}">${courseData.courseContent}</c:when>
+					<c:when test="${not empty articleData.articleContent}">${articleData.articleContent}</c:when>
 					<c:otherwise>
 						<h3 class="fw-bolder mb-4 mt-5">課程介紹</h3>
 						<hr class="hrBorder">
@@ -195,41 +172,18 @@
 						
 					</section>
 
-					<div class="accordion" id="accordionExample">
-						<c:forEach items="${courseData.chapter}" var="chapter">
-							<div class="accordion-item">
-								<h2 class="accordion-header">
-									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${chapter.chapterId}" aria-expanded="false" aria-controls="collapseOne">${chapter.chapterName}</button>
-								</h2>
-								<div id="collapse${chapter.chapterId}" class="accordion-collapse collapse ">
-									<div class="accordion-body">
-										<ul class="list-group list-group-flush">
-											<c:forEach items="${chapter.unit}" var="unit">
-												<li class="list-group-item">
-													<div class="d-flex w-100 justify-content-between">
-														<h5 class="mb-1">${unit.unitName}</h5>
-														<small>07:20</small>
-													</div>
-												</li>
-											</c:forEach>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</c:forEach>
-					</div>
-
 					<h4 class="fw-bolder mb-4 mt-5">講師介紹</h4>
-					<a href="<c:url value='/blogpage?id=${courseData.teacher.id} ' />" class="text-reset text-decoration-none">
+					<a href="<c:url value='/blogpage?id=${articleData.teacher.id} ' />" class="text-reset text-decoration-none">
 					<div class="m-2">
 						<img class="teacherImg img-fluid rounded-circle" src="<c:choose>
-						<c:when test="${not empty courseData.teacher.dataUri}">data:image/jpeg;base64,${courseData.teacher.dataUri}</c:when>
+						<c:when test="${not empty articleData.teacher.dataUri}">data:image/jpeg;base64,${articleData.teacher.dataUri}</c:when>
 						<c:otherwise>\SpringEEIT69-5Mart\assets\images\人像頭貼001.jpg</c:otherwise>
 					</c:choose>" alt="...">
 					</div>
 					</a>
+
 					<div class="col">
-						<p class="mb-2" style="font-size: lg;">${courseData.teacher.username}</p>
+						<p class="mb-2" style="font-size: lg;">${articleData.teacher.username}</p>
 						<div class="container px-0">
 							<div class="row"></div>
 							<div class="row"></div>
@@ -246,7 +200,7 @@
 						</div>
 
 					</div>
-					<h4 class="fw-bolder mb-4 mt-5">課程評價</h4>
+					<h4 class="fw-bolder mb-4 mt-5">文章評價</h4>
 			</div>
 		</div>
 		<!-- Comments section-->
@@ -257,47 +211,19 @@
 					<form class="mb-4" action="<c:url value='/courseDetail'/>" method="post">
 						<textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!" name="QuestionText"></textarea>
 					<input type="hidden" name="id" value="${param.id}">
-					<button type="submit" class="btn btn-outline-secondary" >送出評論</button>
+					<button type="button" class="btn btn-outline-secondary" >送出評論</button>
 					
 					</form>
 					<p></p>
 					<!-- Comment with nested comments-->
-					<c:forEach var="studentQuestions" items="${studentQuestions}">
-					<div class="d-flex mb-4">
-						<!-- Parent comment-->
-						<div class="flex-shrink-0">
-							<img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
-						</div>
-						
-						<div class="ms-3">
-							<div class="fw-bold">${studentQuestions.member.username}</div>
-							
-							<div>
- 							${studentQuestions.questionText}
-							</div>
-							<!-- Child comment 1-->
-							<div class="d-flex mt-4">
-								<div class="flex-shrink-0">
-									<img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
-								</div>
-								<div class="ms-3">
-									<div class="fw-bold">Zhang Sam</div>
-									And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.
-								</div>
-							</div>
-							
-						</div>
-						
-					</div>
-					</c:forEach>
 					<!-- Single comment-->
 					<div class="d-flex">
 						<div class="flex-shrink-0">
 							<img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
 						</div>
 						<div class="ms-3">
-							<div class="fw-bold">Commenter Name</div>
-							When I look at the universe and all the ways the universe wants to kill us, I find it hard to reconcile that with statements of beneficence.
+							<div class="fw-bold">學生A</div>
+							說得太好了
 						</div>
 					</div>
 					

@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- 響應式的引入 -->
 
-<title>5Mart線上教學平台</title>
+<title>教師導覽列</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -54,27 +54,25 @@
 
 <style type="text/css">
 </style>
-    <style>
-        .center-button {
-            text-align: center; /* 设置按钮文本水平居中 */
-        }
-    </style>
+
 </head>
 
 <body>
 	<div class="main-container d-flex">
 		<div class="sidebar" id="side_nav">
 			<div class="header-box ms-2 px-2 pt-3 pb-4 d-flex justify-content-between">
+			<a href="<c:url value="/homepage"></c:url>" class="text-decoration-none">
 				<h1 class="fs-4">
 					<span class="bg-white text-dark rounded shadow px-2 me-2">S</span><span class="text-white me-2">mart</span>
 				</h1>
+				</a>
 				<button class="btn d-md-none d-block close-btn px-1 py-0 text-white">
 					<i class="fa-solid fa-bars-staggered"></i>
 				</button>
 			</div>
 			<ul class="list-unstyled px-2">
-				<li class=" my-1">
-					<a href="<c:url value="/studentIndex"></c:url>#sublist" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block ">
+				<li class="my-1">
+					<a href="<c:url value="/studentIndex"></c:url>" class="text-decoration-none px-3 py-2 d-block ">
 						<i class="fa-solid fa-tv pe-3" style="color: #ffffff;"></i>Dashboard
 					</a>
 					<%-- <ul id="sublist" class="list-unstyled collapse">
@@ -99,7 +97,7 @@
 					</ul> --%>
 				</li>
 				<li class="my-1">
-					<a href="<c:url value="/studentCourseList"></c:url>#sublist1" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between ">
+					<a href="<c:url value="/studentCourseList"></c:url>#sublist1" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between ">
 						<span><i class="fa-solid fa-pencil pe-3" style="color: #ffffff;"></i>課程中心</span><span class="bg-dark rounded-pill text-white py-0 px-2">01</span>
 					</a>
 					<!-- <ul id="sublist1" class="list-unstyled collapse">
@@ -114,9 +112,9 @@
 						</li>
 					</ul> -->
 				</li>
-				<li class="my-1">
+				<li class="active my-1">
 					<a href="<c:url value="/studentNotification"></c:url>#sublist2" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between ">
-						<span><i class="fa-solid fa-comment pe-3" style="color: #ffffff;"></i>通知中心</span><span class="bg-dark rounded-pill text-white py-0 px-2">02</span>
+						<span><i class="fa-solid fa-comment pe-3" style="color: #ffffff;"></i>通知中心</span><span class="bg-dark rounded-pill text-white py-0 px-2">06</span>
 					</a>				
 					<ul id="sublist2" class="list-unstyled collapse">
 						<li>
@@ -161,7 +159,7 @@
 			<hr class="h-color mx-2">
 
 			<ul class="list-unstyled px-2">
-				<li class="active">
+				<li class="">
 					<a href="<c:url value="/profileSettingPage"></c:url>#sublist4" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block">
 						<i class="fa-solid fa-gear pe-3" style="color: #ffffff;"></i>設定
 					</a>
@@ -277,43 +275,13 @@
 				</div>
 			</nav>
 
-			<div class="dashboard-content px-3 my-3">
-				${member.account}
-				<h2>安全性頁面</h2>
-						<hr>
-							<div>
-								<form>
-						<div class="row">
-						<div class="col-4"></div>
-							<div class="col-4 mb-3">
-								<label for="exampleInputPassword1" class="form-label"></label> <input
-									type="password" class="form-control" id="exampleInputPassword1"
-									placeholder="輸入目前密碼">
-							
-							</div>
-							</div>
-							<div class="row">
-						<div class="col-4"></div>
-							<div class="col-4 mb-3">
-								<label for="exampleInputPassword1" class="form-label"></label> <input
-									type="password" class="form-control" id="exampleInputPassword1"
-									placeholder="輸入新的密碼">
-							</div>
-							</div>
-							<div class="row">
-						<div class="col-4"></div>
-							<div class="col-4 mb-3">
-								<label for="exampleInputPassword1" class="form-label"></label> <input
-									type="password" class="form-control" id="exampleInputPassword1"
-									placeholder="確認新的密碼">
-							</div>
-							</div>
-                              <div class="d-flex justify-content-center">
-                                   <button class="btn btn-primary btn-sm" type="submit">儲存設定</button> 
-                              </div>
-							</form>
-						</div>
-					</div>
+			<div class="dashboard-content px-3 pt-4">
+				<h1 class="fs-5">Dashboard</h1>
+				<!-- 				<p>這裡可以填入內容</p> -->
+
+				<h2>通知中心</h2>
+
+				<!-- 				<p>這裡可以填入內容</p> -->
 			</div>
 		</div>
 
@@ -333,6 +301,22 @@
 
 	<!-- bootstrap -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+		integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+		integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+		integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+		integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+		crossorigin="anonymous"></script>
 	<!-- bootstrap -->
 	<script type="text/javascript">
 		$(".sidebar ul li").on('click', function() {
@@ -340,10 +324,9 @@
 			$(this).addClass('active');
 		})
 
-
 		$(".sidebar ul li").mouseenter(function() {
 			$(this).find('.fa-solid').css("color", "#123");
-			
+
 		})
 
 		$(".sidebar ul li").mouseleave(function() {
@@ -358,7 +341,49 @@
 			$(".sidebar").removeClass('active');
 		})
 	</script>
+	<script>
+		/* globals Chart:false, feather:false */
 
+		(
+				function() {
+					'use strict'
+
+					feather.replace()
+
+					// Graphs
+					var ctx = document.getElementById('myChart')
+					// eslint-disable-next-line no-unused-vars
+					var myChart = new Chart(ctx, {
+						type : 'line',
+						data : {
+							labels : [ 'Sunday', 'Monday', 'Tuesday',
+									'Wednesday', 'Thursday', 'Friday',
+									'Saturday' ],
+							datasets : [ {
+								data : [ 15339, 21345, 18483, 24003, 23489,
+										24092, 12034 ],
+								lineTension : 0,
+								backgroundColor : 'transparent',
+								borderColor : '#007bff',
+								borderWidth : 4,
+								pointBackgroundColor : '#007bff'
+							} ]
+						},
+						options : {
+							scales : {
+								yAxes : [ {
+									ticks : {
+										beginAtZero : false
+									}
+								} ]
+							},
+							legend : {
+								display : false
+							}
+						}
+					})
+				})()
+	</script>
 
 </body>
 </html>
