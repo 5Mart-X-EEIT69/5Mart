@@ -49,4 +49,5 @@ node_modules
 .DS_Store
 
 # Store local JARs in the folder
+!/libs/
 !/libs/*.jar
