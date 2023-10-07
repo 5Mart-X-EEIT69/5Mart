@@ -183,6 +183,9 @@ public class StudentController {
 			Introduction introduction = newMember.getIntroduction();
 			model.addAttribute("introduction",introduction);
 			
+			member memberUpdate = memberService.findByMemberId(member.getId());
+			model.addAttribute("member", memberUpdate);
+			
 			
 			
 			return "/StudentLMS/SettingsService/profileSettingPage";   
