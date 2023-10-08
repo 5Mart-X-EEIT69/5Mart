@@ -48,5 +48,3 @@ replay_pid*
 node_modules
 .DS_Store
 
-# Store local JARs in the folder
-libs/  # 包含 libs 資料夾及其內容
