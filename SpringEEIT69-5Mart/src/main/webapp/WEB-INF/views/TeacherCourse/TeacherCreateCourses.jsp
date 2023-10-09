@@ -132,7 +132,7 @@
 
 <body>
 	<div class="d-flex flex-row min-vh-100">
-		<div class="col-2 d-flex flex-column p-3 bg-light">
+		<div class="col-xxl-2 col-3 d-flex flex-column p-3 bg-light">
 			<a href="<c:url value="/homepage"></c:url>"
 				class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
 				<span style="font-size: 40px;"><i class="bi bi-5-square "></i>
@@ -182,9 +182,9 @@
 			<hr>
 		</div>
 		<!-- 		選單右邊 -->
-		<div class="col-2"></div>
-		<div class="col-4 bs-stepper" style="margin-top: 32px">
-			<h1>建立你的課程</h1>
+		<div class="col-1"></div>
+		<div class="col-6 bs-stepper" style="margin-top: 32px">
+			<h1 class="text-center">建立你的課程</h1>
 			<hr>
 			<div class="bs-stepper-header" role="tablist">
 				<!-- your steps here -->
@@ -410,7 +410,7 @@
 			</div>
 		</div>
 
-		<div class="col-4">test</div>
+		<div class="col-xxl-1 "></div>
 	</div>
 	<script>
         window.onload = function () {

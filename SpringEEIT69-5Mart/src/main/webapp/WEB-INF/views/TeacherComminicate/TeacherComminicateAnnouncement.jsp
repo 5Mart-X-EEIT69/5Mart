@@ -35,7 +35,7 @@
 </script>
 <body>
 	<div class="d-flex flex-row min-vh-100">
-		<div class="col-2 d-flex flex-column p-3 bg-light">
+		<div class="col-xxl-2 col-3 d-flex flex-column p-3 bg-light">
 			<a href="<c:url value="/homepage"></c:url>"
 				class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
 				<span style="font-size: 40px;"><i class="bi bi-5-square "></i>
@@ -82,7 +82,7 @@
 			<hr>
 		</div>
 		<!-- 		選單右邊 -->
-		<div class="col-1">test</div>
+		<div class="col-1"></div>
 		<div class="col-7 pb-3" style="padding: 72px 0 0;">
 			    
         <h1>公告</h1>
@@ -149,12 +149,7 @@
 </c:forEach>
         </div>
     </div>
-		<div class="col-2">
-			<form action="<c:url value="/newannouncement" />" method="post">
-				<input type="text" name="content">
-				<input type="submit" value="提交">
-			</form>
-			
+		<div class="col-xxl-2 col-1">			
 		</div>
 
 	</div>
