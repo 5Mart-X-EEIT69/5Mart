@@ -34,7 +34,7 @@
 </script>
 <body>
 	<div class="bg-primary d-flex flex-row min-vh-100">
-		<div class="col-2 d-flex flex-column p-3 bg-light">
+		<div class="col-xxl-2 col-3 d-flex flex-column p-3 bg-light">
 			<a href="<c:url value="/homepage"></c:url>"
 				class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
 				<span style="font-size: 40px;"><i class="bi bi-5-square "></i>
@@ -77,7 +77,7 @@
 <!-- 		選單右邊 -->
 		<div class="col-2">test</div>
 		<div class="col-4">test</div>
-		<div class="col-4">test</div>
+		<div class="col-xxl-4 col-3">test</div>
 	</div>
 
 

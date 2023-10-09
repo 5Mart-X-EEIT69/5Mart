@@ -129,7 +129,7 @@ var homepageUrl = "<c:url value='/homepage' />"
 
 	<div class="container-fluid p-0 ">	
 		<div class="row no-gutters">
-			<div class="col-md-7 left-background">
+			<div class="col-xxl-7 col-6 left-background">
 				<div class="content p-5">
 
 
@@ -350,7 +350,7 @@ var homepageUrl = "<c:url value='/homepage' />"
 				</div>
 			</div>
 			
-			<div class="col-md-5 right-background">
+			<div class="col-xxl-5 col-6 right-background">
 <!--     <div class="content p-3 "> -->
 <!--         <h4 style="font-weight: bold;">摘要</h4> -->
         
@@ -385,7 +385,7 @@ var homepageUrl = "<c:url value='/homepage' />"
 <!--         </div> -->
     
 
-			<div class="col-md-5 right-background">
+			<div class="col-xxl-5 col-md-6 right-background">
 				<div class="content p-3 ">
 
 					<h4 style="font-weight: bold;">摘要</h4>
