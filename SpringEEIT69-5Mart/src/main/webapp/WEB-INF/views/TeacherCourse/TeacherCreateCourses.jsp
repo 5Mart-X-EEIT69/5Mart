@@ -182,8 +182,8 @@
 			<hr>
 		</div>
 		<!-- 		選單右邊 -->
-		<div class="col-1"></div>
-		<div class="col-6 bs-stepper" style="margin-top: 32px">
+		<div class="col-xxl-2 col-1"></div>
+		<div class="col-xxl-4 col-6 bs-stepper" style="margin-top: 32px">
 			<h1 class="text-center">建立你的課程</h1>
 			<hr>
 			<div class="bs-stepper-header" role="tablist">
@@ -410,7 +410,7 @@
 			</div>
 		</div>
 
-		<div class="col-xxl-1 "></div>
+		<div class="col-xxl-3 "></div>
 	</div>
 	<script>
         window.onload = function () {

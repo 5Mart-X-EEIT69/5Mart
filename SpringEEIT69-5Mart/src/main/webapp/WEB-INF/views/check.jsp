@@ -10,18 +10,28 @@
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <!-- jquery -->
 <!-- bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<link rel='stylesheet' href="<c:url value='/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.css' />" type="text/css" />
+<script src="<c:url value="/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.js"/>"></script>
+
 <link rel='stylesheet' href="<c:url value="/assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css"/>" type="text/css" />
 <!-- bootstrap -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<!-- google fonts的icon庫引入 -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0" />
+<!-- google fonts的icon庫引入 -->
+
+<!-- font awesome的icon庫引入 -->
+<script src="https://kit.fontawesome.com/7ae43304d6.js" crossorigin="anonymous"></script>
+<!-- font awesome的icon庫引入 -->
 <style>
-.navbar-nav .nav-link {
-	color: purple !important;
-	font-size: small;
-	/* 設置文字顏色為紫色 */
-	text-decoration: underline !important;
-	/* 添加底線 */
-}
+/* .navbar-nav .nav-link { */
+/* 	color: purple !important; */
+/* 	font-size: small; */
+/* 	/* 設置文字顏色為紫色 */ */
+/* 	text-decoration: underline !important; */
+/* 	/* 添加底線 */ */
+/* } */
 
 .list-group-item {
 	border: 1px solid #ccc;
@@ -115,22 +125,18 @@ var homepageUrl = "<c:url value='/homepage' />"
 
 
 <body>
-	<nav class="navbar" style="background-color: #ffffff; box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="<c:url value="/homepage" />">5MART</a>
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item">
-					<a class="nav-link" href="#">取消</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
+	<!-- 導覽列 -->
+	<c:choose>
+		<c:when test="${not empty member.account}"><jsp:include page="/WEB-INF/views/memberNavBar.jsp" /></c:when>
+		<c:otherwise><jsp:include page="/WEB-INF/views/visitorNavBar.jsp" /></c:otherwise>
+	</c:choose>
+	<!-- 導覽列 -->
 
 
 	<div class="container-fluid p-0 ">	
 		<div class="row no-gutters">
 			<div class="col-xxl-7 col-6 left-background">
-				<div class="content p-5">
+				<div class="content p-3">
 
 
 					<h2 style="font-weight: bold;">結帳</h2>
@@ -392,14 +398,14 @@ var homepageUrl = "<c:url value='/homepage' />"
 
 					<div class="row">
 						<div class="col-4">金額：</div>
-						<div class="col-4">$ ${course.price}</div>
+						<div class="col-6">$ ${course.price}</div>
 					</div>
 
 					<br>
 
 					<div class="row">
 						<div class="col-4">折扣：</div>
-						<div class="col-4">$0</div>
+						<div class="col-6">$0</div>
 					</div>
 
 					<div class="row">
@@ -410,7 +416,7 @@ var homepageUrl = "<c:url value='/homepage' />"
 
 					<div class="row" style="font-weight: bold;">
 						<div class="col-4">總計：</div>
-						<div class="col-4">$ ${course.price}</div>
+						<div class="col-6">$ ${course.price}</div>
 					</div>
 
 					<br>

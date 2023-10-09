@@ -82,20 +82,20 @@
 	</c:choose>
 	<!-- 導覽列 -->
 
-	<div class="container mt-5">
+	<div class="container mt-5 mx-5">
 		<h1>課程名稱</h1>
 		<!-- 使用 Bootstrap Grid System 進行布局 -->
 		<div class="row">
 		
 			<!-- 影片播放器 -->
-			<div class="col-md-8">
+			<div class="col-xxl-8 col-9">
 				<video id="videoPlayer" width="800" controls>
 					<source id="videoSource" type="video/mp4">
 				</video>
 			</div>
 
 			<!-- 章節和單元的選單（手風琴） -->
-			<div class="accordion col-md-4" id="accordionExample">
+			<div class="accordion col-xxl-4 col-3" id="accordionExample">
 				<c:forEach items="${courseData.chapter}" var="chapter">
 					<div class="accordion-item">
 						<h1 class="accordion-header">
@@ -142,7 +142,7 @@
 			<div class="tab-content">
 				<div class="tab-pane active" id="overview">
 					<!-- course overview code START -->
-					<div class="container">
+					<div class="container pb-3">
 						<div class="row">
 							<div>
 								<h3 style="font-weight: bold">關於此課程</h3>
@@ -203,23 +203,28 @@
 						<br />
 						<div class="row">
 							<div class="col-4">講師</div>
-							<div class="col-4">
+							<div class="col-8">
 								<div class="row">
-									<div class="col-3">
-										<div class="w-100 mb-3 border rounded"
-											<c:if test="${empty base64Image}">style="height: 357px"</c:if>>
-											<figure class="figure m-0 d-flex justify-content-center">
+									<div class="col-4">
+										<div class="w-100 mb-3">
+											<figure class="figure m-0 d-flex">
 												<img
 													src="<c:if test="${not empty base64Image}">
 									data:image/jpeg;base64,${base64Image}</c:if>"
 													class="ifigure-img img-fluid rounded">
 											</figure>
 										</div>
-										<div class="col-8">講師名稱 ${courseData.teacher.username}</div>
 									</div>
+										<div class="col-4">
+											<div> 講師名稱 : </div>
+											<div>${courseData.teacher.username}</div>
+										</div>
+										
 									<br />
-									<div class="row">講師簡介
-										${courseData.teacher.introduction.introductionText}</div>
+									<div class="col-4">
+										<div> 講師簡介 : </div>
+										<div>${courseData.teacher.introduction.introductionText}</div>
+									</div>
 								</div>
 							</div>
 						</div>

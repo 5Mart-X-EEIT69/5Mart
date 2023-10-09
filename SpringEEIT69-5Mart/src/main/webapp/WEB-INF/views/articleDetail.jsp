@@ -109,7 +109,7 @@
 	<!-- Page content -->
 	<div class="container mt-5">
 		<div class="row">
-			<div class="col-lg-8">
+			<div class="col-lg-12">
 				<!-- Post content-->
 				<article>
 					<nav aria-label="breadcrumb">
