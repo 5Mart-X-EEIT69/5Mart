@@ -300,7 +300,7 @@
 				<!-- 課程列表START -->
                <h4>課程總覽</h4>
 				<div class="container" style="position: relative;">
-					<div class="row row-cols-1 row-cols-md-4 g-4">
+					<div class="row row-cols-1 row-cols-xxl-4 row-cols-3 g-4">
 						<c:forEach items="${CourseList}" var="course">
 							<a href="<c:url value='/coursePlayerPage?id=${course.id} ' />"
 								class="text-reset text-decoration-none">

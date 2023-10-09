@@ -237,7 +237,7 @@ hr {
 				<div class="row slick-card-hotarticle">
 					<c:forEach items="${teacher.createArticle}" var="article">
 						<a href="<c:url value='/articleDetail?id=${article.id} ' />"
-							class="col-6 text-reset text-decoration-none">
+							class="col-6 mb-3 text-reset text-decoration-none">
 							<div class="card">
 								<img class="card-img-top"
 									src="

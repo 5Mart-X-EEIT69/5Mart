@@ -108,7 +108,7 @@
 	<!-- Page content -->
 	<div class="container mt-5">
 		<div class="row">
-			<div class="col-lg-8">
+			<div class="col-lg-12">
 				<!-- Post content-->
 				<article>
 					<nav aria-label="breadcrumb">
@@ -154,15 +154,17 @@
 									<p>${courseData.introduction}</p>
 								</div>
 								<div class="row align-items-center">
-									<div class="col-2 ">
-										<i class="fa-regular fa-heart fa-lg align-items-center" style="color: #f70000;"></i>
+									<div class="col-12 d-flex justify-content-end">
+<!-- 										<div class="col-5 ps-2 pe-0"> -->
+										<span class="align-middle mt-1"><i class="fa-regular fa-heart fa-lg px-2 pt-1" style="color: #f70000;"></i></span>
+<!-- 										</div> -->
+										<a class="btn btn-primary mx-2" href="<c:url value='/addtocart?id=${courseData.id} ' />">加入購物車</a>
+										<a class="btn btn-primary mx-2" href="<c:url value='/buyone?id=${courseData.id} ' />">立即購買</a>
 									</div>
-									<div class="col-5">
-										<a class="btn btn-primary" href="<c:url value='/addtocart?id=${courseData.id} ' />">加入購物車</a>
-									</div>
-									<div class="col-5">
-										<a class="btn btn-primary" href="<c:url value='/buyone?id=${courseData.id} ' />">立即購買</a>
-									</div>
+<!-- 									<div class="col-5 ps-2 pe-0"> -->
+<!-- 									</div> -->
+<!-- 									<div class="col-5"> -->
+<!-- 									</div> -->
 								</div>
 
 							</div>
