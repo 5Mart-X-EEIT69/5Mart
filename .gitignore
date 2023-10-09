@@ -34,6 +34,7 @@ buildNumber.properties
 
 # Package Files #
 *.jar
+!SpringEEIT69-5Mart/libs/*.jar
 *.war
 *.nar
 *.ear
@@ -47,3 +48,5 @@ replay_pid*
 
 node_modules
 .DS_Store
+
+
