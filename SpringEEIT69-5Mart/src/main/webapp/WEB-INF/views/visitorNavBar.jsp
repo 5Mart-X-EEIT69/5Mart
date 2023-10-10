@@ -56,7 +56,7 @@
 				// 使用正則表達式來驗證電子郵件格式
 				var regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 				if (!regex.test(userEmail)) {
-					$(".duplicateEmail").text("信箱的格式格式"); // 更新警告訊息
+					$(".duplicateEmail").text("信箱的格式有誤"); // 更新警告訊息
 					$("#emailInput").css("border", "2px solid red");
 					register();
 					return;
@@ -207,10 +207,12 @@
 
 	});
 </script>
-<nav class="navbar navbar-expand-lg bg-body-tertiary  sticky-top shadow">
+<nav class="navbar navbar-expand-lg bg-body-tertiary  sticky-top shadow py-1">
 	<div class="container-fluid">
 		<!-- 品牌logo -->
-		<a class="navbar-brand" href="<c:url value='/homepage' />"> <i class="fa-solid fa-graduation-cap fa-xl px-2"></i>
+		<a class="navbar-brand ms-3" href="<c:url value='/homepage' />">
+			<img class="" src="\SpringEEIT69-5Mart\assets\images\5Mart_logo.png" style="width: 46px; height: 46px; object-fit: cover;" />
+<!-- 			<i class="fa-solid fa-graduation-cap fa-xl px-2"></i> -->
 		</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
