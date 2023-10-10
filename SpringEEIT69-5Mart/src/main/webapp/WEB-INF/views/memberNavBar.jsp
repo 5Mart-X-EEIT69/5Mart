@@ -33,7 +33,7 @@
 		});
 	});
 </script>
-<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top shadow-lg">
+<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top shadow-lg py-1">
 	<div class="container-fluid ">
 		<!-- 品牌logo -->
 		<a class="navbar-brand ms-3" href="<c:url value='/homepage' />">
