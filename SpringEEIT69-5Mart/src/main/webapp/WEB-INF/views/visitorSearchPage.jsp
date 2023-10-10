@@ -8,7 +8,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- 響應式的引入 -->
 
-<title>搜尋首頁(訪客)</title>
+<title>5Mart線上教育平台</title>
+<link rel="shortcut icon" href="\SpringEEIT69-5Mart\assets\images\favicon.ico" type="image/x-icon">
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -158,7 +159,7 @@
 		<c:otherwise><jsp:include page="/WEB-INF/views/visitorNavBar.jsp" /></c:otherwise>
 	</c:choose>
 	<!-- 導覽列 -->
-	<div>帳號 ${member.account}</div>
+<%-- 	<div>帳號 ${member.account}</div> --%>
 
 	<div class="container">
 		<div class="row">

@@ -10,7 +10,8 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <title>課程學習頁面</title>
+    <title>5Mart線上教育平台</title>
+<link rel="shortcut icon" href="\SpringEEIT69-5Mart\assets\images\favicon.ico" type="image/x-icon">
     <style>
       /* 自定義CSS，讓tab分頁佔滿寬度 */
       .tab-pane {

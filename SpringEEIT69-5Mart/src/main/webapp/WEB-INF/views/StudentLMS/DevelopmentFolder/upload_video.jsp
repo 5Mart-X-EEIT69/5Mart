@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Upload Video to 5Mart ＭariaDB</title>
+<title>5Mart線上教育平台</title>
+<link rel="shortcut icon" href="\SpringEEIT69-5Mart\assets\images\favicon.ico" type="image/x-icon">
 </head>
 <body>
 
