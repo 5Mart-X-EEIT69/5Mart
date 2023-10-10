@@ -36,8 +36,9 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top shadow-lg">
 	<div class="container-fluid ">
 		<!-- 品牌logo -->
-		<a class="navbar-brand" href="<c:url value='/homepage' />">
-			<i class="fa-solid fa-graduation-cap fa-xl px-2"></i>
+		<a class="navbar-brand ms-3" href="<c:url value='/homepage' />">
+			<img class="" src="\SpringEEIT69-5Mart\assets\images\5Mart_logo.png" style="width: 46px; height: 46px; object-fit: cover;" />
+<!-- 			<i class="fa-solid fa-graduation-cap fa-xl px-2"></i> -->
 		</a>
 		<!-- style="color: #ffffff;" -->
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
