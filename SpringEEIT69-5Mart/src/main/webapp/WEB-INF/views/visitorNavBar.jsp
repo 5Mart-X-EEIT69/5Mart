@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <link rel='stylesheet' href="<c:url value='/assets/css/visitorHomePage.css' />" type="text/css" />
+
 <script type="text/javascript">
 	var checkNameUrl = "<c:url value='/checkname' />";
 	$(document).ready(function() {
@@ -187,7 +188,7 @@
 						// 設定 1 秒後轉到登入視窗
 						setTimeout(function() {
 							registrationToast.hide();
-						}, 1800); 
+						}, 1800);
 					}
 				}
 			});
@@ -207,21 +208,26 @@
 
 	});
 </script>
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary  sticky-top shadow py-1">
 	<div class="container-fluid">
 		<!-- 品牌logo -->
 		<a class="navbar-brand ms-3" href="<c:url value='/homepage' />">
 			<img class="" src="\SpringEEIT69-5Mart\assets\images\5Mart_logo.png" style="width: 46px; height: 46px; object-fit: cover;" />
-<!-- 			<i class="fa-solid fa-graduation-cap fa-xl px-2"></i> -->
+			<!-- 			<i class="fa-solid fa-graduation-cap fa-xl px-2"></i> -->
 		</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item dropdown px-2"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 課程類別 </a> <jsp:include page="/WEB-INF/views/sortNavbar.jsp" /></li>
+				<li class="nav-item dropdown px-2">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 課程類別 </a>
+					<jsp:include page="/WEB-INF/views/sortNavbar.jsp" /></li>
 
-				<li class="nav-item px-4"><a class="nav-link" href="#">文章</a></li>
+				<li class="nav-item px-4">
+					<a class="nav-link" href="#">文章</a>
+				</li>
 
 				<li class="nav-item px-10">
 					<form class="d-lg-flex d-none nav-item input-group" action="<c:url value="/visitorsearchpage" />" method="post">
@@ -323,9 +329,14 @@
 					</p>
 				</div>
 				<div class="mb-3">
-					<a class="mx-2" type="button" href="#"> <i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i>
-					</a> <a class="mx-2" type="button" href="#"> <i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i>
-					</a> <a class="mx-2" type="button" href="#"> <i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i>
+					</a>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i>
+					</a>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i>
 					</a>
 				</div>
 
@@ -380,7 +391,10 @@
 					<button type="submit" class="btn btn-secondary mt-3 registerBtn" data-bs-dismiss="modal" disabled>註冊</button>
 					<div class="d-md-flex justify-content-center mt-2">
 						<p>
-							註冊即同意 <a type="button" href="#">隱私權政策</a> 和 <a type="button" href="#">使用者條款</a>
+							註冊即同意
+							<a type="button" href="#">隱私權政策</a>
+							和
+							<a type="button" href="#">使用者條款</a>
 						</p>
 					</div>
 				</form>
@@ -393,9 +407,14 @@
 					</p>
 				</div>
 				<div class="mb-3">
-					<a class="mx-2" type="button" href="#"> <i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i>
-					</a> <a class="mx-2" type="button" href="#"> <i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i>
-					</a> <a class="mx-2" type="button" href="#"> <i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i>
+					</a>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i>
+					</a>
+					<a class="mx-2" type="button" href="#">
+						<i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i>
 					</a>
 				</div>
 			</div>
@@ -407,7 +426,8 @@
 <div id="regToast" class="toast align-items-center text-white bg-success border-0 position-fixed top-75 start-50 m-3 translate-middle" style="z-index: 9999" role="alert" aria-live="assertive" aria-atomic="true">
 	<div class="d-flex">
 		<div class="toast-body fs-5">
-			<i class="bi bi-check-circle-fill me-2"></i>註冊成功
+			<i class="bi bi-check-circle-fill me-2"></i>
+			註冊成功
 		</div>
 		<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
 	</div>
