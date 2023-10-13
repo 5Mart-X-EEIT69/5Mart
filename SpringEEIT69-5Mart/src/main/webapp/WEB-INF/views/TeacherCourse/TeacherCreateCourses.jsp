@@ -184,7 +184,7 @@
 		</div>
 		<!-- 		選單右邊 -->
 		<div class="col-xxl-2 col-1"></div>
-		<div class="col-xxl-4 col-6 bs-stepper" style="margin-top: 32px">
+		<div class="col-xxl-5 col-6 bs-stepper" style="margin-top: 32px">
 			<h1 class="text-center">建立你的課程</h1>
 			<hr>
 			<div class="bs-stepper-header" role="tablist">
@@ -239,8 +239,8 @@
 							name="title" placeholder="輸入你的課程標題..."/>
 					</div>
 					<div class="form-group">
-						<label class="fs-2"> 課程簡介 </label> <input class="form-control"
-							style="height: 7rem" id="introduction" name="introduction" placeholder="輸入你的課程簡介..." />
+						<label class="fs-2"> 課程簡介 </label> <textarea class="form-control"
+							style="height: 7rem" id="introduction" name="introduction" placeholder="輸入你的課程簡介..." ></textarea>
 					</div>
 					<div class="form-group">
 						<label class="fs-2" >售價</label> <input class="form-control" id="price"
@@ -266,9 +266,9 @@
 					aria-labelledby="step1-trigger">
 					<label class="fs-2"> 課程內容 </label>
 					<textarea name="content" id="editor" placeholder="文章內容...">
-							<p>
-								<strong></strong>以下為建議填寫的課程資訊，可以依使用者需求客製化內容<strong></strong><br>
-							</p>
+<!-- 							<p> -->
+<!-- 								<strong></strong>以下為建議填寫的課程資訊，可以依使用者需求客製化內容<strong></strong><br> -->
+<!-- 							</p> -->
 							<h1>
 								<strong>課程介紹</strong>
 							</h1>
@@ -372,8 +372,8 @@
 					<div class="form-group">
 						<label>這堂課適合甚麼程度的學生?</label> <select class="form-select"
 							aria-label="Default select example" id="level" name="level">
-							<option selected></option>
-							<option value="初學">初學</option>
+							<option ></option>
+							<option selected="selected" value="初學">初學</option>
 							<option value="進階">進階</option>
 							<option value="專業">專業</option>
 						</select>
@@ -382,7 +382,7 @@
 						<label>為你的這門課程添加分類吧</label> 
 						<select class="form-select"
 							aria-label="Default select example" id="sort" name="sort">
-							<option selected></option>
+							<option ></option>
 							<option value="語言">語言</option>
 							<option value="開發">開發</option>
 							<option value="行銷">行銷</option>
@@ -411,10 +411,16 @@
 			</div>
 		</div>
 
-		<div class="col-xxl-3 "></div>
+		<div class="col-xxl-2 "></div>
 	</div>
 	<script>
         window.onload = function () {
+            $('#title').val("SQL的五十道練習：初學者友善的資料庫入門");
+            $('#introduction').val("如果日常需要使用資料庫作為分析的數據來源，學會SQL將能大幅提升工作掌握度與職涯發展性，一起完成五十道練習把它學起來！");
+            $('#price').val("2980");
+        	
+        	
+        	
             let chapterAndUnitName = []
         	CKEDITOR.replace( 'editor' ,{
         		contentsCss: ['<c:url value='/assets/vendor/bootstrap-5.3.1-dist/bootstrap.min.css' />'],
@@ -575,7 +581,7 @@
                 // console.log("test"+video)
                 // console.log(video)
 
-                alert(this)
+//                 alert(this)	
                 console.log($(this)[0].files)
                 let input = $(this)[0].files;
                 // console.log(input)
@@ -601,7 +607,7 @@
                 // console.log("test"+photo)
                 // console.log(photo)
 
-                alert(this)
+//                 alert(this)
                 let input = $(this)[0].files;
                 // console.log(input)
                 // console.log(input.length)
@@ -632,7 +638,6 @@
             $('#sort').on("change", function () {
             	console.log($(this)[0].selectedIndex)
             	let index = ($(this)[0].selectedIndex-1);
-            	alert(detailSortData[index]);
             	$('#detailSort').empty();
             	$('#detailSort').append('<option selected></option>')
             	for(var i=0;i<detailSortData[index].length;i++){

@@ -296,271 +296,271 @@
 	<!-- 熱門課程區塊(水平滾動) -->
 
 	<!-- 募資課程區塊(水平滾動) -->
-	<div class="container mb-5" style="position: relative;">
-		<div class="row mb-2">
-			<div class="col-10">
-				<h4>
-					<strong>募資課程</strong>
-				</h4>
-			</div>
-			<div class="col-2">
-				<div class="text-end">
-					<div>
-						<a href="" style="text-decoration: none">更多 ></a>
-					</div>
-				</div>
-			</div>
-		</div>
+<!-- 	<div class="container mb-5" style="position: relative;"> -->
+<!-- 		<div class="row mb-2"> -->
+<!-- 			<div class="col-10"> -->
+<!-- 				<h4> -->
+<!-- 					<strong>募資課程</strong> -->
+<!-- 				</h4> -->
+<!-- 			</div> -->
+<!-- 			<div class="col-2"> -->
+<!-- 				<div class="text-end"> -->
+<!-- 					<div> -->
+<!-- 						<a href="" style="text-decoration: none">更多 ></a> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
 
-		<div class="row slick-card-crowdfundingcourse">
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body py-0">
-					<p class="card-text">
-					<div class="container px-0">
-						<div class="row">
-							<h5 style="font-weight: bolder;">
-								<strong>Java從零開始學習</strong>
-							</h5>
-						</div>
-						<div class="row">
-							<p class="mb-2" style="font-size: small;">趙令文</p>
-						</div>
-						<div class="row d-flex justify-content-between">
-							<div class="col-7" style="font-size: small; font-weight: bolder">募資倒數10天</div>
-							<div class="col-4 text-end" style="font-size: small; font-weight: bolder">25%</div>
-						</div>
-						<div class="row d-flex justify-content-center">
-							<div class="progress px-0" style="width: 90%; height: 0.5rem">
-								<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-						</div>
-						<div class="row pt-3">
-							<div class="col">
-								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT$2,000</p>
-								<p class="mb-0 text-decoration-line-through" style="font-weight: bolder; color: grey; font-size: small;">NT $4,000</p>
+<!-- 		<div class="row slick-card-crowdfundingcourse"> -->
+<!-- 			<div class="card mx-3"> -->
+<!-- 				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖001.jpeg" class="card-img-top" alt="..." /> -->
+<!-- 				<div class="card-body py-0"> -->
+<!-- 					<p class="card-text"> -->
+<!-- 					<div class="container px-0"> -->
+<!-- 						<div class="row"> -->
+<!-- 							<h5 style="font-weight: bolder;"> -->
+<!-- 								<strong>Java從零開始學習</strong> -->
+<!-- 							</h5> -->
+<!-- 						</div> -->
+<!-- 						<div class="row"> -->
+<!-- 							<p class="mb-2" style="font-size: small;">趙令文</p> -->
+<!-- 						</div> -->
+<!-- 						<div class="row d-flex justify-content-between"> -->
+<!-- 							<div class="col-7" style="font-size: small; font-weight: bolder">募資倒數10天</div> -->
+<!-- 							<div class="col-4 text-end" style="font-size: small; font-weight: bolder">25%</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="row d-flex justify-content-center"> -->
+<!-- 							<div class="progress px-0" style="width: 90%; height: 0.5rem"> -->
+<!-- 								<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="row pt-3"> -->
+<!-- 							<div class="col"> -->
+<!-- 								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT$2,000</p> -->
+<!-- 								<p class="mb-0 text-decoration-line-through" style="font-weight: bolder; color: grey; font-size: small;">NT $4,000</p> -->
 
-							</div>
-							<div class="col-4 text-end">
-								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+<!-- 							</div> -->
+<!-- 							<div class="col-4 text-end"> -->
+<!-- 								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i> -->
 
-							</div>
-						</div>
-					</div>
-					</p>
-				</div>
-			</div>
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body py-0">
-					<p class="card-text">
-					<div class="container px-0">
-						<div class="row">
-							<h5 style="font-weight: bolder;">
-								<strong>Java從零開始學習</strong>
-							</h5>
-						</div>
-						<div class="row">
-							<p class="mb-2" style="font-size: small;">趙令文</p>
-						</div>
-						<div class="row d-flex justify-content-between">
-							<div class="col-7" style="font-size: small; font-weight: bolder">募資倒數10天</div>
-							<div class="col-4 text-end" style="font-size: small; font-weight: bolder">25%</div>
-						</div>
-						<div class="row d-flex justify-content-center">
-							<div class="progress px-0" style="width: 90%; height: 0.5rem">
-								<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-						</div>
-						<div class="row pt-3">
-							<div class="col">
-								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT$2,000</p>
-								<p class="mb-0 text-decoration-line-through" style="font-weight: bolder; color: grey; font-size: small;">NT $4,000</p>
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					</p> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<div class="card mx-3"> -->
+<!-- 				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg" class="card-img-top" alt="..." /> -->
+<!-- 				<div class="card-body py-0"> -->
+<!-- 					<p class="card-text"> -->
+<!-- 					<div class="container px-0"> -->
+<!-- 						<div class="row"> -->
+<!-- 							<h5 style="font-weight: bolder;"> -->
+<!-- 								<strong>Java從零開始學習</strong> -->
+<!-- 							</h5> -->
+<!-- 						</div> -->
+<!-- 						<div class="row"> -->
+<!-- 							<p class="mb-2" style="font-size: small;">趙令文</p> -->
+<!-- 						</div> -->
+<!-- 						<div class="row d-flex justify-content-between"> -->
+<!-- 							<div class="col-7" style="font-size: small; font-weight: bolder">募資倒數10天</div> -->
+<!-- 							<div class="col-4 text-end" style="font-size: small; font-weight: bolder">25%</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="row d-flex justify-content-center"> -->
+<!-- 							<div class="progress px-0" style="width: 90%; height: 0.5rem"> -->
+<!-- 								<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="row pt-3"> -->
+<!-- 							<div class="col"> -->
+<!-- 								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT$2,000</p> -->
+<!-- 								<p class="mb-0 text-decoration-line-through" style="font-weight: bolder; color: grey; font-size: small;">NT $4,000</p> -->
 
-							</div>
-							<div class="col-4 text-end">
-								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+<!-- 							</div> -->
+<!-- 							<div class="col-4 text-end"> -->
+<!-- 								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i> -->
 
-							</div>
-						</div>
-					</div>
-					</p>
-				</div>
-			</div>
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body py-0">
-					<p class="card-text">
-					<div class="container px-0">
-						<div class="row">
-							<h5 style="font-weight: bolder;">
-								<strong>Java從零開始學習</strong>
-							</h5>
-						</div>
-						<div class="row">
-							<p class="mb-2" style="font-size: small;">趙令文</p>
-						</div>
-						<div class="row d-flex justify-content-between">
-							<div class="col-7" style="font-size: small; font-weight: bolder">募資倒數10天</div>
-							<div class="col-4 text-end" style="font-size: small; font-weight: bolder">25%</div>
-						</div>
-						<div class="row d-flex justify-content-center">
-							<div class="progress px-0" style="width: 90%; height: 0.5rem">
-								<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-						</div>
-						<div class="row pt-3">
-							<div class="col">
-								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT$2,000</p>
-								<p class="mb-0 text-decoration-line-through" style="font-weight: bolder; color: grey; font-size: small;">NT $4,000</p>
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					</p> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<div class="card mx-3"> -->
+<!-- 				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖003.jpeg" class="card-img-top" alt="..." /> -->
+<!-- 				<div class="card-body py-0"> -->
+<!-- 					<p class="card-text"> -->
+<!-- 					<div class="container px-0"> -->
+<!-- 						<div class="row"> -->
+<!-- 							<h5 style="font-weight: bolder;"> -->
+<!-- 								<strong>Java從零開始學習</strong> -->
+<!-- 							</h5> -->
+<!-- 						</div> -->
+<!-- 						<div class="row"> -->
+<!-- 							<p class="mb-2" style="font-size: small;">趙令文</p> -->
+<!-- 						</div> -->
+<!-- 						<div class="row d-flex justify-content-between"> -->
+<!-- 							<div class="col-7" style="font-size: small; font-weight: bolder">募資倒數10天</div> -->
+<!-- 							<div class="col-4 text-end" style="font-size: small; font-weight: bolder">25%</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="row d-flex justify-content-center"> -->
+<!-- 							<div class="progress px-0" style="width: 90%; height: 0.5rem"> -->
+<!-- 								<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="row pt-3"> -->
+<!-- 							<div class="col"> -->
+<!-- 								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT$2,000</p> -->
+<!-- 								<p class="mb-0 text-decoration-line-through" style="font-weight: bolder; color: grey; font-size: small;">NT $4,000</p> -->
 
-							</div>
-							<div class="col-4 text-end">
-								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+<!-- 							</div> -->
+<!-- 							<div class="col-4 text-end"> -->
+<!-- 								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i> -->
 
-							</div>
-						</div>
-					</div>
-					</p>
-				</div>
-			</div>
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖004.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body py-0">
-					<p class="card-text">
-					<div class="container px-0">
-						<div class="row">
-							<h5 style="font-weight: bolder;">
-								<strong>Java從零開始學習</strong>
-							</h5>
-						</div>
-						<div class="row">
-							<p class="mb-2" style="font-size: small;">趙令文</p>
-						</div>
-						<div class="row d-flex justify-content-between">
-							<div class="col-7" style="font-size: small; font-weight: bolder">募資倒數10天</div>
-							<div class="col-4 text-end" style="font-size: small; font-weight: bolder">25%</div>
-						</div>
-						<div class="row d-flex justify-content-center">
-							<div class="progress px-0" style="width: 90%; height: 0.5rem">
-								<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-						</div>
-						<div class="row pt-3">
-							<div class="col">
-								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT$2,000</p>
-								<p class="mb-0 text-decoration-line-through" style="font-weight: bolder; color: grey; font-size: small;">NT $4,000</p>
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					</p> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<div class="card mx-3"> -->
+<!-- 				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖004.jpeg" class="card-img-top" alt="..." /> -->
+<!-- 				<div class="card-body py-0"> -->
+<!-- 					<p class="card-text"> -->
+<!-- 					<div class="container px-0"> -->
+<!-- 						<div class="row"> -->
+<!-- 							<h5 style="font-weight: bolder;"> -->
+<!-- 								<strong>Java從零開始學習</strong> -->
+<!-- 							</h5> -->
+<!-- 						</div> -->
+<!-- 						<div class="row"> -->
+<!-- 							<p class="mb-2" style="font-size: small;">趙令文</p> -->
+<!-- 						</div> -->
+<!-- 						<div class="row d-flex justify-content-between"> -->
+<!-- 							<div class="col-7" style="font-size: small; font-weight: bolder">募資倒數10天</div> -->
+<!-- 							<div class="col-4 text-end" style="font-size: small; font-weight: bolder">25%</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="row d-flex justify-content-center"> -->
+<!-- 							<div class="progress px-0" style="width: 90%; height: 0.5rem"> -->
+<!-- 								<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="row pt-3"> -->
+<!-- 							<div class="col"> -->
+<!-- 								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT$2,000</p> -->
+<!-- 								<p class="mb-0 text-decoration-line-through" style="font-weight: bolder; color: grey; font-size: small;">NT $4,000</p> -->
 
-							</div>
-							<div class="col-4 text-end">
-								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+<!-- 							</div> -->
+<!-- 							<div class="col-4 text-end"> -->
+<!-- 								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i> -->
 
-							</div>
-						</div>
-					</div>
-					</p>
-				</div>
-			</div>
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					</p> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
 
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body py-0">
-					<p class="card-text">
-					<div class="container px-0">
-						<div class="row">
-							<h5 style="font-weight: bolder;">
-								<strong>Java從零開始學習</strong>
-							</h5>
-						</div>
-						<div class="row">
-							<p class="mb-2" style="font-size: small;">趙令文</p>
-						</div>
-						<div class="row d-flex justify-content-between">
-							<div class="col-7" style="font-size: small; font-weight: bolder">募資倒數10天</div>
-							<div class="col-4 text-end" style="font-size: small; font-weight: bolder">25%</div>
-						</div>
-						<div class="row d-flex justify-content-center">
-							<div class="progress px-0" style="width: 90%; height: 0.5rem">
-								<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-						</div>
-						<div class="row pt-3">
-							<div class="col">
-								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT$2,000</p>
-								<p class="mb-0 text-decoration-line-through" style="font-weight: bolder; color: grey; font-size: small;">NT $4,000</p>
+<!-- 			<div class="card mx-3"> -->
+<!-- 				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖008.jpeg" class="card-img-top" alt="..." /> -->
+<!-- 				<div class="card-body py-0"> -->
+<!-- 					<p class="card-text"> -->
+<!-- 					<div class="container px-0"> -->
+<!-- 						<div class="row"> -->
+<!-- 							<h5 style="font-weight: bolder;"> -->
+<!-- 								<strong>Java從零開始學習</strong> -->
+<!-- 							</h5> -->
+<!-- 						</div> -->
+<!-- 						<div class="row"> -->
+<!-- 							<p class="mb-2" style="font-size: small;">趙令文</p> -->
+<!-- 						</div> -->
+<!-- 						<div class="row d-flex justify-content-between"> -->
+<!-- 							<div class="col-7" style="font-size: small; font-weight: bolder">募資倒數10天</div> -->
+<!-- 							<div class="col-4 text-end" style="font-size: small; font-weight: bolder">25%</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="row d-flex justify-content-center"> -->
+<!-- 							<div class="progress px-0" style="width: 90%; height: 0.5rem"> -->
+<!-- 								<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="row pt-3"> -->
+<!-- 							<div class="col"> -->
+<!-- 								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT$2,000</p> -->
+<!-- 								<p class="mb-0 text-decoration-line-through" style="font-weight: bolder; color: grey; font-size: small;">NT $4,000</p> -->
 
-							</div>
-							<div class="col-4 text-end">
-								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+<!-- 							</div> -->
+<!-- 							<div class="col-4 text-end"> -->
+<!-- 								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i> -->
 
-							</div>
-						</div>
-					</div>
-					</p>
-				</div>
-			</div>
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					</p> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
 
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖011.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body py-0">
-					<p class="card-text">
-					<div class="container px-0">
-						<div class="row">
-							<h5 style="font-weight: bolder;">
-								<strong>Java從零開始學習</strong>
-							</h5>
-						</div>
-						<div class="row">
-							<p class="mb-2" style="font-size: small;">趙令文</p>
-						</div>
-						<div class="row d-flex justify-content-between">
-							<div class="col-7" style="font-size: small; font-weight: bolder">募資倒數10天</div>
-							<div class="col-4 text-end" style="font-size: small; font-weight: bolder">25%</div>
-						</div>
-						<div class="row d-flex justify-content-center">
-							<div class="progress px-0" style="width: 90%; height: 0.5rem">
-								<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-						</div>
-						<div class="row pt-3">
-							<div class="col">
-								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT$2,000</p>
-								<p class="mb-0 text-decoration-line-through" style="font-weight: bolder; color: grey; font-size: small;">NT $4,000</p>
+<!-- 			<div class="card mx-3"> -->
+<!-- 				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖011.jpeg" class="card-img-top" alt="..." /> -->
+<!-- 				<div class="card-body py-0"> -->
+<!-- 					<p class="card-text"> -->
+<!-- 					<div class="container px-0"> -->
+<!-- 						<div class="row"> -->
+<!-- 							<h5 style="font-weight: bolder;"> -->
+<!-- 								<strong>Java從零開始學習</strong> -->
+<!-- 							</h5> -->
+<!-- 						</div> -->
+<!-- 						<div class="row"> -->
+<!-- 							<p class="mb-2" style="font-size: small;">趙令文</p> -->
+<!-- 						</div> -->
+<!-- 						<div class="row d-flex justify-content-between"> -->
+<!-- 							<div class="col-7" style="font-size: small; font-weight: bolder">募資倒數10天</div> -->
+<!-- 							<div class="col-4 text-end" style="font-size: small; font-weight: bolder">25%</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="row d-flex justify-content-center"> -->
+<!-- 							<div class="progress px-0" style="width: 90%; height: 0.5rem"> -->
+<!-- 								<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="row pt-3"> -->
+<!-- 							<div class="col"> -->
+<!-- 								<p class="mb-0" style="font-weight: bolder; font-size: large;">NT$2,000</p> -->
+<!-- 								<p class="mb-0 text-decoration-line-through" style="font-weight: bolder; color: grey; font-size: small;">NT $4,000</p> -->
 
-							</div>
-							<div class="col-4 text-end">
-								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i>
+<!-- 							</div> -->
+<!-- 							<div class="col-4 text-end"> -->
+<!-- 								<i class="fa-regular fa-heart fa-lg" style="color: #f70000;"></i> -->
 
-							</div>
-						</div>
-					</div>
-					</p>
-				</div>
-			</div>
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					</p> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
 
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖012.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body">
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				</div>
-			</div>
+<!-- 			<div class="card mx-3"> -->
+<!-- 				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖012.jpeg" class="card-img-top" alt="..." /> -->
+<!-- 				<div class="card-body"> -->
+<!-- 					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
 
-			<div class="card mx-3">
-				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖007.jpeg" class="card-img-top" alt="..." />
-				<div class="card-body">
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				</div>
-			</div>
-		</div>
-		<div class="arrow-next-crowdfundingcourse slick-rightbtn">
-			<span> <i class="fa-solid fa-chevron-right"></i>
-			</span>
-		</div>
-		<div class="arrow-prev-crowdfundingcourse slick-leftbtn">
-			<span> <i class="fa-solid fa-chevron-left"></i>
-			</span>
-		</div>
-	</div>
+<!-- 			<div class="card mx-3"> -->
+<!-- 				<img src="\SpringEEIT69-5Mart\assets\images\課程封面圖007.jpeg" class="card-img-top" alt="..." /> -->
+<!-- 				<div class="card-body"> -->
+<!-- 					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 		<div class="arrow-next-crowdfundingcourse slick-rightbtn"> -->
+<!-- 			<span> <i class="fa-solid fa-chevron-right"></i> -->
+<!-- 			</span> -->
+<!-- 		</div> -->
+<!-- 		<div class="arrow-prev-crowdfundingcourse slick-leftbtn"> -->
+<!-- 			<span> <i class="fa-solid fa-chevron-left"></i> -->
+<!-- 			</span> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
 	<!-- 募資課程區塊(水平滾動) -->
 
 	<!-- 熱門類別 -->
