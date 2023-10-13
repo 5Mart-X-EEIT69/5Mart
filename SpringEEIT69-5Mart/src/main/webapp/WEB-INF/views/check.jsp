@@ -137,10 +137,11 @@ var homepageUrl = "<c:url value='/homepage' />"
 	<div class="container-fluid p-0 ">	
 		<div class="row no-gutters">
 			<div class="col-xxl-7 col-6 left-background">
-				<div class="content p-3">
+				<div class="content w-75">
 
-
-					<h2 style="font-weight: bold;">結帳</h2>
+					<div class="row">
+					<h2 class="px-0" style="font-weight: bold;">結帳</h2>
+					</div>
 					<br>
 <!-- 					<h4 style="font-weight: bold;">付款方式</h4> -->
 <!-- 					<br> -->
@@ -325,7 +326,9 @@ var homepageUrl = "<c:url value='/homepage' />"
 					</div>
 -->
 					<br>
-					<h4 style="font-weight: bold">訂單詳細資料</h4>
+					<div class="row">
+					<h4 class="px-0" style="font-weight: bold">訂單詳細資料</h4>
+					</div>
 					<br>
 					
 <!-- 					迭代購物車中的課程 -->
@@ -342,15 +345,15 @@ var homepageUrl = "<c:url value='/homepage' />"
 <!--     </div> -->
 <%-- </c:forEach> --%>
 
-					<div class="row">
-						<div class="col-2">
-							<img src="${course.dataUri}" width="50" height="50" />
+					<div class="row w-100">
+						<div class="col-2 px-0 d-flex align-items-center">
+							<img src="${course.dataUri}" style="width: 100%"/>
 						</div>
-						<div class="col-7">
-							<div>${course.title}</div>
-							<div>${course.teacher.username}</div>
+						<div class="col-7 ps-3">
+							<div class="fs-2">${course.title}</div>
+							<div class="fs-3">${course.teacher.username}</div>
 						</div>
-						<div class="col-3">$ ${course.price}</div>
+						<div class="col-3 fs-2">$ ${course.price}</div>
 
 					</div>
 
@@ -393,19 +396,19 @@ var homepageUrl = "<c:url value='/homepage' />"
     
 
 			<div class="col-xxl-5 col-md-6 right-background">
-				<div class="content p-3 ">
+				<div class="content p-3 w-100">
 
-					<h4 style="font-weight: bold;">摘要</h4>
+					<h2 style="font-weight: bold;">摘要</h4>
 
-					<div class="row">
-						<div class="col-4">金額：</div>
+					<div class="row fs-4" style="font-weight: bold">
+						<div class="col-6">金額：</div>
 						<div class="col-6">$ ${course.price}</div>
 					</div>
 
 					<br>
 
-					<div class="row">
-						<div class="col-4">折扣：</div>
+					<div class="row fs-4" style="font-weight: bold">
+						<div class="col-6">折扣：</div>
 						<div class="col-6">$0</div>
 					</div>
 
@@ -415,8 +418,8 @@ var homepageUrl = "<c:url value='/homepage' />"
 						</div>
 					</div>
 
-					<div class="row" style="font-weight: bold;">
-						<div class="col-4">總計：</div>
+					<div class="row fs-4" style="font-weight: bold;">
+						<div class="col-6">總計：</div>
 						<div class="col-6">$ ${course.price}</div>
 					</div>
 
