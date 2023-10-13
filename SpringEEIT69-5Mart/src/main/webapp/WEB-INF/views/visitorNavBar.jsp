@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <link rel='stylesheet' href="<c:url value='/assets/css/visitorHomePage.css' />" type="text/css" />
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 <script type="text/javascript">
 	var checkNameUrl = "<c:url value='/checkname' />";
 	$(document).ready(function() {
@@ -187,7 +188,7 @@
 						// 設定 1 秒後轉到登入視窗
 						setTimeout(function() {
 							registrationToast.hide();
-						}, 1800); 
+						}, 1800);
 					}
 				}
 			});
@@ -212,16 +213,20 @@
 		<!-- 品牌logo -->
 		<a class="navbar-brand ms-3" href="<c:url value='/homepage' />">
 			<img class="" src="\SpringEEIT69-5Mart\assets\images\5Mart_logo.png" style="width: 46px; height: 46px; object-fit: cover;" />
-<!-- 			<i class="fa-solid fa-graduation-cap fa-xl px-2"></i> -->
+			<!-- 			<i class="fa-solid fa-graduation-cap fa-xl px-2"></i> -->
 		</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item dropdown px-2"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 課程類別 </a> <jsp:include page="/WEB-INF/views/sortNavbar.jsp" /></li>
+				<li class="nav-item dropdown px-2">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 課程類別 </a>
+					<jsp:include page="/WEB-INF/views/sortNavbar.jsp" /></li>
 
-				<li class="nav-item px-4"><a class="nav-link" href="#">文章</a></li>
+				<li class="nav-item px-4">
+					<a class="nav-link" href="#">文章</a>
+				</li>
 
 				<li class="nav-item px-10">
 					<form class="d-lg-flex d-none nav-item input-group" action="<c:url value="/visitorsearchpage" />" method="post">
@@ -306,27 +311,36 @@
 						<input type="password" class="password form-control" placeholder="密碼" name="password">
 					</div>
 					<!-- checkbox -->
-					<div class="form-group">
+					<div class="form-group mt-2">
 						<input type="checkbox" class="remember"> 記住我的密碼
 					</div>
 					<!-- 送出按鈕 -->
 					<button type="submit" class="btn btn-secondary">登入</button>
-					<a type="button" href="#" class="d-md-flex justify-content-center">忘記密碼</a>
+					<a type="button" href="#" class="d-md-flex justify-content-center mt-2">忘記密碼</a>
 
 				</form>
 			</div>
 			<!-- Footer -->
 			<div class="modal-footer d-md-flex justify-content-center flex-column">
 				<div>
-					<p>
+					<p class="mb-1" style="font-size: 19px">
 						或使用<strong>社群帳號</strong>繼續
 					</p>
 				</div>
 				<div class="mb-3">
-					<a class="mx-2" type="button" href="#"> <i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i>
-					</a> <a class="mx-2" type="button" href="#"> <i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i>
-					</a> <a class="mx-2" type="button" href="#"> <i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i>
-					</a>
+					<div id="g_id_onload" data-client_id="885507425815-jv6dbjd1qghfdl7b03hjcic77iih4bja.apps.googleusercontent.com" data-context="signin" data-ux_mode="popup" data-login_uri="http://localhost:8080/SpringEEIT69-5Mart/homepage" data-auto_prompt="false"></div>
+
+					<div class="g_id_signin" data-type="icon" data-shape="circle" data-theme="outline" data-text="signin_with" data-size="large"></div>
+					<!-- 					<a class="mx-2" type="button" href="#"> -->
+					<!-- 						<i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i> -->
+
+					<!-- 					</a> -->
+					<!-- 					<a class="mx-2" type="button" href="#"> -->
+					<!-- 						<i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i> -->
+					<!-- 					</a> -->
+					<!-- 					<a class="mx-2" type="button" href="#"> -->
+					<!-- 						<i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i> -->
+					<!-- 					</a> -->
 				</div>
 
 				<div style="align-content: center">
@@ -379,8 +393,11 @@
 					<!-- 送出按鈕 -->
 					<button type="submit" class="btn btn-secondary mt-3 registerBtn" data-bs-dismiss="modal" disabled>註冊</button>
 					<div class="d-md-flex justify-content-center mt-2">
-						<p>
-							註冊即同意 <a type="button" href="#">隱私權政策</a> 和 <a type="button" href="#">使用者條款</a>
+						<p class="mb-0" style="font-size: 14px">
+							註冊即同意
+							<a type="button" href="#">隱私權政策</a>
+							和
+							<a type="button" href="#">使用者條款</a>
 						</p>
 					</div>
 				</form>
@@ -388,15 +405,23 @@
 			<!-- Footer -->
 			<div class="modal-footer d-md-flex justify-content-center flex-column">
 				<div>
-					<p>
+					<p class="mb-1" style="font-size: 19px">
 						或使用<strong>社群帳號</strong>繼續
 					</p>
 				</div>
 				<div class="mb-3">
-					<a class="mx-2" type="button" href="#"> <i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i>
-					</a> <a class="mx-2" type="button" href="#"> <i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i>
-					</a> <a class="mx-2" type="button" href="#"> <i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i>
-					</a>
+					<div id="g_id_onload" data-client_id="885507425815-jv6dbjd1qghfdl7b03hjcic77iih4bja.apps.googleusercontent.com" data-context="signin" data-ux_mode="popup" data-login_uri="http://localhost:8080/SpringEEIT69-5Mart/homepage" data-auto_prompt="false"></div>
+
+					<div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline" data-text="signin_with" data-size="large" data-logo_alignment="left"></div>
+<!-- 					<a class="mx-2" type="button" href="#"> -->
+<!-- 						<i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i> -->
+<!-- 					</a> -->
+<!-- 					<a class="mx-2" type="button" href="#"> -->
+<!-- 						<i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i> -->
+<!-- 					</a> -->
+<!-- 					<a class="mx-2" type="button" href="#"> -->
+<!-- 						<i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i> -->
+<!-- 					</a> -->
 				</div>
 			</div>
 		</div>
@@ -407,7 +432,8 @@
 <div id="regToast" class="toast align-items-center text-white bg-success border-0 position-fixed top-75 start-50 m-3 translate-middle" style="z-index: 9999" role="alert" aria-live="assertive" aria-atomic="true">
 	<div class="d-flex">
 		<div class="toast-body fs-5">
-			<i class="bi bi-check-circle-fill me-2"></i>註冊成功
+			<i class="bi bi-check-circle-fill me-2"></i>
+			註冊成功
 		</div>
 		<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
 	</div>

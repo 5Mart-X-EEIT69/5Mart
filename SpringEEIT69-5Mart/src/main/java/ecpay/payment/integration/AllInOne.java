@@ -10,16 +10,14 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.LoggerContext;
 
 import ecpay.payment.integration.domain.ATMRequestObj;
 import ecpay.payment.integration.domain.AioCheckOutALL;
-import ecpay.payment.integration.domain.AioCheckOutApplePay;
 import ecpay.payment.integration.domain.AioCheckOutATM;
+import ecpay.payment.integration.domain.AioCheckOutApplePay;
 import ecpay.payment.integration.domain.AioCheckOutBARCODE;
 import ecpay.payment.integration.domain.AioCheckOutCVS;
 import ecpay.payment.integration.domain.AioCheckOutDevide;
@@ -46,6 +44,7 @@ import ecpay.payment.integration.verification.VerifyQueryCreditTrade;
 import ecpay.payment.integration.verification.VerifyQueryTrade;
 import ecpay.payment.integration.verification.VerifyQueryTradeInfo;
 import ecpay.payment.integration.verification.VerifyTradeNoAio;
+import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * 全功能無履約保證類別
