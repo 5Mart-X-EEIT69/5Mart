@@ -330,7 +330,10 @@
 				<div class="mb-3">
 					<div id="g_id_onload" data-client_id="885507425815-jv6dbjd1qghfdl7b03hjcic77iih4bja.apps.googleusercontent.com" data-context="signin" data-ux_mode="popup" data-login_uri="http://localhost:8080/SpringEEIT69-5Mart/homepage" data-auto_prompt="false"></div>
 
-					<div class="g_id_signin" data-type="icon" data-shape="circle" data-theme="outline" data-text="signin_with" data-size="large"></div>
+					<div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline" data-text="signin_with" data-size="large" data-logo_alignment="left"></div>
+<!-- 					<div id="g_id_onload" data-client_id="885507425815-jv6dbjd1qghfdl7b03hjcic77iih4bja.apps.googleusercontent.com" data-context="signin" data-ux_mode="popup" data-login_uri="http://localhost:8080/SpringEEIT69-5Mart/homepage" data-auto_prompt="false"></div> -->
+
+<!-- 					<div class="g_id_signin" data-type="icon" data-shape="circle" data-theme="outline" data-text="signin_with" data-size="large"></div> -->
 					<!-- 					<a class="mx-2" type="button" href="#"> -->
 					<!-- 						<i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i> -->
 
@@ -413,15 +416,15 @@
 					<div id="g_id_onload" data-client_id="885507425815-jv6dbjd1qghfdl7b03hjcic77iih4bja.apps.googleusercontent.com" data-context="signin" data-ux_mode="popup" data-login_uri="http://localhost:8080/SpringEEIT69-5Mart/homepage" data-auto_prompt="false"></div>
 
 					<div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline" data-text="signin_with" data-size="large" data-logo_alignment="left"></div>
-<!-- 					<a class="mx-2" type="button" href="#"> -->
-<!-- 						<i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i> -->
-<!-- 					</a> -->
-<!-- 					<a class="mx-2" type="button" href="#"> -->
-<!-- 						<i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i> -->
-<!-- 					</a> -->
-<!-- 					<a class="mx-2" type="button" href="#"> -->
-<!-- 						<i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i> -->
-<!-- 					</a> -->
+					<!-- 					<a class="mx-2" type="button" href="#"> -->
+					<!-- 						<i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i> -->
+					<!-- 					</a> -->
+					<!-- 					<a class="mx-2" type="button" href="#"> -->
+					<!-- 						<i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i> -->
+					<!-- 					</a> -->
+					<!-- 					<a class="mx-2" type="button" href="#"> -->
+					<!-- 						<i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i> -->
+					<!-- 					</a> -->
 				</div>
 			</div>
 		</div>
