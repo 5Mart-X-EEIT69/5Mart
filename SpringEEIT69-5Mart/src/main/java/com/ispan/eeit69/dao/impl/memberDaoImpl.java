@@ -79,6 +79,16 @@ public class memberDaoImpl implements memberDao {
 		member result = entityManager.find(member.class, id);
 		return result;
 	}
+	
+	
+
+	@Override
+	public member findByAccount(String account) {
+		String hql = "FROM member m WHERE m.account = :account";
+		member result = (member) entityManager.createQuery(hql).setParameter("account", account).getSingleResult();
+		
+		return result;
+	}
 
 	@Override
 	public member findByAccountAndPassword(String account, String password) {

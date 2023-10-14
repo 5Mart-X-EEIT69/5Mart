@@ -30,6 +30,13 @@ public class memberServiceImpl implements memberService {
 	public member findByMemberId(Integer id) {
 		return MemberDao.findByMemberId(id);
 	}
+	
+	
+
+	@Override
+	public member findByAccount(String account) {
+		return MemberDao.findByAccount(account);
+	}
 
 	@Override
 	public member findByAccountAndPassword(String account, String password) {
