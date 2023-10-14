@@ -160,8 +160,6 @@
 						console.log("登入失敗");
 						// alert(response.message);  // 顯示錯誤訊息
 						$(".alertBox").removeClass("d-none");
-// 						$(".notblank").addClass("d-none");
-						// $(".loginFail").text("帳號或密碼錯誤，請重新輸入");
 						$("#alertBoxText").text(response.alertBoxText);
 						
 						
@@ -317,17 +315,7 @@
 						<i class="bi-exclamation-triangle-fill"></i>
 						<div class="ms-2" id="alertBoxText"></div>
 					</div>
-					<!-- 					<div class="alert alert-danger d-flex align-items-center mx-4 notblank d-none" role="alert"> -->
-					<!-- 						<i class="bi-exclamation-triangle-fill"></i> -->
-					<!-- 						<div class="ms-2">帳號、密碼不可為空白</div> -->
-					<!-- 					</div> -->
-					<div class="alert alert-danger d-flex align-items-center mx-4 notblank d-none" role="alert">
-						<i class="bi-exclamation-triangle-fill"></i>
-						<div class="ms-2" id="notBlankText">
-							
-						</div>
-					</div>
-
+					
 					<!-- email -->
 					<div class="form-group">
 						<input type="email" class="account form-control" placeholder="電子郵件" name="account">
