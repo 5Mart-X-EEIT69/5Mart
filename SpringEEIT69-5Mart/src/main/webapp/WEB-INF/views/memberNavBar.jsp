@@ -315,4 +315,12 @@
 		</div>
 	</div>
 </nav>
-
+<div id="loginToast" class="toast align-items-center text-white bg-success border-0 position-fixed top-75 start-50 m-3 translate-middle" style="z-index: 9999" role="alert" aria-live="assertive" aria-atomic="true">
+	<div class="d-flex">
+		<div class="toast-body fs-5">
+			<i class="bi bi-check-circle-fill me-2"></i>
+			${member.account} 您好！
+		</div>
+		<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+	</div>
+</div>

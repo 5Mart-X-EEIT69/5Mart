@@ -152,15 +152,30 @@
 				type : 'POST',
 				data : $(this).serialize(),
 				success : function(response) {
-					if (response.status === "fail") {
+					if (response.status === "notBlank") {
+						console.log("有空白");
+						$(".alertBox").removeClass("d-none");
+						$("#alertBoxText").text(response.alertBoxText);
+					} else if (response.status === "fail") {
 						console.log("登入失敗");
 						// alert(response.message);  // 顯示錯誤訊息
-						$(".loginFail").removeClass("d-none");
+						$(".alertBox").removeClass("d-none");
+// 						$(".notblank").addClass("d-none");
 						// $(".loginFail").text("帳號或密碼錯誤，請重新輸入");
+						$("#alertBoxText").text(response.alertBoxText);
+						
+						
 					} else {
 						console.log("登入成功");
 						// alert(response.status);
-						window.location.href = homepageUrl; // 登入成功，轉向其他頁面
+						var registrationToastEl = document.getElementById("loginToast");
+						var registrationToast = new bootstrap.Toast(registrationToastEl);
+						$("#loginToastText").text(response.username);
+						registrationToast.show();
+						setTimeout(function() {
+							window.location.href = homepageUrl; // 登入成功，轉向其他頁面
+						}, 1800);
+
 					}
 				}
 			});
@@ -198,6 +213,7 @@
 			// $(".loginFail").text("");  // 清空錯誤消息
 			$(".loginFail").addClass("d-none");
 			$(".account, .password").val("");
+			$(".alertBox").addClass("d-none");
 		});
 
 		$('#registerModal').on('hidden.bs.modal', function() {
@@ -297,9 +313,19 @@
 			<!-- Body -->
 			<div class="modal-body">
 				<form action="<c:url value="/login" />" method="post" id="loginForm">
-					<div class="alert alert-danger d-flex align-items-center mx-4 loginFail d-none" role="alert">
+					<div class="alert alert-danger d-flex align-items-center mx-4 alertBox d-none" role="alert">
 						<i class="bi-exclamation-triangle-fill"></i>
-						<div class="ms-2">帳號或密碼錯誤，請重新輸入</div>
+						<div class="ms-2" id="alertBoxText"></div>
+					</div>
+					<!-- 					<div class="alert alert-danger d-flex align-items-center mx-4 notblank d-none" role="alert"> -->
+					<!-- 						<i class="bi-exclamation-triangle-fill"></i> -->
+					<!-- 						<div class="ms-2">帳號、密碼不可為空白</div> -->
+					<!-- 					</div> -->
+					<div class="alert alert-danger d-flex align-items-center mx-4 notblank d-none" role="alert">
+						<i class="bi-exclamation-triangle-fill"></i>
+						<div class="ms-2" id="notBlankText">
+							
+						</div>
 					</div>
 
 					<!-- email -->
@@ -413,15 +439,15 @@
 					<div id="g_id_onload" data-client_id="885507425815-jv6dbjd1qghfdl7b03hjcic77iih4bja.apps.googleusercontent.com" data-context="signin" data-ux_mode="popup" data-login_uri="http://localhost:8080/SpringEEIT69-5Mart/homepage" data-auto_prompt="false"></div>
 
 					<div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline" data-text="signin_with" data-size="large" data-logo_alignment="left"></div>
-<!-- 					<a class="mx-2" type="button" href="#"> -->
-<!-- 						<i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i> -->
-<!-- 					</a> -->
-<!-- 					<a class="mx-2" type="button" href="#"> -->
-<!-- 						<i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i> -->
-<!-- 					</a> -->
-<!-- 					<a class="mx-2" type="button" href="#"> -->
-<!-- 						<i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i> -->
-<!-- 					</a> -->
+					<!-- 					<a class="mx-2" type="button" href="#"> -->
+					<!-- 						<i class="fa-brands fa-facebook fa-2xl" style="color: #046ee5;"></i> -->
+					<!-- 					</a> -->
+					<!-- 					<a class="mx-2" type="button" href="#"> -->
+					<!-- 						<i class="fa-brands fa-google fa-2xl" style="color: #ea4335;"></i> -->
+					<!-- 					</a> -->
+					<!-- 					<a class="mx-2" type="button" href="#"> -->
+					<!-- 						<i class="fa-brands fa-apple fa-2xl" style="color: #1d1d1f;"></i> -->
+					<!-- 					</a> -->
 				</div>
 			</div>
 		</div>
@@ -434,6 +460,16 @@
 		<div class="toast-body fs-5">
 			<i class="bi bi-check-circle-fill me-2"></i>
 			註冊成功
+		</div>
+		<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+	</div>
+</div>
+
+<div id="loginToast" class="toast align-items-center text-white bg-success border-0 position-fixed top-75 start-50 m-3 translate-middle" style="z-index: 9999" role="alert" aria-live="assertive" aria-atomic="true">
+	<div class="d-flex">
+		<div class="toast-body fs-5">
+			<i class="bi bi-check-circle-fill me-2"></i>
+			<span id="loginToastText"></span> ，歡迎回來！
 		</div>
 		<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
 	</div>
