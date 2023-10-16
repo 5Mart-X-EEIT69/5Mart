@@ -10,7 +10,7 @@
 <!-- 響應式的引入 -->
 
 <title>5Mart線上教育平台</title>
-<link rel="shortcut icon" href="\SpringEEIT69-5Mart\assets\images\favicon.ico" type="image/x-icon">>
+<link rel="shortcut icon" href="\SpringEEIT69-5Mart\assets\images\favicon.ico" type="image/x-icon">
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -83,7 +83,7 @@
 	</c:choose>
 	<!-- 導覽列 -->
 
-	<div class="container mt-5 mx-5">
+	<div class="container mt-5">
 		<h1>課程名稱</h1>
 		<!-- 使用 Bootstrap Grid System 進行布局 -->
 		<div class="row">
@@ -132,7 +132,7 @@
 
 		<!-- Tab分頁 -->
 		<div class="mt-5">
-			<ul class="nav nav-tabs">
+			<ul class="nav nav-tabs fs-2">
 				<li class="nav-item"><a class="nav-link active"
 					href="#overview" data-bs-toggle="tab">課程總覽</a></li>
 				<li class="nav-item"><a class="nav-link" href="#qa"
@@ -140,13 +140,13 @@
 				<li class="nav-item"><a class="nav-link" href="#reviews"
 					data-bs-toggle="tab">評論</a></li>
 			</ul>
-			<div class="tab-content">
+			<div class="tab-content fs-3">
 				<div class="tab-pane active" id="overview">
 					<!-- course overview code START -->
 					<div class="container pb-3">
 						<div class="row">
 							<div>
-								<h3 style="font-weight: bold">關於此課程</h3>
+								<h3 class="pt-3" style="font-weight: bold">關於此課程</h3>
 							</div>
 							<div>Spring Boot 3: Learn Spring 6, Spring Core, Spring
 								REST, Spring MVC, Spring Security, Thymeleaf, JPA, Hibernate,

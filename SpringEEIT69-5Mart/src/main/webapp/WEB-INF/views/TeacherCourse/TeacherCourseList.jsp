@@ -135,16 +135,17 @@
                             aria-controls="#collapse-${courses.id}">
                             <img src="${courses.dataUri}" alt="twbs" width="48" height="48" class="rounded flex-shrink-0">
                             <div class="d-flex gap-2 w-100 justify-content-between align-items-center ps-3">
+                            <c:set var="q" value="<%= (int)(Math.random()*100)%>"></c:set>
                                 <div>
-                                    <h6 class="mb-0 fs-4 fw-bolder">${courses.title}</h6>
-                                    <p class="mb-0 opacity-50 fw-bolder" style="color:red;">目前已有"還沒做"位學生購買課程</p>
+                                    <h6 class="mb-0 fs-3 fw-bolder">${courses.title}</h6>
+                                    <p class="mb-0 opacity-50 fw-bolder fs-5 text-primary">目前已有"${q}"位學生購買課程</p>
                                 </div>
                             </div>
                         </button>
                     </h2>
                     <div id="collapse-${courses.id}" class="accordion-collapse collapse"
                         aria-labelledby="heading-${courses.id}">
-                        <div class="accordion-body">
+                        <div class="accordion-body fs-4 fw-bold">
                             <div class="d-flex align-items-center flex-wrap">
                                 <label class="col-2">導師</label>
                                 <label class="col-2">開課時間</label>
@@ -153,18 +154,19 @@
                                 <label class="col-2">平均評價</label>
                                 <label class="col-2 ps-2">功能</label>
                             </div>
+                            <fmt:formatDate value="${courses.registerTime}" pattern="yyyy-MM-dd HH:mm:ss" var="registerTime"/>
                             <hr>
                             <div class="d-flex align-items-center flex-wrap">
                                 <span class="col-2">${courses.teacher.username}</span>
-                                <span class="col-2">${courses.registerTime}</span>
-                                <span class="col-2 px-3">(還沒做)</span>
-                                <span class="col-2 ps-2">(還沒做)</span>
-                                <span class="col-2">(還沒做)</span>
+                                <span class="col-2">${registerTime}</span>
+                                <span class="col-2 px-3"><%= (int)(Math.random()*1000)+1000%></span>
+                                <span class="col-2 ps-2">${q}</span>
+                                <span class="col-2">4.8</span>
                                 <div class="col-2 d-flex flex-column">
                                 
-                                    <button class="btn btn-link m-0 ps-2" style="text-align: left;"><a href="<c:url value="/TeacherEdit/${courses.id}"/>">編輯課程</a></button>
-                                    <button class="btn btn-link m-0 ps-2" style="text-align: left;">編輯影片</button>
-                                    <button class="btn btn-link m-0 ps-2" style="text-align: left;" onclick="deleteCourse('${courses.id}','${courses.title}')">刪除課程</button>
+                                    <button class="btn btn-link m-0 ps-2 fs-5" style="text-align: left;"><a href="<c:url value="/TeacherEdit/${courses.id}"/>">編輯課程</a></button>
+                                    <button class="btn btn-link m-0 ps-2 fs-5" style="text-align: left;">編輯影片</button>
+                                    <button class="btn btn-link m-0 ps-2 fs-5" style="text-align: left;" onclick="deleteCourse('${courses.id}','${courses.title}')">刪除課程</button>
                                 </div>                                
                             </div>
                             <hr>
@@ -261,6 +263,9 @@
             <hr />
             <h4>已發表文章</h4>
             <div class="accordion" id="accordionPanelsStayOpenExample">
+            <c:if test="${empty article}">
+            <h6>目前尚未發表文章!</h6>
+            </c:if>
             <c:forEach var="articles" items="${article}">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="heading-${articles.id}">

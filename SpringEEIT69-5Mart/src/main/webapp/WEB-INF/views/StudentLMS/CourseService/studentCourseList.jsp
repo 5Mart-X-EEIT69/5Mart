@@ -117,7 +117,7 @@
 				</li>
 				<li class="active my-1">
 					<a href="<c:url value="/studentCourseList"></c:url>#sublist1" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between ">
-						<span><i class="fa-solid fa-pencil pe-3" style="color: #ffffff;"></i>課程中心</span><span class="bg-dark rounded-pill text-white py-0 px-2">01</span>
+						<span><i class="fa-solid fa-pencil pe-3" style="color: #ffffff;"></i>課程中心</span><span class="bg-danger rounded text-white py-0 px-2">1</span>
 					</a>
 					<!-- <ul id="sublist1" class="list-unstyled collapse">
 						<li>
@@ -133,7 +133,7 @@
 				</li>
 				<li class="my-1">
 					<a href="<c:url value="/studentNotification"></c:url>#sublist2" data-bs-toggle="collapse" id="dropdown" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between ">
-						<span><i class="fa-solid fa-comment pe-3" style="color: #ffffff;"></i>通知中心</span><span class="bg-dark rounded-pill text-white py-0 px-2">06</span>
+						<span><i class="fa-solid fa-comment pe-3" style="color: #ffffff;"></i>通知中心</span><span class="bg-danger rounded text-white py-0 px-2">6</span>
 					</a>				
 					<ul id="sublist2" class="list-unstyled collapse">
 						<li>
