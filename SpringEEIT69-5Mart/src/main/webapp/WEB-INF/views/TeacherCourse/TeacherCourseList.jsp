@@ -123,9 +123,9 @@
         <!-- 		選單右邊 -->
         <div class="col-1"></div>
         <div class="col-7 pb-3" style="padding: 72px 0 0;">
-            <h1 class="text-center">課程總覽</h1>
+            <h1 class="text-center fw-bold">課程總覽</h1>
             <hr />
-            <h4>已開課內容</h4>
+            <h4 class="fw-bold">已開課內容</h4>
             <div class="accordion" id="accordionPanelsStayOpenExample">
             <c:forEach var="courses" items="${course}">
                 <div class="accordion-item">
@@ -261,10 +261,10 @@
             
             
             <hr />
-            <h4>已發表文章</h4>
+            <h4 class="fw-bold">已發表文章</h4>
             <div class="accordion" id="accordionPanelsStayOpenExample">
             <c:if test="${empty article}">
-            <h6>目前尚未發表文章!</h6>
+            <h6 class="fw-bold">目前尚未發表文章!</h6>
             </c:if>
             <c:forEach var="articles" items="${article}">
                 <div class="accordion-item">
