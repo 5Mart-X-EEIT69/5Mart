@@ -297,9 +297,9 @@
 			<div class="dashboard-content px-3 pt-4">
 				<!-- 				<p>這裡可以填入內容</p> -->
 
-				<h2>課程中心</h2>
+				<h2 class="fw-bold">課程中心</h2>
 				<!-- 課程列表START -->
-               <h4>課程總覽</h4>
+               <h4 class="fw-bold">課程總覽</h4>
 				<div class="container" style="position: relative;">
 					<div class="row row-cols-1 row-cols-xxl-4 row-cols-3 g-4">
 						<c:forEach items="${CourseList}" var="course">
@@ -316,9 +316,9 @@
 												</h5>
 											</div>
 											<div class="row">
-												<p class="mb-2" style="font-size: small">${course.teacher.username}</p>
+												<p class="mb-2 fs-6 fw-bold">${course.teacher.username}</p>
 											</div>
-											<div class="row text-ellipsis-multi ps-2 pe-3">
+											<div class="row text-ellipsis-multi ps-2 pe-3 fw-bold">
 											${course.introduction}
 											</div>
 <!-- 											<div class="row d-inline "> -->
