@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import com.ispan.eeit69.dao.CourseDao;
 import com.ispan.eeit69.model.Course;
 import com.ispan.eeit69.model.member;
-import com.ispan.eeit69.service.impl.CourseServiceImpl;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;

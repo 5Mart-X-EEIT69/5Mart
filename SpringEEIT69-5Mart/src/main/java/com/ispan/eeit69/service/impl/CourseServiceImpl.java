@@ -12,7 +12,6 @@ import com.ispan.eeit69.dao.CourseDao;
 import com.ispan.eeit69.dao.CourseRepository;
 import com.ispan.eeit69.model.Announcement;
 import com.ispan.eeit69.model.Course;
-import com.ispan.eeit69.model.StudentQuestion;
 import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.CourseService;
 

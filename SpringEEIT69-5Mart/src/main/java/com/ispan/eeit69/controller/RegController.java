@@ -7,6 +7,8 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -264,40 +266,6 @@ public class RegController {
 			response.put("status", "fail");
 			response.put("alertBoxText", "帳號或密碼錯誤，請重新輸入！");
 		}
-//		if (result == null) {
-//			System.out.println("帳號密碼錯誤(result是空的)");
-//			model.addAttribute("login", "fail");
-//			response.put("status", "fail");
-//			response.put("message", "帳號或密碼錯誤");
-//		} else {
-//			if (isCorrectPw) {
-//				System.out.println("帳號密碼正確");
-//				TeacherPicture result2 = teacherPictureService.findByMember(result);
-//				System.out.println("搜尋會員的照片=" + result2);
-//				if (result2 == null) {
-//					System.out.println("資料庫抓不到照片");
-//				} else {
-//					Blob pic = result2.getPhoto();
-//					System.out.println("有抓到照片" + pic);
-//					// 將Blob數據轉換為Base64編碼的字符串
-//					byte[] imageBytes = null;
-//					try {
-//						imageBytes = pic.getBytes(1, (int) pic.length());
-//					} catch (SQLException e) {
-//						e.printStackTrace();
-//					}
-//					String base64Image = Base64.getEncoder().encodeToString(imageBytes);
-//					model.addAttribute("base64Image", base64Image);
-//					session.setAttribute("base64Image", base64Image);
-//				}
-//				response.put("status", "success");
-//			} else {
-//				System.out.println("帳號密碼錯誤");
-//				model.addAttribute("login", "fail");
-//				response.put("status", "fail");
-//				response.put("message", "帳號或密碼錯誤");
-//			}
-//		}
 
 		System.out.println("要回傳到前端的資料" + response.toString());
 		model.addAttribute("memberdata", memberPassword);
@@ -309,6 +277,81 @@ public class RegController {
 		return response;
 
 	}
+	
+//	@PostMapping("/login")
+//	@ResponseBody
+//	public Map<String, String> loginMember(@Valid @ModelAttribute member member, BindingResult bindingResult, Model model) {
+//		Map<String, String> response = new HashMap<>();
+////		memberValidator.validate(member, bindingResult);
+//		System.out.println("bindingResult有沒有錯誤="+bindingResult.hasErrors());
+//		if (bindingResult.hasErrors()) {
+//			System.out.println("bindingResult有錯誤");
+////			FieldError fieldErrorByAccount = bindingResult.getFieldError("account");
+//			FieldError fieldErrorByPassword = bindingResult.getFieldError("password");
+////			if(fieldErrorByAccount!=null && fieldErrorByPassword !=null) {
+////				response.put("alertBoxText", "帳號、密碼不能為空白");
+////			}else if(fieldErrorByAccount!=null) {
+////				response.put("alertBoxText", fieldErrorByAccount.getDefaultMessage());
+////			}else if(fieldErrorByPassword !=null) {
+////				response.put("alertBoxText", fieldErrorByPassword.getDefaultMessage());
+////			}
+//			
+//			if(fieldErrorByPassword !=null) {
+//				System.out.println("密碼不能為空的錯誤");
+//				response.put("alertBoxText", fieldErrorByPassword.getDefaultMessage());
+//			}
+//			
+//			response.put("status", "notBlank");
+//			response.put("message", "帳號或密碼格式不正確");
+//			return response;
+//		}
+//		String account = member.getAccount();
+//		String password = member.getPassword();
+//		System.out.println("進入login的controller，帳號 = " + account + " 密碼 = " + password);
+//		member result = memberService.findByAccountAndPassword(account, password);
+//		member memberPassword = memberService.findByAccount(account);
+//		System.out.println("用信箱抓到的會員資料=" + memberPassword);
+//		System.out.println("會員密碼(bcrypt加密過)=" + memberPassword.getPassword());
+//		boolean isCorrectPw = bCryptPasswordEncoder.matches(password, memberPassword.getPassword());
+//		System.out.println("用bcrypt驗證結果為=" + isCorrectPw);
+//		if (isCorrectPw) {
+//			System.out.println("帳號密碼正確");
+//			TeacherPicture result2 = teacherPictureService.findByMember(result);
+//			System.out.println("搜尋會員的照片=" + result2);
+//			if (result2 == null) {
+//				System.out.println("資料庫抓不到照片");
+//			} else {
+//				Blob pic = result2.getPhoto();
+//				System.out.println("有抓到照片" + pic);
+//				// 將Blob數據轉換為Base64編碼的字符串
+//				byte[] imageBytes = null;
+//				try {
+//					imageBytes = pic.getBytes(1, (int) pic.length());
+//				} catch (SQLException e) {
+//					e.printStackTrace();
+//				}
+//				String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+//				model.addAttribute("base64Image", base64Image);
+//				session.setAttribute("base64Image", base64Image);
+//			}
+//			response.put("status", "success");
+//		} else {
+//			System.out.println("帳號密碼錯誤");
+//			model.addAttribute("login", "fail");
+//			response.put("status", "fail");
+//			response.put("alertBoxText", "帳號或密碼錯誤，請重新輸入！");
+//		}
+//
+//		System.out.println("要回傳到前端的資料" + response.toString());
+//		model.addAttribute("memberdata", memberPassword);
+//		System.out.println("登入成功，用戶名稱=" + memberPassword.getUsername());
+//		model.addAttribute("login", "success");
+//		session.setAttribute("member", memberPassword);
+//		session.setAttribute("login", "loginOK");
+//		response.put("username", memberPassword.getUsername());
+//		return response;
+//
+//	}
 
 	@GetMapping("/logout")
 	public String logout(Model model) {

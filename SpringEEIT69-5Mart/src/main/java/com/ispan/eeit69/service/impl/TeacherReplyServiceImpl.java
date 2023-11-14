@@ -7,12 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.ispan.eeit69.dao.IntroductionRepository;
 import com.ispan.eeit69.dao.TeacherReplyRepository;
-import com.ispan.eeit69.model.Introduction;
-import com.ispan.eeit69.model.StudentQuestion;
 import com.ispan.eeit69.model.TeacherReply;
-import com.ispan.eeit69.model.member;
 import com.ispan.eeit69.service.TeacherReplyService;
 
 import jakarta.transaction.Transactional;

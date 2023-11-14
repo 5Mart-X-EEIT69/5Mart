@@ -6,9 +6,9 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import ecpay.payment.integration.domain.CreateServerOrderObj;
+import ecpay.payment.integration.ecpayOperator.PaymentVerifyBase;
 import ecpay.payment.integration.errorMsg.ErrorMessage;
 import ecpay.payment.integration.exception.EcpayException;
-import ecpay.payment.integration.ecpayOperator.PaymentVerifyBase;
 
 public class VerifyCreateServerOrder extends PaymentVerifyBase{
 	

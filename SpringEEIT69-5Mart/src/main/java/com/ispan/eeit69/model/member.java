@@ -7,12 +7,11 @@ import java.util.Base64;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import javax.validation.constraints.NotEmpty;
+
 import org.springframework.web.multipart.MultipartFile;
 
-import com.ispan.eeit69.utils.SystemService;
-
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -20,7 +19,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
@@ -38,40 +36,34 @@ public class member implements Serializable {
 	private Integer id;
 	private String username;
 	private String account;
+
+//	@NotEmpty(message = "密碼不能為空(註解的方法)")
 	private String password;
 	private Timestamp registerTime;
-	
-	
-    @OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
-    private TeacherPicture TeacherPicture;
-    
 
-    @OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
-    private Introduction introduction;
-    
-    //學生可以有很多問題
-    @OneToMany(mappedBy = "member", fetch = FetchType.EAGER) 
-    private Set<StudentQuestion> studentQuestion;//OK
+	@OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
+	private TeacherPicture TeacherPicture;
 
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinTable(name = "member_course_5mart" , 
-    joinColumns = {
-    		@JoinColumn(name = "member_id", referencedColumnName = "id")
-    },
-    inverseJoinColumns = {
-    		@JoinColumn(name = "course_id", referencedColumnName = "id")
-    }
-    )
-    private Set<Course> buyCourses = new LinkedHashSet<Course>();
+	@OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
+	private Introduction introduction;
 
+	// 學生可以有很多問題
+	@OneToMany(mappedBy = "member", fetch = FetchType.EAGER)
+	private Set<StudentQuestion> studentQuestion;// OK
 
-    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
-    @OrderBy("id")
-    private Set<Course> createCourse = new LinkedHashSet<Course>();
-    
-    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
-    @OrderBy("postTime")
-    private Set<Article> createArticle = new LinkedHashSet<Article>();
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "member_course_5mart", joinColumns = {
+			@JoinColumn(name = "member_id", referencedColumnName = "id") }, inverseJoinColumns = {
+					@JoinColumn(name = "course_id", referencedColumnName = "id") })
+	private Set<Course> buyCourses = new LinkedHashSet<Course>();
+
+	@OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
+	@OrderBy("id")
+	private Set<Course> createCourse = new LinkedHashSet<Course>();
+
+	@OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
+	@OrderBy("postTime")
+	private Set<Article> createArticle = new LinkedHashSet<Article>();
 
 //    @OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
 //    private AccountSetting accountSetting;
@@ -88,21 +80,13 @@ public class member implements Serializable {
 		this.registerTime = registerTime;
 	}
 
-
-
-
-
-
-
-
-
 	@Transient // 不會映射到資料庫中，但仍然可以在 Java 程式碼中使用。這可以用於存儲某個計算結果或臨時數據，而不需要將其持久化。
-	MultipartFile memberMultipartFile;  // 這是Spring Framework 中的一個介面，通常用於處理上傳文件的功能，如圖片、文檔、視頻等
-	
+	MultipartFile memberMultipartFile; // 這是Spring Framework 中的一個介面，通常用於處理上傳文件的功能，如圖片、文檔、視頻等
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -111,7 +95,6 @@ public class member implements Serializable {
 		this.id = id;
 	}
 
-	
 	public String getUsername() {
 		return username;
 	}
@@ -143,8 +126,6 @@ public class member implements Serializable {
 	public void setRegisterTime(Timestamp registerTime) {
 		this.registerTime = registerTime;
 	}
-	
-	
 
 	public TeacherPicture getTeacherPicture() {
 		return TeacherPicture;
@@ -153,8 +134,6 @@ public class member implements Serializable {
 	public void setTeacherPicture(TeacherPicture teacherPicture) {
 		TeacherPicture = teacherPicture;
 	}
-
-
 
 	public Set<Course> getBuyCourses() {
 		return buyCourses;
@@ -172,8 +151,6 @@ public class member implements Serializable {
 		this.createCourse = createCourse;
 	}
 
-	
-
 	public Introduction getIntroduction() {
 		return introduction;
 	}
@@ -189,33 +166,31 @@ public class member implements Serializable {
 	public void setMemberMultipartFile(MultipartFile memberMultipartFile) {
 		this.memberMultipartFile = memberMultipartFile;
 	}
-	
+
 	public Set<StudentQuestion> getStudentQuestion() {
 		return studentQuestion;
 	}
-	
+
 	public void setStudentQuestion(Set<StudentQuestion> studentQuestion) {
 		this.studentQuestion = studentQuestion;
 	}
 
-
 	public String getDataUri() throws Exception {
-		if(TeacherPicture!=null) {
+		if (TeacherPicture != null) {
 			Blob photo = TeacherPicture.getPhoto();
-			byte[] photoByte = photo.getBytes(1, (int)photo.length());
-			String base64Photo = Base64.getEncoder().encodeToString(photoByte);			
+			byte[] photoByte = photo.getBytes(1, (int) photo.length());
+			String base64Photo = Base64.getEncoder().encodeToString(photoByte);
 			return base64Photo;
-		}else {
+		} else {
 			return null;
 		}
-		
-	}	
-	
-	
+
+	}
+
 	public Set<Article> getCreateArticle() {
 		return createArticle;
-	}	
-	
+	}
+
 //	public AccountSetting getAccountSetting() {
 //		return accountSetting;
 //	}
@@ -223,7 +198,6 @@ public class member implements Serializable {
 //	public void setAccountSetting(AccountSetting accountSetting) {
 //		this.accountSetting = accountSetting; 
 //	}
-
 
 	public void setCreateArticle(Set<Article> createArticle) {
 		this.createArticle = createArticle;
@@ -234,7 +208,5 @@ public class member implements Serializable {
 		return "member [id=" + id + ", username=" + username + ", account=" + account + ", password=" + password
 				+ ", registerTime=" + registerTime + "]";
 	}
-
-
 
 }

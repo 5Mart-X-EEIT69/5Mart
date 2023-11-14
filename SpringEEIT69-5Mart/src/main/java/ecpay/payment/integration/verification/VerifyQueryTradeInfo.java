@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
+
 import ecpay.payment.integration.domain.QueryTradeInfoObj;
 import ecpay.payment.integration.ecpayOperator.PaymentVerifyBase;
 import ecpay.payment.integration.errorMsg.ErrorMessage;

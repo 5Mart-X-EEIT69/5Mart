@@ -2,8 +2,6 @@ package com.ispan.eeit69.model;
 
 import java.sql.Blob;
 
-import com.ispan.eeit69.utils.SystemService;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

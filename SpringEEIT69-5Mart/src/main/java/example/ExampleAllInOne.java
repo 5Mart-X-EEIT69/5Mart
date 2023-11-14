@@ -6,8 +6,8 @@ import java.util.UUID;
 
 import ecpay.payment.integration.AllInOne;
 import ecpay.payment.integration.domain.AioCheckOutALL;
-import ecpay.payment.integration.domain.AioCheckOutApplePay;
 import ecpay.payment.integration.domain.AioCheckOutATM;
+import ecpay.payment.integration.domain.AioCheckOutApplePay;
 import ecpay.payment.integration.domain.AioCheckOutBARCODE;
 import ecpay.payment.integration.domain.AioCheckOutCVS;
 import ecpay.payment.integration.domain.AioCheckOutDevide;

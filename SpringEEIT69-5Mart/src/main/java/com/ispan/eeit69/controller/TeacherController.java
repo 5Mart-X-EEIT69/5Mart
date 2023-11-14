@@ -37,7 +37,6 @@ import com.ispan.eeit69.model.Article;
 import com.ispan.eeit69.model.Chapter;
 import com.ispan.eeit69.model.Course;
 import com.ispan.eeit69.model.Introduction;
-import com.ispan.eeit69.model.StudentQuestion;
 import com.ispan.eeit69.model.TeacherPicture;
 import com.ispan.eeit69.model.TeacherReply;
 import com.ispan.eeit69.model.Unit;
